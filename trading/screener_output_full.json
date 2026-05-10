@@ -1,0 +1,1370 @@
+[
+  {
+    "symbol": "IIIN",
+    "market_cap": 519062048,
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "analyst_count": 1,
+    "6m_return": -11.77
+  },
+  {
+    "symbol": "PLUS",
+    "market_cap": 2206324224,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 1,
+    "6m_return": -1.1
+  },
+  {
+    "symbol": "AWR",
+    "market_cap": 2972927744,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Water",
+    "analyst_count": 1,
+    "6m_return": 2.73
+  },
+  {
+    "symbol": "CSGS",
+    "market_cap": 2290485504,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 1,
+    "6m_return": 3.47
+  },
+  {
+    "symbol": "CNXN",
+    "market_cap": 1634395648,
+    "sector": "Technology",
+    "industry": "Electronics & Computer Distribution",
+    "analyst_count": 1,
+    "6m_return": 12.19
+  },
+  {
+    "symbol": "MMS",
+    "market_cap": 3488381440,
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "analyst_count": 2,
+    "6m_return": -23.31
+  },
+  {
+    "symbol": "EPAC",
+    "market_cap": 1887808384,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 2,
+    "6m_return": -11.11
+  },
+  {
+    "symbol": "MSEX",
+    "market_cap": 952634432,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Water",
+    "analyst_count": 2,
+    "6m_return": -3.23
+  },
+  {
+    "symbol": "BCO",
+    "market_cap": 4489097728,
+    "sector": "Industrials",
+    "industry": "Security & Protection Services",
+    "analyst_count": 2,
+    "6m_return": -3.1
+  },
+  {
+    "symbol": "MGEE",
+    "market_cap": 2969919232,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Electric",
+    "analyst_count": 2,
+    "6m_return": -1.96
+  },
+  {
+    "symbol": "FCN",
+    "market_cap": 4852889600,
+    "sector": "Industrials",
+    "industry": "Consulting Services",
+    "analyst_count": 2,
+    "6m_return": -1.48
+  },
+  {
+    "symbol": "DNOW",
+    "market_cap": 2509926912,
+    "sector": "Industrials",
+    "industry": "Industrial Distribution",
+    "analyst_count": 2,
+    "6m_return": -1.32
+  },
+  {
+    "symbol": "LNN",
+    "market_cap": 1189114112,
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery",
+    "analyst_count": 2,
+    "6m_return": 3.2
+  },
+  {
+    "symbol": "UTL",
+    "market_cap": 886587200,
+    "sector": "Utilities",
+    "industry": "Utilities - Diversified",
+    "analyst_count": 2,
+    "6m_return": 4.87
+  },
+  {
+    "symbol": "UGI",
+    "market_cap": 7533260288,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Gas",
+    "analyst_count": 2,
+    "6m_return": 5.39
+  },
+  {
+    "symbol": "APOG",
+    "market_cap": 773071424,
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "analyst_count": 2,
+    "6m_return": 6.54
+  },
+  {
+    "symbol": "OTTR",
+    "market_cap": 3729248768,
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "analyst_count": 2,
+    "6m_return": 6.56
+  },
+  {
+    "symbol": "BRC",
+    "market_cap": 3813191936,
+    "sector": "Industrials",
+    "industry": "Security & Protection Services",
+    "analyst_count": 2,
+    "6m_return": 7.79
+  },
+  {
+    "symbol": "MATW",
+    "market_cap": 873709056,
+    "sector": "Industrials",
+    "industry": "Conglomerates",
+    "analyst_count": 2,
+    "6m_return": 24.44
+  },
+  {
+    "symbol": "FWRD",
+    "market_cap": 595758400,
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "analyst_count": 3,
+    "6m_return": -12.2
+  },
+  {
+    "symbol": "CWT",
+    "market_cap": 2575485952,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Water",
+    "analyst_count": 3,
+    "6m_return": -6.38
+  },
+  {
+    "symbol": "DFIN",
+    "market_cap": 1073492736,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 3,
+    "6m_return": -6.06
+  },
+  {
+    "symbol": "GBX",
+    "market_cap": 1558067584,
+    "sector": "Industrials",
+    "industry": "Railroads",
+    "analyst_count": 3,
+    "6m_return": 19.37
+  },
+  {
+    "symbol": "KAI",
+    "market_cap": 3867284736,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 3,
+    "6m_return": 22.0
+  },
+  {
+    "symbol": "DBD",
+    "market_cap": 2753996032,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 3,
+    "6m_return": 23.3
+  },
+  {
+    "symbol": "MATX",
+    "market_cap": 5560272384,
+    "sector": "Industrials",
+    "industry": "Marine Shipping",
+    "analyst_count": 3,
+    "6m_return": NaN
+  },
+  {
+    "symbol": "ROCK",
+    "market_cap": 1124149248,
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "analyst_count": 3,
+    "6m_return": -38.41
+  },
+  {
+    "symbol": "IDCC",
+    "market_cap": 7184918016,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 3,
+    "6m_return": -24.54
+  },
+  {
+    "symbol": "DLB",
+    "market_cap": 5484798464,
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "analyst_count": 3,
+    "6m_return": -9.98
+  },
+  {
+    "symbol": "EXPO",
+    "market_cap": 3121549312,
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "analyst_count": 3,
+    "6m_return": -8.26
+  },
+  {
+    "symbol": "BDC",
+    "market_cap": 4464934400,
+    "sector": "Technology",
+    "industry": "Communication Equipment",
+    "analyst_count": 3,
+    "6m_return": -4.17
+  },
+  {
+    "symbol": "SCSC",
+    "market_cap": 898106688,
+    "sector": "Technology",
+    "industry": "Electronics & Computer Distribution",
+    "analyst_count": 3,
+    "6m_return": 0.81
+  },
+  {
+    "symbol": "NTCT",
+    "market_cap": 2565266944,
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "analyst_count": 3,
+    "6m_return": 23.72
+  },
+  {
+    "symbol": "CNXC",
+    "market_cap": 1447034368,
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "analyst_count": 4,
+    "6m_return": -30.18
+  },
+  {
+    "symbol": "NSIT",
+    "market_cap": 2095274240,
+    "sector": "Technology",
+    "industry": "Electronics & Computer Distribution",
+    "analyst_count": 4,
+    "6m_return": -24.34
+  },
+  {
+    "symbol": "ERII",
+    "market_cap": 613340800,
+    "sector": "Industrials",
+    "industry": "Pollution & Treatment Controls",
+    "analyst_count": 4,
+    "6m_return": -16.95
+  },
+  {
+    "symbol": "ACIW",
+    "market_cap": 4385411584,
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "analyst_count": 4,
+    "6m_return": -11.62
+  },
+  {
+    "symbol": "NSP",
+    "market_cap": 1097364096,
+    "sector": "Industrials",
+    "industry": "Staffing & Employment Services",
+    "analyst_count": 4,
+    "6m_return": -11.2
+  },
+  {
+    "symbol": "SONO",
+    "market_cap": 1758339200,
+    "sector": "Technology",
+    "industry": "Consumer Electronics",
+    "analyst_count": 4,
+    "6m_return": -9.39
+  },
+  {
+    "symbol": "AAON",
+    "market_cap": 8045237248,
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "analyst_count": 4,
+    "6m_return": -6.63
+  },
+  {
+    "symbol": "CPK",
+    "market_cap": 3018566656,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Gas",
+    "analyst_count": 4,
+    "6m_return": -6.35
+  },
+  {
+    "symbol": "ARLO",
+    "market_cap": 1587532800,
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "analyst_count": 4,
+    "6m_return": -1.75
+  },
+  {
+    "symbol": "FELE",
+    "market_cap": 4461521920,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 4,
+    "6m_return": NaN
+  },
+  {
+    "symbol": "KFY",
+    "market_cap": 3424547840,
+    "sector": "Industrials",
+    "industry": "Staffing & Employment Services",
+    "analyst_count": 4,
+    "6m_return": 3.93
+  },
+  {
+    "symbol": "TNC",
+    "market_cap": 1486133248,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 4,
+    "6m_return": 18.03
+  },
+  {
+    "symbol": "ASTE",
+    "market_cap": 1228495616,
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery",
+    "analyst_count": 4,
+    "6m_return": 19.75
+  },
+  {
+    "symbol": "KD",
+    "market_cap": 2957867264,
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "analyst_count": 5,
+    "6m_return": -50.23
+  },
+  {
+    "symbol": "AGYS",
+    "market_cap": 1927101440,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 5,
+    "6m_return": -45.63
+  },
+  {
+    "symbol": "BLKB",
+    "market_cap": 1622321920,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 5,
+    "6m_return": -38.42
+  },
+  {
+    "symbol": "NABL",
+    "market_cap": 1000288704,
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "analyst_count": 5,
+    "6m_return": -35.56
+  },
+  {
+    "symbol": "GDYN",
+    "market_cap": 565312128,
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "analyst_count": 5,
+    "6m_return": -23.36
+  },
+  {
+    "symbol": "ADT",
+    "market_cap": 5512066560,
+    "sector": "Industrials",
+    "industry": "Security & Protection Services",
+    "analyst_count": 5,
+    "6m_return": -14.3
+  },
+  {
+    "symbol": "WTRG",
+    "market_cap": 10635222016,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Water",
+    "analyst_count": 5,
+    "6m_return": -3.61
+  },
+  {
+    "symbol": "JBTM",
+    "market_cap": 7108297728,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 5,
+    "6m_return": -3.26
+  },
+  {
+    "symbol": "DCI",
+    "market_cap": 10152276992,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 5,
+    "6m_return": 1.52
+  },
+  {
+    "symbol": "WOR",
+    "market_cap": 2769654016,
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "analyst_count": 5,
+    "6m_return": 2.72
+  },
+  {
+    "symbol": "ALG",
+    "market_cap": 2078961536,
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery",
+    "analyst_count": 5,
+    "6m_return": 2.77
+  },
+  {
+    "symbol": "EVTC",
+    "market_cap": 1735228928,
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "analyst_count": 5,
+    "6m_return": 3.33
+  },
+  {
+    "symbol": "NWN",
+    "market_cap": 2047613184,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Gas",
+    "analyst_count": 5,
+    "6m_return": 6.06
+  },
+  {
+    "symbol": "BKH",
+    "market_cap": 5621965312,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Gas",
+    "analyst_count": 5,
+    "6m_return": 8.08
+  },
+  {
+    "symbol": "NWE",
+    "market_cap": 4371990016,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Electric",
+    "analyst_count": 5,
+    "6m_return": 11.51
+  },
+  {
+    "symbol": "SXI",
+    "market_cap": 3260246528,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 5,
+    "6m_return": 13.62
+  },
+  {
+    "symbol": "MWA",
+    "market_cap": 4245962240,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 5,
+    "6m_return": 14.06
+  },
+  {
+    "symbol": "AIT",
+    "market_cap": 11656670208,
+    "sector": "Industrials",
+    "industry": "Industrial Distribution",
+    "analyst_count": 5,
+    "6m_return": 22.26
+  },
+  {
+    "symbol": "CXW",
+    "market_cap": 2093433216,
+    "sector": "Industrials",
+    "industry": "Security & Protection Services",
+    "analyst_count": 5,
+    "6m_return": 24.9
+  },
+  {
+    "symbol": "ASGN",
+    "market_cap": 833931008,
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "analyst_count": 6,
+    "6m_return": -51.88
+  },
+  {
+    "symbol": "PRGS",
+    "market_cap": 1185775232,
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "analyst_count": 6,
+    "6m_return": -33.36
+  },
+  {
+    "symbol": "CALX",
+    "market_cap": 2828107264,
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "analyst_count": 6,
+    "6m_return": -30.75
+  },
+  {
+    "symbol": "CXT",
+    "market_cap": 2626577408,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 6,
+    "6m_return": -26.41
+  },
+  {
+    "symbol": "DBX",
+    "market_cap": 5891985920,
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "analyst_count": 6,
+    "6m_return": -20.02
+  },
+  {
+    "symbol": "ENR",
+    "market_cap": 1298942080,
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "analyst_count": 6,
+    "6m_return": -18.01
+  },
+  {
+    "symbol": "SKYW",
+    "market_cap": 3482965760,
+    "sector": "Industrials",
+    "industry": "Airlines",
+    "analyst_count": 6,
+    "6m_return": -10.93
+  },
+  {
+    "symbol": "ALRM",
+    "market_cap": 2244694272,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 6,
+    "6m_return": -8.86
+  },
+  {
+    "symbol": "TTEK",
+    "market_cap": 8050456576,
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "analyst_count": 6,
+    "6m_return": -3.39
+  },
+  {
+    "symbol": "SABR",
+    "market_cap": 723166912,
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "analyst_count": 6,
+    "6m_return": -2.66
+  },
+  {
+    "symbol": "NSSC",
+    "market_cap": 1473395456,
+    "sector": "Industrials",
+    "industry": "Security & Protection Services",
+    "analyst_count": 6,
+    "6m_return": -1.47
+  },
+  {
+    "symbol": "AVA",
+    "market_cap": 3353467648,
+    "sector": "Utilities",
+    "industry": "Utilities - Diversified",
+    "analyst_count": 6,
+    "6m_return": 1.74
+  },
+  {
+    "symbol": "TXNM",
+    "market_cap": 6552762368,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Electric",
+    "analyst_count": 6,
+    "6m_return": 4.72
+  },
+  {
+    "symbol": "CWEN",
+    "market_cap": 9241324544,
+    "sector": "Utilities",
+    "industry": "Utilities - Renewable",
+    "analyst_count": 6,
+    "6m_return": 12.61
+  },
+  {
+    "symbol": "IPGP",
+    "market_cap": 4326702080,
+    "sector": "Technology",
+    "industry": "Semiconductor Equipment & Materials",
+    "analyst_count": 6,
+    "6m_return": 15.92
+  },
+  {
+    "symbol": "NJR",
+    "market_cap": 5536557568,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Gas",
+    "analyst_count": 6,
+    "6m_return": 22.24
+  },
+  {
+    "symbol": "MSM",
+    "market_cap": 5863161344,
+    "sector": "Industrials",
+    "industry": "Industrial Distribution",
+    "analyst_count": 6,
+    "6m_return": 22.9
+  },
+  {
+    "symbol": "HTO",
+    "market_cap": 2409998336,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Water",
+    "analyst_count": 6,
+    "6m_return": 22.94
+  },
+  {
+    "symbol": "LZ",
+    "market_cap": 1085641984,
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "analyst_count": 7,
+    "6m_return": -37.82
+  },
+  {
+    "symbol": "VRRM",
+    "market_cap": 2175300864,
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "analyst_count": 7,
+    "6m_return": -37.22
+  },
+  {
+    "symbol": "OSIS",
+    "market_cap": 3960344064,
+    "sector": "Technology",
+    "industry": "Electronic Components",
+    "analyst_count": 7,
+    "6m_return": -15.65
+  },
+  {
+    "symbol": "DXC",
+    "market_cap": 1947146880,
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "analyst_count": 7,
+    "6m_return": -12.84
+  },
+  {
+    "symbol": "HAYW",
+    "market_cap": 3237087744,
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "analyst_count": 7,
+    "6m_return": -6.1
+  },
+  {
+    "symbol": "EEFT",
+    "market_cap": 2645098496,
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "analyst_count": 7,
+    "6m_return": -3.61
+  },
+  {
+    "symbol": "ABM",
+    "market_cap": 2378773760,
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "analyst_count": 7,
+    "6m_return": -1.75
+  },
+  {
+    "symbol": "HTZ",
+    "market_cap": 2041543552,
+    "sector": "Industrials",
+    "industry": "Rental & Leasing Services",
+    "analyst_count": 7,
+    "6m_return": -1.52
+  },
+  {
+    "symbol": "GTLS",
+    "market_cap": 9944555520,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 7,
+    "6m_return": 3.54
+  },
+  {
+    "symbol": "MDU",
+    "market_cap": 4566991360,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Gas",
+    "analyst_count": 7,
+    "6m_return": 8.23
+  },
+  {
+    "symbol": "MSA",
+    "market_cap": 6715953152,
+    "sector": "Industrials",
+    "industry": "Security & Protection Services",
+    "analyst_count": 7,
+    "6m_return": 10.1
+  },
+  {
+    "symbol": "UPBD",
+    "market_cap": 1108163840,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 7,
+    "6m_return": 11.56
+  },
+  {
+    "symbol": "FSS",
+    "market_cap": 7602101248,
+    "sector": "Industrials",
+    "industry": "Pollution & Treatment Controls",
+    "analyst_count": 7,
+    "6m_return": 12.87
+  },
+  {
+    "symbol": "CAR",
+    "market_cap": 5801421824,
+    "sector": "Industrials",
+    "industry": "Rental & Leasing Services",
+    "analyst_count": 7,
+    "6m_return": 14.6
+  },
+  {
+    "symbol": "CSW",
+    "market_cap": 4691134464,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 7,
+    "6m_return": 15.0
+  },
+  {
+    "symbol": "SWX",
+    "market_cap": 6573085696,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Gas",
+    "analyst_count": 7,
+    "6m_return": 15.44
+  },
+  {
+    "symbol": "VSEC",
+    "market_cap": 5820132352,
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "analyst_count": 7,
+    "6m_return": 17.49
+  },
+  {
+    "symbol": "HLIT",
+    "market_cap": 1321254784,
+    "sector": "Technology",
+    "industry": "Communication Equipment",
+    "analyst_count": 7,
+    "6m_return": 21.68
+  },
+  {
+    "symbol": "VYX",
+    "market_cap": 980868288,
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "analyst_count": 8,
+    "6m_return": -35.56
+  },
+  {
+    "symbol": "APPF",
+    "market_cap": 5910885888,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 8,
+    "6m_return": -33.61
+  },
+  {
+    "symbol": "CXM",
+    "market_cap": 1306537856,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 8,
+    "6m_return": -29.25
+  },
+  {
+    "symbol": "OLED",
+    "market_cap": 4393649152,
+    "sector": "Technology",
+    "industry": "Electronic Components",
+    "analyst_count": 8,
+    "6m_return": -24.09
+  },
+  {
+    "symbol": "BOX",
+    "market_cap": 3356017920,
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "analyst_count": 8,
+    "6m_return": -22.68
+  },
+  {
+    "symbol": "EXLS",
+    "market_cap": 4731687424,
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "analyst_count": 8,
+    "6m_return": -21.67
+  },
+  {
+    "symbol": "AYI",
+    "market_cap": 8965710848,
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "analyst_count": 8,
+    "6m_return": -17.85
+  },
+  {
+    "symbol": "KBR",
+    "market_cap": 4451595776,
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "analyst_count": 8,
+    "6m_return": -16.93
+  },
+  {
+    "symbol": "PAYO",
+    "market_cap": 1639335168,
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "analyst_count": 8,
+    "6m_return": -9.5
+  },
+  {
+    "symbol": "PI",
+    "market_cap": 4725114368,
+    "sector": "Technology",
+    "industry": "Semiconductors",
+    "analyst_count": 8,
+    "6m_return": -5.19
+  },
+  {
+    "symbol": "SR",
+    "market_cap": 5094716928,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Gas",
+    "analyst_count": 8,
+    "6m_return": -2.01
+  },
+  {
+    "symbol": "RAMP",
+    "market_cap": 1873821952,
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "analyst_count": 8,
+    "6m_return": -1.54
+  },
+  {
+    "symbol": "GGG",
+    "market_cap": 13337202688,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 8,
+    "6m_return": -0.91
+  },
+  {
+    "symbol": "OGS",
+    "market_cap": 5397577728,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Gas",
+    "analyst_count": 8,
+    "6m_return": 6.3
+  },
+  {
+    "symbol": "CRSR",
+    "market_cap": 775946240,
+    "sector": "Technology",
+    "industry": "Computer Hardware",
+    "analyst_count": 8,
+    "6m_return": 10.84
+  },
+  {
+    "symbol": "MIDD",
+    "market_cap": 6643612160,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 8,
+    "6m_return": 15.67
+  },
+  {
+    "symbol": "FLR",
+    "market_cap": 7756359168,
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "analyst_count": 8,
+    "6m_return": 18.55
+  },
+  {
+    "symbol": "RMBS",
+    "market_cap": 14062130176,
+    "sector": "Technology",
+    "industry": "Semiconductors",
+    "analyst_count": 8,
+    "6m_return": 20.78
+  },
+  {
+    "symbol": "MRCY",
+    "market_cap": 5503567872,
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "analyst_count": 8,
+    "6m_return": 23.75
+  },
+  {
+    "symbol": "LIF",
+    "market_cap": 3500250624,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 9,
+    "6m_return": -52.29
+  },
+  {
+    "symbol": "BMI",
+    "market_cap": 3611714304,
+    "sector": "Technology",
+    "industry": "Scientific & Technical Instruments",
+    "analyst_count": 9,
+    "6m_return": -33.8
+  },
+  {
+    "symbol": "ESAB",
+    "market_cap": 6181300736,
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "analyst_count": 9,
+    "6m_return": -11.08
+  },
+  {
+    "symbol": "CR",
+    "market_cap": 10487194624,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 9,
+    "6m_return": -3.89
+  },
+  {
+    "symbol": "SAIC",
+    "market_cap": 4067141376,
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "analyst_count": 9,
+    "6m_return": 3.52
+  },
+  {
+    "symbol": "RHI",
+    "market_cap": 2677023232,
+    "sector": "Industrials",
+    "industry": "Staffing & Employment Services",
+    "analyst_count": 9,
+    "6m_return": 3.99
+  },
+  {
+    "symbol": "MAN",
+    "market_cap": 1360752000,
+    "sector": "Industrials",
+    "industry": "Staffing & Employment Services",
+    "analyst_count": 9,
+    "6m_return": 4.57
+  },
+  {
+    "symbol": "WTS",
+    "market_cap": 9747439616,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 9,
+    "6m_return": 7.24
+  },
+  {
+    "symbol": "ZWS",
+    "market_cap": 8569788928,
+    "sector": "Industrials",
+    "industry": "Pollution & Treatment Controls",
+    "analyst_count": 9,
+    "6m_return": 8.27
+  },
+  {
+    "symbol": "TDC",
+    "market_cap": 2862380800,
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "analyst_count": 9,
+    "6m_return": 9.71
+  },
+  {
+    "symbol": "IDA",
+    "market_cap": 7983218688,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Electric",
+    "analyst_count": 9,
+    "6m_return": 12.72
+  },
+  {
+    "symbol": "PSN",
+    "market_cap": 5528649728,
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "analyst_count": 10,
+    "6m_return": -39.86
+  },
+  {
+    "symbol": "AWI",
+    "market_cap": 7094502912,
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "analyst_count": 10,
+    "6m_return": NaN
+  },
+  {
+    "symbol": "MIR",
+    "market_cap": 4988529664,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 10,
+    "6m_return": -25.72
+  },
+  {
+    "symbol": "ITRI",
+    "market_cap": 3678835712,
+    "sector": "Technology",
+    "industry": "Scientific & Technical Instruments",
+    "analyst_count": 10,
+    "6m_return": -21.2
+  },
+  {
+    "symbol": "CWST",
+    "market_cap": 5380128768,
+    "sector": "Industrials",
+    "industry": "Waste Management",
+    "analyst_count": 10,
+    "6m_return": -3.97
+  },
+  {
+    "symbol": "WEX",
+    "market_cap": 4992212992,
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "analyst_count": 10,
+    "6m_return": -1.15
+  },
+  {
+    "symbol": "WMS",
+    "market_cap": 11584631808,
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "analyst_count": 10,
+    "6m_return": 0.7
+  },
+  {
+    "symbol": "BLD",
+    "market_cap": 12352438272,
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "analyst_count": 10,
+    "6m_return": 3.88
+  },
+  {
+    "symbol": "FLS",
+    "market_cap": 9361673216,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 10,
+    "6m_return": 6.61
+  },
+  {
+    "symbol": "CMC",
+    "market_cap": 8000524800,
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "analyst_count": 10,
+    "6m_return": 23.46
+  },
+  {
+    "symbol": "PEGA",
+    "market_cap": 6078010368,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 11,
+    "6m_return": -38.38
+  },
+  {
+    "symbol": "SPSC",
+    "market_cap": 2051138688,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 11,
+    "6m_return": -31.9
+  },
+  {
+    "symbol": "G",
+    "market_cap": 5737979392,
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "analyst_count": 11,
+    "6m_return": -23.65
+  },
+  {
+    "symbol": "MANH",
+    "market_cap": 8152882176,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 11,
+    "6m_return": -22.41
+  },
+  {
+    "symbol": "VNT",
+    "market_cap": 4961664000,
+    "sector": "Technology",
+    "industry": "Scientific & Technical Instruments",
+    "analyst_count": 11,
+    "6m_return": -7.57
+  },
+  {
+    "symbol": "RAL",
+    "market_cap": 5262930432,
+    "sector": "Technology",
+    "industry": "Electronic Components",
+    "analyst_count": 11,
+    "6m_return": 1.0
+  },
+  {
+    "symbol": "ORA",
+    "market_cap": 7058555392,
+    "sector": "Utilities",
+    "industry": "Utilities - Renewable",
+    "analyst_count": 11,
+    "6m_return": 1.44
+  },
+  {
+    "symbol": "POR",
+    "market_cap": 5649938944,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Electric",
+    "analyst_count": 11,
+    "6m_return": 4.24
+  },
+  {
+    "symbol": "OGE",
+    "market_cap": 9850246144,
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Electric",
+    "analyst_count": 11,
+    "6m_return": 9.73
+  },
+  {
+    "symbol": "AMTM",
+    "market_cap": 6071546368,
+    "sector": "Industrials",
+    "industry": "Specialty Business Services",
+    "analyst_count": 11,
+    "6m_return": 11.07
+  },
+  {
+    "symbol": "ALGT",
+    "market_cap": 1477343360,
+    "sector": "Industrials",
+    "industry": "Airlines",
+    "analyst_count": 11,
+    "6m_return": 12.96
+  },
+  {
+    "symbol": "ACM",
+    "market_cap": 10849901568,
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "analyst_count": 12,
+    "6m_return": -35.38
+  },
+  {
+    "symbol": "BAH",
+    "market_cap": 9198940160,
+    "sector": "Industrials",
+    "industry": "Consulting Services",
+    "analyst_count": 12,
+    "6m_return": -11.53
+  },
+  {
+    "symbol": "LPX",
+    "market_cap": 5063313408,
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "analyst_count": 12,
+    "6m_return": -6.98
+  },
+  {
+    "symbol": "SPXC",
+    "market_cap": 10650793984,
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "analyst_count": 12,
+    "6m_return": -4.14
+  },
+  {
+    "symbol": "GTES",
+    "market_cap": 6661697536,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "analyst_count": 12,
+    "6m_return": 18.63
+  },
+  {
+    "symbol": "BL",
+    "market_cap": 1760045056,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 13,
+    "6m_return": -44.85
+  },
+  {
+    "symbol": "GWRE",
+    "market_cap": 11145163776,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 13,
+    "6m_return": -39.88
+  },
+  {
+    "symbol": "QTWO",
+    "market_cap": 3088705024,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 13,
+    "6m_return": -31.46
+  },
+  {
+    "symbol": "CACI",
+    "market_cap": 11032839168,
+    "sector": "Technology",
+    "industry": "Information Technology Services",
+    "analyst_count": 13,
+    "6m_return": -15.24
+  },
+  {
+    "symbol": "BSY",
+    "market_cap": 9725121536,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 14,
+    "6m_return": -31.11
+  },
+  {
+    "symbol": "PRIM",
+    "market_cap": 5492227584,
+    "sector": "Industrials",
+    "industry": "Engineering & Construction",
+    "analyst_count": 14,
+    "6m_return": -19.21
+  },
+  {
+    "symbol": "FBIN",
+    "market_cap": 4785389056,
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "analyst_count": 14,
+    "6m_return": -18.85
+  },
+  {
+    "symbol": "SARO",
+    "market_cap": 8729401344,
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "analyst_count": 14,
+    "6m_return": -2.16
+  },
+  {
+    "symbol": "AGCO",
+    "market_cap": 8705677312,
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery",
+    "analyst_count": 14,
+    "6m_return": 14.45
+  },
+  {
+    "symbol": "NTNX",
+    "market_cap": 11617017856,
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "analyst_count": 15,
+    "6m_return": -38.05
+  },
+  {
+    "symbol": "CVLT",
+    "market_cap": 4450647552,
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "analyst_count": 15,
+    "6m_return": -20.58
+  },
+  {
+    "symbol": "QRVO",
+    "market_cap": 7803684864,
+    "sector": "Technology",
+    "industry": "Semiconductors",
+    "analyst_count": 15,
+    "6m_return": 3.54
+  },
+  {
+    "symbol": "HUBG",
+    "market_cap": 2643666176,
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "analyst_count": 15,
+    "6m_return": 21.95
+  },
+  {
+    "symbol": "CORZ",
+    "market_cap": 7773100032,
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "analyst_count": 15,
+    "6m_return": 21.99
+  }
+]

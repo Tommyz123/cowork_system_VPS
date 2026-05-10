@@ -1,0 +1,4330 @@
+# WTRG 10-Q
+# Filing Date: 2026-05-07
+# Accession: 0001562762-26-000060
+# Source: https://www.sec.gov/Archives/edgar/data/78128/000156276226000060/wtrg-20260331x10q.htm
+
+false
+--12-31
+Q1
+2026
+0000078128
+Yes
+Yes
+0000078128
+wtrg:AtMarketSalesAgreements2024Member
+2026-03-31
+0000078128
+wtrg:PlanMember
+2026-03-31
+0000078128
+2026-01-20
+2026-01-20
+0000078128
+srt:MinimumMember
+wtrg:PerformanceShareUnitsMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:PerformanceShareUnitsMember
+2026-01-01
+2026-03-31
+0000078128
+stpr:OH
+wtrg:WaterMember
+2026-01-01
+2026-03-31
+0000078128
+stpr:IN
+wtrg:WastewaterMember
+2026-01-01
+2026-03-31
+0000078128
+2019-09-03
+2019-09-03
+0000078128
+wtrg:PennsylvaniaAndOhioMember
+wtrg:RegulatedWaterAndWastewaterMember
+2026-01-01
+2026-03-31
+0000078128
+stpr:PA
+wtrg:NaturalGasMember
+2026-01-01
+2026-03-31
+0000078128
+stpr:NJ
+wtrg:RegulatedWaterAndWastewaterMember
+2026-01-01
+2026-03-31
+0000078128
+stpr:KY
+wtrg:NaturalGasMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MinimumMember
+us-gaap:StateAndLocalJurisdictionMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MaximumMember
+us-gaap:StateAndLocalJurisdictionMember
+2026-01-01
+2026-03-31
+0000078128
+stpr:OH
+wtrg:RegulatedWaterAndWastewaterMember
+2026-03-31
+0000078128
+stpr:IN
+wtrg:RegulatedWaterAndWastewaterMember
+2026-03-31
+0000078128
+stpr:PA
+wtrg:RegulatedWaterAndWastewaterMember
+2025-02-07
+0000078128
+srt:MinimumMember
+us-gaap:LoansMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MaximumMember
+us-gaap:LoansMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:UnsecuredNotesBMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:NotesGMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:LongTermDebtOfSubsidiariesZeroPointZeroZeroPercentageToZeroPointNineNinePercentageMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:LongTermDebtOfSubsidiariesTwoPointZeroZeroPercentageToTwoPointNineNinePercentageMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:LongTermDebtOfSubsidiariesThreePointZeroZeroPercentageToThreePointNineNinePercentageMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:LongTermDebtOfSubsidiariesSixPointZeroZeroPercentageToSixPointNineNinePercentageMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:LongTermDebtOfSubsidiariesOnePointZeroZeroPercentageToOnePointNineNinePercentageMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:LongTermDebtOfSubsidiariesFourPointZeroZeroPercentageToFourPointNineNinePercentageMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:LongTermDebtOfSubsidiariesFivePointZeroZeroPercentageToFivePointNineNinePercentageMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:UnsecuredNotesBMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:NotesGMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:LongTermDebtOfSubsidiariesZeroPointZeroZeroPercentageToZeroPointNineNinePercentageMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:LongTermDebtOfSubsidiariesTwoPointZeroZeroPercentageToTwoPointNineNinePercentageMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:LongTermDebtOfSubsidiariesThreePointZeroZeroPercentageToThreePointNineNinePercentageMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:LongTermDebtOfSubsidiariesSixPointZeroZeroPercentageToSixPointNineNinePercentageMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:LongTermDebtOfSubsidiariesOnePointZeroZeroPercentageToOnePointNineNinePercentageMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:LongTermDebtOfSubsidiariesFourPointZeroZeroPercentageToFourPointNineNinePercentageMember
+2026-01-01
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:LongTermDebtOfSubsidiariesFivePointZeroZeroPercentageToFivePointNineNinePercentageMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:RevolvingCreditAgreementDueBMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:NotesZMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:NotesEMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:NotesBbMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:NotesAtFivePointThirtyPercentDueTwoThousandFiftyTwoMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:NotesAt5.375Due2034Member
+2026-01-01
+2026-03-31
+0000078128
+wtrg:NotesAt5.25Due2035Member
+2026-01-01
+2026-03-31
+0000078128
+wtrg:NotesAt5.125Due2036Member
+2026-01-01
+2026-03-31
+0000078128
+wtrg:NotesAaMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesSevenPointZeroZeroPercentageToSevenPointNineNinePercentageMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesNinePointZeroZeroPercentageToNinePointNineNinePercentageMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:AtMarketSalesAgreements2024Member
+2024-08-13
+2024-08-13
+0000078128
+wtrg:AmericanWaterWorksCompanyInc.Member
+2025-10-26
+2025-10-26
+0000078128
+stpr:KY
+wtrg:NaturalGasMember
+2025-07-01
+2025-07-01
+0000078128
+wtrg:UnsecuredNotesBMember
+2026-03-31
+0000078128
+wtrg:UnsecuredNotesBMember
+2025-12-31
+0000078128
+wtrg:NotesZMember
+2025-12-31
+0000078128
+wtrg:NotesGMember
+2025-12-31
+0000078128
+wtrg:NotesEMember
+2025-12-31
+0000078128
+wtrg:NotesBbMember
+2025-12-31
+0000078128
+wtrg:NotesAtFivePointThirtyPercentDueTwoThousandFiftyTwoMember
+2025-12-31
+0000078128
+wtrg:NotesAt5.375Due2034Member
+2025-12-31
+0000078128
+wtrg:NotesAt5.25Due2035Member
+2025-12-31
+0000078128
+wtrg:NotesAaMember
+2025-12-31
+0000078128
+wtrg:CommercialPaperProgramMember
+2025-12-31
+0000078128
+wtrg:AtMarketSalesAgreements2024Member
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:TreasuryStockCommonMember
+2026-03-31
+0000078128
+us-gaap:RetainedEarningsMember
+2026-03-31
+0000078128
+us-gaap:CommonStockMember
+2026-03-31
+0000078128
+us-gaap:AdditionalPaidInCapitalMember
+2026-03-31
+0000078128
+us-gaap:TreasuryStockCommonMember
+2025-12-31
+0000078128
+us-gaap:RetainedEarningsMember
+2025-12-31
+0000078128
+us-gaap:CommonStockMember
+2025-12-31
+0000078128
+us-gaap:AdditionalPaidInCapitalMember
+2025-12-31
+0000078128
+us-gaap:TreasuryStockCommonMember
+2025-03-31
+0000078128
+us-gaap:RetainedEarningsMember
+2025-03-31
+0000078128
+us-gaap:CommonStockMember
+2025-03-31
+0000078128
+us-gaap:AdditionalPaidInCapitalMember
+2025-03-31
+0000078128
+us-gaap:TreasuryStockCommonMember
+2024-12-31
+0000078128
+us-gaap:RetainedEarningsMember
+2024-12-31
+0000078128
+us-gaap:CommonStockMember
+2024-12-31
+0000078128
+us-gaap:AdditionalPaidInCapitalMember
+2024-12-31
+0000078128
+us-gaap:CommonStockMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:CommonStockMember
+2025-01-01
+2025-03-31
+0000078128
+us-gaap:EmployeeStockOptionMember
+2025-12-31
+0000078128
+us-gaap:EmployeeStockOptionMember
+2026-03-31
+0000078128
+us-gaap:StockCompensationPlanMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:StockCompensationPlanMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:PerformanceShareUnitsMember
+2026-03-31
+0000078128
+us-gaap:RestrictedStockUnitsRSUMember
+2026-03-31
+0000078128
+us-gaap:RestrictedStockMember
+2026-03-31
+0000078128
+wtrg:PerformanceShareUnitsMember
+2025-12-31
+0000078128
+us-gaap:RestrictedStockUnitsRSUMember
+2025-12-31
+0000078128
+us-gaap:RestrictedStockUnitsRSUMember
+us-gaap:ShareBasedCompensationAwardTrancheOneMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:EmployeeStockOptionMember
+us-gaap:ShareBasedCompensationAwardTrancheTwoMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:EmployeeStockOptionMember
+us-gaap:ShareBasedCompensationAwardTrancheOneMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesZeroPointZeroZeroPercentageToZeroPointNineNinePercentageMember
+2026-03-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesTwoPointZeroZeroPercentageToTwoPointNineNinePercentageMember
+2026-03-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesThreePointZeroZeroPercentageToThreePointNineNinePercentageMember
+2026-03-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesSixPointZeroZeroPercentageToSixPointNineNinePercentageMember
+2026-03-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesSevenPointZeroZeroPercentageToSevenPointNineNinePercentageMember
+2026-03-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesOnePointZeroZeroPercentageToOnePointNineNinePercentageMember
+2026-03-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesNinePointZeroZeroPercentageToNinePointNineNinePercentageMember
+2026-03-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesFourPointZeroZeroPercentageToFourPointNineNinePercentageMember
+2026-03-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesFivePointZeroZeroPercentageToFivePointNineNinePercentageMember
+2026-03-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesZeroPointZeroZeroPercentageToZeroPointNineNinePercentageMember
+2025-12-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesTwoPointZeroZeroPercentageToTwoPointNineNinePercentageMember
+2025-12-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesThreePointZeroZeroPercentageToThreePointNineNinePercentageMember
+2025-12-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesSixPointZeroZeroPercentageToSixPointNineNinePercentageMember
+2025-12-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesSevenPointZeroZeroPercentageToSevenPointNineNinePercentageMember
+2025-12-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesOnePointZeroZeroPercentageToOnePointNineNinePercentageMember
+2025-12-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesNinePointZeroZeroPercentageToNinePointNineNinePercentageMember
+2025-12-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesFourPointZeroZeroPercentageToFourPointNineNinePercentageMember
+2025-12-31
+0000078128
+wtrg:LongTermDebtOfSubsidiariesFivePointZeroZeroPercentageToFivePointNineNinePercentageMember
+2025-12-31
+0000078128
+wtrg:AlternativeRevenueProgramMember
+wtrg:WaterMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:AlternativeRevenueProgramMember
+wtrg:WastewaterMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:AlternativeRevenueProgramMember
+wtrg:NaturalGasMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:IntersegmentEliminationMember
+wtrg:OtherAndEliminationsMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:IntersegmentEliminationMember
+wtrg:NaturalGasMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:IntersegmentEliminationMember
+us-gaap:ReportableSegmentAggregationBeforeOtherOperatingSegmentMember
+2026-01-01
+2026-03-31
+0000078128
+srt:ConsolidationEliminationsMember
+wtrg:OtherMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:OtherAndEliminationsMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:ReportableSegmentAggregationBeforeOtherOperatingSegmentMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:AlternativeRevenueProgramMember
+wtrg:WaterMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:AlternativeRevenueProgramMember
+wtrg:WastewaterMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:AlternativeRevenueProgramMember
+wtrg:NaturalGasMember
+2025-01-01
+2025-03-31
+0000078128
+us-gaap:IntersegmentEliminationMember
+wtrg:OtherAndEliminationsMember
+2025-01-01
+2025-03-31
+0000078128
+us-gaap:IntersegmentEliminationMember
+wtrg:NaturalGasMember
+2025-01-01
+2025-03-31
+0000078128
+us-gaap:IntersegmentEliminationMember
+us-gaap:ReportableSegmentAggregationBeforeOtherOperatingSegmentMember
+2025-01-01
+2025-03-31
+0000078128
+srt:ConsolidationEliminationsMember
+wtrg:OtherMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:WaterMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:OtherAndEliminationsMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:NaturalGasMember
+2025-01-01
+2025-03-31
+0000078128
+us-gaap:ReportableSegmentAggregationBeforeOtherOperatingSegmentMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:ResidentialMember
+wtrg:WaterMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:ResidentialMember
+wtrg:WastewaterMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:ResidentialMember
+wtrg:NaturalGasMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:OtherWaterMember
+wtrg:WaterMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:OtherWastewaterMember
+wtrg:WastewaterMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:OtherUtilityMember
+wtrg:OtherMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:OtherUtilityMember
+wtrg:NaturalGasMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:IndustrialMember
+wtrg:WaterMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:IndustrialMember
+wtrg:WastewaterMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:IndustrialMember
+wtrg:NaturalGasMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:GasTransportationMember
+wtrg:NaturalGasMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:FireProtectionMember
+wtrg:WaterMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:CommercialMember
+wtrg:WaterMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:CommercialMember
+wtrg:WastewaterMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:CommercialMember
+wtrg:NaturalGasMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:WaterMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:WastewaterMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:OtherMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:NaturalGasMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:ResidentialMember
+wtrg:WaterMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:ResidentialMember
+wtrg:WastewaterMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:ResidentialMember
+wtrg:NaturalGasMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:OtherWaterMember
+wtrg:WaterMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:OtherWastewaterMember
+wtrg:WastewaterMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:OtherUtilityMember
+wtrg:OtherMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:OtherUtilityMember
+wtrg:NaturalGasMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:IndustrialMember
+wtrg:WaterMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:IndustrialMember
+wtrg:WastewaterMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:IndustrialMember
+wtrg:NaturalGasMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:GasTransportationMember
+wtrg:NaturalGasMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:FireProtectionMember
+wtrg:WaterMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:CommercialMember
+wtrg:WaterMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:CommercialMember
+wtrg:WastewaterMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:CommercialMember
+wtrg:NaturalGasMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:WaterMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:WastewaterMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:OtherMember
+2025-01-01
+2025-03-31
+0000078128
+wtrg:NaturalGasMember
+2025-01-01
+2025-03-31
+0000078128
+stpr:PA
+wtrg:NaturalGasMember
+2026-03-27
+2026-03-27
+0000078128
+stpr:NJ
+wtrg:RegulatedWaterAndWastewaterMember
+2026-01-30
+2026-01-30
+0000078128
+stpr:VA
+2025-07-30
+2025-07-30
+0000078128
+stpr:OH
+wtrg:RegulatedWaterAndWastewaterMember
+2025-06-30
+2025-06-30
+0000078128
+stpr:TX
+wtrg:RegulatedWaterAndWastewaterMember
+2025-06-20
+2025-06-20
+0000078128
+stpr:NC
+wtrg:Year3Member
+wtrg:RegulatedWaterAndWastewaterMember
+2025-04-30
+2025-04-30
+0000078128
+stpr:NC
+wtrg:Year2Member
+wtrg:RegulatedWaterAndWastewaterMember
+2025-04-30
+2025-04-30
+0000078128
+stpr:NC
+wtrg:Year1Member
+wtrg:RegulatedWaterAndWastewaterMember
+2025-04-30
+2025-04-30
+0000078128
+stpr:PA
+wtrg:RegulatedWaterAndWastewaterMember
+2025-02-07
+2025-02-07
+0000078128
+us-gaap:SeniorNotesMember
+2026-03-09
+2026-03-09
+0000078128
+us-gaap:SubsequentEventMember
+2026-04-01
+2026-04-30
+0000078128
+stpr:NC
+wtrg:VirginiaWaterAndWastewaterSubsidiariesMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:OtherWaterAndWastewaterSubsidiariesMember
+2026-01-01
+2026-03-31
+0000078128
+2025-02-01
+2025-02-28
+0000078128
+2025-01-01
+2025-12-31
+0000078128
+wtrg:GreenvillePennsylvaniaMember
+wtrg:WastewaterUtilitySystemsInVariousStatesMember
+2026-03-01
+2026-03-31
+0000078128
+wtrg:WakeCountyNorthCarolinaMember
+wtrg:WaterAndWastewaterUtilitySystemsMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:BeaverFallsPennsylvaniaMember
+wtrg:WastewaterUtilitySystemMember
+2025-07-01
+2025-07-31
+0000078128
+stpr:OH
+wtrg:VillageOfMidvaleOhiosWaterSystemMember
+2025-04-01
+2025-04-30
+0000078128
+wtrg:GreenvillePennsylvaniaMember
+wtrg:GreenvilleSanitaryAuthoritysWastewaterUtilityAssetsMember
+2025-01-01
+2025-01-31
+0000078128
+stpr:TX
+wtrg:IntegraWaterTexasLlcMember
+2024-10-01
+2024-10-31
+0000078128
+wtrg:HarrisCountyTexasMember
+wtrg:PrivateWaterAndWastewaterUtilityAssetsMember
+2024-06-01
+2024-06-30
+0000078128
+stpr:DE
+wtrg:WastewaterUtilitySystemMember
+2019-01-01
+2019-12-31
+0000078128
+us-gaap:ConvertibleDebtSecuritiesMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:AmericanWaterMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:AmericanWaterMember
+2025-01-01
+2025-12-31
+0000078128
+wtrg:WastewaterUtilitySystemsInVariousStatesMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:NaturalGasMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:CorporateAndOtherMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:AmericanWaterMember
+2025-10-25
+2025-10-25
+0000078128
+wtrg:CommercialPaperProgramMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:EstimateOfFairValueFairValueDisclosureMember
+2026-03-31
+0000078128
+us-gaap:CarryingReportedAmountFairValueDisclosureMember
+2026-03-31
+0000078128
+us-gaap:EstimateOfFairValueFairValueDisclosureMember
+2025-12-31
+0000078128
+us-gaap:CarryingReportedAmountFairValueDisclosureMember
+2025-12-31
+0000078128
+us-gaap:RevolvingCreditFacilityMember
+2026-03-31
+0000078128
+us-gaap:LetterOfCreditMember
+2026-03-31
+0000078128
+us-gaap:CommercialPaperMember
+2026-03-31
+0000078128
+us-gaap:RevolvingCreditFacilityMember
+us-gaap:UnsecuredDebtMember
+2026-03-31
+0000078128
+us-gaap:LineOfCreditMember
+2026-03-31
+0000078128
+srt:MaximumMember
+us-gaap:CommercialPaperMember
+2025-03-19
+0000078128
+wtrg:WaterMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:WaterMember
+2026-03-31
+0000078128
+wtrg:NaturalGasMember
+2026-03-31
+0000078128
+us-gaap:CorporateAndOtherMember
+2026-03-31
+0000078128
+wtrg:WaterMember
+2025-12-31
+0000078128
+wtrg:NaturalGasMember
+2025-12-31
+0000078128
+us-gaap:CorporateAndOtherMember
+2025-12-31
+0000078128
+us-gaap:ConvertibleDebtSecuritiesMember
+us-gaap:FairValueInputsLevel3Member
+us-gaap:FairValueMeasurementsRecurringMember
+2026-03-31
+0000078128
+us-gaap:ConvertibleDebtSecuritiesMember
+us-gaap:FairValueInputsLevel3Member
+us-gaap:FairValueMeasurementsRecurringMember
+2025-12-31
+0000078128
+us-gaap:ConvertibleDebtSecuritiesMember
+us-gaap:FairValueInputsLevel3Member
+us-gaap:FairValueMeasurementsRecurringMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:RetainedEarningsMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:RetainedEarningsMember
+2025-01-01
+2025-03-31
+0000078128
+us-gaap:OperatingSegmentsMember
+wtrg:WaterMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:OperatingSegmentsMember
+wtrg:OtherAndEliminationsMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:OperatingSegmentsMember
+wtrg:NaturalGasMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:OperatingSegmentsMember
+us-gaap:ReportableSegmentAggregationBeforeOtherOperatingSegmentMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:OperatingSegmentsMember
+wtrg:WaterMember
+2025-01-01
+2025-03-31
+0000078128
+us-gaap:OperatingSegmentsMember
+wtrg:OtherAndEliminationsMember
+2025-01-01
+2025-03-31
+0000078128
+us-gaap:OperatingSegmentsMember
+wtrg:NaturalGasMember
+2025-01-01
+2025-03-31
+0000078128
+us-gaap:OperatingSegmentsMember
+us-gaap:ReportableSegmentAggregationBeforeOtherOperatingSegmentMember
+2025-01-01
+2025-03-31
+0000078128
+us-gaap:OtherPostretirementBenefitPlansDefinedBenefitMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:OtherPostretirementBenefitPlansDefinedBenefitMember
+2025-01-01
+2025-03-31
+0000078128
+srt:ScenarioForecastMember
+2026-12-31
+0000078128
+us-gaap:PensionPlansDefinedBenefitMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:PensionPlansDefinedBenefitMember
+2025-01-01
+2025-03-31
+0000078128
+us-gaap:SeniorNotesMember
+2026-03-09
+0000078128
+srt:MaximumMember
+us-gaap:CommercialPaperMember
+2025-03-19
+2025-03-19
+0000078128
+us-gaap:SeniorNotesMember
+2026-01-01
+2026-01-31
+0000078128
+srt:MinimumMember
+wtrg:UnsecuredNotesBMember
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:LongTermDebtOfSubsidiariesZeroPointZeroZeroPercentageToZeroPointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:LongTermDebtOfSubsidiariesTwoPointZeroZeroPercentageToTwoPointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:LongTermDebtOfSubsidiariesThreePointZeroZeroPercentageToThreePointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:LongTermDebtOfSubsidiariesSixPointZeroZeroPercentageToSixPointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:LongTermDebtOfSubsidiariesSevenPointZeroZeroPercentageToSevenPointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:LongTermDebtOfSubsidiariesOnePointZeroZeroPercentageToOnePointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:LongTermDebtOfSubsidiariesNinePointZeroZeroPercentageToNinePointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:LongTermDebtOfSubsidiariesFourPointZeroZeroPercentageToFourPointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MinimumMember
+wtrg:LongTermDebtOfSubsidiariesFivePointZeroZeroPercentageToFivePointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MinimumMember
+us-gaap:LoansMember
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:UnsecuredNotesBMember
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:LongTermDebtOfSubsidiariesZeroPointZeroZeroPercentageToZeroPointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:LongTermDebtOfSubsidiariesTwoPointZeroZeroPercentageToTwoPointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:LongTermDebtOfSubsidiariesThreePointZeroZeroPercentageToThreePointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:LongTermDebtOfSubsidiariesSixPointZeroZeroPercentageToSixPointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:LongTermDebtOfSubsidiariesSevenPointZeroZeroPercentageToSevenPointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:LongTermDebtOfSubsidiariesOnePointZeroZeroPercentageToOnePointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:LongTermDebtOfSubsidiariesNinePointZeroZeroPercentageToNinePointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:LongTermDebtOfSubsidiariesFourPointZeroZeroPercentageToFourPointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MaximumMember
+wtrg:LongTermDebtOfSubsidiariesFivePointZeroZeroPercentageToFivePointNineNinePercentageMember
+2026-03-31
+0000078128
+srt:MaximumMember
+us-gaap:LoansMember
+2026-03-31
+0000078128
+wtrg:NotesZMember
+2026-03-31
+0000078128
+wtrg:NotesGMember
+2026-03-31
+0000078128
+wtrg:NotesEMember
+2026-03-31
+0000078128
+wtrg:NotesBbMember
+2026-03-31
+0000078128
+wtrg:NotesAtFivePointThirtyPercentDueTwoThousandFiftyTwoMember
+2026-03-31
+0000078128
+wtrg:NotesAt5.375Due2034Member
+2026-03-31
+0000078128
+wtrg:NotesAt5.25Due2035Member
+2026-03-31
+0000078128
+wtrg:NotesAt5.125Due2036Member
+2026-03-31
+0000078128
+wtrg:NotesAaMember
+2026-03-31
+0000078128
+us-gaap:SeniorNotesMember
+2026-01-31
+0000078128
+wtrg:CommercialPaperProgramMember
+2026-03-31
+0000078128
+us-gaap:LoansMember
+2026-03-31
+0000078128
+us-gaap:ConvertibleDebtSecuritiesMember
+2025-12-31
+0000078128
+wtrg:AmericanWaterWorksCompanyInc.Member
+2025-10-26
+0000078128
+2025-10-26
+0000078128
+2025-03-31
+0000078128
+2024-12-31
+0000078128
+us-gaap:FairValueInputsLevel1Member
+2026-03-31
+0000078128
+us-gaap:FairValueInputsLevel1Member
+2025-12-31
+0000078128
+wtrg:GreenvillePennsylvaniaMember
+wtrg:WastewaterUtilitySystemsInVariousStatesMember
+2026-03-31
+0000078128
+wtrg:BeaverFallsPennsylvaniaMember
+wtrg:WastewaterUtilitySystemMember
+2025-07-31
+0000078128
+us-gaap:ConvertibleDebtSecuritiesMember
+2026-03-31
+0000078128
+wtrg:PerformanceShareUnitsMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:RestrictedStockUnitsRSUMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:RestrictedStockMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:EmployeeStockOptionMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:PerformanceShareUnitsMember
+2025-01-01
+2025-03-31
+0000078128
+us-gaap:RestrictedStockUnitsRSUMember
+2025-01-01
+2025-03-31
+0000078128
+us-gaap:RestrictedStockMember
+2025-01-01
+2025-03-31
+0000078128
+us-gaap:EmployeeStockOptionMember
+2025-01-01
+2025-03-31
+0000078128
+us-gaap:TreasuryStockCommonMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:AdditionalPaidInCapitalMember
+2026-01-01
+2026-03-31
+0000078128
+us-gaap:TreasuryStockCommonMember
+2025-01-01
+2025-03-31
+0000078128
+us-gaap:AdditionalPaidInCapitalMember
+2025-01-01
+2025-03-31
+0000078128
+2025-01-01
+2025-03-31
+0000078128
+2026-03-31
+0000078128
+2025-12-31
+0000078128
+wtrg:DanielJ.SchullerMember
+2026-03-31
+0000078128
+wtrg:ColleenArnoldMember
+2026-03-31
+0000078128
+wtrg:ChristopherLuningMember
+2026-03-31
+0000078128
+wtrg:DanielJ.SchullerMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:ColleenArnoldMember
+2026-01-01
+2026-03-31
+0000078128
+wtrg:ChristopherLuningMember
+2026-01-01
+2026-03-31
+0000078128
+2026-04-27
+0000078128
+2026-01-01
+2026-03-31
+wtrg:customer
+wtrg:item
+wtrg:segment
+xbrli:pure
+iso4217:USD
+xbrli:shares
+iso4217:USD
+xbrli:shares
+Table of Contents
+UNITED STATES
+SECURITIES AND EXCHANGE COMMISSION
+WASHINGTON DC  20549
+FORM
+10-Q
+(Mark One)
+S
+QUARTERLY REPORT PURSUANT TO SECTION 13 or 15 (d) OF THE SECURITIES EXCHANGE ACT OF 1934.
+For the quarterly period ended
+March 31, 2026
+£
+TRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934.
+For the transition period from_______________ to _______________
+Commission File Number
+1-6659
+ESSENTIAL UTILITIES, INC.
+(Exact name of registrant as specified in its charter)
+Pennsylvania
+23-1702594
+(State or other jurisdiction of
+(I.R.S. Employer
+incorporation or organization)
+Identification No.)
+762 W. Lancaster Avenue
+,
+Bryn Mawr
+,
+Pennsylvania
+19010 -3489
+(Address of principal executive offices)
+(Zip Code)
+(
+610
+)
+527-8000
+(Registrant’s telephone number, including area code)
+N/A
+(Former Name, former address and former fiscal year, if changed since last report.)
+Indicate by check mark whether the registrant (1) has filed all reports required to be filed by Section 13 or 15(d) of the Securities Exchange Act of 1934 during the preceding 12 months (or for such shorter period that the registrant was required to file such reports), and (2) has been subject to such filing requirements for the past 90 days.  Yes
+S
+No
+£
+Indicate by check mark whether the registrant has submitted electronically every Interactive Data File required to be submitted pursuant to Rule 405 of Regulation S-T (§232.405 of this chapter) during the preceding 12 months (or for such shorter period that the registrant was required to submit such files).  Yes
+S
+No
+£
+Indicate by check mark whether the registrant is a large accelerated filer, an accelerated filer, a non-accelerated filer, a smaller reporting company, or an emerging growth company. See the definitions of “large accelerated filer,” “accelerated filer,” “smaller reporting company,” and “emerging growth company” in Rule 12(b)-2 of the Exchange Act.:
+Large Accelerated Filer
+S
+Accelerated Filer
+£
+Non-Accelerated Filer
+£
+Smaller Reporting Company
+£
+Emerging Growth Company
+£
+If an emerging growth company, indicate by check mark if the registrant has elected not to use the extended transition period for complying with any new or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act.
+£
+Indicate by check mark whether the registrant is a shell company (as defined in Rule 12b-2 of the Exchange Act). Yes
+£
+No
+S
+Securities registered pursuant to Section 12(b) of the Act:
+Title of each class
+Trading Symbol(s)
+Name of each exchange on which registered
+Common stock, $0.50 par value
+WTRG
+New York Stock Exchange
+Indicate the number of shares outstanding of each of the issuer's classes of common stock, as of April 27, 2026:
+283,632,983
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+TABLE OF
+CONTENTS
+Page
+Part I – Financial Information
+Item 1.  Financial Statements:
+Condensed Consolidated Balance Sheets (unaudited) – March 31, 2026 and December 31, 2025
+2
+Condensed Consolidated Statements of Operations and Comprehensive Income (unaudited) – Three Months Ended March 31, 2026 and 2025
+4
+Condensed Consolidated Statements of Capitalization (unaudited) - March 31, 2026  and December 31, 2025
+5
+Condensed Consolidated Statements of Equity (unaudited) – Three Months Ended March
+31, 2026
+6
+Condensed Consolidated Statements of Equity (unaudited) – Three Months Ended
+Mach 31, 2025
+7
+Condensed Consolidated Statements of Cash Flow (unaudited) – Three Months Ended March
+31, 2026 and 2025
+8
+Notes to Condensed Consolidated Financial Statements (unaudited)
+9
+Item 2.  Management’s Discussion and Analysis of Financial Condition and Results of Operations
+28
+Item 3.  Quantitative and Qualitative Disclosures About Market Risk
+41
+Item 4.  Controls and Procedures
+41
+Part II – Other Information
+Item 1.  Legal Proceedings
+41
+Item 1A.  Risk Factors
+41
+Item 5.  Other Information
+41
+Item 6.  Exhibits
+43
+Signatures
+44
+1
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+CONDENSED CO
+NS
+OLIDATED BALANCE SHEETS
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+March 31,
+December 31,
+Assets
+2026
+2025
+Property, plant and equipment, at cost
+$
+17,942,936
+$
+17,690,717
+Less:  accumulated depreciation
+3,501,839
+3,427,035
+Net property, plant and equipment
+14,441,097
+14,263,682
+Current assets:
+Cash and cash equivalents
+75,926
+34,778
+Accounts receivable, net
+287,323
+217,191
+Unbilled revenues
+131,215
+167,085
+Inventory - materials and supplies
+56,449
+51,767
+Inventory - gas stored
+15,747
+60,686
+Prepayments and other current assets
+36,221
+59,110
+Regulatory assets
+19,749
+19,779
+Total current assets
+622,630
+610,396
+Regulatory assets
+2,215,042
+2,089,669
+Deferred charges and other assets, net
+123,294
+122,217
+Funds restricted for construction activity
+1,451
+1,445
+Goodwill
+2,349,059
+2,348,559
+Operating lease right-of-use assets
+24,669
+25,923
+Intangible assets
+2,873
+2,954
+Total assets
+$
+19,780,115
+$
+19,464,845
+The accompanying notes are an integral part of these consolidated financial statements
+2
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+CONDENSED CONSOLIDATED BALANCE SHEETS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+March 31,
+December 31,
+Liabilities and Equity
+2026
+2025
+Stockholders' equity:
+Common stock at $
+0.50
+par value, authorized
+600,000,000
+shares, issued
+286,851,236
+and
+286,505,895
+as of March 31, 2026 and December 31, 2025
+$
+143,426
+$
+143,253
+Capital in excess of par value
+4,532,634
+4,524,517
+Retained earnings
+2,310,842
+2,280,669
+Treasury stock, at cost,
+3,493,159
+and
+3,423,086
+shares as of March 31, 2026 and December 31, 2025
+(
+93,693
+)
+(
+90,983
+)
+Total stockholders' equity
+6,893,209
+6,857,456
+Long-term debt, excluding current portion
+8,415,437
+8,160,026
+Less:  debt issuance costs and unamortized discount on debt
+53,814
+49,859
+Long-term debt, excluding current portion, net of debt issuance costs and unamortized discount on debt
+8,361,623
+8,110,167
+Commitments and contingencies (See Note 15)
+Current liabilities:
+Current portion of long-term debt
+26,501
+21,822
+Loans payable
+35,553
+150,139
+Accounts payable
+171,960
+276,080
+Book overdraft
+11,930
+25,494
+Accrued interest
+92,356
+82,466
+Accrued taxes
+30,010
+28,688
+Regulatory liabilities
+21,834
+11,202
+Dividends payable
+97,063
+-
+Other accrued liabilities
+167,239
+168,592
+Total current liabilities
+654,446
+764,483
+Deferred credits and other liabilities:
+Deferred income taxes and investment tax credits
+2,219,580
+2,090,120
+Customers' advances for construction
+118,428
+115,465
+Regulatory liabilities
+709,614
+703,285
+Operating lease liabilities
+20,076
+21,608
+Pension and other postretirement benefit liabilities
+15,380
+15,241
+Other
+62,692
+60,814
+Total deferred credits and other liabilities
+3,145,770
+3,006,533
+Contributions in aid of construction
+725,067
+726,206
+Total liabilities and equity
+$
+19,780,115
+$
+19,464,845
+The accompanying notes are an integral part of these consolidated financial statements
+3
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS AND COMPREHENSIVE INCOME
+(In thousands, except per share amounts)
+(UNAUDITED)
+Three Months Ended
+March 31,
+2026
+2025
+Operating revenues
+$
+861,759
+$
+783,626
+Operating expenses:
+Operations and maintenance
+175,795
+137,824
+Purchased gas
+238,615
+184,641
+Depreciation
+107,109
+96,764
+Amortization
+3,620
+2,613
+Taxes other than income taxes
+25,980
+22,879
+Total operating expenses
+551,119
+444,721
+Operating income
+310,640
+338,905
+Other expense (income):
+Interest expense
+87,307
+82,065
+Interest income
+(
+1,611
+)
+(
+229
+)
+Allowance for funds used during construction
+(
+5,760
+)
+(
+5,832
+)
+Other
+(
+75
+)
+(
+293
+)
+Income before income taxes
+230,779
+263,194
+Income tax expense (benefit)
+6,387
+(
+20,595
+)
+Net income
+$
+224,392
+$
+283,789
+Comprehensive income
+$
+224,392
+$
+283,789
+Net income per common share:
+Basic
+$
+0.79
+$
+1.03
+Diluted
+$
+0.79
+$
+1.03
+Average common shares outstanding during the period:
+Basic
+283,181
+275,194
+Diluted
+283,636
+275,687
+The accompanying notes are an integral part of these consolidated financial statements
+4
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+CONDENSED CONSOLIDATED STATEMENTS OF CAPITALIZATION
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+March 31,
+December 31,
+2026
+2025
+Stockholders' equity:
+Common stock, $
+0.50
+par value
+$
+143,426
+$
+143,253
+Capital in excess of par value
+4,532,634
+4,524,517
+Retained earnings
+2,310,842
+2,280,669
+Treasury stock, at cost
+(
+93,693
+)
+(
+90,983
+)
+Total stockholders' equity
+6,893,209
+6,857,456
+Long-term debt of subsidiaries (substantially collateralized by utility plant):
+Interest Rate Range
+Maturity Date Range
+0.00
+% to
+0.99
+%
+2026
+to
+2052
+8,419
+7,328
+1.00
+% to
+1.99
+%
+2031
+to
+2049
+37,814
+23,977
+2.00
+% to
+2.99
+%
+2026
+to
+2058
+204,536
+204,870
+3.00
+% to
+3.99
+%
+2026
+to
+2056
+1,251,114
+1,252,397
+4.00
+% to
+4.99
+%
+2027
+to
+2059
+1,120,402
+1,120,564
+5.00
+% to
+5.99
+%
+2028
+to
+2061
+412,260
+412,260
+6.00
+% to
+6.99
+%
+2026
+to
+2036
+31,000
+31,000
+7.00
+% to
+7.99
+%
+2027
+4,593
+4,652
+9.00
+% to
+9.99
+%
+2026
+11,800
+11,800
+3,081,938
+3,068,848
+Notes payable to bank under revolving credit agreement, variable rate, due
+2027
+-
+Unsecured notes payable:
+Commercial paper program (See Note 7)
+315,000
+568,000
+Notes at
+2.40
+% due
+2031
+400,000
+400,000
+Notes at
+2.704
+% due
+2030
+500,000
+500,000
+Notes ranging from
+3.01
+% to
+3.57
+% due
+2029
+through
+2050
+1,125,000
+1,125,000
+Notes at
+4.276
+%, due
+2049
+500,000
+500,000
+Notes at
+4.80
+%, due
+2027
+500,000
+500,000
+Notes at
+5.125
+%, due
+2036
+500,000
+-
+Notes at
+5.25
+%, due
+2035
+500,000
+500,000
+Notes at
+5.30
+%, due
+2052
+500,000
+500,000
+Notes at
+5.375
+%, due
+2034
+500,000
+500,000
+Notes at
+5.95
+%, due
+2033
+through
+2034
+20,000
+20,000
+Total long-term debt
+8,441,938
+8,181,848
+Current portion of long-term debt
+26,501
+21,822
+Long-term debt, excluding current portion
+8,415,437
+8,160,026
+Less:  debt issuance costs and unamortized discount on debt
+53,814
+49,859
+Long-term debt, excluding current portion, net of debt issuance costs and unamortized discount on debt
+8,361,623
+8,110,167
+Total capitalization
+$
+15,254,832
+$
+14,967,623
+The accompanying notes are an integral part of these consolidated financial statements
+5
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+CONDENSED CONSOLIDATED STATEMENTS OF EQUITY
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+Capital in
+Common
+Excess of
+Retained
+Treasury
+Stock
+Par Value
+Earnings
+Stock
+Total
+Balance at December 31, 2025
+$
+143,253
+$
+4,524,517
+$
+2,280,669
+$
+(
+90,983
+)
+$
+6,857,456
+Net income
+-
+-
+224,392
+-
+224,392
+Dividends of March 2, 2026 ($
+0.3426
+per share)
+-
+-
+(
+96,996
+)
+-
+(
+96,996
+)
+Dividends of June 1, 2026 declared ($
+0.3426
+per share)
+-
+-
+(
+97,063
+)
+-
+(
+97,063
+)
+Issuance of common stock under dividend reinvestment plan (
+100,757
+shares)
+51
+3,741
+-
+-
+3,792
+Issuance of common stock from at-the-market sale agreements (
+44,300
+shares)
+22
+1,778
+-
+-
+1,800
+Repurchase of stock (
+75,906
+shares)
+-
+-
+-
+(
+2,925
+)
+(
+2,925
+)
+Equity compensation plan (
+193,917
+shares)
+97
+(
+97
+)
+-
+-
+-
+Exercise of stock options (
+6,367
+shares)
+3
+206
+-
+-
+209
+Stock-based compensation
+-
+2,716
+(
+160
+)
+-
+2,556
+Other
+-
+(
+227
+)
+-
+215
+(
+12
+)
+Balance at March 31, 2026
+$
+143,426
+$
+4,532,634
+$
+2,310,842
+$
+(
+93,693
+)
+$
+6,893,209
+The accompanying notes are an integral part of these consolidated financial statements
+‎
+6
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+CONDENSED CONSOLIDATED STATEMENTS OF EQUITY
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+Capital in
+Common
+Excess of
+Retained
+Treasury
+Stock
+Par Value
+Earnings
+Stock
+Total
+Balance at December 31, 2024
+$
+139,105
+$
+4,199,836
+$
+1,949,492
+$
+(
+89,624
+)
+$
+6,198,809
+Net income
+-
+-
+283,789
+-
+283,789
+Dividends of March 1, 2025 ($
+0.3255
+per share)
+-
+-
+(
+22
+)
+-
+(
+22
+)
+Dividends of June 2, 2025 declared ($
+0.3255
+per share)
+-
+-
+(
+90,054
+)
+-
+(
+90,054
+)
+Issuance of common stock under dividend reinvestment plan (
+104,369
+shares)
+52
+3,760
+-
+-
+3,812
+Issuance of common stock from at-the-market sale agreements (
+1,627,009
+shares)
+813
+62,267
+-
+-
+Repurchase of stock (
+61,455
+shares)
+-
+-
+-
+(
+2,234
+)
+(
+2,234
+)
+Equity compensation plan (
+155,823
+shares)
+78
+(
+78
+)
+-
+-
+-
+Exercise of stock options (
+9,703
+shares)
+5
+337
+-
+-
+342
+Stock-based compensation
+-
+2,592
+(
+185
+)
+-
+2,407
+Other
+-
+(
+88
+)
+-
+250
+162
+Balance at March 31, 2025
+$
+140,053
+$
+4,268,626
+$
+2,143,020
+$
+(
+91,608
+)
+$
+6,460,091
+The accompanying notes are an integral part of these consolidated financial statements
+Click or tap here to enter text.
+7
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOW
+(In thousands of dollars)
+(UNAUDITED)
+Three Months Ended
+March 31,
+2026
+2025
+Cash flows from operating activities:
+Net income
+$
+224,392
+$
+283,789
+Adjustments to reconcile net income to net cash flows from operating activities:
+Depreciation and amortization
+110,729
+99,377
+Deferred income taxes
+4,408
+(
+18,605
+)
+Provision for doubtful accounts
+3,877
+357
+Stock-based compensation
+2,678
+2,604
+Gain on sale of utility system and other assets
+523
+(
+237
+)
+Net change in receivables, deferred purchased gas costs, inventory and prepayments
+3,311
+(
+9,126
+)
+Net change in payables, accrued interest, accrued taxes and other accrued liabilities
+(
+80,234
+)
+(
+47,945
+)
+Other, net
+(
+4,279
+)
+(
+10,697
+)
+Net cash flows from operating activities
+265,405
+299,517
+Cash flows from investing activities:
+Property, plant and equipment additions, including the debt component of allowance for funds used during construction of $
+1,816
+and $
+1,891
+(
+269,249
+)
+(
+270,539
+)
+Acquisitions of utility systems, net
+(
+18,204
+)
+(
+17,552
+)
+Proceeds from the sale of utility systems and other assets
+39
+240
+Convertible note investment
+20,000
+-
+Other, net
+(
+47
+)
+(
+29
+)
+Net cash flows used in investing activities
+(
+267,461
+)
+(
+287,880
+)
+Cash flows from financing activities:
+Customers' advances and contributions in aid of construction
+9,717
+7,065
+Repayments of customers' advances
+(
+518
+)
+(
+1,317
+)
+Net repayments of short-term debt
+(
+114,586
+)
+(
+97,252
+)
+Net repayments from commercial paper program
+(
+253,000
+)
+-
+Proceeds from other long-term debt
+510,100
+708,150
+Repayments of other long-term debt
+(
+813
+)
+(
+551,150
+)
+Change in cash overdraft position
+(
+13,564
+)
+(
+41,204
+)
+Proceeds from issuance of common stock under dividend reinvestment plan
+3,792
+3,812
+Proceeds from issuance of common stock from at-the-market sale agreement
+1,800
+63,080
+Proceeds from exercised stock options
+209
+342
+Repurchase of common stock
+(
+2,925
+)
+(
+2,234
+)
+Dividends paid on common stock
+(
+96,996
+)
+(
+89,463
+)
+Other, net
+(
+12
+)
+162
+Net cash flows from (used in) financing activities
+43,204
+(
+9
+)
+Net change in cash and cash equivalents
+41,148
+11,628
+Cash and cash equivalents at beginning of period
+34,778
+9,156
+Cash and cash equivalents at end of period
+$
+75,926
+$
+20,784
+Non-cash investing activities:
+Property, plant and equipment additions purchased at the period end, but not yet paid for
+$
+137,746
+$
+109,976
+Non-cash utility property contributions
+6,128
+5,919
+The accompanying notes are an integral part of these consolidated financial statements
+8
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+Note 1
+–
+Basis of Presentation
+The accompanying unaudited condensed consolidated balance sheets and statements of capitalization of Essential Utilities, Inc. and subsidiaries (collectively, the “Company”, “we”, “us” or “our”) at March 31, 2026, the unaudited condensed consolidated statements of operations and comprehensive income, cash flows, and of equity for the three months ended March 31, 2026 and 2025, have been prepared in accordance with accounting principles generally accepted in the United States (“GAAP”) for interim reporting and the rules and regulations for reporting on Quarterly Reports on Form 10-Q.  Because they cover interim periods, the statements and related notes to the financial statements do not include all disclosures and notes normally provided in annual financial statements and, therefore, should be read in conjunction with the Company’s Annual Report on Form 10-K for the year ended December 31, 2025.  Interim results are not necessarily indicative of results for a full year.  In the opinion of management, all adjustments, consisting of only recurring accruals, which are necessary to present a fair statement of its condensed consolidated balance sheets, condensed consolidated statements of capitalization, condensed consolidated statements of equity, condensed consolidated statements of operations and comprehensive income, and condensed consolidated statements of cash flow for the periods presented, have been made.
+The preparation of financial statements often requires the selection of specific accounting methods and policies.  Significant estimates and judgments may be required in selecting and applying those methods and policies in the recognition of the assets and liabilities in its condensed consolidated balance sheets, the revenues and expenses in its condensed consolidated statements of operations and comprehensive income, and the information that is contained in its summary of significant accounting policies and notes to condensed consolidated financial statements.  Making these estimates and judgments requires the analysis of information concerning events that may not yet be complete and of facts and circumstances that may change over time.  Furthermore, we are exposed to the uncertain state of the economy and macroeconomic conditions, including inflation and volatility of interest rates.  As these continue to evolve, future events and effects related to these conditions cannot be determined with precision.  Accordingly, actual amounts or future results can differ materially from those estimates that the Company includes currently in its condensed consolidated financial statements, summary of significant accounting policies, and notes.
+There have been no changes to the summary of significant accounting policies previously identified in the Company’s Annual Report on Form 10-K for the year ended December 31, 2025.
+9
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+Note 2 –
+Plan of Merger with American Water
+On October 26, 2025, the Company entered into an Agreement and Plan of Merger (the “Merger Agreement”) with American Water Works Company, Inc. (“American Water”) to combine the two companies in a stock-for stock transaction, with the Company surviving the Merger as a wholly owned subsidiary of American Water.   Subject to the terms and conditions of the Merger Agreement, at the time at which the Merger becomes effective (the “Effective Time”), each share of the Company’s common stock, par value $
+0.50
+per share (“Essential Common Stock”), issued and outstanding immediately prior to the Effective Time, other than any shares of Essential Common Stock owned by American Water or Merger Sub or by the Company as treasury stock (in each case, other than restricted shares), will be converted into the right to receive
+0.305
+shares (the “Exchange Ratio”) of validly issued, fully paid and nonassessable common stock, par value $
+0.01
+per share, of American Water (“American Water Common Stock”) (the aggregate number of such shares of American Water Common Stock to be issued in the Merger). On February 10, 2026, at the respective special shareholder meetings of the Company and American Water, each company’s shareholders approved the merger-related proposals, satisfying certain of the conditions to closing.
+Consummation of the Merger is subject to certain remaining customary conditions, including the receipt of certain governmental approvals, including (a) the expiration or termination of the applicable waiting period under the Hart-Scott-Rodino Antitrust Improvements Act of 1976, and (b) the approval of certain public utility commissions, in each case on such terms and conditions that would not, individually or in the aggregate, result in a “Burdensome Effect” (as defined in the Merger Agreement). There can be no guarantee that all of the remaining closing conditions and approvals will be satisfied, and the failure to complete the proposed Merger on a timely basis or at all may adversely affect the Company’s financial condition and results of operations. The Company currently estimates that the closing of the proposed Merger will occur by the end of the first quarter of 2027.
+Note 3 –
+Revenue Recognition
+The following table presents our revenues disaggregated by major source and customer class:
+Three Months Ended
+Three Months Ended
+March 31, 2026
+March 31, 2025
+Water Revenues
+Wastewater Revenues
+Natural Gas Revenues
+Other Revenues
+Water Revenues
+Wastewater Revenues
+Natural Gas Revenues
+Other Revenues
+Revenues from contracts with customers:
+Residential
+$
+178,240
+$
+42,823
+$
+356,125
+$
+-
+$
+163,877
+$
+38,361
+$
+302,073
+$
+-
+Commercial
+49,274
+10,663
+77,052
+-
+45,477
+9,181
+61,351
+-
+Fire protection
+11,559
+-
+-
+-
+11,154
+-
+-
+-
+Industrial
+9,817
+799
+1,843
+-
+9,051
+601
+1,274
+-
+Gas transportation & storage
+-
+-
+100,611
+-
+-
+-
+96,523
+-
+Other water
+14,273
+-
+-
+-
+17,668
+-
+-
+-
+Other wastewater
+-
+3,275
+-
+-
+-
+3,160
+-
+-
+Other utility
+-
+-
+3
+2,793
+-
+-
+10,764
+2,891
+Revenues from contracts with customers
+263,163
+57,560
+535,634
+2,793
+247,227
+51,303
+471,985
+2,891
+Alternative revenue program
+(
+93
+)
+(
+448
+)
+(
+6,222
+)
+-
+(
+305
+)
+(
+268
+)
+(
+1,188
+)
+-
+Other and eliminations
+-
+-
+-
+9,372
+-
+-
+-
+11,981
+Consolidated
+$
+263,070
+$
+57,112
+$
+529,412
+$
+12,165
+$
+246,922
+$
+51,035
+$
+470,797
+$
+14,872
+10
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+Note 4 –
+Water and Wastewater Utility
+Acquisitions
+Completed Acquisitions
+Business combinations
+In March 2026, the Company acquired Greenville Municipal Water Authority’s water utility system in Greenville, Pennsylvania, which serves approximately
+3,000
+customers for $
+18,000
+.  The preliminary purchase price allocation for this acquisition consisted primarily of property, plant and equipment of $
+17,500
+and goodwill of $
+500
+.
+In July 2025, the Company acquired the wastewater utility system of the City of Beaver Falls, Pennsylvania for $
+37,750
+.  The system serves approximately
+3,200
+customers in the City of Beaver Falls and also provides bulk transmission and treatment service for approximately
+3,800
+equivalent dwelling units in
+seven
+nearby municipalities.
+The purchase price allocation for this acquisition consisted primarily of property, plant and equipment of $
+29,900
+and goodwill of $
+7,850
+.
+The pro-forma effect of
+the above utility systems acquired is
+not material either individually or collectively to the Company’s results of operations.
+Asset Acquisitions
+In April 2025, the Company acquired the Village of Midvale’s water system in Ohio, which serves approximately
+1,000
+customers for $
+2,950
+.
+In January 2025, the Company acquired Greenville Sanitary Authority’s wastewater utility assets, which serve approximately
+2,300
+customers in Greenville, Pennsylvania for $
+18,000
+.
+Pending Acquisitions
+In March 2026, the Company entered into a purchase agreement to acquire public water and wastewater system assets in Wake County, North Carolina, which serve approximately
+1,026
+customers for $
+4,360
+.
+In October 2024, the Company entered into a purchase agreement to acquire Integra Water Texas, LLC’s wastewater system assets in Bastrop County, Texas, which serve approximately
+1,100
+customers for $
+4,400
+.
+In June 2024, the Company entered into a purchase agreement to acquire private water and wastewater utility assets in Harris County, Texas, which serve approximately
+400
+equivalent retail customers for $
+1,125
+.
+The purchase price for these pending acquisitions are subject to certain adjustments at closing, and are subject to regulatory approval, including the final determination of the fair value of the rate base acquired.
+We plan to finance the purchase price of these acquisitions by utilizing our commercial paper program and revolving credit facility until permanent debt and common equity are secured.  Closings for our utility acquisitions are subject to the timing of the respective regulatory approval processes.  These pending acquisitions are expected to close during the second quarter of 2026.
+11
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+DELCORA Purchase Agreement
+In 2019, the Company entered into a purchase agreement to acquire the wastewater utility system assets of the Delaware County Regional Water Quality Control Authority (“DELCORA”), which consist of approximately
+16,000
+customers, or the equivalent of
+198,000
+retail customers, in
+42
+municipalities in Southeast Pennsylvania for $
+276,500
+.  There are several legal proceedings involving the Company as a result of the purchase agreement that are on-going.  The purchase price for this pending acquisition is subject to certain adjustments at closing, and is subject to regulatory approval, including the final determination of the fair value of the rate base acquired.  We plan to finance the purchase price of this acquisition with a mix of equity and debt financing, utilizing our commercial paper program and revolving credit facility until permanent debt is secured. Closing of our acquisition of DELCORA is subject to regulatory approval and on-going litigation.
+Note 5 –
+Convertible Note Investment
+In 2025, the Company purchased $
+25,125
+of convertible notes (“Convertible Note Investment”) from IEP Hummingbird Energy LLC (“IEP”), a subsidiary of International Electric Power III, LLC, to fund the development of a gas-fired plant to power a data center being developed in Greene County, PA.  The Convertible Note Investment bears
+zero
+interest, includes a fixed $
+16,500
+loan fee concurrently payable to the Company at maturity with the principal amount of the notes on
+September 30, 2026
+, and contains conversion rights into equity at any time on or after maturity or upon certain triggering events, such as a project financial closing or equity financing, as defined in the agreement.  The agreement also grants the Company the right of first refusal to certain water and gas business opportunities and additional equity kickers upon the occurrence of a financing event or change of control.
+Due to a change in project scope to focus on grid provided power, on January 20, 2026, the Company received $
+20,000
+, representing the reimbursement of the deposit paid to the gas turbine manufacturer. The Company continues to be an investor in the project via its remaining convertible notes holdings and continues to have a right of first refusal to certain water and gas business opportunities.  As of March 31, 2026, the Company’s remaining Convertible Note Investment amounted to $
+5,125
+.
+The Convertible Note Investment is accounted for as an available-for-sale debt security under Accounting Standards Codification 320,
+Investments – Debt Securities
+.   The Company elected to measure the Convertible Note Investment using the fair value option, wherein bifurcation of an embedded derivative is not necessary, and all the related gains and losses due to change in fair value are reflected in Other expense (income) in the accompanying condensed consolidated statement of operations.
+The Convertible Note Investment is classified as long-term asset within Deferred charges and other assets in the accompanying condensed consolidated balance sheets.  Changes in the fair value of this Level 3 investment (see Note 8) for the three-month period ended March 31, 2026 were as follows:
+Fair Value as of December 31, 2025
+Payments
+Unrealized Gains (Losses)
+Fair Value as of March 31, 2026
+Convertible Note Investment
+$
+25,125
+$
+(
+20,000
+)
+$
+-
+$
+5,125
+12
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+The Company is not a primary beneficiary of IEP as it does not have both (1) the power to direct the activities that most significantly impact IEP’s economic performance, and (2) the obligation to absorb losses or the right to receive benefits that could be significant to IEP.  Therefore, the Company is not required to consolidate IEP in its financial statements.  The Company reconsiders whether it is the primary beneficiary on an ongoing basis.  As of March 31, 2026, the maximum risk of loss by the Company is limited to its remaining Convertible Note Investment of $
+5,125
+.
+Note 6 –
+Goodwill
+The following table summarizes the changes in the Company’s goodwill, by business segment:
+Regulated Water
+Regulated Natural Gas
+Other
+Consolidated
+Balance at December 31, 2025
+$
+66,271
+$
+2,277,447
+$
+4,841
+$
+2,348,559
+Goodwill acquired (See Note 4)
+500
+-
+-
+500
+Balance at March 31, 2026
+$
+66,771
+$
+2,277,447
+$
+4,841
+$
+2,349,059
+Note 7 –
+Capitalization
+At-the-Market Offering
+On August 13, 2024, the Company established a new at-the-market equity sales program (“ATM”), under which it may issue
+and sell shares of its common stock up to an aggregate offering price of $
+1,000,000
+(“2024 ATM”).   During the three months ended March 31, 2026, we issued
+44,300
+shares of common stock for net proceeds of approximately $
+1,800
+under the 2024 ATM.  As of March 31, 2026, the 2024 ATM had approximately $
+658,900
+of equity available for issuance.  The Company used the net proceeds from the sales of shares through the 2024 ATM for working capital and repaying a portion of outstanding indebtedness.
+Commercial Paper Program
+On March 19, 2025, the Company established a commercial paper program (the “CP Program”) that allows it to issue, through private placement, short-term, unsecured commercial paper notes (the “CP Notes”) in an aggregate principal amount not to exceed $
+1,000,000
+.  Maturities of CP Notes may vary, but cannot exceed
+364
+days from the date of issue.  Amounts available under the Program may be borrowed, repaid, and re-borrowed from time to time.  The CP Program is reinforced by the Company’s revolving credit facility, as amounts undrawn under the Company’s revolving credit facility are available to repay the CP Notes.  Notes issued under the CP Program rank equally with the Company’s present and future unsecured indebtedness.  The Company utilizes the proceeds from the sale of the CP Notes for general corporate purposes, which may include working capital, capital expenditures, water and wastewater utility acquisitions, and repaying outstanding indebtedness, including under the Company’s revolving credit facility or the revolving credit facilities of its subsidiaries.
+13
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+As of March 31, 2026, outstanding borrowings under the Company’s commercial paper program were $
+314,463
+, net of unamortized discount on issuance of $
+537
+, with a weighted average interest rate of
+4.16
+% and weighted average remaining term of
+16
+days.  Outstanding CP Notes are classified as long-term debt in the accompanying condensed consolidated balance sheets and condensed consolidated statements of capitalization since the Company has the intent and ability to refinance the CP Notes on a long-term basis using the Company’s revolving credit facility.  The carrying value of CP Notes approximates their fair value, primarily due to their market interest rates, and are classified as Level 2 in the fair value hierarchy (see Note 8).
+Long-term and Short-Term Debt
+The condensed consolidated statements of capitalization provide a summary of the Company’s long-term and short-term debt as of March 31, 2026 and December 31, 2025.
+On March 9, 2026, the Company issued $
+500,000
+of senior notes, less expenses of $
+5,140
+, due on
+March 15, 2036
+, with an interest rate of
+5.125
+%.  The Company used the proceeds from the issuance of the senior notes to repay a portion of its commercial paper borrowings and for general corporate purposes.
+In addition to the notes issued by the Company above, during the three months ended March 31, 2026, the Company’s regulated water subsidiaries obtained in the aggregate $
+15,187
+of low-interest government loans, with interest rates ranging from
+0.46
+% to
+1.743
+% and maturity dates ranging from
+2030
+to
+2049
+.
+At March 31, 2026, our $
+1,000,000
+unsecured revolving credit facility, which expires in December 2027, had $
+670,632
+available for borrowing (net of $
+315,000
+of capacity designated for outstanding principal borrowings under our commercial paper program and $
+14,368
+letter of credit usage).  Additionally, at March 31, 2026, we had short-term lines of credit of $
+400,000
+, primarily used for working capital, of which $
+364,447
+was available for borrowing.
+The Company is obligated to comply with covenants under some of its loan and debt agreements. These covenants contain a number of restrictive financial covenants, which among other things limit, subject to specific exceptions, the Company’s ratio of consolidated total indebtedness to consolidated total capitalization, and require a minimum level of earnings coverage over interest expense. The Company was in compliance with its debt covenants under its loan and debt agreements as of March 31, 2026. Failure to comply with the Company’s debt covenants could result in an event of default, which could result in the Company being required to repay or finance its borrowings before their due date, possibly limiting the Company’s future borrowings, and increasing its borrowing costs.
+14
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+Note 8 –
+Financial Instruments
+Financial instruments are recorded at carrying value in the financial statements and approximate fair value as of the dates presented.  The fair value of these instruments is disclosed below in accordance with current accounting guidance related to financial instruments. There have been no changes in the valuation techniques used to measure fair value, or asset or liability transfers between the levels of the fair value hierarchy for the three months ended March 31, 2026.
+The fair value of loans payable is determined based on its carrying amount and utilizing Level 1 methods and assumptions.  As of March 31, 2026 and December 31, 2025, the carrying amount of the Company’s loans payable was $
+35,553
+and $
+150,139
+, respectively, which equates to their estimated fair value.  The fair value of cash and cash equivalents is determined based on Level 1 methods and assumptions.  As of March 31, 2026 and December 31, 2025, the carrying amounts of the Company's cash and cash equivalents was $
+75,926
+and $
+34,778
+, respectively, which equates to their fair value.  The Company’s assets underlying the deferred compensation and non-qualified pension plans are determined by the fair value of mutual funds, which are based on quoted market prices from active markets utilizing Level 1 methods and assumptions.  As of March 31, 2026 and December 31, 2025, the carrying amount of these securities was $
+35,393
+and $
+33,862
+, respectively, which equates to their fair value, and is reported in the condensed consolidated balance sheet in deferred charges and other assets.
+Unrealized gain and loss on equity securities held in conjunction with our non-qualified pension plan is as follows:
+Three Months Ended
+March 31,
+2026
+2025
+Net gain recognized during the period on equity securities
+$
+1,051
+$
+651
+Less:  net gain recognized during the period on equity securities sold during the period
+-
+-
+Unrealized gain recognized during the reporting period on equity securities still held at the reporting date
+$
+1,051
+$
+651
+The net gain/(loss) recognized on equity securities is presented on the condensed consolidated statements of operations and comprehensive income on the line item “Other, net”.
+The carrying amounts and estimated fair values of the Company’s long-term debt (which includes CP Notes) is as follows:
+March 31,
+December 31,
+2026
+2025
+Carrying amount
+$
+8,441,938
+$
+8,181,848
+Estimated fair value
+$
+7,471,338
+$
+7,326,133
+The fair value of long-term debt has been determined by discounting the future cash flows using current market interest rates for similar financial instruments of the same duration utilizing Level 2 methods and assumptions.
+15
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+The Convertible Note Investment is recorded at fair value on a recurring basis.  Since observable price quotations were not available, this is classified as a Level 3 measurement within fair value hierarchy (see Note 5).
+Note 9 –
+Net Income per Common Share
+Basic net income per common share is based on the weighted average number of common shares outstanding and the weighted average minimum number of shares issued upon settlement of the stock purchase contracts issued under the tangible equity units.  Diluted net income per common share is based on the weighted average number of common shares outstanding and potentially dilutive shares.  The dilutive effect of employee stock-based compensation is included in the computation of diluted net income per common share.  The dilutive effect of stock-based compensation is calculated using the treasury stock method and expected proceeds upon exercise of the stock-based compensation.  The treasury stock method assumes that the proceeds from stock-based compensation is used to purchase the Company’s common stock at the average market price during the period.  The following table summarizes the shares, in thousands, used in computing basic and diluted net income per common share:
+Three Months Ended
+March 31,
+2026
+2025
+Average common shares outstanding during the period for basic computation
+283,181
+275,194
+Effect of dilutive securities:
+Employee stock-based compensation
+455
+493
+Average common shares outstanding during the period for diluted computation
+283,636
+275,687
+The number of outstanding employee stock options, in thousands, that were not included in the diluted earnings per share calculation because the effect would have been anti-dilutive was:
+634
+for the three months ended March 31, 2026; and
+441
+for the three months ended March 31, 2025.  Additionally, the dilutive effect of performance share units and restricted share units granted are included in the Company’s calculation of diluted net income per share.
+Note 10 –
+Stock-based Compensation
+Under the Company’s Amended and Restated Equity Compensation Plan (the “Plan”), stock options, stock units, stock awards, stock appreciation rights, dividend equivalents, and other stock-based awards may be granted to employees, non-employee directors, and consultants and advisors.  At March 31, 2026,
+348,864
+shares were still available for issuance under the Plan.
+Performance Share Units
+– A performance share unit (“PSU”) represents the right to receive a share of the Company’s common stock if specified performance goals are met over the
+three year
+performance period specified in the grant, subject to exceptions through the respective vesting period, which is generally
+three years
+.  Each grantee is granted a target award of PSUs and may earn between
+0
+% and
+200
+% of the target amount depending on the Company’s performance against the performance goals.
+16
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+The performance goals of the 2026 and 2025 grants consisted of the following metrics:
+Metric 1 – Company’s total shareholder return (“TSR”) compared to the TSR for a specific peer group of investor-owned utilities (a market-based condition)
+40.00
+%
+Metric 2 – Achievement of a three-year average return on equity target (a performance-based condition)
+30.00
+%
+Metric 3 – Achievement of a consolidated operations and maintenance expense target over a three-year measurement period (a performance-based condition)
+30.00
+%
+The following were the assumptions used in the pricing model for the 2026 and 2025 grants:
+2026
+2025
+Expected term (years)
+3
+3
+Risk-free interest rate
+3.63
+%
+4.19
+%
+Expected volatility
+21.61
+%
+23.20
+%
+The following table provides compensation expense for PSUs:
+Three Months Ended
+March 31,
+2026
+2025
+Stock-based compensation within operations and maintenance expenses
+$
+1,151
+$
+1,416
+Income tax benefit
+$
+290
+$
+358
+The following table summarizes the PSU transactions for the three months ended March 31, 2026:
+Number
+Weighted
+of
+Average
+Share Units
+Fair Value
+Nonvested share units at beginning of period
+512,454
+$
+35.85
+Granted
+172,080
+$
+41.44
+Performance criteria adjustment
+(
+72,092
+)
+$
+39.22
+Actual vested
+(
+84,704
+)
+$
+45.07
+Forfeited
+(
+10,261
+)
+$
+36.92
+Nonvested share units at end of period
+517,477
+$
+35.66
+The per unit weighted-average fair value at the date of grant for PSUs granted during the three months ended March 31, 2026 and 2025 was $
+41.44
+and $
+34.25
+, respectively.
+17
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+Restricted Stock Units
+–
+A restricted stock unit (“RSU”) represents the right to receive a share of the Company’s common stock.  In prior years, RSUs were eligible to be earned at the end of a specified restricted period, which is generally
+three years
+, beginning on the date of grant.  Beginning in 2025, RSUs granted vest
+33
+% each year.  The following table provides the compensation expense and income tax benefit for RSUs:
+Three Months Ended
+March 31,
+2026
+2025
+Stock-based compensation within operations and maintenance expenses
+$
+1,235
+$
+907
+Income tax benefit
+$
+311
+$
+229
+The following table summarizes the RSU transactions for the three months ended March 31, 2026:
+Number
+Weighted
+of
+Average
+Stock Units
+Fair Value
+Nonvested stock units at beginning of period
+297,334
+$
+37.52
+Granted
+149,931
+$
+39.28
+Stock units vested
+(
+108,749
+)
+$
+40.94
+Forfeited
+(
+4,830
+)
+$
+36.77
+Nonvested stock units at end of period
+333,686
+$
+37.50
+The per unit weighted-average fair value at the date of grant for RSUs granted during the three months ended March 31, 2026 and 2025 was $
+39.28
+and $
+35.54
+, respectively.
+Stock Options
+– A stock option represents the option to purchase a number of shares of common stock of the Company as specified in the stock option grant agreement at the exercise price per share as determined by the closing market price of our common stock on the grant date.  Stock options are exercisable in installments of
+33
+% annually, starting
+one year
+from the grant date and expire
+10
+years from the grant date, subject to satisfaction of designated performance goals.  The following table provides the compensation cost and income tax benefit for stock-based compensation related to stock options:
+Three Months Ended
+March 31,
+2026
+2025
+Stock-based compensation within operations and maintenance expenses
+$
+280
+$
+269
+Income tax benefit
+$
+70
+$
+68
+18
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+The fair value of options was estimated at the grant date using the Black-Scholes option-pricing model.  The following assumptions were used in the application of this valuation model for the 2026 and 2025 grants:
+﻿
+\
+2026
+2025
+Expected term (years)
+5.5
+5.5
+Risk-free interest rate
+3.85
+%
+4.22
+%
+Expected volatility
+22.48
+%
+28.50
+%
+Dividend yield
+3.49
+%
+3.69
+%
+Grant date fair value per option
+$
+7.00
+$
+7.95
+The following table summarizes stock option transactions for the three months ended March 31, 2026:
+Weighted
+Weighted
+Average
+Average
+Aggregate
+Exercise
+Remaining
+Intrinsic
+Shares
+Price
+Life (years)
+Value
+Outstanding at beginning of period
+1,069,386
+$
+36.63
+Granted
+197,851
+$
+39.15
+Forfeited
+(
+1,443
+)
+$
+35.43
+Exercised
+(
+6,367
+)
+$
+32.78
+Outstanding at end of period
+1,259,427
+$
+37.06
+5.6
+$
+4,709
+Exercisable at end of period
+892,580
+$
+36.87
+4.1
+$
+3,700
+Restricted Stock –
+Restricted stock awards provide the grantee with the rights of a shareholder, including the right to receive dividends and to vote such shares, but not the right to sell or otherwise transfer the shares during the restriction period, which is one year from the date of issuance of the award.  The following table provides the compensation cost and income tax benefit for stock-based compensation related to restricted stock:
+Three Months Ended
+March 31,
+2026
+2025
+Stock-based compensation within operations and maintenance expenses
+$
+12
+$
+12
+Income tax benefit
+$
+3
+$
+3
+19
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+The following table summarizes restricted stock transactions for the three months ended March 31, 2026:
+t
+Number
+Weighted
+of
+Average
+Shares
+Fair Value
+Nonvested restricted stock at beginning of period
+-
+$
+-
+Granted
+1,323
+$
+37.79
+Vested
+-
+$
+-
+Nonvested restricted stock at end of period
+1,323
+$
+37.79
+Stock Awards
+–   Stock awards represent the issuance of the Company’s common stock, without restriction.  The issuance of stock awards results in compensation expense that is equal to the fair market value of the stock on the grant date and is expensed immediately upon grant.  There were
+no
+stock awards granted and vested during the three months ended March 31, 2026 and March 31, 2025.
+Note 11 –
+Pension Plans and Other Postretirement Benefits
+The Company maintains a qualified defined benefit pension plan (the “Pension Plan”), a nonqualified pension plan, and other postretirement benefit plans for certain of its employees.
+The following tables provide the components of net periodic benefit cost for the Company’s pension and other postretirement benefit plans:
+Pension Benefits
+Three Months Ended
+March 31,
+2026
+2025
+Service cost
+$
+222
+$
+304
+Interest cost
+3,771
+3,991
+Expected return on plan assets
+(
+4,251
+)
+(
+4,266
+)
+Amortization of prior service cost
+77
+78
+Amortization of actuarial loss
+824
+833
+Net periodic benefit cost
+$
+643
+$
+940
+20
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+Other
+Postretirement Benefits
+Three Months Ended
+March 31,
+2026
+2025
+Service cost
+$
+415
+$
+372
+Interest cost
+1,138
+1,132
+Expected return on plan assets
+(
+1,155
+)
+(
+1,071
+)
+Amortization of actuarial gain
+(
+662
+)
+(
+401
+)
+Net periodic benefit cost (credit)
+$
+(
+264
+)
+$
+32
+The net periodic benefit cost is based on estimated values and an extensive use of assumptions about the discount rate, expected return on plan assets, the rate of future compensation increases received by the Company’s employees, mortality, turnover, and medical costs.  The Company presents the components of net periodic benefit cost other than service cost in the condensed consolidated statements of operations and comprehensive income on the line item “Other”.
+In December 2025, the Company’s Board of Directors approved the termination of its non-qualified pension plan.  Consequently, participants in the non-qualified plan have stopped earning benefits.  The settlement of the benefit obligations is expected to occur during the fourth quarter of 2026.   As of March 31, 2026 and December 31, 2025, the total benefit obligation associated with the non-qualified pension plan was $
+18,404
+and $
+18,406
+, respectively, and is included in other accrued liabilities in the consolidated balance sheets.
+The Company did
+no
+t make cash contributions to the Pension Plan during the first quarter of 2026 and intends to make cash contributions of $
+2,416
+later in the year.
+Note 12 –
+Rate Activity
+Completed Rate Case Proceedings
+On July 1, 2025, the Company’s natural gas operating subsidiary in Kentucky received an order from the Kentucky Public Service Commission approving the settlement agreement that allowed base rate increases designed to increase total annual operating revenue by $
+7,700
+or
+11.2
+%.  New rates went into effect on July 1, 2025.
+On February 7, 2025, the Pennsylvania Public Utility Commission (“PAPUC”) issued an order approving, with certain minor modifications, the joint petition for non-unanimous partial settlement filed by Aqua Pennsylvania, Office of Consumer Advocate, and other groups, that allowed a base rate increase designed to increase total annual operating revenues by $
+73,000
+. New rates went into effect on February 22, 2025.  At the time the rate order was received, the rates in effect also included $
+37,940
+in Distribution System Improvement Charges (“DSIC”), which was
+6.73
+% above prior base rates. Consequently, the aggregate annual base rates increased by $
+110,940
+since the last base rate increase and DSIC was reset to zero.
+21
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+During the three months ended March 31, 2026,
+two
+of the Company’s water and wastewater utility operating divisions in Ohio and
+two
+of the Company’s wastewater utility operating divisions in Indiana implemented approved base rate increases designed to increase total operating revenues on an annual basis by $
+1,834
+and by $
+1,003
+, respectively.  Further, during the three months ended March 31, 2026, the Company implemented infrastructure rehabilitation surcharges designed to increase total operating revenues on an annual basis by $
+301
+in its water and wastewater utility operating divisions in Pennsylvania, by $
+2,610
+in its water and wastewater utility operating divisions in Illinois, by $
+6,557
+in its natural gas operating division in Pennsylvania, and by $
+2,819
+in its natural gas operating division in Kentucky.
+Pending Base Rate Cases
+On March 27, 2026, the Company’s natural gas operating subsidiary in Pennsylvania filed an application with the PAPUC to increase operating revenues for its natural gas distribution service by approximately $
+163,000
+annually.
+On January 30, 2026, the Company’s regulated water and wastewater operating subsidiary in New Jersey, Aqua New Jersey, filed an application with the New Jersey Board of Public Utilities designed to increase revenues by $
+7,886
+annually.
+On July 30, 2025, the Company’s regulated water and wastewater operating subsidiary in Virginia, Aqua Virginia, filed an application with the State Corporation Commission designed to increase revenues by $
+7,927
+annually.  Interim rates were implemented on January 26, 2026,
+based on an estimate of the final outcome of the order
+, with the difference between interim and final approved rates subject to refund to customers.
+On June 30, 2025, the Company’s regulated water and wastewater operating subsidiaries in Ohio, Aqua Ohio and Aqua Ohio Wastewater, filed applications with the Public Utilities Commission of Ohio designed to increase rates in total by $
+14,653
+.
+On June 20, 2025, the Company’s regulated water and wastewater operating subsidiary in Texas, Aqua Texas, filed an application with the Public Utility Commission of Texas designed to increase rates by $
+29,149
+.
+Interim rates were implemented on March 9, 2026,
+based on an estimate of the final outcome of the order,
+with the difference between interim and final approved rates subject to refund to customers.
+On April 30, 2025, the Company’s regulated water and wastewater operating subsidiary in North Carolina, Aqua North Carolina, filed an application with the North Carolina Utilities Commission
+, which was updated on August 18, 2025
+.  The updated rate case filing requests an increase in rates of $
+30,154
+in the first year of new rates being implemented, then by an additional $
+6,014
+and $
+6,074
+in the second and third years, respectively.
+Interim rates were implemented on January 1, 2026,
+based on an estimate of the final outcome of the order,
+with the difference between interim and final approved rates subject to refund to customers.
+22
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+Note 13 –
+Taxes Other than Income Taxes
+The following table provides the components of taxes other than income taxes:
+Three Months Ended
+March 31,
+2026
+2025
+Property
+$
+9,660
+$
+9,070
+Gross receipts, excise and franchise
+4,658
+2,886
+Payroll
+7,550
+6,961
+Regulatory assessments
+2,275
+2,035
+Pumping fees
+1,292
+1,340
+Other
+545
+587
+Total taxes other than income
+$
+25,980
+$
+22,879
+\
+Note 14 –
+Segment Information
+The Company identifies a business as an operating segment if: i) it engages in business activities from which it may earn revenues and incur expenses; ii) its operating results are regularly reviewed by the chief operating decision maker (“CODM”), who is the Company’s Chief Executive Officer, to make decisions about resources to be allocated to the segment and assess its performance; and iii) it has available discrete financial information. The CODM reviews financial information, such as budget-to-actual variances and comparisons against prior period, at the operating segment level, and uses that information when making decisions about the allocation of operating and capital resources to each segment. The CODM evaluates the performance of the Company’s reportable segments based on a number of factors, the primary measure being the net income (loss) of each segment.
+The Company has
+eleven
+operating segments and
+two
+reportable segments.  The Regulated Water segment is comprised of
+eight
+operating segments representing its water and wastewater regulated utility companies, which are organized by the states where the Company provides water and wastewater services.  The
+eight
+water and wastewater utility operating segments are aggregated into
+one
+reportable segment, because each of these operating segments has the following similarities: economic characteristics, nature of services, production processes, customers, water distribution or wastewater collection methods, and the nature of the regulatory environment.  The Regulated Natural Gas segment is comprised of
+one
+operating segment representing the Company’s natural gas utility companies, which provide natural gas distribution to retail, commercial, and industrial customers.
+In addition to the Company’s
+two
+reportable segments, the Company includes
+two
+operating segments within the Other category below.  These segments are not quantitatively significant and are comprised of its non-regulated natural gas operations and non-regulated water and wastewater operations.  In addition to these segments, Other is comprised of business activities not included in the reportable segments, corporate costs that have not been allocated to the Regulated Water and Regulated Natural Gas segments, and intersegment eliminations.  Corporate costs include general and administrative expenses, and interest expense.  The Company reports these corporate costs within Other as they relate to corporate-focused responsibilities and decisions and are not included in internal measures of segment operating performance used by the Company to measure the underlying performance of the operating segments.
+23
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+The following table presents information about the Company’s reportable segments and reconciliations to consolidated amounts.
+Asset information by segment is not utilized for purposes of assessing performance or allocating resources, and, as a result, such information is not presented.
+Three Months Ended
+Three Months Ended
+March 31, 2026
+March 31, 2025
+Regulated Water
+Regulated Natural Gas
+Total Reportable Segments
+Other and Elims
+Consolidated
+Regulated Water
+Regulated Natural Gas
+Total Reportable Segments
+Other and Elims
+Consolidated
+Revenues from external customers
+$
+322,975
+$
+528,458
+$
+851,433
+$
+10,326
+$
+861,759
+$
+300,848
+$
+469,451
+$
+770,299
+$
+13,327
+$
+783,626
+Intersegment revenues
+-
+954
+954
+(
+954
+)
+-
+-
+1,346
+1,346
+(
+1,346
+)
+-
+Total operating revenues
+$
+322,975
+$
+529,412
+$
+852,387
+$
+9,372
+$
+861,759
+$
+300,848
+$
+470,797
+$
+771,645
+$
+11,981
+$
+783,626
+Operations and maintenance expense
+$
+103,122
+$
+56,233
+$
+159,355
+$
+16,440
+$
+175,795
+$
+89,418
+$
+55,675
+$
+145,093
+$
+(
+7,269
+)
+$
+137,824
+Purchased gas
+$
+-
+$
+233,302
+$
+233,302
+$
+5,313
+$
+238,615
+$
+-
+$
+176,959
+$
+176,959
+$
+7,682
+$
+184,641
+Depreciation and amortization
+$
+69,691
+$
+40,580
+$
+110,271
+$
+458
+$
+110,729
+$
+60,629
+$
+38,339
+$
+98,968
+$
+409
+$
+99,377
+Taxes other than income taxes
+$
+18,286
+$
+6,029
+$
+24,315
+$
+1,665
+$
+25,980
+$
+15,592
+$
+5,754
+$
+21,346
+$
+1,533
+$
+22,879
+Interest expense, net
+$
+39,881
+$
+27,745
+$
+67,626
+$
+18,070
+$
+85,696
+$
+36,563
+$
+26,140
+$
+62,703
+$
+19,133
+$
+81,836
+Allowance for funds used during construction
+$
+(
+4,700
+)
+$
+(
+1,060
+)
+$
+(
+5,760
+)
+$
+-
+$
+(
+5,760
+)
+$
+(
+4,732
+)
+$
+(
+1,100
+)
+$
+(
+5,832
+)
+$
+-
+$
+(
+5,832
+)
+Other segment items
+(a)
+$
+682
+$
+(
+183
+)
+$
+499
+$
+(
+574
+)
+$
+(
+75
+)
+$
+27
+$
+(
+127
+)
+$
+(
+100
+)
+$
+(
+193
+)
+$
+(
+293
+)
+Provision for income taxes (benefit)
+$
+14,695
+$
+(
+25,464
+)
+$
+(
+10,769
+)
+$
+17,156
+$
+6,387
+$
+(
+4,571
+)
+$
+(
+20,348
+)
+$
+(
+24,919
+)
+$
+4,324
+$
+(
+20,595
+)
+Net income (loss)
+$
+81,318
+$
+192,230
+$
+273,548
+$
+(
+49,156
+)
+$
+224,392
+$
+107,922
+$
+189,505
+$
+297,427
+$
+(
+13,638
+)
+$
+283,789
+Capital expenditures
+$
+178,182
+$
+91,067
+$
+269,249
+$
+-
+$
+269,249
+$
+155,688
+$
+114,851
+$
+270,539
+$
+-
+$
+270,539
+(a)
+Other segment items mainly consists of the non-service cost component of pension and other postretirement benefits for our regulated segments and gain on sale of other assets.
+Note 15 –
+Commitments and Contingencies
+The Company is routinely involved in various disputes, claims, lawsuits and other regulatory and legal matters, including both asserted and unasserted legal claims, in the ordinary course of business.  The status of each such matter, referred to herein as a loss contingency, is reviewed and assessed in accordance with applicable accounting rules regarding the nature of the matter, the likelihood that a loss will be incurred, and the amounts involved.
+As of March 31, 2026, the aggregate amount of $
+23,375
+is accrued for loss contingencies and is reported in the Company’s condensed consolidated balance sheet as other accrued liabilities and other liabilities.  These accruals represent management’s best estimate of probable loss (as defined in the accounting guidance) for loss contingencies or the low end of a range of losses if no single probable loss can be estimated.  For some loss contingencies, the Company is unable to estimate the amount of the probable loss or range of probable losses.  Further, Essential Utilities has insurance coverage for certain of these loss contingencies, and as of March 31, 2026, estimates that approximately $
+768
+of the amount accrued for these matters are probable of recovery through insurance, which amount is also reported in the Company’s condensed consolidated balance sheet as deferred charges and other assets, net.
+During a portion of 2019, the Company’s Illinois subsidiary initiated a do not consume advisory for some of its customers in one division served by the Company’s Illinois subsidiary.
+The do not consume advisory was lifted in 2019 and, in 2022, the water system was determined to be in compliance with the federal Lead and Copper Rule.
+The Company has
+accrued for the penalty and other fees that will be paid as a result of a settlement that was reached with the state and local regulators and approved by the
+24
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+Illinois court with jurisdiction over this matter in July 2024.
+In addition,
+on September 3, 2019,
+two
+individuals, on behalf of themselves and those similarly situated, commenced an action against the Company’s Illinois subsidiary in the State court in Will County, Illinois related to this do not consume advisory.  The complaint sought class action certification, attorney’s fees, and “damages, including, but not limited to, out of pocket damages, and discomfort, aggravation, and annoyance” based upon the water provided by the Company’s subsidiary to a discrete service area in University Park, Illinois.  The complaint contains allegations of damages as a result of supplied water.
+In December, 2024, the State court in Will County, Illinois dismissed the case against the Company, and plaintiffs have filed an appeal of that decision.
+In addition, plaintiffs commenced similar actions in federal court and in front of two state agencies.  The Company has an accrual for the amount of loss asserted in the complaint that we determined to be probable and estimable of being incurred.  Further, the Company submitted a claim for the expenses incurred to its insurance carriers for potential recovery of a portion of these costs and is currently in litigation with one of its carriers seeking to enforce its claims, and recently prevailed in the Third Circuit Court of Appeals which held that the insurance carrier possessed a duty to defend.  In February 2025, the Company received $
+5,602
+in related insurance proceeds for a portion of expenses incurred by the Company. In the first quarter of 2026, all parties conditionally agreed to resolve all matters, including the insurance litigation.  The class action settlement was
+filed in the appropriate jurisdiction and was preliminarily approved by the court. The final approval of the class action settlement is expected in 2026. The insurance related matter was settled and a dismissal was filed in the jurisdiction where that matter was pending.
+While the final outcome of this claim cannot be predicted with certainty, and unfavorable outcomes could negatively impact the Company, at this time in the opinion of management, the final resolution of this matter is not expected to have a material adverse effect on the Company’s financial position, results of operations, or cash flows.
+A number of the Company’s subsidiaries are parties to several lawsuits against manufacturers of certain per- and polyfluoroalkyl substances or compounds (“PFAS”) for damages, contribution and reimbursement of costs incurred and continuing to be incurred to address the presence of such PFAS in public water supply systems owned and operated by these utility subsidiaries throughout its service area.  One such suit to which the Company is a party is a multi-district litigation (the “MDL”) lawsuit which commenced on December 7, 2018, in the United States District Court for the District of South Carolina.  Several defendants in such lawsuit have agreed to settle.  In 2024, the MDL court granted approval of the DuPont, 3M, Tyco Fire Products LP, and BASF Corp class action settlements.   The total amount of recovery by the Company is uncertain.  In 2025, the Company received a total of $
+46,166
+, representing a portion of its share of the settlement reached with 3M and DuPont, net of legal fees and settlement costs.  During the three months ended March 31, 2026, the Company received an additional $
+252
+from DuPont.  As of March 31, 2026, the Company presented $
+9,972
+of the proceeds allocated to its North Carolina and Virginia water and wastewater subsidiaries as a regulatory liability, pursuant to regulatory orders issued by the public utility commissions from such states regarding the treatment of PFAS settlement costs.  The remaining proceeds received that were allocated to the Company’s other water and wastewater subsidiaries totaling $
+36,446
+were recorded within Deferred credits and other non-current liabilities in the accompanying condensed consolidated balance sheets, pending recommendation or order from the respective public utility commissions on treatment of the amounts. These cash proceeds are presented within Other in the cash flows from operating activities in the accompanying condensed consolidated statement of cash flows.  In April 2026, the Company received a portion of the Tyco settlement, net of legal fees and settlement costs, amounting to $
+7,260
+.  The Company anticipates receiving additional settlement payments from the MDL lawsuit defendants over the next ten years.
+25
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+The Company’s gas subsidiary was served with lawsuits surrounding a home explosion in August 2023 in which six individuals lost their lives.  The twelve lawsuits bring the actions against several other defendants and seek damages for loss of life, property, emotional distress, and other damage. The Company is vigorously defending against this claim.  While the final outcome of this claim cannot be predicted with certainty, and unfavorable outcomes could negatively impact the Company, at this time in the opinion of management, the final resolution of this matter is not expected to have a material adverse effect on the Company’s financial position, results of operations, or cash flows.
+The Company’s Pennsylvania wastewater subsidiary was recently served with a complaint brought by the City of Chester in the ongoing series of suits with respect to the DELCORA acquisition.  In the case, the City requests a Declaratory Judgement seeking that the court enjoin and prevent the transfer of certain assets from DELCORA to the Company’s wastewater subsidiary.  The Company’s wastewater subsidiary, in response, filed a counterclaim against the City of Chester, among other filings.
+At this juncture, we do not feel that a loss (here the potential termination of our agreement with DELCORA) is probable.
+Although the results of legal proceedings cannot be predicted with certainty, other than disclosed above, there are no pending legal proceedings to which the Company or any of its subsidiaries is a party or to which any of its properties is the subject that are material or are expected to have a material effect on the Company’s financial position, results of operations, or cash flows.
+In addition to the aforementioned loss contingencies, the Company self-insures a portion of its employee medical benefit program, and maintains stop-loss coverage to limit the exposure arising from these claims.  The Company’s reserve for these claims totaled $
+4,934
+at March 31, 2026 and represents a reserve for unpaid claim costs, including an estimate for the cost of incurred but not reported claims.
+On October 25, 2025, the Company entered into an agreement with a financial advisor (“Advisor”) for services to be rendered in connection with the consummation of the merger with American Water, pursuant to which the Company will pay the Advisor a fee of $
+60,000
+(“Transaction Fee”) upon the achievement of certain milestones.  If the Merger fails to close, a termination fee equal to
+10
+% of any compensation payable to the Company will be due to the Advisor, but not to exceed the Transaction Fee. As of December 31, 2025, the Company has incurred $
+12,000
+of the Transaction Fee.  During the three months ended March 31, 2026, the Company incurred additional fees of $
+13,000
+payable to the Advisor.   The Company includes pre-merger expenses within Operations and maintenance expense line on the condensed consolidated statements of operations and comprehensive income.
+26
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS (continued)
+(In thousands of dollars, except per share amounts)
+(UNAUDITED)
+Note 16 –
+Income Taxes
+The Company’s effective tax rate was an expense of
+2.8
+% and a benefit of
+7.8
+% for the three months ended March 31, 2026 and 2025, respectively.  The change in the effective tax rate for the three months ended March 31, 2026 over the first three months of 2025 is primarily attributed to last year’s release of $
+22,575
+of income tax reserve regulatory liability in the Regulated Water segment based on the rate order received by Aqua Pennsylvania in February 2025 not recurring in the current year.
+In determining its interim tax provision, the Company reflects its estimated impact from its permanent and flow-through tax differences
+.
+The Company uses the flow-through method to account for the repairs tax deduction for qualifying utility infrastructure at its regulated Pennsylvania and New Jersey subsidiaries.
+The statutory Federal tax rate is
+21.0
+% for the three months ended March 31, 2026 and 2025.  For states with a corporate net income tax, the state corporate net income tax rates range from
+2.0
+% to
+9.5
+% for all periods presented.  Our effective tax rate differs from the federal statutory tax rate primarily due to flow-through tax, the amortization of deferred benefit from repair method changes, state income taxes, and other permanent book-to-tax differences.
+On July 4, 2025, H.R.1 – One Big Beautiful Bill Act (“OBBBA”) was enacted into law. The OBBBA includes significant provisions such as the permanent extension of certain expiring provisions of the 2017 Tax Cuts and Jobs Act.  The OBBBA did not have a significant impact to our consolidated financial statements.
+Note 17
+– Recent Accounting Pronouncements and Disclosure Rules
+Pronouncements to be adopted upon the effective date:
+In November 2024, the FASB issued ASU 2024-03, “
+Income Statement Reporting–Comprehensive Income–Expense Disaggregation Disclosures (Subtopic 220-40), Disaggregation of Income Statement Expenses”
+. The standard update improves the disclosures about a public business entity’s expenses by requiring more detailed information about the types of expenses (including purchases of inventory, employee compensation, depreciation, and amortization) included within income statement expense captions. The guidance will be effective for annual reporting periods beginning after December 15, 2026, and interim reporting periods beginning after December 15, 2027. Early adoption is permitted. The standard updates are to be applied prospectively with the option for retrospective application. The Company is currently evaluating the impact of adoption of the standard update on its financial statement disclosures.
+27
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+MANAGEMENT’S DISCUSSION AND ANALYSIS OF
+FINANCIAL CONDITION AND RESULTS OF OPERATIONS
+(In thousands of dollars, except per share amounts)
+Item 2 – Management’s Discussion and Analysis of Financial Condition and Results of Operations
+Forward-looking Statements
+This Management’s Discussion and Analysis of Financial Condition and Results of Operations and other sections of this Quarterly Report contain, in addition to historical information, forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995. These forward-looking statements address, among other things: the expected timing of closing of our acquisitions; the projected impact of various legal proceedings; the projected effects of recent accounting pronouncements; the proposed merger with American Water Works Company, Inc. (“American Water”); prospects, plans, objectives, expectations and beliefs of management, as well as information contained in this report where statements are preceded by, followed by or include the words “believes,” “expects,” “estimates,” “anticipates,” “plans,” “future,” “potential,” “probably,” “predictions,” “intends,” “will,” “continue,” “in the event” or the negative of such terms or similar expressions. Forward-looking statements are based on a number of assumptions concerning future events, and are subject to a number of risks, uncertainties and other factors, many of which are outside our control, which could cause actual results to differ materially from those expressed or implied by such statements. These risks and uncertainties include, among others, the effects of regulation, abnormal weather, geopolitical forces, the impact of inflation and supply chain pressures, including those resulting from changes in government fiscal policies and regulations, the imposition of tariffs, the threat of cyber-attacks and data breaches, changes in capital requirements and funding, the success of growth initiatives, including pending acquisitions, changes to the capital markets, our ability to control operating expenses and our ability to assimilate acquired operations, as well as those risks, uncertainties and other factors discussed in our Annual Report on Form 10-K for the fiscal year ended December 31, 2025 under the captions “Risk Factors” and “Management’s Discussion and Analysis of Financial Condition and Results of Operations” and elsewhere in such reports. In addition to the foregoing, there are various risks and other uncertainties associated with the Company’s proposed merger with American Water, including a fixed exchange ratio that will not adjust or account for fluctuations in American Water’s or the Company’s stock price; limitations on the parties’ ability to pursue alternatives to the proposed merger;
+an event, change or other circumstance that could give rise to the termination of the merger agreement; a delay in the timing to consummate the proposed merger; each party’s ability to obtain required governmental and regulatory approvals required for the proposed merger (and/or that such approvals may result in the imposition of burdensome or commercially undesirable conditions, including required dispositions, that could adversely affect the combined company or the expected benefits of the proposed merger);
+financial impacts of the proposed merger on the Company and the combined company’s earnings, earnings per share, financial condition, results of operations, cash flows and share price, and any related accounting impacts; any impact of the proposed merger on the Company’s ability to declare and pay quarterly dividends on its common stock; the risk of litigation related to the proposed merger; changes in the parties’ key management and personnel; the amount and nature of incurred transaction costs associated with the proposed merger; and reduced ownership and voting interests for the Company’s and American Waters’s shareholders upon completion of the proposed merger. As a result, readers are cautioned not to place undue reliance on any forward-looking statements. We undertake no obligation to update or revise forward-looking statements, whether as a result of new information, future events or otherwise.
+28
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+MANAGEMENT’S DISCUSSION AND ANALYSIS OF
+FINANCIAL CONDITION AND RESULTS OF OPERATIONS (continued)
+(In thousands of dollars, except per share amounts)
+General Information
+Essential Utilities, Inc. (“we”, “us”, “our” or the “Company”), a Pennsylvania corporation, is the holding company for regulated utilities providing water, wastewater, or natural gas services to an estimated 5.5 million people in Pennsylvania, Ohio, Texas, Illinois, North Carolina, New Jersey, Indiana, Virginia, and Kentucky under the Aqua and Peoples brands.  One of our largest operating subsidiaries, Aqua Pennsylvania, Inc. (“Aqua Pennsylvania”), provides water or wastewater services to approximately one-half of the total number of water or wastewater customers we serve, who are located in the suburban areas in counties north and west of the City of Philadelphia and in 28 other counties in Pennsylvania.  Our other regulated water or wastewater utility subsidiaries provide similar services in seven additional states.  Our Peoples subsidiaries provide natural gas distribution services to customers in western Pennsylvania and Kentucky.  Approximately 95% of the total number of natural gas utility customers we serve are in western Pennsylvania.  The Company also operates market-based businesses, conducted through its non-regulated subsidiaries, that provide utility service line protection solutions and repair services to households and gas marketing and production activities.   Currently, the Company seeks to acquire businesses in the U.S. regulated sector, focusing on water and wastewater utilities and to opportunistically pursue growth ventures in select market-based activities, such as infrastructure opportunities that are supplementary and complementary to our regulated water utility businesses.
+The following discussion and analysis of our financial condition and results of operations should be read together with our condensed consolidated financial statements and related notes.
+Execution of Agreement and Plan of Merger with American Water
+On October 26, 2025, American Water Works Company, Inc. (“American Water”), Alpha Merger Sub, Inc., a direct wholly owned subsidiary of American Water (“Merger Sub”), and the Company, entered into an Agreement and Plan of Merger (the “Merger Agreement”).  The Merger Agreement provides that upon the terms and subject to the conditions set forth in the Merger Agreement, Merger Sub will merge with and into the Company (the “Merger”), with the Company surviving the Merger as a wholly owned subsidiary of American Water.   Subject to the terms and conditions of the Merger Agreement, at the time at which the Merger becomes effective (the “Effective Time”), each share of the Company’s common stock, par value $0.50 per share (“Essential Common Stock”), issued and outstanding immediately prior to the Effective Time, other than any shares of Essential Common Stock owned by American Water or Merger Sub or by the Company as treasury stock (in each case, other than restricted shares), will be converted into the right to receive 0.305 shares (the “Exchange Ratio”) of validly issued, fully paid and nonassessable common stock, par value $0.01 per share, of American Water (“American Water Common Stock”) (the aggregate number of such shares of American Water Common Stock to be issued in the Merger).  On February 10, 2026, at the respective special shareholder meetings of the Company and American Water, each company’s shareholders approved the merger-related proposals, satisfying certain of the conditions to closing.
+29
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+MANAGEMENT’S DISCUSSION AND ANALYSIS OF
+FINANCIAL CONDITION AND RESULTS OF OPERATIONS (continued)
+(In thousands of dollars, except per share amounts)
+Consummation of the Merger is subject to certain remaining customary conditions, including the receipt of certain governmental approvals, including (a) the expiration or termination of the applicable waiting period under the Hart-Scott-Rodino Antitrust Improvements Act of 1976, and (b) the approval of certain public utility commissions, in each case on such terms and conditions that would not, individually or in the aggregate, result in a “Burdensome Effect” (as defined in the Merger Agreement).  There can be no guarantee that all of the closing conditions and approvals will be satisfied, and the failure to complete the proposed merger on a timely basis or at all may adversely affect the Company’s financial condition and results of operations. The Company currently estimates that the closing of the proposed merger will occur by the end of the first quarter of 2027.  During the three months ended March 31, 2026, the Company incurred $16,300 of pre-merger related expenses which is presented within operations and maintenance expense in the condensed consolidated statements of operations and comprehensive income.
+Macroeconomic Factors
+Our business is subject to various economic factors that affect our customers and our industry.  We continue to evaluate the evolving macroeconomic environment, including those impacts resulting from  potential changes to environmental regulations and geopolitical conflicts, and to take action to mitigate the impact on our business, consolidated results of operations, and financial condition.  Timely and adequate rate relief is important to our continued profitability and in providing a fair return to our shareholders.  We continue to pursue enhancements to our regulatory practices to facilitate the efficient recovery of the increased cost of providing services and infrastructure improvements in our rates and mitigate the inherent regulatory lag associated with traditional rate making processes.
+Regulatory Developments
+During the three months ended March 31, 2026, two of the Company’s water and wastewater utility operating divisions in Ohio and two of the Company’s wastewater utility operating divisions in Indiana implemented approved base rate increases designed to increase total operating revenues on an annual basis by $1,834 and by $1,003, respectively.  Further, during the three months ended March 31, 2026, the Company implemented infrastructure rehabilitation surcharges designed to increase total operating revenues on an annual basis by $301 in its water and wastewater utility operating divisions in Pennsylvania, by $2,610 in its water and wastewater utility operating divisions in Illinois, by $6,557 in its natural gas operating division in Pennsylvania, and by $2,819 in its natural gas operating division in Kentucky.
+On March 27, 2026, the Company’s natural gas operating subsidiary in Pennsylvania filed an application with the Pennsylvania Public Utility Commission to
+increase operating revenues for its natural gas distribution service by approximately $163,000 annually
+.
+On January 30, 2026, the Company’s regulated water and wastewater operating subsidiary in New Jersey, Aqua New Jersey, filed an application with the New Jersey Board of Public Utilities designed to increase revenues by $7,886 annually.
+30
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+MANAGEMENT’S DISCUSSION AND ANALYSIS OF
+FINANCIAL CONDITION AND RESULTS OF OPERATIONS (continued)
+(In thousands of dollars, except per share amounts)
+On July 30, 2025, the Company’s regulated water and wastewater operating subsidiary in Virginia, Aqua Virginia, filed an application with the State Corporation Commission designed to increase revenues by $7,927 annually.  Interim rates were implemented on January 26, 2026 based on an estimate of the final outcome of the order, with the difference between interim and final approved rates subject to refund to customers.
+On June 30, 2025, the Company’s regulated water and wastewater operating subsidiaries in Ohio, Aqua Ohio and Aqua Ohio Wastewater, filed applications with the Public Utilities Commission of Ohio designed to increase rates in total by $14,653.
+On June 20, 2025, the Company’s regulated water and wastewater operating subsidiary in Texas, Aqua Texas, filed an application with the Public Utility Commission of Texas designed to increase rates by $29,149.
+Interim rates were implemented on March 9, 2026, with the difference between interim and final approved rates subject to refund to customers based on an estimate of the final outcome of the order.
+On April 30, 2025, the Company’s regulated water and wastewater operating subsidiary in North Carolina, Aqua North Carolina, filed an application with the North Carolina Utilities Commission
+, which was updated on August 18, 2025
+.  The updated rate case filing requests an increase in rates of $30,154 in the first year of new rates being implemented, then by an additional $6,014 and $6,074 in the second and third years, respectively.
+Interim rates were implemented on January 1, 2026,
+based on an estimate of the final outcome of the order,
+with the difference between interim and final approved rates subject to refund to customers.
+Growth Through Acquisitions and Capital Investment
+In March 2026, the Company acquired Greenville Municipal Water Authority’s water utility system in Greenville, Pennsylvania which serves approximately 3,000 customers for $18,000.  As of March 31, 2026, the Company had four signed purchase agreements for additional water and wastewater systems that are expected to serve approximately 201,000 equivalent retail customers or equivalent dwelling units and total approximately $286,000 in purchase price in three of our existing states. This includes the Company’s agreement to acquire the Delaware County Regional Water Quality Control Authority (DELCORA) for $276,500. DELCORA, a Pennsylvania sewer authority, serves approximately 198,000 equivalent dwelling units in the Philadelphia suburbs.  Refer to Note 3 – Water and Wastewater Acquisitions for further discussion.
+During the three-month period ended March 31, 2026, we invested $269,249 to improve our regulated water and natural gas infrastructure system and to enhance customer service.  From 2026 through 2030, the Company plans to invest approximately $8,700,000 to improve water and natural gas systems and better serve customers through improved information technology.  The capital investments made to rehabilitate and expand the infrastructure of the communities the Company serves are critical to its mission of safely and reliably delivering Earth’s most essential resources.
+31
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+MANAGEMENT’S DISCUSSION AND ANALYSIS OF
+FINANCIAL CONDITION AND RESULTS OF OPERATIONS (continued)
+(In thousands of dollars, except per share amounts)
+Multi-District Litigation Class Action Settlement
+A number of the Company’s water and wastewater subsidiaries are parties to a multi-district litigation (the “MDL”) lawsuit in the United States District Court for the District of South Carolina against manufacturers of certain per- and polyfluoroalkyl substances or compounds (“PFAS”) for damages, contribution and reimbursement of costs incurred and continuing to be incurred to address the presence of such PFAS in public water supply systems.  In 2024, the MDL court granted approval of the DuPont, 3M, Tyco Fire Products LP, and BASF Corp class action settlements.   The total amount of recovery by the Company is uncertain.  During the three months ended March 31, 2026, the Company received an additional $252 from DuPont.   As of March 31, 2026, the Company presented $9,972 of the proceeds allocated to its North Carolina and Virginia water and wastewater subsidiaries as a regulatory liability, pursuant to regulatory orders issued by the public utility commissions from such states regarding the treatment of PFAS settlement costs.   The remaining proceeds received that were allocated to the Company’s other water and wastewater subsidiaries totaling $36,446 were recorded within deferred credits and other non-current liabilities in the accompanying condensed consolidated balance sheet, pending recommendation or order from the respective public utility commissions on treatment of the amounts. In April 2026, the Company received a portion of the Tyco settlement, net of legal fees and settlement costs, amounting to $7,260.  The Company anticipates receiving additional settlement payments from the MDL lawsuit defendants over the next ten years.
+Liquidity and Capital Resources
+Our regulated water and gas business is capital intensive and requires a significant level of capital spending.  The liquidity required to fund our working capital, capital expenditures and other cash needs is provided from a combination of internally generated cash flows and external debt and equity financing.  The Company’s condensed consolidated balance sheet historically has had a negative working capital position whereby our current liabilities routinely exceed our current assets.  Management believes that internally generated funds along with existing credit facilities, and the proceeds from the issuance of commercial paper notes, long-term debt and equity will be adequate to provide sufficient working capital to maintain normal operations and to meet our financing requirements for at least the next twelve months.
+Net cash flows from operating activities were $265,405 for the first three months of 2026, compared to $299,517 for the first three months of 2025.
+Operating cash flow decreased by $34,112 during the three months ended March 31, 2026 compared to the same period in the prior year primarily due to the timing of vendor payments and an increase in operations and maintenance expense.
+Net cash flows used in investing activities decreased by $20,419 primarily due to the $20,000 return of a portion of the Company’s convertible note investment in January 2026.   During the first three months of 2026, we incurred $269,249 of capital expenditures.  The capital expenditures were related to new and replacement water, wastewater, and natural gas mains, improvements to treatment plants, including additional treatment processes to remove PFAS compounds, tanks, hydrants, and service lines, well and booster improvements, information technology improvements, and other enhancements and improvements.
+32
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+MANAGEMENT’S DISCUSSION AND ANALYSIS OF
+FINANCIAL CONDITION AND RESULTS OF OPERATIONS (continued)
+(In thousands of dollars, except per share amounts)
+Net cash inflows from financing activities increased by $43,213 primarily due to lower debt repayments during the first three months of 2026 compared to the same period in 2025.
+On March 9, 2026, the Company issued $500,000 of senior notes, less expenses of $5,140, due on March 15, 2036, with an interest rate of 5.13%.  The Company used the proceeds from the issuance of the senior notes to repay a portion of its commercial paper borrowings and for general corporate purposes.   In addition to the senior notes issued by the Company, during the three months ended March 31, 2026, the Company’s regulated water subsidiaries obtained in the aggregate $15,187 of low-interest government loans to fund capital projects, with interest rates ranging from 0.46% to 1.743% and maturity dates ranging from 2030 to 2049.
+On March 19, 2025, the Company established the CP Program that allows it to issue, through private placement, short-term, unsecured commercial paper notes (the “CP Notes”) in an aggregate principal amount not to exceed $1,000,000.  Maturities of CP Notes may vary, but cannot exceed 364 days from the date of issue.  Amounts available under the CP Program may be borrowed, repaid, and re-borrowed from time to time.  The CP Program is reinforced by the Company’s revolving credit facility, as amounts undrawn under the Company’s revolving credit facility are available to repay the CP Notes.  Notes issued under the CP Program rank equally with the Company’s present and future unsecured indebtedness.  The Company utilizes the proceeds from the sale of the CP Notes for general corporate purposes, which may include working capital, capital expenditures, water and wastewater utility acquisitions, and repaying outstanding indebtedness, including under the Company’s revolving credit
+facility or the revolving credit facilities of its subsidiaries.  As of March 31, 2026, outstanding borrowings under the Company’s CP Program were $314,463, net of unamortized discount on issuance of $537, with a weighted average interest rate of 4.16%
+and weighted average remaining term of 16 days
+.
+On August 13, 2024, the Company established an ATM, under which we may issue
+and sell shares of our common stock up to an aggregate offering price of $1,000,000 (“2024 ATM”).  During the three months ended March 31, 2026, we issued 44,300 shares of common stock for net proceeds of approximately $1,800 under the 2024 ATM.  As of March 31, 2026, the 2024 ATM had approximately $658,900 of equity available for issuance.  The Company used the net proceeds from the sales of shares through the 2024 ATM for working capital, capital expenditures, water and wastewater utility acquisitions, and repaying a portion of outstanding indebtedness.
+At March 31, 2026, we had $75,926 of cash and cash equivalents compared to $34,778 at December 31, 2025.  During the first three months of 2026, we used the proceeds from long-term debt, the proceeds from the issuance of commercial paper, and the proceeds from issuance of common stock, as well as internally generated funds, for capital expenditures, repayment of existing indebtedness, payment of dividends, and general corporate purposes.
+33
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+MANAGEMENT’S DISCUSSION AND ANALYSIS OF
+FINANCIAL CONDITION AND RESULTS OF OPERATIONS (continued)
+(In thousands of dollars, except per share amounts)
+At March 31, 2026, our $1,000,000 unsecured revolving credit facility, which expires in December 2027, had $670,632 available for borrowing (net of $315,000 of capacity designated for outstanding principal borrowings under our commercial paper program and $14,368 letter of credit usage).  Additionally, at March 31, 2026, we had short-term lines of credit of $400,000, primarily used for working capital, of which $364,447 was available for borrowing.  Although we believe we will be able to renew these facilities, there is no assurance that they will be renewed, or what the terms of any such renewal will be.
+Credit Risk
+The Company and its subsidiaries’ access to capital markets and costs of financing are influenced by its credit ratings. Below summarizes the Company and its subsidiaries’ issuer and security credit ratings as of March 31, 2026:
+S&P
+Moody's
+Essential Utilities, Inc. -
+Issuer/corporate credit rating
+A - / Positive
+Baa2 / Negative
+Commercial paper
+A - 2
+P - 2
+Senior unsecured debt
+BBB+
+Baa2
+Aqua Pennsylvania, Inc. -
+Issuer/corporate credit rating
+A - / Positive
+Not Rated
+Senior secured
+A
+Not Rated
+PNG Companies LLC -
+Issuer/corporate credit rating
+A - / Stable
+Baa2 / Negative
+Senior secured
+A -
+Baa2
+The Company’s ability to maintain its credit rating depends, among other things, on adequate and timely rate relief, its ability to fund capital expenditures in a balanced manner using both debt and equity, and its ability to generate cash flow.  A material downgrade of our credit rating may result in the imposition of additional financial and/or other covenants, impact the market prices of equity and debt securities, increase our borrowing costs, and adversely affect our liquidity, among other things.  Management continues to enhance our regulatory practices to address regulatory lag and recover capital project
+costs and increases in operating costs efficiently and timely through various rate-making mechanisms.
+34
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+MANAGEMENT’S DISCUSSION AND ANALYSIS OF
+FINANCIAL CONDITION AND RESULTS OF OPERATIONS (continued)
+(In thousands of dollars, except per share amounts)
+Results of Operations
+Consolidated Results of Operations
+Consolidated financial and operational highlights for the periods ended March 31, 2026 and 2025 are presented below.
+Three Months Ended March 31,
+2026
+2025
+Increase (Decrease)
+% change
+Operating revenues
+$
+861,759
+$
+783,626
+$
+78,133
+10.0%
+Operations and maintenance expense
+$
+175,795
+$
+137,824
+$
+37,971
+27.6%
+Purchased gas
+$
+238,615
+$
+184,641
+$
+53,974
+29.2%
+Net income
+$
+224,392
+$
+283,789
+$
+(59,397)
+-20.9%
+Operating Statistics
+Selected operating results as a percentage of operating revenues:
+Operations and maintenance
+20.4%
+17.6%
+Purchased gas
+27.7%
+23.6%
+Depreciation and amortization
+12.8%
+12.7%
+Taxes other than income taxes
+3.0%
+2.9%
+Interest expense, net of interest income
+9.9%
+10.4%
+Net income
+26.0%
+36.2%
+Effective tax rate
+2.8%
+-7.8%
+Three months ended March 31, 2026 compared with three months ended March 31, 2025
+Consolidated operating revenues increased by $78,133 or 10.0% as compared to the same period in 2025.  Revenues from our Regulated Water and Regulated Natural Gas segments increased by $22,127 and  $58,615, respectively, while our Other segment decreased by $2,609.  A detailed discussion of the factors contributing to the changes in segment revenue is included below under the section, Segment Results of Operations.
+Consolidated operations and maintenance expense increased by $37,971 or 27.6%, primarily due to:
+
+pre-merger expenses of $16,300 consisting of financial advisor fees, legal expenses, communications and other professional fees during the first quarter of 2026;
+
+an increase in employee-related costs of $4,319, primarily resulting from annual merit increases,  higher incentive bonuses, and increase in overtime pay in our Regulated Water Segment due to higher weather-related main break activity during the first quarter of 2026;
+
+an increase in insurance expense of $6,344, of which $5,602 relates to an insurance recovery in the first quarter of 2025 of costs associated with remediating an advisory for some of our Illinois water utility customers;
+
+an increase in bad debt expense of $5,450 in our Regulated Water segment, of which $5,889 relates to a favorable regulatory asset adjustment in the first quarter of 2025;
+35
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+MANAGEMENT’S DISCUSSION AND ANALYSIS OF
+FINANCIAL CONDITION AND RESULTS OF OPERATIONS (continued)
+(In thousands of dollars, except per share amounts)
+
+an increase in contractor services of $2,135 in our Regulated Water segment, primarily due to higher main break activity, frozen service lines, and snow removal costs during the first quarter of 2026;
+
+an increase in production costs for water and wastewater operations of $1,826;
+
+additional operating costs associated with acquired and pending acquisitions of water and wastewater utility systems of $730; offset by
+
+a decrease in bad debt of expense of $2,029 in our Regulated Natural Gas segment; and
+
+a decrease in customer assistance surcharge costs of $903 in our Regulated Natural Gas segment, which generally has an offsetting amount in revenues.
+Purchased gas increased by $53,974 or 29.2%.  Purchased gas represents the cost of gas sold by the Company, which for the regulated natural gas business has a corresponding offset in revenue.  The increase is the result of an increase in the average cost of gas of $67,160 and lower gas usage of $13,186 during the first quarter of 2026.
+Depreciation and amortization expense increased by $11,352 or 11.4% principally due to continued capital expenditures to expand and improve our utility facilities, our acquisitions of new water and wastewater utility systems, and the implementation of new depreciation rates.
+Taxes other than income taxes increased by $3,101 or 13.6% primarily due to an increase in our Illinois subsidiary’s invested capital tax expense and an increase in payroll taxes as a result of higher employee compensation expense.
+Interest expense, net of interest income, increased by $3,860 or 4.7%.  Interest expense, net of interest income, increased by $3,318 in our Regulated Water segment and by $1,605 in our Regulated Natural Gas segment.  Interest expense, net of interest income, in Other relates to our corporate operations, and this decreased by $1,063 primarily due to our revolving credit facility borrowings being replaced by commercial paper issuances at a lower interest rate, beginning the second quarter of 2025.
+Our effective income tax rate
+was an expense of 2.8% in the first quarter of 2026, compared to a benefit of 7.8% in the first quarter of 2025.  The increase in the income tax expense is primarily attributed to
+last year’s release of $22,575 of income tax reserve regulatory liability in the Regulated Water segment based on the rate order received by Aqua Pennsylvania in February 2025 not recurring in the current year
+.
+36
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+MANAGEMENT’S DISCUSSION AND ANALYSIS OF
+FINANCIAL CONDITION AND RESULTS OF OPERATIONS (continued)
+(In thousands of dollars, except per share amounts)
+Segment Results of Operations
+Regulated Water Segment
+Our Regulated Water segment is comprised of eight operating segments representing its water and wastewater regulated utility companies which are organized by the states where the Company provides water and wastewater services. The Regulated Water segment is aggregated into one reportable segment.
+The following tables present selected operating results and statistics for our Regulated Water segment for the periods ended March 31, 2026 and 2025:
+Three Months Ended March 31,
+2026
+2025
+Increase (Decrease)
+% change
+Operating revenues
+$
+322,975
+$
+300,848
+$
+22,127
+7.4%
+Operations and maintenance expense
+$
+103,122
+$
+89,418
+$
+13,704
+15.3%
+Segment net income
+$
+81,318
+$
+107,922
+$
+(26,604)
+-24.7%
+Operating Statistics
+Selected operating results as a percentage of operating revenues:
+Operations and maintenance
+31.9%
+29.7%
+Depreciation and amortization
+21.6%
+20.2%
+Taxes other than income taxes
+5.7%
+5.2%
+Interest expense, net of interest income
+12.3%
+12.2%
+Segment net income
+25.2%
+35.9%
+Effective tax rate
+15.3%
+-4.4%
+Three months ended March 31, 2026 compared with three months ended March 31, 2025
+Revenues from our Regulated Water segment increased by $22,127 or 7.4% for the first quarter of 2026 as compared to the same period in 2025, mainly due to the following:
+
+an increase in water and wastewater rates of $16,550;
+
+an increase in volume of $3,369; and
+
+additional water and wastewater revenues of $2,402 associated with a larger customer base due to utility acquisitions and organic growth.
+Operations
+and maintenance expense increased by $13,704 or 15.3% primarily due to the following:
+
+an increase in employee related costs of $1,811, primarily resulting from annual merit increases,  higher incentive bonuses, and increase in overtime pay in our Regulated Water Segment due to higher weather-related main break activity during the first quarter of 2026;
+
+an increase in bad debt expense of $5,450, of which $5,889 relates to a favorable regulatory asset adjustment in the first quarter of 2025;
+37
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+MANAGEMENT’S DISCUSSION AND ANALYSIS OF
+FINANCIAL CONDITION AND RESULTS OF OPERATIONS (continued)
+(In thousands of dollars, except per share amounts)
+
+an increase in contractor services of $2,135, primarily due to higher main break activity, frozen service lines, and snow removal costs during the first quarter of 2026;
+
+an increase in production costs for water and wastewater operations of $1,826, particularly purchased power and chemical costs; and
+
+additional operating costs associated with acquired and pending acquisitions of water and wastewater utility systems of $730.
+Depreciation and amortization increased by $9,062 or 14.9% primarily due to continued capital investment
+to expand and improve our utility facilities, the implementation of new depreciation rates in connection with recently completed rate cases, and our acquisitions of new utility systems.
+Taxes other than income taxes went up by $2,694 or 17.3% primarily due to an increase in our Illinois subsidiary’s invested capital tax expense and an increase in payroll taxes as a result of higher employee compensation expense.
+Interest expense, net of interest income, increased by $3,318 or 9.1% for the quarter primarily due to higher push down debt borrowings and operating company debt issuances for the Regulated Water
+segment
+.
+Our effective income tax rate for our Regulated Water Segment was an expense of 15.3% in the first quarter of 2026, compared to a benefit of 4.4% in the first quarter of 2025.  The increase in the effective tax rate is primarily attributed to last year’s release of $22,575 of income tax reserve regulatory liability in the Regulated Water segment based on the rate order received by Aqua Pennsylvania in February 2025 not recurring in the current year.
+Regulated Natural Gas Segment
+Our Regulated Natural Gas segment recognizes revenues by selling gas directly to customers at approved rates or by transporting gas through our pipelines at approved rates to customers that have purchased gas directly from other producers, brokers, or marketers.  Natural gas sales to residential, commercial and industrial customers are seasonal, which results in higher demand for natural gas for heating purposes during the colder months.  A weather normalization adjustment (“WNA”) mechanism is in place for our natural gas customers served in Kentucky, and, beginning in October 2024, for our natural gas customers in Pennsylvania. The WNA mechanism serves to minimize the effects of weather on the Company’s ability to collect revenues to cover operating expenses for its residential and small and medium commercial natural gas customers.  The WNA mechanism adjusts revenues earned for the variance between actual and normal weather and can have either positive (warmer than normal) or negative (colder than normal) effects on revenues.
+38
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+MANAGEMENT’S DISCUSSION AND ANALYSIS OF
+FINANCIAL CONDITION AND RESULTS OF OPERATIONS (continued)
+(In thousands of dollars, except per share amounts)
+The following tables present selected operating results and statistics for our Regulated Natural Gas segment
+, for the periods ended March 31, 2026 and 2025
+:
+Three Months Ended March 31,
+2026
+2025
+Increase (Decrease)
+% change
+Operating revenues
+$
+529,412
+$
+470,797
+$
+58,615
+12.5%
+Operations and maintenance expense
+$
+56,233
+$
+55,675
+$
+558
+1.0%
+Purchased gas
+$
+233,302
+$
+176,959
+$
+56,343
+31.8%
+Segment net income
+$
+192,230
+$
+189,505
+$
+2,725
+1.4%
+Operating Statistics
+Selected operating results as a percentage of operating revenues:
+Operations and maintenance
+10.6%
+11.8%
+Purchased gas
+44.1%
+37.6%
+Depreciation and amortization
+7.7%
+8.1%
+Taxes other than income taxes
+1.1%
+1.2%
+Segment net income
+36.3%
+40.3%
+Effective tax rate
+-15.3%
+-12.0%
+Three months ended March 31, 2026 compared with three months ended March 31, 2025
+Operating revenues from the Regulated Natural Gas segment increased by $58,615 or by 12.5% due to:
+
+an increase in purchased gas costs of $56,343; refer to purchased gas costs discussion below for further information;
+
+an increase of $7,531 due to higher rates and other surcharges; offset by
+
+an increase in the weather normalization adjustment of $4,410 in Pennsylvania, which had the effect of decreasing revenues for the quarter ended March 31, 2026; and
+
+a decrease in customer assistance surcharge of $1,041, which generally has an offsetting amount in operations and maintenance expense.
+Operations
+and maintenance expense for the three months ended March 31, 2026 increased by $558 or 1.0% primarily due to the following:
+
+an increase in labor and employee benefits of $2,521; offset by
+
+a decrease in bad debt expense of $2,029; and
+
+a decrease in customer assistance surcharge costs of $903, which generally has an offsetting amount in revenues.
+39
+Table of Contents
+ESSENTIAL UTILITIES, INC. AND SUBSIDIARIES
+MANAGEMENT’S DISCUSSION AND ANALYSIS OF
+FINANCIAL CONDITION AND RESULTS OF OPERATIONS (continued)
+(In thousands of dollars, except per share amounts)
+Our
+Regulated Natural Gas segment is affected by the cost of natural gas, which is passed through to customers using a purchased gas adjustment clause and includes commodity price, transportation and storage costs.  These costs are reflected in the condensed consolidated statement of operations and comprehensive income as purchased gas expenses.  Fluctuations in the cost of purchased gas impact operating revenues on a dollar-for-dollar basis.  Purchased gas increased by $56,343 or 31.8% largely due to an increase in the average cost of gas of $63,293, offset by
+lower gas usage of $6,950
+resulting from a slight shift in customer usage pattern during the first quarter of 2026.
+Depreciation and amortization increased by $2,241 or 5.8% primarily due to continued capital investment, and the implementation of new depreciation rates following a recently completed rate case.
+Interest expense, net, increased by $1,605 or 6.1% due to higher push down debt borrowings of the Regulated Natural Gas segment from Essential Utilities, Inc, which is primarily used to fund capital projects.
+Our effective income tax rate for our Regulated Natural Gas segment was a benefit of 15.3% and 12.0% in the first quarter of 2026 and 2025, respectively.  The increase in the income tax benefit is primarily attributed to the increase in tax benefits associated with the repairs tax deduction related to continued qualifying infrastructure investment.
+Impact of Recent Accounting Pronouncements
+We describe the impact of recent accounting pronouncements in Note 17,
+Recent Accounting Pronouncements
+, to the condensed consolidated financial statements in this report.
+40
+Table of Contents
+Item 3 – Qua
+ntitative and Qualitative Disclosures About Market Risk
+We are subject to market risks in the normal course of business, including changes in interest rates and equity prices.  Refer to Item 7A of the Company’s Annual Report on Form 10-K for the year ended December 31, 2025, filed February 26, 2026, for additional information on market risks.
+Item 4 – C
+ontrols and Procedures
+(a)
+Evaluation of Disclosure Controls and Procedures
+Our management, with the participation of our Chief Executive Officer and Chief Financial Officer, evaluated the effectiveness of our disclosure controls and procedures as of the end of the period covered by this report.  Based on that evaluation, the Chief Executive Officer and Chief Financial Officer concluded that our disclosure controls and procedures as of the end of the period covered by this report are effective such that the information required to be disclosed by us in reports filed under the Securities Exchange Act of 1934 is (i) recorded, processed, summarized and reported within the time periods specified in the Securities and Exchange Commission’s rules and forms and (ii) accumulated and communicated to our management, including the Chief Executive Officer and Chief Financial Officer, as appropriate to allow timely decisions regarding disclosure.
+(b)
+Changes in Internal Control over Financial Reporting
+No change in our internal control over financial reporting occurred during the quarter ended March 31, 2026 that has materially affected, or is reasonably likely to materially affect, our internal control over financial reporting.
+Part II.  Ot
+her Information
+Item 1 – Leg
+al Proceedings
+For a discussion of the Company’s legal proceedings, see Part I – Item I – Note 15 to the Company’s condensed consolidated financial statements.
+Item 1A – Ris
+k Factors
+Please review the risks disclosed in our Annual Report on Form 10-K for the year ended December 31, 2025, under “Part 1, Item 1A – Risk Factors”.
+41
+Table of Contents
+Item 5 - Other Infor
+mation
+Security Trading Plans of Directors and Executive Officers
+During the quarter ended March 31, 2026, none of the Company’s directors or executive officers adopted, modified or terminated any contract, instruction or written plan for the purchase or sale of Company securities that was intended to satisfy the affirmative defense conditions of Rule 10b5-1(c) or any “non-Rule 10b5-1 trading arrangement”, except as follows:
+Name & Title
+Character of Trading Arrangement
+Date of Adoption/ Termination
+Aggregate Number of Shares of Common Stock to be Purchased/Sold Pursuant to Trading Arrangement
+Duration of Plan
+Christopher Luning
+,
+‎
+Executive Vice President & General Counsel
+Rule 10b5-1
+(c) Trading Arrangement
+Adopted -
+‎
+March 13, 2026
+Up to
+5,670
+shares to be sold
+1/4/2027 - 2/22/2027
+Daniel J. Schuller
+,
+‎
+Executive Vice President & Chief Financial Officer
+Rule 10b5-1
+(c) Trading Arrangement
+Adopted -
+‎
+March 13, 2026
+Up to
+6,789
+shares to be sold
+2/1/2027 - 2/22/2027
+Colleen Arnold
+,
+President, Aqua Water
+Rule 10b5-1
+(c) Trading Arrangement
+Adopted -
+‎
+March 13, 2026
+Up to
+247
+shares to be sold
+6/15/2026 - 2/22/2027
+‎
+42
+Table of Contents
+Item 6 – Ex
+hibits
+Exhibit No.
+Description
+4.1
+Tenth Supplemental Indenture, dated as of March 9, 2026, to Indenture dated as of April 23, 2019, between Essential Utilities, Inc. and U.S. Bank Trust Company, National Association (incorporated by reference to Exhibit 4.3 to the Company’s Current Report on Form 8-K, filed with the SEC on March 9, 2026)
+31.1*
+Certification of Chief Executive Officer, filed pursuant to Rule 13a-14(a) under the Securities and Exchange Act of 1934
+31.2*
+Certification of Chief Financial Officer, filed pursuant to Rule 13a-14(a) under the Securities and Exchange Act of 1934
+32.1*
+Certification of Chief Executive Officer, furnished pursuant to 18 U.S.C. Section 1350
+32.2*
+Certification of Chief Financial Officer, furnished pursuant to 18 U.S.C. Section 1350
+101.INS
+Inline XBRL Instance Document – The instance document does not appear in the Interactive Data File because its XBRL tags are embedded within the Inline XBRL document.
+101.SCH
+Inline XBRL Taxonomy Extension Schema Document
+101.CAL
+Inline XBRL Taxonomy Extension Calculation Linkbase Document
+101.DEF
+Inline XBRL Taxonomy Extension Definition Linkbase Document
+101.LAB
+Inline XBRL Taxonomy Extension Label Linkbase Document
+101.PRES
+Inline XBRL Taxonomy Extension Presentation Linkbase Document
+104
+The cover page from the Company’s Quarterly Report on Form 10-Q for the quarter ende
+d
+September 30, 2025
+, formatted in Inline XBRL (included in Exhibit 101)
+*Filed herewith.
+#
+Certain schedules and exhibits to this agreement have been omitted as permitted by rules or regulations of the SEC. The Company will furnish the omitted schedules and exhibits to the SEC upon request.
+‎
+43
+Table of Contents
+SIGN
+ATURES
+Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be executed on its behalf by the undersigned thereunto duly authorized.
+May 7, 2026
+Essential Utilities, Inc.
+Registrant
+/s/ Christopher H. Franklin
+Christopher H. Franklin
+Chairman, President and
+Chief Executive Officer
+/s/ Daniel J. Schuller
+Daniel J. Schuller
+Executive Vice President and
+Chief Financial Officer
+44

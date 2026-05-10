@@ -13,6 +13,61 @@
 
 ---
 
+## 2026-05-10：最终完成 — cowork 用户化 + 全面交接
+
+### 路径变更（root → cowork 用户）
+
+迁移初期系统以 root 用户运行（路径 `/root/cowork/`）。后续创建了 cowork 专用用户，所有文件和 Claude Code 进程迁至 cowork 用户，提高安全性。
+
+| 旧路径（root 用户） | 新路径（cowork 用户） |
+|---|---|
+| `/root/cowork/` | `/home/cowork/cowork/` |
+| `/root/.claude/` | `/home/cowork/.claude/` |
+| systemd `User=root` | systemd `User=cowork` |
+
+### 今日最终完成项（2026-05-10）
+
+1. **WSL2 cron 关闭**：主公在 WSL2 跑 `crontab -r`，VPS 成为唯一运行端 ✅
+2. **完整冒烟测试通过**：Discord reply / Brevo发件 / cowork.db(71 sessions) / P9持仓DB(6只open) / catalyst_monitor实跑 / signal_alert / 搜索Skill 全部验证 ✅
+3. **smtplib → Brevo 修复**：`run_daily_news.sh` ERR trap + Step3 发件从 smtplib 改 Brevo HTTP API（DO封了出站SMTP 465/587端口）✅
+4. **临时文件路径修复**：`/tmp/news_ai.txt` 被 root 占用导致 VPS 首跑失败；改用 `$SCRIPTS/news_ai.tmp`（cowork 有权限）✅
+5. **Discord Bot token fallback**：`tide_utils.py load_env()` 加 fallback，自动从 `.claude/channels/discord/.env` 补读 DISCORD_BOT_TOKEN；`config/api_keys.env` 删除过期旧 token ✅
+6. **sshfs WSL 挂载配置**：`sshfs root@142.93.207.54:/home/cowork/cowork ~/vps-cowork`；`~/.bashrc` 加自动挂载 ✅
+
+### 最新关键路径（cowork 用户）
+
+| 用途 | 路径 |
+|---|---|
+| cowork 主目录 | `/home/cowork/cowork/` |
+| Claude Code 配置 | `/home/cowork/.claude/` |
+| Discord 配置 | `/home/cowork/.claude/channels/discord/` |
+| Discord plugin 源码 | `/home/cowork/.claude/plugins/cache/claude-plugins-official/discord/0.0.4/` |
+| API keys | `/home/cowork/cowork/config/api_keys.env` |
+| Discord bot token | `/home/cowork/.claude/channels/discord/.env` |
+| WSL 挂载点 | `~/vps-cowork/`（= VPS `/home/cowork/cowork/`）|
+| systemd service | `cowork-claude.service`（User=cowork）|
+
+### 关键命令（最新版）
+
+```bash
+# 进 VPS
+ssh root@142.93.207.54
+
+# 切 cowork 用户
+sudo su cowork
+
+# 进入 cowork claude tmux
+tmux attach -t cowork
+
+# 查看服务状态
+systemctl status cowork-claude
+
+# WSL 挂载 VPS（已写入 ~/.bashrc 自动挂载）
+sshfs root@142.93.207.54:/home/cowork/cowork ~/vps-cowork
+```
+
+---
+
 ## 2026-05-08 → 2026-05-10：WSL2 → DigitalOcean VPS（NYC1）
 
 ### 关键凭证（VPS 信息）
@@ -128,18 +183,17 @@ Restart=on-failure
 - 跑 `bash /root/cowork/newscripts/run_daily_news.sh` 看新闻能不能拉
 - 检查 cron log 是否累积
 
-## 关键路径（VPS 上）
+## 关键路径（VPS 上）⚠️ 已过期，见顶部"最新关键路径"
 
-| 用途 | VPS 路径 |
+| 用途 | VPS 路径（旧·root用户，已迁移至 cowork 用户）|
 |---|---|
-| cowork 主目录 | `/root/cowork/` |
-| Claude Code 配置 | `/root/.claude/` |
-| Discord 配置 | `/root/.claude/channels/discord/` |
-| Discord plugin 源码 | `/root/.claude/plugins/cache/claude-plugins-official/discord/0.0.4/` |
-| API keys | `/root/cowork/config/api_keys.env` |
-| Discord bot token | `/root/.claude/channels/discord/.env` |
+| cowork 主目录 | ~~`/root/cowork/`~~ → `/home/cowork/cowork/` |
+| Claude Code 配置 | ~~`/root/.claude/`~~ → `/home/cowork/.claude/` |
+| Discord 配置 | ~~`/root/.claude/channels/discord/`~~ → `/home/cowork/.claude/channels/discord/` |
+| API keys | ~~`/root/cowork/config/api_keys.env`~~ → `/home/cowork/cowork/config/api_keys.env` |
+| Discord bot token | `/home/cowork/.claude/channels/discord/.env`（路径不变）|
 | 日志（debug）| `/tmp/discord-server.log` |
-| crontab | `crontab -l` 看 |
+| crontab | `crontab -l` 看（cowork 用户下）|
 
 ## 关键命令（明天接续用）
 

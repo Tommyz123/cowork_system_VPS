@@ -1,0 +1,41 @@
+# 操作日志（变动太频繁）
+cowork_log.md
+
+# 子项目（独立 repo）
+newscripts/
+
+# 个人笔记/临时文件
+backups/
+scraper/
+idea/
+research/
+
+# 日志文件
+*.log
+run.log
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 敏感配置
+.env
+**/.env
+config/api_keys.env
+
+# 数据库文件（本地生成，不追踪）
+cowork.db
+*.db
+*.sql
+*/__pycache__/
+scripts/__pycache__/
+
+# 旧系统遗留/临时文件
+trading/strategy.yaml
+settings.json.bak
+
+# 本机配置（机器相关，不追踪）
+.claude/settings.local.json
+
+# 数据库备份
+*.db.bak*

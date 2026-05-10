@@ -1,0 +1,17 @@
+0 13 * * * bash /mnt/c/Users/zhi89/Desktop/cowork/newscripts/run_daily_news.sh >> /mnt/c/Users/zhi89/Desktop/cowork/newscripts/run.log 2>&1
+30 17 * * 2,4 bash /mnt/c/Users/zhi89/Desktop/cowork/flightscripts/run_flight.sh >> /mnt/c/Users/zhi89/Desktop/cowork/flightscripts/run.log 2>&1
+0 17 * * 3 bash /mnt/c/Users/zhi89/Desktop/cowork/stability_check.sh >> /mnt/c/Users/zhi89/Desktop/cowork/stability_check.log 2>&1
+30 17 * * * bash /mnt/c/Users/zhi89/Desktop/cowork/scripts/run_mac_monitor.sh >> /mnt/c/Users/zhi89/Desktop/cowork/scripts/mac_monitor.log 2>&1
+0 16 * * 1 bash /mnt/c/Users/zhi89/Desktop/cowork/trading/run_py.sh /mnt/c/Users/zhi89/Desktop/cowork/trading/scanner_tracker.py >> /mnt/c/Users/zhi89/Desktop/cowork/trading/scanner_tracker.log 2>&1
+0 16 * * 3 bash /mnt/c/Users/zhi89/Desktop/cowork/trading/run_py.sh /mnt/c/Users/zhi89/Desktop/cowork/trading/thesis_monitor.py >> /mnt/c/Users/zhi89/Desktop/cowork/trading/thesis_monitor.log 2>&1
+0 16 1-7 2,5,8,11 1 bash /mnt/c/Users/zhi89/Desktop/cowork/trading/run_scanner.sh >> /mnt/c/Users/zhi89/Desktop/cowork/trading/run_scanner.log 2>&1
+0 16 * * 1-5 bash /mnt/c/Users/zhi89/Desktop/cowork/trading/run_py.sh /mnt/c/Users/zhi89/Desktop/cowork/trading/signal_collector.py >> /mnt/c/Users/zhi89/Desktop/cowork/trading/signal_collector.log 2>&1
+0 16 * * 1-5 bash /mnt/c/Users/zhi89/Desktop/cowork/trading/run_py.sh /mnt/c/Users/zhi89/Desktop/cowork/trading/catalyst_monitor.py >> /mnt/c/Users/zhi89/Desktop/cowork/trading/catalyst.log 2>&1
+0 16 * * 1-5 bash /mnt/c/Users/zhi89/Desktop/cowork/trading/run_py.sh /mnt/c/Users/zhi89/Desktop/cowork/trading/signal_alert.py >> /mnt/c/Users/zhi89/Desktop/cowork/trading/signal_alert.log 2>&1
+0 15 1-7 * 1 bash /mnt/c/Users/zhi89/Desktop/cowork/trading/run_py.sh /mnt/c/Users/zhi89/Desktop/cowork/trading/screener.py >> /mnt/c/Users/zhi89/Desktop/cowork/trading/screener.log 2>&1
+0 18 1-7 2,5,8,11 1 bash /mnt/c/Users/zhi89/Desktop/cowork/trading/run_py.sh /mnt/c/Users/zhi89/Desktop/cowork/trading/quarterly_review.py >> /mnt/c/Users/zhi89/Desktop/cowork/trading/quarterly_review.log 2>&1
+0 16 * * 1 bash /mnt/c/Users/zhi89/Desktop/cowork/trading/run_py.sh /mnt/c/Users/zhi89/Desktop/cowork/trading/price_tracker.py >> /mnt/c/Users/zhi89/Desktop/cowork/trading/tracker.log 2>&1
+0 16 * * 0 bash /mnt/c/Users/zhi89/Desktop/cowork/trading/run_py.sh /mnt/c/Users/zhi89/Desktop/cowork/trading/weekly_review.py >> /mnt/c/Users/zhi89/Desktop/cowork/trading/weekly.log 2>&1
+30 20 * * 1-5 bash /mnt/c/Users/zhi89/Desktop/cowork/trading/run_py.sh /mnt/c/Users/zhi89/Desktop/cowork/trading/price_guard.py >> /mnt/c/Users/zhi89/Desktop/cowork/trading/price_guard.log 2>&1
+0 18 * * 1-5 bash /mnt/c/Users/zhi89/Desktop/cowork/trading/run_py.sh /mnt/c/Users/zhi89/Desktop/cowork/trading/daily_briefing.py >> /mnt/c/Users/zhi89/Desktop/cowork/trading/daily_briefing.log 2>&1
+0 21 * * 1-5 bash /mnt/c/Users/zhi89/Desktop/cowork/trading/run_py.sh /mnt/c/Users/zhi89/Desktop/cowork/trading/price_snapshot.py >> /mnt/c/Users/zhi89/Desktop/cowork/trading/price_snapshot.log 2>&1
