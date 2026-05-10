@@ -103,13 +103,16 @@ Desktop/
 | `SKILLS_INDEX.md` | 读取文件 | 所有 Skill 的触发词/调用语法/不适用场景说明书 |
 
 **Hook 守卫系统**（2026-04-13 上线，配置在 `~/.claude/settings.json`）：
+完整文档见 [`reference/hooks_system.md`](reference/hooks_system.md)（14项 Hook 详细说明 + 授权流程图）
 
 | Hook | 触发时机 | 作用 |
 |------|---------|------|
-| `git_commit_guard.sh` | PreToolUse(Bash) | 拦截 git commit/push，要求先列变更等主公确认；确认后 `touch /tmp/git_approved` 解锁 |
-| `system_file_guard.sh` | PreToolUse(Edit/Write) | 白名单文件（日志/进度等）直接放行；其他文件需 `/tmp/task_approved` token；任务完成后 `rm -f /tmp/task_approved` |
-| `memory_capture.sh` | UserPromptSubmit | 每10轮提醒记忆捕获；auto_pending.md 有待审条目时提醒审核 |
-| `rm -f /tmp/task_approved` | UserPromptSubmit | 每次主公发消息自动清除任务授权 token，防止跨任务守卫失效（2026-04-17 新增） |
+| `git_commit_guard.sh` | PreToolUse(Bash) | 拦截 git commit/push；拦截 Claude 自行 touch task_approved |
+| `system_file_guard.sh` | PreToolUse(Edit/Write) | 白名单放行；其他文件需 task_approved token |
+| `discord_approve.py` | UserPromptSubmit | 检测授权关键词（"可以执行"等）→ 自动 touch task_approved |
+| `honesty_check.sh` | Stop | 检测声称读完但实际只读了部分文件 |
+| `discord_reply_check.sh` | Stop | Discord 消息漏回复时 block |
+| `rm -f /tmp/task_approved` | UserPromptSubmit | 每次主公发消息自动清除授权 token |
 
 **Codex 执行层**（2026-04-20 接入）：
 

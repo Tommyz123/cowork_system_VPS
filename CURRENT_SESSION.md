@@ -37,17 +37,18 @@ last_audit_date: 2026-04-19
 ### [P2] Cowork 系统优化
 状态：持续迭代中
 last_updated: 2026-05-10
-停在：VPS全面迁移完成；sshfs挂载配置好；P4发件修复；tide_utils Discord token fallback建立；ARCHITECTURE.md 4处Edit仍待执行；Gmail API配置仍未启动
-本次完成（2026-05-10）：
-- **VPS完整冒烟测试**：Discord reply/Brevo发件/cowork.db/P9 DB/所有cron脚本/catalyst_monitor实跑全部验证通过
-- **P11正式完成归档**：WSL2 cron关闭，VPS成为唯一运行端
-- **tide_utils.py DISCORD_BOT_TOKEN fallback**：load_env()自动从.claude/channels/discord/.env补读，bot重新pairing后无需手动维护
-- **config/api_keys.env清理**：删除过期DISCORD_BOT_TOKEN（两个token不同导致trading脚本403）
-- **run_daily_news.sh双修复**：①ERR trap+Step3发件从smtplib改Brevo HTTP API ②临时文件路径从/tmp/news_ai.txt改$SCRIPTS/news_ai.tmp（VPS首跑root占用/tmp文件权限冲突）
-- **sshfs挂载配置**：WSL通过`sshfs root@142.93.207.54:/home/cowork/cowork ~/vps-cowork`挂载VPS目录；~/.bashrc加自动挂载
+停在：诚信检查系统+授权机制升级完成；ARCHITECTURE.md 4处Edit仍待执行；Gmail API配置仍未启动；问题2（自作主张）技术方案已上线
+本次完成（2026-05-10 第二次）：
+- **问题1：数据诚信规则改写**：CLAUDE.md 数据诚信扩展三条可操作规则（来源标注/推测标注/读完标注）
+- **honesty_check.sh Stop Hook**：检测声称读完但实际部分读取，触发警告；修复pipe+heredoc stdin冲突bug
+- **问题2：Discord授权机制升级（方案C）**：discord_approve.py检测关键词自动touch；git_commit_guard.sh拦截Claude自行touch；禁止自授权
+- **reference/hooks_system.md 新建**：14项Hook完整文档（概览表+详细说明+授权流程图）
+- **ARCHITECTURE.md Hook表格更新**：补充新增hook+加hooks_system.md指针
+- **VPS_SYSTEM_SETUP.md 对比**：确认VPS系统完整，文档比VPS落后2个hook
 下一步：
 - ARCHITECTURE.md 4处Edit（草稿主公已审，待执行）
 - Gmail API配置（主公GCP端6步，我代码端5个脚本）
+- 问题2需长期观察：discord_approve.py关键词是否误触发
 路径：VPS `/home/cowork/cowork/` | WSL挂载 `~/vps-cowork/`
 
 ### [P10] 个人文件库
