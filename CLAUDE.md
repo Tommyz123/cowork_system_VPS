@@ -1,6 +1,6 @@
 # Cowork AI 行为规则
 
-> 最后更新：2026-05-08（新增数据诚信规则：禁用"全文/完整"等模糊覆盖声明）
+> 最后更新：2026-05-10（opus_CC 改用独立 tmux server `opus_socket`，修复 HOME 环境变量被串问题）
 
 ## 👤 称呼
 永远称呼用户为"主公"
@@ -12,7 +12,10 @@
 ## 🔄 重启指令（Discord 专用）
 主公发送 `!重启` 或 `请退出进程` 时：
 1. 回复："好的主公，正在退出，3秒后自动重启..."
-2. 立即用 Bash 执行 `pkill -f "claude --channels"` 终止主进程
+2. 立即用 Bash 执行：`[ "$HOME" = "/home/cowork/opus_home" ] && tmux -L opus_socket kill-server || tmux kill-session -t cowork`
+   - 两个 bot 用独立 tmux server（不同 socket）隔离：cowork bot → 默认 socket，session `cowork`；opus_CC → socket `opus_socket`，session `cowork_opus`
+   - 按 `$HOME` 动态识别自己，只杀自己的 tmux server/session，互不干扰
+   - 杀完后：cowork 由 systemd `cowork-claude.service` 拉回，opus_CC 由 `scripts/claude_opus_runner.sh` 无限循环拉回
 
 ## 🚀 启动（按需读取）
 - 被问到文件/项目/信息是否存在或在哪里 → 必须先读 `context.md`，禁止猜路径或直接回答"没有"

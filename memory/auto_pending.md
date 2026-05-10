@@ -18,6 +18,16 @@
 
 [2026-05-09][feedback] 主公的真实痛点：收工太重，上下文满了被迫走完整流程。应优先建轻量"保存存档"指令，和后台文档对齐/memory预处理agent，让收工只剩确认步骤。
 
+[2026-05-10][reference] 双 bot Discord 身份：cowork bot DM channel=1485128242808619079，opus_CC DM channel=1503165641379545228（user_id=1503158821345034360, username=opus_CC#0475），两 bot 都在 server TT基地(id=1466957346310717636)；token 各自独立存 /home/cowork/.claude/channels/discord/.env 和 /home/cowork/opus_home/.claude/channels/discord/.env
+
+[2026-05-10][reference] 双 bot 完全隔离架构（防 HOME 被串）：独立 tmux server（`tmux -L opus_socket`）+ 独立 HOME（/home/cowork vs /home/cowork/opus_home）+ 独立 plugin cache（必须各自跑 /plugin install）+ 独立 Discord token；用同一 tmux server 不同 session 会串 HOME
+
+[2026-05-10][reference] 远程给独立 HOME 的 Claude Code 装 plugin 方法：`tmux -L <socket> send-keys -t <session> '/plugin install xxx' Enter` → 8s 后再 `send-keys Enter` 确认 user scope → 再 send-keys '/reload-plugins' Enter；之后重启进程让顶部 banner 刷新
+
+[2026-05-10][reference] VPS DigitalOcean droplet 信息：hostname=ubuntu-s-1vcpu-2gb-nyc1, IP=142.93.207.54, 端口22；root 直接 SSH 登入（PermitRootLogin yes），主公本地 WSL 已配 SSH key 无需密码；管理方式优先 DO 网页 Droplet Console（最简单），其次本地 WSL `ssh root@142.93.207.54`
+
+[2026-05-10][reference] opus_CC systemd 服务最终架构：cowork-opus.service 装在 /etc/systemd/system/，Environment=HOME=/home/cowork/opus_home，ExecStart=claude_opus_runner.sh，ExecStop=tmux -L opus_socket kill-server；与 cowork-claude.service 完全独立；两个 bot 都 enabled，VPS reboot 自动起
+
 [2026-05-09][reference] Discord plugin v0.0.4 fetchAllowedChannel bug：server.ts line 415 `ch.recipientId ?? dmChannelUserMap.get(id)` 在 partial DM channel 状态下 ch.recipientId 错返 bot 自己 ID（应为对方 user ID），?? 短路不走 fallback 导致抛 "channel is not allowlisted"。修复：反转 ?? 顺序为 `dmChannelUserMap.get(id) ?? ch.recipientId`（dmMap 是 inbound 验证过的可靠值）。每次 plugin 升级后需重新 patch。备份位置：VPS /root/.claude/plugins/cache/.../discord/0.0.4/server.ts.bak_fix。
 
 [2026-05-09][feedback] 诊断 plugin/工具执行问题必须先看 claude session jsonl（~/.claude/projects/<cwd>/<sid>.jsonl）解析 user/assistant/tool_use/tool_result 事件流，看 claude 实际做了什么。只看 hook log/server stderr 不看 claude 行为会反复误判（P11 4 次诊断全错的根因）。

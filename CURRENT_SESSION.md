@@ -37,7 +37,20 @@ last_audit_date: 2026-04-19
 ### [P2] Cowork 系统优化
 状态：持续迭代中
 last_updated: 2026-05-10
-停在：GitHub VPS备份+GDrive镜像同步+opus_CC bot已配置；ARCHITECTURE.md 4处Edit仍待执行；Gmail API配置仍未启动；opus_CC Discord连接待验证
+停在：双bot完全隔离+独立systemd服务+开机自启已完成；ARCHITECTURE.md 4处Edit仍待执行；Gmail API配置仍未启动
+本次完成（2026-05-10 第四次）：
+- **双 bot 独立重启互不干扰**：CLAUDE.md 重启规则按 $HOME 动态识别 tmux server，cowork bot 杀默认 socket / opus_CC 杀 -L opus_socket，互不误伤
+- **独立 tmux server 隔离**：主公升级 claude_opus_runner.sh 用 `tmux -L opus_socket`，修复同 socket 下 HOME 环境变量被串问题；HOME 真正独立（/home/cowork vs /home/cowork/opus_home）
+- **opus_home 完整 Discord plugin 安装**：通过 tmux send-keys 模拟 /plugin install discord@claude-plugins-official + /reload-plugins；之前 opus_CC 蹭 cowork plugin cache，现在 opus_home 自己有完整 plugin 状态
+- **opus_CC DM channel 建立**：用 opus_CC token 调 Discord API 主动创建 DM channel(1503165641379545228) + 发首条消息建立通道；主公预授权 allowFrom 跳过 pairing 流程
+- **opus_home settings.json 同步 permissions 配置**：复制 cowork 的 allow/deny/defaultMode:bypassPermissions + skipDangerousModePermissionPrompt；opus_CC 不再每个工具调用弹权限确认
+- **opus_CC systemd 服务装机完成**：cowork-opus.service 装到 /etc/systemd/system/，主公 WSL SSH 进 root@142.93.207.54 跑安装命令；enabled + active，VPS reboot 自动起；与 cowork-claude.service 完全独立
+- **cowork bot 模型改 sonnet 4.6**：/home/cowork/.claude/settings.json:45 model: opus→sonnet（下次重启生效，opus_CC 保持 opus-4-7）
+下一步：
+- 测试双 bot 实际重启隔离（!重启 各自验证）
+- ARCHITECTURE.md 4处Edit（草稿主公已审，待执行）
+- Gmail API配置（主公GCP端6步，我代码端5个脚本）
+
 本次完成（2026-05-10 第三次）：
 - **长对话提醒阈值 40→30轮**：CLAUDE.md修改；Shell Hook无法检测context%，降低轮数阈值以更早触发提醒
 - **GitHub VPS备份建立**：生成ed25519 SSH key(alias:cowork-vps)+新仓库cowork_system_VPS；首次push成功(159文件)；旧cowork_system保留为WSL归档；memory同步更新
