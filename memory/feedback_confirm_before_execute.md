@@ -1,0 +1,40 @@
+---
+name: feedback_confirm_before_execute
+description: 执行任务前必须等主公明确确认，不得自行推进；5步流程+WSL调试规则
+type: feedback
+originSessionId: 1ea4abd3-d11a-4c15-8b70-d1877a9347d7
+---
+**核心规则：给出意见/方案后，必须等主公明确说"可以/做/确认"才执行，不得自行推进。即使认为内容简单或已达成共识也不例外。**
+
+执行确认采用5步标准流程：
+1. 提问澄清
+2. 解释原因
+3. 列出多方案
+4. 给出推荐
+5. 等主公确认后才开始执行
+
+固定触发指令（保存进度/读取进度/收工/整理记忆/系统复盘/审核系统架构）跳过5步直接执行。
+
+**调试/排查类额外规则：**
+- 报错/bug 排查：先说原因+解决方案，主公确认后再动手修复
+- WSL 环境禁止内联测试脚本（写法混乱），改用独立 .py 文件运行
+
+**Why:** 主公被自动推进过多次，要求给出方案后必须明确等待确认；WSL内联脚本被纠正过一次。
+
+**How to apply:** 仅当主公使用"直接开始"/"马上做"/"立即执行"时，跳过确认直接执行。
+
+**Skill手写例外规则（2026-04-17确认）：**
+从CLAUDE.md迁移的Skill（内容稳定、1:1搬运）可直接手写SKILL.md，不必走skill-creator。
+新的有判断逻辑/输出不确定的Skill才需要skill-creator。
+**Why:** skill-creator的eval框架设计给"输出不确定"的能力，迁移型Skill自己出题自己答无实际意义。
+
+**验证优先原则（2026-04-19确认）：**
+做任何新集成/新系统前，必须先验证能不能接通（API测试/工具测试），跑通后才开始规划具体方案。不能先出计划再发现接不通。
+**Why:** 主公明确说喜欢这个方式，避免做无效规划。
+**How to apply:** 涉及新API/新工具/新外部服务时，先写测试脚本验证，成功后再出方案。
+
+**Hook 技术备忘（PreToolUse）：**
+- exit 0 + stdout 输出：不会显示给 Claude，软警告无效
+- exit 2 + stderr 输出：工具被硬拦截，stderr 内容作为拦截原因显示给 Claude ✅
+- 解锁机制：`touch /tmp/git_approved`（git操作）/ `touch /tmp/edit_approved`（系统文件）
+- 已部署：git_commit_guard.sh（拦截 git commit/push）+ system_file_guard.sh（拦截 CLAUDE.md/settings.json/ARCHITECTURE.md/context.md 的 Edit/Write）

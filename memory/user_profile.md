@@ -1,0 +1,37 @@
+---
+name: user_profile
+description: 主公的身份、技术背景、工作习惯和使用偏好
+type: user
+originSessionId: d13aed09-f19a-44e5-81c1-fc0cfee07eea
+---
+**称呼：** 主公
+**用户名：** Tom（邮箱：zhitao776@gmail.com，Discord：tommzzz.）
+**系统：** Windows，用户名 zhi89，桌面路径 `C:\Users\zhi89\Desktop`
+
+**技术背景：**
+- 正在研究如何用结构化规则系统控制 AI 行为
+- 熟悉 Claude Code、CLAUDE.md、context window、token、Skill 系统等概念
+- 自行开发了 CLAUDE.md + agents.md + context.md + logging.md 的 AI 控制框架（已迭代至 V5）
+- 使用 Cowork 模式（Dispatch），属于进阶用户
+
+**远程控制方式：**
+- 使用 iPhone 通过 Cowork Dispatch 远程控制电脑
+- 也使用 Claude Code 通过 Discord 和 Remote Control 方式控制本地机器
+
+**工作方式：**
+- 倾向于先理解机制和讨论，再动手执行
+- 希望建立私人秘书式的工作关系：AI 了解他的文件和项目，他直接发指令
+- 不喜欢讨好和奉承，要求直说实话，不夸大，不迎合
+
+**个人背景：**
+- 36岁，目标是进入AI行业见识，非转型软件工程师
+- 目前在Sage Seeds大麻零售店上班，需要灵活工作时间
+- 求职偏好：兼职/Contract/Freelance优先，不考虑全职
+
+**主要项目：**
+- AI Skill 框架研究（Desktop/cc_skill/）
+- 纽约大麻 AI 顾问项目（Desktop/marketing/）
+- Cannabis AI Budtender（大麻AI对话顾问，playbooks/cannabis_ai_budtender.md）
+- Dutchie Scraper（数据抓取，playbooks/dutchie_scraper.md）
+- 大麻零售创业（KK 项目，相关文件在 资料/cannabis/）
+- AI量化交易系统（Desktop/cowork/trading/，纸账号学习阶段）
