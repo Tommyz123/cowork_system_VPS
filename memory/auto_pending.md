@@ -28,9 +28,3 @@
 
 [2026-05-10][feedback] 遇到新环境/新会话，第一步必须跑 hostname + whoami + pwd + curl ifconfig.me 确认环境；不能凭路径格式猜测（/home/cowork/不一定是云端，可能就是VPS上的非root用户）。本次对话浪费大量来回是因为没有先查环境信息。
 
-[2026-05-10][feedback] 执行确认标准：只有主公说"可以执行/开始做/直接开始"等才是执行授权；"先解决问题1/先讨论X"只是聚焦方向，不是执行确认。问题2（自作主张）在当场复发就是因为误判了这个边界。
-
-[2026-05-10][feedback] 规则越多模型越飘。认知类行为问题（如猜测标注）不加新规则，改精现有规则；执行流程类问题才考虑 Hook。新增规则门槛："违反了会出事"才写，其他内化。
-
-[2026-05-10][reference] honesty_check.sh Stop Hook：~/.claude/hooks/honesty_check.sh，检测声称读完（全文/读完了/entire file等）但实际只读部分的情况，从 transcript_path 解析 Read 工具调用参数（offset/limit/文件行数）判断是否部分读取，触发时输出警告。
-

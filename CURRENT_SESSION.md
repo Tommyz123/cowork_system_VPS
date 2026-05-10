@@ -16,7 +16,7 @@ last_audit_date: 2026-04-19
 ### 🔄 需人工干预（计入活跃项目数）
 | ID | 项目 | 状态 | 最后更新 | 下一步摘要 |
 |---|---|---|---|---|
-| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-05-10 | 权限 task-scoped 升级；MIGRATION_LOG 升格；待重启续 ARCHITECTURE 4 Edit + Gmail API 配置 |
+| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-05-10 | GitHub VPS备份建立；GDrive镜像同步；opus_CC bot上线；长对话提醒40→30轮 |
 | P10 | 个人文件库 | 🔄 活跃 | 2026-04-25 | MVP完成(简历3文件)，阶段2扩展分类 |
 | P3 | Cannabis Budtender | ⏸️ 暂停 | 2026-05-07 | eval 100%完成，暂停中，下次继续：sativa效果测试+架构修复清单 |
 | P8 | 求职 (career-ops) | ⏸️ 暂停 | 2026-05-07 | 策略确定（作品敲门），暂停中，下次继续：LinkedIn截图重写profile |
@@ -25,7 +25,7 @@ last_audit_date: 2026-04-19
 ### ⚙️ 自动运行（不计入活跃项目数）
 | ID | 项目 | 状态 | 最后更新 | 备注 |
 |---|---|---|---|---|
-| P4 | 每日新闻日报 | ✅ cron运行中 | 2026-04-24 | token优化：cwd=/tmp+--model haiku，省~5000 token overhead+80%模型成本 |
+| P4 | 每日新闻日报 | ✅ cron运行中 | 2026-05-10 | 5/10补发成功；root权限/tmp/news_ai.txt问题已确认不影响当前脚本 |
 | P6 | 机票监控 Agent | ✅ cron运行中 | 2026-05-07 | SerpAPI key自动轮换（KEY2耗尽→自动切KEY）；直飞数据恢复 |
 | P7 | Mac mini价格监控 | ✅ cron运行中 | 2026-04-23 | HTML邮件（链接藏入<a>标签）；今日eBay $305触发提醒 |
 | P9 | AI量化交易系统 TIDE | ✅ cron运行中 | 2026-05-09 | 6只open持仓；price_snapshot.py上线(6/5自动填30d价格)；CSW pending等5/21；系统75%闭环；下次：B/C规则(不急) |
@@ -37,7 +37,20 @@ last_audit_date: 2026-04-19
 ### [P2] Cowork 系统优化
 状态：持续迭代中
 last_updated: 2026-05-10
-停在：诚信检查系统+授权机制升级完成；ARCHITECTURE.md 4处Edit仍待执行；Gmail API配置仍未启动；问题2（自作主张）技术方案已上线
+停在：GitHub VPS备份+GDrive镜像同步+opus_CC bot已配置；ARCHITECTURE.md 4处Edit仍待执行；Gmail API配置仍未启动；opus_CC Discord连接待验证
+本次完成（2026-05-10 第三次）：
+- **长对话提醒阈值 40→30轮**：CLAUDE.md修改；Shell Hook无法检测context%，降低轮数阈值以更早触发提醒
+- **GitHub VPS备份建立**：生成ed25519 SSH key(alias:cowork-vps)+新仓库cowork_system_VPS；首次push成功(159文件)；旧cowork_system保留为WSL归档；memory同步更新
+- **Google Drive镜像同步**：rclone_backup.sh改写去掉--backup-dir，纯mirror sync；全量上传54.8MB/259文件；gcrypt密码Qaz8939152!（需保存）
+- **opus_CC bot配置**：tmux session cowork_opus启动，HOME=/home/cowork，DISCORD_BOT_TOKEN=opus_CC token覆盖，/model claude-opus-4-7；scripts/claude_opus_runner.sh新建；Discord邀请待验证
+- **P4补发5/10新闻**：root权限/tmp/news_ai.txt不影响当前脚本（路径$SCRIPTS/news_ai.tmp不同）；run_daily_news.sh补发成功
+下一步：
+- ARCHITECTURE.md 4处Edit（草稿主公已审，待执行）
+- Gmail API配置（主公GCP端6步，我代码端5个脚本）
+- opus_CC bot：主公邀请至Discord服务器+验证DM是否正常
+- 长期观察：discord_approve.py关键词是否误触发
+路径：VPS `/home/cowork/cowork/` | WSL挂载 `~/vps-cowork/`
+
 本次完成（2026-05-10 第二次）：
 - **问题1：数据诚信规则改写**：CLAUDE.md 数据诚信扩展三条可操作规则（来源标注/推测标注/读完标注）
 - **honesty_check.sh Stop Hook**：检测声称读完但实际部分读取，触发警告；修复pipe+heredoc stdin冲突bug
