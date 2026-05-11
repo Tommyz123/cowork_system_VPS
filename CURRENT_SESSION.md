@@ -37,7 +37,18 @@ last_audit_date: 2026-04-19
 ### [P2] Cowork 系统优化
 状态：持续迭代中
 last_updated: 2026-05-10
-停在：深度收工系统实装完毕；ARCHITECTURE.md 4处Edit仍待执行；Gmail API仍未启动
+停在：子Agent路由规则精确化完成；ARCHITECTURE.md/playbooks Codex引用待收工更新（review_drafts已记）；ARCHITECTURE.md 4处Edit仍待执行；Gmail API仍未启动
+本次完成（2026-05-10 第七次）：
+- **CLAUDE.md 规则精简**：156→151行；删后台进程规则/合并摩擦记录/压缩Codex指令/删重复脚本标准section；长对话阈值30→40轮
+- **Codex→子Agent协作**：全文替换Codex引用；路由规则4条精确版+两判据（验收能写死+无需中途对话）；Explore子agent测试通过（规则②验证）
+- **Sonnet读→Opus析流水线**：测试通过；适用"大文件+需深度推理"非常见场景
+- **review_drafts.md**：写入收工检查项（验证ARCHITECTURE.md/playbooks Codex引用是否已在收工时更新）
+下一步：
+- **收工时**：更新ARCHITECTURE.md(117-125行)和playbooks/cowork_system.md(91-98行)的Codex→子Agent引用
+- ARCHITECTURE.md 4处Edit（草稿主公已审，待执行）
+- Gmail API配置（主公GCP端6步，我代码端5个脚本）
+路径：VPS `/home/cowork/cowork/` | WSL挂载 `~/vps-cowork/`
+
 本次完成（2026-05-10 第六次）：
 - **双bot配置参考日志**：reference/dual_bot_setup_log.md，含架构/8个踩坑/完整配置/操作速查
 - **深度收工系统升级**：收工Skill→6步（路径修复+深度审核Step5+索引Step6）；草稿区reference/review_drafts.md；tracking文件reference/deep_reviewed_sessions.json
