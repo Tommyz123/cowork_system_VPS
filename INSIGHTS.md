@@ -17,3 +17,5 @@
 [2026-05-09] [Claude Code] `??` 操作符盲区：只在 null/undefined 时 fallback，"错的非空值"会跳过 fallback；当主数据源不可靠（如 partial 数据/外部 API），应把 fallback 设为优先 `fallback ?? primary` 或加显式校验；写代码时遇到 `primary ?? cache` 模式要警惕
 
 [2026-05-09] [Discord plugin] reply 等 5 个 mcp 工具应加到 settings.json `permissions.allow` 免每次弹 permission：`mcp__plugin_discord_discord__{reply,react,edit_message,fetch_messages,download_attachment}`；设计哲学：发回主公自己 channel 等同于 Write(Desktop/*) 白名单，永远 allow 无风险
+
+[2026-05-10] [Email/通知] Resend免费层发件人进Spam风险 → 未验证自定义域名时发件人是 `onboarding@resend.dev`，高概率进Spam/Promotions；对比Gmail API发件人是 `zhitao776@gmail.com` 天然可信；有自己Gmail账号时优先选Gmail API，为Resend额外配域名+SPF/DKIM不值得

@@ -52,6 +52,8 @@
 - [reference_cowork_github.md](reference_cowork_github.md) — github.com/Tommyz123/cowork_system（私有）；收工时commit核心系统文件；不追踪cowork_log.md和.log文件
 - [reference_cc_source.md](reference_cc_source.md) — 研究笔记在cowork/research/cc_source_insights.md；Stop Hook可解日志漏记；记忆相关性过滤省token；已借鉴落地：last_memory_sync/180行预警/收工双写检查
 - [reference_legal_library.md](reference_legal_library.md) — legal_library路径+GitHub(Tommyz123/legal_library私有)+入库标准指向RULE.md+收工时git push
+- [feedback_legal_library_workflow.md](feedback_legal_library_workflow.md) — VPS本地保留/home/cowork/legal_library/，每次git pull不重新clone；主公说push才推GitHub
+- [feedback_legal_library_review.md](feedback_legal_library_review.md) — 审核材料3步：①详细讲内容（具体条款/数字/案件）②入库判断③主动扫描12月批次线索（December Queue/队列进展/主公申请相关）
 - [reference_p3_cannabis_budtender.md](reference_p3_cannabis_budtender.md) — P3路径+Flickr API(key在api_keys.env)+图片踩坑：Unsplash猜ID不稳定，用Flickr/loremflickr
 - [reference_hair_ave.md](reference_hair_ave.md) — 理发店投资文件在资料/Hair Ave/；.numbers需导出CSV/Excel才能在WSL处理
 - [reference_discord_permissions.md](reference_discord_permissions.md) — Claude Code Allow/Deny弹窗出现在Discord，手机可操作；当前用/tmp/task_approved token机制代替

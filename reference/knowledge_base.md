@@ -77,6 +77,9 @@ update/create 时传复杂嵌套 JSON + 中文/emoji 会报 "provided as string"
 - **Discord Bot reply** → pairing 模式下 reply 工具正常；allowlist 模式导致"channel is not allowlisted"报错，不要切换到 allowlist 模式
 - **Discord DM 发送** → 不要用 `/users/@me/channels` 创建新 DM channel（返回400）；直接往已知 channel ID 发消息（`POST /channels/{id}/messages`）
 
+### Claude Code Hook 系统限制
+- **Discord中途消息不触发UserPromptSubmit hook** → discord_approve.py 仅在 UserPromptSubmit 阶段扫描输入；Claude 处理过程中主公在 Discord 回复的消息以 system-reminder 形式到达，不触发 hook，task_approved 不会自动创建。解法：主公需在**新消息**里重发一次确认（如"可以执行"）才能让 hook 正常生效。（2026-05-10 收工中发现）
+
 ## SQLite / 数据库
 
 **FTS5 多字段搜索权重设计**
