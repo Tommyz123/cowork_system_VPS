@@ -16,7 +16,7 @@ last_audit_date: 2026-04-19
 ### 🔄 需人工干预（计入活跃项目数）
 | ID | 项目 | 状态 | 最后更新 | 下一步摘要 |
 |---|---|---|---|---|
-| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-05-10 | GitHub VPS备份建立；GDrive镜像同步；opus_CC bot上线；长对话提醒40→30轮 |
+| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-05-10 | opus_CC Discord MCP修好(env.PATH)；access.json频道修正；两bot独立DM架构确认 |
 | P10 | 个人文件库 | 🔄 活跃 | 2026-04-25 | MVP完成(简历3文件)，阶段2扩展分类 |
 | P3 | Cannabis Budtender | ⏸️ 暂停 | 2026-05-07 | eval 100%完成，暂停中，下次继续：sativa效果测试+架构修复清单 |
 | P8 | 求职 (career-ops) | ⏸️ 暂停 | 2026-05-07 | 策略确定（作品敲门），暂停中，下次继续：LinkedIn截图重写profile |
@@ -37,7 +37,17 @@ last_audit_date: 2026-04-19
 ### [P2] Cowork 系统优化
 状态：持续迭代中
 last_updated: 2026-05-10
-停在：双bot完全隔离+独立systemd服务+开机自启已完成；ARCHITECTURE.md 4处Edit仍待执行；Gmail API配置仍未启动
+停在：opus_CC Discord MCP修好（env.PATH补充）；opus_CC已可接收来自自己DM channel(1503165641379545228)的消息；ARCHITECTURE.md 4处Edit仍待执行；Gmail API仍未启动
+本次完成（2026-05-10 第五次）：
+- **opus_home settings.json 补 env.PATH**：缺PATH导致Discord MCP failed（bun找不到），加上后MCP显示✔connected·5tools
+- **opus_home access.json 频道修正**：groups字段改为opus_CC自己的DM channel(1503165641379545228)，之前错填了cowork的频道
+- **架构说明确认**：两个bot是独立Discord账号，各自DM频道不同，用户需去opus DM里说话才能触发opus_CC
+下一步：
+- 主公去 opus_CC DM channel(1503165641379545228) 测试是否收到并回复
+- ARCHITECTURE.md 4处Edit（草稿主公已审，待执行）
+- Gmail API配置（主公GCP端6步，我代码端5个脚本）
+路径：VPS `/home/cowork/cowork/` | WSL挂载 `~/vps-cowork/`
+
 本次完成（2026-05-10 第四次）：
 - **双 bot 独立重启互不干扰**：CLAUDE.md 重启规则按 $HOME 动态识别 tmux server，cowork bot 杀默认 socket / opus_CC 杀 -L opus_socket，互不误伤
 - **独立 tmux server 隔离**：主公升级 claude_opus_runner.sh 用 `tmux -L opus_socket`，修复同 socket 下 HOME 环境变量被串问题；HOME 真正独立（/home/cowork vs /home/cowork/opus_home）
