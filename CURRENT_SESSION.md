@@ -196,8 +196,13 @@ SerpAPI Key：已改为环境变量读取（SERPAPI_KEY in .env）
 
 ### [P5] Legal Library v4.5
 状态：活跃 - 持续更新中
-last_updated: 2026-04-11
-停在：CCB 2026-04-02会议内容全部入库，GitHub已同步
+last_updated: 2026-05-11
+停在：Riverhead预占案入库草稿已起草，等主公确认写入方式（legal_library在Windows本地）
+本次完成（2026-05-11）：
+- 审核7份5.7.26 CCB会议材料：研究执照/实验室续期×3（跳过）+ 会议通知/议程/deck（跳过）
+- ccb-resolution-2026-29 Riverhead案：Cannabis Law预占地方区划法规，入库价值高
+- 起草入库条目：XX_Cannabis_Law_Preempts_Local_Zoning.md（含案例/裁决/§76(4)/§131/9NYCRR 119.5）
+- 主公个人申请背景了解：12月无地址批次，待写入方式确认
 本次完成（2026-04-11）：
 - 17号新增 Bazaar Royale 条件性驳回案（§72(5)街道层面主入口要求/Proximity Protection≠选址合规/对比Brooklyn High案/补救路径）
 - 17号补入数据来源（CCB 2026-04-02会议录音转录文件，决议编号待官方文件确认）
