@@ -1,6 +1,6 @@
 # Memory Index
 
-> 最后更新：2026-05-11
+> 最后更新：2026-05-11（删4条冗余/废弃条目；更新cowork路径）
 > 维护规则：新增记忆文件后立即在此处添加条目；不用的记忆文件同步删除对应条目
 
 ## User
@@ -38,7 +38,6 @@
 - [project_cannabis_advisor.md](project_cannabis_advisor.md) — 大麻AI顾问；Desktop/marketing/；market.db（SQLite）；暂停
 - [project_ai_skill.md](project_ai_skill.md) — cc_skill V5框架；P2完成；Desktop/cc_skill/
 - [project_daily_news_digest.md](project_daily_news_digest.md) — 每天13:00 EDT cron；run_daily_news.sh；5类新闻+链接+点评
-- legal_library — 纽约大麻法律知识库；见 [reference_legal_library.md](reference_legal_library.md)；进度见CURRENT_SESSION [P5]
 - [project_design_principles.md](project_design_principles.md) — 设计原则：模型无关，接口可替换
 - [project_insights_system.md](project_insights_system.md) — INSIGHTS.md=临时缓冲；knowledge_base.md=永久参考
 - [project_mac_mini.md](project_mac_mini.md) — Mac mini M4计划；Email已配好；买后协助迁移
@@ -48,7 +47,7 @@
 
 ## Reference（位置索引）
 - [reference_claude_md_rules.md](reference_claude_md_rules.md) — CLAUDE.md≤200行；超180删旧；拆分用@import/.claude/rules/
-- [reference_cowork_location.md](reference_cowork_location.md) — Win: C:\Users\zhi89\Desktop\cowork\；WSL: /mnt/c/Users/zhi89/Desktop/cowork/；核心：CLAUDE.md/context.md/CURRENT_SESSION.md
+- [reference_cowork_location.md](reference_cowork_location.md) — Win: C:\Users\zhi89\Desktop\cowork\；VPS: /home/cowork/cowork/；核心：CLAUDE.md/context.md/CURRENT_SESSION.md
 - [reference_cowork_github.md](reference_cowork_github.md) — github.com/Tommyz123/cowork_system（私有）；收工commit；不追踪cowork_log.md
 - [reference_cc_source.md](reference_cc_source.md) — 研究笔记：cowork/research/cc_source_insights.md；Stop Hook/记忆过滤落地
 - [reference_legal_library.md](reference_legal_library.md) — legal_library路径+GitHub(Tommyz123/legal_library私有)+入库标准→RULE.md；收工push
@@ -58,16 +57,13 @@
 - [reference_hair_ave.md](reference_hair_ave.md) — 理发店投资文件在资料/Hair Ave/；.numbers需导出CSV/Excel处理
 - [reference_discord_permissions.md](reference_discord_permissions.md) — Allow/Deny弹窗在Discord手机可操；当前用/tmp/task_approved替代
 - [reference_routines.md](reference_routines.md) — Routines：云端定时；Pro 5次/天；新闻待迁移(需Discord webhook)
-- cowork/reference/routines_rules.md — Routines官方规则存档
 - [reference_skill_rules.md](reference_skill_rules.md) — Skill创建规则；实体~/.claude/skills/；备份cowork/skills/
 - [reference_semantic_search.md](reference_semantic_search.md) — VoyageAI语义搜索；scripts/.env；search_conversations.py hybrid
 - [reference_api_keys.md](reference_api_keys.md) — 所有API key在config/api_keys.env
-- [reference_trading_agents.md](reference_trading_agents.md) — TradingAgents框架在Desktop/trading/TradingAgents/；技术指标废弃
 - [feedback_deprecation_cleanup.md](feedback_deprecation_cleanup.md) — 停用时弃用标记+扫描memory/playbook清遗留引用（自主执行）
 - [project_p9_trading.md](project_p9_trading.md) — P9 TIDE；主题驱动埋伏；ORA持仓；纸账号$1M；积累完成；下次=ORA平仓
 - [reference_token_quota.md](reference_token_quota.md) — Claude Code token配额：长对话消耗；重要任务开新对话
 - [reference_competitor_scraper.md](reference_competitor_scraper.md) — 竞品爬虫；GF/SS用Playwright捕dutchie graphql；ZZ用HTTP直连；cowork/scraper/
-- [reference_gstack.md](reference_gstack.md) — GStack（Garry Tan开源）：github.com/garrytan/gstack；Skill设计借鉴
 
 ## Auto Pending（待审区）
 - [auto_pending.md](auto_pending.md) — 自动捕获待审记忆；有[条目时列出请主公审核

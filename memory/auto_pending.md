@@ -38,3 +38,11 @@
 
 [2026-05-10][feedback] 遇到新环境/新会话，第一步必须跑 hostname + whoami + pwd + curl ifconfig.me 确认环境；不能凭路径格式猜测（/home/cowork/不一定是云端，可能就是VPS上的非root用户）。本次对话浪费大量来回是因为没有先查环境信息。
 
+
+[2026-05-11][reference] Playwright MCP 已禁用（mcp.json disabled:true），需要时告知我临时开启+重启对话；实际未被主动使用过，scraper走Python库不走MCP
+
+[2026-05-11][reference] cowork bot 无法访问 opus_CC 的 DM channel（1503165641379545228）—— Missing Access，因为那个 channel 是用 opus_CC token 建的。要问 Opus 意见，改用 Agent tool with model="opus" 派子agent。
+
+[2026-05-11][feedback] token 优化优先级（Opus 验证）：① MEMORY.md 分层（高频/低频 feedback 分两文件，省 2-3KB/对话，ROI 最高）② /compact 习惯 ③ Playwright MCP 禁用（已完成）④ CLAUDE.md 精简（收益太小，执行确认区压缩净负向，不做）
+
+[2026-05-11][reference] Sonnet 4.6 context window = 200K tokens；Prompt Cache 工作正常（每轮几乎全从缓存读，incremental 极低）；Opus sub-agent 返回结果占 ~26K tokens（派 Opus 很贵，非必要少用）；87K/200K = 43% 是约 15 轮正常对话的水平（含大文件读取+agent spawn）

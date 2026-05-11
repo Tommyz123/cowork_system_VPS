@@ -36,15 +36,18 @@ last_audit_date: 2026-04-19
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-05-10
-停在：Gmail API仍未启动；P4 May 9周五运行记录缺失待查；run_py.sh trap仍用smtplib（DO封SMTP，告警发不出）
-本次完成（2026-05-11 下午）：
-- **Context window 优化**：Playwright MCP禁用(省2000-4000 tokens)；MEMORY.md精简(11.3KB→8.1KB)
-- **mcp.json**：playwright加disabled:true
-- **MEMORY.md**：删历史日期/引用语/重复解释，保留路由触发词
+last_updated: 2026-05-11
+停在：Gmail API仍未启动；run_py.sh trap仍用smtplib（DO封SMTP，告警发不出）
+本次完成（2026-05-11 下午第二次）：
+- **MEMORY.md 进一步精简**：74行→69行，8.1KB→7.5KB；删4条冗余/废弃条目（legal_library裸文本/routines_rules裸路径/trading_agents废弃/gstack低频）；更新cowork路径(WSL→VPS)
+- **Token 优化决策**：CLAUDE.md精简不做（收益小+执行确认区压缩净负向，Opus子agent独立验证同意）
+- **Token 消耗分析**：Opus sub-agent贵（~26K tokens），非必要少派；Prompt Cache工作正常；Context window 200K，当前43.5%
+- **MEMORY.md分层方向**：高频/低频分文件，ROI最高，待下次专门做
 下一步：
-- CLAUDE.md 进一步精简（另找时间专门做）
+- MEMORY.md 分层（高频/低频，下次专门做）
+- CLAUDE.md 进一步精简（另找时间）
 - 养成任务前 /compact 习惯
+- Gmail API配置（主公GCP端6步，我代码端5个脚本）
 本次完成（2026-05-11）：
 - **discord_approve.py加入"收工"触发词**：收工指令本身即全程授权，不再需要中途确认
 - **review_drafts.md草稿处理完毕**：2条INSIGHTS写入+1条friction补记+ARCHITECTURE.md 4处Edit确认已处理
