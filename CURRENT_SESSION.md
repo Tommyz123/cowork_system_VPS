@@ -37,15 +37,18 @@ last_audit_date: 2026-04-19
 ### [P2] Cowork 系统优化
 状态：持续迭代中
 last_updated: 2026-05-10
-停在：opus_CC Discord MCP修好（env.PATH补充）；opus_CC已可接收来自自己DM channel(1503165641379545228)的消息；ARCHITECTURE.md 4处Edit仍待执行；Gmail API仍未启动
-本次完成（2026-05-10 第五次）：
-- **opus_home settings.json 补 env.PATH**：缺PATH导致Discord MCP failed（bun找不到），加上后MCP显示✔connected·5tools
-- **opus_home access.json 频道修正**：groups字段改为opus_CC自己的DM channel(1503165641379545228)，之前错填了cowork的频道
-- **架构说明确认**：两个bot是独立Discord账号，各自DM频道不同，用户需去opus DM里说话才能触发opus_CC
+停在：深度收工系统实装完毕；ARCHITECTURE.md 4处Edit仍待执行；Gmail API仍未启动
+本次完成（2026-05-10 第六次）：
+- **双bot配置参考日志**：reference/dual_bot_setup_log.md，含架构/8个踩坑/完整配置/操作速查
+- **深度收工系统升级**：收工Skill→6步（路径修复+深度审核Step5+索引Step6）；草稿区reference/review_drafts.md；tracking文件reference/deep_reviewed_sessions.json
+- **保存进度Skill新建**：~/.claude/skills/保存进度/SKILL.md，轻量3步，日常多次用
+- **CLAUDE.md更新**：[ref-worthy]标记规则+review_drafts启动检查+Skill路由
+- **opus_home Skills软链接**：opus_CC现可使用所有Skill
+- **SKILLS_INDEX.md更新**：保存进度/收工条目对齐
 下一步：
-- 主公去 opus_CC DM channel(1503165641379545228) 测试是否收到并回复
 - ARCHITECTURE.md 4处Edit（草稿主公已审，待执行）
 - Gmail API配置（主公GCP端6步，我代码端5个脚本）
+- 今晚收工验证深度审核全流程
 路径：VPS `/home/cowork/cowork/` | WSL挂载 `~/vps-cowork/`
 
 本次完成（2026-05-10 第四次）：
