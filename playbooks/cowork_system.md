@@ -88,14 +88,13 @@ status: active
 | `playbooks/` | 各项目操作手册 |
 
 
-## Codex 执行层
+## 子Agent 协作层
 
 | 项目 | 说明 |
 |------|------|
-| 角色 | 执行者：代码/脚本/文件批处理 |
-| 调用 | `codex-companion.mjs task --background "..."` |
-| 认证 | token 过期时：`codex logout && codex login` |
-| 分工 | Claude 策划+验收，Codex 执行，结果确认后汇报主公 |
+| 角色 | Claude 策划+验收，子Agent 执行 |
+| 路由 | ①读多文件+改+验证→`general-purpose`；②只读型→`Explore`；③长耗时→`general-purpose`；④其他→Claude直接做 |
+| 判据 | 「验收能写死」+「无需中途对话」两个都满足才派 |
 
 ---
 

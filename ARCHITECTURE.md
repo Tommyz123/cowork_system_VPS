@@ -1,6 +1,6 @@
 # Cowork 系统架构说明
 
-> 最后更新：2026-05-10（权限与守卫体系扩展：加 settings.json defaultMode/allow/deny + task-scoped 工作流；文件表加 MIGRATION_LOG.md）
+> 最后更新：2026-05-10（子Agent协作层替换Codex执行层；收工Skill由4步升级为6步）
 > 用途：帮助 AI 在新对话中快速理解整套系统，不需要主公重复解释
 
 ---
@@ -94,7 +94,7 @@ Desktop/
 
 | Skill | 调用方式 | 功能 |
 |-------|---------|------|
-| `/收工` | `skill: "收工"` | 4步会话结束流程（保存进度+日志 / 文档同步检查 / 备份+commit+push / 写入cowork.db） |
+| `/收工` | `skill: "收工"` | 6步会话结束流程（保存进度+日志 / 文档同步检查 / 备份+commit+push / 写入cowork.db / 深度审核草稿 / 索引更新） |
 | `/搜索` | `skill: "搜索"` | 自然语言搜索 cowork.db 历史对话 |
 | `/整理记忆` | `skill: "整理记忆"` | 5步记忆整理流程（auto_pending审核→对比双路径→写入→更新时间戳） |
 | `/系统复盘` | `skill: "系统复盘"` | friction归类统计→检查复发→输出报告→等确认后修改 |
@@ -114,15 +114,14 @@ Desktop/
 | `discord_reply_check.sh` | Stop | Discord 消息漏回复时 block |
 | `rm -f /tmp/task_approved` | UserPromptSubmit | 每次主公发消息自动清除授权 token |
 
-**Codex 执行层**（2026-04-20 接入）：
+**子Agent 协作层**（2026-05-10 更新）：
 
 | 项目 | 说明 |
 |------|------|
-| 角色 | 代码/脚本/文件批处理的执行者；我（Claude）负责策划+验收，Codex 负责执行 |
-| 调用方式 | `codex-companion.mjs task --background "..."` → 轮询 status → 读取 result |
-| 适用任务 | 写代码、跑脚本、文件批处理（有明确输入输出的任务） |
-| 不适用 | 理解意图、策略讨论、需要上下文判断的任务（这些由 Claude 处理） |
-| 认证 | `codex login` 在 Claude Code 终端运行；token 过期需重新 `codex logout && codex login` |
+| 角色 | Claude 策划+验收，子Agent 执行（读多文件+改+验证场景） |
+| 路由规则 | ①读多文件+改+验证，验收能写死，无需中途对话 → `general-purpose` 子Agent；②只读型（分析/调研/审核）→ `Explore` 子Agent；③长耗时（爬虫/批处理）→ 强制 `general-purpose`；④其他（即时/单步/需中途确认）→ Claude 直接做 |
+| 派发判据 | 「验收能写死」+「无需中途对话」两个都满足才派，缺一则 Claude 直接做 |
+| 指令写法 | 路径+做什么+约束；禁止背景/解释；改前读现状，验证通过才完成，卡住即报告 |
 
 **版本控制：** cowork/ 系统文件已建立 Git 版本控制，推送至 github.com/Tommyz123/cowork_system（私有）。追踪范围：CLAUDE.md、ARCHITECTURE.md、context.md、memory/、playbooks/ 等核心文件；排除 cowork_log.md、newscripts/、backups/ 等。
 
