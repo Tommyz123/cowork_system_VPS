@@ -37,7 +37,12 @@ last_audit_date: 2026-04-19
 ### [P2] Cowork 系统优化
 状态：持续迭代中
 last_updated: 2026-05-10
-停在：ARCHITECTURE.md 4处Edit仍待执行；Gmail API仍未启动
+停在：Gmail API仍未启动；P4 May 9周五运行记录缺失待查；run_py.sh trap仍用smtplib（DO封SMTP，告警发不出）
+本次完成（2026-05-11）：
+- **discord_approve.py加入"收工"触发词**：收工指令本身即全程授权，不再需要中途确认
+- **review_drafts.md草稿处理完毕**：2条INSIGHTS写入+1条friction补记+ARCHITECTURE.md 4处Edit确认已处理
+- **P4 May 10失败根因定位**：旧版脚本写/tmp/news_ai.txt vs root权限文件；当前版本已修复，今天13:00 EDT正常运行
+- **P9时间确认**：今天周一，三件套+scanner_tracker+price_tracker在16:00 EDT运行
 本次完成（2026-05-10 收工）：
 - **ARCHITECTURE.md + playbooks Codex引用同步**：Codex执行层→子Agent协作层（路由规则4条+2判据）
 - **review_drafts.md 草稿清除**：已处理的Codex引用检查项删除
