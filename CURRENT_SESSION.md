@@ -197,12 +197,21 @@ SerpAPI Key：已改为环境变量读取（SERPAPI_KEY in .env）
 ### [P5] Legal Library v4.5
 状态：活跃 - 持续更新中
 last_updated: 2026-05-11
-停在：Riverhead预占案入库草稿已起草，等主公确认写入方式（legal_library在Windows本地）
-本次完成（2026-05-11）：
-- 审核7份5.7.26 CCB会议材料：研究执照/实验室续期×3（跳过）+ 会议通知/议程/deck（跳过）
-- ccb-resolution-2026-29 Riverhead案：Cannabis Law预占地方区划法规，入库价值高
-- 起草入库条目：XX_Cannabis_Law_Preempts_Local_Zoning.md（含案例/裁决/§76(4)/§131/9NYCRR 119.5）
-- 主公个人申请背景了解：12月无地址批次，待写入方式确认
+停在：2案入库完成（本地2个commit），待主公说push才推GitHub；知识库完整性评估完成
+本次完成（2026-05-11 第二次）：
+- VPS GitHub SSH 直连 legal_library 建立（克隆至 /home/cowork/legal_library/）
+- **案例四入库（17_Legal_Cases.md）**：Riverhead 预占案——Cannabis Law §131 预占地方区划，Board 驳回市政府反对，批准 CAURD 续期；push 至 GitHub（commit 074bb29）
+- **案例五入库（17_Legal_Cases.md）**：Upstate State 预占边界补充——Cannabis Law 未预占的地方法规（ADA/建筑/zoning）仍有效，州执照不豁免地方合规义务；本地 commit e016adc
+- LEGAL_TIMELINE.md + INDEX.md 同步更新（两次 commit）
+- 跳过：2026-28（AU续期批量）、2026-27（执照修改批量），无增量内容
+- 知识库完整性评估：覆盖好，缺口有 Community Impact Plan/December Queue 最新/PT3 Branding/Gotham Buds
+- 工作流确认记忆：VPS /home/cowork/legal_library/ 持久保留，主公说 push 才推
+- 审核偏好记忆写入：详细讲内容 + 入库判断 + 12月批次线索扫描
+下一步：
+- 等主公发新材料继续入库
+- 主公确认 push 时统一推 GitHub
+- 补充 Community Impact Plan 要求（新发现缺口）
+路径：VPS `/home/cowork/legal_library/` | GitHub: Tommyz123/legal_library
 本次完成（2026-04-11）：
 - 17号新增 Bazaar Royale 条件性驳回案（§72(5)街道层面主入口要求/Proximity Protection≠选址合规/对比Brooklyn High案/补救路径）
 - 17号补入数据来源（CCB 2026-04-02会议录音转录文件，决议编号待官方文件确认）
