@@ -38,6 +38,13 @@ last_audit_date: 2026-04-19
 状态：持续迭代中
 last_updated: 2026-05-10
 停在：Gmail API仍未启动；P4 May 9周五运行记录缺失待查；run_py.sh trap仍用smtplib（DO封SMTP，告警发不出）
+本次完成（2026-05-11 下午）：
+- **Context window 优化**：Playwright MCP禁用(省2000-4000 tokens)；MEMORY.md精简(11.3KB→8.1KB)
+- **mcp.json**：playwright加disabled:true
+- **MEMORY.md**：删历史日期/引用语/重复解释，保留路由触发词
+下一步：
+- CLAUDE.md 进一步精简（另找时间专门做）
+- 养成任务前 /compact 习惯
 本次完成（2026-05-11）：
 - **discord_approve.py加入"收工"触发词**：收工指令本身即全程授权，不再需要中途确认
 - **review_drafts.md草稿处理完毕**：2条INSIGHTS写入+1条friction补记+ARCHITECTURE.md 4处Edit确认已处理
