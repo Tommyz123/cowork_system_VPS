@@ -37,7 +37,20 @@ last_audit_date: 2026-04-19
 ### [P2] Cowork 系统优化
 状态：持续迭代中
 last_updated: 2026-05-11
-停在：Gmail API仍未启动；run_py.sh trap仍用smtplib（DO封SMTP，告警发不出）
+停在：BACKLOG.md 项目标签整理（不急）；Gmail API仍未启动
+本次完成（2026-05-11 夜）：
+- **整理记忆 auto_pending 17条**：新建 reference_dual_bot / reference_p11_discord / feedback_env_check；更新 project_p9_trading / feedback_p9_ops / reference_cowork_location；knowledge_base.md 新增系统维护/Discord plugin/VPS限制/Gmail选型等条目；MEMORY.md 更新时间戳
+- **ops_log.md 统一日志系统**：新建 /home/cowork/cowork/ops_log.md，所有 cron 脚本 + Skill 均写入
+- **SMTP→Brevo修复**：run_py.sh / run_scanner.sh / run_flight.sh / run_mac_monitor.sh trap全部改为Brevo HTTP API；ops_alert.py新建
+- **P9 crontab时间修正**：scanner_tracker→16:30, price_tracker→16:45, thesis_monitor→16:30, run_scanner→17:00, quarterly_review→18:30（错开DB冲突）
+- **friction_log清理**：归档3组已修复条目，活跃条目14→11
+- **INSIGHTS.md清空**：4条全处理（3迁knowledge_base，1删除）
+下一步：
+- BACKLOG.md 加项目标签（锦上添花，不急）
+- MEMORY.md 分层（高频/低频，专门安排）
+- Gmail API配置（主公GCP端6步，我代码端5个脚本）
+路径：VPS `/home/cowork/cowork/` | WSL挂载 `~/vps-cowork/`
+
 本次完成（2026-05-11 下午第二次）：
 - **MEMORY.md 进一步精简**：74行→69行，8.1KB→7.5KB；删4条冗余/废弃条目（legal_library裸文本/routines_rules裸路径/trading_agents废弃/gstack低频）；更新cowork路径(WSL→VPS)
 - **Token 优化决策**：CLAUDE.md精简不做（收益小+执行确认区压缩净负向，Opus子agent独立验证同意）
@@ -311,14 +324,17 @@ last_updated: 2026-05-09
 4. 5-10只平仓后回来定正式验证框架（25样本前不做复杂归因）
 路径：`C:\Users\zhi89\Desktop\cowork\trading\` | DB：`trading/trading.db`
 
-**TIDE完整自动运行流程**：
-- 每天12PM EDT：signal_collector / signal_alert / catalyst_monitor
-- 每周一12PM EDT：scanner_tracker（持仓周报）+ price_tracker（补充历史价）
-- 每周三12PM EDT：thesis_monitor（thesis失效→Discord告警+写thesis_alerts）
-- 每周日12PM EDT：weekly_review（结果追踪周报→Gmail，含IWM对比）
-- 每月第一周一**11AM EDT**：screener（刷新候选股池）
-- 每季度第一周一**12PM EDT**：run_scanner（季度主题扫描建仓）
-- 每季度第一周一**2PM EDT**：quarterly_review（季度复盘报告，含Alpha vs IWM）
+**TIDE完整自动运行流程（全部纽约时间 EDT/EST）**：
+- 每天**16:00**：signal_collector / signal_alert / catalyst_monitor（三件套同时，各自独立调API）
+- 每周一**16:30**：scanner_tracker（持仓周报）
+- 每周一**16:45**：price_tracker（补充历史价）
+- 每周三**16:30**：thesis_monitor（thesis失效→Discord告警+写thesis_alerts）
+- 每周日**16:00**：weekly_review（结果追踪周报→Gmail，含IWM对比）
+- 每月第一周一**15:00**：screener（刷新候选股池）
+- 每季度第一周一**17:00**：run_scanner（季度主题扫描建仓）
+- 每季度第一周一**18:30**：quarterly_review（季度复盘报告，含Alpha vs IWM）
+- 每天**20:30**（周一至周五）：price_guard（持仓价格守卫，跌幅>7%告警）
+- 每天**21:00**：price_snapshot（30/60/90天节点价格记录）
 
 ---
 
