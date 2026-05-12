@@ -85,8 +85,8 @@ Desktop/
 | `newscripts/` | 自动化工具脚本：每日新闻 RSS 抓取 + Discord DM 推送，含 Agent 操作指令 | 修改新闻配置时读取 news_agent_instructions.md |
 | `flightscripts/` | 机票监控 Agent：SerpAPI查价 + SQLite历史 + Claude分析 + Discord日报，每天17:30 EDT自动运行 | 修改监控路线/阈值时读取 README.md |
 | `research/` | 技术研究笔记：Claude Code 源码分析等，供下次对话复用 | 进行技术研究或参考历史分析时 |
-| `scripts/` | 自动化Python脚本：setup_db / index_conversations / search_conversations / log_session | 维护 cowork.db 对话搜索系统时 |
-| `reference/` | 参考文档：`skill_official_rules.md`（Skill规范）+ `knowledge_base.md`（已审核技术参考库，遇报错先查） | 创建新 Skill、遇工具报错或环境问题时 |
+| `scripts/` | 自动化Python脚本：setup_db / index_conversations / search_conversations / log_session / **cannabis_docket_reminder.py** (NY大麻诉讼周提醒) | 维护 cowork.db 对话搜索系统时；查 cron 任务总览见 `reference/cron_jobs.md` |
+| `reference/` | 参考文档：`skill_official_rules.md`（Skill规范）+ `knowledge_base.md`（已审核技术参考库，遇报错先查）+ **`cron_jobs.md`（所有 cron 任务唯一总索引）** + `agent_view_rules.md`（Agent View 调研笔记）+ `dual_bot_setup_log.md`（双bot架构记录）| 创建新 Skill、遇工具报错或环境问题、加新 cron 任务时 |
 | `trading/` | P9 TIDE量化交易系统：`cognitive_scanner.py`(季度建仓扫描) / `signal_collector.py`+`signal_alert.py`(每日信号) / `screener.py`(月度候选股池) / `close_position.py`(手动平仓+归因) / `quarterly_review.py`(季度复盘) / `trading.db`(scanner_picks/trades/thesis_alerts) | 查看P9状态、修改策略时；入口脚本：`bash run_scanner.sh` |
 | `cowork.db` | FTS5+向量对话搜索数据库：conversations/sessions/session_embeddings/message_embeddings（1844条消息级向量） | 搜索历史对话（/搜索 Skill）；收工时自动写入 |
 

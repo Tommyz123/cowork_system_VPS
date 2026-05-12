@@ -34,6 +34,7 @@
 - [feedback_rule_vs_hook.md](feedback_rule_vs_hook.md) — 规则描述期望，Hook强制执行；关键行为违反超过一次→评估升级为Hook
 - [feedback_claudemd_discipline.md](feedback_claudemd_discipline.md) — CLAUDE.md只加"违反了会出事"的规则；操作习惯/判断标准内化不写文档（2026-05-08）
 - [feedback_env_check.md](feedback_env_check.md) — 进入新环境先跑hostname/whoami/pwd/ifconfig.me确认，不能凭路径格式猜测
+- [feedback_artifact_indexing.md](feedback_artifact_indexing.md) — 新建脚本/cron/文档/数据必须最后一步加索引(ARCHITECTURE/cron_jobs/MEMORY/INDEX等)；沉默建文件=任务未完成
 
 ## Project（项目背景）
 - [project_cannabis_advisor.md](project_cannabis_advisor.md) — 纽约大麻AI顾问；目录Desktop/marketing/；数据库market.db（SQLite）；技术栈Python+SQLite+curl_cffi；当前暂停（2026-04-06）
@@ -71,6 +72,9 @@
 - [reference_dual_bot.md](reference_dual_bot.md) — 双bot架构：cowork+opus_CC频道ID/隔离4层(tmux/HOME/plugin/token)/DO VPS IP/systemd服务/远程装plugin方法
 - [reference_p11_discord.md](reference_p11_discord.md) — VPS Discord接入：plugin v0.0.4已知bug+patch位置+降级方案(discord.py自建bot~100行)
 - [reference_gstack.md](reference_gstack.md) — GStack（Garry Tan开源，91k stars）：github.com/garrytan/gstack；Skill设计可借鉴
+- cowork/reference/cron_jobs.md — 所有 cron 任务唯一总索引（每日新闻/机票/Mac监控/P9系列/rclone备份/大麻诉讼追踪），加新 cron 必须在此注册
+- cowork/reference/agent_view_rules.md — Claude Code Agent View 完整调研笔记（不启用，多窗口管理工具不适合远程遥控场景）
+- legal_library/18_Organic_Blooms_v_CCB_Tracking.md — NY大麻 December queue 诉讼追踪（Index 904497-24，影响主公申请），每周一09:00 EDT 自动 Discord 提醒查 NYSCEF
 
 ## Auto Pending（待审区）
 - [auto_pending.md](auto_pending.md) — 系统自动捕获的待审记忆缓冲区；有[开头条目时需列出请主公确认后写入正式memory/
