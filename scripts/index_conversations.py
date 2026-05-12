@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 
 # ── CONFIG ──────────────────────────────────────────────
 JSONL_DIR = os.path.expanduser(
-    "~/.claude/projects/-root-cowork/"
+    "~/.claude/projects/-home-cowork-cowork/"
 )
 DB_PATH = "/home/cowork/cowork/cowork.db"
 # ────────────────────────────────────────────────────────
