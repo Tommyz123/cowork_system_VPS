@@ -21,11 +21,19 @@ originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 
 ## 完全隔离架构
 
-**必须隔离的4个层级**（任一层串联都会出问题）：
+**必须隔离的3个层级**（任一层串联都会出问题，memory 已主动改为共享见下）：
 1. **tmux server**：`tmux`（cowork）vs `tmux -L opus_socket`（opus_CC）；同一server不同session会串 HOME
-2. **HOME目录**：/home/cowork/ vs /home/cowork/opus_home/；plugin cache、settings、memory 全部独立
+2. **HOME目录**：/home/cowork/ vs /home/cowork/opus_home/；plugin cache、settings 独立（memory 例外）
 3. **plugin cache**：各自单独跑 `/plugin install`，不能共用
 4. **Discord token**：各自独立 .env 文件
+
+**Memory 例外（2026-05-12 决策）：**
+打破原 4 层隔离中的 memory 独立，改为 symlink 共享：
+- `/home/cowork/opus_home/.claude/projects/-home-cowork-cowork/memory/` 是 symlink
+- → 指向 `/home/cowork/.claude/projects/-home-cowork-cowork/memory/`（cowork bot 活 memory）
+- 两个 bot 共享同一份 memory，任一 bot 修改另一个立即生效
+- 理由：主公双模型入口共享上下文需求，远程使用切换繁杂
+- 详细记录见 `reference/dual_bot_setup_log.md` 章节六
 
 ---
 

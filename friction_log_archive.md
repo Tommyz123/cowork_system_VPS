@@ -148,3 +148,13 @@
 
 [2026-05-07 20:09] ✅ 处理结果：立场一致性×3条 — 新增 position_check.py Hook（UserPromptSubmit检测追问词→注入两步决策树）+ CLAUDE.md规则改写（默认维持立场+口头公式要求）| 状态：已自行修复
 [2026-05-07 20:09] ✅ 处理结果：Discord reply漏发 — 新增三段式Hook（discord_reply_flag.py/clear.py/check.sh）Stop Hook拦截漏发 | 状态：已自行修复
+
+[2026-05-09 15:05] ⚠️ 规则缺失 | 状态检查时未先确认交易日 | 处理方式：看signal log前先check当天是否交易日 | 状态：已自行修复
+✅ 归档于2026-05-11，对应规则已写入 feedback_p9_ops.md
+
+[2026-05-09 00:05] ⚠️ 工具限制 | VPS Discord plugin 不响应 | 真根因：systemd ExecStart 漏 --channels plugin:discord@claude-plugins-official，host 没订阅 plugin channel
+[2026-05-09 21:11] ✅ 处理结果：改一行 ExecStart + daemon-reload + restart 后全通 | 状态：已自行修复
+✅ 归档于2026-05-11，踩坑已整理至 reference_dual_bot.md + knowledge_base.md
+
+[2026-05-10 XX:XX] ⚠️ 规则违反 | CLAUDE.md加了操作习惯类内容 | 被主公纠正：只加违反会出事的规则 | 状态：已自行修复
+✅ 归档于2026-05-11

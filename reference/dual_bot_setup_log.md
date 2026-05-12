@@ -312,3 +312,57 @@ tmux -L opus_socket attach -t cowork_opus  # opus_CC bot TUI
 | opus_CC systemd | `/etc/systemd/system/cowork-opus.service` |
 | cowork 工作目录 | `/home/cowork/cowork/` |
 | VPS IP | `142.93.207.54` |
+
+---
+
+## 六、Memory 共享改造（2026-05-12）
+
+### 背景
+原设计中两个 bot 的 memory 路径完全独立（4 层隔离原则之一）。但实测发现：
+- `/home/cowork/opus_home/.claude/projects/-home-cowork-cowork/memory/` 一直为空（opus_CC bot 从未在那写入过任何文件）
+- opus_CC bot 实际上一直在通过 git repo 备份（`/home/cowork/cowork/memory/`）**只读** cowork bot 的 memory
+- opus_CC bot 修改 memory 时改的是 git repo 备份，**不会回写到 cowork bot 的活 memory**——导致 cowork bot 下次启动看不到新规则
+
+### 决策
+打破"4 层隔离"中的 memory 层独立——改为 **symlink 共享**。
+
+### 理由
+- 主公使用模式：双模型入口共享上下文（不做模型对比实验）
+- 远程使用切换模型繁杂，希望两个 bot 共享同一套规则/记忆
+- 想用纯净无记忆模型时单独开新 Claude Code 实例
+
+### 实施命令（2026-05-12 完成）
+```bash
+# 1. 先把 opus_CC 改过但未同步的规则 cp 到 cowork bot 活 memory（一次性补齐）
+cp /home/cowork/cowork/memory/feedback_honesty.md \
+   /home/cowork/.claude/projects/-home-cowork-cowork/memory/
+cp /home/cowork/cowork/memory/feedback_backlog_format.md \
+   /home/cowork/.claude/projects/-home-cowork-cowork/memory/
+
+# 2. 删除 opus_home 下的空 memory 目录
+rmdir /home/cowork/opus_home/.claude/projects/-home-cowork-cowork/memory/
+
+# 3. 建立 symlink：opus_home memory → cowork bot 活 memory
+ln -s /home/cowork/.claude/projects/-home-cowork-cowork/memory \
+      /home/cowork/opus_home/.claude/projects/-home-cowork-cowork/memory
+```
+
+### 验证
+两个 bot 看到同一份 memory（61 个文件），任一 bot 修改另一个立即生效。
+
+### 回滚方法
+```bash
+rm /home/cowork/opus_home/.claude/projects/-home-cowork-cowork/memory  # 删 symlink
+mkdir /home/cowork/opus_home/.claude/projects/-home-cowork-cowork/memory  # 重建空目录
+```
+
+### 后续影响
+- 收工 SKILL.md 步骤 3 的"同步 memory 备份"逻辑仍保留——`cp /home/cowork/.claude/projects/.../memory/*.md → git repo`，git 备份继续生效
+- 任一 bot 改 memory 都会立即被另一个看到，**不需要手动同步**
+- 唯一并发风险：两个 bot 同时往 `auto_pending.md` append 时可能交错（极低频）
+
+### 收工分工（2026-05-12 约定）
+两个 bot 都用过的日子，**分别说"收工"一次**：
+- 每个 bot 跑各自的步骤 1（更新自己懂的项目进度）+ 步骤 4（写自己 session 摘要到 cowork.db）
+- 其他步骤（git/索引/深度审核）会重复跑但有去重表保护，不冲突
+- 如果只用了一个 bot，只让那个 bot 收工即可

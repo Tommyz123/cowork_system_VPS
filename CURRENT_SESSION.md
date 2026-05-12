@@ -36,8 +36,23 @@ last_audit_date: 2026-04-19
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-05-11
-停在：Gmail API仍未启动；MEMORY.md废弃条目清理（下次收工自动触发）
+last_updated: 2026-05-12
+停在：双bot memory 已 symlink 共享；Agent View 调研沉淀；Gmail API 仍未启动；MEMORY.md 废弃条目清理（下次收工自动触发）
+
+本次完成（2026-05-12 中午，opus_CC bot）：
+- **双 bot memory 共享改造**：opus_home memory 改 symlink 指向 cowork bot 活 memory；打破"4 层隔离"中的 memory 层独立原则；reference/dual_bot_setup_log.md 加章节六完整记录架构决策+实施命令+回滚方法+收工分工约定
+- **feedback_honesty.md 加 2 条新规则**：① "伪数据吹捧规则"（编 top%/对照分布等编造统计违规）② "时间跨度推断规则"（说"X 年/X 月"前必查 git log，禁止从版本号脑补）—— 同日 2 次伪数据违规驱动
+- **feedback_backlog_format.md 加 "暂不做必须二选一"规则**：暂不做决策必须明确归类为🟡缓做（移到等触发条件区块）或🔴砍掉（直接删除），禁止留在"下次对话做"区块当僵尸条目
+- **收工 SKILL.md 步骤 1 加强制规则**：遇到"暂不做"决策必须当场追问主公归类，已同步备份到 cowork/skills/
+- **BACKLOG.md 清理**：删除 Discord Webhook 配置僵尸条目（已决定暂不做 7 天未清理）
+- **reference/agent_view_rules.md 新建**：完整 Agent View 调研笔记（是什么/核心能力/限制/对比 Sub-agent vs Agent Teams/对 cowork 不启用结论/调研记录），防止下次重复派 subagent 浪费配额
+- **对主公能力的深度对话**：4 强项（抽象学习/系统思维/元认知/韧性）+ 4 短板（执行收敛/聚焦/对 AI 严格 vs 对自己宽松/回避真实世界反馈）—— 深度对话内容通过步骤 5 深度审核会提炼到 review_drafts.md
+下一步（2026-05-12）：
+- Gmail API 配置（主公 GCP 端 6 步，我代码端 5 个脚本）
+- MEMORY.md 废弃条目清理（收工时自动扫）
+- 验证 index_conversations.py 的 JSONL_DIR 是否真的能扫到两个 bot 的 .jsonl（疑似 bug：写死路径 `-root-cowork`）—— 不紧急但影响搜索完整性
+- 评估"主动审主公"周一 cron 任务（解决他"逃避取舍"命门，对话中识别为高杠杆动作）—— 待主公决策
+
 本次完成（2026-05-11 第三次）：
 - **project_*.md 精简（4个）**：daily_news_digest删WSL旧cron配置/mac_mini删迁移任务/personal_library删路径+阶段细节/career_ops删并行行动；5个确认无需改动
 - **BACKLOG.md 清理**：删除已完成的 project_*.md 整理条目

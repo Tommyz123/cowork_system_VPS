@@ -63,3 +63,6 @@ PYEOF
 # 更新基准为本次
 echo "$CURRENT|$TODAY" > "$BASELINE_FILE"
 echo "[$TODAY] Stability check done. friction: $LAST_COUNT → $CURRENT (new: $NEW)"
+
+NOW=$(TZ="America/New_York" date "+%Y-%m-%d %H:%M EDT")
+echo "[$NOW] CRON[SYS] | stability_check | ✅ | $STATUS 新增friction:${NEW}条(${LAST_COUNT}→${CURRENT})" >> /home/cowork/cowork/ops_log.md

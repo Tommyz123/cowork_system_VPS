@@ -34,45 +34,9 @@
 
 [2026-05-07 17:05] ⚠️ 系统一致性 | P9 TIDE系统 | 问题：after-hours下单导致DB与Alpaca账号暂时不一致（DB超前于实际成交）；根因：place_order下单后DB立即记录open，但Alpaca市价单在市场关闭时无法立即成交；遗留问题：trades.fill_price为空，scanner_picks.entry_price用扫描价而非实际成交价；建议：开盘后需手动或脚本同步fill_price | 状态：需主公确认同步机制
 
-[2026-05-09 00:05] ⚠️ 工具限制 | VPS 迁移 cowork Discord plugin | 表面问题：迁移到 DigitalOcean VPS 后 Discord plugin 不响应主公消息（bot 显示"正在输入"但不回复）；
-**根因定位过程（避免下次重复踩坑）：**
-1. ❌ 先怀疑 WSL2+VPS 双开抢 token → kill WSL2 plugin 后仍不工作
-2. ❌ 怀疑 Discord Privileged Intents 未开 → 主公 Developer Portal 截图确认 ON
-3. ✅ 写独立 testscript（/tmp/discord-test.ts）跑 minimal discord.js client，直接收到主公"hi"x3 → 证明 Discord 端 + token + intents 全部正常
-4. ✅ 给 server.ts 第 811 行 messageCreate listener 注入 [DBG-MSG] log → server.ts **能收到** Discord 消息
-5. ❌ 但 claude transcript 完全没 Discord 消息记录 → server.ts 调 mcp.notification('notifications/claude/channel') 后 claude 端**静默忽略**
-
-**真正根因（未解决）：** Discord plugin v0.0.4 调用 `mcp.notification({method: 'notifications/claude/channel', params: {content, meta}})`，Claude Code v2.1.137 收到但不当成 user prompt 处理。可能是 plugin↔claude 版本协议不匹配。
-
-**踩过的坑（提示下次别再踩）：**
-- VPS 上 ssh 跑 `pkill -f claude` 或 `pkill -f bun` 容易把 SSH 连接也杀掉（exit 255），需要用 PID 精确 kill
-- WSL2 路径硬编码：installed_plugins.json 里 installPath 也是 /home/zhi8939/...，第一次 sed 替换只改了 .py/.sh 漏掉 .json
-- Discord bot DM channel ID 1485128242808619079 被错误记录在 access.json 的 groups 字段里（应该只放 guild channel，DM 不算）—— access 检查仍然能通过因为 allowFrom 包含 user_id
-- DM 频道 type:1 的 channel_id 和 group_id 形似容易混淆
-- `bash -c "...2>>/tmp/log"` wrapper 改 .mcp.json 可以让 server.ts 的 stderr 落到日志文件，便于调试
-- `tar` 流式传输时主公在写 cowork_log.md 会触发 "file changed as we read it" 警告但不影响结果
-- 加 `--warning=no-file-changed` 抑制
-- bun 装在 VPS 需要先 `apt install unzip`
-
-**下次接续时的诊断起点：**
-- VPS: `/tmp/discord-server.log` 看 server.ts stderr
-- VPS: `/root/.claude/projects/-root-cowork/*.jsonl` 看 claude transcript 是否有 Discord notification
-- 升级 plugin：在 cowork TUI 里 `/plugins update discord` 试试
-- 或加 `claude --debug=mcp` 看 MCP 通信日志
-- 比较 WSL2 上 claude 版本（如果 < 2.1.137 可能 plugin 在新版破坏）
-
-**已注入 server.ts 的调试代码（VPS）：** `/root/.claude/plugins/cache/claude-plugins-official/discord/0.0.4/server.ts` 第 812 行 `[DBG-MSG]`，备份在 `server.ts.bak`
-
-| 状态：暂搁 - 跳过 Discord 完成 cowork 其他迁移；明天系统排查 plugin 兼容
-验证标准：主公 iPhone Discord DM 给 CC bot，10 秒内能收到 claude 回复
-验证状态：【待验证】
-[2026-05-09 15:05] ⚠️ 规则缺失 | 状态检查时未先确认交易日 | 处理方式：看signal log前先check当天是否交易日 | 状态：已自行修复
-
 [2026-05-09 20:08] ⚠️ 数据诚信 | P11 SMTP 故障诊断时靠经验猜"DigitalOcean默认封SMTP"未读官方文档 | 主公纠正"需要读DO规则信息再继续，不然都靠猜" | 处理方式：用 WebFetch 抓 DO 官方文档 + WebSearch 验证社区经验，确认 25/465/587 全封 + 工单解锁概率低 + 推荐第三方API 后再列方案 | 根因：技术故障诊断时混用"经验直觉"和"事实陈述"，把猜测当结论 | 建议规则变更：CLAUDE.md "看日志先读代码"规则扩展为"看故障先读官方文档"——遇到第三方服务（云提供商/API/工具）的故障/限制，先 WebFetch 官方文档 + WebSearch 验证，再列方案；禁止把"通常这样"当事实陈述
 验证标准：下次遇到第三方服务故障/限制时，第一动作是 WebFetch 官方文档而非凭经验给方案
 验证状态：【待验证】
-
-[2026-05-09 21:11] ✅ 处理结果：[2026-05-09 00:05] Discord plugin bug 真根因找到——VPS systemd unit ExecStart 漏 `--channels plugin:discord@claude-plugins-official`，host 没订阅 plugin channel，notification 收下来直接丢；前判"协议不匹配 v2.1.137"被推翻；改一行 ExecStart + daemon-reload + restart 后 Discord→host 链路全通（[DBG-MSG]/[DBG-GATE]/[DBG-NOTIFY] 三步验证）| 状态：已自行修复
 
 [2026-05-09 21:15] ⚠️ 诊断方法 | Discord plugin bug 连续 3 次误判 | 表面错误：①看日志双向 [DBG-MSG] 就判"已自愈"（实为 bot 自身消息回声，注入 [DBG-MSG] 漏了 `if msg.author.bot` 过滤认知）②看 TUI transcript 有 "hi" 就判"plugin 工作正常"（实为主公手动 ssh attach 时键入，未区分手动 input vs channel notification 视觉差异）③判"host v2.1.138 不处理 method"（被主公"WSL2 也是 v2.1.138"推翻）| 根因：每次诊断都在猜底层（协议/版本/host bug），从未做"工作环境 vs 不工作环境"的差异 diff；如果第一时间 diff WSL2 vs VPS 启动命令（archive 文档里就写了 "claude --channels"），5 分钟就能定位 | 建议规则变更：CLAUDE.md 增加"差异定位法"——遇到 A 环境工作 B 不工作的情况，第一动作是逐项 diff 启动命令/参数/环境变量/配置文件，确认完无差异再猜底层；不要直接跳到协议层假设
 验证标准：下次诊断"X 环境工作 Y 不工作"类问题时，第一句话必须是"先列两边的启动命令/配置 diff"，不直接猜底层
@@ -90,9 +54,4 @@
   验证标准：下次收到"设计/规划/方案"指令时，零代码执行，纯文字输出，等主公说"执行"才动手
   验证状态：【待验证】
 [2026-05-11 00:29] ⚠️ 系统限制 | discord_approve.py hook | Discord中途消息（system-reminder）不触发UserPromptSubmit，导致task_approved未自动创建；用户已在Discord确认但需要再发一次才能生效 | 状态：待讨论
-[2026-05-10 XX:XX] ⚠️ 规则违反 | f64284a9 session P2工作 | 把「操作习惯类」内容（数据诚信3条可操作规则）加入CLAUDE.md，被主公纠正：2026-05-08已明确"只加违反会出事的规则，操作习惯不写文档" | 状态：已自行修复
-表面错误：加了不该加的规则到CLAUDE.md
-根因：feedback_claudemd_discipline刚写入记忆不够内化，遇到具体场景没触发
-建议规则变更：无需新规则，已有规则需要更严格执行（每次改CLAUDE.md前先过"违反了会出什么事"检验）
-验证标准：下次改CLAUDE.md时检查是否有操作习惯类内容混入
-验证状态：【待验证】
+[2026-05-11 23:44] ⚠️ 被主公纠正 | 场景：主公说"收工时整理文档也是保留草稿"，误把"收工时"理解为"现在收工"指令，Hook检测到"收工"词自动授权，未二次确认就执行收工流程 | 表面错误：误触收工 | 根因：Hook触发词过于宽泛（含"收工"的语境不全是指令），且我没有在Hook授权后判断意图就直接执行 | 建议规则变更：执行收工前先复述"我理解你要收工了，确认吗？"；或Hook收工词需要是独立指令（不在句中） | 验证标准：下次遇到含"收工"的句子但不是独立指令时，先确认再执行 | 验证状态：【待验证】 | 状态：需主公确认

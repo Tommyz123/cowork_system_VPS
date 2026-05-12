@@ -51,6 +51,9 @@ AI 回复走 stdout，hook 日志走 stderr。
 
 ## 外部集成
 
+**邮件服务选型：优先 Gmail API，不用 Resend 免费层**
+Resend 免费层未验证自定义域名时发件人是 `onboarding@resend.dev`，高概率进 Spam/Promotions。Gmail API 发件人是 `zhitao776@gmail.com`，天然可信。有自己 Gmail 账号时优先 Gmail API，不值得为 Resend 额外配域名+SPF/DKIM。（2026-05-10）
+
 **RemoteTrigger 传中文/emoji 复杂 JSON 的解决方案**
 update/create 时传复杂嵌套 JSON + 中文/emoji 会报 "provided as string" 错误。
 解决方案：把完整指令写入本地文件，trigger prompt 只写一行"读取文件并执行"。
@@ -68,6 +71,7 @@ update/create 时传复杂嵌套 JSON + 中文/emoji 会报 "provided as string"
 ### 网络/连接限制
 - **Routines** → discord.com 在白名单外不可达，RSS 抓取和 Discord API 推送均失败。推送类定时任务改用 GitHub Actions（有完整出站网络权限）
 - **RSS feeds** → 部分源有缓存，抓取可能返回旧文章（最旧可到1月份）。解法：加48小时日期过滤，用 `parsedate_to_datetime` 解析 `published` 字段后与 `datetime.now(timezone.utc) - timedelta(hours=48)` 对比
+- **DigitalOcean VPS 封出站 SMTP** → 所有 SMTP 端口（25/465/587）全部封锁，smtplib 方式发邮件在 DO VPS 上必定失败（不报错，只是发不出去）。唯一可用：HTTP API（走443）。当前方案：Brevo REST API（`https://api.brevo.com/v3/smtp/email`），key 存 `config/api_keys.env`（BREVO_API_KEY）
 
 ### CLI工具行为
 - **`claude --print`** → 回复内容只输出到 stdout；不要加 `2>&1`（会混入系统日志）；必须加 `< /dev/null` 防止挂起；用临时文件 `> /tmp/out.txt` 捕获输出
@@ -76,9 +80,27 @@ update/create 时传复杂嵌套 JSON + 中文/emoji 会报 "provided as string"
 ### Discord API限制
 - **Discord Bot reply** → pairing 模式下 reply 工具正常；allowlist 模式导致"channel is not allowlisted"报错，不要切换到 allowlist 模式
 - **Discord DM 发送** → 不要用 `/users/@me/channels` 创建新 DM channel（返回400）；直接往已知 channel ID 发消息（`POST /channels/{id}/messages`）
+- **Discord plugin v0.0.4 bug（fetchAllowedChannel）** → `ch.recipientId ?? dmChannelUserMap.get(id)` 在 partial DM channel 状态下 `ch.recipientId` 错返 bot 自己 ID，`??` 短路不走 fallback，报 "channel is not allowlisted"。修复：反转为 `dmChannelUserMap.get(id) ?? ch.recipientId`（dmMap 是 inbound 验证过的可靠值）。**plugin 升级后需重新 patch**，备份：`/root/.claude/plugins/cache/.../discord/0.0.4/server.ts.bak_fix`
+- **`??` 操作符盲区** → 只在 null/undefined 时 fallback，"错的非空值"会跳过 fallback；当主数据源不可靠时，应改为 `fallback ?? primary` 或加显式校验
+
+### Claude Code 诊断方法
+- **诊断 plugin/工具执行问题必须先看 session jsonl** → `~/.claude/projects/<cwd>/<sid>.jsonl`，解析 `user/assistant/tool_use/tool_result` 事件流看 Claude 实际做了什么。只看 hook log/server stderr 不看 Claude 行为会反复误判（P11 4次诊断全错的根因，2026-05-09）
+- **`--channels plugin:<name>@<marketplace>` 是 plugin channel 订阅开关** → 不带这个参数 host 不会订阅 plugin notification；部署 systemd/守护服务时容易漏（P11 VPS 真根因）。验证：TUI 启动后显示 "Listening for channel messages from: ..." 表示订阅生效
 
 ### Claude Code Hook 系统限制
 - **Discord中途消息不触发UserPromptSubmit hook** → discord_approve.py 仅在 UserPromptSubmit 阶段扫描输入；Claude 处理过程中主公在 Discord 回复的消息以 system-reminder 形式到达，不触发 hook，task_approved 不会自动创建。解法：主公需在**新消息**里重发一次确认（如"可以执行"）才能让 hook 正常生效。（2026-05-10 收工中发现）
+
+## 系统维护
+
+**停用/改方向系统必须三层同时清理**
+停用一个系统时，不能只停代码，必须同时清理三层，缺任何一层都会导致新系统数据混乱无法信任：
+1. **DB旧记录**：DELETE 或 DROP 旧系统表，避免新系统误读
+2. **账号旧持仓**：平掉旧系统建的仓位/数据（如 Alpaca 纸账号里旧策略的持仓）
+3. **引用文件**：清理 playbook/memory 里的遗留描述，避免下次对话被误导
+
+适用：任何有 DB + 外部账号 + 文档三层的系统停用场景（P9第一系统2026-05-06停用时验证）
+
+---
 
 ## SQLite / 数据库
 

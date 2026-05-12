@@ -18,3 +18,6 @@ rclone sync /home/cowork/cowork/ gcrypt:current/ \
 
 CLOUD_SIZE=$(rclone size gcrypt:current/ 2>&1 | tail -1)
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] === 备份完成 ($CLOUD_SIZE) ===" >> "$LOG"
+
+NOW=$(TZ="America/New_York" date "+%Y-%m-%d %H:%M EDT")
+echo "[$NOW] CRON[SYS] | rclone_backup | ✅ | $CLOUD_SIZE → Google Drive" >> /home/cowork/cowork/ops_log.md
