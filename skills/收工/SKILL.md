@@ -221,6 +221,13 @@ conn.close()
 **E. 文档对齐检查**
 有影响 ARCHITECTURE.md / context.md 的改动？→ 列出具体同步点
 
+**F. MEMORY.md 废弃检查**
+读 `/home/cowork/.claude/projects/-home-cowork-cowork/memory/MEMORY.md`，逐条扫描：
+- 有无已标注"废弃/停用"的条目（如某 reference_*.md 标注了"已废弃/停用"）
+- 有无项目已从 CURRENT_SESSION.md 活跃列表完全退出但 memory 条目仍留着的冗余项
+→ 有发现 → 列入 review_drafts.md 草稿「建议清理」，主公确认后才删
+→ 无发现 → 静默跳过
+
 ### 5.3 写入 review_drafts.md
 
 把所有发现整理，追加到 `/home/cowork/cowork/reference/review_drafts.md`：
@@ -246,6 +253,9 @@ conn.close()
 
 ### 文档对齐待处理（N处）
 - ARCHITECTURE.md：...
+
+### MEMORY.md 建议清理（N条）
+- 建议删除：xxx.md（原因：项目已废弃/条目冗余/已内化）
 ```
 
 若某类别无内容 → 该小节不写，保持草稿简洁。
@@ -270,7 +280,7 @@ print(f'已标记 {len(new_sessions)} 个 session 为已审核')
 "
 ```
 
-### 5.5 发 Discord 通知
+### 5.5 发 Discord 通知 + 写入 ops_log
 
 无论有无草稿，收工完成时通过 mcp__plugin_discord_discord__reply 发送：
 
@@ -282,6 +292,13 @@ print(f'已标记 {len(new_sessions)} 个 session 为已审核')
 - Playbook更新：N处
 - 文档对齐：N处
 → 草稿存入 reference/review_drafts.md，明天来了第一件事展示给你决策
+```
+
+写入 ops_log：
+```bash
+NOW=$(TZ="America/New_York" date "+%Y-%m-%d %H:%M EDT")
+PROJECTS="[本次涉及项目列表]"
+echo "[$NOW] SKILL[SYS] | 收工 | ✅ | 项目:$PROJECTS commit:[hash前8位] 草稿:[N条]" >> /home/cowork/cowork/ops_log.md
 ```
 
 完成后报告：✅ 深度审核完成 + 草稿已存

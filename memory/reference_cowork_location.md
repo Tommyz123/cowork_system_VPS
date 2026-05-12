@@ -2,8 +2,8 @@
 name: reference_cowork_location
 description: cowork/ 文件夹路径和核心文件位置速查
 type: reference
+originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 ---
-
 主公电脑桌面有一个专属文件夹 `Desktop/cowork/`，存放所有 Cowork AI 的规则和状态文件。
 
 **Windows 路径：** `C:\Users\zhi89\Desktop\cowork\`
@@ -22,4 +22,8 @@ type: reference
 - `memory/` → 跨对话记忆文件夹（本文件所在处）
 - `playbooks/` → 各项目操作手册
 
-**How to apply:** 每次新对话涉及文件操作时，请求桌面访问权限后直接读取 `Desktop/cowork/context.md`。
+**VPS 路径（当前主力运行环境）：** `/home/cowork/cowork/`
+**VPS service 用户：** `cowork`（非 root；systemd service 为 `cowork-claude.service`）
+**VPS SSH：** `ssh root@142.93.207.54`
+
+**How to apply:** 每次新对话涉及文件操作时，请求桌面访问权限后直接读取 `Desktop/cowork/context.md`。VPS 上运行时路径是 `/home/cowork/cowork/`，不是 `/root/cowork/`。

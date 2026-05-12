@@ -26,10 +26,4 @@ originSessionId: 2e3688c5-0e19-491d-8ed7-89865661c95b
 - 发件/收件：zhitao776@gmail.com（App Password已配好，测试通过）
 - cowork8939@gmail.com 新账号暂时无法生成App Password，待成熟后迁移
 
-**迁移待办：**
-1. SSH + 密钥白名单
-2. 固定本地IP
-3. Claude Code常驻 + launchd自动重启
-4. 迁移cowork系统（路径、.env、pip依赖、cron任务）
-
-**How to apply:** 主公买Mac mini后按此方案一步步配置，我负责全程协助。
+**How to apply:** 主公买Mac mini后按此方案配置，我负责全程协助（SSH/固定IP/launchd自启/系统迁移）。

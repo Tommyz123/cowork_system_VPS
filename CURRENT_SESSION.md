@@ -37,7 +37,15 @@ last_audit_date: 2026-04-19
 ### [P2] Cowork 系统优化
 状态：持续迭代中
 last_updated: 2026-05-11
-停在：BACKLOG.md 项目标签整理（不急）；Gmail API仍未启动
+停在：Gmail API仍未启动；MEMORY.md废弃条目清理（下次收工自动触发）
+本次完成（2026-05-11 第三次）：
+- **project_*.md 精简（4个）**：daily_news_digest删WSL旧cron配置/mac_mini删迁移任务/personal_library删路径+阶段细节/career_ops删并行行动；5个确认无需改动
+- **BACKLOG.md 清理**：删除已完成的 project_*.md 整理条目
+- **MEMORY.md 分层研究**：Opus确认方案A ROI低不做，改向方案C（收工时扫废弃条目）
+- **收工SKILL.md 加F项**：MEMORY.md废弃检查，有发现写草稿待主公确认，无发现静默跳过
+下一步：
+- Gmail API配置（主公GCP端6步，我代码端5个脚本）
+- MEMORY.md废弃条目清理（下次收工时自动触发）
 本次完成（2026-05-11 夜）：
 - **整理记忆 auto_pending 17条**：新建 reference_dual_bot / reference_p11_discord / feedback_env_check；更新 project_p9_trading / feedback_p9_ops / reference_cowork_location；knowledge_base.md 新增系统维护/Discord plugin/VPS限制/Gmail选型等条目；MEMORY.md 更新时间戳
 - **ops_log.md 统一日志系统**：新建 /home/cowork/cowork/ops_log.md，所有 cron 脚本 + Skill 均写入
