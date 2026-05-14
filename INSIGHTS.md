@@ -10,3 +10,5 @@
 
 
 
+
+[2026-05-12] [P9/trading] price_snapshot skipped=N 是正常行为 → outcome_tracking 里的持仓打标不满30天时，全部 skipped，updated=0，不是bug；当前6个持仓 2026-05-06 打标，30天里程碑最早 2026-06-05 才触发更新

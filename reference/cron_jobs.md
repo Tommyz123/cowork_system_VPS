@@ -45,8 +45,10 @@ PATH=/home/cowork/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 | `0 17 1-7 2,5,8,11 1` (季度首周一 17:00) | `trading/run_scanner.sh` | 季度大扫描 | `trading/run_scanner.log` |
 | `0 15 1-7 * 1` (月首周一 15:00) | `trading/screener.py` | 月度筛选器 | `trading/screener.log` |
 | `30 18 1-7 2,5,8,11 1` (季度首周一 18:30) | `trading/quarterly_review.py` | 季度复盘 | `trading/quarterly_review.log` |
+| `45 13 * * 1-5` (工作日 9:45 EDT) | `trading/sync_fill_prices.py` | 开盘后同步 fill_price（Swing 账号实际成交价回填 trades/scanner_picks/outcome_tracking） | `trading/fill_price_sync.log` |
 
 **Trading 时间调整记录（2026-05-11）:** scanner_tracker→16:30, price_tracker→16:45, thesis_monitor→16:30, run_scanner→17:00, quarterly_review→18:30（错开 DB 冲突）
+**2026-05-14 新增:** sync_fill_prices.py 工作日 9:45 EDT 自动回填 fill_price（已验证 Swing 账号 10 条历史记录同步成功）
 
 ---
 

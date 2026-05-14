@@ -18,14 +18,15 @@ DB_PATH = "/home/cowork/cowork/flightscripts/flight_prices.db"
 ROUTES = [
     # (origin, dest, cabin_code, cabin_label, stops_filter)
     # SerpAPI: 1=Economy, 2=PremiumEconomy, 3=Business, 4=First
+    # 直飞优先，确保配额不足时优先保证直飞数据
+    ("JFK", "HKG", "1", "经济直飞", "1"),
+    ("JFK", "CAN", "1", "经济直飞", "1"),
     ("JFK", "HKG", "2", "超级经济转机", "0"),
     ("JFK", "CAN", "2", "超级经济转机", "0"),
     ("JFK", "SZX", "2", "超级经济转机", "0"),
     ("EWR", "HKG", "2", "超级经济转机", "0"),
     ("EWR", "CAN", "2", "超级经济转机", "0"),
     ("EWR", "SZX", "2", "超级经济转机", "0"),
-    ("JFK", "HKG", "1", "经济直飞", "1"),
-    ("JFK", "CAN", "1", "经济直飞", "1"),
 ]
 
 # 9月采样日期（每5天取一个）

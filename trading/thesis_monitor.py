@@ -8,17 +8,13 @@ import json
 import re
 import sqlite3
 import subprocess
-import time
 import urllib.request
 from datetime import datetime
-
-import requests
 
 from db_schema import ensure_scanner_picks_schema, ensure_thesis_alerts_table
 
 DB_PATH = "/home/cowork/cowork/trading/trading.db"
 DISCORD_API_BASE = "https://discord.com/api/v10"
-FMP_BASE = "https://financialmodelingprep.com/stable"
 
 
 def load_env():
@@ -32,24 +28,17 @@ def load_env():
     return env
 
 
-def fetch_recent_news(symbol, api_key, limit=20):
-    try:
-        r = requests.get(
-            f"{FMP_BASE}/news/stock",
-            params={"symbols": symbol, "limit": limit, "apikey": api_key},
-            timeout=15,
-        )
-        r.raise_for_status()
-        data = r.json()
-        if not isinstance(data, list):
-            return []
-        return [
-            f"[{item.get('publishedDate', '')[:10]}] {item.get('title', '')}"
-            for item in data
-            if item.get("title")
-        ]
-    except Exception:
-        return []
+def fetch_recent_news(symbol, conn, limit=20):
+    """从本地 signals 表读取新闻，无需外部 API。"""
+    rows = conn.execute(
+        """
+        SELECT date, headline FROM signals
+        WHERE symbol=? AND signal_type='news' AND headline IS NOT NULL
+        ORDER BY date DESC LIMIT ?
+        """,
+        (symbol, limit),
+    ).fetchall()
+    return [f"[{r[0]}] {r[1]}" for r in rows]
 
 
 def build_monitor_prompt(symbol, new_signal, explosion_catalyst, invalidation, headlines):
@@ -190,7 +179,6 @@ def write_thesis_status(conn, symbol, status):
 
 def main():
     env = load_env()
-    api_key = env.get("FMP_API_KEY", "")
 
     conn = sqlite3.connect(DB_PATH)
     ensure_scanner_picks_schema(conn)
@@ -217,8 +205,7 @@ def main():
     for row in top3:
         symbol, score, new_signal, invalidation, explosion_catalyst, scan_date, entry_price = row
         print(f"追踪 {symbol}...", flush=True)
-        headlines = fetch_recent_news(symbol, api_key)
-        time.sleep(0.5)
+        headlines = fetch_recent_news(symbol, conn)
 
         prompt = build_monitor_prompt(symbol, new_signal, explosion_catalyst, invalidation, headlines)
         result = run_claude(prompt)

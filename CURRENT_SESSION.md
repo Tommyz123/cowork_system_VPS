@@ -36,8 +36,14 @@ last_audit_date: 2026-04-19
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-05-12
-停在：双bot memory 已 symlink 共享；Agent View 调研沉淀；Gmail API 仍未启动；MEMORY.md 废弃条目清理（下次收工自动触发）
+last_updated: 2026-05-14
+停在：系统稳定性周报8条全部讨论完毕；③④⑦⑧已修复；②⑤⑥观察中；Gmail API 仍未启动
+
+本次完成（2026-05-14）：
+- **系统稳定性周报8条摩擦记录全部处理**：③fill_price同步cron化、④discord_approve边界匹配修复、⑦session jsonl诊断规则新增、⑧Discord中途授权流程约束；②⑤⑥保留friction_log观察
+- **discord_approve.py修复**：移除"收工"授权关键词(Skill不该在此)；改substring→边界regex匹配，防从句误触发
+- **~/.claude/CLAUDE.md新增2条规则**：①"诊断Claude内部行为先读jsonl"(⑦)；②"授权必须在执行前到位"(⑧)
+- **friction_log ①③④⑦⑧已闭环**：待下次收工归档到archive
 
 本次完成（2026-05-12 中午，opus_CC bot）：
 - **双 bot memory 共享改造**：opus_home memory 改 symlink 指向 cowork bot 活 memory；打破"4 层隔离"中的 memory 层独立原则；reference/dual_bot_setup_log.md 加章节六完整记录架构决策+实施命令+回滚方法+收工分工约定
@@ -296,9 +302,22 @@ last_updated: 2026-04-19
 
 
 ### [P9] AI量化交易系统（TIDE系统）
-状态：✅ 系统稳定自动运行 + price_snapshot.py上线
-last_updated: 2026-05-09
-停在：6只open持仓(ORA/CPK/LZ/WTRG/VRRM/CSW)；fill_price全部已同步；CSW verdict=pending等5/21财报；price_snapshot.py每天21:00 UTC自动填30/60/90天价格(6/5起生效)；系统75%闭环
+状态：✅ 系统稳定自动运行 + fill_price同步自动化
+last_updated: 2026-05-14
+停在：16只open持仓；fill_price全部同步；sync_fill_prices.py 工作日9:45 EDT自动跑；CSW verdict=pending等5/21财报；系统稳定运行
+
+本次完成（2026-05-14）：
+- **fill_price历史同步**：sync_fill_prices.py(已有脚本) 测试回填10条(CPK/WTRG/LZ/VRRM/CSW各×2)全部成功；trades/scanner_picks/outcome_tracking三表同步
+- **sync_fill_prices.py 加入cron**：工作日9:45 EDT自动跑(13:45 UTC)；cron_jobs.md已注册
+- **thesis_monitor 修复**：新闻来源从FMP付费API改为本地signals表；测试16只持仓全部NEUTRAL(无新闻数据正常)
+- **cognitive_scanner.py 加duplicate check**：INSERT前检查是否已有open持仓，有则跳过，防止重复建仓
+- **flight_monitor.py ROUTES重排**：直飞路线移到列表前两位，防SerpAPI配额耗尽时直飞数据缺失
+- **price_snapshot.py 日志改进**：skipped时显示earliest milestone日期，说明"正常"原因
+下一步：
+1. B/C流程规则讨论（ORA约8月平仓，不急）
+2. CSW 5/21财报后更新verdict
+3. signal_collector积累60-90天后建theme_discovery.py（约2026年8月）
+路径：`/home/cowork/cowork/trading/` | DB：`trading/trading.db`
 本次完成（2026-05-09 第二次）：
 - **price_snapshot.py上线**：每天21:00 UTC自动检查30/60/90天节点→yfinance抓价→写outcome_tracking；crontab已配置；6/5起第一批填入
 - **CSW outcome_tracking notes写入**：机构建仓叙事+催化剂5/21；verdict保持pending等财报

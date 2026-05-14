@@ -355,6 +355,14 @@ def write_scanner_picks(results, scan_date, env):
                 )
                 continue
 
+            existing = conn.execute(
+                "SELECT id FROM scanner_picks WHERE symbol=? AND status='open' LIMIT 1",
+                (symbol,),
+            ).fetchone()
+            if existing:
+                print(f"跳过 {symbol}: 已有 open 持仓 (id={existing[0]})", flush=True)
+                continue
+
             spy_entry = fetch_current_price("SPY")
             sector_etf_entry = fetch_current_price(sector_etf)
             conn.execute(

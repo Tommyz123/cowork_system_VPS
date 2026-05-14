@@ -121,6 +121,7 @@ def main():
         today = date.today()
         updated = 0
         skipped = 0
+        earliest_pending = None
 
         for row in rows:
             modified = process_row(conn, row, today)
@@ -128,10 +129,24 @@ def main():
                 updated += 1
             else:
                 skipped += 1
+                tagged_date_str = row[2]
+                if tagged_date_str:
+                    try:
+                        td = date.fromisoformat(str(tagged_date_str)[:10])
+                        if earliest_pending is None or td < earliest_pending:
+                            earliest_pending = td
+                    except ValueError:
+                        pass
 
         conn.commit()
         write_system_log(updated, skipped)
-        print(f"[price_snapshot] examined={len(rows)} updated={updated} skipped={skipped}")
+
+        milestone_hint = ""
+        if skipped > 0 and earliest_pending is not None:
+            milestone_30d = earliest_pending + timedelta(days=30)
+            if milestone_30d > today:
+                milestone_hint = f" (earliest milestone: {milestone_30d})"
+        print(f"[price_snapshot] examined={len(rows)} updated={updated} skipped={skipped}{milestone_hint}")
     finally:
         conn.close()
 
