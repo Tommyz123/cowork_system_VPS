@@ -248,8 +248,23 @@ SerpAPI Key：已改为环境变量读取（SERPAPI_KEY in .env）
 
 ### [P5] Legal Library v4.5
 状态：活跃 - 持续更新中
-last_updated: 2026-05-11
-停在：2案入库完成（本地2个commit），待主公说push才推GitHub；知识库完整性评估完成
+last_updated: 2026-05-13
+停在：Organic Blooms v. CCB 案件追踪建立 + SEE+前200真实定位 + 找 December queue 群清单
+
+本次完成（2026-05-13，opus_CC bot）：
+- **December queue 诉讼真相反复校准**：基于主公真实信息（SEE + 排前 200 + 全 December 都是 provisional 没 non）调整时间预测；从我之前"1-2 年"改为基于 historical data "provisional 2027 中-底，final 2028"
+- **subagent 抓真实 historical data**：November pending 2026-02 仍 215（主公记忆"200 多"对得上）；OCM 月均零售 8-15 个；provisional 已延至 2026-12-31（OCM 反复延期模式 → 不会作废）；SEE 优先权"December 解冻后才有意义，目前价值 0"
+- **走向 A vs B 概率分析**：A（OCM 保住 provisional 设计）~55-65% 主导，B（推翻设计）~25-35%；混合走向最可能；**主公明确"不要写预测进追踪文档"，已遵守**
+- **找 December queue applicant 群**：subagent 抓真实清单——r/NYSCannabis / NYCRA / CSEC-NYS（SEE 对口免费）；残忍真相：**专门的 December queue 集体诉讼联盟不存在 = 组织真空 = 主公可成为发起人**
+- 反复识别+承认伪数据违规：linear 时间叠加导致预测虚高 / Court order 流程"2 个月"偏长（主公戳穿）
+
+下一步：
+- 主公决策：要不要加 historical data 部分到 18_Organic_Blooms_v_CCB_Tracking.md（事实部分，不含预测）
+- 主公行动建议：今晚加 r/NYSCannabis + 邮件 NYCRA + 邮件 CSEC-NYS (rfluellen@csec-nys.org)
+- 关键监控：5/29 OCM 答辩或和解 deadline；6/4 CCB 会议 in NYC
+- 长期：找律师 push amicus brief / 加入和解谈判 / 物色合规店面 candidate
+路径：`/home/cowork/legal_library/` | 追踪文档：`18_Organic_Blooms_v_CCB_Tracking.md`
+
 本次完成（2026-05-11 第二次）：
 - VPS GitHub SSH 直连 legal_library 建立（克隆至 /home/cowork/legal_library/）
 - **案例四入库（17_Legal_Cases.md）**：Riverhead 预占案——Cannabis Law §131 预占地方区划，Board 驳回市政府反对，批准 CAURD 续期；push 至 GitHub（commit 074bb29）
