@@ -6,7 +6,7 @@
 
 ## 元数据
 
-last_memory_sync: 2026-05-08 14:52
+last_memory_sync: 2026-05-11
 last_audit_date: 2026-04-19
 
 ---
@@ -16,11 +16,12 @@ last_audit_date: 2026-04-19
 ### 🔄 需人工干预（计入活跃项目数）
 | ID | 项目 | 状态 | 最后更新 | 下一步摘要 |
 |---|---|---|---|---|
+| **P12** | **Cannabis Retail 主线** | 🆕 **规划中** | **2026-05-14** | **主线决策完成；playbook 初版已建；下次：AI 推荐员 MVP 范围 / EDDM 邮路 / 拉投资股权设计 / POS 选型** |
 | P2 | Cowork系统优化 | 🔄 迭代中 | 2026-05-10 | opus_CC Discord MCP修好(env.PATH)；access.json频道修正；两bot独立DM架构确认 |
 | P10 | 个人文件库 | 🔄 活跃 | 2026-04-25 | MVP完成(简历3文件)，阶段2扩展分类 |
-| P3 | Cannabis Budtender | ⏸️ 暂停 | 2026-05-07 | eval 100%完成，暂停中，下次继续：sativa效果测试+架构修复清单 |
+| P3 | Cannabis Budtender | ⏸️ 暂停（并入 P12 子模块） | 2026-05-07 | eval 100%完成；从 2026-05-14 起作为 P12 子模块继续推进 |
 | P8 | 求职 (career-ops) | ⏸️ 暂停 | 2026-05-07 | 策略确定（作品敲门），暂停中，下次继续：LinkedIn截图重写profile |
-| P5 | Legal Library | ⏸️ 暂停（按需更新） | 2026-05-07 | v4.5完成，有新法规时入库，平时按需 |
+| P5 | Legal Library | ⏸️ 暂停（按需更新；December queue 追踪并入 P12） | 2026-05-13 | v4.5 完成；Organic Blooms 案件追踪持续中，每周一 09:00 EDT Discord 提醒 |
 
 ### ⚙️ 自动运行（不计入活跃项目数）
 | ID | 项目 | 状态 | 最后更新 | 备注 |
@@ -33,6 +34,40 @@ last_audit_date: 2026-04-19
 ---
 
 ## 活跃进度
+
+### [P12] Cannabis Retail 主线 ⭐ 2026 年主线
+状态：🆕 规划中（牌照申请中 + AI 系统设计中）
+last_updated: 2026-05-14
+停在：playbook 初版已建（`playbooks/cannabis_retail.md`，220 行），第一批想法已记录（QR + AI 推荐员 + EDDM + AI 独家折扣获客漏斗）
+
+本次完成（2026-05-14，opus_CC bot 夜间深度对话）：
+- **主线决策**：基于八字真盘（丁火日主、辛卯大运 34-43 岁偏财+偏印窗口）+ 行为层观察（跨界整合 / 系统化大脑 / 项目过载短板）综合判断，正式将 Cannabis Retail 定为 2026 年核心主线
+- **三层定位**：① 拿 NY 牌照 + 自营一家店 ② 用 AI 把运营 / 顾客 / 营销系统化 ③ 抽离 AI 模块 SaaS 化卖给 NY 100+ dispensary
+- **团队结构决策**：主公自任"持牌方 + AI 总设计师"，雇 Assistant Manager 管员工日常（不雇 GM，AI 替代 GM 大部分职能）
+- **6 个月硬截止**：必须把主公"亲自做"压到 30% 以下，否则陷入运营吞噬
+- **技术栈选型**：Dutchie POS / Flowhub / Treez 当基座（不自建 POS），主公在上面做 AI 增强层（推荐 / 库存 / 营销 / 合规审计）
+- **功能模块 1 已规划**：QR + AI 推荐员获客漏斗（EDDM → 卡片 QR → AI 对话 → 个性化推荐 + 独家折扣 → 下单 → 数据沉淀 → 复购）
+- **合规红线初稿**：营销 21+ 警示 / FDA 红线 / 顾客数据 HIPAA 类保护 / OCM 持牌方在场 / AI 推荐禁医疗建议
+- **SaaS 化 4 阶段路径**：自营→抽离→卖 NY→扩州
+- **playbook 建立**：`playbooks/cannabis_retail.md`，11 个 BACKLOG 空白点等讨论
+
+下一步（按优先级）：
+1. **AI 推荐员 MVP 范围**：交互形式 / 推荐算法 / 数据采集字段 / 合规过滤层（最值得先深挖）
+2. **EDDM 第一批邮路选择**：哪些 zip code / 人口画像 / 投递批次
+3. **拉投资股权设计**：牌照估值 / 投资人比例上限 / 优先回报结构
+4. **POS 选型**：Dutchie / Flowhub / Treez 实际试用对比
+5. **合规律师**：花 $500-1000 把营销 + 数据合规边界正式画清楚
+6. **同步动作**：context.md 增加 cannabis_retail 工作目录授权（待选址后）；memory/ 增 project_cannabis_retail；P8 / P9 / P10 决策（冻结 / 降 BACKLOG / 保留低耗）
+
+关联项目：
+- P3 Cannabis Budtender → 并入 P12 作为店内 budtender AI 辅助模块
+- P5 Legal Library / Organic Blooms 追踪 → 并入 P12 合规模块
+- P1 marketing (Cannabis Advisor) → 并入 P12 AI 增强层
+
+路径：`/home/cowork/cowork/playbooks/cannabis_retail.md`（持续讨论载体）
+关联：`/home/cowork/legal_library/18_Organic_Blooms_v_CCB_Tracking.md`
+
+---
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中

@@ -1,6 +1,6 @@
 # Memory Index
 
-> 最后更新：2026-05-11（整理记忆：auto_pending 17条全处理；新建 reference_dual_bot/reference_p11_discord/feedback_env_check；更新 project_p9_trading/feedback_p9_ops/reference_cowork_location；knowledge_base 加 Discord plugin bug+DO封SMTP+jsonl诊断）
+> 最后更新：2026-05-14（新增 project_cannabis_retail：P12 大麻零售主线确立为 2026 年核心主线，基于八字辛卯大运+行为层综合判断）
 > 维护规则：新增记忆文件后立即在此处添加条目；不用的记忆文件同步删除对应条目
 
 ## User
@@ -37,7 +37,8 @@
 - [feedback_artifact_indexing.md](feedback_artifact_indexing.md) — 新建脚本/cron/文档/数据必须最后一步加索引(ARCHITECTURE/cron_jobs/MEMORY/INDEX等)；沉默建文件=任务未完成
 
 ## Project（项目背景）
-- [project_cannabis_advisor.md](project_cannabis_advisor.md) — 纽约大麻AI顾问；目录Desktop/marketing/；数据库market.db（SQLite）；技术栈Python+SQLite+curl_cffi；当前暂停（2026-04-06）
+- [project_cannabis_retail.md](project_cannabis_retail.md) — ⭐ P12 大麻零售主线（2026年主线，2026-05-14 确立）；NY牌照申请中+AI赋能+SaaS化路径；八字辛卯大运对应；playbook: playbooks/cannabis_retail.md；P1/P3/P5 已并入作为子模块
+- [project_cannabis_advisor.md](project_cannabis_advisor.md) — 纽约大麻AI顾问；目录Desktop/marketing/；数据库market.db（SQLite）；技术栈Python+SQLite+curl_cffi；当前暂停（2026-04-06）；【已并入 P12】
 - [project_ai_skill.md](project_ai_skill.md) — cc_skill V5框架；P2 cowork.db+5个Skill化（2026-04-17完成）；P2方向：规则→Hook/Skill自动化；目录Desktop/cc_skill/
 - [project_daily_news_digest.md](project_daily_news_digest.md) — 本地cron每天13:00 EDT；脚本cowork/newscripts/run_daily_news.sh；新闻5类（政治/股市/加密/AI/大麻NY）；每条要真实链接+AI点评
 - legal_library — 纽约大麻法律知识库；详见 [reference_legal_library.md](reference_legal_library.md)；进度见CURRENT_SESSION.md [P5]
