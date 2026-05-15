@@ -2018,6 +2018,22 @@ INSERT INTO "signals" VALUES(3742,'PLUS','2026-05-13','8k','BBCMS Mortgage Trust
 INSERT INTO "signals" VALUES(3744,'PLUS','2026-05-13','8k','ACV Auctions Inc.  (ACVA)  (CIK 0001637873) 8-K','PLUS 2026-05-13','SEC EDGAR','2026-05-13T20:01:15','low');
 INSERT INTO "signals" VALUES(3746,'PLUS','2026-05-13','8k','SmartRent, Inc.  (SMRT)  (CIK 0001837014) 8-K','PLUS 2026-05-13','SEC EDGAR','2026-05-13T20:01:15','low');
 INSERT INTO "signals" VALUES(3750,'SHOO','2026-05-13','news','Steven Madden Ltd (NASDAQ:SHOO) Shows Strong Breakout Setup with High Technical and Quality Scores','Steven Madden Ltd (SHOO) shows a strong technical breakout setup with a 8/10 Technical Rating and 9/10 Setup Quality, featuring a defined entry at $40.62 and stop-loss at $37.37.','ChartMill','2026-05-13T20:01:24','medium');
+INSERT INTO "signals" VALUES(3751,'BOOT','2026-05-14','news','Earnings Scheduled For May 14, 2026',' ','Benzinga','2026-05-14T20:00:27','medium');
+INSERT INTO "signals" VALUES(3752,'CALX','2026-05-14','news','Calix One Platform Powers the Next Era of Wi‑Fi 7 Experiences To Increase ARPU Across Residential, Business, and MDU Markets','A growing, standards‑based Wi‑Fi 7 portfolio, built on the AI‑native Calix One platform, helps service providers scale secure connectivity and revenue-generating managed services while...','Finnhub','2026-05-14T20:00:32','medium');
+INSERT INTO "signals" VALUES(3753,'EYE','2026-05-14','news','Apple To Rally More Than 22%? Here Are 10 Top Analyst Forecasts For Thursday','Analyst ratings for top names changed: Doximity cut to neutral, National Vision lowered price target, Starbucks upgraded to buy, Commercial Metals raised to buy, Wix.Com target lowered, MDxHealth target slashed, Avalo Therapeutics target cut, Crowdstrike target raised.','Benzinga','2026-05-14T20:01:07','medium');
+INSERT INTO "signals" VALUES(3754,'EYE','2026-05-14','8k','Pelthos Therapeutics Inc.  (PTHS)  (CIK 0001919246) 8-K','EYE 2026-05-14','SEC EDGAR','2026-05-14T20:01:07','low');
+INSERT INTO "signals" VALUES(3755,'EYE','2026-05-14','8k','MeiraGTx Holdings plc  (MGTX)  (CIK 0001735438) 8-K','EYE 2026-05-14','SEC EDGAR','2026-05-14T20:01:07','low');
+INSERT INTO "signals" VALUES(3756,'EYE','2026-05-14','8k','BIOGEN INC.  (BIIB)  (CIK 0000875045) 8-K','EYE 2026-05-14','SEC EDGAR','2026-05-14T20:01:07','low');
+INSERT INTO "signals" VALUES(3757,'EYE','2026-05-14','8k','Apellis Pharmaceuticals, Inc.  (APLS)  (CIK 0001492422) 8-K','EYE 2026-05-14','SEC EDGAR','2026-05-14T20:01:07','low');
+INSERT INTO "signals" VALUES(3758,'IPGP','2026-05-14','news','Industrial Laser Market Research Report 2025-2031, Profiles of Key Companies - TRUMPF, Han''s Laser, Coherent, IPG Photonics, AMADA, Bystronic','The global industrial laser market anticipates a CAGR of 5.80% from 2025 to 2031. In 2025, medium power lasers led the market, with CO₂ lasers capturing 21% market share. The semiconductor and electronics sector shows fastest growth, CAGR 7.14%. Cutting applications dominated the market, while APAC retained 53% share. Recent developments include HGTECH''s SiC wafer laser equipment and Mazak''s high-power 2D fiber lasers. Trends emphasize the integration of lasers with quality control systems and t','Yahoo','2026-05-14T20:01:19','medium');
+INSERT INTO "signals" VALUES(3759,'MIR','2026-05-13','news','Mirion Technologies : First Quarter 2026 Earnings Call Earnings Release','‌Mirion Announces First Quarter 2026 Financial Results Revenues for the first quarter increased 27.5% to $257.6 million, compared to $202.0 million in the same...','Finnhub','2026-05-14T20:01:32','medium');
+INSERT INTO "signals" VALUES(3760,'MIR','2026-05-13','news','Mirion Technologies : First Quarter 2026 Earnings Call Infographic','Q1 2026 Financial Results TOTAL REVENUE $257.6M +27.5% VS. Q1 2025 ADJUSTED EBITDA $54.3M 21.1%...','Finnhub','2026-05-14T20:01:32','medium');
+INSERT INTO "signals" VALUES(3761,'MIR','2026-05-13','news','Mirion Technologies : First Quarter 2026 Earnings Call Presentation','April 28, 2026 First Quarter 2026 Earnings Presentation Mirion Q1 Key Takeaways Strong Q1 Orders and...','Finnhub','2026-05-14T20:01:32','medium');
+INSERT INTO "signals" VALUES(3762,'ORA','2026-05-14','news','Ormat Technologies Q1 Earnings Call Highlights','Ormat Technologies (NYSE:ORA) reported record first-quarter 2026 revenue and maintained its full-year outlook, as strength in its energy storage and product segments offset more modest growth in its electricity business. Chief Executive Officer Doron Blachar said the company began 2026 with “record','Yahoo','2026-05-14T20:01:34','medium');
+INSERT INTO "signals" VALUES(3763,'PLUS','2026-05-14','news','Strategic And Asset Allocation Client Portfolios Using ETFs And Stocks','Modern portfolio construction is evolving beyond traditional mutual funds, with 62% of ETF investors now envisioning portfolios composed entirely of exchange-traded vehicles. Read more here.','SeekingAlpha','2026-05-14T20:01:36','medium');
+INSERT INTO "signals" VALUES(3764,'ROCK','2026-05-14','8k','Greenland Mines Ltd  (GRML, GRMLW)  (CIK 0001907223) 8-K','ROCK 2026-05-14','SEC EDGAR','2026-05-14T20:01:45','low');
+INSERT INTO "signals" VALUES(3765,'ROCK','2026-05-14','8k','NOVAGOLD RESOURCES INC  (NG)  (CIK 0001173420) 8-K','ROCK 2026-05-14','SEC EDGAR','2026-05-14T20:01:45','low');
+INSERT INTO "signals" VALUES(3766,'ROCK','2026-05-14','8k','Deep Isolation Nuclear, Inc.  (CIK 0001918080) 8-K','ROCK 2026-05-14','SEC EDGAR','2026-05-14T20:01:45','low');
 CREATE TABLE thesis_alerts (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             symbol TEXT,
@@ -2094,6 +2110,6 @@ INSERT INTO "sqlite_sequence" VALUES('news',460);
 INSERT INTO "sqlite_sequence" VALUES('decisions',73);
 INSERT INTO "sqlite_sequence" VALUES('insider_transactions',165);
 INSERT INTO "sqlite_sequence" VALUES('trades',21);
-INSERT INTO "sqlite_sequence" VALUES('signals',3750);
+INSERT INTO "sqlite_sequence" VALUES('signals',3766);
 INSERT INTO "sqlite_sequence" VALUES('outcome_tracking',7);
 COMMIT;
