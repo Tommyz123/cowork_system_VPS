@@ -14,13 +14,13 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import screener, transcript_fetcher
 
 from db_schema import ensure_scanner_picks_schema
+from config import BENCHMARK_SYMBOL, DEFAULT_SECTOR_ETF
 
 
 DB_PATH = "/home/cowork/cowork/trading/trading.db"
 ENV_PATH = "/home/cowork/cowork/config/api_keys.env"
 TRANSCRIPTS_DIR = "/home/cowork/cowork/trading/transcripts"
 DISCORD_API_BASE = "https://discord.com/api/v10"
-DEFAULT_SECTOR_ETF = "GRID"
 DEFAULT_POSITION_NOTIONAL = 5000.0
 SINGLE_SYMBOL_LIMIT = 150000.0
 SECTOR_LIMIT = 600000.0
@@ -363,7 +363,7 @@ def write_scanner_picks(results, scan_date, env):
                 print(f"跳过 {symbol}: 已有 open 持仓 (id={existing[0]})", flush=True)
                 continue
 
-            spy_entry = fetch_current_price("SPY")
+            spy_entry = fetch_current_price(BENCHMARK_SYMBOL)
             sector_etf_entry = fetch_current_price(sector_etf)
             conn.execute(
                 """

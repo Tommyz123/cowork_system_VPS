@@ -14,6 +14,7 @@ import requests
 import yfinance as yf
 
 from db_schema import ensure_scanner_picks_schema
+from config import BENCHMARK_SYMBOL
 
 DB_PATH = "/home/cowork/cowork/trading/trading.db"
 ENV_PATH = "/home/cowork/cowork/config/api_keys.env"
@@ -185,7 +186,7 @@ def main():
         return
 
     close_price = fetch_price(symbol)
-    spy_exit = fetch_price("IWM")
+    spy_exit = fetch_price(BENCHMARK_SYMBOL)
     sector_etf = row["sector_etf"]
     sector_etf_exit = fetch_price(sector_etf) if sector_etf else None
 

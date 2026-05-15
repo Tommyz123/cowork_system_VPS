@@ -379,9 +379,25 @@ last_updated: 2026-04-19
 
 
 ### [P9] AI量化交易系统（TIDE系统）
-状态：✅ 系统稳定自动运行 + fill_price同步自动化
-last_updated: 2026-05-14
-停在：16只open持仓；fill_price全部同步；sync_fill_prices.py 工作日9:45 EDT自动跑；CSW verdict=pending等5/21财报；系统稳定运行
+状态：✅ 系统稳定自动运行 + IWM bug 已修复 + 5/17 模板评估提醒已设置
+last_updated: 2026-05-15
+停在：14 只 open 持仓（修复后真实 alpha vs IWM = -1.14% 早期数据）；IWM 基准 bug 已闭环（config.py + 4 脚本改用常量 + 5/11 那批 8 只 spy_entry 修正）；P9 outcome 模板设计讨论暂缓→5/17 评估；CSW verdict=pending 等 5/21 财报
+
+本次完成（2026-05-15，opus_CC bot 日间深度对话）：
+- **IWM 基准 bug 完全修复**：新建 trading/config.py（BENCHMARK_SYMBOL=IWM）+ 改 cognitive_scanner / scanner_tracker / close_position / backfill_spy_entry 4 处 hardcode 改用常量 + UPDATE 5/11 批 8 只 spy_entry $739.30→$285.33；修复后 portfolio 平均 alpha 从假数据 +33%（用 SPY 价当 IWM）校准到真实 -1.14%
+- **打印字符串动态化**：scanner_tracker.py "SPY 同期" → f"{BENCHMARK_SYMBOL} 同期"，未来换基准不再有遗漏
+- **早期 features 可分析性 demo**：4 维度分析（评分桶 / 入场批次 / 主题分类 / hit rate 分布）证明 features 可分析；评分 10 早期 alpha +1.54% vs 评分 9 -1.65%（早期信号，样本小不结论）
+- **P9 outcome 标准模板讨论 → 暂缓动手**：Claude 设计 6 大块模板 → 子 agent (Explore) 独立审核发现"可能跟 weekly/quarterly 重叠 + 缺 invalidation 验证 + 推荐 per-trade 方向" → 主公决定 5/17 weekly_review 实际邮件后评估
+- **5/17 评估提醒已设置**：新建 scripts/p9_template_review_reminder.py + reference/p9_outcome_template_review_pending.md（含完整背景+子agent审核+4选1决策清单） + crontab 2026-05-17 18:00 EDT 一次性触发（脚本跑完自删）
+- **修复后真实持仓快照**：ORA +8.9% / SOUN +2.0% / MIR +1.8% / WTRG +1.8% / CPK +1.5%（正 alpha 5 只）；ARLO -7.9% / VSEC -7.2% / LIF -6.5% / VRRM -4.9%（负 alpha 拖后腿）；hit rate 36% 早期
+
+下一步：
+1. **5/17 18:00 EDT 收 P9 模板评估提醒**（自动 Discord）→ 看 weekly_review 邮件 → 决策 A/B/C/D
+2. **5/21 CSW 财报** → verdict 更新
+3. **6/5-6/10** → 第一批 30 天 outcome 自动填入 outcome_tracking
+4. **6/14 周日** → 14 只全部 30 天数据，weekly_review 第一次包含完整 30 天 outcome
+5. **8/4-8/9** → 14 只全部 90 天 outcome ✅ 完整 verdict
+6. **sector_etf 设计问题**（统一 GRID vs 按个股 sector 动态分配）→ 进 BACKLOG，等 25+ samples 后再决定
 
 本次完成（2026-05-14）：
 - **fill_price历史同步**：sync_fill_prices.py(已有脚本) 测试回填10条(CPK/WTRG/LZ/VRRM/CSW各×2)全部成功；trades/scanner_picks/outcome_tracking三表同步

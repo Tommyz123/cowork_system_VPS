@@ -5,8 +5,13 @@ from datetime import datetime, timedelta
 import yfinance as yf
 
 
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from config import BENCHMARK_SYMBOL, DEFAULT_SECTOR_ETF
+
 DB_PATH = "/home/cowork/cowork/trading/trading.db"
-SECTOR_ETF = "GRID"
+SECTOR_ETF = DEFAULT_SECTOR_ETF
 
 
 def fetch_close(symbol: str, scan_date: str) -> float:
@@ -49,7 +54,7 @@ def main() -> None:
 
     for row_id, symbol, scan_date in rows:
         try:
-            spy_entry = fetch_close("SPY", scan_date)
+            spy_entry = fetch_close(BENCHMARK_SYMBOL, scan_date)
             sector_etf_entry = fetch_close(SECTOR_ETF, scan_date)
         except Exception as exc:  # noqa: BLE001
             print(

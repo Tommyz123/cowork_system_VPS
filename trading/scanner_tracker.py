@@ -11,6 +11,7 @@ import requests
 import yfinance as yf
 
 from db_schema import ensure_scanner_picks_schema
+from config import BENCHMARK_SYMBOL
 
 DB_PATH = "/home/cowork/cowork/trading/trading.db"
 DISCORD_API_BASE = "https://discord.com/api/v10"
@@ -165,7 +166,7 @@ def main():
         return
 
     today = datetime.now().strftime("%Y-%m-%d")
-    spy_current = fetch_price("SPY")
+    spy_current = fetch_price(BENCHMARK_SYMBOL)
     open_lines = [f"📊 P9扫描器追踪周报 - {today}", ""]
     watching_lines = ["🧭 Closed Watching", ""]
     open_count = 0
@@ -194,7 +195,7 @@ def main():
 
             current_str = f"{current_price:.2f}" if current_price else "N/A"
             open_lines.append(
-                f"{trend} {row['symbol']} | 入场 {row['entry_price']:.2f} → 现价 {current_str} | 收益 {ret_str} | SPY同期 {spy_ret_str} | 评分 {row['score']}/12 | 入场日 {row['scan_date']}"
+                f"{trend} {row['symbol']} | 入场 {row['entry_price']:.2f} → 现价 {current_str} | 收益 {ret_str} | {BENCHMARK_SYMBOL}同期 {spy_ret_str} | 评分 {row['score']}/12 | 入场日 {row['scan_date']}"
             )
             if row["new_signal"]:
                 open_lines.append(f"   thesis: {row['new_signal'][:80]}...")
