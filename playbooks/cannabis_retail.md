@@ -992,8 +992,206 @@ Step 5: 接入 Cowork
 
 ---
 
+## ⭐ Reddit 数据 / 平台 50+ 用法（2026-05-17 整理）
+
+> Reddit 不只是引流，是 P12 全周期的"数据 / 情报 / 营销"基础设施。
+> 爬取方法见 `reference/knowledge_base.md` Pullpush 章节。
+> 实时监控需 Mac mini（住宅 IP）— VPS DC IP 被 Reddit 整体 ban。
+
+### 8 大类用法
+
+**A. 引流类**
+1. 历史口碑分析（已落地任务 #26 Pullpush）
+2. 答题题库收集（Reddit 100 天潜伏用）
+3. 找意见领袖 / KOL（抓 sub power user 免费合作）
+4. 挖竞品漏洞（抓"X 店投诉"全集 → 差异化武器清单）
+5. 找早期合作店（抓"opening a dispensary"帖 → Reality Check ③）
+6. 找早期客户（抓"想尝试新店"用户 → 开业前 DM 邀请）
+
+**B. 营销内容类**
+7. 博客真实痛点选题（客户高频问 → 博客标题，SEO 见效快）
+8. EDDM 卡片文案灵感（抓"理想大麻店"讨论）
+9. AI 推荐员对话流设计（抓真实"客户 vs budtender"对话训练 LLM）
+10. 产品描述风格学习（消费者用什么词描述好/坏产品）
+
+**C. 竞品情报类**
+11. 真实价格情报（"X strain at Y dispensary $Z"）
+12. 促销活动情报（学竞品玩法 + 评估效果）
+13. 新产品发布情报（比 budtender 还早知道新品）
+14. OCM 政策变化早期信号
+15. 同行 lessons learned（避免踩坑）
+
+**D. 客户研究类**
+16. 客户画像深度（跨 sub 行为聚类）
+17. 消费场景研究（什么时候用 / 用什么 / 为什么）
+18. 价格敏感度研究（"how much would you pay for X"）
+19. 品牌忠诚度研究（"always go back to X" / "switched from X to Y"）
+
+**E. 法规 / 行业类**
+20. OCM 政策追踪（r/NYSCannabis 比官网快）
+21. 执法事件追踪（"police raid" / "compliance check"）
+22. 税务 / 280E 业主跨 sub 讨论
+23. 银行 / 支付经验
+24. 保险 / 法律真实出事案例
+
+**F. 招聘 / 人才类**
+25. 找 budtender（"NY budtender looking for job"）
+26. 员工薪资水平（定薪有依据）
+27. 员工管理痛点（提前防范）
+
+**G. 供应链 / 选品类**
+28. 品牌选品（review 高分进货 / 低分避雷）
+29. 产品类型趋势（flower vs vape vs edibles 比例）
+30. terp 趋势（哪些 profile 被讨论）
+31. strain 趋势（抢早期热门）
+
+**H. AI 进阶类**
+32. AI 推荐员训练数据（真实对话训练）
+33. 品牌口碑情感分析（LLM 跑多维度）
+34. 市场趋势预测（时间序列分析）
+35. 客户细分聚类（4-6 个真实画像）
+
+**I. 危机管理类（开业后实时）**
+36. 店员投诉监控
+37. 食安 / 质量危机
+38. 盗窃 / 抢劫情报
+
+**J. 选址 / 房产类（V0 阶段可用）**
+39. 选址讨论（"Astoria vs Flushing"）
+40. 商业地产价格行情
+41. 社区接受度（"X 区接受大麻店吗"）
+
+**K. Reddit 平台用法（不只抓数据）**
+42. 自己开 sub（r/YourStoreName 客户社区）
+43. Reddit AMA（"我是 NY 大麻店主，AMA" 引爆话题）
+44. Reddit Crossposting（一内容多 sub 发）
+45. **Reddit 广告**（少数允许大麻广告的平台）⭐ 重大机会
+46. r/NYSCannabis 长期答题建身份
+47. 跨 sub 联动（pet × cannabis 跨界传播）
+48. mod 关系建立（避免被 ban）
+49. Reddit 数据 API 长期监控（开店后）
+50. 自己 sub 客户 community 建立长期粘性
+
+### 优先级（按 P12 阶段）
+
+- 🔥 **V0 阶段（现在）**：#1 #2 #4 #7 #9 #11 #12 #15 #28 #29 #41
+- ⏰ **开业前 1 月**：#3 #5 #8 #14 #25 #39
+- ⚡ **开业后实时需 Mac mini**：#36 #37 #38 + 全部实时监控类
+
+### Reddit 广告（#45）特别说明
+
+NY 大麻广告几乎全平台禁（Google/Meta/TikTok），但 **Reddit 允许 cannabis 广告**：
+- 21+ targeting 必须开
+- 不能 claim 医疗效果
+- 必须有 21+ disclaimer
+- 投放成本 $0.5-3/click（比 Google Ads cannabis 友好平台便宜）
+- 这是开业后的合规付费引流主战场之一
+
+---
+
+## ⭐ 开业前 3 个月引流打法（2026-05-17 草案，待深聊）
+
+> **状态**：基础版+升级方向已记录，等开业前 1 月再深挖具体执行细节
+> **目标**：开业当天日均进店 50-80（基础版）/ 100-200（升级版）
+> **触发深聊**：选址定 + 开业日期定 + 律师确认合规
+
+### 🎯 3 并行轨道架构（核心）
+
+```
+轨道 A：物理流量（EDDM + 招牌 + Walk-in）       ─┐
+                                                 ├→ 开业 Day 1 炸场
+轨道 B：数字流量（SEO + Weedmaps + Reddit）     ─┤
+                                                 ├→ 持续 365 天复利
+轨道 C：内容种子（自产博客 + YouTube + Reddit 潜伏）┘
+```
+
+A 是火力 / B 是阵地 / C 是种子。3 并行缺一开业当天掉血。
+
+### 📅 月份 -3（开业前 90-61 天）= C 轨道启动
+
+- Reddit 100 天潜伏 Day 1-30 观察期（每天 30 分钟）
+- 自产博客每周 2 篇 + YouTube 每周 1 个
+- **1688 礼物提前下单**（海运 4-6 周必须 T-90 下单）
+- Pullpush 抓 NY 大麻历史数据
+- subagent 跑头部店打法案例库
+- 预算 $3-5K
+
+### 📅 月份 -2（开业前 60-31 天）= B 轨道上线
+
+- Google My Business + Weedmaps Pro + Leafly listing 上线
+- Soft open 5-10 朋友先留 5 星 review
+- Reddit Day 31-60 答题期（每天 2-3 题 → 200 karma）
+- EDDM 卡片设计敲定 + 印刷
+- 创作者 outreach 3-5 个（送产品不付现金合规）
+- 持牌律师 30 分钟咨询（Reality Check ②）
+- 持牌店谈 AI 试用合作（Reality Check ③）
+- 预算 $2.5-4K
+
+### 📅 月份 -1（开业前 30-0 天）= A 轨道爆发
+
+- Week 4：EDDM 第一波 8000 户 + 自产内容加密
+- Week 3-2：实体准备（招牌 / 橱窗 / QR 投放）
+- Week 1：Soft Open 邀请（朋友 + 早期 review + 创作者拍内容）
+- **Day 1 炸场**：11AM Grand Opening + 21+ 讲座 + 前 50 客 LED 托盘 + 创作者 store tour
+- Week 1：首单 30% off + 4 选 1 礼物 + 结账引导 Review（30+ 5 星目标）
+- Reddit 开业帖（100 天 karma 变现）
+- Week 2-4：Refer-a-Friend + EDDM 第二波 + 创作者内容上线
+- 预算 $3.5-6K
+
+### 📊 基础版预期效果
+
+| 指标 | 目标 |
+|------|------|
+| 开业首周日均 | 50-100 人 |
+| 首月新客 | 800-1200 人 |
+| 30 天 5 星 review | 50+ |
+| 30 天复购率 | 25-30% |
+| Google Maps 排名 | 前 5 |
+
+**基础版总预算 $8-15K**
+
+### 💡 升级版方向（10 个改进点，待深聊）
+
+**当前基础版是"中等保守版"，不是"最好"**。升级方向：
+
+1. **预算翻倍到 $20-30K**（行业 NY 新店标准）
+2. **加线下活动**（Cannabis NYC Expo / industry meetup 建关系）
+3. **⭐ 加 PR / 媒体策略**（NY Cannabis Insider / Eater / Crain's / Time Out / Gothamist —— 1 篇报道 = $5-10K 等效广告）
+4. **⭐ 加 Pre-Launch Hype Building**（IG 倒计时 / VIP list 注册 / Sneak peek，浪费 60 天造势窗口）
+5. **加员工 launch**（budtender 培训 + 介绍时间表）
+6. **B 轨道多元化**（加 Leafly 投放 / Dutchie Marketplace / Google 合规关键词 SEO）
+7. **EDDM 4 选 1 简化为 1-2 种**（减少操作复杂度，ROI 可能更高）
+8. **⭐ 选时机最大杠杆**：**4/20 Cannabis Day** / **7/10 Oil Day** / **Green Wednesday**（感恩节前周三大麻黑五）—— 省一大块营销预算
+9. **加 Email / SMS marketing**（opt-in 客户 → 开业前预热）
+10. **加 A/B 测试机制**（EDDM 4 段位卡片 / Weedmaps 投放策略）
+
+### 3 个预算档（待选）
+
+- **A. 基础版 $8-15K**（保守 / 资金紧）
+- **B. 升级版 $20-30K**（含 PR + Hype + 时机 + 全渠道，开业当天威力翻倍）
+- **C. 混合版 $12-18K**（基础 + PR + 时机 + Hype，几乎 0 增量成本 - 推荐）
+
+**待主公定**：选址定 + 开业日期定 + 律师确认合规后深聊具体执行
+
+### ⚠️ 3 个关键风险预案
+
+1. **选址延迟** → C 轨道（内容/Reddit）不依赖选址先跑（备选 Plan B）
+2. **EDDM 卡片印刷延误** → 1688 必 T-90 下单，印刷必 T-45 出稿
+3. **创作者合作失败** → 备自己拍 store tour video（不依赖外部）
+
+### 💎 最该现在做的 1 件事 = C 轨道 3 件套立刻启动
+
+理由：C 是时间杠杆，karma/SEO/知识不能短期催熟。今天不开始开业时缺 C 永远补不回来。
+
+1. Reddit 100 天潜伏（每天 30 分钟）
+2. 自产博客 + YouTube（每周 2 + 1）
+3. Pullpush 数据采集（V0 阶段免费）
+
+---
+
 ## 更新日志
 
+- **2026-05-17（开业前 3 月打法草案 + Reddit 章节入库）**：8 大类 50+ 用法 + Mac mini 决策 + Pullpush 爬取方法记录到 knowledge_base + 开业前 3 月打法基础版（3 轨道 / $8-15K / 50-100 进店）+ 升级版 10 改进点（PR / Hype / 时机 / Email/SMS / A/B / $20-30K / 100-200 进店）—— 待选址定后深聊
 - **2026-05-14 凌晨（初始化）**：playbook 初始化。记录 QR + AI 推荐员 + EDDM + AI 独家折扣获客漏斗设计，团队结构（AM + 主公自任 AI 总设计师），技术栈选型方向，合规红线初稿，SaaS 化路径四阶段。
 - **2026-05-14 下午（技术决策）**：① POS 选 Flowhub（API 开放性 + webhook + 价格）② 顾客数据自建中台（不用 Flowhub 内置 CRM）。
 - **2026-05-14 深夜（第六轮：第 8 章财务模型 + 融资架构入库）**：

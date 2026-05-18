@@ -62,6 +62,22 @@ update/create 时传复杂嵌套 JSON + 中文/emoji 会报 "provided as string"
 通过 POST /users/@me/channels 创建新 DM channel 后发消息会返回 400。
 正确做法：直接往已知 channel ID 发消息（POST /channels/{id}/messages）。
 
+**Reddit 爬取：VPS IP 被 ban，用 Pullpush mirror 绕过**（2026-05-16）[ref-worthy]
+- ❌ VPS（DigitalOcean / AWS / GCP / Azure 全部）直接访问 `reddit.com` 任意路径 = **403 Blocked**（首页 / hot.json / about.json / search.json / RSS 全失败，与 User-Agent 无关）
+- ❌ Reddit 2023 年起对 Data Center IP 整体封锁，OAuth API 限速严格 + 申请门槛高
+- ❌ Claude Code 自带 WebFetch 也无法访问 reddit.com
+- ✅ **解决方案：Pullpush.io**（Pushshift 开源 community mirror）
+  - 端点：`https://api.pullpush.io/reddit/search/submission?subreddit={sub}&q={kw}&size={n}&sort=score&sort_type=desc`
+  - 免费 / 不要 API key / 直接 JSON / VPS 能访问
+  - 测试通过 sub：r/queens / r/AskNYC / r/newyork / r/cannabis / r/trees / r/nyc / r/NYSCannabis / r/longisland
+- ⚠️ **限制必知**：
+  - 数据滞后 1-4 年（r/NYWeed 最新 2022-08 / r/queens 最新 dispensary 帖 2024-11）
+  - score / num_comments 是创建时初始值（一律返回 1），**无法按热度排序**
+  - 但 title / selftext / author / created_utc / permalink 全部真实可用
+- ✅ **适用场景**：历史数据分析（答题题库 / sub 文化 / 竞品口碑 / 品牌评价 / 痛点提取）
+- ❌ **不适用**：实时监控（开业后口碑 / 24h 负评告警 → 需付费住宅代理 / ScraperAPI / 主公本地住宅 IP 跑）
+- 测试脚本：`/tmp/reddit_test.py`（临时未纳入 scripts/）
+
 ---
 
 ## 技术踩坑库
