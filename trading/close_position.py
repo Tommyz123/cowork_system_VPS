@@ -14,10 +14,10 @@ import requests
 import yfinance as yf
 
 from db_schema import ensure_scanner_picks_schema
-from config import BENCHMARK_SYMBOL
+from config import BENCHMARK_SYMBOL, P9_ACCOUNT, assert_p9_account
+from tide_utils import load_env
 
 DB_PATH = "/home/cowork/cowork/trading/trading.db"
-ENV_PATH = "/home/cowork/cowork/config/api_keys.env"
 DISCORD_API_BASE = "https://discord.com/api/v10"
 
 EXIT_REASON_OPTIONS = {
@@ -28,20 +28,26 @@ EXIT_REASON_OPTIONS = {
     "5": "manual",
 }
 
+VERDICT_OPTIONS = {
+    "1": "success",
+    "2": "partial",
+    "3": "failure",
+    "4": "tentative",
+}
+
+MISTAKE_TYPE_OPTIONS = {
+    "1": "timing",
+    "2": "narrative",
+    "3": "valuation",
+    "4": "liquidity",
+    "5": "catalyst",
+    "6": "macro",
+    "7": "thesis",
+}
+
 
 def usage():
-    print("用法：python3 close_position.py SYMBOL [swing|intraday]（默认swing）")
-
-
-def load_env():
-    env = {}
-    with open(ENV_PATH) as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith("#") and "=" in line:
-                k, v = line.split("=", 1)
-                env[k.strip()] = v.strip()
-    return env
+    print(f"用法：python3 close_position.py SYMBOL  (P9 账号锁死在 '{P9_ACCOUNT}'，不再接受账号参数)")
 
 
 def fetch_price(symbol):
@@ -69,6 +75,37 @@ def prompt_exit_reason():
         print("无效选择，请重新输入。")
 
 
+def prompt_verdict():
+    print("\n请选择 verdict（attribution 用）：")
+    print("1) success    — thesis 成立 + alpha > 0")
+    print("2) partial    — thesis 部分成立")
+    print("3) failure    — thesis 失败 / alpha < 0")
+    print("4) tentative  — 样本不足，暂不下结论（30 单已退出之前推荐用这个）")
+    while True:
+        choice = input("输入编号: ").strip()
+        verdict = VERDICT_OPTIONS.get(choice)
+        if verdict:
+            return verdict
+        print("无效选择，请重新输入。")
+
+
+def prompt_mistake_type():
+    print("\n请选择 mistake_type（7 选 1）：")
+    print("1) timing     — thesis 对，但太早")
+    print("2) narrative  — 市场根本不 care")
+    print("3) valuation  — 已 fully priced in")
+    print("4) liquidity  — 小盘无人接盘")
+    print("5) catalyst   — 催化剂未发生")
+    print("6) macro      — 市场环境突变")
+    print("7) thesis     — thesis 本身错误")
+    while True:
+        choice = input("输入编号: ").strip()
+        mt = MISTAKE_TYPE_OPTIONS.get(choice)
+        if mt:
+            return mt
+        print("无效选择，请重新输入。")
+
+
 def send_discord(env, message):
     token = env.get("DISCORD_BOT_TOKEN")
     channel_id = env.get("DISCORD_CHANNEL_ID")
@@ -86,39 +123,28 @@ def send_discord(env, message):
         pass
 
 
-def alpaca_headers(env, account="swing"):
-    if account == "swing":
-        key = env.get("ALPACA_SWING_KEY", "")
-        secret = env.get("ALPACA_SWING_SECRET", "")
-    else:
-        key = env.get("ALPACA_API_KEY", "")
-        secret = env.get("ALPACA_SECRET_KEY", "")
+def alpaca_headers(env):
+    """P9 账号锁死 swing，不再接受 account 参数。"""
     return {
-        "APCA-API-KEY-ID": key,
-        "APCA-API-SECRET-KEY": secret,
+        "APCA-API-KEY-ID": env.get("ALPACA_SWING_KEY", ""),
+        "APCA-API-SECRET-KEY": env.get("ALPACA_SWING_SECRET", ""),
         "Content-Type": "application/json",
     }
 
 
-def alpaca_base_url(env, account="swing"):
-    if account == "swing":
-        base_url = env.get("ALPACA_SWING_ENDPOINT", "https://paper-api.alpaca.markets/v2")
-    else:
-        base_url = (
-            env.get("ALPACA_BASE_URL")
-            or env.get("ALPACA_ENDPOINT")
-            or "https://paper-api.alpaca.markets/v2"
-        )
+def alpaca_base_url(env):
+    """P9 账号锁死 swing，不再接受 account 参数。"""
+    base_url = env.get("ALPACA_SWING_ENDPOINT", "https://paper-api.alpaca.markets/v2")
     base_url = base_url.rstrip("/")
     if base_url.endswith("/v2"):
         base_url = base_url[:-3]
     return base_url
 
 
-def fetch_alpaca_qty(env, symbol, account="swing"):
+def fetch_alpaca_qty(env, symbol):
     req = urllib.request.Request(
-        f"{alpaca_base_url(env, account)}/v2/positions/{symbol}",
-        headers=alpaca_headers(env, account),
+        f"{alpaca_base_url(env)}/v2/positions/{symbol}",
+        headers=alpaca_headers(env),
         method="GET",
     )
     with urllib.request.urlopen(req, timeout=15) as resp:
@@ -129,8 +155,10 @@ def fetch_alpaca_qty(env, symbol, account="swing"):
     return str(qty)
 
 
-def submit_alpaca_sell_order(env, symbol, account="swing"):
-    qty = fetch_alpaca_qty(env, symbol, account)
+def submit_alpaca_sell_order(env, symbol):
+    """P9 卖单。账号锁死在 P9_ACCOUNT (swing)，不接受 account 参数。"""
+    assert_p9_account(P9_ACCOUNT)  # 显式断言，防止常量被意外修改
+    qty = fetch_alpaca_qty(env, symbol)
     body = json.dumps(
         {
             "symbol": symbol,
@@ -141,9 +169,9 @@ def submit_alpaca_sell_order(env, symbol, account="swing"):
         }
     ).encode("utf-8")
     req = urllib.request.Request(
-        f"{alpaca_base_url(env, account)}/v2/orders",
+        f"{alpaca_base_url(env)}/v2/orders",
         data=body,
-        headers=alpaca_headers(env, account),
+        headers=alpaca_headers(env),
         method="POST",
     )
     with urllib.request.urlopen(req, timeout=15) as resp:
@@ -154,12 +182,10 @@ def main():
     if len(sys.argv) < 2:
         usage()
         return
+    if len(sys.argv) > 2:
+        print(f"⚠️ 已忽略额外参数 '{sys.argv[2]}' — P9 账号锁死在 '{P9_ACCOUNT}'（2026-05-18 锁定）")
 
     symbol = sys.argv[1].strip().upper()
-    account = sys.argv[2].strip() if len(sys.argv) > 2 else "swing"
-    if account not in ("swing", "intraday"):
-        print(f"无效账号: {account}，使用 'swing' 或 'intraday'")
-        return
     if not symbol:
         usage()
         return
@@ -198,6 +224,12 @@ def main():
     exit_reason = prompt_exit_reason()
     exit_thesis_note = input("请输入 exit_thesis_note（可回车跳过）: ").strip()
 
+    verdict = prompt_verdict()
+    mistake_type = None
+    if verdict in ("failure", "partial"):
+        mistake_type = prompt_mistake_type()
+    real_reason = input("\n请输入 real_reason（最终真实原因，与 thesis 可能不同，可回车跳过）: ").strip()
+
     return_pct = None
     if row["entry_price"]:
         return_pct = (close_price - row["entry_price"]) / row["entry_price"]
@@ -216,7 +248,10 @@ def main():
             exit_thesis_note = ?,
             status = 'closed_watching',
             post_exit_prices = ?,
-            post_exit_peak = ?
+            post_exit_peak = ?,
+            verdict = ?,
+            mistake_type = ?,
+            real_reason = ?
         WHERE id = ?
         """,
         (
@@ -228,6 +263,9 @@ def main():
             exit_thesis_note or None,
             post_exit_prices,
             close_price,
+            verdict,
+            mistake_type,
+            real_reason or None,
             row["id"],
         ),
     )
@@ -236,8 +274,8 @@ def main():
 
     env = load_env()
     try:
-        submit_alpaca_sell_order(env, symbol, account)
-        print(f"Alpaca 市价卖单已提交: {symbol} ({account})")
+        submit_alpaca_sell_order(env, symbol)
+        print(f"Alpaca 市价卖单已提交: {symbol} ({P9_ACCOUNT})")
     except urllib.error.HTTPError as e:
         print(f"Alpaca 卖单失败 {symbol}: HTTP {e.code}")
     except Exception as e:

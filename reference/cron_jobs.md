@@ -108,7 +108,11 @@ tail -50 /home/cowork/cowork/scripts/cannabis_docket_reminder.log
 - **每周三 stability_check.sh** 会扫描各 log，发现错误发邮件告警
 - **SMTP 通道:** 已改为 Brevo HTTP API（2026-05-11 修复，DO 封 SMTP 25 端口）
 
-## 一次性 cron（2026-05-17 18:00 EDT）
-- P9 outcome 模板评估提醒（跑完后自删 + 自动从 crontab 移除条目）
-- 脚本：scripts/p9_template_review_reminder.py
-- 背景文档：reference/p9_outcome_template_review_pending.md
+## 一次性 cron（已清理）
+- ~~2026-05-17 18:00 EDT - P9 outcome 模板评估提醒~~ → 触发后 token 路径读错发送失败；2026-05-17 手动清理 cron + 删脚本；背景文档 `reference/p9_outcome_template_review_pending.md` 保留待主公 A/B/C/D 决策
+
+## 一次性 cron（active）
+- 2026-05-18 09:00 EDT - P9 ORA pre-market 提醒（trim 30-60% 决策）
+  - 脚本：`scripts/p9_ora_premarket_reminder.py`
+  - 触发后自删 cron 条目 + 守卫 `if TODAY != "2026-05-18"`
+  - 背景：`trading/case_studies/ORA_2026_05_18.md`

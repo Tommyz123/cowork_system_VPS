@@ -12,20 +12,10 @@ from pathlib import Path
 import requests
 import yfinance as yf
 
-ENV_PATH = Path("/home/cowork/cowork/config/api_keys.env")
+from tide_utils import load_env
+
 DB_PATH = Path("/home/cowork/cowork/trading/trading.db")
 DROP_THRESHOLD = -0.07  # -7%
-
-
-def load_env():
-    env = {}
-    with ENV_PATH.open(encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith("#") and "=" in line:
-                k, v = line.split("=", 1)
-                env[k.strip()] = v.strip()
-    return env
 
 
 def get_open_positions():

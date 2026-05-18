@@ -1,0 +1,3681 @@
+# LIF 10-Q
+# Filing Date: 2026-05-11
+# Accession: 0001581760-26-000078
+# Source: https://www.sec.gov/Archives/edgar/data/1581760/000158176026000078/lifx-20260331.htm
+
+0001581760
+12-31
+2026
+Q1
+False
+http://fasb.org/us-gaap/2025#OtherAccruedLiabilitiesCurrent
+http://fasb.org/us-gaap/2025#OtherAccruedLiabilitiesCurrent
+0.0123501
+0.0163639
+293
+xbrli:shares
+iso4217:USD
+iso4217:USD
+xbrli:shares
+xbrli:pure
+lifx:segment
+lifx:day
+0001581760
+2026-01-01
+2026-03-31
+0001581760
+2026-05-05
+0001581760
+2026-03-31
+0001581760
+2025-12-31
+0001581760
+us-gaap:RelatedPartyMember
+2026-03-31
+0001581760
+us-gaap:RelatedPartyMember
+2025-12-31
+0001581760
+lifx:ConvertibleNoteInvestmentMember
+2026-03-31
+0001581760
+lifx:ConvertibleNoteInvestmentMember
+2025-12-31
+0001581760
+lifx:RelatedPartyInvestmentMember
+us-gaap:RelatedPartyMember
+2026-03-31
+0001581760
+lifx:RelatedPartyInvestmentMember
+us-gaap:RelatedPartyMember
+2025-12-31
+0001581760
+lifx:RelatedPartyWarrantMember
+us-gaap:RelatedPartyMember
+2025-12-31
+0001581760
+lifx:RelatedPartyWarrantMember
+us-gaap:RelatedPartyMember
+2026-03-31
+0001581760
+us-gaap:SubscriptionAndCirculationMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:SubscriptionAndCirculationMember
+2025-01-01
+2025-03-31
+0001581760
+lifx:HardwareMember
+2026-01-01
+2026-03-31
+0001581760
+lifx:HardwareMember
+2025-01-01
+2025-03-31
+0001581760
+us-gaap:AdvertisingMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:AdvertisingMember
+2025-01-01
+2025-03-31
+0001581760
+us-gaap:ProductAndServiceOtherMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:ProductAndServiceOtherMember
+2025-01-01
+2025-03-31
+0001581760
+2025-01-01
+2025-03-31
+0001581760
+us-gaap:ProductAndServiceOtherMember
+us-gaap:RelatedPartyMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:ProductAndServiceOtherMember
+us-gaap:RelatedPartyMember
+2025-01-01
+2025-03-31
+0001581760
+us-gaap:CommonStockMember
+2025-12-31
+0001581760
+us-gaap:AdditionalPaidInCapitalMember
+2025-12-31
+0001581760
+us-gaap:RetainedEarningsMember
+2025-12-31
+0001581760
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2025-12-31
+0001581760
+us-gaap:CommonStockMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:AdditionalPaidInCapitalMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:RetainedEarningsMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:CommonStockMember
+2026-03-31
+0001581760
+us-gaap:AdditionalPaidInCapitalMember
+2026-03-31
+0001581760
+us-gaap:RetainedEarningsMember
+2026-03-31
+0001581760
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2026-03-31
+0001581760
+us-gaap:CommonStockMember
+2024-12-31
+0001581760
+us-gaap:AdditionalPaidInCapitalMember
+2024-12-31
+0001581760
+us-gaap:RetainedEarningsMember
+2024-12-31
+0001581760
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2024-12-31
+0001581760
+2024-12-31
+0001581760
+us-gaap:CommonStockMember
+2025-01-01
+2025-03-31
+0001581760
+us-gaap:AdditionalPaidInCapitalMember
+2025-01-01
+2025-03-31
+0001581760
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2025-01-01
+2025-03-31
+0001581760
+us-gaap:RetainedEarningsMember
+2025-01-01
+2025-03-31
+0001581760
+us-gaap:CommonStockMember
+2025-03-31
+0001581760
+us-gaap:AdditionalPaidInCapitalMember
+2025-03-31
+0001581760
+us-gaap:RetainedEarningsMember
+2025-03-31
+0001581760
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2025-03-31
+0001581760
+2025-03-31
+0001581760
+lifx:ChannelPartnerAppleMember
+us-gaap:CustomerConcentrationRiskMember
+us-gaap:SalesRevenueNetMember
+2026-01-01
+2026-03-31
+0001581760
+lifx:ChannelPartnerAppleMember
+us-gaap:CustomerConcentrationRiskMember
+us-gaap:SalesRevenueNetMember
+2025-01-01
+2025-03-31
+0001581760
+lifx:ChannelPartnerGoogleMember
+us-gaap:CustomerConcentrationRiskMember
+us-gaap:SalesRevenueNetMember
+2026-01-01
+2026-03-31
+0001581760
+lifx:ChannelPartnerGoogleMember
+us-gaap:CustomerConcentrationRiskMember
+us-gaap:SalesRevenueNetMember
+2025-01-01
+2025-03-31
+0001581760
+lifx:ChannelPartnerAppleMember
+us-gaap:CustomerConcentrationRiskMember
+us-gaap:AccountsReceivableMember
+2026-01-01
+2026-03-31
+0001581760
+lifx:ChannelPartnerAppleMember
+us-gaap:CustomerConcentrationRiskMember
+us-gaap:AccountsReceivableMember
+2025-01-01
+2025-12-31
+0001581760
+lifx:ChannelPartnerGoogleMember
+us-gaap:CustomerConcentrationRiskMember
+us-gaap:AccountsReceivableMember
+2026-01-01
+2026-03-31
+0001581760
+lifx:ChannelPartnerGoogleMember
+us-gaap:CustomerConcentrationRiskMember
+us-gaap:AccountsReceivableMember
+2025-01-01
+2025-12-31
+0001581760
+lifx:RetailPartnerAMember
+us-gaap:CustomerConcentrationRiskMember
+us-gaap:AccountsReceivableMember
+2025-01-01
+2025-12-31
+0001581760
+srt:NorthAmericaMember
+2026-01-01
+2026-03-31
+0001581760
+srt:NorthAmericaMember
+2025-01-01
+2025-03-31
+0001581760
+us-gaap:EMEAMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:EMEAMember
+2025-01-01
+2025-03-31
+0001581760
+lifx:OtherInternationalRegionsMember
+2026-01-01
+2026-03-31
+0001581760
+lifx:OtherInternationalRegionsMember
+2025-01-01
+2025-03-31
+0001581760
+country:US
+2026-01-01
+2026-03-31
+0001581760
+country:US
+us-gaap:GeographicConcentrationRiskMember
+us-gaap:RevenueFromContractWithCustomerMember
+2026-01-01
+2026-03-31
+0001581760
+country:US
+2025-01-01
+2025-03-31
+0001581760
+country:US
+us-gaap:GeographicConcentrationRiskMember
+us-gaap:RevenueFromContractWithCustomerMember
+2025-01-01
+2025-03-31
+0001581760
+2026-04-01
+2026-03-31
+0001581760
+us-gaap:USTreasurySecuritiesMember
+2026-03-31
+0001581760
+us-gaap:FairValueInputsLevel1Member
+2026-03-31
+0001581760
+us-gaap:FairValueInputsLevel2Member
+2026-03-31
+0001581760
+us-gaap:FairValueInputsLevel3Member
+2026-03-31
+0001581760
+us-gaap:FairValueInputsLevel1Member
+2025-12-31
+0001581760
+us-gaap:FairValueInputsLevel2Member
+2025-12-31
+0001581760
+us-gaap:FairValueInputsLevel3Member
+2025-12-31
+0001581760
+us-gaap:NotesReceivableMember
+2025-12-31
+0001581760
+us-gaap:NotesReceivableMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:NotesReceivableMember
+2026-03-31
+0001581760
+lifx:AuraConsolidatedGroupIncMember
+2025-05-01
+2025-05-31
+0001581760
+lifx:AuraConsolidatedGroupIncMember
+lifx:ConvertibleNoteInvestmentMember
+2025-05-01
+2025-05-31
+0001581760
+lifx:NativoIncMember
+2025-11-09
+0001581760
+lifx:NativoIncMember
+2025-11-09
+2025-11-09
+0001581760
+lifx:NativoIncMember
+2025-01-01
+2025-12-31
+0001581760
+us-gaap:TradeNamesMember
+lifx:NativoIncMember
+2025-11-09
+0001581760
+us-gaap:TechnologyBasedIntangibleAssetsMember
+lifx:NativoIncMember
+2025-11-09
+0001581760
+us-gaap:CustomerRelationshipsMember
+lifx:NativoIncMember
+2025-11-09
+0001581760
+lifx:NativoIncMember
+us-gaap:TradeNamesMember
+2025-11-09
+2025-11-09
+0001581760
+lifx:NativoIncMember
+us-gaap:TechnologyBasedIntangibleAssetsMember
+2025-11-09
+2025-11-09
+0001581760
+lifx:NativoIncMember
+us-gaap:CustomerRelationshipsMember
+2025-11-09
+2025-11-09
+0001581760
+us-gaap:ComputerEquipmentMember
+2026-03-31
+0001581760
+us-gaap:ComputerEquipmentMember
+2025-12-31
+0001581760
+us-gaap:LeaseholdImprovementsMember
+2026-03-31
+0001581760
+us-gaap:LeaseholdImprovementsMember
+2025-12-31
+0001581760
+lifx:ProductionManufacturingEquipmentMember
+2026-03-31
+0001581760
+lifx:ProductionManufacturingEquipmentMember
+2025-12-31
+0001581760
+us-gaap:FurnitureAndFixturesMember
+2026-03-31
+0001581760
+us-gaap:FurnitureAndFixturesMember
+2025-12-31
+0001581760
+lifx:DataRevenuePartnerWarrantMember
+2026-03-31
+0001581760
+lifx:DataRevenuePartnerWarrantMember
+2025-12-31
+0001581760
+lifx:RelatedPartyInvestmentMember
+2026-03-31
+0001581760
+lifx:RelatedPartyInvestmentMember
+2025-12-31
+0001581760
+lifx:RelatedPartyWarrantMember
+2026-03-31
+0001581760
+lifx:RelatedPartyWarrantMember
+2025-12-31
+0001581760
+us-gaap:TradeNamesMember
+2026-03-31
+0001581760
+us-gaap:TechnologyBasedIntangibleAssetsMember
+2026-03-31
+0001581760
+us-gaap:CustomerRelationshipsMember
+2026-03-31
+0001581760
+us-gaap:SoftwareAndSoftwareDevelopmentCostsMember
+2026-03-31
+0001581760
+us-gaap:TradeNamesMember
+2025-12-31
+0001581760
+us-gaap:TechnologyBasedIntangibleAssetsMember
+2025-12-31
+0001581760
+us-gaap:CustomerRelationshipsMember
+2025-12-31
+0001581760
+us-gaap:SoftwareAndSoftwareDevelopmentCostsMember
+2025-12-31
+0001581760
+lifx:June2025ConvertibleNotesMember
+us-gaap:ConvertibleDebtMember
+2025-06-30
+0001581760
+lifx:DebtConversionTermsOneMember
+lifx:June2025ConvertibleNotesMember
+us-gaap:ConvertibleDebtMember
+2025-06-01
+2025-06-30
+0001581760
+lifx:DebtConversionTermsTwoMember
+lifx:June2025ConvertibleNotesMember
+us-gaap:ConvertibleDebtMember
+2025-06-01
+2025-06-30
+0001581760
+us-gaap:ConvertibleDebtMember
+2025-06-01
+2025-06-30
+0001581760
+lifx:June2025ConvertibleNotesMember
+us-gaap:ConvertibleDebtMember
+2026-03-31
+0001581760
+lifx:June2025ConvertibleNotesMember
+us-gaap:ConvertibleDebtMember
+2025-06-01
+2025-06-30
+0001581760
+lifx:June2025ConvertibleNotesMember
+us-gaap:ConvertibleDebtMember
+2026-01-01
+2026-03-31
+0001581760
+2025-06-01
+2025-06-30
+0001581760
+2025-01-01
+2025-12-31
+0001581760
+us-gaap:StockCompensationPlanMember
+2026-03-31
+0001581760
+us-gaap:StockCompensationPlanMember
+2025-12-31
+0001581760
+us-gaap:RestrictedStockUnitsRSUMember
+2026-03-31
+0001581760
+us-gaap:RestrictedStockUnitsRSUMember
+2025-12-31
+0001581760
+lifx:SharesToBeGrantedMember
+2026-03-31
+0001581760
+lifx:SharesToBeGrantedMember
+2025-12-31
+0001581760
+lifx:TimeBasedRestrictedStockUnitsMember
+2026-01-01
+2026-03-31
+0001581760
+lifx:PerformanceBasedRestrictedStockUnitsMember
+2026-01-01
+2026-03-31
+0001581760
+lifx:MarketBasedRestricedStockUnitsMember
+us-gaap:ShareBasedCompensationAwardTrancheOneMember
+2025-01-01
+2025-12-31
+0001581760
+lifx:MarketBasedRestricedStockUnitsMember
+us-gaap:ShareBasedCompensationAwardTrancheTwoMember
+2025-01-01
+2025-12-31
+0001581760
+lifx:MarketBasedRestricedStockUnitsMember
+us-gaap:ShareBasedCompensationAwardTrancheThreeMember
+2025-01-01
+2025-12-31
+0001581760
+lifx:MarketBasedRestricedStockUnitsMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:RestrictedStockUnitsRSUMember
+2025-12-31
+0001581760
+us-gaap:RestrictedStockUnitsRSUMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:RestrictedStockUnitsRSUMember
+2026-03-31
+0001581760
+lifx:TimeBasedRestrictedStockUnitsMember
+2026-03-31
+0001581760
+lifx:PerformanceBasedRestrictedStockUnitsMember
+2026-03-31
+0001581760
+lifx:MarketBasedRestricedStockUnitsMember
+2026-03-31
+0001581760
+us-gaap:EmployeeStockOptionMember
+2026-03-31
+0001581760
+us-gaap:EmployeeStockOptionMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:SubscriptionAndCirculationMember
+us-gaap:CostOfSalesMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:SubscriptionAndCirculationMember
+us-gaap:CostOfSalesMember
+2025-01-01
+2025-03-31
+0001581760
+lifx:HardwareMember
+us-gaap:CostOfSalesMember
+2026-01-01
+2026-03-31
+0001581760
+lifx:HardwareMember
+us-gaap:CostOfSalesMember
+2025-01-01
+2025-03-31
+0001581760
+us-gaap:AdvertisingMember
+us-gaap:CostOfSalesMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:AdvertisingMember
+us-gaap:CostOfSalesMember
+2025-01-01
+2025-03-31
+0001581760
+us-gaap:ProductAndServiceOtherMember
+us-gaap:CostOfSalesMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:ProductAndServiceOtherMember
+us-gaap:CostOfSalesMember
+2025-01-01
+2025-03-31
+0001581760
+us-gaap:CostOfSalesMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:CostOfSalesMember
+2025-01-01
+2025-03-31
+0001581760
+us-gaap:ResearchAndDevelopmentExpenseMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:ResearchAndDevelopmentExpenseMember
+2025-01-01
+2025-03-31
+0001581760
+us-gaap:SellingAndMarketingExpenseMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:SellingAndMarketingExpenseMember
+2025-01-01
+2025-03-31
+0001581760
+us-gaap:GeneralAndAdministrativeExpenseMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:GeneralAndAdministrativeExpenseMember
+2025-01-01
+2025-03-31
+0001581760
+lifx:HubbleNetworkIncMember
+us-gaap:RelatedPartyMember
+2024-11-12
+2024-11-12
+0001581760
+lifx:HardwareMember
+us-gaap:RelatedPartyMember
+lifx:HubbleNetworkIncMember
+2026-01-01
+2026-03-31
+0001581760
+lifx:HubbleNetworkIncMember
+us-gaap:RelatedPartyMember
+2026-03-31
+0001581760
+lifx:RelatedPartyWarrantMember
+us-gaap:RelatedPartyMember
+lifx:HubbleNetworkIncMember
+2026-03-31
+0001581760
+us-gaap:ProductAndServiceOtherMember
+us-gaap:RelatedPartyMember
+lifx:HubbleNetworkIncMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:ProductAndServiceOtherMember
+us-gaap:RelatedPartyMember
+lifx:HubbleNetworkIncMember
+2025-01-01
+2025-03-31
+0001581760
+lifx:HubbleNetworkIncMember
+us-gaap:RelatedPartyMember
+2025-12-31
+0001581760
+us-gaap:RestrictedStockUnitsRSUMember
+2026-01-01
+2026-03-31
+0001581760
+us-gaap:RestrictedStockUnitsRSUMember
+2025-01-01
+2025-03-31
+0001581760
+lifx:BritMorinMember
+2026-01-01
+2026-03-31
+0001581760
+lifx:BritMorinMember
+2026-03-31
+UNITED STATES
+SECURITIES AND EXCHANGE COMMISSION
+Washington, D.C. 20549
+______________
+FORM
+10-Q
+x
+QUARTERLY REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934
+For the quarterly period ended
+March 31, 2026
+OR
+¨
+TRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934
+For the transition period from __________ to __________
+Commission File Number
+001-42120
+Life360, Inc.
+(Exact name of registrant as specified in its charter)
+Delaware
+26-0197666
+(State or other jurisdiction of
+incorporation or organization)
+(I.R.S. Employer
+Identification No.)
+1900 South Norfolk Street
+,
+Suite 310
+San Mateo
+,
+CA
+94403
+(Address of principal executive office)
+(1)
+(Zip Code)
+Tel: (
+415
+)
+484-5244
+(Registrant's telephone number, including area code)
+Not Applicable.
+(Former name, former address and former fiscal year, if changed since last report)
+Securities registered pursuant to Section 12(b) of the Act:
+Title of each class
+Trading Symbol(s)
+Name of each exchange on which registered
+Common Stock, $0.001 par value per share
+LIF
+The Nasdaq Stock Market LLC
+Indicate by check mark whether the registrant: (1) has filed all reports required to be filed by Section 13 or 15(d) of the Securities Exchange Act of 1934 during the preceding 12 months (or for such shorter period that the registrant was required to file such reports), and (2) has been subject to such filing requirements for the past 90 days.
+Yes
+x
+No
+o
+Indicate by check mark whether the registrant has submitted electronically every Interactive Data File required to be submitted pursuant to Rule 405 of Regulation S-T (§232.405 of this chapter) during the preceding 12 months (or for such shorter period that the registrant was required to submit such files).
+Yes
+x
+No
+o
+Indicate by check mark whether the registrant is a large accelerated filer, an accelerated filer, a non-accelerated filer, a smaller reporting company, or an emerging growth company. See the definitions of “large accelerated filer,” “accelerated filer,” “smaller reporting company” and “emerging growth company” in Rule 12b-2 of the Exchange Act.
+Large accelerated filer
+x
+Accelerated filer
+o
+Non-accelerated filer
+o
+Smaller reporting company
+o
+Emerging growth company
+o
+If an emerging growth company, indicate by check mark if the registrant has elected not to use the extended transition period for complying with any new or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act.
+o
+Indicate by check mark whether the registrant is a shell company (as defined in Rule 12b-2 of the Exchange Act).     Yes
+o
+No
+x
+As of May 5, 2026, the registrant had
+81,031,691
+shares of common stock, par value $0.001 per share, including shares underlying all issued and outstanding Chess Depositary Interests (“CDIs”), outstanding.
+____________________
+(1)
+We are a Delaware corporation with a globally distributed workforce and no corporate headquarters. Under the Securities and Exchange Commission's rules, we are required to designate a “principal executive office.” For purposes of this report, we have designated our office in San Mateo, California as our principal executive office.
+Life360, Inc.
+Form 10-Q for the Quarter Ended March 31, 2026
+Table of Contents
+Page
+Part I - Financial Information
+Item 1.
+Financial Statements (unaudited)
+1
+Condensed Consolidated Balance Sheets
+2
+Condensed Consolidated Statements of Operations and Comprehensive Income
+3
+Condensed Consolidated Statements of Stockholders’ Equity
+4
+Condensed Consolidated Statements of Cash Flows
+5
+Notes to Condensed Consolidated Financial Statements (unaudited)
+7
+Item 2.
+Management’s Discussion and Analysis of Financial Condition and Results of Operations
+29
+Item 3.
+Quantitative and Qualitative Disclosures About Market Risk
+41
+Item 4.
+Controls and Procedures
+42
+Part II - Other Information
+Item 1.
+Legal Proceedings
+43
+Item 1A.
+Risk Factors
+43
+Item 2.
+Unregistered Sales of Equity Securities and Use of Proceeds
+43
+Item 3.
+Defaults Upon Senior Securities
+43
+Item 4.
+Mine Safety Disclosures
+44
+Item 5.
+Other Information
+44
+Item 6.
+Exhibits
+45
+Signatures
+46
+In this report, unless otherwise stated or the context otherwise indicates, the terms “Life360,” “the Company,” “we,” “us,” “our” and similar references refer to Life360, Inc. and its consolidated subsidiaries. The Life360 logo, and other trademarks, trade names or service marks of Life360, Inc. appearing in this Quarterly Report on Form 10-Q are the property of Life360, Inc. All other trademarks, trade names and service marks appearing in this Quarterly Report on Form 10-Q are the property of their respective owners. Solely for convenience, the trademarks and trade names in this report may be referred to without the ® and ™ symbols, but such references should not be construed as any indicator that their respective owners will not assert their rights thereto.
+Table of Contents
+FORWARD-LOOKING STATEMENTS
+This Quarterly Report on Form 10-Q (this “Quarterly Report”) contains forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995 that are based on our management’s beliefs and assumptions and on information currently available to our management. We intend such forward-looking statements to be covered by the safe harbor provisions for forward-looking statements contained in Section 21E of the Securities Exchange Act of 1934, as amended (the “Exchange Act”). These forward-looking statements include statements regarding, among other things, (a) our expectations regarding our results of operations and key performance indicators, (b) key factors affecting our performance, (c) our growth strategy, (d) our future financing plans, (e) our anticipated needs for, and use of, working capital, (f) our expectations regarding investment in strategic initiatives, (g) our expectations regarding the effect of the capped call transactions entered into in connection with the pricing of our 0.00%
+convertible senior notes due June 1, 2030, and (h) our ability to recover Monthly Active User (“MAU”) growth following the technical issues that affected user registration and onboarding, and the extent to which our remediation measures will fully restore prior user acquisition rates and the timing of any such recovery. They are generally identifiable by use of the words: “may,” “might,” “will,” “could,” “would,” “should,” “expect,” “plan,” “anticipate,” “intend,” “seek,” “believe,” “estimate,” “predict,” “potential,” “continue,” “contemplate,” “possible” or the negative of these terms or other comparable terminology, although not all forward-looking statements contain these words. We caution you that the foregoing list may not contain all of the forward-looking statements made in this Quarterly Report. These forward-looking statements are subject to risks and uncertainties, many of which are outside of our control, including risks related to our business, market risks, our need for additional capital, and the risk that our products and services may not perform as expected, as described in
+“Risk Factors” under Part I, Item 1A of the Company’s Form 10-K for the year ended December 31, 2025, filed with the Securities and Exchange Commission (the “SEC”) on March 2, 2026 (“Annual Report”), as well as in other sections of this report, as such risks may be updated in subsequent filings with the SEC or the Australian Securities Exchange (“ASX”)
+. In light of these risks and uncertainties, there can be no assurance that the forward-looking statements contained in this filing will in fact occur. You should not place undue reliance on these forward-looking statements.
+The forward-looking statements are not historical facts, but rather are based on current expectations, estimates, assumptions and projections about our industry, business and future financial results. The forward-looking statements speak only as of the date on which they are made, and, except to the extent required by federal securities laws, we undertake no obligation to update any forward-looking statements to reflect events or circumstances after the date on which the statements are made or to reflect the occurrence of unanticipated events. Our actual results could differ materially from the results contemplated by these forward-looking statements due to a number of factors, including, but not limited to, those discussed in
+“Risk Factors” under Part I, Item 1A in our Annual Report, and other sections in this Quarterly Report
+.
+PART I - FINANCIAL INFORMATION
+Item 1. Financial Statements (unaudited)
+1
+Table of Contents
+Life360, Inc.
+Condensed Consolidated Balance Sheets
+(Dollars in U.S. $, in thousands, except share and per share data)
+(unaudited)
+March 31,
+2026
+December 31,
+2025
+Assets
+Current Assets:
+Cash and cash equivalents
+$
+351,191
+$
+494,261
+Short-term investments
+106,104
+—
+Accounts receivable, net
+(1)
+94,975
+80,715
+Inventory
+15,142
+9,867
+Costs capitalized to obtain contracts, net
+1,179
+1,211
+Prepaid expenses and other current assets
+21,426
+20,050
+Total current assets
+590,017
+606,104
+Restricted cash, noncurrent
+1,670
+1,567
+Property and equipment, net
+2,885
+3,019
+Costs capitalized to obtain contracts, noncurrent
+844
+869
+Prepaid expenses and other assets, noncurrent
+(2)(3)
+44,928
+48,480
+Operating lease right-of-use asset
+246
+335
+Intangible assets, net
+81,636
+38,277
+Goodwill
+173,609
+134,619
+Deferred tax assets, net
+145,039
+126,418
+Total Assets
+$
+1,040,874
+$
+959,688
+Liabilities and Stockholders’ Equity
+Current Liabilities:
+Accounts payable
+$
+21,969
+$
+8,411
+Accrued expenses and other current liabilities
+39,673
+42,002
+Deferred revenue, current
+(4)
+48,197
+46,377
+Total current liabilities
+109,839
+96,790
+Convertible notes, net, noncurrent
+310,930
+310,386
+Deferred revenue, noncurrent
+(5)
+3,734
+4,330
+Other liabilities, noncurrent
+18,741
+—
+Total Liabilities
+$
+443,244
+$
+411,506
+Commitments and Contingencies (Note 10)
+Stockholders’ Equity
+Common Stock, $
+0.001
+par value;
+500,000,000
+authorized as of March 31, 2026 and December 31, 2025, respectively;
+80,688,123
+and
+79,359,589
+issued and outstanding as of March 31, 2026 and December 31, 2025, respectively
+81
+79
+Additional paid-in capital
+733,561
+686,921
+Accumulated deficit
+(
+136,087
+)
+(
+138,866
+)
+Accumulated other comprehensive income
+75
+48
+Total stockholders’ equity
+597,630
+548,182
+Total Liabilities and Stockholders’ Equity
+$
+1,040,874
+$
+959,688
+(1)
+Includes related party receivables of $
+29
+and $
+3
+as of March 31, 2026, and December 31, 2025, respectively.
+(2)
+Includes
+$
+20,876
+and $
+24,726
+measured using the fair value option as of March 31, 2026, and December 31, 2025, respectively, related to the Convertible Note Investment. Refer to Note 6, "Fair Value Measurements" for additional information.
+(3)
+Includes the $
+5,882
+Related Party Investment and the $
+3,898
+Related Party Warrant as of March 31, 2026, and December 31, 2025. Refer to Note 6, "Fair Value Measurements" and Note 14, "Related-Party Transactions" for additional information.
+(4)
+Includes related party deferred revenue, current of $
+780
+as of March 31, 2026, and December 31, 2025.
+(5)
+Includes related party deferred revenue, noncurrent of $
+2,047
+and $
+2,242
+as of March 31, 2026 and December 31, 2025, respectively.
+See accompanying notes to the condensed consolidated financial statements (unaudited).
+2
+Table of Contents
+Life360, Inc.
+Condensed Consolidated Statements of Operations and Comprehensive Income
+(Dollars in U.S. $, in thousands, except share and per share data)
+(unaudited)
+Three Months Ended March 31,
+2026
+2025
+Subscription revenue
+$
+108,194
+$
+81,874
+Hardware revenue
+4,526
+8,907
+Advertising revenue
+19,661
+4,584
+Other revenue
+(1)
+10,742
+8,259
+Total revenue
+143,123
+103,624
+Cost of subscription revenue
+14,504
+10,141
+Cost of hardware revenue
+8,624
+8,597
+Cost of advertising revenue
+7,935
+262
+Cost of other revenue
+1,497
+1,075
+Total cost of revenue
+32,560
+20,075
+Gross profit
+110,563
+83,549
+Operating expenses:
+Research and development
+39,272
+30,403
+Sales and marketing
+57,024
+35,308
+General and administrative
+22,345
+15,649
+Total operating expenses
+118,641
+81,360
+Income (loss) from operations
+(
+8,078
+)
+2,189
+Other income (expense):
+Loss on change in fair value of investment
+(
+3,850
+)
+—
+Interest income
+3,816
+1,784
+Other income (expense), net
+(
+793
+)
+191
+Total other income (expense), net
+(
+827
+)
+1,975
+Income (loss) before income taxes
+(
+8,905
+)
+4,164
+Benefit from income taxes
+(
+11,684
+)
+(
+214
+)
+Net income
+$
+2,779
+$
+4,378
+Net income per share, basic (Note 15)
+$
+0.03
+$
+0.06
+Net income per share, diluted (Note 15)
+$
+0.03
+$
+0.05
+Weighted-average shares used in computing net income per share, basic (Note 15)
+80,148,997
+75,699,493
+Weighted-average shares used in computing net income per share, diluted (Note 15)
+85,677,079
+83,445,337
+Comprehensive income
+Net income
+$
+2,779
+$
+4,378
+Change in foreign currency translation adjustment
+(
+30
+)
+1
+Unrealized gain on short-term investments, net of tax
+57
+—
+Total comprehensive income
+$
+2,806
+$
+4,379
+(1)
+Includes related party revenue of $
+224
+and $
+292
+for the three months ended March 31, 2026, and 2025, respectively.
+See accompanying notes to the condensed consolidated financial statements (unaudited).
+3
+Table of Contents
+Life360, Inc.
+Condensed Consolidated Statements of Stockholders’ Equity
+(Dollars in U.S. $, in thousands, except share and per share data)
+(unaudited)
+Common Stock
+Additional
+Paid-In Capital
+Accumulated
+Deficit
+Accumulated
+Other
+Comprehensive Income
+Total
+Stockholders’
+Equity
+Shares
+Amount
+Balance at December 31, 2025
+79,359,589
+$
+79
+$
+686,921
+$
+(
+138,866
+)
+$
+48
+$
+548,182
+Exercise of stock options
+358,697
+—
+2,328
+—
+—
+2,328
+Vesting of restricted stock units
+534,238
+1
+(
+1
+)
+—
+—
+—
+Taxes paid related to the settlement of equity awards, net of settlement proceeds received
+—
+—
+(
+496
+)
+—
+—
+(
+496
+)
+Stock-based compensation expense
+—
+—
+16,774
+—
+—
+16,774
+Shares issued in connection with an acquisition
+435,599
+1
+28,035
+—
+—
+28,036
+Change in foreign currency translation adjustment
+—
+—
+—
+—
+(
+30
+)
+(
+30
+)
+Unrealized gain on short-term investments, net of tax
+—
+—
+—
+—
+57
+57
+Net income
+—
+—
+—
+2,779
+—
+2,779
+Balance at March 31, 2026
+80,688,123
+$
+81
+$
+733,561
+$
+(
+136,087
+)
+$
+75
+$
+597,630
+Common Stock
+Additional
+Paid-In Capital
+Accumulated
+Deficit
+Accumulated
+Other
+Comprehensive Income
+Total
+Stockholders’
+Equity
+Shares
+Amount
+Balance at December 31, 2024
+75,404,996
+$
+75
+$
+648,124
+$
+(
+289,698
+)
+$
+44
+$
+358,545
+Exercise of stock options
+346,874
+—
+3,039
+—
+—
+3,039
+Vesting of restricted stock units
+644,538
+1
+(
+1
+)
+—
+—
+—
+Taxes paid related to the settlement of equity awards, net of settlement proceeds received
+—
+—
+(
+856
+)
+—
+—
+(
+856
+)
+Stock-based compensation expense
+—
+—
+10,173
+—
+—
+10,173
+Shares issued in connection with an acquisition
+22,252
+—
+1,000
+—
+—
+1,000
+Change in foreign currency translation adjustment
+—
+—
+—
+—
+1
+1
+Net income
+—
+—
+—
+4,378
+—
+4,378
+Balance at March 31, 2025
+76,418,660
+$
+76
+$
+661,479
+$
+(
+285,320
+)
+$
+45
+$
+376,280
+See accompanying notes to the condensed consolidated financial statements (unaudited).
+4
+Table of Contents
+Life360, Inc.
+Condensed Consolidated Statements of Cash Flows
+(Dollars in U.S. $, in thousands)
+(unaudited)
+Three Months Ended March 31,
+2026
+2025
+Cash Flows from Operating Activities:
+Net income
+$
+2,779
+$
+4,378
+Adjustments to reconcile net income to net cash provided by operating activities:
+Depreciation and amortization
+5,422
+2,862
+Amortization of costs capitalized to obtain contracts
+360
+283
+Amortization of operating lease right-of-use asset
+90
+84
+Stock-based compensation expense, net of amounts capitalized
+16,255
+9,889
+Non-cash interest expense, net
+715
+—
+Loss on change in fair value of investment
+3,850
+—
+Non-cash revenue from long-term investments
+(
+269
+)
+(
+367
+)
+Deferred income taxes
+(
+11,944
+)
+—
+Provision for credit losses
+112
+339
+Changes in operating assets and liabilities, net of acquisition:
+Accounts receivable, net
+16,650
+5,648
+Prepaid expenses and other assets
+448
+(
+4,238
+)
+Inventory
+(
+5,275
+)
+(
+1,514
+)
+Costs capitalized to obtain contracts, net
+(
+302
+)
+(
+314
+)
+Accounts payable
+(
+5,857
+)
+(
+139
+)
+Accrued expenses and other current liabilities
+(
+7,258
+)
+(
+6,526
+)
+Deferred revenue
+1,433
+1,771
+Other liabilities, noncurrent
+—
+(
+96
+)
+Net cash provided by operating activities
+17,209
+12,060
+Cash Flows from Investing Activities:
+Cash paid for acquisitions, net of cash acquired
+(
+55,590
+)
+(
+2,825
+)
+Internally developed software
+(
+1,592
+)
+(
+1,398
+)
+Purchase of property and equipment
+—
+(
+124
+)
+Purchase of short-term investments
+(
+106,407
+)
+—
+Net cash used in investing activities
+(
+163,589
+)
+(
+4,347
+)
+Cash Flows from Financing Activities:
+Indemnity escrow payment in connection with the acquisition of Fantix, Inc.
+(
+675
+)
+—
+Proceeds from monetization of tariff refund claims
+2,256
+—
+Proceeds related to tax withholdings on restricted stock settlements and the exercise of stock options and warrants
+12,161
+12,770
+Taxes paid related to net settlement of equity awards
+(
+10,329
+)
+(
+10,587
+)
+Net cash provided by financing activities
+3,413
+2,183
+Net Increase (Decrease) in Cash, Cash Equivalents, and Restricted Cash
+(
+142,967
+)
+9,896
+Cash, Cash Equivalents and Restricted Cash at the Beginning of the Period
+495,828
+160,459
+Cash, Cash Equivalents, and Restricted Cash at the End of the Period
+$
+352,861
+$
+170,355
+5
+Table of Contents
+Life360, Inc.
+Supplemental disclosure:
+Refunds received during the period for income taxes, net
+$
+(
+631
+)
+$
+—
+Cash payments included in the measurement of operating lease liabilities
+100
+97
+Non-cash investing and financing activities:
+Fair value of stock issued in connection with acquisitions
+28,035
+1,000
+Liability incurred in connection with acquisitions
+16,315
+675
+Property and equipment included within accrued expenses and other current liabilities
+55
+901
+Stock-based compensation included in internally developed software
+519
+284
+The following table presents the cash, cash equivalents, and restricted cash reported within the condensed consolidated statements of cash flows shown above:
+March 31,
+2026
+March 31,
+2025
+Cash and cash equivalents
+$
+351,191
+$
+168,852
+Restricted cash, noncurrent
+1,670
+1,503
+Total cash and cash equivalents, and restricted cash
+$
+352,861
+$
+170,355
+See accompanying notes to the condensed consolidated financial statements (unaudited).
+6
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+1.     Nature of Business
+Life360, Inc. (the “Company”) is a leading technology platform connecting millions of people throughout the world to the people, pets, and things they care about most. The Company has created a new category at the intersection of family, technology, and safety to help keep families connected and safe. The Company’s core offering, the Life360 mobile application, includes features like communications, driving safety, digital safety, and location sharing. Beyond the everyday, Life360 also provides much-needed protection and saves lives, which is crucial for families in emergency situations such as natural disasters, vehicle collisions, physical property theft, and digital identity theft. The Life360 mobile application operates under a “freemium” model where its core offering is available to members at no charge, with additional membership subscription options that are available but not required.
+In addition to the Life360 mobile application, the Company also offers hardware tracking devices through the sale of Tile by Life360, Inc. (“Tile”) and Life360 Pet GPS products to keep members close to the people, pets, and things they care about most. The Company’s suite of product and service offerings, including the Life360 and Tile mobile applications, and related third-party services, is system and platform-agnostic, allowing its products and services to work seamlessly for its members, regardless of the devices they use.
+The Company also generates advertising revenue through the placement of third-party advertisements on its platform and across third-party publisher networks through the Company's advertising technology platform, and other revenue through partnerships and the sale of aggregated, non-personally identifiable data for data insight purposes.
+2.     Summary of Significant Accounting Policies
+Included below are select significant accounting policies. Refer to Note 2, "Summary of Significant Accounting Policies" in the Company’s Annual Report for a full list of the Company’s significant accounting policies.
+Basis of Presentation and Consolidation
+The accompanying unaudited condensed consolidated financial statements, which include the accounts of the Company and its wholly owned subsidiaries, have been prepared in conformity with accounting principles generally accepted in the U.S., or (“GAAP”) for interim periods and following the requirements of the SEC for interim reporting. As permitted under those rules, certain footnotes or other financial information that are normally required by GAAP can be condensed or omitted.
+All inter-company transactions and balances have been eliminated upon consolidation.
+The condensed consolidated balance sheet as of December 31, 2025, included herein, was derived from the audited financial statements as of that date. In the opinion of the Company’s management, the condensed consolidated financial statements reflect all normal recurring adjustments necessary to provide a fair presentation of the Company’s financial position, results of operations, stockholders’ equity, and cash flows for the interim periods presented. Operating results for these interim periods are not necessarily indicative of the Company’s future results of operations.
+The condensed consolidated financial statements should be read in conjunction with the audited consolidated financial statements and notes thereto included in the Company’s Annual Report.
+During the current period, the Company revised its presentation of Advertising revenue and Cost of advertising revenue in the condensed consolidated statements of operations and comprehensive income to provide more meaningful information to financial statement users. Previously, Advertising revenue was included within Other revenue and Cost of advertising revenue was included within Cost of other revenue. Comparative prior period amounts have been reclassified to conform to the current period presentation. The reclassification had no impact on net income.
+7
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+Revenue Recognition
+There have been no significant changes to the Company’s revenue recognition policies as disclosed in its Annual Report on Form 10-K for the year ended December 31, 2025. Revenue recognition disclosures have been updated in line with the presentation of Advertising revenue in the condensed consolidated statements of operations and comprehensive income.
+Advertising Revenue
+Advertising revenue is generated from advertisers, advertising agencies, and platform partners through managed advertising arrangements, programmatic and open marketplace channels, and other advertising-related services. Advertisements are placed across both the Company’s own properties and third-party publisher networks. These offerings include audience targeting, advertising technology solutions, and related professional services, facilitated by the Company’s advertising technology platform.
+Managed advertising arrangements are direct sales of advertising inventory to advertisers and agencies, where the Company provides campaign management and optimization services. Programmatic and open marketplace channels refer to the automated buying and selling of advertising inventory through bidding on an auction platform. This includes exchange-based transactions where advertising inventory is made available to all buyers through both the Company's advertising platform and third-party advertising exchanges. Other advertising-related services include professional services, measurement and analytics solutions, platform access fees, and other services delivered through the Company's advertising technology platform.
+The Company’s advertising arrangements may include multiple promised services, which are evaluated to determine whether they represent distinct performance obligations, with revenue allocated to each distinct performance obligation based on its relative standalone selling price. Consideration is typically based on a per-impression or similar usage-based model, but may also include fixed fees or revenue-sharing arrangements. When arrangements involve third-party inventory or services, the Company evaluates whether it acts as the principal or agent in the transaction and reports revenue on a gross basis when it acts as the principal in the transaction, or on a net basis when it acts as an agent. Revenue from advertising arrangements, including variable consideration, is recognized in the period in which impressions are delivered or related services are performed.
+Other Revenue
+The Company’s other revenue consists of data and partnership revenue. Refer to the Company’s Annual Report on Form 10-K for the year ended December 31, 2025 for additional detail regarding the components and revenue recognition for data revenue.
+Partnership revenue includes lead generation offerings and agreements with third parties that provide access to anonymized data insights on the Company’s mobile platform. Under these agreements, the Company may earn a percentage of the revenue generated from data insights. Revenue is recorded on a gross basis if the Company acts as the principal in the transaction, or a net basis if the Company acts as the agent. Variable consideration from partnership arrangements is recognized in the period in which the related services are delivered.
+Cost of Revenue
+Cost of Advertising Revenue
+Cost of advertising revenue includes cloud-based hosting costs supporting the Company’s advertising technology platform, amortization of acquired intangibles and internally-developed software, third-party data and content licensing costs, personnel-related costs, and allocated overhead, such as facilities, including rent and utilities, and shared information technology costs. For advertising revenue recognized on a gross basis, cost of advertising revenue includes traffic acquisition costs, which represent amounts paid to third-party publishers for advertising placements and inventory access. Personnel-related expenses include salaries, bonuses, benefits, and stock-based compensation for advertising operations personnel.
+8
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+Cost of Other Revenue
+Cost of other revenue includes cloud-based hosting costs as well as costs of product operations functions and personnel-related costs associated with the Company’s data platforms.
+Use of Estimates
+The preparation of the Company’s condensed consolidated financial statements in conformity with GAAP requires management to make certain estimates, judgments, and assumptions that affect the reported amounts of assets, liabilities, net revenue, and expenses. Significant items subject to such estimates, judgments, and assumptions include:
+•
+revenue recognition, including the determination of selling prices for distinct performance obligations sold in multiple performance obligation arrangements, the period over which revenue is recognized for certain arrangements, and estimated delivery dates for orders with title transfer upon delivery;
+•
+allowance for credit losses and product returns;
+•
+promotional and marketing allowances;
+•
+inventory valuation;
+•
+average useful customer life;
+•
+valuation of stock-based awards, including market-based restricted stock units (“MRSUs”);
+•
+achievement of performance-based restricted stock units (“PRSUs”);
+•
+legal contingencies;
+•
+impairment of long-lived assets and goodwill;
+•
+valuation of non-cash consideration, contingent consideration, investments, convertible notes, and embedded derivatives;
+•
+useful lives of long-lived assets; and
+•
+income taxes including valuation allowances on deferred tax assets.
+The Company bases its estimates and judgments on historical experience and on various assumptions that it believes are reasonable under the circumstances. Actual results could differ significantly from those estimates.
+Recently adopted accounting pronouncements
+In July 2025, the Financial Accounting Standards Board (“FASB”) issued Accounting Standards Update (“ASU”) 2025-05,
+Financial Instruments - Credit Losses (Topic 326): Measurement of Credit Losses for Accounts Receivable and Contract Assets
+. The ASU introduces a practical expedient for estimating expected credit losses on current accounts receivable and current contract assets arising from revenue transactions from contracts with customers. The updates in this ASU are effective for annual periods beginning after December 15, 2025, and interim periods within those annual periods. The Company adopted this ASU on January 1, 2026 on a prospective basis. The adoption of this ASU did not have a material impact on the Company’s consolidated financial statements or related disclosures.
+Accounting pronouncements not yet adopted
+In December 2025, the FASB issued ASU 2025-11,
+Interim Reporting (Topic 270) Narrow-Scope Improvements
+. The ASU clarifies and reorganizes interim reporting guidance, including disclosure requirements related to events occurring since the end of the most recent annual reporting period, and improves the presentation and usability of interim financial statement disclosures. The ASU is effective for interim reporting periods within fiscal years beginning after December 15, 2027, with early adoption permitted. The Company is currently evaluating the impact of this ASU on its interim financial reporting and does not expect the adoption of this ASU to have a material impact on its consolidated financial statements.
+9
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+In September 2025, the FASB issued ASU 2025-07,
+Derivatives and Hedging (Topic 815) and Revenue from Contracts with Customers (Topic 606): Derivatives Scope Refinements and Scope Clarification for Share-Based Noncash Consideration from a Customer in a Revenue Contract
+. The ASU narrows the scope of derivative accounting by excluding certain non-exchange-traded contracts whose terms are based on the normal operations or activities of one of the parties, and clarifies that share-based noncash consideration received from a customer in a revenue contract should be accounted for under ASC 606 until the right to the consideration becomes unconditional. The ASU is effective for annual periods beginning after December 15, 2026, and interim periods within those annual periods, with early adoption permitted. The Company does not expect the adoption of this ASU to have a material impact on its financial position or results of operations.
+In September 2025, the FASB issued ASU 2025-06,
+Intangibles - Goodwill and Other - Internal-Use Software (Subtopic 350-40): Targeted Improvements to the Accounting for Internal-Use Software
+. The ASU eliminates project stages and requires software cost capitalization to begin after management has authorized and committed to funding the software project and it is probable the project will be completed and used to perform the function intended. The ASU also requires additional property, plant and equipment disclosures for all capitalized software costs. The ASU is effective for annual periods beginning after December 15, 2027, and interim periods within those years, with early adoption permitted. The Company is currently evaluating the impact of this ASU on its consolidated financial statements and related disclosures.
+In November 2024, the FASB issued ASU 2024-03,
+Income Statement - Reporting Comprehensive Income - Expense Disaggregation (Subtopic 220-40): Disaggregation of Income Statement Expenses
+. The ASU requires the disclosure of additional information related to certain costs and expenses, including amounts of inventory purchases, employee compensation, and depreciation and amortization included in each income statement line item. The ASU is effective for the Company beginning in fiscal year 2027 and interim periods beginning in fiscal year 2028, with early adoption permitted. The Company is currently evaluating the impact of adopting this ASU on its consolidated financial statements and disclosures.
+Concentrations of Risk and Significant Customers
+Major Customers
+The Company’s customers primarily consist of individual consumers, who subscribe to the Company’s product offerings through its third-party platforms (each a “Channel Partner”), advertising customers, data and partnership revenue customers, and retail partners, who purchase hardware tracking devices from the Company and resell them directly to individual consumers. Any changes in customer preferences and trends or changes in terms of use of Channel Partners’ platforms could have an adverse impact on the Company’s results of operations and financial condition.
+The Company derives its accounts receivable from revenue earned from customers located in the U.S. and internationally. Channel and retail partners account for the majority of the Company’s revenue and accounts receivable for all periods presented.
+10
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+The following tables set forth the information about Channel Partners that processed revenue transactions and retail partners who accounted for more than 10% of revenue or accounts receivable, respectively:
+Percentage of Revenue
+Three Months Ended March 31,
+2026
+2025
+Channel Partner (Apple)
+52
+%
+56
+%
+Channel Partner (Google)
+20
+%
+19
+%
+Percentage of Gross Accounts Receivable
+As of March 31,
+As of December 31,
+2026
+2025
+Channel Partner (Apple)
+44
+%
+48
+%
+Channel Partner (Google)
+10
+%
+10
+%
+Retail Partner A
+*
+17
+%
+*    Represents less than 10%
+Supplier Concentration
+The Company currently outsources the manufacturing of its hardware devices to a sole contract manufacturer. Although there are a limited number of manufacturers, management believes that other suppliers could provide similar manufacturing services on comparable terms.
+Cash and Cash Equivalents
+The Company considers all highly liquid investment securities with remaining maturities at the date of purchase of three months or less to be cash equivalents. Cash and cash equivalents include deposit and money market funds. Money market funds are valued using quoted market prices and therefore are classified within Level 1 of the fair value hierarchy.
+Restricted Cash
+The restricted cash, noncurrent balance of $
+1.7
+million and $
+1.6
+million as of March 31, 2026 and December 31, 2025, respectively, primarily relates to cash deposits restricted under letters of credit issued on behalf of the Company in support of indebtedness to trade creditors incurred in the ordinary course of business.
+Short-term Investments
+The Company classifies all marketable debt securities that have maturities at the time of purchase greater than three months as short-term investments. The appropriate classification is determined at the time of purchase and reevaluated at each balance sheet date. These securities have been classified as available-for-sale as they represent funds readily available for current operations, and the Company has the ability and intent to liquidate them at any time to meet its operating cash needs, if necessary. The Company’s available-for-sale securities are recorded at fair value each reporting period. The majority of the securities are valued using quoted prices of similar instruments and are thus classified within Level 2 of the fair value hierarchy. The Company reports the unrealized gains and losses, net of taxes, as a component of stockholders’ equity, except for the changes in allowance for expected credit losses, which are recorded in other income (expense), net on the condensed consolidated statements of operations and comprehensive income. The Company records accrued interest on these securities within prepaid expenses and other current assets on the condensed consolidated balance sheets. Realized gains and losses on sales of available-for-sale securities are determined using the specific identification method and are recognized in other income (expense), net, in the period of sale, with the related unrealized gain or loss reclassified from accumulated other comprehensive income to earnings.
+11
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+3.     Segment and Geographic Revenue
+The Company operates as
+one
+operating segment. Operating segments are defined as components of an entity for which separate financial information is regularly evaluated by the chief operating decision maker (“CODM”), which is the Company’s Chief Executive Officer, in deciding how to allocate resources and assess performance. The Company’s CODM evaluates financial information and resources and assesses the performance of these resources on a consolidated basis. There is no expense or asset information that is supplemental to information disclosed within the condensed consolidated financial statements, that is regularly provided to the CODM. The allocation of resources and assessment of performance of the operating segment is based on consolidated net income and functional expenses as reported on our condensed consolidated statements of operations and comprehensive income. Because the Company operates as
+one
+operating segment, financial segment information, including expense and asset information, can be found in the condensed consolidated financial statements. All material long-lived assets are based in the U.S.
+Revenue by geography is generally based on the address of the customer as defined in the contract with the customer.
+The following table sets forth revenue by geographic region for the periods presented (in thousands):
+Three Months Ended March 31,
+2026
+2025
+North America
+$
+125,616
+$
+91,385
+Europe, Middle East, and Africa
+9,888
+6,557
+Other international regions
+7,619
+5,682
+Total revenue
+$
+143,123
+$
+103,624
+The Company’s revenues in the U.S. were $
+121.3
+million, or
+85
+%, of total revenue for the three months ended March 31, 2026 and $
+89.3
+million, or
+86
+%, of total revenue for the three months ended March 31, 2025.
+4.     Deferred Revenue
+Deferred revenue consists primarily of payments received and accounts receivable recorded in advance of revenue recognition under the Company’s subscription service arrangements and is recognized as the revenue recognition criteria are met. The Company primarily invoices its customers for its subscription services arrangements in advance. Deferred revenue also includes balances related to future performance obligations for hardware, advertising, and other revenue. Amounts anticipated to be recognized within one year of the balance sheet date are recorded as deferred revenue, current and the remaining portion is recorded as deferred revenue, noncurrent on the condensed consolidated balance sheets.
+During the three months ended March 31, 2026, the Company recognized revenue of $
+27.9
+million that was included in the deferred revenue balance at December 31, 2025. During the three months ended March 31, 2025, the Company recognized revenue of $
+23.0
+million that was included in the deferred revenue balance at December 31, 2024.
+Remaining performance obligations represent the amount of contracted future revenue not yet recognized as the amounts relate to undelivered performance obligations, including both deferred revenue and non-cancellable contracted amounts that will be invoiced and recognized as revenue in future periods. Revenue expected to be recognized in connection with remaining performance obligations was $
+200.9
+million as of March 31, 2026, of which the Company expects
+52
+% to be recognized over the next
+twelve months
+.
+5.     Short-Term Investments
+Short-term investments consist of marketable debt securities, which are comprised of U.S. Treasury securities. The Company classifies its short-term investments as available-for-sale. Available-for-sale investments are carried at fair value, with unrealized gains and losses reported as a component of accumulated other comprehensive income in the condensed consolidated balance sheets. Realized gains and losses are included in net income. The Company does not intend to sell, nor expects to be required to sell, these securities before recovery of their amortized cost basis.
+12
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+In March 2026, the Company deployed surplus cash into a managed portfolio of U.S. Treasury securities and U.S. government money market funds. U.S. Treasury securities with original maturities greater than three months and up to twelve months at the date of purchase are classified as short-term investments. U.S. Treasury securities with original maturities of less than three months at the date of purchase and U.S. government money market funds are classified as cash and cash equivalents.
+As of March 31, 2026, the Company’s available-for-sale short-term investments consisted of the following (in thousands):
+Gross Unrealized
+Cost
+Gains
+Losses
+Total Estimated Fair Value
+U.S. Treasury securities
+$
+106,047
+$
+74
+$
+(
+17
+)
+$
+106,104
+Total Short-term investments
+$
+106,047
+$
+74
+$
+(
+17
+)
+$
+106,104
+As of March 31, 2026, all short-term investments had contractual maturities of less than one year. The Company did not record an allowance for credit losses on its available-for-sale investments during the three months ended March 31, 2026.
+No proceeds were recognized from the sale or maturity of available-for-sale investments during the three months ended March 31, 2026, and accordingly, no realized gains or losses were recognized.
+Accrued interest income on short-term investments was $
+0.5
+million as of March 31, 2026 and is included within prepaid expenses and other current assets on the condensed consolidated balance sheet.
+6.     Fair Value Measurements
+The Company measures and reports certain assets and liabilities at fair value each reporting period using a fair value hierarchy that prioritizes the use of observable inputs and minimizes the use of unobservable inputs when measuring fair value. A financial instrument’s classification within the fair value hierarchy is based upon the lowest level of input that is significant to the fair value measurement.
+The Company measures certain non-marketable equity securities and warrant investments at fair value on a nonrecurring basis in accordance with ASC 321,
+Investment - Equity Securities
+. Instruments are remeasured to fair value when observable price changes in orderly transactions for an identical or a similar investment of the same issuer occur.
+The three levels of inputs that may be used to measure fair value are as follows:
+Level 1 – Observable inputs, such as quoted prices in active markets for identical assets or liabilities.
+Level 2 – Observable inputs other than Level 1 prices, such as quoted prices for similar assets or liabilities, or other inputs that are observable or can be corroborated by observable market data for substantially the full term of the assets or liabilities.
+Level 3 – Valuations based on unobservable inputs to the valuation methodology and including data about assumptions market participants would use in pricing the asset or liability based on the best information available under the circumstances.
+The recorded carrying amounts of certain financial instruments, including cash and cash equivalents, prepaid expenses, accounts payable, and accounts receivable as of March 31, 2026 and December 31, 2025, approximate fair value due to their short-term maturities.
+13
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+Recurring Fair Value Measurements
+The Company measures and reports certain assets and liabilities at fair value on a recurring basis.
+The fair value of these assets and liabilities as of March 31, 2026 and December 31, 2025 are classified as follows (in thousands):
+As of March 31, 2026
+Level 1
+Level 2
+Level 3
+Total
+Assets:
+Money market funds
+$
+239,367
+$
+—
+$
+—
+$
+239,367
+Short-term investments
+—
+106,104
+—
+106,104
+Convertible Note Investment
+—
+—
+20,876
+20,876
+Total assets
+$
+239,367
+$
+106,104
+$
+20,876
+$
+366,347
+As of December 31, 2025
+Level 1
+Level 2
+Level 3
+Total
+Assets:
+Money market funds
+$
+332,808
+$
+—
+$
+—
+$
+332,808
+Convertible Note Investment
+—
+—
+24,726
+24,726
+Total assets
+$
+332,808
+$
+—
+$
+24,726
+$
+357,534
+The change in fair value of the Level 3 instruments are as follows (in thousands):
+As of March 31, 2026
+Convertible Note Investment
+Fair value, beginning of the year
+$
+24,726
+Changes in fair value
+(
+3,850
+)
+Fair value, end of period
+$
+20,876
+Convertible Note Investment
+In May 2025, the Company entered into a series of transactions with Aura Consolidated Group, Inc. (“Aura”) including (i) a
+3-year
+advertising partnership and revenue sharing agreement intended to expand the Company's advertising revenue and other revenue channels and subscription membership offerings, and (ii) a $
+25.0
+million convertible note investment by the Company into Aura (“Convertible Note Investment”). The note bears zero interest and matures on May 12, 2030. The principal is due at maturity and includes both optional and mandatory conversion features, which may result in conversion into the issuer’s equity upon the occurrence of specific events, including financing events, change in control, or at maturity. The Company elected to apply the fair value option in accordance with ASC 825,
+Financial Instruments,
+to account for the hybrid instrument as a single financial instrument. As a result, the entire instrument is measured at fair value, with changes in fair value recognized in the condensed consolidated statements of operations and comprehensive income within other income (expense). The Convertible Note Investment is included within prepaid expenses and other assets, noncurrent on the condensed consolidated balance sheet.
+The Company classifies the Convertible Note Investment as Level 3 due to the absence of relevant observable inputs. The fair value of the Convertible Note Investment was estimated using a scenario-based, probability-weighted option pricing model. Significant assumptions include the discount rate as well as the timing and probability weighting of each settlement scenario.
+14
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+Nonrecurring Fair Value Measurements
+The Company measures certain non-marketable equity securities and warrant investments at fair value on a nonrecurring basis in accordance with ASC 321,
+Investment - Equity Securities
+, which are included within prepaid expenses and other assets, noncurrent on the condensed consolidated balance sheet. Additionally, the Company measures and reports certain assets at fair value each reporting period. For additional information, refer to Note 8, "Balance Sheet Components". Instruments that are remeasured to fair value when observable price changes in orderly transactions for an identical or a similar investment of the same issuer occur are considered Level 2 investments.
+Related Party Investment
+The Related Party Investment is classified within Level 2 of the fair value hierarchy as the valuation is based on an observable price for identical shares that are not readily determinable. The Related Party Investment balance as of March 31, 2026, was $
+5.9
+million and is included within prepaid expenses and other assets, noncurrent on the condensed consolidated balance sheet.
+7.     Business Combinations
+Nativo, Inc.
+On November 9, 2025, the Company entered into an Agreement and Plan of Reorganization with Nativo, Inc. (“Nativo”) to acquire
+100
+% of the outstanding equity interests of Nativo. Nativo is an advertising technology company that provides advertising serving, content distribution, and measurement solutions to publishers and advertisers. The acquisition accelerates and expands the Company’s advertising capabilities and monetization opportunities by leveraging Nativo's advertising technology and established publisher and advertiser relationships. The transaction closed on January 2, 2026, and has been accounted for as a business combination in accordance with ASC 805 -
+Business Combinations.
+The total consideration was $
+104.0
+million, consisting of approximately $
+75.9
+million in cash and $
+28.0
+million in common stock, equivalent to
+435,599
+shares. The $
+75.9
+million in cash consideration includes a $
+16.3
+million indemnification holdback amount which is payable
+24
+months from the transaction close date upon satisfaction of certain obligations. The Company incurred transaction-related expenses of $
+3.8
+million during the year ended December 31, 2025 and an immaterial amount during the three months ended March 31, 2026. These costs were recorded within General and administrative expenses in the condensed consolidated statements of operations and comprehensive income.
+15
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+The following table summarizes the acquisition date fair values of consideration transferred and net assets acquired (in thousands):
+Fair Value
+Purchase consideration:
+Cash consideration
+$
+59,615
+Equity consideration
+28,035
+Deferred purchase price liability
+16,315
+Total purchase consideration
+$
+103,965
+Assets acquired and liabilities assumed:
+Cash and cash equivalents
+$
+4,025
+Accounts receivable, net
+31,022
+Prepaid expenses and other current assets
+1,791
+Intangible assets:
+Trade name
+1,690
+Technology
+6,580
+Customer relationships
+38,210
+Goodwill
+38,990
+Deferred tax asset, noncurrent
+6,677
+Accounts payable
+(
+19,413
+)
+Accrued expenses and other current liabilities
+(
+5,546
+)
+Deferred revenue, current
+(
+61
+)
+Total assets acquired and liabilities assumed
+$
+103,965
+The total purchase consideration has been allocated on a preliminary basis to the assets acquired, including intangible assets, and liabilities assumed based on their fair values as of the date of the acquisition, with the excess recorded to goodwill. The preliminary allocation may be subject to adjustment during the measurement period of up to 12 months from the date of acquisition including, but not limited to, intangible assets and income taxes. Any changes in the fair values of the assets acquired and liabilities assumed during the measurement period may result in adjustments to goodwill. Goodwill, which is not deductible for tax purposes, is primarily attributable to the value of expected synergies from the business combination, the assembled workforce, and growth opportunities.
+The $
+46.5
+million of identified intangible assets recognized in connection with the acquisition are subject to amortization using the straight-line method over the following estimated useful lives:
+Useful Life
+Trade name
+2
+years
+Technology
+5
+years
+Customer relationships
+7
+years
+The deferred purchase price liability of $
+16.3
+million represents the present value of the indemnification holdback amount of approximately $
+17.8
+million, which is payable to the sellers
+24
+months following the acquisition close date upon satisfaction of certain obligations. The deferred purchase price liability was discounted to present value based on a market rate of interest commensurate with the
+24
+month payment term. This has been recorded in Other liabilities, noncurrent on the Company's condensed consolidated balance sheet.
+The Company has not presented the pro forma results of operations for the acquisition as the impact is not material to the Company's condensed consolidated results of operations.
+16
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+8.     Balance Sheet Components
+Accounts receivable, net
+Accounts receivable, net consists of the following (in thousands):
+As of March 31,
+As of December 31,
+2026
+2025
+Accounts receivable
+$
+95,391
+$
+80,809
+Allowance for credit losses
+(
+416
+)
+(
+94
+)
+Total accounts receivable, net
+$
+94,975
+$
+80,715
+Accounts receivable, net is presented net of the allowance for credit losses, which represents management’s estimate of expected credit losses based on historical trends, current economic conditions, and other relevant factors as of March 31, 2026 and December 31, 2025, respectively.
+Included in accounts receivable, net are unbilled receivables, which are amounts that have not yet been invoiced to customers as of the balance sheet date, but are contractually owed to the Company. As of March 31, 2026 and December 31, 2025, unbilled receivables were $
+18.3
+million and $
+10.3
+million, respectively.
+Inventory
+Inventory consists of the following (in thousands):
+As of March 31,
+As of December 31,
+2026
+2025
+Raw materials
+$
+67
+$
+40
+Finished goods
+15,075
+9,827
+Total inventory
+$
+15,142
+$
+9,867
+There were
+no
+inventory write-offs recorded for the three months ended March 31, 2026 and 2025.
+Prepaid Expenses and Other Current Assets
+Prepaid expenses and other current assets consist of the following (in thousands):
+As of March 31,
+As of December 31,
+2026
+2025
+Prepaid expenses
+$
+19,799
+$
+17,838
+Short-term investments interest receivable
+536
+—
+Other receivables
+1,091
+2,212
+Total prepaid expenses and other current assets
+$
+21,426
+$
+20,050
+Prepaid expenses primarily consist of advance payments for certain cloud platform costs, information technology solutions, advertising, inventory, and insurance. Other receivables primarily consist of refunds owed to the Company and other amounts which the Company is expected to receive in less than twelve months.
+17
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+Property and Equipment, net
+Property and equipment, net consists of the following (in thousands):
+As of March 31,
+As of December 31,
+2026
+2025
+Computer equipment
+$
+297
+$
+297
+Leasehold improvements
+86
+86
+Production manufacturing equipment
+4,123
+4,067
+Furniture and fixtures
+29
+29
+Total property and equipment, gross
+4,535
+4,479
+Less: accumulated depreciation
+(
+1,650
+)
+(
+1,460
+)
+Total property and equipment, net
+$
+2,885
+$
+3,019
+Depreciation expense was $
+0.2
+million and $
+0.1
+million for the three months ended March 31, 2026 and 2025, respectively.
+There was
+no
+impairment of property and equipment or long-lived assets recognized during the three months ended March 31, 2026 or 2025.
+Prepaid Expenses and Other Assets, noncurrent
+Prepaid expenses and other assets, noncurrent consist of the following (in thousands):
+As of March 31,
+As of December 31,
+2026
+2025
+Prepaid expenses, noncurrent
+$
+3,408
+$
+3,110
+Convertible Note Investment
+20,876
+24,726
+Data Revenue Partner Warrant
+10,864
+10,864
+Related Party Investment
+5,882
+5,882
+Related Party Warrant
+3,898
+3,898
+Total prepaid expenses and other assets, noncurrent
+$
+44,928
+$
+48,480
+Prepaid expenses, noncurrent primarily consist of cloud platform costs. As of March 31, 2026 and December 31, 2025, other assets consist of long-term investments, including the Convertible Note Investment, a warrant to purchase shares of preferred stock of a data partner (the “Data Revenue Partner Warrant”), the Related Party Investment, and a warrant to purchase shares of common stock of a Related Party (the “Related Party Warrant”). Refer to Note 6, "Fair Value Measurements" and Note 14, "Related-Party Transactions" for additional information.
+Leases
+The Company leases office space under a non-cancellable operating lease with a remaining lease term of
+0.7
+years, which includes the option to extend the lease.
+The Company did not have any finance leases as of March 31, 2026 or December 31, 2025.
+The components of lease expense are as follows (in thousands):
+Three Months Ended March 31,
+2026
+2025
+Operating lease cost
+(1)
+$
+120
+$
+118
+(1) Amounts include short-term leases, which are immaterial.
+18
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+Supplemental balance sheet information related to leases is as follows (in thousands, except lease term):
+As of March 31,
+As of December 31,
+2026
+2025
+Operating lease right-of-use asset
+$
+246
+$
+335
+Operating lease liability, current (included in accrued expenses and other current liabilities)
+263
+359
+Weighted-average remaining term for operating lease (in years)
+0.7
+0.9
+The weighted-average discount rate used to measure the present value of the operating lease liabilities was
+5.0
+% for each period presented.
+Maturities of the Company’s operating lease liability, which does not include short-term leases, as of March 31, 2026 were as follows (in thousands):
+Operating leases
+Remainder of 2026
+$
+267
+Total future minimum lease payments
+267
+Less imputed interest
+(
+4
+)
+Total operating lease liability
+$
+263
+Goodwill and Intangible Assets, net
+Intangible assets, net consists of the fol
+lowing (in thousands):
+As of March 31, 2026
+Gross
+Accumulated Amortization
+Net
+Trade name
+$
+25,070
+$
+(
+10,509
+)
+$
+14,561
+Technology
+32,565
+(
+20,383
+)
+12,182
+Customer relationships
+53,500
+(
+9,472
+)
+44,028
+Internally developed software
+16,224
+(
+5,359
+)
+10,865
+Total
+$
+127,359
+$
+(
+45,723
+)
+$
+81,636
+As of December 31, 2025
+Gross
+Accumulated Amortization
+Net
+Trade name
+$
+23,380
+$
+(
+9,575
+)
+$
+13,805
+Technology
+25,985
+(
+18,756
+)
+7,229
+Customer relationships
+15,290
+(
+7,595
+)
+7,695
+Internally developed software
+14,113
+(
+4,565
+)
+9,548
+Total
+$
+78,768
+$
+(
+40,491
+)
+$
+38,277
+For the three months ended March 31, 2026 and 2025, the Company capitalized $
+2.1
+million and $
+1.7
+million, respectively, in internally developed software.
+For the three months ended March 31, 2026 and 2025, amortization expense was $
+5.2
+million and $
+2.8
+million, respectively.
+During the three months ended March 31, 2026 and 2025, there was
+no
+impairment of intangible assets recorded.
+19
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+As of March 31, 2026, the estimated remaining amortization expense for intangible assets by fiscal year is as follows (in thousands):
+Amount
+Remainder of 2026
+$
+15,810
+2027
+16,485
+2028
+12,775
+2029
+11,410
+2030
+8,917
+Thereafter
+12,944
+Total future amortization expense
+78,341
+Internally developed software not yet in service
+3,295
+Total
+$
+81,636
+The weighted-average remaining useful lives of the Company’s acquired intangible assets, excluding internally developed software projects that were not yet in service, are as follows:
+Weighted-Average Remaining Useful Life
+As of March 31,
+As of December 31,
+2026
+2025
+Trade name
+4.9
+years
+5.5
+years
+Technology
+3.5
+years
+2.3
+years
+Customer relationships
+6.2
+years
+3.9
+years
+Internally developed software
+2.2
+years
+2.3
+years
+As of March 31, 2026 and December 31, 2025, the Company had $
+3.3
+million and $
+2.8
+million of capitalized internally developed software projects that were not yet in service, respectively. These projects have been excluded from the weighted-average remaining useful life calculation for internally developed software in the table above.
+As of March 31, 2026 and December 31, 2025, goodwill was $
+173.6
+million and $
+134.6
+million, respectively. Goodwill increased $
+39.0
+million in connection with the acquisition of Nativo. Refer to Note 7, "Business Combinations"
+for additional information.
+No
+goodwill impairment was recorded during the three months ended March 31, 2026 or 2025.
+Accrued Expenses and Other Current Liabilities
+Accrued expenses and other current liabilities consist of the following (in thousands):
+As of March 31,
+As of December 31,
+2026
+2025
+Accrued vendor expenses
+$
+21,026
+$
+14,891
+Customer related promotions and discounts
+5,250
+14,013
+Accrued compensation
+8,971
+7,121
+Sales return reserves
+1,805
+2,072
+Other current liabilities
+2,621
+3,905
+Total accrued expenses and other current liabilities
+$
+39,673
+$
+42,002
+As of March 31, 2026, other current liabilities primarily relate to inventory received but not yet billed and taxes payable. As of December 31, 2025, other current liabilities primarily relate to the Company’s deferred purchase price liability related to the Fantix, Inc. acquisition, inventory received but not yet billed, and taxes payable.
+20
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+Other Liabilities, noncurrent
+Other liabilities, noncurrent consist of the following (in thousands):
+As of March 31,
+As of December 31,
+2026
+2025
+Monetization of tariff refund claim liability
+2,256
+—
+Deferred purchase price liability
+16,485
+—
+Total other liabilities, noncurrent
+18,741
+—
+During the three months ended March 31, 2026, the Company received $
+2.3
+million in cash proceeds relating to the monetization of tariff refund claims. The Company recognized a corresponding liability for the cash received that will be satisfied upon the settlement of the refund agreement.
+The deferred purchase price liability was recorded in connection with the acquisition of Nativo at present value using a market rate of interest commensurate with the
+24
+month payment term, with the discount accreted to interest expense over the
+24
+month holdback period. As of March 31, 2026, the Company had recognized approximately $
+0.2
+million of non-cash interest accretion within other income (expense), net in the condensed consolidated statements of operations and comprehensive income. Refer to Note 7, "Business Combinations" for additional information on the acquisition of Nativo.
+9.     Convertible Notes
+June 2025 Convertible Notes
+In June 2025, the Company issued $
+320.0
+million aggregate principal amount of
+0.00
+% convertible senior notes due June 1, 2030. The June 2025 Convertible Notes are senior unsecured obligations and do not bear regular interest. Each $1,000 principal amount of the notes is initially convertible into 12.3501 shares of the Company’s common stock, which represents a conversion price of approximately $
+80.97
+per share, subject to adjustment upon the occurrence of specified events. In certain circumstances, including conversions in connection with a make-whole fundamental change, the conversion rate may be increased, resulting in a conversion price as low as $
+61.11
+. However, the maximum number of shares issuable per $1,000 principal amount is capped at 16.3639, which is subject to the same adjustment provisions as the initial conversion rate.
+The June 2025 Convertible Notes are convertible at the option of the holders prior to the close of business on the business day immediately preceding March 1, 2030, only under the following circumstances: (1) during any fiscal quarter (and only during such quarter) beginning after September 30, 2025, if the closing price of the Company’s common stock for at least
+20
+trading days in any
+30
+consecutive trading day period ending on the last trading day of the prior fiscal quarter is greater than or equal to
+130
+% of the then-applicable conversion price; (2) during the
+five
+business days immediately following any
+10
+consecutive trading day period in which the trading price per $1,000 principal amount of notes was less than
+98
+% of the product of the closing price of the Company’s common stock and the conversion rate on each applicable trading day, following a request for such determination by a holder; (3) if the Company calls the notes for redemption, at any time prior to the close of business on the second scheduled trading day immediately preceding the redemption date; or (4) upon the occurrence of specified corporate events, such as certain mergers, reorganizations, or other changes of control.
+The June 2025 Convertible Notes are convertible at the option of the holders on or after March 1, 2030, at any time prior to the close of business on the second scheduled trading day prior to the maturity date. Upon conversion, the Company will settle the principal portion of any June 2025 Convertible Notes in cash. Any amounts due on conversion over the principal portion may be settled, at the Company’s election, in cash, shares of common stock, or a combination thereof.
+The Company may not redeem the June 2025 Convertible Notes prior to June 5, 2028. On or after that date, the Company may redeem all or a portion of the notes for cash if the closing price of the Company’s common stock has been at least
+130
+% of the conversion price then in effect for at least
+20
+trading days (whether or not consecutive) during a
+30
+consecutive trading day period ending on the trading day immediately preceding the date on which the Company provides notice of redemption. The redemption price will equal the principal amount of the notes to be redeemed, plus any accrued and unpaid interest up to, but excluding, the redemption date.
+21
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+Upon the occurrence of a fundamental change, which includes certain change-of-control transactions, a delisting of the Company’s common stock, or a liquidation event, holders may require the Company to repurchase up to
+100
+% of their notes, plus accrued and unpaid special interest, if any, to, but excluding, the fundamental change repurchase date for cash.
+The Company accounts for the June 2025 Convertible Notes entirely as a liability in accordance with ASC 470-20,
+Debt with Conversion and Other Options,
+as amended by ASU 2020-06. The embedded conversion feature is not separately accounted for as it does not require bifurcation under ASC 815,
+Derivatives and Hedging
+, as it is considered clearly and closely related to the host debt contract and does not meet the criteria for derivative accounting. The notes were issued at par and are recorded net of debt issuance costs.
+As of March 31, 2026, the June 2025 Convertible Notes are classified as noncurrent as the conditions allowing holders of the notes to convert have not been met and the notes are not redeemable until June 5, 2028. The balance has been recorded within convertible notes, net, noncurrent on the Company’s condensed consolidated balance sheet.
+The net carrying amount of the June 2025 Convertible Notes consists of the following (in thousands):
+As of March 31,
+2026
+Principal
+$
+320,000
+Unamortized debt issuance costs
+(
+9,070
+)
+Net carrying amount
+$
+310,930
+The debt issuance costs are amortized to interest expense over the term of the June 2025 Convertible Notes using the effective interest rate method. The effective interest rate used to amortize the debt issuance costs is
+0.68
+%. Interest expense recognized related to the June 2025 Convertible Notes was $
+0.5
+million for the three months ended March 31, 2026. Interest expense is included within other income (expense), net on the condensed consolidated statements of operations and comprehensive income.
+The estimated fair value of the June 2025 Convertible Notes, which we classify as Level 2 financial instruments, was determined using observable market prices. As of March 31, 2026, the estimated fair value of the June 2025 Convertible Notes was $
+293.2
+million.
+June 2025 Capped Calls
+In connection with the pricing of the June 2025 Convertible Notes, the Company entered into privately-negotiated capped call transactions with certain dealer counterparties (the “June 2025 Capped Calls”). The June 2025 Capped Calls have an initial strike price of approximately $
+80.97
+per share, which corresponds to the initial conversion price of the June 2025 Convertible Notes and is subject to certain adjustments. The June 2025 Capped Calls have a cap price of $
+122.22
+per share, which is also subject to certain adjustments. The $
+33.7
+million cost incurred in connection with the June 2025 Capped Calls was recorded as a reduction to Additional paid-in capital on the Company’s condensed consolidated balance sheet. This was partially offset by an $
+8.0
+million increase to Additional paid-in capital related to the release of the associated valuation allowance in 2025. Conditions triggering adjustments to the initial strike price and the initial cap price of these capped calls are similar to those causing adjustments for the June 2025 Convertible Notes.
+The June 2025 Capped Calls are intended to reduce or offset potential dilution to our common stock upon any conversion of the June 2025 Convertible Notes, with this reduction or offset subject to the specified cap price. The June 2025 Capped Calls are separate transactions, and are not part of the terms of the June 2025 Convertible Notes. These transactions are classified as equity in accordance with ASC 815,
+Derivatives and Hedging,
+as they are (i) indexed to the Company’s own stock, (ii) settled in shares or permitted net-share settlement, and (iii) do not require net cash settlement. As such, the June 2025 Capped Calls have been recorded within stockholders’ equity and are not accounted for as derivatives.
+22
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+10.     Commitments and Contingencies
+Purchase Commitments
+The Company has contractual commitments with our cloud platform provider and contract manufacturer that are non-cancellable.
+As of March 31, 2026, future non-cancellable commitments under these arrangements were as follows (in thousands):
+Amount
+Remainder of 2026
+$
+29,702
+2027
+26,000
+Total purchase commitments
+$
+55,702
+Contingencies
+From time to time, the Company may have certain contingent liabilities that arise in the ordinary course of business activities. The Company accrues a liability for such matters when it is probable that future expenditures will be made, and such expenditures can be reasonably estimated. The Company is not subject to any current pending legal matters or claims that the Company believes could have a material adverse effect on its financial position, results of operations, or cash flows.
+Indemnification
+To date, the Company has not incurred significant costs and has not accrued any material liabilities in the accompanying condensed consolidated financial statements as a result of its indemnification obligations.
+Litigation and Arbitration
+Occasionally, the Company is involved in various legal proceedings, formal and informal dispute resolution processes, which may include arbitration or litigation, claims, and government investigations in the ordinary course of business. The outcome of litigation and other legal matters is inherently uncertain, though the Company intends to vigorously defend against any such matters. In making a determination regarding accruals, using available information, the Company evaluates the likelihood of an unfavorable outcome in legal or regulatory proceedings to which the Company is a party and records a loss contingency when it is probable a liability has been incurred and the amount of the loss can be reasonably estimated. When the Company determines an unfavorable outcome is not probable or reasonably estimable the Company does not accrue for any potential litigation loss. Actual outcomes of these legal and regulatory proceedings may materially differ from the Company’s estimates.
+On August 14, 2023, plaintiffs Stephanie Ireland-Gordy and Shannon Ireland-Gordy filed a putative class action lawsuit against Tile, Life360, and Amazon.com, Inc. in the U.S. District Court for the Northern District of California (the “Court”), seeking damages as well as injunctive and declaratory relief. An amended complaint was filed on April 26, 2024, adding named plaintiffs Melissa Broad and Jane Doe. Plaintiffs allege that Tile trackers were used by third parties to monitor their movements without their consent, and assert product liability and other claims. On February 14, 2025, the Company filed a Motion to Dismiss. As of August 6, 2025, the Court granted the Company’s Motion to Dismiss the claims of the Ireland-Gordy plaintiffs with prejudice and the remaining plaintiffs' claims are stayed pending an appeal of the Court's ruling on the Company's Motion to Compel Arbitration, which was granted-in-part and denied-in-part. On March 3, 2026, the U.S. Court of Appeals for the Ninth Circuit ruled in the Company’s favor, reversing the district court’s partial denial of the Motion to Compel Arbitration and directing that all remaining claims be compelled to arbitration. Plaintiffs have until June 1, 2026 to file a petition for certiorari with the U.S. Supreme Court. At this time, a loss is not probable nor estimable, and as a result, no legal accrual has been recorded on the condensed consolidated balance sheets as of March 31, 2026.
+The Company receives claims and other threats of litigation from customers in the ordinary course of business. These claims are arbitrable and the Company accrues various costs for these claims including arbitration fees, legal fees and costs. At this time, a loss is not probable nor estimable from any such claims, and as a result, no legal accruals have been recorded on the condensed consolidated balance sheet as of March 31, 2026.
+23
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+No litigation reserve was recorded on the condensed consolidated balance sheets as of March 31, 2026 and December 31, 2025, respectively.
+11.     Common Stock
+The Company has the following potentially outstanding common stock reserved for issuance:
+As of March 31,
+As of December 31,
+2026
+2025
+Issuances under stock incentive plan, stock options
+3,749,332
+4,108,029
+Issuances upon vesting of restricted stock units
+4,298,551
+4,294,367
+Shares reserved for shares available to be granted but not granted yet
+18,549,003
+15,118,992
+26,596,886
+23,521,388
+12.     Equity Incentive Plan
+2011 Equity Incentive Plan
+The Company’s equity incentive plan allows the Company to grant restricted stock units (“RSUs”), which includes time-based, performance-based, and market-based restricted stock units, restricted stock, as well as stock options to employees and consultants of the Company and any of the Company’s parent, subsidiaries, or affiliates, and to the members of the Board of Directors.
+Time-Based Restricted Stock Units
+Time-based restricted stock units (“TRSUs”) generally vest based on continued service over a specified period, which is typically
+four years
+. Each TRSU represents the right to receive one share of common stock upon vesting. The fair value of TRSUs is determined based on the closing price of the Company’s common stock on the date of grant. Stock-based compensation expense for these awards is recognized on a straight-line basis over the requisite service period and is offset by actual forfeitures as they occur.
+Performance-Based Restricted Stock Units
+PRSUs are granted primarily to executive officers and, in limited cases, to certain other senior-level employees. Vesting is based on continued service and the attainment of certain financial performance metrics, including revenue and Adjusted Earnings Before Interest, Taxes, Depreciation and Amortization targets, over a
+one-year
+performance period, as established and approved by the Board of Directors. The number of shares issued upon vesting may be greater or lesser than the target award amount depending on actual performance, and shares attained above target will be recognized as awards granted in the period earned.
+The Company did
+not
+grant any new PRSUs during the three months ended March 31, 2026. Outstanding PRSUs continue to vest based on related performance and service conditions.
+Market-Based Restricted Stock Units
+MRSUs are granted to certain executive officers. Vesting is based on continued service and the Company’s total shareholder return during
+one-year
+,
+two-year
+, and
+three-year
+performance periods as measured relative to the group of companies comprising the S&P Software and Services Index. The number of shares issued upon vesting may vary from the target award amount depending on actual performance, and shares attained over the target will be recognized as awards granted in the period earned.
+The Company did
+not
+grant any new MRSUs during the three months ended March 31, 2026. Outstanding MRSUs continue to vest based on relative total shareholder return (“TSR”) performance and service conditions.
+24
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+RSUs, including TRSUs, PRSUs, and MRSUs
+RSU activity for the period presented is as follows:
+Number of Shares
+Weighted
+average grant
+date fair value
+Balance as of December 31, 2025
+4,294,367
+$
+34.05
+RSUs granted
+733,375
+55.73
+RSUs vested and settled
+(
+545,286
+)
+23.58
+RSUs cancelled/forfeited
+(
+183,905
+)
+34.65
+Balance as of March 31, 2026
+4,298,551
+$
+39.05
+As of March 31, 2026, there was total unrecognized stock-based compensation expense for outstanding RSUs of $
+146.8
+million to be recognized over a period of approximately
+2.9
+years. This amount is comprised of unrecognized compensation expense of $
+136.0
+million related to outstanding TRSUs, $
+5.8
+million related to outstanding PRSUs, and $
+5.0
+million related to outstanding MRSUs.
+The number of RSUs vested and settled includes shares of common stock that the Company withheld on behalf of employees to satisfy the minimum statutory tax withholding requirements.
+Stock Options
+The following summary of stock option activity for the periods presented is as follows (in thousands, except share and per share data):
+Number of Shares
+Underlying
+Outstanding Options
+Weighted
+Average
+Exercise Price
+per Share
+Weighted
+Average
+Remaining
+Contractual Life
+(in Years)
+Aggregate
+Intrinsic Value
+Balance as of December 31, 2025
+4,108,029
+$
+5.66
+2.8
+$
+240,230
+Options exercised
+(
+358,697
+)
+6.50
+Balance as of March 31, 2026
+3,749,332
+5.58
+2.6
+132,122
+Exercisable as of March 31, 2026
+3,744,483
+$
+5.57
+2.6
+$
+131,978
+As of March 31, 2026, unrecognized stock-based compensation expense for outstanding stock options was
+immaterial
+and expected to be recognized over a period of approximately
+0.1
+years.
+Stock-based Compensation
+Stock-based compensation expense was allocated as follows (in thousands):
+Three Months Ended March 31,
+2026
+2025
+Cost of subscription revenue
+$
+463
+$
+168
+Cost of hardware revenue
+299
+235
+Cost of advertising revenue
+133
+—
+Cost of other revenue
+—
+—
+Total cost of revenue
+895
+403
+Research and development
+7,824
+5,709
+Sales and marketing
+2,046
+1,326
+General and administrative
+5,490
+2,451
+Total stock-based compensation expense, net of amounts capitalized
+$
+16,255
+$
+9,889
+25
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+There was $
+0.5
+million and $
+0.3
+million of capitalized stock-based compensation expense recognized during the three months ended March 31, 2026 and 2025, respectively.
+13.     Income Taxes
+The provision for income taxes for interim quarterly reporting periods is based on the Company's estimates of the effective tax rates for the full fiscal year, in accordance with ASC 740-270,
+Income Taxes, Interim Reporting
+. ASC 740-270-25-2 requires that an annual effective tax rate be determined and such annual effective rate be applied to year to date income/loss in interim periods. The effective tax rate in any quarter may be subject to fluctuations during the year as new information is obtained, which may positively or negatively affect the assumptions used to estimate the annual effective tax rate, including factors such as valuation allowances against deferred tax assets, the recognition or de-recognition of tax benefits related to uncertain tax positions, if any, and changes in or the interpretation of tax laws in jurisdictions where the Company conducts business.
+For the three months ended March 31, 2026 and 2025, the Company recorded a benefit from income taxes of $
+11.7
+million and $
+0.2
+million, respectively, net of discrete tax benefit primarily related to stock-based compensation.
+Accounting for income taxes for interim periods generally requires the provision for income taxes to be determined by applying an estimate of the annual effective tax rate for the full fiscal year to income or loss before income taxes, excluding unusual or infrequently occurring discrete items, for the reporting period.
+For the three months ended March 31, 2026, the effective tax rate differs from the U.S. federal statutory rate primarily due to executive compensation and other non-deductible expenses offset by tax credits as well as discrete tax benefits recognized in the quarter, which were primarily related to excess tax benefits for stock-based compensation. For the three months ended March 31, 2025, the effective tax rate differs from the U.S. federal statutory rate primarily due to the full valuation allowance on the U.S. and state deferred tax assets. The Company released its valuation allowance at the end of 2025.
+14.     Related-Party Transactions
+Hubble Transactions
+In 2024, the Company entered into a strategic partnership and series of transactions with Hubble Network, Inc. (“Hubble”), including (i) a technology exclusivity and revenue share agreement (“Hubble Agreement”); (ii) a Hubble SAFE investment (“Related Party SAFE”); and (iii) Hubble’s issuance of a warrant to purchase common stock (“Related Party Warrant”). The Hubble Agreement has an initial term of
+5
+years beginning on November 12, 2024.
+Alex Haro, the founder and Chief Executive Officer of Hubble, is a co-founder, former executive, and existing member of the Company’s Board of Directors. In addition, as part of the agreement, the Company obtained an observer right to Hubble’s Board of Directors. As a result, all transactions with Hubble entered into in connection with the strategic partnership are considered related party transactions.
+The partnership agreement includes revenue-share payments in which Hubble wil
+l pay the Company a percentage of revenue earned from leveraging the new global location-tracking network service offering.
+The partnership also allows Hubble to purchase Tile hardware devices at a price equal to the Company’s burdened cost of goods sold plus
+12.5
+%.
+26
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+The grant of the Related Party Warrant was considered non-cash consideration, which the Company measured at fair value on the date of issuance. The Related Party Warrant includes various performance-based vesting conditions based on revenue and operational milestones to be measured and assessed throughout the term of the agreement. As of March 31, 2026,
+2,049,191
+shares of the Related Party Warrant have vested. The warrant was valued using a Black Scholes option-pricing model, and the fair value of approximately $
+3.9
+million has been included as consideration in the transaction price of the Related Party Agreement, and is also included in prepaid expenses and other assets, noncurrent and deferred revenue on the Company’s condensed consolidated balance sheets. The fair value of the warrant included within deferred revenue is amortized
+to other revenue over the life of the agreement. The Company recognized $
+0.2
+million and
+$
+0.3
+million
+in other revenue on the condensed consolidated statements of operations and comprehensive income in connection with the Related Party Warrant during the
+three months
+ended March 31, 2026
+and 2025
+, respectively. The related deferred revenue, current and deferred revenue, noncurrent balance as of March 31, 2026 w
+as $
+0.8
+million and $
+2.0
+million, respect
+ively. The deferred revenue, current and deferred revenue, noncurrent balance as of
+December 31, 2025
+was
+$
+0.8
+million
+and
+$
+2.2
+million
+, respectively.
+In April 2025, the Related Party SAFE converted into shares of preferred stock (the “Related Party Investment”). As of March 31, 2026, the carrying value of the Related Party Investment was
+$
+5.9
+million
+and is included within prepaid expenses and other assets, noncurrent on the condensed consolidated balance sheet. Refer to
+Note 6, "Fair Value Measurements" for additional information.
+15.     Net Income Per Share
+Basic net income per share is calculated by dividing net income available to common stockholders by the weighted-average number of shares of common stock outstanding for the period. Diluted net income per share reflects the potential dilution that could occur if options, RSUs, warrants, or other securities with features that could result in the issuance of common stock were exercised or converted to common stock using the treasury-stock method.
+In connection with the June 2025 Convertible Notes, the Company applied the if-converted method under ASC 260,
+Earnings Per Share
+, to calculate diluted earnings per share. Since the June 2025 Convertible Notes require principal settlement in cash and only the premium is potentially settled in shares, the Company includes the incremental dilutive shares (the conversion spread) in the denominator only when the average stock price exceeds the conversion price. For the three months ended
+March 31, 2026
+, the June 2025 Convertible Notes were not dilutive, and therefore no incremental shares were included in diluted EPS.
+The following table presents the calculation of basic and diluted net income per share (in thousands, except share and per share information):
+Three Months Ended
+March 31,
+2026
+2025
+Net income
+$
+2,779
+$
+4,378
+Weighted-average shares outstanding:
+Basic
+80,148,997
+75,699,493
+Dilutive effect of outstanding options, RSUs, warrants, or other securities
+5,528,082
+7,745,844
+Diluted
+85,677,079
+83,445,337
+Net income per share:
+Basic
+$
+0.03
+$
+0.06
+Diluted
+$
+0.03
+$
+0.05
+27
+Table of Contents
+Life360, Inc.
+Notes to Condensed Consolidated Financial Statements (Unaudited)
+Certain potential shares of common stock were excluded from the diluted net income per share calculation as their inclusion would have been antidilutive. Excluded shares are as follows:
+Three Months Ended
+March 31,
+2026
+2025
+Issuances upon vesting of restricted stock units
+888,982
+102,180
+Total
+888,982
+102,180
+28
+Table of Contents
+Item 2. Management’s Discussion and Analysis of Financial Condition and Results of Operations
+The following discussion and analysis of our financial condition and results of operations should be read in conjunction with our condensed consolidated financial statements and related notes appearing elsewhere in this Quarterly Report and our Annual Report on Form 10-K for the year ended December 31, 2025, filed with the SEC on March 2, 2026 (“Annual Report”). In addition to historical financial information, the following discussion contains forward-looking statements that are based upon current plans, expectations, and beliefs that involve risks and uncertainties. Our actual results could differ materially from those discussed in the forward-looking statements as a result of a variety of factors, including but not limited to those discussed in “Risk Factors” under Part I, Item 1A in our Annual Report.
+Overview
+Life360 is a leading technology platform used to locate the people, pets, and things that matter most to families. Life360 is creating a new category at the intersection of family, technology, and safety to help keep families connected and safe. Our core offering, the Life360 mobile application, includes features that range from communications to driving safety and location sharing. The Life360 mobile application operates under a “freemium” model where its core offering is available to members at no charge, with additional membership subscription options that are available but not required. We also generate revenue through hardware subscription services and the sale of hardware tracking devices. By offering devices and integrated software to members, we have expanded our addressable market to provide members of all ages with a vertically integrated, cross-platform solution of scale. We also generate advertising revenue through the placement of third-party advertisements on our platform and across third-party publisher networks through our advertising technology platform, and other revenue through partnerships and the sale of aggregated, non-personally identifiable data for data insight purposes.
+Key Factors Affecting Our Performance
+We believe that our results of operations are affected by a number of factors, such as: the ability to remain a trusted brand; attracting, retaining, and converting members; maintaining efficient member acquisition; the ability to attract new and repeat purchasers of our hardware tracking devices; growth in Average Revenue per Paying Circle (“ARPPC”); expanding the offerings on our platform; attracting and retaining talent; seasonality; international expansion; and growth and monetization of advertising offerings. We discuss each of these factors in more detail under the heading “Item 7. Management’s Discussion and Analysis of Financial Condition and Results of Operations—Key Factors Affecting Our Performance” in our Annual Report. While we do not have control of all factors affecting our results from operations, we work diligently to influence and manage those factors which we can impact to enhance our results of operations.
+Key Components of Our Results of Operations
+The following discussion describes certain line items in our condensed consolidated statements of operations and comprehensive income.
+Revenue
+Subscription Revenue
+We generate revenue primarily from sales of subscriptions on our platform, including Life360 and Tile. Revenue is recognized ratably over the related contractual term generally beginning on the date that our platform is made available to a customer. Our subscription agreements typically have monthly or annual contractual terms. Our agreements are generally non-cancellable during the contract term. We typically bill in advance for monthly and annual contracts. Amounts that have been billed are initially recorded as deferred revenue until the revenue is recognized.
+Hardware Revenue
+We generate our hardware revenue from the sale of hardware tracking devices and related accessories. For hardware and accessories, revenue is recognized at the time products are delivered. We sell hardware tracking devices and accessories through a number of channels including our website and online retail.
+29
+Table of Contents
+Advertising Revenue
+Advertising revenue consists of fees earned from the placement of third-party advertisements across our own properties and third-party publisher networks. We generate advertising revenue through both direct relationships with brands and advertisers as well as through programmatic advertising networks. Advertisements are displayed to users in the form of in-app display advertisements and sponsored placements. Advertising revenue is driven primarily by the number of impressions delivered and the rates at which those impressions are sold.
+Other Revenue
+Other revenue consists of data and partnership revenue. We generate data revenue primarily through an arrangement with a key data partner that provides location-based analytics to customers in the retail and real estate sectors, municipalities, and other private and public organizations. The agreement permits commercialization of certain aggregated and de-identified data and provides for fixed and variable monthly revenue amounts. We generate partnership revenue through agreements with third parties which grant them access to anonymized data insights or through the recognition of revenue related to a warrant to purchase common stock of a related party (“Related Party Warrant”).
+Cost of Revenue and Gross Margin
+Cost of Subscription Revenue
+Cost of subscription revenue primarily consists of expenses related to hosting our services and providing support to our free and paying subscribers. These expenses include personnel-related costs associated with our cloud-based infrastructure and our customer support organization, third-party hosting fees, software and maintenance costs, outside services associated with the delivery of our subscription services, amortization of acquired intangibles and internally developed software, allocated overhead, such as facilities, including rent, utilities, depreciation on equipment shared by all departments, credit card and transaction processing fees, and shared information technology costs. Personnel-related expenses include salaries, bonuses, benefits, and stock-based compensation for operations personnel.
+We plan to continue increasing the capacity and enhancing the capability and reliability of our infrastructure to support member growth and increased use of our platform. We expect that cost of revenue will increase in absolute dollars in future periods.
+Cost of Hardware Revenue
+Cost of hardware revenue consists of product costs, including hardware production, contract manufacturers for production, shipping and handling, packaging, fulfillment, personnel-related expenses, manufacturing and equipment depreciation, warehousing, tariff costs, customer support costs, credit card and transaction processing fees, warranty replacement, write-downs of excess and obsolete inventory, amortization of acquired intangibles, and allocated overhead, such as facilities, including rent and utilities, and shared information technology costs. Personnel-related expenses include salaries, bonuses, benefits, and stock-based compensation for operations personnel.
+Cost of Advertising Revenue
+Cost of advertising revenue includes cloud-based hosting costs supporting our advertising technology platform, amortization of acquired intangibles and internally-developed software, third-party data and content licensing costs, personnel-related costs, and allocated overhead, such as facilities, including rent and utilities, and shared information technology costs. For advertising revenue recognized on a gross basis, cost of advertising revenue includes traffic acquisition costs, which represent amounts paid to third-party publishers for advertising placements and inventory access. Personnel-related expenses include salaries, bonuses, benefits, and stock-based compensation for advertising operations personnel.
+Cost of Other Revenue
+Cost of other revenue includes cloud-based hosting costs as well as costs of product operations functions and personnel-related costs associated with our data platforms.
+30
+Table of Contents
+Gross Profit and Gross Profit Margin
+Our gross profit has been, and may in the future be, influenced by several factors, including timing of capital expenditures and related depreciation expense, increases in infrastructure costs, component costs, tariffs, contract manufacturing and supplier pricing, and foreign currency exchange rates. Gross profit and gross profit margin may fluctuate over time based on the factors described above.
+Operating Expenses
+Our operating expenses consist of research and development, sales and marketing, and general and administrative expenses.
+Research and Development
+Our research and development expenses consist primarily of personnel-related costs for our engineering, product, and design teams, material costs of building and developing prototypes for new products, mobile app development, and allocated overhead. We believe that continued investment in our platform is important for our growth. We intend to continue to invest in research and development to bring new customer experiences and devices to market and expand our platform capabilities.
+Sales and Marketing
+Our sales and marketing expenses consist primarily of commissions to our third-party platforms (each a “Channel Partner”), personnel-related costs, brand marketing costs, lead generation costs, growth media and other marketing spend to support strategic initiatives, sales incentives, sponsorships, amortization of acquired intangibles, bad debt expense, and allocated overhead. Commission payments to Channel Partners in connection with annual subscription sales of our mobile application on third-party store platforms are considered to be incremental and recoverable costs of obtaining a contract with a customer and are expensed as incurred or deferred and amortized over an estimated period of benefit of three years depending on the subscription type.
+We plan to continue to invest in sales and marketing to grow our member base and increase our brand awareness, including marketing efforts to continue to drive our business model. We expect that sales and marketing expenses will increase in absolute dollars in future periods and will fluctuate as a percentage of revenue. The trend and timing of sales and marketing expenses will depend in part on the timing of marketing campaigns.
+General and Administrative
+Our general and administrative expenses consist primarily of employee-related costs for our legal, finance, human resources, and other administrative teams, as well as certain executive officers. In addition, general and administrative expenses include allocated overhead, outside legal, accounting and other professional fees, and non-income-based taxes. We expect general and administrative expenses will increase in absolute dollars as our business grows.
+Other Income (Expense)
+Loss on Change in Fair Value of Investment
+In May 2025, we entered into a series of transactions with Aura Consolidated Group, Inc. (“Aura”), which included a convertible note investment into Aura (“Convertible Note Investment”). We elected to apply the fair value option in accordance with ASC 825
+, Financial Instruments
+and as a result, the Loss on change in fair value of investment relates to the change in fair value associated with the Convertible Note Investment.
+Interest Income
+Interest income consists of interest earned on our cash and cash equivalents balances received from bank deposits, money market funds, and short-term investments.
+31
+Table of Contents
+Other Income (expense), net
+Other income (expense), net consists of foreign currency exchange gains/(losses) related to the remeasurement of certain assets and liabilities of our foreign subsidiaries that are denominated in currencies other than the functional currency of the subsidiary, foreign exchange transactions gains/(losses), and interest expense primarily related to convertible notes and the deferred purchase price liability related to the acquisition of Nativo, Inc. (“Nativo”).
+Benefit from Income Taxes
+Benefit from income taxes consists of U.S. federal and state income taxes and foreign income taxes in jurisdictions in which we conduct business. Deferred income taxes reflect the net tax effect of temporary differences between the carrying amount of assets and liabilities for financial reporting purposes and the amounts used for income tax purposes.
+Results of Operations
+The following tables set forth our condensed consolidated statements of operations and comprehensive income for the three months ended March 31, 2026 and 2025 (in thousands, except percentages).
+Three Months Ended
+March 31,
+2026
+2025
+% Change
+Subscription revenue
+$
+108,194
+$
+81,874
+32
+%
+Hardware revenue
+4,526
+8,907
+(49)
+%
+Advertising revenue
+19,661
+4,584
+329
+%
+Other revenue
+10,742
+8,259
+30
+%
+Total revenue
+143,123
+103,624
+38
+%
+Cost of subscription revenue
+(1)
+14,504
+10,141
+43
+%
+Cost of hardware revenue
+(1)
+8,624
+8,597
+0
+%
+Cost of advertising revenue
+(1)
+7,935
+262
+2,929
+%
+Cost of other revenue
+(1)
+1,497
+1,075
+39
+%
+Total cost of revenue
+(1)
+32,560
+20,075
+62
+%
+Gross profit
+110,563
+83,549
+32
+%
+Operating expenses
+(1)
+:
+Research and development
+39,272
+30,403
+29
+%
+Sales and marketing
+57,024
+35,308
+62
+%
+General and administrative
+22,345
+15,649
+43
+%
+Total operating expenses
+118,641
+81,360
+46
+%
+Income (loss) from operations
+(8,078)
+2,189
+(469)
+%
+Other income (expense):
+Loss on change in fair value of investment
+(3,850)
+—
+(100)
+%
+Interest income
+3,816
+1,784
+114
+%
+Other income (expense), net
+(793)
+191
+(515)
+%
+Total other income (expense), net
+(827)
+1,975
+(142)
+%
+Income (loss) before income taxes
+(8,905)
+4,164
+(314)
+%
+Benefit from income taxes
+(11,684)
+(214)
+(5,360)
+%
+Net income
+$
+2,779
+$
+4,378
+(37)
+%
+Change in foreign currency translation adjustment
+(30)
+1
+(3,100)
+%
+Unrealized gain on short-term investments, net of tax
+57
+—
+100
+%
+Total comprehensive income
+$
+2,806
+$
+4,379
+(36)
+%
+____________________
+(1)
+Includes stock-based compensation expense as follows (in thousands, except percentages):
+32
+Table of Contents
+Three Months Ended
+March 31,
+2026
+2025
+% Change
+Cost of subscription revenue
+$
+463
+$
+168
+176
+%
+Cost of hardware revenue
+299
+235
+27
+%
+Cost of advertising revenue
+133
+—
+100
+%
+Cost of other revenue
+—
+—
+—
+%
+Total cost of revenue
+895
+403
+122
+%
+Research and development
+7,824
+5,709
+37
+%
+Sales and marketing
+2,046
+1,326
+54
+%
+General and administrative
+5,490
+2,451
+124
+%
+Total stock-based compensation expense, net of amounts capitalized
+$
+16,255
+$
+9,889
+64
+%
+The following table sets forth our results of operations as a percentage of total revenue:
+Three Months Ended
+March 31,
+2026
+2025
+Subscription revenue
+76
+%
+79
+%
+Hardware revenue
+3
+%
+9
+%
+Advertising revenue
+14
+%
+4
+%
+Other revenue
+7
+%
+8
+%
+Total revenue
+100
+%
+100
+%
+Cost of subscription revenue
+10
+%
+10
+%
+Cost of hardware revenue
+6
+%
+8
+%
+Cost of advertising revenue
+6
+%
+—
+%
+Cost of other revenue
+1
+%
+1
+%
+Total cost of revenue
+23
+%
+19
+%
+Gross profit
+77
+%
+81
+%
+Operating expenses:
+Research and development
+27
+%
+29
+%
+Sales and marketing
+40
+%
+34
+%
+General and administrative
+16
+%
+15
+%
+Total operating expenses
+83
+%
+79
+%
+Income (loss) from operations
+(6)
+%
+2
+%
+Other income (expense):
+Loss on change in fair value of investment
+(3)
+%
+—
+%
+Interest income
+3
+%
+2
+%
+Other income (expense), net
+(1)
+%
+—
+%
+Total other income (expense), net
+(1)
+%
+2
+%
+Income (loss) before income taxes
+(6)
+%
+4
+%
+Benefit from income taxes
+(8)
+%
+—
+%
+Net income
+2
+%
+4
+%
+Change in foreign currency translation adjustment
+—
+%
+—
+%
+Unrealized gain on short-term investments, net of tax
+—
+%
+—
+%
+Total comprehensive income
+2
+%
+4
+%
+33
+Table of Contents
+Revenue
+Three Months Ended
+March 31,
+Change
+2026
+2025
+$
+%
+(in thousands, except percentages)
+Subscription revenue
+$
+108,194
+$
+81,874
+$
+26,320
+32
+%
+Hardware revenue
+4,526
+8,907
+(4,381)
+(49)
+%
+Advertising revenue
+19,661
+4,584
+15,077
+329
+%
+Other revenue
+10,742
+8,259
+2,483
+30
+%
+Total revenue
+$
+143,123
+$
+103,624
+$
+39,499
+38
+%
+Subscription revenue increased $26.3 million, or 32%, during the three months ended March 31, 2026 as compared to the three months ended March 31, 2025, primarily due to 27% growth in Paying Circles and 17% growth in total subscriptions. Additionally, subscription revenue in the current period benefited from a 7% uplift in ARPPC. Please refer to the “Key Performance Indicators” section for definitions of key performance indicators (“KPIs”).
+Hardware revenue decreased $4.4 million, or 49%, during the three months ended March 31, 2026 as compared to the three months ended March 31, 2025. The decline was primarily driven by a 25% decrease in Net hardware units shipped, contributing to a $1.2 million decrease in hardware revenue. This decrease was also impacted by a $1.9 million increase in discounts and a $0.9 million increase in returns, of which $1.0 million and $0.5 million, respectively, were directly attributable to the strategic exit of the brick-and-mortar retail channel, and a $0.4 million reduction in revenue related to bundled offerings.
+Advertising revenue increased
+$15.1 million, or 329%, during the three months ended March 31, 2026 as compared to the three months ended March 31, 2025. This was primarily driven by a $12.6 million increase in managed advertising revenue and a $2.5 million increase in other advertising revenue, both primarily attributable to the acquisition of Nativo. We expect advertising revenue to grow as we continue to integrate Nativo's platform, expand advertiser relationships, and increase advertising inventory across the Life360 platform.
+Other revenue increased $2.5 million, or 30%, during the three months ended March 31, 2026 as compared to the three months ended March 31, 2025. This was due to a $2.0 million increase in data revenue, which was primarily attributable to increased data volumes resulting from user growth, and a $0.5 million increase in partnership revenue, primarily driven by higher revenue share from an existing partner.
+Cost of Revenue, Gross Profit, and Gross Margin
+Three Months Ended
+March 31,
+Change
+2026
+2025
+$
+%
+(in thousands, except percentages)
+Cost of subscription revenue
+$
+14,504
+$
+10,141
+$
+4,363
+43%
+Cost of hardware revenue
+8,624
+8,597
+27
+—%
+Cost of advertising revenue
+7,935
+262
+7,673
+2,929%
+Cost of other revenue
+1,497
+1,075
+422
+39%
+Total cost of revenue
+32,560
+20,075
+12,485
+62%
+Gross profit
+$
+110,563
+$
+83,549
+$
+27,014
+32%
+Gross margin:
+Subscription
+87%
+88%
+Hardware
+(91)%
+3%
+Advertising
+60%
+94%
+Other
+86%
+87%
+34
+Table of Contents
+Cost of subscription revenue increased $4.4 million, or 43%, during the three months ended March 31, 2026 as compared to the three months ended March 31, 2025, primarily due to increases of $1.9 million in technology expenses, $1.3 million in personnel-related and stock-based compensation costs, and $0.2 million in amortization of internally developed software related to the release of new features and significant updates on our platform, all attributable to Company growth. In addition, costs associated with premium membership offerings increased $1.0 million.
+Subscription gross margin decreased to 87% during the three months ended March 31, 2026 from 88% during the three months ended March 31, 2025, primarily due to higher personnel costs attributable to Company growth.
+Cost of hardware revenue remained flat during the three months ended March 31, 2026 as compared to the three months ended March 31, 2025. Although we saw a decline in net units shipped, hardware product costs increased $0.6 million due to a shift in product mix. These increases were partially offset by a $0.6 million decrease in inventory reserves and other costs primarily related to the strategic exit of the brick-and-mortar retail channel.
+Hardware gross margin decreased to (91)% during the three months ended March 31, 2026 from 3%
+during the three months ended March 31, 2025, primarily due to an increase in discounts and returns largely attributable to the Company's strategic exit from brick-and-mortar retail channel, as well as changes in product mix. We continue to prioritize hardware as a driver of subscription growth by optimizing pricing and bundling to increase subscription attachment over standalone hardware margin.
+Cost of advertising revenue increased $7.7 million, or 2,929%, during the three months ended March 31, 2026 as compared to the three months ended March 31, 2025. The increase was primarily driven by increases of $2.6 million in traffic acquisition costs, $2.5 million in technology and hosting costs, $1.4 million in personnel-related and stock-based compensation costs, $0.7 million in third-party data and content licensing costs, and $0.5 million in amortization of acquired technology, all attributable to the acquisition of Nativo.
+Advertising gross margin decreased to 60% during the three months ended March 31, 2026 from 94% during the three months ended March 31, 2025, primarily due to higher costs associated with the acquisition of Nativo, which outpaced the growth in total advertising revenue. The acquisition of Nativo has expanded the Company's advertising capabilities, resulting in a shift in margin mix relative to our existing advertising offerings.
+Cost of other revenue increased $0.4 million, or 39%, during the three months ended March 31, 2026 as compared to the three months ended March 31, 2025, due to an increase of $0.4 million in technology and other related expenses to support the existing customer base.
+Other gross margin decreased to 86% during the three months ended March 31, 2026 from 87% during the three months ended March 31, 2025, primarily due to costs outpacing revenue growth.
+Research and development
+Three Months Ended
+March 31,
+Change
+2026
+2025
+$
+%
+(in thousands, except percentages)
+Research and development
+$
+39,272
+$
+30,403
+$
+8,869
+29
+%
+Research and development expenses increased $8.9 million, or 29%, during the three months ended March 31, 2026 as compared to the three months ended March 31, 2025, primarily due to increases of $6.4 million in personnel-related and stock-based compensation costs, including those related to the acquisition of Nativo, $1.3 million in technology and other expenses, and $0.9 million in professional and outside services. Additionally, a $0.8 million decrease in capitalized construction in progress costs, in line with our product development roadmap, contributed to the increase. These increases were partially offset by $0.5 million of higher capitalized internally developed software costs related to the development of new features and significant updates to our platform.
+35
+Table of Contents
+Sales and Marketing
+Three Months Ended
+March 31,
+Change
+2026
+2025
+$
+%
+(in thousands, except percentages)
+Sales and marketing
+$
+57,024
+$
+35,308
+$
+21,716
+62
+%
+Sales and marketing expenses increased $21.7 million, or 62%, during the three months ended March 31, 2026 as compared to the three months ended March 31, 2025. This was primarily due to increases of $7.8 million in growth media and other marketing spend to support strategic initiatives, and $5.1 million in commissions to the Company’s Channel Partners, in line with the increase in subscription revenue. The increase was also driven by $5.1 million in personnel-related and stock-based compensation costs and $1.8 million in amortization of acquired intangible assets, each primarily attributable to the acquisition of Nativo. Additional increases include $0.9 million in technology and other expenses attributable to Company growth, $0.6 million in Nativo integration costs, and $0.4 million in severance costs related to the strategic exit of the brick-and-mortar retail channel.
+General and Administrative
+Three Months Ended
+March 31,
+Change
+2026
+2025
+$
+%
+(in thousands, except percentages)
+General and administrative
+$
+22,345
+$
+15,649
+$
+6,696
+43
+%
+General and administrative expenses increased $6.7 million, or 43%, during the three months ended March 31, 2026 as compared to the three months ended March 31, 2025. This was primarily due to increases of $5.8 million in personnel-related and stock-based compensation costs and $0.7 million in technology and other expenses, both attributable to Company growth. Additional increases include $0.6 million in warehouse relocation costs related to the move of certain hardware manufacturing operations and $0.5 million in Nativo integration costs. These increases were partially offset by a $0.9 million decrease in professional and outside services.
+Loss on Change in Fair Value of Investment
+In May 2025, the Company entered into a series of transactions with Aura, which included the $25.0 million Convertible Note Investment. The Company elected to apply the fair value option in accordance with ASC 825,
+Financial Instruments
+. As a result, a $3.9 million loss related to the revaluation of the Convertible Note Investment was recognized during the three months ended March 31, 2026.
+Interest Income
+Interest income increased $2.0 million, or 114%, during the three months ended March 31, 2026 as compared to the three months ended March 31, 2025, resulting from higher average gross yields attributable to increased cash and cash equivalents and short-term investment balances.
+Other Income (Expense), Net
+Other income (expense), net decreased $1.0 million, or 515%, during the three months ended March 31, 2026 as compared to the three months ended March 31, 2025. This was primarily driven by a $0.5 million increase in interest expense related to the June 2025 Convertible Notes, a $0.3 million increase in foreign exchange losses, and a $0.2 million increase in interest expense related to the deferred purchase price liability from the acquisition of Nativo. Refer to Note 7, "Business Combinations" and Note 8, "Balance Sheet Components" for additional information on the acquisition of Nativo and the related deferred purchase price liability.
+36
+Table of Contents
+Benefit from Income Taxes
+Benefit from income taxes increased $11.5 million during the three months ended March 31, 2026 as compared to the three months ended March 31, 2025, primarily due to changes in the Company’s annual estimated effective tax rate and discrete tax benefits. For the three months ended March 31, 2026, we recorded a total income tax benefit of $11.7 million, consisting of a $2.7 million benefit based on the annual estimated effective tax rate, primarily due to the loss before income tax for the period, and $9.0 million of discrete tax benefits, primarily related to stock-based compensation.
+The annual estimated effective tax rate in any quarter may be subject to fluctuations during the year as new information is obtained, which may positively or negatively affect the assumptions used to estimate the annual effective tax rate. We maintain a full valuation allowance on our California state tax credits and Canadian Scientific Research and Experimental Development credits as we have concluded that it is not more likely than not that the deferred tax assets will be realized.
+Key Performance Indicators
+We review several operating metrics, including the following Key Performance Indicators (“KPIs”), to evaluate our business, measure our performance, identify trends affecting our business, develop financial forecasts, and make strategic decisions. We believe these KPIs are useful to investors because they allow for greater transparency with respect to key metrics used by management in its financial and operational decision-making, and they may be used by investors to help analyze the health of our business. KPIs are presented in millions, except ARPPC, Average Revenue per Paying Subscription (“ARPPS”) and Average Sales Price (“ASP”); however, percentage changes are calculated based on actual results. As a result, percentage changes may not recalculate based on figures presented due to rounding. Please refer to “Results of Operations” for additional metrics management reviews in conjunction with the condensed consolidated financial statements.
+Key Performance Indicators
+As of and for the Three
+Months Ended
+March 31,
+2026
+2025
+% Change
+(in millions, except ARPPC, ARPPS and ASP)
+AMR
+$
+517.9
+$
+393.0
+32
+%
+MAUs
+97.8
+83.7
+17
+%
+Paying Circles
+3.0
+2.4
+27
+%
+ARPPC
+(1)
+$
+143.03
+$
+133.42
+7
+%
+Subscriptions
+3.5
+3.0
+17
+%
+ARPPS
+(1)
+$
+127.15
+$
+112.98
+13
+%
+Net hardware units shipped
+0.4
+0.5
+(25)
+%
+ASP
+(2)
+$
+11.88
+$
+16.99
+(30)
+%
+(1) Excludes revenue related to bundled Life360 subscription and hardware offerings, which was immaterial for the three months ended March 31, 2026, and $(0.4) million for the three months ended March 31, 2025.
+(2) Excludes revenue related to bundled Life360 subscription and hardware offerings, which was immaterial for the three months ended March 31, 2026, and $0.4 million for the three months ended March 31, 2025.
+Annualized Monthly Revenue
+We use Annualized Monthly Revenue (“AMR”) to identify the annualized monthly value of active customer agreements at the end of a reporting period. AMR includes the annualized monthly value of subscription, data and partnership agreements. All components of these agreements that are not expected to recur are excluded. This does not represent revenue under GAAP on an annualized basis, as the operating metric can be impacted by start and end dates and renewal rates. AMR as of March 31, 2026, and 2025 was $517.9 million and $393.0 million, respectively, representing an increase of 32% year-over-year, which is largely attributable to continued subscriber growth and an increase in other recurring revenue.
+37
+Table of Contents
+Monthly Active Users
+We have a large and growing global member base as of March 31, 2026. A Life360 Monthly Active User (“MAU”) is defined as a unique member who engages with our Life360 branded services each month, which includes both paying and non-paying members, and excludes certain members who have a delayed account setup. As of March 31, 2026 and 2025, we had approximately 97.8 million and approximately 83.7 million MAUs on the Life360 platform, respectively, representing an increase of 17% year-over-year. We believe this has been driven by continued strong new member growth and retention.
+As of March 31, 2026, MAU growth reflected a suppressed registration funnel resulting from a series of Android-driven technical issues that limited our ability to capture new users. A number of interconnected technical issues impacted Android users on lower-end devices before they fully onboarded. Management identified and resolved these root causes by March 2026, with all issues simultaneously cleared as of April 2026. Overall, we fell 3 percentage points below our planned annual growth trajectory for the three months ended March 31, 2026. The shortfall was concentrated in Android-heavy markets which do not contribute substantially to revenue, and we have determined the reasons why, beyond normal quarterly variation. As a result, we have revised our full-year 2026 MAU growth expectation to approximately 17% to 20% and expect to return to our planned growth trajectory by the third quarter of 2026. Refer to the "Forward-Looking Statements" section above.
+Paying Circles
+We define a Paying Circle as a group of Life360 members with a paying subscription who have been billed as of the end of period. Each subscription covers all members in the payor’s Circle so everyone in the Circle can utilize the benefits of a Life360 membership, including access to premium location, driving, digital and emergency safety insights and services.
+As of March 31, 2026 and 2025, we had approximately 3.0 million and 2.4 million paid subscribers to services under our Life360 brand, respectively, representing an increase of 27% year-over-year. We grow the number of Paying Circles by increasing our free member base, converting free members to subscribers, and retaining them over time with the provision of high-quality family connectivity and safety services.
+Average Revenue per Paying Circle
+We define ARPPC as annualized subscription revenue recognized and derived from the Life360 mobile application, excluding revenue related to bundled Life360 subscription and hardware offerings, for the reported period, divided by the Average Paying Circles during the same period. Average Paying Circles are calculated by adding the number of Paying Circles as of the beginning of the period to the number of Paying Circles as of the end of the period, and then dividing by two.
+For the three months ended March 31, 2026 and 2025, our ARPPC was $143.03 and $133.42, respectively, representing a 7% increase year-over-year.
+ARPPC is a key indicator utilized by the Company to determine our effectiveness at monetizing Paying Circles through tiered product offerings. The year-over-year growth in ARPPC primarily reflects a shift in product mix toward higher-priced offerings and price increases across select international markets throughout 2025.
+Subscriptions
+We define Subscriptions as the number of paying subscribers associated with the Life360 and Tile brands who have been billed as of the end of the period.
+As of March 31, 2026 and 2025, we had approximately 3.5 million and 3.0 million paid subscribers, respectively, to services under the Life360 and Tile brands, representing an increase of 17% year-over-year.
+We grow the number of Subscriptions by selling hardware units and increasing our free member base, converting free members to subscribers, and retaining them over time with the provision of location tracking and high-quality family and safety services.
+38
+Table of Contents
+Average Revenue per Paying Subscription
+We define ARPPS as annualized total subscription revenue recognized and derived from Life360 and Tile subscriptions, excluding revenue related to bundled Life360 subscription and hardware offerings, for the reported period divided by the average number of paying subscribers during the same period. The average number of paying subscribers is calculated by adding the number of paying subscribers as of the beginning of the period to the number of paying subscribers as of the end of the period, and then dividing by two. Paying subscribers represent subscribers who have been billed as of the end of the period.
+ARPPS for the three months ended March 31, 2026 and 2025 was $127.15 and $112.98, respectively, representing an increase of 13% year-over-year.
+ARPPS has increased year-over-year as a result of a shift in product mix towards higher-priced offerings and price increases across select international markets throughout 2025.
+Net Hardware Units Shipped
+Net hardware units shipped represents the number of tracking devices sold during a period, excluding certain hardware units related to bundled Life360 subscription and hardware offerings, net of returns by our retail partners and direct consumers. Selling units contributes to hardware revenue and ultimately increases the number of members eligible for a subscription.
+For the three months ended March 31, 2026 and 2025, Life360 sold approximately 0.4 million units and 0.5 million units, respectively, representing a decrease of 25% year-over-year. The decrease in Net hardware units shipped was primarily due to a decrease in online retail sales and the strategic exit of the brick-and-mortar retail channel.
+Net Average Sales Price
+To determine the Net ASP of a unit, we divide hardware revenue recognized, excluding revenue related to bundled Life360 subscription and hardware offerings, for the reported period by the number of Net hardware units shipped during the same period. ASP is largely driven by the price we charge customers, including the price we charge our retail partners, net of customer allowances, and directly to consumers.
+For the three months ended March 31, 2026 and 2025, the Net ASP per unit was $11.88 and $16.99, respectively, representing a decrease of 30% year-over-year. The decrease in Net ASP was primarily due to an increase in discounts, which were primarily driven by the strategic exit of the brick-and-mortar retail channel.
+Liquidity and Capital Resources
+As of March 31, 2026, we had cash and cash equivalents of $351.2 million, restricted cash of $1.7 million, and short-term investments of $106.1 million. As of December 31, 2025, we had cash and cash equivalents of $494.3 million and restricted cash of $1.6 million, and no short-term investments.
+We believe our existing cash and cash equivalents and short-term investments, together with cash generated from subscriptions, hardware tracking devices, advertising activities, and partnerships, including the sale of aggregated, non-personally identifiable data for data insight purposes, will be sufficient to support working capital and capital expenditure requirements for at least the next 12 months. We may from time to time seek to raise additional capital based on a variety of factors, including our capital requirements and the relative favorability of conditions in the capital markets. If we are unable to raise additional capital on terms acceptable to us or generate cash flows necessary to expand our operations and invest in continued innovation, we may not be able to compete successfully, which would harm our business, financial condition and results of operations.
+39
+Table of Contents
+Cash Flows
+Our cash flow activities were as follows for the periods presented:
+Three Months Ended March 31,
+2026
+2025
+(in thousands)
+Net cash provided by operating activities
+$
+17,209
+$
+12,060
+Net cash used in investing activities
+(163,589)
+(4,347)
+Net cash provided by financing activities
+3,413
+2,183
+Net Increase (Decrease) in Cash, Cash Equivalents, and Restricted Cash
+$
+(142,967)
+$
+9,896
+Operating Activities
+Our primary sources of operating cash are cash collections from our paying members for subscriptions to our platform, hardware tracking device sales, advertising revenue, and other revenue, which includes partnership revenue and revenue generated from the sale of aggregated, non-personally identifiable data for data insight purposes. Our primary uses of cash from operating activities are for employee-related expenditures, costs to acquire inventory, infrastructure-related costs, commissions paid to Channel Partners, and marketing expenses.
+A number of our members pay in advance for annual subscriptions, while a majority pay in advance for monthly subscriptions. Deferred revenue consists of the unearned portion of customer billings, which is recognized as revenue in accordance with our revenue recognition policy. As of March 31, 2026 and December 31, 2025, we had deferred revenue of $51.9 million and $50.7 million, respectively, of which $48.2 million and $46.4 million is expected to be recorded as revenue in the next 12 months, respectively, provided all other revenue recognition criteria have been met.
+For the three months ended March 31, 2026, net cash provided by operating activities was $17.2 million. The primary factors affecting our operating cash flows during this period were our net income of $2.8 million, impacted
+by $14.6 million of non-cash adjustments, and $0.2 million of cash used by changes in our operating assets and liabilities. The non-cash adjustments primarily consist of stock-based compensation, deferred income taxes, depreciation and amortization, and a loss on the change in fair value of investment. The cash used by changes in our operating assets and liabilities was primarily due to decreases in accrued expenses and other current liabilities and accounts payable, as well as increases in inventory and costs capitalized to obtain contracts. This was partially offset by decreases in accounts receivable and prepaid expenses and other current assets and an increase in deferred revenue.
+For the three months ended March 31, 2025, net cash provided by operating activities was $12.1 million. The primary factors affecting our operating cash flows during this period were our net income of $4.4 million, impacted by $13.1 million of non-cash adjustments, and $5.4 million of cash used by changes in our operating assets and liabilities. The non-cash adjustments primarily consisted of stock-based compensation and depreciation and amortization. The cash used by changes in our operating assets and liabilities was primarily due to decreases in accrued expenses and other current liabilities and increases in inventory and prepaid expenses and other assets, which was offset by decreases in accounts receivable, net, and deferred revenue.
+Investing Activities
+For the three months ended March 31, 2026, net cash used in investing activities was $163.6 million, which is primarily related to the $106.4 million purchase of short-term investments and $55.6 million cash paid for the acquisition of Nativo, net of cash acquired. Refer to Note 7, "Business Combinations" for additional information on the acquisition of Nativo. Net cash used in investing activities also included capitalization of internally developed software costs in accordance with ASC 350-40,
+Intangibles - Goodwill and Other, Internal-Use Software.
+For the three months ended March 31, 2025, net cash used in investing activities was $4.3 million, which is primarily related to cash paid for the acquisition of Fantix, Inc. (“Fantix”). Refer to Note 6, "Business Combinations" in our Annual Report for additional information. Net cash used in investing activities also included capitalization of internally developed software costs in accordance with ASC 350-40
+, Intangibles - Goodwill and Other, Internal-Use Software
+.
+40
+Table of Contents
+Financing Activities
+For the three months ended March 31, 2026, net cash provided by financing activities was $3.4 million, which is primarily driven by $12.2 million of proceeds related to tax withholdings on restricted stock settlements and the exercise of stock options and warrants and $2.3 million of proceeds from the monetization of tariff refund claims. The cash proceeds were partially offset by $10.3 million of taxes paid for the net settlement of equity awards and the $0.7 million deferred purchase price payment related to the Fantix acquisition.
+For the three months ended March 31, 2025, net cash provided by financing activities was $2.2 million, which is primarily related to $10.6 million of taxes paid for the net settlement of equity awards, offset by $12.8 million of proceeds related to tax withholdings on restricted stock settlements and the exercise of stock options and warrants.
+Obligations and Other Commitments
+Our principal commitments consist of obligations under our operating leases for office space, and other purchase commitments. Information regarding our non-cancellable lease and other purchase commitments as of March 31, 2026, can be found in Note 8, "Balance Sheet Components" and Note 10, "Commitments and Contingencies" to our condensed consolidated financial statements.
+Critical Accounting Policies and Significant Management Estimates
+We prepare our condensed consolidated financial statements in accordance with GAAP. The preparation of condensed consolidated financial statements also requires us to make estimates and assumptions that affect the reported amounts of assets, liabilities, revenues, costs and expenses, and related disclosures. We base our estimates on historical experience and on various other assumptions that we believe to be reasonable under the circumstances. Actual results could differ significantly from the estimates made by our management. To the extent that there are differences between our estimates and actual results, our future financial statement presentation, financial condition, results of operations, and cash flows will be affected. Our significant accounting policies are discussed in Note 2, "Summary of Significant Accounting Policies" in our Annual Report. There were no significant changes to these policies during the three months ended March 31, 2026.
+Item 3. Quantitative and Qualitative Disclosures About Market Risk
+We are exposed to market risk in the ordinary course of our business. Market risk represents the risk of loss that may impact our financial position due to adverse changes in financial market prices and rates. Our market risk exposure is primarily the result of fluctuations in interest rates and foreign currency exchange rates.
+Interest Rate Risk
+As of March 31, 2026, we had $239.4 million of cash equivalents invested in money market funds. In addition, we held $106.1 million of U.S. Treasury securities classified as available-for-sale securities. As of December 31, 2025, we had $332.8 million of cash equivalents invested in money market funds and no U.S. Treasury securities.
+Our cash and cash equivalents are held for working capital purposes. The U.S. Treasury securities have contractual maturities of less than one year. Available-for-sale securities are recorded at fair value, with unrealized gains and losses recorded in accumulated other comprehensive income.
+As of March 31, 2026 and December 31, 2025, a hypothetical 10% relative change in interest rates would not have a material impact on our condensed consolidated financial statements.
+41
+Table of Contents
+Foreign Currency Exchange Risk
+Our reporting currency and functional currency is the U.S. dollar. The majority of our sales are denominated in U.S. dollars, and therefore our revenue is not currently subject to significant foreign currency risk. Our operating expenses are denominated in the currencies of the countries in which our operations are located, which is primarily in the U.S. Our condensed consolidated results of operations and cash flows are, therefore, subject to fluctuations due to changes in foreign currency exchange rates and may be adversely affected in the future due to changes in foreign exchange rates. To date, we have not entered into any active hedging arrangements with respect to foreign currency risk or other derivative financial instruments, although we may choose to do so in the future. We do not believe that a hypothetical 1,000 basis-point increase or decrease in the relative value of the U.S. dollar to other currencies would have a material effect on our operating results.
+Inflation Risk
+We do not believe that inflation has had a material effect on our business, results of operations, or financial condition. Nonetheless, if our costs were to become subject to significant inflationary pressures, we may not be able to fully offset such higher costs. Our inability or failure to do so could harm our business, results of operations, or financial condition.
+Item 4. Controls and Procedures.
+Evaluation of Disclosure Controls and Procedures
+Our management, with the participation of our Chief Executive Officer and Chief Financial Officer, evaluated the effectiveness of our disclosure controls and procedures as of March 31, 2026 pursuant to Rule 13a‑15 under the Securities Exchange Act of 1934, as amended (the “Exchange Act”). The term “disclosure controls and procedures” means controls and other procedures of a company that are designed to ensure that information required to be disclosed by a company in the reports that it files or submits under the Exchange Act is recorded, processed, summarized, and reported within the time periods specified in the SEC’s rules and forms. Disclosure controls and procedures include, without limitation, controls and procedures designed to ensure that information required to be disclosed by a company in the reports that it files or submits under the Exchange Act is accumulated and communicated to the Company’s management, including its principal executive and principal financial officers, as appropriate to allow timely decisions regarding required disclosure. Based on such evaluation, our management concluded that our disclosure controls and procedures were effective as of March 31, 2026.
+Changes in Internal Control over Financial Reporting
+There were no changes in our internal control over financial reporting identified in connection with the evaluation required by Rule 13a-15(d) and 15d-15(d) of the Exchange Act that occurred during the three months ended March 31, 2026 that have materially affected, or are reasonably likely to materially affect, our internal control over financial reporting.
+Limitations on the Effectiveness of Controls and Procedures
+Our management, including our Chief Executive Officer and Chief Financial Officer, does not expect that our disclosure controls and procedures or our internal controls over financial reporting will prevent all errors and all fraud. A control system, no matter how well designed and implemented, can provide only reasonable, not absolute, assurance that the objectives of the control system will be met. Further, the design of a control system must reflect the fact that there are resource constraints and the benefits of controls must be considered relative to their costs. Because of the inherent limitations in all control systems, no evaluation of controls can provide absolute assurance that all control issues within a company are detected. The inherent limitations include the realities that judgments in decision-making can be faulty and that breakdowns can occur because of simple errors or mistakes. Controls can also be circumvented by the individual acts of some persons, by collusion of two or more people, or by management override of the controls. Also, projections of any evaluation of effectiveness to future periods are subject to the risk that controls may become inadequate because of changes in conditions or that the degree of compliance with the policies or procedures may deteriorate. Because of the inherent limitations in a cost-effective control system, misstatements due to error or fraud may occur and may not be detected.
+42
+Table of Contents
+PART II - OTHER INFORMATION
+Item 1. Legal Proceedings
+From time to time, we may be and have been involved in legal proceedings, claims, and government investigations in the ordinary course of business. We have received, and may in the future continue to receive, inquiries from regulators regarding our compliance with law and regulations, including those related to data protection and consumer rights, and due to the nature of our business and the rapidly evolving landscape of laws relating to data privacy, cybersecurity, consumer protection, and data use, we expect to continue to be the subject of regulatory investigations and inquiries in the future. We have received, and may in the future continue to receive, claims from third parties relating to information or content that is published or made available on our platform, among other types of claims including those relating to, among other things, regulatory matters, commercial matters, intellectual property, competition, tax, employment, pricing, discrimination, and consumer rights. Future litigation may be necessary to defend ourselves, our partners, and our customers by determining the scope, enforceability, and validity of these claims. The results of any current or future regulatory inquiry or litigation cannot be predicted with certainty, and regardless of the outcome, such investigations and litigation can have an adverse impact on us because of defense and settlement costs, diversion of management resources, the potential for enforcement orders or settlements to impose operational restrictions or obligations on our business practices, and other factors.
+The information set forth under Note 10, "Commitments and Contingencies" in the notes to the condensed consolidated financial statements under the caption “Litigation and Arbitration” is incorporated herein by reference.
+Item 1A. Risk Factors
+There have been no material changes from the risk factors set forth under the heading “Risk Factors” in Part I, Item 1A in our Annual Report. An investment in shares of our common stock involves a high degree of risk. You should carefully consider the risks and uncertainties described in our Annual Report, together with all of the other information in the Annual Report, together with the other information appearing elsewhere in this Quarterly Report, including our unaudited condensed consolidated financial statements and related notes hereto, and any other documents that we file with the SEC before deciding to invest in our common stock. The occurrence of any of the following risks or of those described in our Annual Report could have a material adverse effect on our business, financial condition, results of operations, and future growth prospects or cause our actual results to differ materially from those contained in forward-looking statements we have made in this report and those we may make from time to time. In these circumstances, the market price of our common stock could decline; and you may lose all or part of your investment. We cannot assure you that any of the events discussed in our Annual Report will not occur.
+Item 2. Unregistered Sales of Equity Securities and Use of Proceeds
+Unregistered Sales of Equity Securities
+On January 2, 2026, the Company completed the acquisition of Nativo, Inc., for a total consideration of approximately $104.0 million, consisting of $75.9 million in cash and $28.0 million in shares of the Company’s common stock. In connection with the acquisition, the Company issued an aggregate of 435,599 shares of common stock (the “Nativo Shares”) to the former stockholders of Nativo, Inc. The issuance of the Nativo Shares was not registered under the Securities Act of 1933, as amended (the “Securities Act”), in reliance on the exemption from registration provided by Section 4(a)(2) thereof, as a transaction not involving a public offering. The recipients of the Nativo Shares were accredited investors and had access to information regarding the Company, and the shares were issued without general solicitation or advertising. No underwriters were involved in the issuance of the Nativo Shares, and no underwriting discounts or commissions were paid in connection therewith.
+Use of Proceeds
+None.
+Item 3. Defaults Upon Senior Securities
+None.
+43
+Table of Contents
+Item 4. Mine Safety Disclosures
+Not Applicable.
+Item 5. Other Information
+(a) None
+(b) None
+(c)
+Rule 10b5-1 Trading Plans
+Our directors and officers, subject to Rule 16a-1(f) of the Exchange Act (“Section 16 Officers”), may from time to time enter into plans for the purchase or sale of our common stock that are intended to satisfy the affirmative defense in Rule 10b5-1(c) of the Exchange Act.
+On
+March 13, 2026
+, Ms. Morin
+terminated
+her Rule 10b5-1 trading plan, originally adopted on December 1, 2025, prior to the execution of all scheduled trades. No shares of common stock were sold pursuant to Ms. Morin's terminated 10b5-1 trading plan.
+Additionally, during the three months ended March 31, 2026, the following Section 16 Officer adopted a “Rule 10b5-1 trading arrangement” as defined in Item 408 of Regulation S-K of the Exchange Act:
+Name
+Title
+Action
+Adoption Date
+Expiration Date
+Total number of securities to be sold
+Brit Morin
+Director
+Adopted
+3/13/2026
+12/31/2026
+Up to
+112,194
+shares
+44
+Table of Contents
+Item 6. Exhibits
+Incorporated by Reference
+Exhibit
+No.
+Description
+Filed Herewith
+Form
+File No.
+Filing Date
+Exhibit No.
+3.1
+Restated Certificate of Incorporation of the Company.
+8-K
+000-56424
+June 3, 2024
+3.1
+3.2
+Amended and Restated Bylaws of the Company.
+8-K
+000-56424
+June 3, 2024
+3.2
+31.1
+Chief Executive Officer Certification Pursuant to Rule 13a-14(a) of the Exchange Act.
+X
+31.2
+Chief Financial Officer Certification Pursuant to Rule 13a-14(a) of the Exchange Act.
+X
+32.1*
+Chief Executive Officer Certification pursuant to 18 U.S.C. Section 1350 as adopted pursuant to Section 906 of the Sarbanes-Oxley Act of 2002.
+X
+32.2*
+Chief Financial Officer Certification pursuant to 18 U.S.C. Section 1350 as adopted pursuant to Section 906 of the Sarbanes-Oxley Act of 2002.
+X
+101.INS
+Inline XBRL Instance Document
+X
+101.SCH
+Inline XBRL Taxonomy Extension Schema With Embedded Linkbase Documents
+X
+104
+Cover Page Interactive Data (formatted as Inline XBRL and contained in Exhibit 101)
+X
+_____________________
+*    This certification is being furnished solely to accompany this Quarterly Report on Form 10-Q pursuant to 18 U.S.C. Section 1350, and is not being filed for purposes of Section 18 of the Exchange Act or otherwise subject to the liability of that section, nor shall it be deemed incorporated by reference into any filing of the registrant under the Securities Act or the Exchange Act, whether made before or after the date hereof, regardless of any general incorporation language in such filing.
+45
+Table of Contents
+SIGNATURES
+Pursuant to the requirements of Section 13 or 15(d) of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned, thereunto duly authorized.
+LIFE360, INC.
+Dated:
+May 11, 2026
+By:
+/s/ Lauren Antonoff
+Lauren Antonoff
+Chief Executive Officer and Director
+(Principal Executive Officer)
+Dated:
+May 11, 2026
+By:
+/s/ Russell Burke
+Russell Burke
+Chief Financial Officer
+(Principal Financial and Accounting Officer)
+46

@@ -1,6 +1,6 @@
 # Memory Index
 
-> 最后更新：2026-05-14（新增 project_cannabis_retail：P12 大麻零售主线确立为 2026 年核心主线，基于八字辛卯大运+行为层综合判断）
+> 最后更新：2026-05-18（新增 feedback_auto_rca：错误自动 RCA 流程固化，三档分级+多元触发器+反糊弄）
 > 维护规则：新增记忆文件后立即在此处添加条目；不用的记忆文件同步删除对应条目
 
 ## User
@@ -35,6 +35,9 @@
 - [feedback_claudemd_discipline.md](feedback_claudemd_discipline.md) — CLAUDE.md只加"违反了会出事"的规则；操作习惯/判断标准内化不写文档（2026-05-08）
 - [feedback_env_check.md](feedback_env_check.md) — 进入新环境先跑hostname/whoami/pwd/ifconfig.me确认，不能凭路径格式猜测
 - [feedback_artifact_indexing.md](feedback_artifact_indexing.md) — 新建脚本/cron/文档/数据必须最后一步加索引(ARCHITECTURE/cron_jobs/MEMORY/INDEX等)；沉默建文件=任务未完成
+- [feedback_tide_utils_load_env.md](feedback_tide_utils_load_env.md) — trading/scripts 读 env 必须 `from tide_utils import load_env`，不许本地复制写 load_env()（5/17 P9 提醒发送失败教训，6 脚本复发）
+- [feedback_thesis_normalization.md](feedback_thesis_normalization.md) — P9 thesis 必须 hypothesis 语气（may/could/historically），不许 declarative 断言；未验证精确数字只能放监测信号；范围 > 单点（5/18 GPT 二次纠偏）
+- [feedback_auto_rca.md](feedback_auto_rca.md) — 错误自动 RCA 流程固化：三档分级（trivial不记/minor friction一行/major详细RCA文档/critical+立刻Discord）+5元触发器（主公纠正/hook报错/数据不一致/工具失败/我自判）+反糊弄（5-why追到第3层/≥2 options/分层防御）；可执行 Skill: auto-rca
 
 ## Project（项目背景）
 - [project_cannabis_retail.md](project_cannabis_retail.md) — ⭐ P12 大麻零售主线（2026年主线，2026-05-14 确立）；NY牌照申请中+AI赋能+SaaS化路径；八字辛卯大运对应；playbook: playbooks/cannabis_retail.md；P1/P3/P5 已并入作为子模块

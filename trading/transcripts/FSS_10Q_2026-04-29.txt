@@ -1,0 +1,3223 @@
+# FSS 10-Q
+# Filing Date: 2026-04-29
+# Accession: 0001628280-26-028312
+# Source: https://www.sec.gov/Archives/edgar/data/277509/000162828026028312/fss-20260331.htm
+
+0000277509
+12/31
+2026
+Q1
+FALSE
+P1Y
+xbrli:shares
+iso4217:USD
+iso4217:USD
+xbrli:shares
+fss:Segment
+xbrli:pure
+fss:segment
+0000277509
+2026-01-01
+2026-03-31
+0000277509
+2026-03-31
+0000277509
+2025-01-01
+2025-03-31
+0000277509
+2025-12-31
+0000277509
+us-gaap:RetainedEarningsMember
+2026-01-01
+2026-03-31
+0000277509
+2024-12-31
+0000277509
+2025-03-31
+0000277509
+us-gaap:CommonStockMember
+2025-12-31
+0000277509
+us-gaap:AdditionalPaidInCapitalMember
+2025-12-31
+0000277509
+us-gaap:RetainedEarningsMember
+2025-12-31
+0000277509
+us-gaap:TreasuryStockCommonMember
+2025-12-31
+0000277509
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2025-12-31
+0000277509
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2026-01-01
+2026-03-31
+0000277509
+us-gaap:AdditionalPaidInCapitalMember
+2026-01-01
+2026-03-31
+0000277509
+us-gaap:CommonStockMember
+2026-01-01
+2026-03-31
+0000277509
+us-gaap:TreasuryStockCommonMember
+2026-01-01
+2026-03-31
+0000277509
+us-gaap:CommonStockMember
+2026-03-31
+0000277509
+us-gaap:AdditionalPaidInCapitalMember
+2026-03-31
+0000277509
+us-gaap:RetainedEarningsMember
+2026-03-31
+0000277509
+us-gaap:TreasuryStockCommonMember
+2026-03-31
+0000277509
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2026-03-31
+0000277509
+us-gaap:CommonStockMember
+2024-12-31
+0000277509
+us-gaap:AdditionalPaidInCapitalMember
+2024-12-31
+0000277509
+us-gaap:RetainedEarningsMember
+2024-12-31
+0000277509
+us-gaap:TreasuryStockCommonMember
+2024-12-31
+0000277509
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2024-12-31
+0000277509
+us-gaap:RetainedEarningsMember
+2025-01-01
+2025-03-31
+0000277509
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2025-01-01
+2025-03-31
+0000277509
+us-gaap:AdditionalPaidInCapitalMember
+2025-01-01
+2025-03-31
+0000277509
+us-gaap:CommonStockMember
+2025-01-01
+2025-03-31
+0000277509
+us-gaap:TreasuryStockCommonMember
+2025-01-01
+2025-03-31
+0000277509
+us-gaap:CommonStockMember
+2025-03-31
+0000277509
+us-gaap:AdditionalPaidInCapitalMember
+2025-03-31
+0000277509
+us-gaap:RetainedEarningsMember
+2025-03-31
+0000277509
+us-gaap:TreasuryStockCommonMember
+2025-03-31
+0000277509
+us-gaap:AccumulatedOtherComprehensiveIncomeMember
+2025-03-31
+0000277509
+fss:MegaCorpMember
+2026-01-16
+2026-01-16
+0000277509
+fss:MegaCorpMember
+2026-01-01
+2026-03-31
+0000277509
+fss:MegaCorpMember
+2026-01-16
+0000277509
+fss:MegaCorpMember
+us-gaap:CustomerRelatedIntangibleAssetsMember
+2026-01-16
+0000277509
+fss:MegaCorpMember
+2026-01-16
+2026-03-31
+0000277509
+fss:NewWayTrucksMember
+2025-11-25
+2025-11-25
+0000277509
+fss:NewWayTrucksMember
+2025-11-25
+0000277509
+fss:NewWayTrucksMember
+2026-01-01
+2026-03-31
+0000277509
+fss:NewWayTrucksMember
+us-gaap:CustomerRelatedIntangibleAssetsMember
+2025-11-25
+0000277509
+fss:HogMember
+2025-02-12
+2025-02-12
+0000277509
+fss:HogMember
+2025-02-12
+0000277509
+fss:HogMember
+2026-01-01
+2026-03-31
+0000277509
+fss:HogMember
+us-gaap:CustomerRelatedIntangibleAssetsMember
+2025-02-12
+0000277509
+country:US
+2026-01-01
+2026-03-31
+0000277509
+country:US
+2025-01-01
+2025-03-31
+0000277509
+country:CA
+2026-01-01
+2026-03-31
+0000277509
+country:CA
+2025-01-01
+2025-03-31
+0000277509
+fss:EuropeOtherMember
+2026-01-01
+2026-03-31
+0000277509
+fss:EuropeOtherMember
+2025-01-01
+2025-03-31
+0000277509
+fss:VehiclesandequipmentMember
+fss:EnvironmentalSolutionsMember
+2026-01-01
+2026-03-31
+0000277509
+fss:VehiclesandequipmentMember
+fss:EnvironmentalSolutionsMember
+2025-01-01
+2025-03-31
+0000277509
+fss:PartsMember
+fss:EnvironmentalSolutionsMember
+2026-01-01
+2026-03-31
+0000277509
+fss:PartsMember
+fss:EnvironmentalSolutionsMember
+2025-01-01
+2025-03-31
+0000277509
+fss:RentalincomeMember
+fss:EnvironmentalSolutionsMember
+2026-01-01
+2026-03-31
+0000277509
+fss:RentalincomeMember
+fss:EnvironmentalSolutionsMember
+2025-01-01
+2025-03-31
+0000277509
+fss:OtherMember
+fss:EnvironmentalSolutionsMember
+2026-01-01
+2026-03-31
+0000277509
+fss:OtherMember
+fss:EnvironmentalSolutionsMember
+2025-01-01
+2025-03-31
+0000277509
+fss:EnvironmentalSolutionsMember
+2026-01-01
+2026-03-31
+0000277509
+fss:EnvironmentalSolutionsMember
+2025-01-01
+2025-03-31
+0000277509
+fss:PublicsafetyandsecurityequipmentMember
+fss:SafetyAndSecuritySystemsMember
+2026-01-01
+2026-03-31
+0000277509
+fss:PublicsafetyandsecurityequipmentMember
+fss:SafetyAndSecuritySystemsMember
+2025-01-01
+2025-03-31
+0000277509
+fss:IndustrialsignalingequipmentMember
+fss:SafetyAndSecuritySystemsMember
+2026-01-01
+2026-03-31
+0000277509
+fss:IndustrialsignalingequipmentMember
+fss:SafetyAndSecuritySystemsMember
+2025-01-01
+2025-03-31
+0000277509
+fss:WarningsystemsMember
+fss:SafetyAndSecuritySystemsMember
+2026-01-01
+2026-03-31
+0000277509
+fss:WarningsystemsMember
+fss:SafetyAndSecuritySystemsMember
+2025-01-01
+2025-03-31
+0000277509
+fss:SafetyAndSecuritySystemsMember
+2026-01-01
+2026-03-31
+0000277509
+fss:SafetyAndSecuritySystemsMember
+2025-01-01
+2025-03-31
+0000277509
+fss:A2025CreditAgreementMember
+2026-03-31
+0000277509
+fss:A2025CreditAgreementMember
+2025-12-31
+0000277509
+fss:A2025CreditAgreementMember
+us-gaap:LineOfCreditMember
+2025-10-29
+0000277509
+us-gaap:RevolvingCreditFacilityMember
+fss:A2025CreditAgreementMember
+us-gaap:LineOfCreditMember
+2025-10-29
+0000277509
+us-gaap:SecuredDebtMember
+fss:A2025CreditAgreementMember
+us-gaap:LineOfCreditMember
+2025-10-29
+0000277509
+us-gaap:BaseRateMember
+fss:A2025CreditAgreementMember
+srt:MinimumMember
+us-gaap:LineOfCreditMember
+2025-10-29
+2025-10-29
+0000277509
+us-gaap:BaseRateMember
+fss:A2025CreditAgreementMember
+srt:MaximumMember
+us-gaap:LineOfCreditMember
+2025-10-29
+2025-10-29
+0000277509
+us-gaap:SecuredOvernightFinancingRateSofrOvernightIndexSwapRateMember
+fss:A2025CreditAgreementMember
+srt:MinimumMember
+us-gaap:LineOfCreditMember
+2025-10-29
+2025-10-29
+0000277509
+us-gaap:SecuredOvernightFinancingRateSofrOvernightIndexSwapRateMember
+fss:A2025CreditAgreementMember
+srt:MaximumMember
+us-gaap:LineOfCreditMember
+2025-10-29
+2025-10-29
+0000277509
+fss:A2025CreditAgreementMember
+srt:MinimumMember
+us-gaap:LineOfCreditMember
+2025-10-29
+2025-10-29
+0000277509
+fss:A2025CreditAgreementMember
+srt:MaximumMember
+us-gaap:LineOfCreditMember
+2025-10-29
+2025-10-29
+0000277509
+fss:A2022CreditAgreementMember
+us-gaap:LineOfCreditMember
+2022-10-21
+0000277509
+us-gaap:RevolvingCreditFacilityMember
+fss:A2022CreditAgreementMember
+us-gaap:LineOfCreditMember
+2022-10-21
+0000277509
+us-gaap:SecuredDebtMember
+fss:A2022CreditAgreementMember
+us-gaap:LineOfCreditMember
+2022-10-21
+0000277509
+us-gaap:RevolvingCreditFacilityMember
+fss:A2025CreditAgreementMember
+2026-03-31
+0000277509
+fss:TermLoanCreditFacilityMember
+fss:A2025CreditAgreementMember
+2026-03-31
+0000277509
+us-gaap:LetterOfCreditMember
+fss:A2025CreditAgreementMember
+2026-03-31
+0000277509
+us-gaap:RevolvingCreditFacilityMember
+fss:A2025CreditAgreementMember
+2025-12-31
+0000277509
+fss:TermLoanCreditFacilityMember
+fss:A2025CreditAgreementMember
+2025-12-31
+0000277509
+us-gaap:LetterOfCreditMember
+fss:A2025CreditAgreementMember
+2025-12-31
+0000277509
+fss:InterestRateSwap2022Member
+2022-10-21
+0000277509
+fss:InterestRateSwap2023Member
+2023-07-11
+0000277509
+us-gaap:InterestRateSwapMember
+2026-01-01
+2026-03-31
+0000277509
+2025-02-10
+0000277509
+fss:EnvironmentalSolutionsMember
+2025-12-31
+0000277509
+fss:SafetyAndSecuritySystemsMember
+2025-12-31
+0000277509
+fss:EnvironmentalSolutionsMember
+2026-03-31
+0000277509
+fss:SafetyAndSecuritySystemsMember
+2026-03-31
+0000277509
+us-gaap:CustomerRelationshipsMember
+2026-03-31
+0000277509
+us-gaap:CustomerRelationshipsMember
+2025-12-31
+0000277509
+us-gaap:OtherIntangibleAssetsMember
+2026-03-31
+0000277509
+us-gaap:OtherIntangibleAssetsMember
+2025-12-31
+0000277509
+us-gaap:TradeNamesMember
+2026-03-31
+0000277509
+us-gaap:TradeNamesMember
+2025-12-31
+0000277509
+us-gaap:DistributionRightsMember
+2026-03-31
+0000277509
+us-gaap:DistributionRightsMember
+2025-12-31
+0000277509
+country:US
+2026-01-01
+2026-03-31
+0000277509
+country:US
+2025-01-01
+2025-03-31
+0000277509
+us-gaap:ForeignPlanMember
+2026-01-01
+2026-03-31
+0000277509
+us-gaap:ForeignPlanMember
+2025-01-01
+2025-03-31
+0000277509
+us-gaap:PropertyLeaseGuaranteeMember
+srt:AffiliatedEntityMember
+2026-03-31
+0000277509
+srt:MinimumMember
+2026-01-01
+2026-03-31
+0000277509
+srt:MaximumMember
+2026-01-01
+2026-03-31
+0000277509
+2019-11-04
+2019-11-04
+0000277509
+2025-07-01
+2025-09-30
+0000277509
+us-gaap:SubsequentEventMember
+2026-04-01
+2026-06-30
+0000277509
+fss:March2020RepurchaseProgramMember
+2020-03-13
+0000277509
+fss:April2025RepurchaseProgramMember
+2020-03-13
+0000277509
+us-gaap:AccumulatedDefinedBenefitPlansAdjustmentMember
+2025-12-31
+0000277509
+us-gaap:AccumulatedDefinedBenefitPlansAdjustmentNetPriorServiceCostCreditMember
+2025-12-31
+0000277509
+us-gaap:AccumulatedTranslationAdjustmentMember
+2025-12-31
+0000277509
+us-gaap:AccumulatedGainLossNetCashFlowHedgeParentMember
+2025-12-31
+0000277509
+us-gaap:AccumulatedDefinedBenefitPlansAdjustmentMember
+2026-01-01
+2026-03-31
+0000277509
+us-gaap:AccumulatedDefinedBenefitPlansAdjustmentNetPriorServiceCostCreditMember
+2026-01-01
+2026-03-31
+0000277509
+us-gaap:AccumulatedTranslationAdjustmentMember
+2026-01-01
+2026-03-31
+0000277509
+us-gaap:AccumulatedGainLossNetCashFlowHedgeParentMember
+2026-01-01
+2026-03-31
+0000277509
+us-gaap:AccumulatedDefinedBenefitPlansAdjustmentMember
+2026-03-31
+0000277509
+us-gaap:AccumulatedDefinedBenefitPlansAdjustmentNetPriorServiceCostCreditMember
+2026-03-31
+0000277509
+us-gaap:AccumulatedTranslationAdjustmentMember
+2026-03-31
+0000277509
+us-gaap:AccumulatedGainLossNetCashFlowHedgeParentMember
+2026-03-31
+0000277509
+us-gaap:AccumulatedDefinedBenefitPlansAdjustmentMember
+2024-12-31
+0000277509
+us-gaap:AccumulatedDefinedBenefitPlansAdjustmentNetPriorServiceCostCreditMember
+2024-12-31
+0000277509
+us-gaap:AccumulatedTranslationAdjustmentMember
+2024-12-31
+0000277509
+us-gaap:AccumulatedGainLossNetCashFlowHedgeParentMember
+2024-12-31
+0000277509
+us-gaap:AccumulatedDefinedBenefitPlansAdjustmentMember
+2025-01-01
+2025-03-31
+0000277509
+us-gaap:AccumulatedDefinedBenefitPlansAdjustmentNetPriorServiceCostCreditMember
+2025-01-01
+2025-03-31
+0000277509
+us-gaap:AccumulatedTranslationAdjustmentMember
+2025-01-01
+2025-03-31
+0000277509
+us-gaap:AccumulatedGainLossNetCashFlowHedgeParentMember
+2025-01-01
+2025-03-31
+0000277509
+us-gaap:AccumulatedDefinedBenefitPlansAdjustmentMember
+2025-03-31
+0000277509
+us-gaap:AccumulatedDefinedBenefitPlansAdjustmentNetPriorServiceCostCreditMember
+2025-03-31
+0000277509
+us-gaap:AccumulatedTranslationAdjustmentMember
+2025-03-31
+0000277509
+us-gaap:AccumulatedGainLossNetCashFlowHedgeParentMember
+2025-03-31
+0000277509
+us-gaap:ReclassificationOutOfAccumulatedOtherComprehensiveIncomeMember
+2026-01-01
+2026-03-31
+0000277509
+us-gaap:ReclassificationOutOfAccumulatedOtherComprehensiveIncomeMember
+2025-01-01
+2025-03-31
+0000277509
+us-gaap:OperatingSegmentsMember
+2026-01-01
+2026-03-31
+0000277509
+us-gaap:CorporateMember
+2026-01-01
+2026-03-31
+0000277509
+us-gaap:OperatingSegmentsMember
+2025-01-01
+2025-03-31
+0000277509
+us-gaap:CorporateMember
+2025-01-01
+2025-03-31
+0000277509
+us-gaap:OperatingSegmentsMember
+2026-03-31
+0000277509
+us-gaap:OperatingSegmentsMember
+2025-12-31
+0000277509
+us-gaap:CorporateMember
+2026-03-31
+0000277509
+us-gaap:CorporateMember
+2025-12-31
+0000277509
+fss:BlastersMember
+2023-01-03
+0000277509
+fss:StandardMember
+2024-10-04
+0000277509
+us-gaap:FairValueMeasurementsRecurringMember
+us-gaap:FairValueInputsLevel1Member
+2026-03-31
+0000277509
+us-gaap:FairValueMeasurementsRecurringMember
+us-gaap:FairValueInputsLevel2Member
+2026-03-31
+0000277509
+us-gaap:FairValueMeasurementsRecurringMember
+us-gaap:FairValueInputsLevel3Member
+2026-03-31
+0000277509
+us-gaap:FairValueMeasurementsRecurringMember
+2026-03-31
+Table of Contents
+UNITED STATES
+SECURITIES AND EXCHANGE COMMISSION
+Washington, D.C. 20549
+___________________________________
+FORM
+10-Q
+(Mark One)
+☑
+QUARTERLY REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934
+For the quarterly period ended
+March 31, 2026
+OR
+☐
+TRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934
+For the transition period from
+to
+Commission file number:
+1-6003
+_____________________________________________
+FEDERAL SIGNAL CORPORATION
+(Exact name of registrant as specified in its charter)
+Delaware
+36-1063330
+(State or other jurisdiction of incorporation or organization)
+(I.R.S. Employer Identification No.)
+1333 Butterfield Road
+,
+Downers Grove
+,
+Illinois
+(Address of principal executive offices)
+60515
+(Zip code)
+(
+630
+)
+954-2000
+(Registrant’s telephone number, including area code)
+_____________________________________________
+Securities registered pursuant to Section 12(b) of the Act:
+Title of each class
+Trading Symbol(s)
+Name of each exchange on which registered
+Common Stock, par value $1.00 per share
+FSS
+New York Stock Exchange
+Indicate by check mark whether the registrant (1) has filed all reports required to be filed by Section 13 or 15(d) of the Securities Exchange Act of 1934 during the preceding 12 months (or for such shorter period that the registrant was required to file such reports), and (2) has been subject to such filing requirements for the past 90 days.
+Yes
+☑
+No
+☐
+Indicate by check mark whether the registrant has submitted electronically every Interactive Data File required to be submitted pursuant to Rule 405 of Regulation S-T (§232.405 of this chapter) during the preceding 12 months (or for such shorter period that the registrant was required to submit such files).
+Yes
+☑
+No
+☐
+Indicate by check mark whether the registrant is a large accelerated filer, an accelerated filer, a non-accelerated filer, a smaller reporting company, or an emerging growth company. See the definitions of “large accelerated filer,” “accelerated filer,” “smaller reporting company,” and “emerging growth company” in Rule 12b-2 of the Exchange Act.
+Large accelerated filer
+☑
+Accelerated filer
+☐
+Non-accelerated filer
+☐
+Smaller reporting company
+☐
+Emerging growth company
+☐
+If an emerging growth company, indicate by check mark if the registrant has elected not to use the extended transition period for complying with any new or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act.
+☐
+Indicate by check mark whether the registrant is a shell company (as defined in Rule 12b-2 of the Exchange  Act).    Yes
+☐
+No
+☑
+As of March 31, 2026, the number of shares outstanding of the registrant’s common stock was
+61,002,256
+.
+Table of Contents
+FEDERAL SIGNAL CORPORATION
+TABLE OF CONTENTS
+Page
+PART I.
+FINANCIAL INFORMATION
+Item 1.
+Financial Statements (Unaudited)
+2
+Condensed Consolidated Statements of Operations for the Three Months Ended March 31, 2026 and 2025
+2
+Condensed Consolidated Statements of Comprehensive Income for the Three Months Ended March 31,  2026 and 2025
+3
+Condensed Consolidated Balance Sheets as of March 31, 2026 and December 31, 2025
+4
+Condensed Consolidated Statements of Cash Flows for the Three Months Ended March 31, 2026 and 2025
+5
+Condensed Consolidated Statements of Stockholders’ Equity for the Three Months Ended March 31, 2026 and 2025
+6
+Notes to Condensed Consolidated Financial Statements
+7
+Note 1 – Summary of Significant Accounting Policies
+7
+Note 2
+–
+Acquisitions
+8
+Note 3 – Revenue Recognition
+12
+Note 4 – Inventories
+12
+Note 5 – Debt
+13
+Note 6 – Goodwill and Other Intangible Assets
+14
+Note 7 – Income Taxes
+15
+Note 8 – Pensions
+15
+Note 9 – Commitments and Contingencies
+16
+Note 10 – Earnings Per Share
+17
+Note 11 – Stockholders’ Equity
+18
+Note 12 – Segment Information
+20
+Note 13 – Fair Value Measurements
+22
+Item 2.
+Management’s Discussion and Analysis of Financial Condition and Results of Operations
+24
+Item 3.
+Quantitative and Qualitative Disclosures About Market Risk
+31
+Item 4.
+Controls and Procedures
+31
+PART II.
+OTHER INFORMATION
+Item 1.
+Legal Proceedings
+32
+Item 1A.
+Risk Factors
+32
+Item 2.
+Unregistered Sales of Equity Securities and Use of Proceeds
+32
+Item 3.
+Defaults Upon Senior Securities
+32
+Item 4.
+Mine Safety Disclosures
+32
+Item 5.
+Other Information
+32
+Item 6.
+Exhibits
+33
+SIGNATURE
+34
+Table of Contents
+FORWARD-LOOKING STATEMENTS
+This Quarterly Report on Form 10-Q (“Form 10-Q”) is being filed by Federal Signal Corporation and its subsidiaries (referred to collectively as the “Company,” “we,” “our,” or “us” herein, unless the context otherwise indicates) with the United States (“U.S.”) Securities and Exchange Commission (the “SEC”), and includes comments made by management that may contain words such as “may,” “will,” “believe,” “expect,” “anticipate,” “intend,” “plan,” “project,” “estimate,” and “objective” or similar terminology, or the negative thereof, concerning the Company’s future financial performance, business strategy, plans, goals, and objectives. These expressions are intended to identify forward-looking statements within the meaning of Section 27A of the Securities Act of 1933, as amended (the “Securities Act”), Section 21E of the Securities Exchange Act of 1934, as amended (the “Exchange Act”), and the Private Securities Litigation Reform Act of 1995. Forward-looking statements include information concerning the Company’s possible or assumed future performance or results of operations and are not guarantees. While these statements are based on assumptions and judgments that management has made in light of industry experience as well as perceptions of historical trends, current conditions, expected future developments, and other factors believed to be appropriate under the circumstances, they are subject to risks, uncertainties, and other factors that may cause the Company’s actual results, performance, or achievements to be materially different.
+These risks and uncertainties, some of which are beyond the Company’s control, include the risk factors described under Part I, Item 1A,
+Risk Factors
+, of the Company’s Annual Report on Form 10-K for the year ended December 31, 2025, which was filed with the SEC on February 25, 2026. These factors may not constitute all factors that could cause actual results to differ materially from those discussed in any forward-looking statement. The Company operates in a continually changing business environment and new factors emerge from time to time. The Company cannot predict such factors, nor can it assess the impact, if any, of such factors on its results of operations, financial condition, or cash flow. Accordingly, forward-looking statements should not be relied upon as a predictor of actual results. The Company disclaims any responsibility to update any forward-looking statement provided in this Form 10-Q.
+ADDITIONAL INFORMATION
+The Company is subject to the reporting and information requirements of the Exchange Act and, as a result, is obligated to file Annual Reports on Form 10-K, Quarterly Reports on Form 10-Q, Current Reports on Form 8-K, and other reports and information with the SEC, as well as amendments to those reports. The Company makes these filings available free of charge through our website at
+www.federalsignal.com
+as soon as reasonably practicable after such materials are filed with, or furnished to, the SEC. The Company also uses its website as a means of disclosing material non-public information and to comply with our disclosure requirements under Regulation FD. Information on our website does not constitute part of this Form 10-Q. In addition, the SEC maintains a website at
+www.sec.gov
+that contains reports, proxy, and information statements, and other information regarding issuers that file electronically.
+1
+Table of Contents
+PART I. FINANCIAL INFORMATION
+Item 1.
+Financial Statements (Unaudited).
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS (Unaudited)
+Three Months Ended
+March 31,
+(in millions, except per share data)
+2026
+2025
+Net sales
+$
+625.6
+$
+463.8
+Cost of sales
+446.2
+333.0
+Gross profit
+179.4
+130.8
+Selling, engineering, general and administrative expenses
+72.0
+60.2
+Amortization expense
+6.5
+4.3
+Acquisition and integration-related expenses, net
+1.2
+0.6
+Operating income
+99.7
+65.7
+Interest expense, net
+6.9
+3.0
+Other expense, net
+0.6
+0.7
+Income before income taxes
+92.2
+62.0
+Income tax expense
+21.8
+15.7
+Net income
+$
+70.4
+$
+46.3
+Earnings per share:
+Basic
+$
+1.16
+$
+0.76
+Diluted
+1.14
+0.75
+Weighted average common shares outstanding:
+Basic
+60.9
+61.1
+Diluted
+61.5
+61.8
+See notes to condensed consolidated financial statements.
+2
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+CONDENSED CONSOLIDATED STATEMENTS OF COMPREHENSIVE INCOME (Unaudited)
+Three Months Ended
+March 31,
+(in millions)
+2026
+2025
+Net income
+$
+70.4
+$
+46.3
+Other comprehensive income (loss):
+Change in foreign currency translation adjustment
+(
+4.0
+)
+4.0
+Change in unrecognized net actuarial loss and prior service cost related to pension benefit plans, net of income tax
+0.6
+0.2
+Change in unrealized gain or loss on interest rate swaps, net of income tax
+—
+0.1
+Total other comprehensive (loss) income
+(
+3.4
+)
+4.3
+Comprehensive income
+$
+67.0
+$
+50.6
+See notes to condensed consolidated financial statements.
+3
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+CONDENSED CONSOLIDATED BALANCE SHEETS
+March 31,
+2026
+December 31,
+2025
+(in millions, except per share data)
+(Unaudited)
+ASSETS
+Current assets:
+Cash and cash equivalents
+$
+71.4
+$
+63.7
+Accounts receivable, net of allowances for doubtful accounts of $
+2.9
+and $
+2.8
+, respectively
+310.1
+292.2
+Inventories
+477.8
+471.6
+Prepaid expenses and other current assets
+17.5
+26.3
+Total current assets
+876.8
+853.8
+Properties and equipment, net of accumulated depreciation of $
+215.1
+and $
+208.0
+, respectively
+287.2
+274.6
+Rental equipment, net of accumulated depreciation of $
+71.4
+and $
+69.2
+, respectively
+210.0
+202.7
+Operating lease right-of-use assets
+29.9
+28.4
+Goodwill
+626.8
+619.8
+Intangible assets, net of accumulated amortization of $
+110.3
+and $
+104.2
+, respectively
+393.9
+382.9
+Deferred tax assets
+9.9
+10.1
+Deferred charges and other long-term assets
+19.9
+20.3
+Total assets
+$
+2,454.4
+$
+2,392.6
+LIABILITIES AND STOCKHOLDERS’ EQUITY
+Current liabilities:
+Current portion of long-term borrowings and finance lease obligations
+$
+3.0
+$
+0.5
+Accounts payable
+115.8
+98.0
+Customer deposits
+66.3
+47.7
+Accrued liabilities:
+Compensation and withholding taxes
+38.4
+52.3
+Current operating lease liabilities
+8.1
+7.9
+Contingent consideration
+4.1
+15.0
+Other current liabilities
+72.5
+61.0
+Total current liabilities
+308.2
+282.4
+Long-term borrowings and finance lease obligations
+548.6
+564.6
+Long-term operating lease liabilities
+23.1
+21.6
+Long-term pension and other post-retirement benefit liabilities
+41.9
+43.1
+Deferred tax liabilities
+74.2
+71.9
+Other long-term liabilities
+23.9
+27.0
+Total liabilities
+1,019.9
+1,010.6
+Stockholders’ equity:
+Common stock, $
+1
+par value per share,
+90.0
+shares authorized,
+71.0
+and
+70.8
+shares issued, respectively
+71.0
+70.8
+Capital in excess of par value
+333.9
+330.4
+Retained earnings
+1,376.5
+1,315.3
+Treasury stock, at cost,
+10.0
+and
+9.9
+shares, respectively
+(
+272.5
+)
+(
+263.5
+)
+Accumulated other comprehensive loss
+(
+74.4
+)
+(
+71.0
+)
+Total stockholders’ equity
+1,434.5
+1,382.0
+Total liabilities and stockholders’ equity
+$
+2,454.4
+$
+2,392.6
+See notes to condensed consolidated financial statements.
+4
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS (Unaudited)
+Three Months Ended
+March 31,
+(in millions)
+2026
+2025
+Operating activities:
+Net income
+$
+70.4
+$
+46.3
+Adjustments to reconcile net income to net cash provided by operating activities:
+Depreciation and amortization
+23.8
+18.7
+Stock-based compensation expense
+2.7
+2.4
+Changes in fair value of contingent consideration
+0.2
+—
+Payments for acquisition-related activity
+(
+3.5
+)
+—
+Deferred income taxes
+2.3
+0.7
+Changes in operating assets and liabilities
+5.4
+(
+31.4
+)
+Net cash provided by operating activities
+101.3
+36.7
+Investing activities:
+Purchases of properties and equipment
+(
+6.7
+)
+(
+5.6
+)
+Payments for acquisition-related activity, net of cash acquired
+(
+44.9
+)
+(
+82.1
+)
+Net cash used for investing activities
+(
+51.6
+)
+(
+87.7
+)
+Financing activities:
+(Decrease) increase in revolving lines of credit, net
+(
+12.8
+)
+64.2
+Purchases of treasury stock
+—
+(
+18.5
+)
+Redemptions of common stock to satisfy withholding taxes related to stock-based compensation
+(
+8.2
+)
+(
+8.6
+)
+Payments for acquisition-related activity
+(
+11.5
+)
+—
+Cash dividends paid to stockholders
+(
+9.2
+)
+(
+8.6
+)
+Proceeds from stock-based compensation activity
+0.1
+—
+Other, net
+(
+0.1
+)
+(
+11.6
+)
+Net cash (used for) provided by financing activities
+(
+41.7
+)
+16.9
+Effects of foreign exchange rate changes on cash and cash equivalents
+(
+0.3
+)
+0.5
+Increase (decrease) in cash and cash equivalents
+7.7
+(
+33.6
+)
+Cash and cash equivalents at beginning of year
+63.7
+91.1
+Cash and cash equivalents at end of period
+$
+71.4
+$
+57.5
+See notes to condensed consolidated financial statements.
+5
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+CONDENSED CONSOLIDATED STATEMENTS OF STOCKHOLDERS’ EQUITY (Unaudited)
+Three Months ended March 31, 2026
+(in millions)
+Common
+Stock
+Capital in
+Excess of
+Par
+Value
+Retained
+Earnings
+Treasury
+Stock
+Accumulated
+Other
+Comprehensive
+Loss
+Total
+Balance at January 1, 2026
+$
+70.8
+$
+330.4
+$
+1,315.3
+$
+(
+263.5
+)
+$
+(
+71.0
+)
+$
+1,382.0
+Net income
+70.4
+70.4
+Total other comprehensive loss
+(
+3.4
+)
+(
+3.4
+)
+Cash dividends declared ($
+0.15
+per share)
+(
+9.2
+)
+(
+9.2
+)
+Stock-based payments:
+Stock-based compensation
+2.7
+2.7
+Stock option exercises and other
+0.1
+0.9
+(
+1.9
+)
+(
+0.9
+)
+Performance share unit transactions
+0.1
+(
+0.1
+)
+(
+7.1
+)
+(
+7.1
+)
+Balance at March 31, 2026
+$
+71.0
+$
+333.9
+$
+1,376.5
+$
+(
+272.5
+)
+$
+(
+74.4
+)
+$
+1,434.5
+Three Months Ended March 31, 2025
+(in millions)
+Common
+Stock
+Capital in
+Excess of
+Par
+Value
+Retained
+Earnings
+Treasury
+Stock
+Accumulated
+Other
+Comprehensive
+Loss
+Total
+Balance at January 1, 2025
+$
+70.3
+$
+309.8
+$
+1,102.8
+$
+(
+207.8
+)
+$
+(
+89.0
+)
+$
+1,186.1
+Net income
+46.3
+46.3
+Total other comprehensive income
+4.3
+4.3
+Cash dividends declared ($
+0.14
+per share)
+(
+8.6
+)
+(
+8.6
+)
+Stock-based payments:
+Stock-based compensation
+2.4
+2.4
+Stock option exercises and other
+0.1
+0.2
+(
+0.5
+)
+(
+0.2
+)
+Performance share unit transactions
+0.2
+(
+0.2
+)
+(
+8.2
+)
+(
+8.2
+)
+Stock repurchase program
+(
+19.7
+)
+(
+19.7
+)
+Balance at March 31, 2025
+$
+70.6
+$
+312.2
+$
+1,140.5
+$
+(
+236.2
+)
+$
+(
+84.7
+)
+$
+1,202.4
+6
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS
+(Unaudited)
+NOTE 1 –
+SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES
+Organization and Description of the Business
+Federal Signal Corporation was founded in 1901 and was reincorporated as a Delaware corporation in 1969. References herein to the “Company,” “we,” “our,” or “us” refer collectively to Federal Signal Corporation and its subsidiaries.
+Products manufactured and services rendered by the Company are divided into
+two
+reportable segments: Environmental Solutions Group (“Environmental Solutions”) and Safety and Security Systems Group (“Safety and Security Systems”). The individual operating businesses are organized as such because they share certain characteristics, including technology, marketing, distribution, and product application, which create long-term synergies. These segments are discussed in Note 12 – Segment Information.
+Basis of Presentation and Consolidation
+The accompanying unaudited condensed consolidated financial statements represent the consolidation of Federal Signal Corporation and its subsidiaries included herein and have been prepared by the Company pursuant to the rules and regulations of the United States (“U.S.”) Securities and Exchange Commission (the “SEC”). Certain information and footnote disclosures normally included in financial statements prepared in accordance with U.S. generally accepted accounting principles (“GAAP”) have been condensed or omitted pursuant to such rules and regulations, although the Company believes that the disclosures presented herein are adequate to ensure the information presented is not misleading. Except as otherwise noted, these condensed consolidated financial statements have been prepared in accordance with the Company’s accounting policies described in the Company’s Annual Report on Form 10-K for the year ended December 31, 2025, and should be read in conjunction with those consolidated financial statements and the notes thereto.
+These condensed consolidated financial statements include all normal and recurring adjustments that we considered necessary to present a fair statement of our results of operations, financial condition, and cash flow. Intercompany balances and transactions have been eliminated in consolidation.
+The results reported in these condensed consolidated financial statements should not be regarded as necessarily indicative of results that may be expected for the entire year, which may differ materially due to, among other things, the risk factors described under Part I, Item 1A,
+Risk Factors
+, of the Company’s Annual Report on Form 10-K for the year ended December 31, 2025, which was filed with the SEC on February 25, 2026. While we label our quarterly information using a calendar convention whereby our first, second, and third quarters are labeled as ending on March 31, June 30, and September 30, respectively, it is our longstanding practice to establish interim quarterly closing dates based on a 13-week period ending on a Saturday, with our fiscal year ending on December 31. The effects of this practice are not material and exist only within a reporting year.
+Recent Accounting Standard Adoptions
+In July 2025, the Financial Accounting Standards Board (“FASB”) issued Accounting Standards Update (“ASU”) 2025-05,
+Financial Instruments - Credit Losses (Topic 326): Measurement of Credit Losses for Accounts Receivable and Contract Asset
+s, which provides a practical expedient for estimating expected credit losses relating to current accounts receivable and current contract assets that arise from transactions accounted for under Accounting Standards Codification (“ASC”) 606,
+Revenue from Contracts with Customers
+. ASU 2025-05 is effective for annual periods beginning after December 15, 2025, including interim periods within those annual reporting periods, with early adoption permitted. The Company adopted ASU 2025-05 on a prospective basis effective January 1, 2026. The adoption of this guidance did not have a material impact on the Company’s financial statements.
+Recent Accounting Pronouncements
+In November 2024, the FASB issued ASU 2024-03,
+Income Statement - Reporting Comprehensive Income-Expense Disaggregation Disclosures (Subtopic 220-40)
+, which requires entities to disclose, on an annual and interim basis, disaggregated information about certain income statement expense line items. ASU 2024-03 is effective prospectively for annual periods beginning after December 15, 2026, and for interim periods within fiscal years beginning after December 15, 2027, with early adoption and retrospective adoption permitted. The Company is currently evaluating the impact of adopting this guidance on its financial statement disclosures.
+7
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS — (CONTINUED)
+(Unaudited)
+In December 2025, the FASB issued ASU 2025-11,
+Interim Reporting (Topic 270): Narrow-Scope Improvements
+, which clarifies interim disclosure requirements and applicability of Topic 270. ASU 2025-11 is effective prospectively for interim reporting periods in fiscal years beginning after December 15, 2027, with early adoption and retrospective application permitted. The Company is currently evaluating the impact of adopting this guidance on its financial statement disclosures.
+Use of Estimates
+The preparation of consolidated financial statements in conformity with U.S. GAAP requires management to make estimates and assumptions that affect (i) the reported amounts of assets and liabilities, (ii) the disclosure of contingent assets and liabilities at the date of the condensed consolidated financial statements, and (iii) the reported amounts of revenues and expenses during the reporting period. Actual results could differ from those estimates.
+Significant Accounting Policies
+There have been no changes to the Company’s significant accounting policies as disclosed in the Company’s Annual Report on Form 10-K for the year ended December 31, 2025
+.
+NOTE 2 –
+ACQUISITIONS
+Acquisitions Completed in 2026
+Acquisition of Mega
+On January 16, 2026, the Company completed the acquisition of all of the outstanding equity interests of Mega Equipment LLC (“Mega”). Mega is a leading manufacturer of specialty vehicles and equipment for use in global metal extraction and construction markets. The Company expects that the Mega acquisition will strengthen its specialty vehicle market position by expanding its metal extraction support equipment offerings.
+The assets and liabilities of Mega have been consolidated into the Company’s Condensed Consolidated Balance Sheet as of March 31, 2026, and the post-acquisition results have been included in Condensed Consolidated Statement of Operations, within the Environmental Solutions Group.
+The initial cash consideration paid by the Company to acquire Mega was $
+45
+million, inclusive of certain preliminary closing adjustments. Any additional closing adjustments are currently expected to be finalized in the second quarter of 2026.
+The acquisition is being accounted for in accordance with ASC 805,
+Business Combinations
+. Accordingly, the total purchase price has been allocated on a preliminary basis to assets acquired and liabilities assumed in connection with the acquisition based on their estimated fair values as of the completion of the acquisition. A single estimate of fair value results from a complex series of judgments about future events and uncertainties and relies heavily on estimates and assumptions. The Company’s judgments used to determine the estimated fair value assigned to each class of assets acquired and liabilities assumed, as well as asset lives, can materially impact the Company’s results of operations. Due to the proximity of the date of acquisition to the date of issuance of the condensed consolidated financial statements, the Company’s purchase price allocation as of March 31, 2026 reflects various provisional estimates that were based on the information that was available as of the acquisition date and the filing date of this Form 10-Q. The Company believes that information provides a reasonable basis for estimating the fair values of assets acquired and liabilities assumed; however, the determination of those fair values is not yet finalized. Thus, the preliminary measurements of fair value set forth in the table below are subject to change during the measurement period as valuations are finalized. The Company expects to finalize the valuation and complete the purchase price allocation as soon as practicable, but not more than one year from the acquisition date.
+8
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS — (CONTINUED)
+(Unaudited)
+The following table summarizes the preliminary fair values of assets acquired and liabilities assumed as of the acquisition date:
+(in millions)
+Purchase price, inclusive of preliminary closing adjustments
+(a)
+$
+45.0
+Total consideration
+45.0
+Cash
+0.1
+Accounts receivable
+2.7
+Inventories
+11.8
+Prepaid expenses and other current assets
+0.3
+Properties and equipment
+11.8
+Customer relationships
+(b)
+9.0
+Trade names
+(c)
+6.8
+Accounts payable
+(
+1.0
+)
+Accrued liabilities
+(
+0.7
+)
+Customer deposits
+(
+3.0
+)
+Net assets acquired
+37.8
+Goodwill
+(d)
+$
+7.2
+(a)     The initial purchase price, which is subject to certain post-closing adjustments, including working capital, was funded through existing cash on hand and borrowings under the Company’s credit agreement.
+(b)    Represents the preliminary fair value assigned to customer relationships, which are considered to be definite-lived intangible assets, with a preliminary estimated useful life of approximately
+10
+years.
+(c)    Represents the preliminary fair value assigned to trade names, which are considered to be indefinite-lived intangible assets.
+(d)    Goodwill, which is tax-deductible, has been allocated to the Environmental Solutions Group on the basis that the synergies identified will primarily benefit this segment.
+In the period between the January 16, 2026 closing date and March 31, 2026, Mega generated approximately $
+11.8
+million of net sales and $
+2.4
+million of operating income.
+The acquisition was not, and would not have been, material to the Company’s net sales, results of operations, or total assets during any period presented. Accordingly, the Company’s consolidated results from operations do not differ materially from historical performance as a result of the acquisition, and therefore, unaudited pro-forma results are not presented.
+Acquisitions Completed in 2025
+Acquisition of New Way
+On November 25, 2025, the Company completed the acquisition of all of the outstanding equity interests of Scranton Manufacturing Company LLC d/b/a New Way Trucks (“New Way”). New Way is a leading U.S.-based designer and manufacturer of refuse collection vehicles.
+The initial cash consideration paid by the Company to acquire New Way was approximately $
+413
+million, inclusive of certain preliminary closing adjustments. Any additional closing adjustments are expected to be finalized before the end of the second quarter of 2026. In addition, there is a contingent earn-out opportunity of up to $
+54.0
+million, based on the achievement of certain specified financial targets over a two-year period.
+As of March 31, 2026, the Company’s purchase price allocation reflects various provisional estimates that were based on the information that was available as of the acquisition date and the filing date of this Form 10-Q. The Company believes that information provides a reasonable basis for estimating the fair values of assets acquired and liabilities assumed; however, the determination of those fair values, including the third-party valuation of acquired intangible assets, is not yet finalized. Thus, the preliminary measurements of fair value set forth in the table below are subject to change during the measurement period as valuations are finalized. During the three months ended March 31, 2026, the Company recognized certain measurement period adjustments that did not materially affect either the carrying value of goodwill previously recognized as of December 31, 2025 or the Company’s Condensed Consolidated Statement of Operations for the three months ended March 31, 2026. The Company expects to finalize the valuation and complete the purchase price allocation as soon as practicable, but not more than one year from the acquisition date.
+9
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS — (CONTINUED)
+(Unaudited)
+The following table summarizes the preliminary fair values of assets acquired and liabilities assumed as of the acquisition date:
+(in millions)
+Purchase price, inclusive of preliminary closing adjustments
+(a)
+$
+413.5
+Estimated fair value of additional consideration
+(b)
+10.7
+Total consideration
+424.2
+Cash
+9.4
+Accounts receivable
+60.0
+Inventories
+85.5
+Prepaid expenses and other current assets
+0.7
+Properties and equipment
+31.1
+Finance lease right-of-use assets
+(c)
+7.4
+Operating lease right-of-use assets
+0.1
+Customer relationships
+(d)
+113.0
+Trade names
+(e)
+50.5
+Accounts payable
+(
+10.6
+)
+Accrued liabilities
+(
+9.8
+)
+Customer deposits
+(
+15.7
+)
+Operating lease liabilities
+(
+0.1
+)
+Finance lease liabilities
+(c)
+(
+1.8
+)
+Net assets acquired
+319.7
+Goodwill
+(f)
+$
+104.5
+(a)     The initial purchase price, which is subject to certain post-closing adjustments, including working capital, was funded through existing cash on hand and borrowings under the Company’s credit agreement.
+(b)    Represents the preliminary estimate of fair value assigned to the contingent earn-out payment as of the acquisition date, which is included in Other long-term liabilities on the Condensed Consolidated Balance Sheet as of March 31, 2026. See Note 13 – Fair Value Measurements for discussion of the methodology used to determine the fair value of the contingent earn-out payment.
+(c)    Represents the preliminary fair value assigned to acquired finance lease right-of-use assets and finance lease liabilities.
+(d)    Represents the preliminary fair value assigned to customer relationships, which are considered to be definite-lived intangible assets, with a preliminary estimated useful life of approximately
+15
+years.
+(e)    Represents the preliminary fair value assigned to trade names, which are considered to be indefinite-lived intangible assets.
+(f)    Goodwill, which is tax-deductible, has been allocated to the Environmental Solutions Group on the basis that the synergies identified will primarily benefit this segment.
+Acquisition of Waterblasting LLC
+On February 12, 2025, the Company completed the acquisition of substantially all the assets and operations of Waterblasting, LLC, owner of Hog Technologies, and Waterblasting Eurasia, s.r.o. (collectively, “Hog”). Hog is a leading U.S. manufacturer of truck-mounted road-marking, line-removal, and waterblasting equipment, serving infrastructure, municipal, and airport markets.
+The cash consideration paid by the Company to acquire Hog was $
+82.5
+million, inclusive of certain closing adjustments. In addition, there was a contingent earn-out payment of up to $
+15.0
+million that was based on the achievement of certain financial targets during 2025. During the three months ended March 31, 2026, the Company paid additional consideration of $
+15.0
+million to settle the contingent consideration liability associated with the acquisition. Of the $
+15.0
+million of additional consideration paid, $
+3.5
+million has been included as a component of Net cash provided by operating activities within the Condensed Consolidated Statement of Cash Flows with the remaining $
+11.5
+million representing the fair value of the contingent consideration established in the Company’s purchase price allocation, being included as a component of Net cash (used for) provided by financing activities.
+During the three months ended March 31, 2026, the Company finalized the Hog purchase price allocation and recognized certain measurement period adjustments, which did not have a material impact on the carrying value of goodwill previously
+10
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS — (CONTINUED)
+(Unaudited)
+recognized as of December 31, 2025. The measurement period adjustments did not have a material impact on the Company’s Condensed Consolidated Statement of Operations for the three months ended March 31, 2026.
+The following table summarizes the fair value of assets acquired and liabilities assumed as of the acquisition date:
+(in millions)
+Purchase price, inclusive of closing adjustments
+(a)
+$
+82.5
+Estimated fair value of additional consideration
+(b)
+11.5
+Settlement of pre-existing contractual relationship
+(c)
+0.9
+Total consideration
+94.9
+Accounts receivable
+6.7
+Inventories
+9.7
+Prepaid expenses and other current assets
+1.0
+Properties and equipment
+18.1
+Customer relationships
+(d)
+23.7
+Trade names
+(e)
+12.4
+Other intangible assets
+3.0
+Accounts payable
+(
+3.8
+)
+Accrued liabilities
+(
+1.3
+)
+Customer deposits
+(
+5.4
+)
+Net assets acquired
+64.1
+Goodwill
+(f)
+$
+30.8
+(a)     The purchase price was funded through existing cash on hand and borrowings under the Company’s credit agreement. The purchase price included an amount of $
+10.0
+million, which was paid by the Company at closing and placed into an escrow account. Based on Hog’s financial results for the year ended December 31, 2025, the amount placed in escrow was released to the former owner of Hog during the three months ended March 31, 2026. The Company assigned a fair value to this contingent consideration of $
+10.0
+million as of the acquisition date.
+(b)    Represents the fair value assigned to the contingent earn-out payment as of the acquisition date. See Note 13 – Fair Value Measurements for discussion of the methodology used to determine the fair value of the contingent earn-out payment.
+(c)    Represents the non-cash settlement of accounts receivable due from Hog to the Company as of the acquisition date. Corresponding amount payable by Hog to the Company is not included in accounts payable assumed in the table above, and the amount was settled at fair value with no impact on the Condensed Consolidated Statement of Operations in 2025.
+(d)    Represents the fair value assigned to customer relationships, which are considered to be definite-lived intangible assets, with an estimated useful life of approximately
+12
+years.
+(e)    Represents the fair value assigned to trade names, which are considered to be indefinite-lived intangible assets.
+(f)    Goodwill, which is tax-deductible, has been allocated to the Environmental Solutions Group on the basis that the synergies identified will primarily benefit this segment.
+11
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS — (CONTINUED)
+(Unaudited)
+NOTE 3 –
+REVENUE RECOGNITION
+The following table presents the Company’s Net sales disaggregated by geographic region, based on the location of the end customer, and by major product line:
+Three Months Ended
+March 31,
+(in millions)
+2026
+2025
+Geographic Region:
+U.S.
+$
+501.5
+$
+364.5
+Canada
+77.9
+61.5
+Europe/Other
+46.2
+37.8
+Total net sales
+$
+625.6
+$
+463.8
+Major Product Line:
+Environmental Solutions
+Vehicles and equipment
+(a)
+$
+425.9
+$
+301.6
+Parts
+77.9
+60.1
+Rental income
+(b)
+16.9
+15.0
+Other
+(c)
+12.0
+10.7
+Total
+532.7
+387.4
+Safety and Security Systems
+Public safety and security equipment
+65.2
+50.6
+Industrial signaling equipment
+18.3
+16.6
+Warning systems
+9.4
+9.2
+Total
+92.9
+76.4
+Total net sales
+$
+625.6
+$
+463.8
+(a)
+Includes net sales from the sale of new and used vehicles and equipment, including sales of rental equipment.
+(b)
+Represents income from vehicle and equipment lease arrangements with customers.
+(c)
+Primarily includes revenues from services, such as maintenance and repair work, and the sale of extended warranty contracts.
+Contract Balances
+The Company recognizes contract liabilities when cash payments, such as customer deposits, are received in advance of the Company’s satisfaction of the related performance obligations.
+Contract liabilities are recognized as Net sales when the related performance obligations are satisfied, which generally occurs within three to six months of the cash receipt.
+Contract liability balances are not materially impacted by any other factors. The Company’s contract liabilities were
+$
+72.0
+million
+as of
+March 31, 2026
+and $
+53.1
+million as of December 31, 2025.
+Contract assets, such as unbilled receivables, were not material as of any of the periods presented herein.
+NOTE 4 –
+INVENTORIES
+The following table summarizes the components of Inventories:
+(in millions)
+March 31,
+2026
+December 31,
+2025
+Finished goods
+$
+207.7
+$
+190.2
+Raw materials
+221.1
+237.7
+Work in process
+49.0
+43.7
+Total inventories
+$
+477.8
+$
+471.6
+12
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS — (CONTINUED)
+(Unaudited)
+NOTE 5 –
+DEBT
+The following table summarizes the components of Long-term borrowings and finance lease obligations:
+(in millions)
+March 31,
+2026
+December 31, 2025
+2025 Credit Agreement
+(a)
+$
+550.6
+$
+564.0
+Finance lease obligations
+2.4
+2.6
+Total long-term borrowings and finance lease obligations, including current portion
+553.0
+566.6
+Less: Current maturities
+2.5
+—
+Less: Current finance lease obligations
+0.5
+0.5
+Less: Unamortized debt issuance costs
+1.4
+1.5
+Total long-term borrowings and finance lease obligations, net
+$
+548.6
+$
+564.6
+(a)
+Defined as the Fourth Amended and Restated Credit Agreement, dated October 29, 2025, as amended.
+As more fully described within Note 13 – Fair Value Measurements, the Company uses a three-level fair value hierarchy that prioritizes the inputs used to measure fair value. The fair value of the Company’s long-term borrowings and finance lease obligations is based on interest rates that we believe are currently available to us for issuance of debt with similar terms and remaining maturities (Level 2 input). The carrying amounts of the Company’s long-term borrowings and finance lease obligations approximate their fair values as of March 31, 2026 and December 31, 2025.
+The 2025 Credit Agreement is a senior secured credit facility that provides the Company access to an aggregate principal amount of up to $
+1.5
+billion, consisting of (i) a revolving credit facility in an amount up to $
+1.1
+billion (the “Revolver”) and (ii) a delayed draw term loan facility in an amount up to $
+400
+million (the “Term Loan”), which was drawn down on November 25, 2025, in connection with the acquisition of New Way. The 2025 Credit Agreement matures on October 29, 2030.
+Borrowings under the 2025 Credit Agreement bear interest, at the Company’s option, at a base rate or an Adjusted Eurocurrency Rate (as defined in the 2025 Credit Agreement) in the case of borrowings in euros or an adjusted RFR (as defined in the 2025 Credit Agreement) in the case of borrowings in U.S. dollars, Canadian dollars, or British pounds, plus, in each case, an applicable margin. The applicable margin ranges from
+zero
+to
+0.75
+% for base rate borrowings and
+1.00
+% to
+1.75
+% for Adjusted Eurocurrency Rate and RFR borrowings. The Company must also pay a commitment fee to the lenders ranging between
+0.10
+% to
+0.25
+% per annum on the unused portion of the Revolver, along with other standard fees. Applicable margin, issuance fees, and other customary expenses are payable on outstanding letters of credit.
+The Company is subject to certain net leverage ratio and interest coverage ratio financial covenants under the 2025 Credit Agreement that are to be measured at each fiscal quarter-end for the most recently ended four-quarter period. The Company was in compliance with all such covenants as of March 31, 2026.
+The 2025 Credit Agreement amended and restated the Third Amended and Restated Credit Agreement (as amended, the “2022 Credit Agreement”), which provided the Company with an aggregate original principal amount of up to $
+800
+million, consisting of (i) a revolving credit facility in an amount up to $
+675
+million and (ii) a term loan facility in an original amount of up to $
+125
+million.
+As of March 31, 2026, there was $
+150.6
+million of cash drawn on the Revolver, $
+400.0
+million outstanding under the Term Loan, and $
+10.7
+million of undrawn letters of credit under the 2025 Credit Agreement, with $
+938.7
+million of net availability for borrowings. As of December 31, 2025, there was $
+164.0
+million of cash drawn on the Revolver, $
+400.0
+million outstanding under the Term Loan, and $
+10.7
+million of undrawn letters of credit under the 2025 Credit Agreement, with $
+925.3
+million of net availability for borrowings.
+The following table summarizes the gross borrowings and gross payments under the Company’s revolving credit facilities:
+Three Months Ended
+March 31,
+(in millions)
+2026
+2025
+Gross borrowings
+$
+32.0
+$
+78.0
+Gross payments
+44.8
+13.8
+13
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS — (CONTINUED)
+(Unaudited)
+Interest Rate Swaps
+On October 21, 2022, the Company entered into an interest rate swap (the “2022 Swap”) with a notional amount of $
+75.0
+million, as a means of fixing the floating interest rate component on $
+75.0
+million of its variable-rate debt. The 2022 Swap, which was designated as a cash flow hedge, matured on October 31, 2025.
+On July 11, 2023, the Company entered into an additional interest rate swap (the “2023 Swap”) with a notional amount of $
+75.0
+million, as a means of fixing the floating interest rate component on $
+75.0
+million of its variable-rate debt. The 2023 Swap, which was designated as a cash flow hedge, matured on August 1, 2025.
+As a result of the application of hedge accounting treatment, all unrealized gains and losses related to the derivative instruments were recorded in Accumulated other comprehensive loss and were reclassified into the Condensed Consolidated Statements of Operations as a component of Interest expense, net in the same period in which the hedged transaction affects earnings.
+There were
+no
+outstanding interest rate swaps as of March 31, 2026 or December 31, 2025. During the three months ended March 31, 2025, unrealized pre-tax gains recorded in Accumulated other comprehensive loss were insignificant, and
+no
+ineffectiveness was recorded.
+Finance Leases
+In the first quarter of 2025, the Company exercised the purchase option on one of its leased U.S. manufacturing facilities. As of the purchase date, the related finance lease right-of-use (“ROU”) asset, net, was approximately $
+11.3
+million and the finance lease liability was $
+11.5
+million. The cash outflow of approximately $
+11.5
+million related to the facility purchase is reflected as a component of Other, net within the financing activities on the Condensed Consolidated Statement of Cash Flows for the three months ended March 31, 2025.
+The following table summarizes the supplemental noncash investing and financing activities related to this facility purchase:
+Three Months Ended
+March 31,
+(in millions)
+2025
+Purchase of properties and equipment through exchange of lease ROU asset
+$
+11.3
+Derecognition of ROU asset
+(
+11.3
+)
+NOTE 6 –
+GOODWILL AND OTHER INTANGIBLE ASSETS
+The following table summarizes the carrying amount of goodwill, and the changes in the carrying amount of goodwill in the three months ended March 31, 2026, by segment:
+(in millions)
+Environmental
+Solutions
+Safety & Security
+Systems
+Total
+Balance at January 1, 2026
+$
+506.8
+$
+113.0
+$
+619.8
+Acquisitions, including measurement period adjustments
+8.0
+—
+8.0
+Translation adjustments
+(
+0.2
+)
+(
+0.8
+)
+(
+1.0
+)
+Balance at March 31, 2026
+$
+514.6
+$
+112.2
+$
+626.8
+The following table summarizes the gross carrying amount and accumulated amortization of intangible assets for each major class of intangible assets:
+14
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS — (CONTINUED)
+(Unaudited)
+March 31, 2026
+December 31, 2025
+(in millions)
+Gross Carrying Value
+Accumulated Amortization
+Net Carrying Value
+Gross Carrying Value
+Accumulated Amortization
+Net Carrying Value
+Definite-lived intangible assets:
+Customer relationships
+(a)
+$
+311.8
+$
+(
+104.5
+)
+$
+207.3
+$
+300.9
+$
+(
+98.2
+)
+$
+202.7
+Other
+(a)
+9.9
+(
+5.8
+)
+4.1
+10.3
+(
+6.0
+)
+4.3
+Total definite-lived intangible assets
+321.7
+(
+110.3
+)
+211.4
+311.2
+(
+104.2
+)
+207.0
+Indefinite-lived intangible assets:
+Trade names
+178.2
+—
+178.2
+171.6
+—
+171.6
+Other
+4.3
+—
+4.3
+4.3
+—
+4.3
+Total indefinite-lived intangible assets
+182.5
+—
+182.5
+175.9
+—
+175.9
+Total intangible assets
+$
+504.2
+$
+(
+110.3
+)
+$
+393.9
+$
+487.1
+$
+(
+104.2
+)
+$
+382.9
+(a)    Average useful life of customer relationships and other definite-lived intangible assets are estimated to be approximately
+13
+years and
+9
+years, respectively. The average useful life across all definite-lived intangible assets is estimated to be approximately
+13
+years.
+The table above includes preliminary estimates of the fair value and useful lives of certain definite and indefinite-lived intangible assets related to the New Way acquisition, which was completed during the fourth quarter of 2025, and the Mega acquisition, which was completed during the first quarter of 2026. As further described in Note 2 – Acquisitions, the preliminary measurements of fair value included in the table above are subject to change during the measurement period as the applicable third-party valuations are finalized.
+Amortization expense was $
+6.5
+million for the three months ended March 31, 2026 and $
+4.3
+million for the three months ended March 31, 2025.
+The Company currently estimates that aggregate amortization expense will be approximately $
+19.6
+million for the remainder of 2026, $
+25.5
+million in 2027, $
+24.9
+million in 2028, $
+19.6
+million in 2029, $
+16.4
+million in 2030, and $
+105.4
+million thereafter. Actual amounts of amortization may differ from estimated amounts due to changes in foreign currency rates, measurement period adjustments for the New Way and Mega acquisitions, impairment of intangible assets, and other events.
+NOTE 7 –
+INCOME TAXES
+The Company recognized income tax expense of $
+21.8
+million for the three months ended March 31, 2026, compared to $
+15.7
+million in the three months ended March 31, 2025, with the increase primarily due to the effects of higher pre-tax income levels, partially offset by a $
+1.1
+million increase in excess tax benefits associated with stock-based compensation activity. The Company’s effective tax rate for the three months ended March 31, 2026 was
+23.6
+%, compared to
+25.3
+% in the prior-year quarter.
+NOTE 8 –
+PENSIONS
+The following table summarizes the components of Net periodic pension expense:
+U.S. Benefit Plan
+Non-U.S. Benefit Plan
+Three Months Ended
+March 31,
+Three Months Ended
+March 31,
+(in millions)
+2026
+2025
+2026
+2025
+Service cost
+$
+—
+$
+—
+$
+0.1
+$
+—
+Interest cost
+$
+1.3
+$
+1.4
+$
+0.4
+$
+0.4
+Amortization of actuarial loss
+0.6
+0.6
+0.2
+0.1
+Expected return on plan assets
+(
+1.3
+)
+(
+1.4
+)
+(
+0.5
+)
+(
+0.4
+)
+Net periodic pension expense
+$
+0.6
+$
+0.6
+$
+0.2
+$
+0.1
+The items that comprise Net periodic pension expense, other than Service cost, are included as a component of Other expense, net on the Condensed Consolidated Statements of Operations.
+15
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS — (CONTINUED)
+(Unaudited)
+NOTE 9 –
+COMMITMENTS AND CONTINGENCIES
+Financial Commitments
+The Company provides indemnifications and other guarantees in the ordinary course of business, the terms of which range in duration and often are not explicitly defined. Specifically, the Company is occasionally required to provide letters of credit and bid and performance bonds to various customers, principally to act as security for retention levels related to casualty insurance policies and to guarantee the performance of subsidiaries that engage in export and domestic transactions. At March 31, 2026, the Company had outstanding performance and financial standby letters of credit, as well as outstanding bid and performance bonds, aggregating to $
+30.4
+million. If any such letters of credit or bonds are called, the Company would be obligated to reimburse the issuer of the letter of credit or bond. The Company believes the likelihood of any currently outstanding letter of credit or bond being called is remote.
+The Company has transactions involving the sale of equipment to certain of its customers that include (i) guarantees to repurchase the equipment for a fixed price at a future date and (ii) guarantees to repurchase the equipment from the third-party lender in the event of default by the customer. As of March 31, 2026, both the single year and maximum potential cash payments the Company could be required to make to repurchase equipment under these agreements amounted to $
+11.0
+million. The Company’s risk under these repurchase arrangements would be partially mitigated by the value of the products repurchased as part of the transaction. Historical cash requirements and losses associated with these obligations have not been significant but could increase if customer defaults exceed current expectations.
+The Company has certain lease agreements for facilities owned by affiliates that include provisions requiring the Company to guarantee any remaining lease payments in the event of default. As of March 31, 2026, the total amount of future payments guaranteed under these agreements was approximately $
+4.0
+million. The Company believes the likelihood of defaulting on these leases is remote.
+Product Warranties
+The Company issues product performance warranties to customers with the sale of its products. The specific terms and conditions of these warranties vary depending upon the product sold and country in which the Company does business, with warranty periods generally ranging from
+one
+to
+five years
+. The Company estimates the costs that may be incurred under its basic limited warranty and records a liability in the amount of such costs at the time the sale of the related product is recognized. Factors that affect the Company’s warranty liability include (i) the number of units under warranty, (ii) historical and anticipated rates of warranty claims, and (iii) costs per claim. The Company periodically assesses the adequacy of its recorded warranty liabilities and adjusts the amounts as necessary.
+The following table summarizes the changes in the Company’s warranty liabilities during the three months ended March 31, 2026 and 2025:
+(in millions)
+2026
+2025
+Balance at January 1
+$
+12.0
+$
+9.8
+Provisions to expense
+2.0
+1.6
+Acquisitions, including measurement period adjustments
+1.0
+0.6
+Payments
+(
+2.2
+)
+(
+1.6
+)
+Balance at March 31
+$
+12.8
+$
+10.4
+Legal Proceedings
+The
+Company
+is
+subject
+to
+various
+claims,
+including
+pending
+and
+possible
+legal
+actions
+for
+product
+liability
+and
+other
+damages,
+and other matters arising in the ordinary course of the Company’s business. On a quarterly basis, the Company reviews
+uninsured material legal claims against the Company and accrues for the costs of such claims as appropriate in the exercise of
+management’s best judgment and experience. However, due to a lack of factual information available to the Company about a
+claim,
+or
+the
+procedural
+stage
+of
+a
+claim,
+it
+may
+not
+be
+possible
+for
+the
+Company
+to
+reasonably
+assess
+either
+the
+probability
+of
+a favorable
+or
+unfavorable
+outcome
+of
+the
+claim
+or
+to
+reasonably
+estimate
+the
+amount
+of
+loss
+should
+there
+be
+an
+unfavorable
+outcome.
+Therefore,
+for many
+claims,
+the
+Company
+cannot
+reasonably estimate
+a
+range
+of
+loss.
+16
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS — (CONTINUED)
+(Unaudited)
+The Company believes, based on current knowledge and after consultation with counsel, that the outcome of such claims and
+actions will not have a material adverse effect on the Company’s results of operations or financial condition. However, in the
+event
+of
+unexpected
+future
+developments,
+it
+is
+possible
+that
+the
+ultimate
+resolution
+of
+such
+matters,
+if
+unfavorable,
+could
+have
+a
+material
+adverse
+effect
+on
+the
+Company’s
+results
+of operations,
+financial
+condition, or
+cash flow.
+Hearing Loss Litigation
+Between 1999 and 2017, the Company was sued for monetary damages by multiple firefighters claiming that exposure to the Company’s sirens impaired their hearing and that the sirens were therefore defective. The Company has vigorously defended itself against these claims, obtaining many jury verdicts in its favor and settling some for nominal amounts. In 2018, counsel for the remaining plaintiffs requested that the Company consider settlement, and on November 4, 2019, the parties executed a global settlement agreement pursuant to which the Company would pay $
+700
+to each firefighter who filed a lawsuit and is eligible to be part of the settlement, and $
+300
+to each firefighter who has not yet filed a case and is eligible to be part of the settlement. The settlement agreement requires plaintiffs’ attorneys to withdraw from representing firefighters who elect not to participate in the settlement and does not include the payment of any attorney fees by the Company. To be eligible for settlement, among other things, firefighters must provide proof that they have high frequency noise-induced hearing loss. As of March 31, 2026, the Company has recognized an estimated liability for the potential settlement amount. While it is reasonably possible that the ultimate resolution of this matter may result in a loss in excess of the amount accrued, the incremental loss is not expected to be material.
+NOTE 10 –
+EARNINGS PER SHARE
+The Company computes earnings per share (“EPS”) in accordance with ASC 260,
+Earnings per Share
+, which requires that non-vested restricted stock containing non-forfeitable dividend rights should be treated as participating securities pursuant to the two-class method. Under the two-class method, net income is reduced by the amount of dividends declared in the period for common stock and participating securities. The remaining undistributed earnings are then allocated to common stock and participating securities as if all of the net income for the period had been distributed. The amounts of distributed and undistributed earnings allocated to participating securities for the three months ended March 31, 2026 and 2025 were insignificant and did not materially impact the calculation of basic or diluted EPS.
+Basic EPS is computed by dividing net income available to common stockholders by the weighted average number of shares of common stock and non-vested restricted stock awards outstanding for the period.
+Diluted EPS is computed using the weighted average number of shares of common stock and non-vested restricted stock awards outstanding for the year, plus the effect of dilutive potential common shares outstanding during the period. The dilutive effect of common stock equivalents is determined using the more dilutive of the two-class method or alternative methods. The Company uses the treasury stock method to determine the potentially dilutive impact of our employee stock options and restricted stock units, and the contingently issuable method for our performance-based restricted stock unit awards.
+For the three months ended March 31, 2026, the number of options to purchase shares of the Company’s stock that had an antidilutive effect on EPS was insignificant. For the three months ended March 31, 2025, options to purchase
+0.1
+million shares of the Company’s stock had an antidilutive effect on EPS, and accordingly, were excluded from the calculation of diluted EPS.
+The following table reconciles Net income to basic and diluted EPS:
+Three Months Ended
+March 31,
+(in millions, except per share data)
+2026
+2025
+Net income
+$
+70.4
+$
+46.3
+Weighted average shares outstanding – Basic
+60.9
+61.1
+Dilutive effect of common stock equivalents
+0.6
+0.7
+Weighted average shares outstanding – Diluted
+61.5
+61.8
+Earnings per share:
+Basic
+$
+1.16
+$
+0.76
+Diluted
+1.14
+0.75
+17
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS — (CONTINUED)
+(Unaudited)
+NOTE 11 –
+STOCKHOLDERS’ EQUITY
+Dividends
+On February 27, 2026, the Company’s Board of Directors (the “Board”) declared a quarterly cash dividend of $
+0.15
+per common share. The dividend totaled $
+9.2
+million and was distributed on March 26, 2026 to stockholders of record at the close of business on March 13, 2026.
+On April 21, 2026, the Board declared a quarterly cash dividend of $
+0.15
+per common share payable on May 29, 2026 to stockholders of record at the close of business on May 15, 2026.
+The Company paid dividends to stockholders of $
+8.6
+million during the three months ended March 31, 2025.
+Stock Repurchase Program
+In March 2020, the Board authorized a stock repurchase program (the “March 2020 program”) of up to $
+75
+million of the Company’s common stock.
+In April 2025, the Board authorized an additional stock repurchase program (the “April 2025 program”) of up to $
+150
+million of the Company’s common stock. The April 2025 program supplements the Board’s prior authorization under the March 2020 program, which remains in effect.
+The stock repurchase programs are intended primarily to facilitate purchases of Company stock as a means to provide cash returns to stockholders, enhance stockholder returns, and manage the Company’s capital structure. Under its stock repurchase programs, the Company is authorized to repurchase, from time to time, shares of its outstanding common stock. Stock repurchases by the Company are subject to market conditions and other factors and may be commenced, suspended, or discontinued at any time.
+No
+shares were repurchased under the Company’s stock repurchase programs during the three months ended March 31, 2026. At the end of the first quarter of 2026, the Company had remaining authorization under its stock repurchase programs of approximately $
+157
+million.
+During the three months ended March 31, 2025, the Company repurchased
+250,604
+shares for a total of $
+19.7
+million under its stock repurchase programs, including $
+1.2
+million that settled in the second quarter of 2025.
+Accumulated Other Comprehensive Loss
+The following tables summarize the changes in each component of Accumulated other comprehensive loss, net of tax in the three months ended March 31, 2026 and 2025:
+(in millions)
+Actuarial Losses
+Prior Service Costs
+Foreign
+Currency Translation
+Interest Rate Swaps
+Total
+Balance at January 1, 2026
+(a)
+$
+(
+61.4
+)
+$
+(
+1.8
+)
+$
+(
+7.8
+)
+$
+—
+$
+(
+71.0
+)
+Other comprehensive loss before reclassifications
+—
+—
+(
+4.0
+)
+—
+(
+4.0
+)
+Amounts reclassified from accumulated other comprehensive loss
+0.6
+—
+—
+—
+0.6
+Net current-period other comprehensive income (loss)
+0.6
+—
+(
+4.0
+)
+—
+(
+3.4
+)
+Balance at March 31, 2026
+(a)
+$
+(
+60.8
+)
+$
+(
+1.8
+)
+$
+(
+11.8
+)
+$
+—
+$
+(
+74.4
+)
+(in millions)
+Actuarial Losses
+Prior Service Costs
+Foreign
+Currency Translation
+Interest Rate Swaps
+Total
+Balance at January 1, 2025
+(a)
+$
+(
+62.5
+)
+$
+(
+1.8
+)
+$
+(
+24.5
+)
+$
+(
+0.2
+)
+$
+(
+89.0
+)
+Other comprehensive (loss) income before reclassifications
+(
+0.3
+)
+—
+4.0
+0.1
+3.8
+Amounts reclassified from accumulated other comprehensive loss
+0.5
+—
+—
+—
+0.5
+Net current-period other comprehensive income
+0.2
+—
+4.0
+0.1
+4.3
+Balance at March 31, 2025
+(a)
+$
+(
+62.3
+)
+$
+(
+1.8
+)
+$
+(
+20.5
+)
+$
+(
+0.1
+)
+$
+(
+84.7
+)
+(a)    Amounts in parentheses indicate losses.
+18
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS — (CONTINUED)
+(Unaudited)
+The following table summarizes the amounts reclassified from Accumulated other comprehensive loss, net of tax, in the three months ended March 31, 2026 and 2025 and the affected line item in the Condensed Consolidated Statements of Operations:
+Details about Accumulated Other Comprehensive Loss Components
+Amount Reclassified from Accumulated Other Comprehensive Loss
+Affected Line Item in Condensed Consolidated Statements of Operations
+2026
+2025
+(in millions)
+(a)
+Amortization of actuarial losses of defined benefit pension plans
+$
+(
+0.8
+)
+$
+(
+0.7
+)
+Other expense, net
+Total before tax
+(
+0.8
+)
+(
+0.7
+)
+Income tax benefit
+0.2
+0.2
+Income tax expense
+Total reclassifications for the period, net of tax
+$
+(
+0.6
+)
+$
+(
+0.5
+)
+(a)    Amounts in parentheses indicate losses.
+19
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS — (CONTINUED)
+(Unaudited)
+NOTE 12 —
+SEGMENT INFORMATION
+The Company has
+two
+reportable segments. Business units are organized under each reportable segment because they share certain characteristics, such as technology, marketing, distribution, and product application, which are expected to create long-term synergies.
+The following tables summarize the Company’s financial performance by reportable segment and include reconciliations of segment operating income to consolidated Income before income taxes for the three months ended March 31, 2026 and 2025:
+Three Months ended March 31, 2026
+(in millions of dollars)
+Environmental Solutions
+Safety and Security Systems
+Total
+Net sales
+(a)
+$
+532.7
+$
+92.9
+$
+625.6
+Less: Cost of sales
+393.8
+52.4
+446.2
+Gross profit
+138.9
+40.5
+179.4
+Less:
+Selling, engineering, general, and administrative expenses
+43.3
+16.9
+60.2
+Other segment items
+(b)
+6.5
+—
+6.5
+Segment operating income
+89.1
+23.6
+112.7
+Reconciliation to income before income taxes:
+All other (income) loss
+(c)
+13.0
+Interest expense, net
+6.9
+Other expense, net
+0.6
+Income before income taxes
+$
+92.2
+(a)    Represents net sales from external customers. Intersegment net sales are insignificant. Total of segment net sales agrees to Net sales on the Condensed Consolidated Statement of Operations.
+(b)    Other segment items includes amortization expense and acquisition and integration-related expenses, net, within the Environmental Solutions Group.
+(c)    Represents general corporate expenses.
+Three Months Ended March 31, 2025
+(in millions of dollars)
+Environmental Solutions
+Safety and Security Systems
+Total
+Net sales
+(a)
+$
+387.4
+$
+76.4
+$
+463.8
+Less: Cost of sales
+288.4
+44.6
+333.0
+Gross profit
+99.0
+31.8
+130.8
+Less:
+Selling, engineering, general, and administrative expenses
+34.9
+16.0
+50.9
+Other segment items
+(b)
+4.4
+—
+4.4
+Segment operating income
+59.7
+15.8
+75.5
+Reconciliation to income before income taxes:
+All other (income) loss
+(c)
+9.8
+Interest expense, net
+3.0
+Other expense, net
+0.7
+Income before income taxes
+$
+62.0
+(a)    Represents net sales from external customers. Intersegment net sales are insignificant. Total of segment net sales agrees to Net sales on the Condensed Consolidated Statement of Operations.
+(b)    Other segment items includes amortization expense and acquisition and integration-related expenses, net, within the Environmental Solutions Group.
+(c)    Represents general corporate expenses.
+20
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS — (CONTINUED)
+(Unaudited)
+The following table summarizes the Company’s total depreciation and amortization by reportable segment and includes a reconciliation of total segment depreciation and amortization to total depreciation and amortization for the three months ended March 31, 2026 and 2025:
+Three Months Ended
+March 31,
+(in millions of dollars)
+2026
+2025
+Depreciation and amortization:
+Environmental Solutions
+(a)
+$
+22.6
+$
+17.6
+Safety and Security Systems
+(a)
+1.1
+1.0
+Total segment depreciation and amortization
+23.7
+18.6
+Corporate
+0.1
+0.1
+Total depreciation and amortization
+$
+23.8
+$
+18.7
+(a)    The amounts of depreciation and amortization disclosed by reportable segment are included within cost of sales; selling, engineering, general, and administrative expenses; and other segment items in the tables above.
+The following table summarizes the Company’s total assets by reportable segment and includes a reconciliation of total segment assets to total assets as of March 31, 2026 and December 31, 2025:
+(in millions of dollars)
+March 31,
+2026
+December 31, 2025
+Total assets:
+Environmental Solutions
+$
+2,102.2
+$
+2,040.7
+Safety and Security Systems
+306.0
+303.5
+Total segment assets
+2,408.2
+2,344.2
+Corporate and eliminations
+46.2
+48.4
+Total assets
+$
+2,454.4
+$
+2,392.6
+The following table summarizes the Company’s total capital expenditures by reportable segment and includes a reconciliation of total segment capital expenditures to total capital expenditures for the three months ended March 31, 2026 and 2025:
+Three Months Ended
+March 31,
+(in millions of dollars)
+2026
+2025
+Capital expenditures
+Environmental Solutions
+$
+5.1
+$
+4.4
+Safety and Security Systems
+1.5
+0.8
+Total segment capital expenditures
+6.6
+5.2
+Corporate
+0.1
+0.4
+Total capital expenditures
+$
+6.7
+$
+5.6
+21
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS — (CONTINUED)
+(Unaudited)
+NOTE 13 –
+FAIR VALUE MEASUREMENTS
+The Company uses a three-level fair value hierarchy that prioritizes the inputs used to measure fair value. This hierarchy maximizes the use of observable inputs and minimizes the use of unobservable inputs. Observable inputs are developed based on market data obtained from independent sources, while unobservable inputs reflect the Company’s assumptions about valuation based on the best information available in the circumstances. The three levels of inputs are classified as follows:
+•
+Level 1 — quoted prices in active markets for identical assets or liabilities;
+•
+Level 2 — observable inputs, other than quoted prices included in Level 1, such as quoted prices for markets that are not active, or other inputs that are observable or can be corroborated by observable market data; and
+•
+Level 3 — unobservable inputs that are supported by little or no market activity and that are significant to the fair value of the assets or liabilities, including certain pricing models, discounted cash flow methodologies, and similar techniques that use significant unobservable inputs.
+In determining fair value, the Company uses various valuation approaches within the fair value measurement framework. The valuation methodologies used for the Company’s assets and liabilities measured at fair value and their classification in the valuation hierarchy are summarized below.
+Cash Equivalents
+Cash equivalents primarily consist of time-based deposits and interest-bearing instruments with maturities of three months or less. The Company classified cash equivalents as Level 1 due to the short-term nature of these instruments and measured the fair value based on quoted prices in active markets for identical assets.
+Interest Rate Swaps
+As described in Note 5 – Debt, the Company has, from time to time, executed interest rate swaps as a means of fixing the floating interest rate component on a portion of its floating-rate debt. The Company classifies its interest rate swaps as Level 2 due to the use of a discounted cash flow model based on the terms of the contract and the interest rate curve (Level 2 inputs) to calculate the fair value of the swaps. The Company had no interest rate swaps outstanding as of March 31, 2026.
+Contingent Consideration
+As of March 31, 2026, the Company had contingent obligations to transfer up to $
+3.9
+million, $
+4.8
+million, and $
+54.0
+million to the former owners of Blasters, Inc. and Blasters Technologies, LLC (collectively, “Blasters”), Standard Equipment Company (“Standard”), and New Way, respectively, if specified financial results are met over future reporting periods (i.e., an earn-out). The Blasters, Standard, and New Way acquisitions were completed on January 3, 2023, October 4, 2024, and November 25, 2025, respectively. The Blasters contingent earn-out payments, if earned, would be due to be paid annually, in each of the three years following the anniversary of the closing date. There was no contingent earn-out payable for the first or second annual measurement periods. The third annual measurement period ended on January 3, 2026, and the applicable contingent earn-out payment, if any, is expected to be finalized in the second quarter of 2026. The Standard contingent earn-out payment, if earned, would be due to be paid following the end of the performance period, which concludes on January 1, 2027. The New Way contingent earn-out payment, if earned, would be due to be paid following the end of the performance period, which concludes on December 31, 2027.
+The Company also previously had contingent obligations to transfer up to $
+15.0
+million to the former owner of Hog. The applicable performance period for the Hog earn-out ended on December 31, 2025. During the first quarter of 2026, the Company determined that, based on the achievement of certain financial results, the full amount of the contingent consideration had been earned, and paid an additional $
+15.0
+million to the former owner of Hog. See Note 2 - Acquisitions for additional information.
+Liabilities for contingent consideration are measured at fair value each reporting period, with the acquisition-date fair value included as part of the consideration transferred. Subsequent changes in fair value are included as a component of Acquisition and integration-related expenses, net on the Condensed Consolidated Statements of Operations.
+The Company uses an income approach to value the contingent consideration liability based on the present value of risk-adjusted future cash flows under either a scenario-based or option-pricing method, as appropriate. Due to the lack of relevant observable market data over fair value inputs, such as prospective financial information or probabilities of future events as of
+22
+Table of Contents
+FEDERAL SIGNAL CORPORATION AND SUBSIDIARIES
+NOTES TO CONDENSED CONSOLIDATED FINANCIAL STATEMENTS — (CONTINUED)
+(Unaudited)
+March 31, 2026, the Company has classified the contingent consideration liability within Level 3 of the fair value hierarchy outlined in ASC 820,
+Fair Value Measurements
+.
+The following table summarizes the Company’s assets and liabilities that are measured at fair value on a recurring basis as of March 31, 2026:
+Fair Value Measurement at Reporting Date Using
+(in millions)
+Level 1
+Level 2
+Level 3
+Total
+Assets:
+Cash equivalents
+$
+14.8
+$
+—
+$
+—
+$
+14.8
+Liabilities:
+Contingent consideration
+—
+—
+14.8
+14.8
+The following table provides a roll-forward of the fair value of recurring Level 3 fair value measurements in the three months ended March 31, 2026 and 2025:
+(in millions)
+2026
+2025
+Contingent consideration liability, at January 1
+$
+29.6
+$
+4.8
+Acquisitions, including measurement period adjustments
+—
+7.5
+Settlements of contingent consideration liabilities
+(
+15.0
+)
+—
+Total expense included in earnings
+(a)
+0.2
+—
+Contingent consideration liability, at March 31
+$
+14.8
+$
+12.3
+(a)    Changes in the fair value of contingent consideration liabilities are included as a component of Acquisition and integration-related expenses, net on the Condensed Consolidated Statements of Operations.
+23
+Table of Contents
+Item 2.
+Management’s Discussion and Analysis of Financial Condition and Results of Operations.
+Management’s Discussion and Analysis of Financial Condition and Results of Operations (“MD&A”) is designed to provide information that is supplemental to, and should be read together with, the condensed consolidated financial statements and the accompanying notes contained in this Form 10-Q, as well as the Company’s Annual Report on Form 10-K for the year ended December 31, 2025. Information in MD&A is intended to provide an analysis of our financial condition and results of operations from management’s perspective and assist the reader in obtaining an understanding of (i) the condensed consolidated financial statements, (ii) the Company’s business segments and how the results of those segments impact the Company’s results of operations and financial condition as a whole, and (iii) how certain accounting principles affect the Company’s condensed consolidated financial statements, and to provide discussion of material events and uncertainties known to management that are reasonably likely to cause reported financial information not to be indicative of future operating results or future financial condition. The Company’s results for interim periods should not be regarded as necessarily indicative of results that may be expected for the entire year, which may differ materially due to, among other things, the risk factors described under Part I, Item 1A,
+Risk Factors
+, of the Company’s Annual Report on Form 10-K for the year ended December 31, 2025, which was filed with the SEC on February 25, 2026.
+Executive Summary
+The Company is a leading global manufacturer and supplier of (i) vehicles and equipment for maintenance and infrastructure end-markets, including vacuum trucks (i.e., sewer cleaners, vacuum- and hydro-excavation (“safe-digging”) trucks, and industrial vacuum loaders), dump truck bodies and trailers, and other specialty equipment (i.e., street sweepers, waterblasting equipment, refuse collection vehicles, road-marking and line-removal equipment, metal extraction support equipment, and multi-purpose maintenance vehicles), and (ii) public safety equipment, such as vehicle lightbars and sirens, industrial signaling equipment, public warning systems, and general alarm/public address systems. Product offerings also include certain products manufactured by other companies. In addition to vehicle and equipment sales, the Company engages in the sale of parts, service and repair, equipment rentals, and training as part of a comprehensive aftermarket offering to its customers. The Company operates 21 principal manufacturing facilities in the U.S., three in Canada, two in Europe, and one in South Africa and provides products and integrated solutions to municipal, governmental, industrial, and commercial customers in all regions of the world.
+As described in Note 12 – Segment Information to the accompanying condensed consolidated financial statements, the Company’s business units are organized in two reportable segments: the Environmental Solutions Group and the Safety and Security Systems Group.
+Operating Results
+Net sales for the three months ended March 31, 2026 increased by $161.8 million, or 35%, compared to the prior-year quarter, primarily due to higher sales volumes, inclusive of the effects of acquisitions, and pricing actions. Our Environmental Solutions Group reported a net sales increase of $145.3 million, or 38%, due to increases in sales of other specialty equipment of $106.6 million, aftermarket offerings of $17.2 million, vacuum trucks of $10.3 million, dump truck bodies and trailers of $8.2 million, as well as a $3.0 million favorable foreign currency translation impact. Within our Safety and Security Systems Group, net sales increased by $16.5 million, or 22%, primarily due to improvements in sales of public safety equipment of $13.1 million and industrial signaling equipment of $1.4 million, as well as a $1.9 million favorable foreign currency translation impact.
+Operating income for the three months ended March 31, 2026 increased by $34.0 million, or 52%, compared to the prior-year quarter, primarily driven by a $48.6 million improvement in gross profit, partially offset by a $11.8 million increase in Selling, Engineering, General and Administrative (“SEG&A”) expenses, a $2.2 million increase in amortization expense, and a $0.6 million increase in acquisition and integration-related expenses, net. Consolidated operating margin for the three months ended March 31, 2026 was 15.9%, compared to 14.2% in the prior-year quarter.
+Income before income taxes for the three months ended March 31, 2026 increased by $30.2 million, or 49%, compared to the prior-year quarter. The increase resulted from the higher operating income and a $0.1 million reduction in other expense, partially offset by a $3.9 million increase in interest expense, net.
+Net income for the three months ended March 31, 2026 increased by $24.1 million compared to the prior-year quarter, largely due to the aforementioned increase in income before taxes, partially offset by a $6.1 million increase in income tax expense.
+Total orders for the three months ended March 31, 2026 were $623 million, an increase of $55 million, or 10%, compared to the prior-year quarter. Our Environmental Solutions Group reported total orders of $534 million in the three months ended March 31, 2026, an increase of $54 million, or 11%, in comparison to the prior-year quarter. Orders in the three months ended March 31, 2026 within our Safety and Security Systems Group were $89 million, an increase of $1 million, or 1%, compared to the prior-year quarter.
+Our consolidated backlog at March 31, 2026 was $1.04 billion, compared to $1.10 billion at March 31, 2025.
+24
+Table of Contents
+Results of Operations
+The following table summarizes our Condensed Consolidated Statements of Operations and illustrates key financial indicators used to assess our consolidated financial results:
+Three Months Ended March 31,
+($ in millions, except per share data)
+2026
+2025
+Change
+Net sales
+$
+625.6
+$
+463.8
+$
+161.8
+Cost of sales
+446.2
+333.0
+113.2
+Gross profit
+179.4
+130.8
+48.6
+Selling, engineering, general and administrative expenses
+72.0
+60.2
+11.8
+Amortization expense
+6.5
+4.3
+2.2
+Acquisition and integration-related expenses, net
+1.2
+0.6
+0.6
+Operating income
+99.7
+65.7
+34.0
+Interest expense, net
+6.9
+3.0
+3.9
+Other expense, net
+0.6
+0.7
+(0.1)
+Income before income taxes
+92.2
+62.0
+30.2
+Income tax expense
+21.8
+15.7
+6.1
+Net income
+$
+70.4
+$
+46.3
+$
+24.1
+Operating data:
+Operating margin
+15.9
+%
+14.2
+%
+1.7
+%
+Diluted earnings per share
+$
+1.14
+$
+0.75
+$
+0.39
+Total orders
+622.8
+567.9
+54.9
+Backlog
+1,037.5
+1,102.0
+(64.5)
+Depreciation and amortization
+23.8
+18.7
+5.1
+Net sales
+Net sales for the three months ended March 31, 2026 increased by $161.8 million, or 35%, compared to the prior-year quarter, primarily due to higher sales volumes, inclusive of the effects of acquisitions, and pricing actions. The Environmental Solutions Group reported a net sales increase of $145.3 million, or 38%, due to increases in sales of other specialty equipment of $106.6 million, aftermarket offerings of $17.2 million, vacuum trucks of $10.3 million, dump truck bodies and trailers of $8.2 million, as well as a $3.0 million favorable foreign currency translation impact. Within the Safety and Security Systems Group, net sales increased by $16.5 million, or 22%, primarily due to improvements in sales of public safety equipment of $13.1 million and industrial signaling equipment of $1.4 million, as well as a $1.9 million favorable foreign currency translation impact.
+Cost of sales
+Cost of sales increased by $113.2 million, or 34%, for the three months ended March 31, 2026 compared to the prior-year quarter, largely due to an increase of $105.4 million, or 37%, within the Environmental Solutions Group, primarily related to higher sales volumes and the addition of cost of sales from recent acquisitions. Within the Safety and Security Systems Group, cost of sales increased by $7.8 million, or 17%, primarily related to higher sales volumes.
+Gross profit
+Gross profit increased by $48.6 million, or 37%, for the three months ended March 31, 2026 compared to the prior-year quarter, primarily due to a $39.9 million improvement within the Environmental Solutions Group and a $8.7 million improvement within the Safety and Security Systems Group. Gross profit as a percentage of revenues (“gross profit margin”) for the three months ended March 31, 2026 was 28.7%, compared to 28.2% in the prior-year quarter, primarily due to a 200 basis point improvement within the Safety and Security Systems Group and a 50 basis point improvement within the Environmental Solutions Group.
+SEG&A expenses
+SEG&A expenses for the three months ended March 31, 2026 increased by $11.8 million, or 20%, compared to the prior-year quarter, primarily due to an $8.4 million increase within the Environmental Solutions Group, a $0.9 million increase within the Safety and Security Systems Group, and a $2.5 million increase in Corporate SEG&A expenses. As a percentage of net sales,
+25
+Table of Contents
+SEG&A expenses were 11.5% in the current-year quarter, compared to 13.0% in the prior-year quarter.
+Operating income
+Operating income for the three months ended March 31, 2026 increased by $34.0 million, or 52%, compared to the prior-year quarter, primarily driven by a $48.6 million improvement in gross profit, partially offset by a $11.8 million increase in SEG&A expenses, a $2.2 million increase in amortization expense, and a $0.6 million increase in acquisition and integration-related expenses, net. Consolidated operating margin for the three months ended March 31, 2026 was 15.9%, compared to 14.2% in the prior-year quarter.
+Interest expense, net
+Interest expense, net, for the three months ended March 31, 2026 increased by $3.9 million compared to the prior-year quarter, largely due to higher average debt levels.
+Other expense, net
+Other expense, net, for the three months ended March 31, 2026 decreased by $0.1 million compared to the prior-year quarter, primarily due to higher foreign currency transaction gains.
+Income tax expense
+The Company recognized income tax expense of $21.8 million for the three months ended March 31, 2026, compared to $15.7 million in the three months ended March 31, 2025, with the increase primarily due to the effects of higher pre-tax income levels, partially offset by a $1.1 million increase in excess tax benefits associated with stock-based compensation activity. The Company’s effective tax rate for the three months ended March 31, 2026 was 23.6%, compared to 25.3% in the prior-year quarter.
+Net income
+Net income for the three months ended March 31, 2026 increased by $24.1 million compared to the prior-year quarter, largely due to the $34.0 million increase in operating income and the $0.1 million reduction in other expense, partially offset by a $6.1 million increase in income tax expense and a $3.9 million increase in interest expense, net.
+26
+Table of Contents
+Environmental Solutions
+The following table summarizes the Environmental Solutions Group’s operating results as of and for the three months ended March 31, 2026 and 2025:
+Three Months Ended March 31,
+($ in millions)
+2026
+2025
+Change
+Net sales
+$
+532.7
+$
+387.4
+$
+145.3
+Operating income
+89.1
+59.7
+29.4
+Operating data:
+Operating margin
+16.7
+%
+15.4
+%
+1.3
+%
+Total orders
+$
+534.3
+$
+480.1
+$
+54.2
+Backlog
+965.9
+1,033.1
+(67.2)
+Depreciation and amortization
+22.6
+17.6
+5.0
+Total orders for the three months ended March 31, 2026 increased by $54.2 million, or 11%, compared to the prior-year quarter, inclusive of the effects of acquisitions. U.S. orders increased by $69.2 million, primarily due to improvements in orders for other specialty equipment of $67.1 million, inclusive of higher refuse truck orders associated with the New Way acquisition and the acquisition of a $15.8 million U.S. order backlog attributable to the Mega transaction, as well as a $12.9 million increase in orders for aftermarket offerings. Partially offsetting these improvements were reductions in orders for vacuum trucks of $8.6 million and dump truck bodies and trailers of $2.2 million. Non-U.S. orders decreased by $15.0 million, largely due to reductions in orders for other specialty equipment of $19.0 million, primarily driven by lower third-party refuse truck orders, and vacuum trucks of $2.6 million. Partially offsetting these reductions were improvements in orders for aftermarket offerings of $2.5 million, dump truck bodies and trailers of $1.8 million, and a $2.3 million favorable foreign currency translation impact.
+Net sales for the three months ended March 31, 2026 increased by $145.3 million, or 38%, compared to the prior-year quarter, primarily due to higher sales volumes, inclusive of the effects of acquisitions, and pricing actions. For the three months ended March 31, 2026, U.S. sales increased by $123.2 million due to increases in sales of other specialty equipment of $93.1 million, primarily driven by higher sales of refuse trucks due to the New Way acquisition and higher sales of metal extraction support equipment due to the Mega acquisition, as well as increases in sales of aftermarket offerings of $12.9 million, vacuum trucks of $8.7 million, and dump truck bodies and trailers of $8.5 million. Non-U.S. sales increased by $22.1 million, primarily due to increases in sales of other specialty equipment of $13.5 million, aftermarket offerings of $4.3 million, vacuum trucks of $1.6 million, and a $3.0 million favorable foreign currency translation impact.
+Cost of sales for the three months ended March 31, 2026 increased by $105.4 million, or 37%, compared to the prior-year quarter, primarily related to higher sales volumes, the addition of cost of sales from recent acquisitions, and a $1.5 million increase in purchase accounting expense effects. Gross profit margin for the three months ended March 31, 2026 was 26.1%, compared to 25.6% in the prior-year quarter.
+SEG&A expenses for the three months ended March 31, 2026 increased by $8.4 million, or 24%, compared to the prior-year quarter, primarily due to the addition of SEG&A expenses from recent acquisitions, higher employee-related costs, and increased sales commissions. As a percentage of net sales, SEG&A expenses were 8.1% in the current-year quarter, compared to 9.0% in the prior-year quarter.
+Operating income for the three months ended March 31, 2026 increased by $29.4 million, or 49%, compared to the prior-year quarter, largely due to a $39.9 million improvement in gross profit, partially offset by the $8.4 million increase in SEG&A expenses and a $2.2 million increase in amortization expense.
+Backlog was $966 million at March 31, 2026, compared to $1.03 billion at March 31, 2025.
+27
+Table of Contents
+Safety and Security Systems
+The following table summarizes the Safety and Security Systems Group’s operating results as of and for the three months ended March 31, 2026 and 2025:
+Three Months Ended March 31,
+($ in millions)
+2026
+2025
+Change
+Net sales
+$
+92.9
+$
+76.4
+$
+16.5
+Operating income
+23.6
+15.8
+7.8
+Operating data:
+Operating margin
+25.4
+%
+20.7
+%
+4.7
+%
+Total orders
+$
+88.5
+$
+87.8
+$
+0.7
+Backlog
+71.6
+68.9
+2.7
+Depreciation and amortization
+1.1
+1.0
+0.1
+Total orders for the three months ended March 31, 2026 increased by $0.7 million, or 1%, compared to the prior-year quarter. U.S. orders increased by $6.4 million, primarily due to improvements in orders for warning systems of $3.3 million, public safety equipment of $1.9 million, and industrial signaling equipment of $1.2 million. Non-U.S. orders decreased by $5.7 million, primarily due to decreases in orders for public safety equipment of $6.2 million and warning systems of $1.4 million, partially offset by a $1.3 million favorable foreign currency translation impact.
+Net sales for the three months ended March 31, 2026 increased by $16.5 million, or 22%, compared to the prior-year quarter, inclusive of the effects of higher sales volumes and pricing actions. U.S. sales increased by $13.8 million, driven by increases in sales of public safety equipment of $13.2 million and warning systems of $0.6 million. Non-U.S. sales increased by $2.7 million, primarily due to a $1.4 million increase in sales of industrial signaling equipment and a $1.9 million favorable foreign currency translation impact.
+Cost of sales for the three months ended March 31, 2026 increased by $7.8 million, or 17%, compared to the prior-year quarter, primarily related to higher sales volumes. Gross profit margin for the three months ended March 31, 2026 was 43.6%, compared to 41.6% in the prior-year quarter, with the improvement primarily attributable to improved operating leverage from higher sales volumes and benefits from pricing actions.
+SEG&A expenses for the three months ended March 31, 2026 increased by $0.9 million, or 6%, compared to the prior-year quarter, primarily due to higher employee-related costs and marketing expenses. As a percentage of net sales, SEG&A expenses were 18.2% in the current-year quarter, compared to 20.9% in the prior-year quarter.
+Operating income for the three months ended March 31, 2026 increased by $7.8 million, or 49%, compared to the prior-year quarter, primarily due to a $8.7 million improvement in gross profit, partially offset by the $0.9 million increase in SEG&A expenses.
+Backlog was $72 million at March 31, 2026, compared to $69 million at March 31, 2025.
+Corporate Expenses
+Corporate operating expenses for the three months ended March 31, 2026 were $13.0 million, compared to $9.8 million in the prior-year quarter, with the increase primarily due to a $0.7 million increase in acquisition and integration-related expenses, net, as well as higher legal, stock compensation, and incentive-based compensation costs.
+Seasonality of Company’s Business
+Certain of the Company’s businesses are susceptible to the influences of seasonal factors, including buying patterns, delivery patterns, and productivity influences from holiday periods and weather. In general, the Company tends to have lower equipment sales in the first calendar quarter of each year compared to other quarters as a result of these factors. In addition, rental income and parts sales are generally higher in the second and third quarters of the year, because many of the Company’s products are used for maintenance activities in North America, where usage is typically lower during periods of harsher weather conditions.
+28
+Table of Contents
+Financial Condition, Liquidity and Capital Resources
+The Company uses its cash flow from operations to fund growth and to make capital investments that sustain its operations, reduce costs, or both. Beyond these uses, remaining cash is used to pay down debt, repurchase shares, fund dividend payments, and make pension contributions. The Company may also choose to invest in the acquisition of businesses, like the acquisition of all of the outstanding equity interests of Mega that was completed on January 16, 2026. In the absence of significant unanticipated cash demands, we believe that the Company’s existing cash balances, cash flow from operations, and borrowings available under the 2025 Credit Agreement will provide funds sufficient for these purposes. The net cash flows associated with the Company’s rental equipment transactions are included in cash flow from operating activities.
+As of March 31, 2026, there was $150.6 million of cash drawn under the revolving credit facility, $400.0 million outstanding under the term loan facility, and $10.7 million of undrawn letters of credit under the 2025 Credit Agreement, with $938.7 million of availability for borrowings.
+The Company’s cash and cash equivalents totaled $71.4 million as of March 31, 2026 and $63.7 million as of December 31, 2025. As of March 31, 2026, $25.6 million of cash and cash equivalents was held by foreign subsidiaries. Cash and cash equivalents held by subsidiaries outside the U.S. typically are held in the currency of the country in which it is located. The Company uses this cash to fund the operating activities of its foreign subsidiaries and for further investment in foreign operations. Generally, the Company has considered such cash to be permanently reinvested in its foreign operations and the Company’s current plans do not demonstrate a need to repatriate such cash to fund U.S. operations. However, in the event that these funds are needed to fund U.S. operations or to satisfy U.S. obligations, they generally could be repatriated. The repatriation of these funds may cause the Company to incur additional tax expense, dependent on income tax laws and other circumstances at the time any such amounts are repatriated.
+Net cash of $101.3 million was provided by operating activities in the three months ended March 31, 2026, compared to $36.7 million in the prior-year period, with the year-over-year increase primarily due to higher net income and favorable changes in net working capital.
+Net cash of $51.6 million was used for investing activities in the three months ended March 31, 2026, compared to $87.7 million in the prior-year period. During the three months ended March 31, 2026, the Company funded $6.7 million of capital expenditures and made an initial payment of $45.0 million to acquire Mega. During the three months ended March 31, 2025, the Company funded $5.6 million of capital expenditures and made an initial payment of $82.1 million to acquire Hog.
+Net cash of $41.7 million was used for financing activities in the three months ended March 31, 2026, whereas in the prior-year quarter, net cash of $16.9 million was provided by financing activities. In the three months ended March 31, 2026, the Company paid down $12.8 million of borrowings under its revolving credit facility, funded cash dividends of $9.2 million, and redeemed $8.2 million of stock in order to remit funds to tax authorities to satisfy employees’ tax withholdings following the vesting of stock-based compensation and the exercise of stock options. Additionally, the Company funded payments of $11.5 million relating to the Hog acquisition. In the three months ended March 31, 2025, the Company increased net borrowings under its revolving credit facility by $64.2 million, paid $11.5 million to acquire a previously-leased manufacturing facility, funded cash dividends of $8.6 million and share repurchases of $18.5 million, and redeemed $8.6 million of stock in order to remit funds to tax authorities to satisfy employees’ tax withholdings following the vesting of stock-based compensation and the exercise of stock options.
+On October 29, 2025, the Company entered into the 2025 Credit Agreement, which amended and restated the 2022 Credit Agreement. The 2025 Credit Agreement increased the Company’s revolving credit facility from up to $675 million to up to $1.1 billion, and includes a delayed draw term loan facility in an amount of up to $400 million. In addition, the Company may expand its borrowing capacity under the 2025 Credit Agreement by an aggregate amount of up to the sum of (x) the greater of (i) $500 million and (ii) 100% of Consolidated EBITDA for the applicable four-quarter period preceding such expansion, and (y) the amount of additional indebtedness (if any) that could be incurred without causing the Consolidated Total Net Leverage Ratio for the applicable four-quarter period preceding such expansion, on a pro forma basis, to exceed 2.75 to 1.00, subject to the approval of the applicable lenders providing such additional borrowings.
+The Company is subject to certain net leverage ratio and interest coverage ratio financial covenants under the 2025 Credit Agreement that are to be measured at each fiscal quarter-end for the most recently ended four-quarter period. The Company was in compliance with all such covenants as of March 31, 2026.
+The Company anticipates that capital expenditures for 2026 will be in the range of $45 million to $55 million.
+The Company believes that its financial resources and major sources of liquidity, including cash flow from operations and borrowing capacity, will be adequate to meet its operating needs, capital needs, and financial commitments.
+29
+Table of Contents
+Contractual Obligations and Off-Balance Sheet Arrangements
+During the three months ended March 31, 2026, there have been no material changes in the Company’s contractual obligations and off-balance sheet arrangements as described in Item 7,
+Management’s Discussion and Analysis of Financial Condition and Results of Operations
+, of the Company’s Annual Report on Form 10-K for the year ended December 31, 2025.
+30
+Table of Contents
+Item 3.
+Quantitative and Qualitative Disclosures about Market Risk.
+See Item 7A,
+Quantitative and Qualitative Disclosures about Market Risk
+, of the Company’s Annual Report on Form 10-K for the year ended December 31, 2025. During the three months ended March 31, 2026, there have been no significant changes in our exposure to market risk.
+Item 4.
+Controls and Procedures.
+As required by Rule 13a-15 under the Exchange Act, the Company’s management, with the participation of the Company’s Chief Executive Officer and Chief Financial Officer, evaluated the effectiveness of the design and operation of the Company’s disclosure controls and procedures (as defined in Rule 13a-15(e) or Rule 15d-15(e) under the Exchange Act) as of March 31, 2026. Based on that evaluation, the Company’s Chief Executive Officer and Chief Financial Officer concluded that the Company’s disclosure controls and procedures were effective as of March 31, 2026.
+As a matter of practice, the Company’s management continues to review and document internal control and procedures for financial reporting. From time to time, the Company may make changes aimed at enhancing the effectiveness of the controls and ensuring that the systems evolve with the business. SEC guidance permits management to omit an assessment of internal control over financial reporting for an acquired business from management’s assessment of internal control over financial reporting for a period not to exceed one year from the date of the acquisition. During the three months ended March 31, 2026, the Company completed the acquisition of Mega. The Company also completed the acquisition of New Way and certain assets and liabilities of Kinloch Equipment & Supply, Inc. (“Kinloch”) in the fourth quarter of 2025. As of March 31, 2026, management has not yet fully assessed Mega, New Way, or Kinloch’s internal controls over financial reporting. Excluding the acquisitions of Mega, New Way, and Kinloch, there were no changes in the Company’s internal control over financial reporting that have materially affected, or are reasonably likely to materially affect, the Company’s internal control over financial reporting during the three months ended March 31, 2026.
+31
+Table of Contents
+PART II. OTHER INFORMATION
+Item 1.
+Legal Proceedings.
+The information set forth under the heading “Legal Proceedings” in Note 9 – Commitments and Contingencies to the accompanying condensed consolidated financial statements as included in Part I of this Form 10-Q is incorporated herein by reference.
+Item 1A.
+Risk Factors.
+There have been no material changes in the Company’s risk factors as described in Item 1A,
+Risk Factors
+, of the Company’s Annual Report on Form 10-K for the year ended December 31, 2025.
+Item 2.
+Unregistered Sales of Equity Securities and Use of Proceeds.
+The following table provides a summary of the Company’s repurchase activity for its common stock during the three months ended March 31, 2026:
+Period
+Total Number of Shares Purchased
+Average Price Paid Per Share
+Total Number of Shares Purchased as Part of Publicly Announced Plans or Programs
+Maximum Dollar Value of Shares That May Yet Be Purchased Under the Plans or Programs (a)
+January 2026 (1/1/26 - 1/31/26)
+—
+$
+—
+—
+$
+157,191,259
+February 2026 (2/1/26 - 2/28/26)
+—
+—
+—
+157,191,259
+March 2026 (3/1/26 - 3/28/26)
+—
+—
+—
+157,191,259
+(a)    In April 2025, the Board authorized a stock repurchase program of up to $150 million of the Company’s common stock. The April 2025 program supplements the Board’s prior authorization under the stock repurchase program adopted in March 2020, which provides for the repurchase of up to $75 million of the Company’s common stock and which remains in effect.
+Item 3.
+Defaults upon Senior Securities.
+None.
+Item 4.
+Mine Safety Disclosures.
+Not applicable.
+Item 5.
+Other Information.
+On April 29, 2026, the Company issued a press release announcing its financial results for the three months ended March 31, 2026. The presentation slides for the first quarter 2026 earnings call were also posted on the Company’s website at that time. The full text of the first quarter financial results press release is included at Exhibit 99.1 and the earnings presentation is included at Exhibit 99.2 to this Form 10-Q.
+32
+Table of Contents
+Item 6.
+Exhibits.
+3.1
+Restated Certificate of Incorporation of the Company. Incorporated by reference to Exhibit 3.1 to the Company’s Form 8-K filed April 30, 2010.
+3.2
+Second Amended and Restated By-laws of the Company. Incorporated by reference to Exhibit 3.1 to the Company’s Form 8-K filed October 24, 2023.
+31.1
+CEO Certification under Section 302 of the Sarbanes-Oxley Act.
+31.2
+CFO Certification under Section 302 of the Sarbanes-Oxley Act.
+32.1
+CEO Certification of Periodic Report under Section 906 of the Sarbanes-Oxley Act.
+32.2
+CFO Certification of Periodic Report under Section 906 of the Sarbanes-Oxley Act.
+99.1
+First Quarter Financial Results Press Release, Dated April 2
+9
+, 2026.
+99.2
+First Quarter Earnings Call Presentation Slides.
+101.INS
+XBRL Instance Document (the instance document does not appear in the Interactive Data File because its XBRL tags are embedded within the Inline XBRL document).
+101.SCH
+Inline XBRL Taxonomy Extension Schema Document.
+101.CAL
+Inline XBRL Taxonomy Calculation Linkbase Document.
+101.DEF
+Inline XBRL Taxonomy Extension Definition Linkbase Document.
+101.LAB
+Inline XBRL Taxonomy Label Linkbase Document.
+101.PRE
+Inline XBRL Taxonomy Presentation Linkbase Document.
+104
+Cover Page Interactive Data File (formatted as inline XBRL and contained in Exhibit 101).
+33
+Table of Contents
+SIGNATURE
+Pursuant to the requirements of Section 13 or 15 (d) of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned, thereunto duly authorized.
+Federal Signal Corporation
+Date:
+April 29, 2026
+/s/ Ian A. Hudson
+Ian A. Hudson
+Senior Vice President and Chief Financial Officer
+(Principal Financial Officer)
+34

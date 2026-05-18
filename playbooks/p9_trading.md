@@ -9,6 +9,27 @@ triggers: ["P9", "量化交易", "trading", "TIDE", "thesis", "scanner", "候选
 ## ⚠️ 账号规则（必读）
 - **TIDE系统全部使用 `swing` 账号**，禁止使用 `intraday`
 - `intraday` = 第一系统遗留，已停用，不要动
+- 2026-05-18 起**物理锁死**：`config.P9_ACCOUNT='swing'` + `assert_p9_account()`；close_position.py / alpaca_mcp.py 的 place_order/cancel_order 写入 intraday 会 raise ValueError
+
+## ⚠️ 数据完整性警告（2026-05-18 发现，未完全修复）
+- **scanner_picks.status='open' ≠ 真实持仓**！cognitive_scanner.py 只 INSERT DB，不调用 Alpaca place_order；下单是人工
+- 当前 14 只 status='open' 里只有 6 只（5/06 那批）真实在 swing 账号成交；5/11 那批 8 只是 DB ghost
+- intraday 账号有 ORA 261 股遗留持仓污染
+- 完整诊断：`trading/rca/2026_05_18_ghost_positions_and_intraday_contamination.md`
+- 修复方案（等主公拍板）：Q1 ghost 8 只 → B 重标 candidate；Q2 intraday ORA → C 合并；6 层防御实施
+
+## 📊 Attribution 框架 v1（2026-05-18 上线）
+- scanner_picks 表新增 7 字段：`theme / secondary_themes / bear_thesis / hidden_risk / verdict (default tentative) / mistake_type / real_reason`
+- `verdict` 必须在 close_position 时人工选（success/partial/failure/tentative）；failure/partial 必须填 mistake_type (7 选 1)
+- `theme` 词表（5 选 1）：AI电力 / AI软件 / 公用事业现代化 / 分析师重定价 / 行业重分类
+- cognitive_scanner.py prompt 强制四件套：Bull Thesis / Bear Thesis / Invalidation / Hidden Risk
+- thesis 写作规则：hypothesis 语气强制（may/could/historically），不许 declarative 断言；未验证精确数字只能放监测信号，不进 thesis 散文（详见 memory/feedback_thesis_normalization.md）
+- 完整 case study 示例：`trading/case_studies/ORA_2026_05_18.md`（含 red team adversarial review）
+
+## 🚨 错误处理（auto-rca 流程）
+- 任何 P9 错误事件触发 Skill `auto-rca`（自动启动，不等主公提醒）
+- 三档分级：trivial 不记 / minor friction_log 一行 / major 详细 RCA / critical + 立刻 Discord
+- 规则：`memory/feedback_auto_rca.md`；模板：`trading/rca/RCA_TEMPLATE_short.md` + `_full.md`
 
 ## 快速启动
 路径：`/mnt/c/Users/zhi89/Desktop/cowork/trading/`

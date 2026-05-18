@@ -63,3 +63,5 @@
 [2026-05-17 16:00 EDT] CRON[P9] | weekly_review | ✅ | 完成
 [2026-05-17 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
 [2026-05-17 21:56 EDT] SKILL[SYS] | 保存进度 | ✅ | [P12] Cannabis Retail 引流主线深挖完成进度已保存
+[2026-05-18 02:01 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 108.230 MiB (113486982 Byte) → Google Drive
+[2026-05-18 09:00 EDT] CRON[cannabis_docket_reminder] | mode=weekly | ✅ | 案号 904497-24 提醒已发

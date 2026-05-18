@@ -12,20 +12,10 @@ import yfinance as yf
 
 from db_schema import ensure_scanner_picks_schema
 from config import BENCHMARK_SYMBOL
+from tide_utils import load_env
 
 DB_PATH = "/home/cowork/cowork/trading/trading.db"
 DISCORD_API_BASE = "https://discord.com/api/v10"
-
-
-def load_env():
-    env = {}
-    with open("/home/cowork/cowork/config/api_keys.env") as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith("#") and "=" in line:
-                k, v = line.split("=", 1)
-                env[k.strip()] = v.strip()
-    return env
 
 
 def fetch_price(symbol):

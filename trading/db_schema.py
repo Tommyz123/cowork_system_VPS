@@ -23,6 +23,13 @@ SCANNER_PICKS_EXTRA_COLUMNS = {
     "post_exit_prices": "TEXT",
     "post_exit_peak": "REAL",
     "post_exit_3m_return": "REAL",
+    "theme": "TEXT",
+    "secondary_themes": "TEXT",
+    "bear_thesis": "TEXT",
+    "hidden_risk": "TEXT",
+    "verdict": "TEXT DEFAULT 'tentative'",
+    "mistake_type": "TEXT",
+    "real_reason": "TEXT",
 }
 
 

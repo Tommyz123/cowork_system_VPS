@@ -15,26 +15,15 @@ import screener, transcript_fetcher
 
 from db_schema import ensure_scanner_picks_schema
 from config import BENCHMARK_SYMBOL, DEFAULT_SECTOR_ETF
+from tide_utils import load_env
 
 
 DB_PATH = "/home/cowork/cowork/trading/trading.db"
-ENV_PATH = "/home/cowork/cowork/config/api_keys.env"
 TRANSCRIPTS_DIR = "/home/cowork/cowork/trading/transcripts"
 DISCORD_API_BASE = "https://discord.com/api/v10"
 DEFAULT_POSITION_NOTIONAL = 5000.0
 SINGLE_SYMBOL_LIMIT = 150000.0
 SECTOR_LIMIT = 600000.0
-
-
-def load_env():
-    env = {}
-    with open(ENV_PATH) as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith("#") and "=" in line:
-                k, v = line.split("=", 1)
-                env[k.strip()] = v.strip()
-    return env
 
 
 def build_prompt(symbol, news_content, historical_signal_block=""):
@@ -60,9 +49,20 @@ def build_prompt(symbol, news_content, historical_signal_block=""):
   "score_tradability": 可交易性0-1（整数，1=日均成交额>M，0=低流动性）,
   "score_disconfirmation": 否定风险0-1（整数，0=高风险是一次性噪音/1=信号可持续）,
   "total_score": 以上6项之和（最高12分）,
-  "invalidation_conditions": "什么信号说明这个thesis失效（1-2条具体可观测条件）",
-  "explosion_catalyst": "什么事件会触发市场重新定价（1条）"
-}}""".format(
+  "explosion_catalyst": "Bull Thesis：什么事件会触发市场重新定价（1条具体可验证）",
+  "invalidation_conditions": "Invalidation：什么信号说明这个thesis失效（1-2条具体可观测条件）",
+  "bear_thesis": "Bear Thesis：为什么市场可能永远不买账（强制写满，不许 null；不是 invalidation 的反面，而是独立的反方逻辑——例如旧框架其实合理/竞争对手抢先/估值已 fully priced in/管理层 track record 差/类似 thesis 历史上都失败）",
+  "hidden_risk": "Hidden Risk：3 个最危险变量（用 ; 分隔），每个含'变量+监测信号'，例如：地热补贴政策回撤 - 监测 IRA 修订/储能竞争加剧 - 监测 Tesla/Fluence 季报/利率反弹 - 监测 10Y > 4.5%",
+  "theme": "主题标签（5选1，必填）：AI电力 / AI软件 / 公用事业现代化 / 分析师重定价 / 行业重分类",
+  "secondary_themes": "次要主题（0-2 个，用 ; 分隔，可为 null）"
+}}
+
+⚠️ 重要规则（thesis 写作纪律）：
+1. **Bear_thesis 必须独立思考**，不许只是 invalidation 的反面表述；hidden_risk 必须输出 3 个具体监测变量
+2. **Hypothesis 语气强制**：bear_thesis 和 explosion_catalyst 的散文部分必须用 may / could / potentially / historically / suggests / appears / market skepticism / durability concerns / structurally 等假设性词汇；**禁止** declarative 断言（如"是 contra-indicator" / "反映 terminal value"），因为这类断言隐含统计支持但实际没有
+3. **精确数字不许出现在 thesis 散文部分**（如"forward P/S >30x" / "PE <7x"），未经实时验证的数字会因时间漂移失效。具体数字**只能放在 hidden_risk 的"监测信号"里**作为研究者主观设定的监测阈值
+4. **保留可证伪性**：每条 thesis 必须 specific 到能被 invalidation 触发，但 hypothetical 到 6 个月后被打脸不会摧毁可信度
+5. 不许偷懒；不许"看起来聪明但缺 falsification 结构"的装饰性表达""".format(
         symbol=symbol,
         news_content=news_content,
         historical_signal_block=historical_signal_block.strip() or "近90天历史信号：无",
@@ -369,8 +369,9 @@ def write_scanner_picks(results, scan_date, env):
                 """
                 INSERT OR IGNORE INTO scanner_picks
                 (symbol, entry_price, scan_date, score, old_label, new_signal,
-                 invalidation, explosion_catalyst, status, spy_entry, sector_etf, sector_etf_entry)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'open', ?, ?, ?)
+                 invalidation, explosion_catalyst, status, spy_entry, sector_etf, sector_etf_entry,
+                 theme, secondary_themes, bear_thesis, hidden_risk)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'open', ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     symbol,
@@ -384,6 +385,10 @@ def write_scanner_picks(results, scan_date, env):
                     spy_entry,
                     sector_etf,
                     sector_etf_entry,
+                    item.get("theme"),
+                    item.get("secondary_themes"),
+                    item.get("bear_thesis"),
+                    item.get("hidden_risk"),
                 ),
             )
             inserted += 1

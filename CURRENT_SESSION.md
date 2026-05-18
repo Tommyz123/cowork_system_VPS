@@ -422,9 +422,31 @@ last_updated: 2026-04-19
 
 
 ### [P9] AI量化交易系统（TIDE系统）
-状态：✅ 系统稳定自动运行 + IWM bug 已修复 + 5/17 模板评估提醒已设置
-last_updated: 2026-05-15
-停在：14 只 open 持仓（修复后真实 alpha vs IWM = -1.14% 早期数据）；IWM 基准 bug 已闭环（config.py + 4 脚本改用常量 + 5/11 那批 8 只 spy_entry 修正）；P9 outcome 模板设计讨论暂缓→5/17 评估；CSW verdict=pending 等 5/21 财报
+状态：⚠️ Attribution 框架 v1 落地 + 账号路由锁定 + 数据完整性事件已诊断（未修复，等主公拍板）
+last_updated: 2026-05-18
+停在：⚠️ **重大发现**：14 只 status='open' 里只有 6 只真实 swing 持仓，8 只是 DB ghost positions；intraday 账号有 ORA 261 股污染。RCA 文档已存 trading/rca/2026_05_18_ghost_positions_and_intraday_contamination.md。账号写入已物理锁死 swing。**修复方案 Q1（ghost 8 只）+ Q2（intraday ORA）+ 6 层防御** 等主公拍板。
+
+本次完成（2026-05-18 凌晨深度对话 + 上午继续）：
+- **P9 Attribution 框架 v1**：scanner_picks 加 7 字段（theme/secondary_themes/bear_thesis/hidden_risk/verdict default tentative/mistake_type/real_reason）；cognitive_scanner.py prompt 强制 Bull/Bear/Invalidation/Hidden Risk 四件套 + thesis normalization 纪律；close_position.py 加 verdict/mistake_type/real_reason 交互；14 只 open 全部 UPDATE bear_thesis（含 ORA 用 case study 强化版）
+- **ORA case study + Red team adversarial review**：trading/case_studies/ORA_2026_05_18.md；Red team 揭示 5 大盲区（地热衰减资本化掩盖 / Puna 集中度 / Kenya FX / 储能 merchant 估值 mismatch / IRA 政策回滚）；推荐 trim 30-60%
+- **Thesis normalization 规则**：memory/feedback_thesis_normalization.md（hypothesis 语气强制 / 未验证精确数字只能放监测信号 / 范围>单点 / 二次违反升级 Hook）
+- **ORA 9:00 EDT pre-market 提醒 cron**：scripts/p9_ora_premarket_reminder.py + 一次性 cron（已触发后自删）
+- **Weekly review 中文友好版 V2**：trading/weekly_review_preview.py（理财顾问对客户口吻 + 每只 14 只通俗一句话 + 术语前置翻译）
+- **P9 账号路由锁定**：config.P9_ACCOUNT='swing' + assert_p9_account()；close_position.py 删 intraday 参数；alpaca_mcp.py 的 place_order/cancel_order 加 assert 守卫拦截 intraday 写入
+- **intraday 审计 → 重大发现**：5/11 那批 8 只在 swing 30 天订单里完全没有（DB ghost）；intraday 账号有 ORA 261 股遗留持仓（手动操作）；ORA 实际敞口 swing 27 + intraday 261 = 288 股而非系统认为的 27
+- **RCA 文档**：trading/rca/2026_05_18_ghost_positions_and_intraday_contamination.md（5-why 追到结构性根因：语义模糊+无对账+信任模型错误；6 层防御方案）
+- **错误自动 RCA 流程固化**：memory/feedback_auto_rca.md（三档分级+5元触发器+反糊弄） + trading/rca/RCA_TEMPLATE_short.md + RCA_TEMPLATE_full.md + ~/.claude/skills/auto-rca/SKILL.md（未来错误触发即自动启动不等主公提醒）
+- **修复 P9 一次性 cron token bug**：5/17 18:00 EDT 提醒没发出根因是 6 个 trading 脚本 load_env() 都没 fallback；统一改成 from tide_utils import load_env
+
+下一步：
+1. **5/11 ghost 8 只处理**：Q1 A 追单 / B 重标 candidate / C 重建仓（推荐 B）
+2. **intraday ORA 261 股处理**：Q2 A 保留+标记 / B 清仓 / C 合并 P9 体系（推荐 C）
+3. **6 层数据完整性防御实施**：scanner_picks.status 加 'candidate' 值 + reconcile_positions.py 每日 17:00 EDT + weekly_review 第一段 integrity check 等
+4. **5/21 CSW 财报** → verdict 更新（用新 attribution 框架）
+5. **6/5-6/10** → 第一批 30 天 outcome 自动填入 outcome_tracking
+6. **6/14 周日** → 14 只全部 30 天数据，weekly_review 第一次包含完整 30 天 outcome（前提：5/11 ghost 8 只问题已修）
+7. **8/4-8/9** → 14 只全部 90 天 outcome ✅ 完整 verdict
+8. **sector_etf 设计问题**（统一 GRID vs 按个股 sector 动态分配）→ 进 BACKLOG，等 25+ samples 后再决定
 
 本次完成（2026-05-15，opus_CC bot 日间深度对话）：
 - **IWM 基准 bug 完全修复**：新建 trading/config.py（BENCHMARK_SYMBOL=IWM）+ 改 cognitive_scanner / scanner_tracker / close_position / backfill_spy_entry 4 处 hardcode 改用常量 + UPDATE 5/11 批 8 只 spy_entry $739.30→$285.33；修复后 portfolio 平均 alpha 从假数据 +33%（用 SPY 价当 IWM）校准到真实 -1.14%

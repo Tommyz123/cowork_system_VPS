@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Alpaca MCP Server - 支持Intraday和Swing两个纸交易账号"""
+"""Alpaca MCP Server - 支持 swing(写) + intraday(只读 audit) 两个纸交易账号
+
+⚠️ 2026-05-18 锁定：写操作（place_order / cancel_order）必须 account='swing'（P9_ACCOUNT）
+intraday 账号保留是为了 audit 第一系统遗留持仓 / 查 read-only 状态，不再下单。
+"""
 import json
 import sqlite3
 import time
@@ -31,6 +35,10 @@ if _env_path.exists():
         if line and not line.startswith("#") and "=" in line:
             k, v = line.split("=", 1)
             os.environ.setdefault(k.strip(), v.strip())
+
+# P9 账号路由常量（写操作必须用 P9_ACCOUNT，2026-05-18 锁定）
+sys.path.insert(0, str(Path(__file__).parent))
+from config import P9_ACCOUNT, ALLOWED_WRITE_ACCOUNTS, assert_p9_account
 
 mcp = FastMCP("alpaca-trading")
 
@@ -174,7 +182,12 @@ def get_orders(account: str = "swing", status: str = "open") -> str:
 
 @mcp.tool()
 def place_order(symbol: str, side: str, qty: int, account: str = "swing", reason: str = "") -> str:
-    """下单买入或卖出。side: 'buy'或'sell'；account: 'swing'(默认)或'intraday'；reason: 归因说明（写入DB）"""
+    """下单买入或卖出。side: 'buy'或'sell'；**account 必须 = 'swing'**（P9 账号路由锁定，2026-05-18）；reason: 归因说明（写入DB）"""
+    # 2026-05-18 锁定：写操作必须在 P9_ACCOUNT (swing)，intraday 已禁止下单
+    try:
+        assert_p9_account(account)
+    except ValueError as e:
+        return json.dumps({"error": str(e)}, ensure_ascii=False)
     result = _post(account, "/orders", {
         "symbol": symbol,
         "qty": str(qty),
@@ -221,7 +234,12 @@ def place_order(symbol: str, side: str, qty: int, account: str = "swing", reason
 
 @mcp.tool()
 def cancel_order(order_id: str, account: str = "swing") -> str:
-    """取消未成交订单"""
+    """取消未成交订单。**account 必须 = 'swing'**（P9 账号路由锁定，2026-05-18）"""
+    # 2026-05-18 锁定：写操作必须在 P9_ACCOUNT (swing)
+    try:
+        assert_p9_account(account)
+    except ValueError as e:
+        return json.dumps({"error": str(e)}, ensure_ascii=False)
     result = _delete(account, f"/orders/{order_id}")
     if "message" in result or "code" in result or "error" in result:
         return f"Cancel failed: {result}"
