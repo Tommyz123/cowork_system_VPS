@@ -1,6 +1,6 @@
 # Memory Index
 
-> 最后更新：2026-05-18（新增 feedback_auto_rca：错误自动 RCA 流程固化，三档分级+多元触发器+反糊弄）
+> 最后更新：2026-05-18（新增 P9 alt-data sidecar feedback_p9_alt_data_sidecar：Google Trends theme 搜索量静默收集 + on-demand 展示）
 > 维护规则：新增记忆文件后立即在此处添加条目；不用的记忆文件同步删除对应条目
 
 ## User
@@ -38,6 +38,9 @@
 - [feedback_tide_utils_load_env.md](feedback_tide_utils_load_env.md) — trading/scripts 读 env 必须 `from tide_utils import load_env`，不许本地复制写 load_env()（5/17 P9 提醒发送失败教训，6 脚本复发）
 - [feedback_thesis_normalization.md](feedback_thesis_normalization.md) — P9 thesis 必须 hypothesis 语气（may/could/historically），不许 declarative 断言；未验证精确数字只能放监测信号；范围 > 单点（5/18 GPT 二次纠偏）
 - [feedback_auto_rca.md](feedback_auto_rca.md) — 错误自动 RCA 流程固化：三档分级（trivial不记/minor friction一行/major详细RCA文档/critical+立刻Discord）+5元触发器（主公纠正/hook报错/数据不一致/工具失败/我自判）+反糊弄（5-why追到第3层/≥2 options/分层防御）；可执行 Skill: auto-rca
+- [feedback_p9_no_ghost_data.md](feedback_p9_no_ghost_data.md) — P9 scanner_picks.status 必须反映真实 broker 状态；研究阶段 scanner 扫到立即 auto_filled；真钱时重启 approve gate；下游持仓查询用 status IN ('filled','filled_late','auto_filled')；DB 是 thesis SoT、Alpaca 是持仓 SoT
+- [feedback_p9_auto_execute.md](feedback_p9_auto_execute.md) — P9 研究阶段（2026-05-18 起）cognitive_scanner 扫描后直接 paper 下单 opg；3 层 sanity check 替代 approve gate（dedup + 单只 $5000 上限 + 单次 ≤15 只）；每只标准 $3000；转真钱必须重新评估
+- [feedback_p9_alt_data_sidecar.md](feedback_p9_alt_data_sidecar.md) — P9 alt-data sidecar 设计与研究纪律：alt_signals 表 + gtrends_collector.py 完全独立 P9 主线；5 个 theme 关键词周日 15:45 EDT 自动收集；4-8 周只观察不进评分；1 年后 sample 累积再考虑入评分
 
 ## Project（项目背景）
 - [project_cannabis_retail.md](project_cannabis_retail.md) — ⭐ P12 大麻零售主线（2026年主线，2026-05-14 确立）；NY牌照申请中+AI赋能+SaaS化路径；八字辛卯大运对应；playbook: playbooks/cannabis_retail.md；P1/P3/P5 已并入作为子模块

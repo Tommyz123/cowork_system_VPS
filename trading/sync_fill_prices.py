@@ -36,6 +36,20 @@ def alpaca_get(env, path):
         return json.loads(resp.read())
 
 
+def fetch_iwm_close(date_str: str):
+    """拉指定日期 IWM 收盘价（yfinance）。失败返回 None。"""
+    try:
+        import yfinance as yf
+        from datetime import datetime, timedelta
+        d = datetime.strptime(date_str, "%Y-%m-%d")
+        h = yf.Ticker("IWM").history(start=date_str, end=(d + timedelta(days=2)).strftime("%Y-%m-%d"))
+        if not h.empty:
+            return float(h["Close"].iloc[0])
+    except Exception as e:
+        print(f"  ⚠️ fetch IWM {date_str} 失败: {e}")
+    return None
+
+
 def main():
     env = load_env()
     conn = sqlite3.connect(DB_PATH)
@@ -57,6 +71,7 @@ def main():
             order = alpaca_get(env, f"/orders/{order_id}")
             fill_price = order.get("filled_avg_price")
             status = order.get("status")
+            filled_at = order.get("filled_at", "")[:10] if order.get("filled_at") else None
             print(f"[{symbol}] order_id={order_id[:8]} status={status} fill_price={fill_price}")
 
             if fill_price and status == "filled":
@@ -65,16 +80,32 @@ def main():
                     "UPDATE trades SET fill_price = ? WHERE id = ?",
                     (fill_price, trade_id),
                 )
+                # 2026-05-18 修复：不再覆盖 entry_price（=signal price 保留语义），
+                # 只更新 fill_entry_price + fill_date + spy_fill_entry（执行端字段）
                 conn.execute(
-                    "UPDATE scanner_picks SET entry_price = ? WHERE symbol = ? AND status = 'open'",
-                    (fill_price, symbol),
+                    """UPDATE scanner_picks SET
+                       fill_entry_price = ?, fill_date = COALESCE(fill_date, ?)
+                       WHERE symbol = ? AND status IN ('filled', 'filled_late')
+                         AND fill_entry_price IS NULL""",
+                    (fill_price, filled_at, symbol),
                 )
+                # 回填 spy_fill_entry（fill day IWM 价）— 让 weekly_review execution_alpha 无 IWM bias
+                if filled_at:
+                    iwm_fill = fetch_iwm_close(filled_at)
+                    if iwm_fill:
+                        conn.execute(
+                            """UPDATE scanner_picks SET spy_fill_entry = ?
+                               WHERE symbol = ? AND status IN ('filled', 'filled_late')
+                                 AND spy_fill_entry IS NULL""",
+                            (iwm_fill, symbol),
+                        )
+                        print(f"  → scanner_picks {symbol} spy_fill_entry={iwm_fill} (IWM {filled_at})")
                 conn.execute(
                     "UPDATE outcome_tracking SET tagged_price = ?, last_updated = datetime('now') WHERE symbol = ?",
                     (fill_price, symbol),
                 )
                 print(f"  → trades id={trade_id} fill_price={fill_price}")
-                print(f"  → scanner_picks {symbol} entry_price={fill_price}")
+                print(f"  → scanner_picks {symbol} fill_entry_price={fill_price} fill_date={filled_at}")
                 print(f"  → outcome_tracking {symbol} tagged_price={fill_price}")
             else:
                 print(f"  → 尚未成交，跳过")

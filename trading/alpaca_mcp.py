@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""Alpaca MCP Server - 支持 swing(写) + intraday(只读 audit) 两个纸交易账号
+"""Alpaca MCP Server - P9 swing 账号（唯一）
 
-⚠️ 2026-05-18 锁定：写操作（place_order / cancel_order）必须 account='swing'（P9_ACCOUNT）
-intraday 账号保留是为了 audit 第一系统遗留持仓 / 查 read-only 状态，不再下单。
+历史：
+- 2026-05-18 锁定写操作只能 swing（assert_p9_account）
+- 2026-05-18 ghost positions 事件后，主公决定删除 intraday paper 账户，
+  P9 所有数据统一到 swing 单账号。本文件不再引用 intraday。
 """
 import json
 import sqlite3
 import time
 import urllib.request
+import urllib.error
 import os
 import sys
 from pathlib import Path
@@ -27,7 +30,6 @@ except ImportError:
             while True:
                 time.sleep(60)
 
-# 读取api_keys.env
 _env_path = Path(__file__).parent.parent / "config" / "api_keys.env"
 if _env_path.exists():
     for line in _env_path.read_text().splitlines():
@@ -36,36 +38,28 @@ if _env_path.exists():
             k, v = line.split("=", 1)
             os.environ.setdefault(k.strip(), v.strip())
 
-# P9 账号路由常量（写操作必须用 P9_ACCOUNT，2026-05-18 锁定）
 sys.path.insert(0, str(Path(__file__).parent))
 from config import P9_ACCOUNT, ALLOWED_WRITE_ACCOUNTS, assert_p9_account
 
 mcp = FastMCP("alpaca-trading")
 
-ACCOUNTS = {
-    "intraday": {
-        "endpoint": os.getenv("ALPACA_ENDPOINT", "https://paper-api.alpaca.markets/v2"),
-        "key": os.getenv("ALPACA_API_KEY", ""),
-        "secret": os.getenv("ALPACA_SECRET_KEY", ""),
-    },
-    "swing": {
-        "endpoint": os.getenv("ALPACA_SWING_ENDPOINT", "https://paper-api.alpaca.markets/v2"),
-        "key": os.getenv("ALPACA_SWING_KEY", ""),
-        "secret": os.getenv("ALPACA_SWING_SECRET", ""),
-    },
+SWING = {
+    "endpoint": os.getenv("ALPACA_SWING_ENDPOINT", "https://paper-api.alpaca.markets/v2"),
+    "key": os.getenv("ALPACA_SWING_KEY", ""),
+    "secret": os.getenv("ALPACA_SWING_SECRET", ""),
 }
 
 
-def _request(account: str, path: str) -> dict:
-    cfg = ACCOUNTS.get(account)
-    if not cfg:
-        return {"error": f"Unknown account: {account}. Use 'intraday' or 'swing'."}
-    url = f"{cfg['endpoint']}{path}"
-    headers = {
-        "APCA-API-KEY-ID": cfg["key"],
-        "APCA-API-SECRET-KEY": cfg["secret"],
+def _headers():
+    return {
+        "APCA-API-KEY-ID": SWING["key"],
+        "APCA-API-SECRET-KEY": SWING["secret"],
     }
-    req = urllib.request.Request(url, headers=headers)
+
+
+def _request(path: str) -> dict:
+    url = f"{SWING['endpoint']}{path}"
+    req = urllib.request.Request(url, headers=_headers())
     try:
         resp = urllib.request.urlopen(req, timeout=15)
         return json.loads(resp.read())
@@ -75,16 +69,9 @@ def _request(account: str, path: str) -> dict:
         return {"error": str(e)}
 
 
-def _post(account: str, path: str, body: dict) -> dict:
-    cfg = ACCOUNTS.get(account)
-    if not cfg:
-        return {"error": f"Unknown account: {account}. Use 'intraday' or 'swing'."}
-    url = f"{cfg['endpoint']}{path}"
-    headers = {
-        "APCA-API-KEY-ID": cfg["key"],
-        "APCA-API-SECRET-KEY": cfg["secret"],
-        "Content-Type": "application/json",
-    }
+def _post(path: str, body: dict) -> dict:
+    url = f"{SWING['endpoint']}{path}"
+    headers = {**_headers(), "Content-Type": "application/json"}
     req = urllib.request.Request(
         url,
         data=json.dumps(body).encode("utf-8"),
@@ -100,16 +87,9 @@ def _post(account: str, path: str, body: dict) -> dict:
         return {"error": str(e)}
 
 
-def _delete(account: str, path: str) -> dict:
-    cfg = ACCOUNTS.get(account)
-    if not cfg:
-        return {"error": f"Unknown account: {account}. Use 'intraday' or 'swing'."}
-    url = f"{cfg['endpoint']}{path}"
-    headers = {
-        "APCA-API-KEY-ID": cfg["key"],
-        "APCA-API-SECRET-KEY": cfg["secret"],
-    }
-    req = urllib.request.Request(url, headers=headers, method="DELETE")
+def _delete(path: str) -> dict:
+    url = f"{SWING['endpoint']}{path}"
+    req = urllib.request.Request(url, headers=_headers(), method="DELETE")
     try:
         resp = urllib.request.urlopen(req, timeout=15)
         return json.loads(resp.read())
@@ -119,10 +99,19 @@ def _delete(account: str, path: str) -> dict:
         return {"error": str(e)}
 
 
+def _check_account(account: str) -> dict | None:
+    if account != P9_ACCOUNT:
+        return {"error": f"P9 路由违规：account='{account}'，仅支持 '{P9_ACCOUNT}'"}
+    return None
+
+
 @mcp.tool()
 def get_account(account: str = "swing") -> str:
-    """查账户资金状态。account: 'intraday' 或 'swing'（默认swing）"""
-    data = _request(account, "/account")
+    """查账户资金状态。account 必须 = 'swing'（P9 单账号）"""
+    err = _check_account(account)
+    if err:
+        return json.dumps(err, ensure_ascii=False)
+    data = _request("/account")
     if "error" in data:
         return data["error"]
     return json.dumps({
@@ -137,8 +126,11 @@ def get_account(account: str = "swing") -> str:
 
 @mcp.tool()
 def get_positions(account: str = "swing") -> str:
-    """查当前持仓。account: 'intraday' 或 'swing'（默认swing）"""
-    data = _request(account, "/positions")
+    """查当前持仓。account 必须 = 'swing'（P9 单账号）"""
+    err = _check_account(account)
+    if err:
+        return json.dumps(err, ensure_ascii=False)
+    data = _request("/positions")
     if isinstance(data, dict) and "error" in data:
         return data["error"]
     if not data:
@@ -160,8 +152,11 @@ def get_positions(account: str = "swing") -> str:
 
 @mcp.tool()
 def get_orders(account: str = "swing", status: str = "open") -> str:
-    """查订单。account: 'intraday'或'swing'；status: 'open'/'closed'/'all'（默认open）"""
-    data = _request(account, f"/orders?status={status}&limit=20")
+    """查订单。account 必须 = 'swing'；status: 'open'/'closed'/'all'"""
+    err = _check_account(account)
+    if err:
+        return json.dumps(err, ensure_ascii=False)
+    data = _request(f"/orders?status={status}&limit=20")
     if isinstance(data, dict) and "error" in data:
         return data["error"]
     if not data:
@@ -181,19 +176,22 @@ def get_orders(account: str = "swing", status: str = "open") -> str:
 
 
 @mcp.tool()
-def place_order(symbol: str, side: str, qty: int, account: str = "swing", reason: str = "") -> str:
-    """下单买入或卖出。side: 'buy'或'sell'；**account 必须 = 'swing'**（P9 账号路由锁定，2026-05-18）；reason: 归因说明（写入DB）"""
-    # 2026-05-18 锁定：写操作必须在 P9_ACCOUNT (swing)，intraday 已禁止下单
+def place_order(symbol: str, side: str, qty: int, account: str = "swing", reason: str = "",
+                time_in_force: str = "day") -> str:
+    """下单买入或卖出。side: 'buy'/'sell'；account 必须 = 'swing'；reason: 归因（写DB）；
+    time_in_force: 'day'（盘中市价）/'opg'（盘后扫描用，next-open 成交）/'gtc'"""
     try:
         assert_p9_account(account)
     except ValueError as e:
         return json.dumps({"error": str(e)}, ensure_ascii=False)
-    result = _post(account, "/orders", {
+    if time_in_force not in ("day", "opg", "gtc"):
+        return json.dumps({"error": f"invalid time_in_force: {time_in_force}"}, ensure_ascii=False)
+    result = _post("/orders", {
         "symbol": symbol,
         "qty": str(qty),
         "side": side,
         "type": "market",
-        "time_in_force": "day",
+        "time_in_force": time_in_force,
     })
     if "error" in result:
         return json.dumps(result, ensure_ascii=False)
@@ -206,7 +204,7 @@ def place_order(symbol: str, side: str, qty: int, account: str = "swing", reason
         cur = conn.cursor()
         cur.execute(
             """
-            INSERT INTO trades (symbol, side, order_id, entry_date, qty, fill_price, status)
+            INSERT OR IGNORE INTO trades (symbol, side, order_id, entry_date, qty, fill_price, status)
             VALUES (?, ?, ?, date('now'), ?, ?, 'open')
             """,
             (symbol, side, order_id, qty, filled_avg_price),
@@ -234,13 +232,12 @@ def place_order(symbol: str, side: str, qty: int, account: str = "swing", reason
 
 @mcp.tool()
 def cancel_order(order_id: str, account: str = "swing") -> str:
-    """取消未成交订单。**account 必须 = 'swing'**（P9 账号路由锁定，2026-05-18）"""
-    # 2026-05-18 锁定：写操作必须在 P9_ACCOUNT (swing)
+    """取消未成交订单。account 必须 = 'swing'"""
     try:
         assert_p9_account(account)
     except ValueError as e:
         return json.dumps({"error": str(e)}, ensure_ascii=False)
-    result = _delete(account, f"/orders/{order_id}")
+    result = _delete(f"/orders/{order_id}")
     if "message" in result or "code" in result or "error" in result:
         return f"Cancel failed: {result}"
     return f"Order {order_id} cancelled successfully."

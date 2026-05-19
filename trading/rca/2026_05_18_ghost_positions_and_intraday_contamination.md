@@ -191,6 +191,52 @@ P9 数据库里 14 只标 `status='open'` 的"持仓"，实际只有 6 只真在
 
 ---
 
+## 最终决策与执行（2026-05-18 15:21–16:00 EDT）
+
+### Q1 → 5/11 ghost 8 只 = 「补下单 + late_fill 标签」
+主公拍板：**纸账户下单更直接、可视化反馈，研究方向应加下单功能**。这翻转了我最初的 candidate-only 推荐。
+
+执行：
+- swing 市价单补 8 只（5/18 价 fill，qty 用 5/11 价反推 $3000/仓）
+  - AGYS 43@$69.10 / ARLO 220@$12.92 / FSS 25@$112.52 / HCC 34@$85.67 / LIF 69@$39.14 / MIR 162@$18.08 / SOUN 355@$8.14 / VSEC 15@$166.74
+- DB 记录 `signal_entry_price`（5/11）+ `fill_entry_price`（5/18），attribution 双轨：signal alpha vs execution alpha
+- `cohort='late_fill'` + `status='filled_late'` 单独成段，不污染正常 cohort
+
+### Q2 → ORA intraday 261 股 = 「sell 平仓 + 删账户」
+主公拍板："你可以把 intraday 的账户删除，只保留一个"。
+
+执行：
+- intraday paper sell ORA 261 @ $128.54（vs avg entry $124.02，paper P&L +$1,179 / +3.6%）
+- intraday 账户 ✅ 验证为空持仓，主公将在 Alpaca dashboard 删除该 paper 账户
+- alpaca_mcp.py 清理：删除 intraday 路由代码，只支持 swing 单账号
+- thesis_monitor.py close_alpaca_position 同步从 ALPACA_API_KEY/SECRET_KEY 改为 ALPACA_SWING_KEY/SECRET
+
+### 防御措施全部落地（修复优先级 P1 6 层）
+
+- ✅ **Level 1 语义层**：scanner_picks 新增 status='candidate' / 'filled' / 'filled_late' / 'skipped' / 'expired'；新增 cohort 字段（early_filled / late_fill / approve_filled）
+- ✅ **Level 4 流程层（Approve 机制）**：
+  - `cognitive_scanner.py` 扫描后写 `status='candidate'`，Discord 推 candidate 列表附 approve 说明
+  - 新建 `submit_pending_picks.py`：每小时 cron，扫 Discord 最近 100 条找 `approve TICKER` / `skip TICKER` / `approve all`，approve → swing 下单 + UPDATE status='filled' + cohort='approve_filled'；skip → 'skipped'；24h 无回复 → 'expired'
+- ✅ **下游兼容性**：13 处 `status='open'` 查询统一改 `status IN ('filled', 'filled_late')`，涉及 catalyst_monitor / close_position / backfill_spy_entry / price_guard / signal_alert / signal_collector / thesis_monitor / weekly_review_preview / cognitive_scanner / sync_fill_prices
+- ✅ **Level 5 监控层**：weekly_review_preview.py 按 cohort 分两段（early_filled 6 只 / late_fill 8 只 ⚠️），late_fill 段展示 signal alpha + execution alpha 双轨
+- ⏳ **Level 3 reconciliation 层**：`reconcile_positions.py` 每日 17:00 EDT 仍未实现（next BACKLOG）
+- ⏳ **Level 6 文化层**：memory `feedback_p9_no_ghost_data.md` 已写入
+
+### 执行延迟成本观察（5/11 → 5/18 一周）
+
+8 只 late_fill 全部跌（除 AGYS 持平）：VSEC -12.8% / LIF -9.6% / ARLO -4.9% / FSS -4.1% / SOUN -3.7% / MIR -2.1% / HCC -1.7% / AGYS ≈ 0%。
+
+**初步信号**：5/11 那批 7 天 short-term 表现弱于 5/06 那批。是 thesis 偏弱、小盘股一周回调、还是 sizing/timing 问题——下周 weekly_review 用 late_fill cohort signal_alpha vs execution_alpha 双轨可初步定位；6/14 第一批 30 天 outcome 可定结论。
+
+### 未完成 / 后续
+
+1. 主公在 Alpaca dashboard 手动删除 intraday paper 账户
+2. `reconcile_positions.py` 每日 17:00 EDT cron（Level 3 reconciliation）
+3. 6/14 周报跑 late_fill cohort 完整 attribution，验证 signal_alpha 是否能 separate "信号质量" vs "执行延迟成本"
+4. DISCORD_AUTHORIZED_USER_ID 加入 api_keys.env（submit_pending_picks 才能严格鉴权 approve 命令）
+
+---
+
 ## 元数据 / 复盘锚点
 
 - 本次事件揭示了 P9 系统"AI 写 DB + 人工下单"的解耦设计存在 trust boundary 失明

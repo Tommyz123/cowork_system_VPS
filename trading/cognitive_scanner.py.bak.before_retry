@@ -143,71 +143,53 @@ def fetch_recent_signal_headlines(conn, symbol):
     return [row[0] for row in rows if row[0]]
 
 
-def run_claude_analysis(symbol, news_rows, historical_headlines=None, max_retries=1):
-    """2026-05-18 加 retry once: 38% JSON 解析失败率太高，偶发 LLM 输出格式错误，retry 一次预期降到 15-20%。
-    任一步失败 → sleep 2 秒 → 重调 claude --print 一次。
-    """
-    import time
+def run_claude_analysis(symbol, news_rows, historical_headlines=None):
     news_content = build_news_content(news_rows)
     historical_signal_block = build_historical_signal_block(historical_headlines or [])
     prompt_text = build_prompt(symbol=symbol, news_content=news_content, historical_signal_block=historical_signal_block)
+    try:
+        proc = subprocess.run(
+            ["claude", "--print", prompt_text],
+            capture_output=True,
+            text=True,
+            cwd="/tmp",
+            timeout=120,
+            check=False,
+        )
+    except Exception as e:
+        print(f"[ERROR] claude CLI 调用失败 ({symbol}): {e}", flush=True)
+        return None
 
-    for attempt in range(max_retries + 1):  # attempt 0 = 第一次，attempt 1 = retry
+    if proc.returncode != 0 or not proc.stdout.strip():
+        print(f"[ERROR] claude CLI 返回异常 ({symbol}): rc={proc.returncode} stderr={proc.stderr[:200]}", flush=True)
+        return None
+
+    try:
+        parsed = parse_claude_json(proc.stdout)
+    except Exception as e:
+        print(f"[ERROR] JSON 解析失败 ({symbol}): {e} | 输出片段: {proc.stdout[:200]}", flush=True)
+        return None
+
+    if not isinstance(parsed, dict):
+        return None
+
+    for key in (
+        "score_narrative",
+        "score_market_lag",
+        "score_tailwind",
+        "score_catalyst",
+        "score_tradability",
+        "score_disconfirmation",
+        "total_score",
+    ):
+        value = parsed.get(key, 0)
         try:
-            proc = subprocess.run(
-                ["claude", "--print", prompt_text],
-                capture_output=True,
-                text=True,
-                cwd="/tmp",
-                timeout=120,
-                check=False,
-            )
-        except Exception as e:
-            print(f"[ERROR] claude CLI 调用失败 ({symbol}) attempt {attempt+1}: {e}", flush=True)
-            if attempt < max_retries:
-                time.sleep(2); continue
-            return None
+            parsed[key] = int(value)
+        except Exception:
+            parsed[key] = 0
 
-        if proc.returncode != 0 or not proc.stdout.strip():
-            print(f"[ERROR] claude CLI 返回异常 ({symbol}) attempt {attempt+1}: rc={proc.returncode} stderr={proc.stderr[:200]}", flush=True)
-            if attempt < max_retries:
-                time.sleep(2); continue
-            return None
-
-        try:
-            parsed = parse_claude_json(proc.stdout)
-        except Exception as e:
-            print(f"[ERROR] JSON 解析失败 ({symbol}) attempt {attempt+1}: {e} | 输出片段: {proc.stdout[:200]}", flush=True)
-            if attempt < max_retries:
-                time.sleep(2); continue
-            return None
-
-        if not isinstance(parsed, dict):
-            if attempt < max_retries:
-                time.sleep(2); continue
-            return None
-
-        for key in (
-            "score_narrative",
-            "score_market_lag",
-            "score_tailwind",
-            "score_catalyst",
-            "score_tradability",
-            "score_disconfirmation",
-            "total_score",
-        ):
-            value = parsed.get(key, 0)
-            try:
-                parsed[key] = int(value)
-            except Exception:
-                parsed[key] = 0
-
-        parsed["symbol"] = symbol
-        if attempt > 0:
-            print(f"[INFO] {symbol} retry 成功（attempt {attempt+1}）", flush=True)
-        return parsed
-
-    return None
+    parsed["symbol"] = symbol
+    return parsed
 
 
 def send_discord_report(env, results, scan_date, scanned_count, executed_summary=None):

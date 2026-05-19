@@ -82,3 +82,47 @@
 - 2026-05-11草稿的 `reference_trading_agents.md` / `reference_gstack.md` 建议清理仍未处理
 - **仍建议处理，主公决策**
 
+
+---
+
+## [草稿] 2026-05-18 深度审核
+
+涉及 2 个 session：b68a0307 (P9 attribution + RCA 大对话，25 msgs) + c7519116 (P12 cannabis 续 P12-playbook，7 msgs)
+
+### INSIGHTS 建议写入（4 条）
+
+1. **AI 写的数据需要被验证；DB 不一定是真实持仓**：cognitive_scanner.py 设计是只写 DB candidate 不下单，但 status='open' 语义被下游误读为"已成交持仓"。所有自动化数据分析必须有 reconciliation 机制对账外部权威系统。[src:b68a0307]
+
+2. **红队对抗审核（adversarial review）暴露盲区效果显著**：让独立 Opus subagent 不知情持仓状态写 bear case，揭示 5 个 Claude 自写 bear thesis 完全没覆盖的角度（地热衰减资本化掩盖 / Puna 集中度 / Kenya FX / 储能 merchant 估值 / IRA 政策）。研究框架阶段强烈推荐对每个重要 thesis 跑红队。[src:b68a0307] [ref-worthy]
+
+3. **Thesis 写作纪律：hypothesis 语气 + 范围>单点**：未验证精确数字（"forward P/S >30x" / "PE <7x"）会随时间漂移失效，不进 thesis 散文只放监测信号；推荐操作用范围（"trim 30-60%"）而非精确百分比。真正分水岭是"可证伪 vs 不可证伪"，不是"简单 vs 聪明"。[src:b68a0307] [ref-worthy]
+
+4. **AI 子 agent 任务设计模板**：3 轮 Opus subagent（14 只回填 / ORA red team / 14 只 normalize）质量都很高，共性是 prompt 里写明：(a) 输出格式严格固定、(b) 反糊弄条款明确（"不许只是 inverse" / "至少 3 layer 5-why"）、(c) Quality bar 标准说明（"读起来像 institutional analyst 而非 Twitter call"）。[src:b68a0307]
+
+### 操作记录 建议起草（1 份）
+
+- 主题：P9 Attribution 框架 v1 完整工程笔记
+- 背景：今天上线的 schema/prompt/case study/account lock/RCA 流程组合是 P9 设计的转折点
+- 建议文件名：`reference/p9_attribution_framework_v1.md`
+- 已部分覆盖在 trading/rca/2026_05_18_*.md 和 trading/case_studies/ORA_2026_05_18.md，但缺少"为什么这么设计"的设计决策记录
+
+### Friction 建议补记（已自动记录，无需补）
+
+- 5/17 P9 一次性 cron token bug → 已记
+- 5/18 ghost positions 事件 → 已记 + 完整 RCA
+- 5/18 Discord plugin 漏抓主公消息导致 idle 25 min → **未记**，应补 minor friction（hook 问题，可能与 plugin 实现有关）
+
+### Playbook 建议更新（已部分做，1 处待补）
+
+- ✅ playbooks/p9_trading.md 已更新（加了账号锁定 / 数据完整性警告 / Attribution v1 / auto-rca 段）
+- ⏳ playbooks/cannabis_retail.md 不需要本次更新（c7519116 是续话讨论，未引入新结构）
+
+### 文档对齐待处理（2 处）
+
+- ARCHITECTURE.md：可考虑加 "Auto-RCA 子系统"段（memory + templates + skill + friction_log + RCA docs 五件套关系图）
+- check_doc_sync.py 报警：discord_approve.py 在 ARCHITECTURE/context 提及但文件不存在（**pre-existing issue，非本次引入**，独立处理）
+
+### MEMORY.md 建议清理（0 条）
+
+- 本次新增 3 条 memory（feedback_auto_rca / feedback_thesis_normalization / feedback_tide_utils_load_env）均刚写，无清理对象
+- 旧 memory 暂无标"废弃"

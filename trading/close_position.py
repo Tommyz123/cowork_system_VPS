@@ -198,7 +198,7 @@ def main():
         """
         SELECT *
         FROM scanner_picks
-        WHERE status = 'open' AND symbol = ?
+        WHERE status IN ('filled', 'filled_late') AND symbol = ?
         ORDER BY scan_date DESC, id DESC
         LIMIT 1
         """,

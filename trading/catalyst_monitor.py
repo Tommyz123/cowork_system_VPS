@@ -73,7 +73,7 @@ def main():
         """
         SELECT symbol, catalyst_date, catalyst_note, entry_price
         FROM scanner_picks
-        WHERE status='open' AND catalyst_date IS NOT NULL
+        WHERE status IN ('filled', 'filled_late') AND catalyst_date IS NOT NULL
         """
     ).fetchall()
     conn.close()
@@ -114,7 +114,7 @@ def sync_open_positions_10q():
     """对所有 open 持仓检查 SEC 是否有新 10-Q，缺就抓。失败不影响主流程。"""
     try:
         conn = sqlite3.connect(DB_PATH)
-        symbols = [r[0] for r in conn.execute("SELECT DISTINCT symbol FROM scanner_picks WHERE status='open'").fetchall()]
+        symbols = [r[0] for r in conn.execute("SELECT DISTINCT symbol FROM scanner_picks WHERE status IN ('filled', 'filled_late')").fetchall()]
         conn.close()
     except Exception as e:
         print(f"[ERROR] 10-Q 同步：读 open 持仓失败: {e}", flush=True)

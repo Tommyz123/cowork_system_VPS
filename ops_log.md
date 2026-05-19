@@ -65,3 +65,17 @@
 [2026-05-17 21:56 EDT] SKILL[SYS] | 保存进度 | ✅ | [P12] Cannabis Retail 引流主线深挖完成进度已保存
 [2026-05-18 02:01 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 108.230 MiB (113486982 Byte) → Google Drive
 [2026-05-18 09:00 EDT] CRON[cannabis_docket_reminder] | mode=weekly | ✅ | 案号 904497-24 提醒已发
+[2026-05-18 10:41 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:dd5e589 草稿:4 insights+1 op record+1 friction
+[2026-05-18 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-05-18 15:06 EDT] CRON[P9] | screener | ✅ | 完成
+[2026-05-18 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-05-18 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-05-18 16:01 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-05-18 16:30 EDT] CRON[P9] | scanner_tracker | ✅ | 完成
+[2026-05-18 16:45 EDT] CRON[P9] | price_tracker | ✅ | 完成
+[2026-05-18 17:55 EDT] CRON[P9] | run_scanner | ✅ | 季度扫描完成（screener+cognitive_scanner）
+[2026-05-18 18:30 EDT] CRON[P9] | quarterly_review | ✅ | 完成
+[2026-05-18 20:28 EDT] SKILL[SYS] | 保存进度 | ✅ | [P9] 进度已保存
+[2026-05-18 20:28 EDT] CRON[P9] | run_scanner | ✅ | 季度扫描完成（screener+cognitive_scanner）
+[2026-05-18 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-05-18 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成

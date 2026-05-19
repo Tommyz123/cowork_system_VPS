@@ -29,10 +29,12 @@ def fetch_open_positions():
         rows = conn.execute(
             """
             SELECT symbol, entry_price, scan_date, score, theme, secondary_themes,
-                   spy_entry, catalyst_date, explosion_catalyst
+                   spy_entry, catalyst_date, explosion_catalyst,
+                   cohort, signal_date, signal_entry_price, fill_date, fill_entry_price,
+                   spy_fill_entry, status
             FROM scanner_picks
-            WHERE status = 'open'
-            ORDER BY scan_date, symbol
+            WHERE status IN ('filled', 'filled_late')
+            ORDER BY cohort, scan_date, symbol
             """
         ).fetchall()
         return [dict(r) for r in rows]
@@ -54,27 +56,45 @@ def fetch_live_prices(symbols):
 
 
 def calc_alpha(positions, prices):
-    """每只算 alpha vs IWM"""
+    """每只算 alpha vs IWM。
+    - execution_alpha: stock 从 fill_date 起 - IWM 从 fill_date 起（用 spy_fill_entry）
+    - signal_alpha: stock 从 signal_date 起 - IWM 从 signal_date 起（用 spy_entry）
+    两者时间窗口分别一致，无 IWM bias（2026-05-18 修复）。
+    """
     enriched = []
     iwm_now = prices.get("IWM")
     for p in positions:
         sym = p["symbol"]
         now = prices.get(sym)
-        if now is None or p["entry_price"] is None:
+        base_price = p.get("fill_entry_price") or p["entry_price"]
+        if now is None or base_price is None:
             continue
-        ret_pct = (now - p["entry_price"]) / p["entry_price"] * 100
-        iwm_pct = None
+        ret_pct = (now - base_price) / base_price * 100
+        # execution_alpha：用 spy_fill_entry（fill day IWM 价），时间窗口对齐
+        iwm_fill_pct = None
         alpha = None
-        if iwm_now and p["spy_entry"]:
-            iwm_pct = (iwm_now - p["spy_entry"]) / p["spy_entry"] * 100
-            alpha = ret_pct - iwm_pct
-        days_held = (NOW - datetime.strptime(p["scan_date"], "%Y-%m-%d")).days
+        spy_fill_base = p.get("spy_fill_entry") or p.get("spy_entry")  # fallback 旧数据
+        if iwm_now and spy_fill_base:
+            iwm_fill_pct = (iwm_now - spy_fill_base) / spy_fill_base * 100
+            alpha = ret_pct - iwm_fill_pct
+        # signal_alpha：用 spy_entry（signal day IWM 价），时间窗口也对齐
+        signal_alpha = None
+        signal_return_pct = None
+        iwm_signal_pct = None
+        if p.get("cohort") == "late_fill" and p.get("signal_entry_price") and iwm_now and p["spy_entry"]:
+            signal_return_pct = (now - p["signal_entry_price"]) / p["signal_entry_price"] * 100
+            iwm_signal_pct = (iwm_now - p["spy_entry"]) / p["spy_entry"] * 100
+            signal_alpha = signal_return_pct - iwm_signal_pct
+        ref_date = p.get("fill_date") or p["scan_date"]
+        days_held = (NOW - datetime.strptime(ref_date, "%Y-%m-%d")).days
         enriched.append({
             **p,
             "current_price": now,
             "return_pct": ret_pct,
-            "iwm_pct": iwm_pct,
+            "iwm_pct": iwm_fill_pct,
             "alpha": alpha,
+            "signal_return_pct": signal_return_pct,
+            "signal_alpha": signal_alpha,
             "days_held": days_held,
         })
     return enriched
@@ -174,16 +194,48 @@ def build_discord_chunks(positions):
 更深的判断需要等到 6 月初第一批 30 天 outcome 数据出来。当前**应该继续观察，不应该急于操作**——除非个别股票出现 thesis 失效信号（投资逻辑被现实否定）。
 """
 
-    # ===== Chunk 2: 全 14 只持仓（按 alpha 排序，每只带通俗一句话）=====
-    chunk2_lines = ["\n---\n\n📋 **14 只持仓全览**（按 alpha 从高到低，每只附通俗解读）\n"]
-    for p in by_alpha:
-        chunk2_lines.append(
-            f"**{p['symbol']}** | 主题: {p.get('theme','-')} | "
-            f"alpha **{p['alpha']:+.2f}%** | 持仓 {p['days_held']} 天 | "
-            f"绝对 {p['return_pct']:+.2f}%"
-        )
-        chunk2_lines.append(f"  💬 *{plain_language_for(p)}*")
-        chunk2_lines.append("")  # 空行分隔
+    # ===== Chunk 2: 持仓全览，按 cohort 分段 =====
+    early = [p for p in positions if p.get("cohort") == "early_filled"]
+    late = [p for p in positions if p.get("cohort") == "late_fill"]
+    auto = [p for p in positions if p.get("cohort") == "auto_filled"]
+    for group in (early, late, auto):
+        group.sort(key=lambda x: -(x.get("alpha") or -999))
+
+    chunk2_lines = ["\n---\n\n📋 **持仓全览（按 cohort 分段）**\n"]
+    if early:
+        chunk2_lines.append(f"### 🅰️ early_filled — 5/06 真实入场 ({len(early)} 只)")
+        chunk2_lines.append("_当天扫描即下单，无延迟，信号 alpha = 执行 alpha_\n")
+        for p in early:
+            chunk2_lines.append(
+                f"**{p['symbol']}** | 主题 {p.get('theme','-')} | "
+                f"alpha **{p['alpha']:+.2f}%** | 持仓 {p['days_held']} 天 | 绝对 {p['return_pct']:+.2f}%"
+            )
+            chunk2_lines.append(f"  💬 *{plain_language_for(p)}*")
+            chunk2_lines.append("")
+
+    if late:
+        chunk2_lines.append(f"\n### 🅱️ late_fill — 5/11 信号 / 5/18 补单 ({len(late)} 只) ⚠️")
+        chunk2_lines.append("_signal alpha = 5/11 价起；execution alpha = 5/18 fill 价起。差额 = 执行延迟成本_\n")
+        for p in late:
+            sa = p.get("signal_alpha")
+            sa_str = f"signal_α {sa:+.2f}% / exec_α {p['alpha']:+.2f}%" if sa is not None else f"alpha {p['alpha']:+.2f}%"
+            chunk2_lines.append(
+                f"**{p['symbol']}** | 主题 {p.get('theme','-')} | "
+                f"{sa_str} | 持仓 {p['days_held']} 天 (late_fill)"
+            )
+            chunk2_lines.append(f"  💬 *{plain_language_for(p)}*")
+            chunk2_lines.append("")
+
+    if auto:
+        chunk2_lines.append(f"\n### 🅲️ auto_filled — 季度扫描自动入场 ({len(auto)} 只)")
+        chunk2_lines.append("_scanner 扫到信号 → opg 单次日开盘自动成交。signal_date=scan_date, fill 用 Alpaca 开盘价_\n")
+        for p in auto:
+            chunk2_lines.append(
+                f"**{p['symbol']}** | 主题 {p.get('theme','-')} | "
+                f"alpha **{p['alpha']:+.2f}%** | 持仓 {p['days_held']} 天 | 绝对 {p['return_pct']:+.2f}%"
+            )
+            chunk2_lines.append(f"  💬 *{plain_language_for(p)}*")
+            chunk2_lines.append("")
 
     chunk2 = "\n".join(chunk2_lines)
 

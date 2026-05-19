@@ -135,11 +135,11 @@ def insert_thesis_alert(conn, symbol, thesis_status, headlines):
 
 
 def close_alpaca_position(env, symbol):
-    api_key = env.get("ALPACA_API_KEY", "")
-    api_secret = env.get("ALPACA_SECRET_KEY", "")
+    # P9 路由：swing 唯一账号（2026-05-18 ghost positions 事件后锁定）
+    api_key = env.get("ALPACA_SWING_KEY", "")
+    api_secret = env.get("ALPACA_SWING_SECRET", "")
     base_url = (
-        env.get("ALPACA_BASE_URL")
-        or env.get("ALPACA_ENDPOINT")
+        env.get("ALPACA_SWING_ENDPOINT")
         or "https://paper-api.alpaca.markets"
     ).rstrip("/")
     if base_url.endswith("/v2"):
@@ -161,7 +161,7 @@ def close_alpaca_position(env, symbol):
 
 def write_thesis_status(conn, symbol, status):
     conn.execute(
-        "UPDATE scanner_picks SET thesis_status=? WHERE symbol=? AND status='open'",
+        "UPDATE scanner_picks SET thesis_status=? WHERE symbol=? AND status IN ('filled', 'filled_late')",
         (status, symbol),
     )
     conn.commit()
@@ -179,7 +179,7 @@ def main():
         """
         SELECT symbol, score, new_signal, invalidation, explosion_catalyst, scan_date, entry_price
         FROM scanner_picks
-        WHERE status = 'open'
+        WHERE status IN ('filled', 'filled_late')
         ORDER BY score DESC
         """
     ).fetchall()

@@ -1,6 +1,6 @@
 # Cowork Cron 任务总览
 
-> 最后更新：2026-05-12
+> 最后更新：2026-05-18（新增 P9 alt-data sidecar gtrends_collector 周日 15:45 EDT；独立模块不影响 P9 主线）
 > 来源：`crontab -l` on VPS (DigitalOcean 142.93.207.54, user=cowork)
 > 时区：America/New_York (EDT/EST)
 > 用途：所有定时任务的**唯一索引**——加新 cron 必须在此注册
@@ -42,12 +42,14 @@ PATH=/home/cowork/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 | `30 16 * * 3` (周三 16:30) | `trading/thesis_monitor.py` | 持仓 thesis 监控 | `trading/thesis_monitor.log` |
 | `0 16 * * 0` (周日 16:00) | `trading/weekly_review.py` | 周报 | `trading/weekly.log` |
 | `30 20 * * 1-5` (工作日 20:30) | `trading/price_guard.py` | 价格守卫 | `trading/price_guard.log` |
-| `0 17 1-7 2,5,8,11 1` (季度首周一 17:00) | `trading/run_scanner.sh` | 季度大扫描 | `trading/run_scanner.log` |
+| `30 19 1-7 2,5,8,11 1` (季度首周一 19:30) | `trading/run_scanner.sh` | 季度大扫描（OPG orders 需 7pm+ 才可提交） | `trading/run_scanner.log` |
 | `0 15 1-7 * 1` (月首周一 15:00) | `trading/screener.py` | 月度筛选器 | `trading/screener.log` |
 | `30 18 1-7 2,5,8,11 1` (季度首周一 18:30) | `trading/quarterly_review.py` | 季度复盘 | `trading/quarterly_review.log` |
 | `45 13 * * 1-5` (工作日 9:45 EDT) | `trading/sync_fill_prices.py` | 开盘后同步 fill_price（Swing 账号实际成交价回填 trades/scanner_picks/outcome_tracking） | `trading/fill_price_sync.log` |
+| `45 15 * * 0` (周日 15:45 EDT) | `trading/gtrends_collector.py` | P9 alt-data sidecar：SerpAPI 拉 5 个 P9 theme 关键词 Google Trends search volume，写入 alt_signals 表；完全独立于 P9 主线，不进评分不进 weekly_review；主公 on-demand query 用（研究纪律：1 年后 sample 累积再考虑入评分） | `trading/gtrends_collector.log` |
 
 **Trading 时间调整记录（2026-05-11）:** scanner_tracker→16:30, price_tracker→16:45, thesis_monitor→16:30, run_scanner→17:00, quarterly_review→18:30（错开 DB 冲突）
+**2026-05-18 时间调整:** run_scanner→19:30（Alpaca OPG orders 需在 7pm EDT 后提交，原 17:00 触发导致全批 403 拒单）
 **2026-05-14 新增:** sync_fill_prices.py 工作日 9:45 EDT 自动回填 fill_price（已验证 Swing 账号 10 条历史记录同步成功）
 
 ---

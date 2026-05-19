@@ -42,7 +42,7 @@ def main() -> None:
         """
         SELECT id, symbol, scan_date
         FROM scanner_picks
-        WHERE status = 'open' AND spy_entry IS NULL
+        WHERE status IN ('filled', 'filled_late') AND spy_entry IS NULL
         ORDER BY id
         """
     ).fetchall()

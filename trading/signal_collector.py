@@ -68,7 +68,7 @@ def ensure_signal_quality_column(conn):
 def load_open_symbols_from_db(conn):
     try:
         rows = conn.execute(
-            "SELECT DISTINCT symbol FROM scanner_picks WHERE status='open' AND symbol IS NOT NULL AND symbol != ''"
+            "SELECT DISTINCT symbol FROM scanner_picks WHERE status IN ('filled', 'filled_late') AND symbol IS NOT NULL AND symbol != ''"
         ).fetchall()
         return {row[0].strip().upper() for row in rows if row and row[0]}
     except Exception:

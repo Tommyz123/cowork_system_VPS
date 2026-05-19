@@ -21,7 +21,7 @@ DROP_THRESHOLD = -0.07  # -7%
 def get_open_positions():
     conn = sqlite3.connect(DB_PATH)
     rows = conn.execute(
-        "SELECT symbol, entry_price FROM scanner_picks WHERE status='open'"
+        "SELECT symbol, entry_price FROM scanner_picks WHERE status IN ('filled', 'filled_late')"
     ).fetchall()
     conn.close()
     return rows

@@ -72,7 +72,7 @@ def load_open_symbols():
     conn = sqlite3.connect(DB_PATH)
     try:
         rows = conn.execute(
-            "SELECT DISTINCT symbol FROM scanner_picks WHERE status='open' AND symbol IS NOT NULL AND symbol != '' ORDER BY symbol"
+            "SELECT DISTINCT symbol FROM scanner_picks WHERE status IN ('filled', 'filled_late') AND symbol IS NOT NULL AND symbol != '' ORDER BY symbol"
         ).fetchall()
         return [row[0].strip().upper() for row in rows if row and row[0]]
     finally:

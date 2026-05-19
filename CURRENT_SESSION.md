@@ -422,11 +422,55 @@ last_updated: 2026-04-19
 
 
 ### [P9] AI量化交易系统（TIDE系统）
-状态：✅ 完整闭环（ghost positions 全修 + 自动下单方向 + IWM bias 修复 + alt-data sidecar 上线）
+状态：✅ 完整闭环 + 自动下单实战首次验证成功（20 只持仓 = 14 原 + 6 新 auto_filled）
 last_updated: 2026-05-18
-停在：✅ **14 只持仓三方对账完美**（DB scanner_picks 14 ↔ trades 14 ↔ Alpaca swing 14）。3 个 cohort 隔离干净（early_filled 6 / late_fill 8 / 未来 auto_filled）。alt_signals 265 条历史数据入库。等 3 个"首次自动运行"节点验证：5/24 周日 sidecar 首次 cron / 5/24 weekly_review 含 cohort 分段 / 8/4 Q3 季度扫描自动 opg 下单首次实战。
+停在：✅ **20 只持仓**（早 6 / 晚 8 / auto 6 三 cohort）。**5/18 19:30 EDT cron 实战首次自动扫描成功**：GNTX/GWRE/OLLI/ASTE/CXT/APPF 6 只 opg 单 accepted，等 5/19 9:30 EDT 开盘成交。Cron 表达式 bug 发现（每月所有周一都触发，不只季度首周一）→ 选 A1 接受高频 + buying_power sanity check 防御。LLM JSON 38% 失败率 → retry once 已加。Hook 注入 EDT 时间 + Discord reply reminder 双功能上线。
 
-本次完成（2026-05-18 下午+晚上 ~6 小时对话+实施 22 task）：
+本次完成（2026-05-18 晚上 11:21 EDT - 5/19 凌晨 ~5 小时深度对话第 2 轮）：
+
+**🟢 cron 实战首次自动下单验证成功**：
+- 5/18 19:30 EDT cron 触发 cognitive_scanner（cron 表达式 bug：实际每月所有周一都跑，不只季度首周一）
+- 47 只扫描 → 10 只入围 → 6 只自动下单（4 只 dedup 拒绝 ORA/AGYS/CPK/SOUN）
+- opg 单提交 swing：GNTX 132 / GWRE 22 / OLLI 37 / ASTE 63 / CXT 78 / APPF 19，总 $18,004
+- 5/19 9:30 EDT 开盘自动成交 → 9:45 EDT sync_fill_prices 自动回填
+
+**🟢 cron bug A1 方案落地**：
+- 主公选 A1（保留高频扫描的 12x sample 累积优势 + 加 buying_power 防御）
+- cognitive_scanner 新增 fetch_buying_power 函数 + Sanity Check Layer 5（buying_power 充足检查）
+- 当前 swing buying_power = $155K，按 15 只满载/周可跑 ~3 周到 6/15 撞墙
+- 撞墙时 A1 优雅拒所有后续 + Discord 警报，防止 ghost positions 复发
+
+**🟢 LLM JSON 38% 失败率 retry 修复**：
+- 47 只扫描 → 18 只 JSON 解析失败（error 分布在 char 50-980，各种 malformed 不是单一截断）
+- run_claude_analysis 加 for attempt in range(max_retries+1) 循环 + sleep 2 + [INFO] retry 成功 log
+- 不动 prompt 保留 thesis 质量
+- 5/25 第二次自动扫描后验证效果，预期 38% → 15-20%
+
+**🟢 timezone + Discord reply hook 双功能上线**：
+- 我又犯 timezone 错误（UTC 当 EDT 直接用，第二次复发）
+- 又犯 Discord reply 工具漏用（彼得林奇 / 测试时各一次）
+- 主公提议"规则不够 → Hook 强制"
+- 新建 ~/.claude/hooks/inject_time.sh：UserPromptSubmit hook，每次 prompt 顶部注入 `[Current local time: YYYY-MM-DD HH:MM EDT (Mon)]` + 检测 Discord channel 时额外注入 `[⚠️ Discord channel 消息：回复必须用 mcp__plugin_discord_discord__reply 工具，禁止纯 markdown 输出]`
+- settings.json 注册 UserPromptSubmit hook
+- 4 个 dry-run 测试全通过 + 实战验证主公 5 条消息 hook 都正常注入
+
+**🟢 P9 系统评估完成**：
+- 5 角度评估（技术 4/5 / 研究 3/5 / ROI 4/5 / 风险 3/5 / 自评 3/5）
+- 整体：积累期 stable，3 个"首次自动运行"节点（5/24 sidecar / 5/24 weekly_review / 8/4 Q3 扫描）需要监控
+- 主公 P9 改造 22 task 全部完成（除主公手动删 intraday paper 账户）
+
+**📚 友谊讨论：彼得林奇 + AI 系统化林奇方法**：
+- 彼得林奇投资风格系统性梳理（6 类股票分类 / PEG / mall observation / 持有 5-10 年）
+- AI 用于林奇生活观察可行性 + P9 alt-data sidecar 方向
+- GPT 文档对比 + 主公 "GPT 说的好的接纳不好的不要" 原则
+- 我摇摆 4 次被主公反问后才稳定，记 friction_log
+
+**⚠️ 自评摇摆 / 错误记录**：
+- timezone 错误第二次复发（feedback_timezone 升级为 Hook）
+- Discord reply 漏用工具两次（feedback_direct_correction 升级为 Hook）
+- 思考摇摆 4 次（GPT vs 主公 vs 自己判断之间，被反问救了）
+
+本次完成（2026-05-18 下午+晚上 第 1 轮 ~6 小时对话+实施 22 task）：
 
 **🔴 P9 数据完整性修复（高 ROI 必做）**：
 - 14 只持仓 ghost positions 全修：intraday paper sell ORA 261 → swing 补下单 8 只 ghost (AGYS/ARLO/FSS/HCC/LIF/MIR/SOUN/VSEC，每只 ~$3000 按 5/11 价反推 qty)
