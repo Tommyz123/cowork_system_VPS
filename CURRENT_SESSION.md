@@ -29,7 +29,7 @@ last_audit_date: 2026-04-19
 | P4 | 每日新闻日报 | ✅ cron运行中 | 2026-05-10 | 5/10补发成功；root权限/tmp/news_ai.txt问题已确认不影响当前脚本 |
 | P6 | 机票监控 Agent | ✅ cron运行中 | 2026-05-07 | SerpAPI key自动轮换（KEY2耗尽→自动切KEY）；直飞数据恢复 |
 | P7 | Mac mini价格监控 | ✅ cron运行中 | 2026-04-23 | HTML邮件（链接藏入<a>标签）；今日eBay $305触发提醒 |
-| P9 | AI量化交易系统 TIDE | ✅ cron运行中 | 2026-05-09 | 6只open持仓；price_snapshot.py上线(6/5自动填30d价格)；CSW pending等5/21；系统75%闭环；下次：B/C规则(不急) |
+| P9 | AI量化交易系统 TIDE | ✅ cron运行中 | 2026-05-18 | 14只持仓三方对账完美(DB↔trades↔Alpaca)；ghost positions 全修+自动下单方向+IWM bias 修复+alt-data sidecar 上线；下次：5/24 sidecar 首次自动跑+8/4 Q3 自动扫描首次实战 |
 
 ---
 
@@ -422,9 +422,65 @@ last_updated: 2026-04-19
 
 
 ### [P9] AI量化交易系统（TIDE系统）
-状态：⚠️ Attribution 框架 v1 落地 + 账号路由锁定 + 数据完整性事件已诊断（未修复，等主公拍板）
+状态：✅ 完整闭环（ghost positions 全修 + 自动下单方向 + IWM bias 修复 + alt-data sidecar 上线）
 last_updated: 2026-05-18
-停在：⚠️ **重大发现**：14 只 status='open' 里只有 6 只真实 swing 持仓，8 只是 DB ghost positions；intraday 账号有 ORA 261 股污染。RCA 文档已存 trading/rca/2026_05_18_ghost_positions_and_intraday_contamination.md。账号写入已物理锁死 swing。**修复方案 Q1（ghost 8 只）+ Q2（intraday ORA）+ 6 层防御** 等主公拍板。
+停在：✅ **14 只持仓三方对账完美**（DB scanner_picks 14 ↔ trades 14 ↔ Alpaca swing 14）。3 个 cohort 隔离干净（early_filled 6 / late_fill 8 / 未来 auto_filled）。alt_signals 265 条历史数据入库。等 3 个"首次自动运行"节点验证：5/24 周日 sidecar 首次 cron / 5/24 weekly_review 含 cohort 分段 / 8/4 Q3 季度扫描自动 opg 下单首次实战。
+
+本次完成（2026-05-18 下午+晚上 ~6 小时对话+实施 22 task）：
+
+**🔴 P9 数据完整性修复（高 ROI 必做）**：
+- 14 只持仓 ghost positions 全修：intraday paper sell ORA 261 → swing 补下单 8 只 ghost (AGYS/ARLO/FSS/HCC/LIF/MIR/SOUN/VSEC，每只 ~$3000 按 5/11 价反推 qty)
+- DB schema migration: 加 signal_date / fill_date / signal_entry_price / fill_entry_price / cohort 5 字段；6 只 early_filled + 8 只 late_fill 标签
+- 13 个下游脚本 status 兼容性统一改 `IN ('filled','filled_late')`（catalyst_monitor / close_position / backfill_spy_entry / price_guard / signal_alert / signal_collector / thesis_monitor / weekly_review_preview / cognitive_scanner / sync_fill_prices）
+- trades 表 5 条重复行 cleanup + UNIQUE(order_id) 索引 + INSERT OR IGNORE 防 idempotency
+- alpaca_mcp.py 清理 intraday 路由 + thesis_monitor.py close_alpaca_position 改 SWING_KEY
+
+**🟡 自动下单方向（中 ROI）**：
+- 主公明确"研究阶段不会用真钱"→ 砍掉 approve gate
+- cognitive_scanner.py 扫描后直接 opg 单到 swing + 3 层 sanity check（dedup / 单只 $5000 上限 / 单次 ≤15 只）
+- INSERT 写 status='filled' + cohort='auto_filled' + signal_date + signal_entry_price
+- alpaca_mcp.py place_order 加 time_in_force 参数（day/opg/gtc）
+- weekly_review_preview.py 加 auto_filled cohort 分段
+- 删 submit_pending_picks.py + 对应 cron
+- 19:30 EDT cron 时间约束（Alpaca opg orders 需 7pm 后提交）
+
+**🔴 IWM bias 修复（高 ROI 必做）**：
+- 发现：late_fill 8 只 execution_alpha 全部偏高 +3.38%（IWM 5/11→5/18 跌了 -3.38%）
+- 根因：calc_alpha stock 从 fill_date 起算但 IWM 从 signal_date 起算，时间窗口 mismatch
+- 修复：加 spy_fill_entry 字段 + 回填 14 只（early 用 spy_entry / late_fill 用 IWM 5/18 close $275.70）
+- weekly_review_preview.py calc_alpha 改用 spy_fill_entry 算 execution_alpha；signal_alpha 用 spy_entry
+- sync_fill_prices.py 联动回填：未来 auto_filled 成交后用 yfinance 拉 fill_date IWM 价回填 + 不再覆盖 entry_price
+- 验证：8 只 execution_alpha 全部下降 ~3%（delta 平均 -2.88%）bias 完全消除
+
+**🟢 alt-data sidecar 上线（4-8 周验证）**：
+- 完全独立 P9 主线（6 项独立性测试全通过）
+- 新建 alt_signals 表 + gtrends_collector.py（SerpAPI Google Trends）
+- 5 个 P9 theme 关键词全部 dry-run 验证强信号：AI 软件 `generative AI software` / 公用事业现代化 `utility infrastructure` / AI 电力 `data center energy demand` / 分析师重定价 `stock upgrade` / 行业重分类 `sector rotation`
+- 手动跑入 265 条历史数据（5 theme × 53 周）
+- cron 周日 15:45 EDT 自动收集
+- 研究纪律：4-8 周只观察不入评分；1 年后 sample 累积 50+ 才考虑入 cognitive_scanner
+
+**📚 文档同步**：
+- memory 6 篇更新（feedback_p9_no_ghost_data / feedback_p9_auto_execute / feedback_p9_alt_data_sidecar 等）+ MEMORY.md 索引
+- cron_jobs.md 同步（新增 gtrends_collector / 删 submit_pending_picks）
+- RCA 文档收尾（trading/rca/2026_05_18_ghost_positions_and_intraday_contamination.md 加"最终决策与执行"段）
+
+**⚠️ 我的自评**：技术做对了，但思考稳定性有 5 个待改进点（摇摆 4 次 / timezone 错误 4 小时没发现 / Discord reply 漏用工具 / 过度工程化倾向 / 依赖主公做 critic）已记 friction_log
+
+下一步（按时间）：
+1. **🟡 主公手动**：Alpaca dashboard 删 intraday paper 账户（账户已空无副作用）
+2. **5/21** CSW 财报 → verdict 更新
+3. **5/24 周日 15:45 EDT** → gtrends_collector **首次自动 cron** 验证
+4. **5/24 周日 16:00 EDT** → weekly_review 首次含 cohort 分段（early_filled 6 + late_fill 8 双轨 attribution）
+5. **6/14 周日** → 第一批 30 天 outcome 完整数据
+6. **8/4 周一 19:30 EDT** → cognitive_scanner Q3 季度扫描**首次自动 opg 下单实战**（最关键验证点）
+7. **8/9** → 14 只全部 90 天 outcome 完整 verdict
+8. **2026-11 / 2027-05** → alt-data 4-8 周 / 1 年验证节点
+9. **BACKLOG**: reconcile_positions.py 每日 17:00 EDT 对账（RCA Level 3 防御）；long_hold 标志；sector_etf 动态分配
+
+路径：`/home/cowork/cowork/trading/` | DB：`trading/trading.db` | sidecar: gtrends_collector.py + alt_signals 表
+
+---
 
 本次完成（2026-05-18 凌晨深度对话 + 上午继续）：
 - **P9 Attribution 框架 v1**：scanner_picks 加 7 字段（theme/secondary_themes/bear_thesis/hidden_risk/verdict default tentative/mistake_type/real_reason）；cognitive_scanner.py prompt 强制 Bull/Bear/Invalidation/Hidden Risk 四件套 + thesis normalization 纪律；close_position.py 加 verdict/mistake_type/real_reason 交互；14 只 open 全部 UPDATE bear_thesis（含 ORA 用 case study 强化版）
