@@ -10,9 +10,13 @@ P9 系统数据完整性铁律：**scanner_picks.status 必须反映真实 broke
 
 **How to apply**:
 
-1. **研究阶段（当前状态 2026-05-18）→ cognitive_scanner 扫描后自动下单**：
-   - scanner 写入时 `status='filled', cohort='auto_filled'` + 同时 alpaca place_order opg 单到 swing
-   - 3 层 sanity check 替代人工 approve gate（每只 $3000 上限 / 单次扫描 ≤ 15 只 / dedup 同 ticker）
+1. **研究阶段（当前状态 2026-05-19 起）→ cognitive_scanner 扫描后自动下单 + reconciler 同步真实状态**：
+   - scanner 写入时 `status='submitted', cohort='auto_pending'` + 同时 alpaca place_order opg 单到 swing
+   - **次日 9:45 EDT sync_fill_prices.py reconciler 按 Alpaca 实际 status 更新**：
+     - filled → status='filled' / cohort='auto_filled' + 回填 fill 字段
+     - expired/canceled/rejected → 同名状态（DB-broker 一致，下游自动过滤）
+   - 4 层 sanity check（每只 $3000 上限 / 单次扫描 ≤ 15 只 / dedup 同 ticker / buying_power 充足）
+   - **永远禁止**：INSERT 时硬编码 'filled' 假设 broker 100% 成交（2026-05-19 OPG 1/6 实测 fill 率证伪此假设；RCA: trading/rca/2026_05_19_opg_expired_anti_pattern_recurrence.md）
    - 详见 [feedback_p9_auto_execute.md](feedback_p9_auto_execute.md)
 
 2. **真钱阶段（未来切换时）→ 必须重新启用 approve gate**：
@@ -30,3 +34,5 @@ P9 系统数据完整性铁律：**scanner_picks.status 必须反映真实 broke
    - 任何"thesis/bear thesis/cohort/verdict"分析必须从 DB 拉，Alpaca 没这些
 
 5. **每周 data integrity check**：weekly_review 第一段必须做 DB filled+filled_late+auto_filled count vs Alpaca position count 对账，不一致就阻止 review 输出
+
+6. **反模式根治铁律（2026-05-19 更新）**：识别反模式后，**数据层修复 ≠ 流程修复**。必须把"代码层改造"列为 P0/P1 任务，否则同款问题会以新形态复发（5/18 ghost positions 修了数据没修流程，5/19 自动下单流程立刻以 OPG expired 形态复发，相隔 24h）。所有 INSERT DB 状态的代码点必检：status 是否反映 broker 实际状态？异步执行用中间态（submitted/pending）+ reconciler 后续更新。

@@ -126,3 +126,37 @@
 
 - 本次新增 3 条 memory（feedback_auto_rca / feedback_thesis_normalization / feedback_tide_utils_load_env）均刚写，无清理对象
 - 旧 memory 暂无标"废弃"
+
+## [草稿] 2026-05-18 深度审核
+
+### INSIGHTS 建议写入（0 条）
+本次 session 的 insight 已直接写入 memory（feedback_p9_no_ghost_data / feedback_p9_auto_execute / feedback_p9_alt_data_sidecar），不需要再过 INSIGHTS.md 缓冲区。
+
+### 操作记录 建议起草（0 份）
+- P9 整改造操作记录已被 trading/rca/2026_05_18_ghost_positions_and_intraday_contamination.md "最终决策与执行"段覆盖
+- CURRENT_SESSION.md [P9] 块已展开记录两轮深度对话产出
+
+### Friction 建议补记（已全部记录）
+- ✅ feedback_timezone 第二次复发（已加 friction_log + Hook 升级）
+- ✅ Discord reply 工具漏用两次（已加 friction_log + Hook 升级）
+- 摇摆 4 次没有直接 friction 条目，但 CURRENT_SESSION.md 自评段已展开 [src:0d07266c]
+
+### Playbook 建议更新（0 处）
+- P9 没有 playbook 文件（已确认）
+- 未来若建立 P9 playbook 应包含：5/18 ghost positions 事件 + cron A1 buying_power 防御 + LLM retry 设计 + alt-data sidecar 架构
+
+### 文档对齐待处理（1 处）⚠️
+- **ARCHITECTURE.md 第 112 行**：仍引用已删除的 `discord_approve.py`（"UserPromptSubmit hook: 检测授权关键词自动 touch task_approved"）
+- **实际现状**：submit_pending_picks.py 在 2026-05-18 已删（approve 机制方向砍掉），inject_time.sh 是新 UserPromptSubmit hook，但跟 task_approved 无关
+- **建议**：明天主公阅审决定是否 (a) 删除 ARCHITECTURE.md 第 112 行 (b) 改成 inject_time.sh 描述 (c) 重新评估是否要做 discord_approve.py 类机制
+- 不紧急，不影响系统运行
+
+### MEMORY.md 建议清理（0 条）
+扫描完成，无废弃条目。
+
+### 待主公明日决策（清单）
+1. ARCHITECTURE.md discord_approve.py 残留如何处理（上面文档对齐）
+2. 8/4 之前的 P9 重要节点 calendar reminder 要不要 cron 化（5/19 fill / 5/24 sidecar+weekly / 5/25 retry 验证 / 6/14 30天 outcome / 6/15 buying_power 撞墙预警）
+3. 是否要 BACKLOG 化"摇摆 4 次"的自我纠错机制（hook 检测我对同一问题改 3 次以上变立场？）
+
+[src: session 0d07266c-759a-4496-87e2-e643a71c00e1]

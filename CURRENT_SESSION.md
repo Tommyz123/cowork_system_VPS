@@ -422,9 +422,51 @@ last_updated: 2026-04-19
 
 
 ### [P9] AI量化交易系统（TIDE系统）
-状态：✅ 完整闭环 + 自动下单实战首次验证成功（20 只持仓 = 14 原 + 6 新 auto_filled）
-last_updated: 2026-05-18
-停在：✅ **20 只持仓**（早 6 / 晚 8 / auto 6 三 cohort）。**5/18 19:30 EDT cron 实战首次自动扫描成功**：GNTX/GWRE/OLLI/ASTE/CXT/APPF 6 只 opg 单 accepted，等 5/19 9:30 EDT 开盘成交。Cron 表达式 bug 发现（每月所有周一都触发，不只季度首周一）→ 选 A1 接受高频 + buying_power sanity check 防御。LLM JSON 38% 失败率 → retry once 已加。Hook 注入 EDT 时间 + Discord reply reminder 双功能上线。
+状态：✅ 完整闭环 + 反模式根治完成（**15 只真持仓**：6 早 + 8 late + 1 auto_filled ASTE；5 只 OPG expired 已 reconcile）
+last_updated: 2026-05-19
+停在：✅ **15 只真持仓**（cohort: early_filled 6 / late_fill 8 / auto_filled 1 ASTE）+ 5 只 auto_expired（GNTX/GWRE/OLLI/CXT/APPF）DB 状态与 Alpaca broker 一致。**反模式（ghost positions）根治完成**：cognitive_scanner INSERT 改 'submitted'/'auto_pending' + sync_fill_prices 升级 reconciler + outcome_tracking UPSERT 修复 9 只缺口。**数据质量全维度对账 ✅**。下次关键节点：5/25 19:30 EDT 第 2 次 cron 自动扫描验证 retry / 5/26 9:45 EDT reconciler 按新逻辑首次跑 / 6/14 第一批 30 天 outcome。
+
+本次完成（2026-05-19 早+晚 P9 反模式根治 + CodeGraph 研究）：
+
+**🔴 P9 ghost positions 反模式根治（24h 内同款复发后）**：
+- 5/19 9:30 EDT 开盘 6 只 OPG 单**只 ASTE filled，5 只 expired**（OPG 1/6 = 17% fill 率，gap up 超 limit 价）
+- 但 DB 全标 `status='filled'` → 5/18 ghost positions RCA 识别的反模式以新形态复发
+- **代码层根治**：
+  - cognitive_scanner.py:518 INSERT 改 `status='submitted'/cohort='auto_pending'`（不再硬编码 'filled' 假设 100% 成交）
+  - cognitive_scanner.py:465 dedup 加 'submitted'
+  - cognitive_scanner.py:428 docstring 更新 + RCA 反向链接
+  - sync_fill_prices.py **升级为 reconciler**：filled → 'auto_filled' + 回填；expired/canceled/rejected → DB 同步同名状态；输出 reconciliation 简报
+- **数据层修复**：5 只历史遗留 UPDATE 为 status='expired'/cohort='auto_expired'
+- **outcome_tracking 数据缺口修复**（主公追问"数据质量符合项目吗"触发审计发现）：
+  - 应有 15 行，实有 7 行（缺 late_fill 8 + ASTE 1）
+  - INSERT 9 行 + sync_fill_prices.py 加 INSERT OR IGNORE UPSERT 逻辑防再次漏插
+- **配套产出**：
+  - RCA 文档 `trading/rca/2026_05_19_opg_expired_anti_pattern_recurrence.md`
+  - memory 升级：feedback_p9_no_ghost_data + feedback_p9_auto_execute（反模式根治版）
+  - MEMORY.md 索引同步
+  - 永久铁律写入：**数据层修复 ≠ 流程修复**，反模式识别后必须代码层改造列 P0
+- DB 备份：trading.db.bak.before_recon_20260519_1058
+
+**📚 CodeGraph 研究 + cowork 借鉴方案**：
+- 研究 github.com/colbymchenry/codegraph（6.5k stars TS 项目，给 Claude Code 用的代码索引）
+- Clone 到 `research/codegraph/`（8.6MB，**临时资产待删**）
+- 派 Explore 子 agent 深度调研 → 2800 字技术报告
+- 产出 `research/codegraph_study_and_borrow_plan.md`（279 行 8 章）
+- 提炼 5 个借鉴点：三表模型 / FTS5 BM25 权重 / Smart Context Building / 工程克制默认上限 / content_hash 增量
+- 8 个不学的部分（tree-sitter/19 语言/MCP server 等）
+- **方案确认**：在已有 cowork.db 加第三层"文档知识图谱"（节点+边+引用），与现有"对话索引"互补；机制是"侦察+报告"（提示哪里要同步）而非"自动改文档"
+- **状态**：Phase 1 MVP 方案待主公启动决策（D1 现在做 / D2 BACKLOG）。主公选今晚收工 → 开新对话再启动 Phase 1。
+
+**⚠️ 待主公决策**：
+1. `research/codegraph/` 源码（8.6MB）研究已完成，可删（命令：`rm -rf /home/cowork/cowork/research/codegraph/`）；研究文档 `research/codegraph_study_and_borrow_plan.md` 保留
+2. 文档图谱 Phase 1 MVP 启动时机（推荐新对话 + 1-2 天工作）
+
+下一步：
+- 5/25 19:30 EDT 监控第 2 次自动扫描（验证 retry once 效果 + 新写入逻辑）
+- 5/26 9:45 EDT 监控 reconciler 首次按新逻辑跑（验证 expired/filled 都能正确同步）
+- 主公开新对话启动文档图谱 Phase 1（可选）
+
+---
 
 本次完成（2026-05-18 晚上 11:21 EDT - 5/19 凌晨 ~5 小时深度对话第 2 轮）：
 

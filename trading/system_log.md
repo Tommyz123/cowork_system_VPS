@@ -12,3 +12,18 @@
 [2026-05-10 21:00 EDT] ✅ price_snapshot: updated=0 skipped=6
 [2026-05-11 16:01 EDT] ✅ symbols=34 news=9 8k=55 inserted=50 | Finnhub:OK SEC:OK
 [2026-05-11 21:00 EDT] ✅ price_snapshot: updated=0 skipped=6
+[2026-05-12 16:01 EDT] ✅ symbols=34 news=11 8k=51 inserted=45 | Finnhub:OK SEC:OK
+[2026-05-12 21:00 EDT] ✅ price_snapshot: updated=0 skipped=6
+[2026-05-12 22:54 EDT] ✅ price_snapshot: updated=0 skipped=6
+[2026-05-13 16:01 EDT] ✅ symbols=34 news=15 8k=44 inserted=44 | Finnhub:OK SEC:OK
+[2026-05-13 21:00 EDT] ✅ price_snapshot: updated=0 skipped=6
+[2026-05-14 00:38 EDT] ✅ fill_price_sync: updated=0 skipped=0 errors=10
+[2026-05-14 16:01 EDT] ✅ symbols=34 news=9 8k=7 inserted=16 | Finnhub:OK SEC:OK
+[2026-05-14 21:00 EDT] ✅ price_snapshot: updated=0 skipped=6
+[2026-05-15 16:01 EDT] ✅ symbols=34 news=12 8k=36 inserted=39 | Finnhub:OK SEC:OK
+[2026-05-15 21:00 EDT] ✅ price_snapshot: updated=0 skipped=6
+[2026-05-16 21:00 EDT] ✅ price_snapshot: updated=0 skipped=6
+[2026-05-17 21:00 EDT] ✅ price_snapshot: updated=0 skipped=6
+[2026-05-18 16:01 EDT] ✅ symbols=50 news=23 8k=62 inserted=63 | Finnhub:OK SEC:OK
+[2026-05-18 21:00 EDT] ✅ price_snapshot: updated=0 skipped=6
+[2026-05-19 16:02 EDT] ✅ symbols=50 news=25 8k=32 inserted=49 | Finnhub:OK SEC:OK

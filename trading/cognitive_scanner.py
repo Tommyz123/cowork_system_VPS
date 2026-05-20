@@ -425,7 +425,12 @@ def auto_place_order(env, symbol, qty, time_in_force="opg"):
 
 
 def write_scanner_picks(results, scan_date, env):
-    """2026-05-18 改：扫描后直接自动下单到 swing（opg 单），写 status='filled' + cohort='auto_filled'。
+    """2026-05-19 改：扫描后直接自动下单到 swing（opg 单），写 status='submitted' + cohort='auto_pending'。
+    成交结果由次日 9:45 EDT sync_fill_prices.py 按 Alpaca 实际 status reconcile：
+      filled → 'filled' / cohort='auto_filled' + 回填 fill 字段
+      expired/canceled/rejected → 同名 status，cohort 保持 auto_pending（DB-broker 一致）
+    （2026-05-18 早期版本写死 'filled' / 'auto_filled' 导致 5/19 OPG 1/6 成交时 5 只 ghost positions 复发；
+      RCA: rca/2026_05_19_opg_expired_anti_pattern_recurrence.md）
     Sanity check 四层（A1 方案 2026-05-18 加 buying_power）：
       (0) 单次扫描下单数量上限 AUTO_EXECUTE_BATCH_MAX 只
       (1) 已存在 candidate/filled/filled_late/auto_filled 持仓 → dedup
@@ -462,7 +467,7 @@ def write_scanner_picks(results, scan_date, env):
 
             # Sanity 1: dedup
             existing = conn.execute(
-                "SELECT id, status FROM scanner_picks WHERE symbol=? AND status IN ('candidate','filled','filled_late','auto_filled') LIMIT 1",
+                "SELECT id, status FROM scanner_picks WHERE symbol=? AND status IN ('candidate','submitted','filled','filled_late','auto_filled') LIMIT 1",
                 (symbol,),
             ).fetchone()
             if existing:
@@ -515,7 +520,7 @@ def write_scanner_picks(results, scan_date, env):
                  invalidation, explosion_catalyst, status, spy_entry, sector_etf, sector_etf_entry,
                  theme, secondary_themes, bear_thesis, hidden_risk,
                  signal_date, signal_entry_price, cohort)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'filled', ?, ?, ?, ?, ?, ?, ?, ?, ?, 'auto_filled')
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'submitted', ?, ?, ?, ?, ?, ?, ?, ?, ?, 'auto_pending')
                 """,
                 (
                     symbol, price, scan_date, item.get("total_score", 0),

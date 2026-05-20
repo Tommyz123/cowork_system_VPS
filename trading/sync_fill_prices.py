@@ -1,7 +1,18 @@
 #!/usr/bin/env python3
 """
-开盘后价格同步工具。
-查询 Alpaca swing 账号已成交订单，把 fill_price 写回 trades 表和 scanner_picks.entry_price。
+开盘后 reconciliation 工具（2026-05-19 升级：从 price-sync → reconciler）。
+
+职责：把 DB 状态同步到 Alpaca broker 真实状态——
+  - Alpaca status=filled  → trades.status='filled' + scanner_picks.status='filled' / cohort='auto_filled' + 回填 fill_entry_price/fill_date/spy_fill_entry + outcome_tracking.tagged_price
+  - Alpaca status=expired/canceled/rejected → trades.status=同名 + scanner_picks.status=同名（DB-broker 一致，下游持仓查询自动过滤）
+  - Alpaca status=accepted/pending_new/new → 仍 pending，不动
+
+跑完输出 reconciliation 简报（filled/expired/canceled/rejected/pending 计数）。
+
+背景：2026-05-19 修复 ghost positions 反模式复发——cognitive_scanner 写入时改 status='submitted'/cohort='auto_pending'，
+不再 hardcode 'filled'，由本脚本按 broker 实际状态 reconcile。
+RCA: rca/2026_05_19_opg_expired_anti_pattern_recurrence.md
+
 用法：python3 sync_fill_prices.py
 """
 import json
@@ -59,9 +70,11 @@ def main():
     ).fetchall()
 
     if not rows:
-        print("没有需要同步的记录。")
+        print("没有需要 reconcile 的记录。")
         conn.close()
         return
+
+    counts = {"filled": 0, "expired": 0, "canceled": 0, "rejected": 0, "pending": 0, "error": 0}
 
     for trade_id, symbol, order_id in rows:
         if not order_id:
@@ -74,47 +87,97 @@ def main():
             filled_at = order.get("filled_at", "")[:10] if order.get("filled_at") else None
             print(f"[{symbol}] order_id={order_id[:8]} status={status} fill_price={fill_price}")
 
-            if fill_price and status == "filled":
+            if status == "filled" and fill_price:
                 fill_price = float(fill_price)
+                # 1. trades: status='filled' + fill_price
                 conn.execute(
-                    "UPDATE trades SET fill_price = ? WHERE id = ?",
+                    "UPDATE trades SET fill_price = ?, status = 'filled' WHERE id = ?",
                     (fill_price, trade_id),
                 )
-                # 2026-05-18 修复：不再覆盖 entry_price（=signal price 保留语义），
-                # 只更新 fill_entry_price + fill_date + spy_fill_entry（执行端字段）
+                # 2. scanner_picks: 'submitted'→'filled' / 'auto_pending'→'auto_filled' + 回填 fill 字段
+                # （不覆盖 entry_price=signal price 保留语义，只更新 fill_entry_price/fill_date 执行端字段）
                 conn.execute(
                     """UPDATE scanner_picks SET
+                       status = 'filled',
+                       cohort = CASE WHEN cohort = 'auto_pending' THEN 'auto_filled' ELSE cohort END,
                        fill_entry_price = ?, fill_date = COALESCE(fill_date, ?)
-                       WHERE symbol = ? AND status IN ('filled', 'filled_late')
-                         AND fill_entry_price IS NULL""",
+                       WHERE symbol = ?
+                         AND (cohort IN ('auto_pending', 'auto_filled') OR status IN ('submitted', 'filled', 'filled_late'))
+                         AND (fill_entry_price IS NULL OR fill_entry_price = 0)""",
                     (fill_price, filled_at, symbol),
                 )
-                # 回填 spy_fill_entry（fill day IWM 价）— 让 weekly_review execution_alpha 无 IWM bias
+                # 3. spy_fill_entry（fill day IWM 价）— 让 execution_alpha 无 IWM bias
                 if filled_at:
                     iwm_fill = fetch_iwm_close(filled_at)
                     if iwm_fill:
                         conn.execute(
                             """UPDATE scanner_picks SET spy_fill_entry = ?
-                               WHERE symbol = ? AND status IN ('filled', 'filled_late')
+                               WHERE symbol = ?
+                                 AND (cohort IN ('auto_pending', 'auto_filled') OR status IN ('filled', 'filled_late'))
                                  AND spy_fill_entry IS NULL""",
                             (iwm_fill, symbol),
                         )
                         print(f"  → scanner_picks {symbol} spy_fill_entry={iwm_fill} (IWM {filled_at})")
+                # 4. outcome_tracking（UPSERT：先 INSERT OR IGNORE 再 UPDATE
+                # 2026-05-19 修复：之前只 UPDATE，导致 auto_filled / late_fill 新 cohort
+                # 没在 outcome_tracking 留下行 → 6/14 30 天 outcome 查空。
+                # 现在 reconcile 时自动建 row，next outcome cron 能算上）
+                pick_row = conn.execute(
+                    "SELECT id FROM scanner_picks WHERE symbol=? AND fill_date=? LIMIT 1",
+                    (symbol, filled_at),
+                ).fetchone()
+                pick_id = pick_row[0] if pick_row else None
                 conn.execute(
-                    "UPDATE outcome_tracking SET tagged_price = ?, last_updated = datetime('now') WHERE symbol = ?",
-                    (fill_price, symbol),
+                    """INSERT OR IGNORE INTO outcome_tracking
+                       (symbol, tagged_date, scanner_pick_id, tagged_price, last_updated)
+                       VALUES (?, ?, ?, ?, datetime('now'))""",
+                    (symbol, filled_at, pick_id, fill_price),
                 )
-                print(f"  → trades id={trade_id} fill_price={fill_price}")
-                print(f"  → scanner_picks {symbol} fill_entry_price={fill_price} fill_date={filled_at}")
-                print(f"  → outcome_tracking {symbol} tagged_price={fill_price}")
+                conn.execute(
+                    "UPDATE outcome_tracking SET tagged_price = ?, last_updated = datetime('now') WHERE symbol = ? AND tagged_date = ?",
+                    (fill_price, symbol, filled_at),
+                )
+                print(f"  ✅ filled: trades id={trade_id} fill={fill_price} / scanner_picks 'auto_pending'→'auto_filled' / outcome_tracking 更新")
+                counts["filled"] += 1
+
+            elif status in ("expired", "canceled", "rejected"):
+                # reconcile: DB 同步成 broker 真实状态（核心：避免 ghost positions 反模式复发）
+                conn.execute(
+                    "UPDATE trades SET status = ? WHERE id = ?",
+                    (status, trade_id),
+                )
+                conn.execute(
+                    """UPDATE scanner_picks SET status = ?
+                       WHERE symbol = ? AND cohort = 'auto_pending'""",
+                    (status, symbol),
+                )
+                print(f"  ⚠️ {status}: trades + scanner_picks 标记 {status}（下游持仓查询自动过滤）")
+                counts[status] += 1
+
             else:
-                print(f"  → 尚未成交，跳过")
+                # accepted / pending_new / new / submitted → 仍 pending，不动 DB
+                print(f"  ⏳ 仍 pending (status={status})，不动 DB")
+                counts["pending"] += 1
+
         except Exception as e:
             print(f"[{symbol}] 查询失败: {e}")
+            counts["error"] += 1
 
     conn.commit()
     conn.close()
-    print("\n同步完成。")
+
+    # reconciliation 简报
+    total = sum(counts.values())
+    print(f"\n=== Reconciliation 简报 ===")
+    print(f"扫描 {total} 单：")
+    print(f"  ✅ filled    : {counts['filled']}")
+    print(f"  ⚠️  expired   : {counts['expired']}")
+    print(f"  ⚠️  canceled  : {counts['canceled']}")
+    print(f"  ⚠️  rejected  : {counts['rejected']}")
+    print(f"  ⏳ pending   : {counts['pending']}")
+    if counts.get("error"):
+        print(f"  ❌ error     : {counts['error']}")
+    print("Reconciliation 完成。")
 
 
 if __name__ == "__main__":
