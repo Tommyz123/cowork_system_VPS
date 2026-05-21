@@ -160,3 +160,107 @@
 3. 是否要 BACKLOG 化"摇摆 4 次"的自我纠错机制（hook 检测我对同一问题改 3 次以上变立场？）
 
 [src: session 0d07266c-759a-4496-87e2-e643a71c00e1]
+
+## [草稿] 2026-05-19 深度审核
+
+> 审核 session：ff1422bb-168...（57 条对话）
+> 主要话题：P9 ghost positions 反模式根治 + CodeGraph 研究借鉴
+
+### INSIGHTS 建议写入（2 条）
+
+1. **OPG 单 Alpaca paper account 实测 fill 率 17%（1/6）** [src:ff1422bb]
+   - 内容：5/19 9:30 EDT 开盘 6 只 OPG 单（GNTX/GWRE/OLLI/ASTE/CXT/APPF），仅 ASTE filled，5 只 expired
+   - 根因推测：gap up 超过 limit 价 → 自动 expire
+   - 对 Q3（8/4）真正季度扫描的影响：15 只满载 × 17% = 2-3 只成交/周，buying_power $155K 撑很久；但 sample 累积慢
+   - 建议入 `reference/knowledge_base.md` 量化研究区块 [ref-worthy]
+
+2. **三层索引架构原则**（cowork 系统设计层）[src:ff1422bb]
+   - Layer 1 已有：对话历史索引（cowork.db conversations 8235 行 FTS5 + 5295 向量 hybrid）
+   - Layer 2 已有：MEMORY.md / 资料/INDEX.md（markdown 平铺索引）
+   - Layer 3 待加：文档知识图谱（playbook/memory/reference 节点+边）
+   - 三者互补不替代：对话 = 翻聊天找过程；平铺索引 = 线性扫；图谱 = 找规则+看波及
+   - 建议入 `reference/knowledge_base.md` 或 `project_design_principles.md` [ref-worthy]
+
+### Friction 建议补记（1 条）
+
+- **2026-05-19 11:00 自我反思**：主公问"OPG 5 只 expired 怎么修"时我急着分"层面 1/2/3 让主公选"，被主公"好好想想"纠正后才发现真正问题是 ghost positions 反模式复发（cognitive_scanner:518 硬编码 'filled'），不是补这 5 只
+  - 教训：收到模糊纠正信号"你确定吗 / 好好想想"时，停下来查代码层，不要立刻列方案分层
+  - 验证标准：下次类似情况，先做 5-why 追溯到代码层根因再列方案
+
+### Playbook 建议更新（1 处）
+
+- **playbooks/p9_trading.md**（120 行）：
+  - 当前用 `status='open'` 描述持仓（5/18 ghost 时代术语）
+  - 需更新反映反模式根治后的状态机：`submitted` (写入时) → reconciler 后 `filled` / `expired` / `canceled` / `rejected`
+  - 还需更新"persona/工作流程"段反映 cohort 三分（early_filled/late_fill/auto_filled）
+  - 工作量：1 小时
+
+### 文档对齐待处理（1 处）
+
+- **ARCHITECTURE.md:112** 引用 `discord_approve.py`，但该脚本不存在（5/18 改自动下单方向时已删 submit_pending_picks.py 流程）
+  - 删除这一行 hooks 表项 / 或注明已废弃
+
+### CodeGraph Phase 1 启动决策（待主公）
+
+- **状态**：研究完成 / 方案确认（侦察+报告机制）/ 等启动时机
+- **临时资产**：`research/codegraph/` 8.6MB 第三方源码待删
+- **正式产出**：`research/codegraph_study_and_borrow_plan.md`（279 行 8 章保留）
+- **推荐路径**：主公开新对话 → 启动 Phase 1（1-2 天 MVP）
+- **不启动也行**：进 BACKLOG，等 P9 5/26 验证通过后启动
+
+
+---
+
+[src: session 86a33a4e-69c4-4c51-aeaf-6ed63c93fe46]
+
+## [草稿] 2026-05-21 深度审核
+
+> 审核 session：86a33a4e...（cross-day 5/19 20:36 → 5/21 10:05，约 60+ 轮）
+> 主要话题：CodeGraph 借鉴方案 7 轮深度审视 → 暂不做决策（数据驱动）
+
+### INSIGHTS 建议写入（3 条）
+
+1. **方案审议元规则：推系统优化方案前先拉对应 friction_log 数据验证痛点真实性** [src:86a33a4e] [ref-worthy]
+   - 本次反面案例：我推 D/F/G/H 方案 5-6 轮，主公"用证据说话"后才去拉 friction_log → 发现 4 周 0 条漏改记录 → 假设痛点不成立
+   - 教训：feedback_honesty 的"数据诚信"规则应扩展到方案审议阶段（不只是陈述事实阶段）
+   - 操作化：未来推任何"P2 系统优化"类方案前，第一动作 = grep friction_log 看真实频次 + grep cowork_log 看相关事件密度
+   - 建议入 memory/feedback_honesty.md 或新建 feedback_proposal_data_first.md
+
+2. **主公方法论：小步起步 + 监测 + 数据驱动升级 + 技术留底当后备** [src:86a33a4e] [ref-worthy]
+   - 主公原话表述：5/19 21:21 EDT "我们从小做起，就是先做一个收益率最高的，然后设置提醒，如果还有那个问题，就做哪个，保留技术，然后给项目升级做后备"
+   - 4 步要点：① 最小可验证一步起步 ② 同步建监测机制 ③ 数据/事件触发才升级 ④ 已研究方案文档留底等触发
+   - 与现有 feedback_yagni 互补：yagni 强调"不做"，此规则强调"渐进做 + 留底"
+   - 建议入 memory/feedback_methodology.md 或扩充 feedback_yagni.md
+
+3. **系统优化方案必须算 token 经济账（不只算工时）** [src:86a33a4e] [ref-worthy]
+   - 本次发现：G LLM 语义检查方案"3-4h 工时"看起来便宜，但 claude --print 输出进 context = 净增 50-150K tokens/月
+   - 真正省 token 优先级反直觉：开新对话纪律 (1-2M/月) > 搜索 Skill 升级 (200-500K/月) > 图谱 (100-200K/月) > LLM (净增)
+   - 评估维度：① 输入 token 进 context ② 输出 token 进对话 ③ LLM 调用消耗 ④ 替代了多少现有浪费
+   - 建议入 reference/knowledge_base.md 或 memory/feedback_token_economy.md
+
+### Friction 建议补记（1 条）
+
+- **2026-05-21 minor friction**：5-6 轮推 CodeGraph 借鉴方案（D/F/G/H 反复迭代）才在主公"用证据说话"+"是否值得做"两次追问后去拉 friction_log 数据，发现 4 周 0 条漏改记录推翻了整套讨论的假设前提
+  - 表面错误：推方案前没拉数据
+  - 根因：被 CodeGraph 漂亮架构吸引"用工具找问题"而非"用问题找工具"
+  - 验证标准：未来推任何"系统优化"方案前，第一动作 = `grep friction_log` + `grep cowork_log` 看痛点数据
+  - 验证状态：【待主公确认，可能升级为 PreToolUse Hook 强制】
+
+### Playbook 建议更新
+
+无（本次未涉及）
+
+### 文档对齐待处理
+
+无新增（ARCHITECTURE.md discord_approve.py 引用问题在 5/19 草稿已记，未处理）
+
+### MEMORY.md 建议清理
+
+扫描后无明显废弃条目；69 个 memory 文件均在使用中
+
+### CodeGraph 后续处理
+
+- ✅ BACKLOG.md 已加 F 图谱方案 + G LLM 方案后备条目（触发条件 ≥3 次/2 周漏改）
+- ⏳ `research/codegraph/` 8.6MB 源码保留至 2026-06-17（4 周观察期），无触发即删
+- ✅ `research/codegraph_study_and_borrow_plan.md` 保留为长期参考
+- 📌 主公次日决策：是否将上述 3 条 INSIGHTS 提炼为正式 memory（feedback_methodology / feedback_proposal_data_first / feedback_token_economy）

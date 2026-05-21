@@ -22,6 +22,21 @@
 
 ## ⏳ 等触发条件
 
+[2026-05-21] **CodeGraph 借鉴 - 文档关系图谱方案** | 触发条件：friction_log "漏改"事件 ≥3 次/2 周
+- 背景：2026-05-19→2026-05-21 Opus 4.7 + 主公 7 轮深度审视 CodeGraph 借鉴；从 11h 砍到 6.5h 真图谱最小集；最终因 friction_log 4 周 0 条漏改数据未支撑而暂不做
+- 方案：F 真图谱最小集（doc_nodes 章节级 + doc_edges 链接/sync_marker/contains 三种边 + BFS 反向遍历 + impact 查询接口）；6.5h 工时
+- 详细设计：research/codegraph_study_and_borrow_plan.md
+- CodeGraph 源码留底：research/codegraph/（2026-06-17 前保留，无触发就删）
+- 触发条件细化：
+  - friction_log 漏改频次 ≥3 次/2 周 → 优先做图谱（解决显式关联 35-55%）
+  - 主公开始大量手动改 cowork/ 文档（≥5 次/周）→ 提前做
+- 不做的理由：① 4 周漏改 0 条 ② token 节省 100-200K/月，6.5h 工时回本期 3-6 月 ③ P12 主线 Reality Check 优先级更高
+- 备选方案（更高 ROI）：搜索 Skill 章节级返回 + BM25 升级（1-2h，省 200-500K/月）
+
+[2026-05-21] **G - LLM 语义检查方案（已砍备查）** | 触发条件：图谱方案上线后需要补 B 类隐式语义关联
+- 砍掉理由：① claude --print 输出进我 context = 净增 token 50-150K/月 ② 准确率 50-70% 不可靠 ③ prompt 工程持续维护成本
+- 仅当图谱方案上线后，需要补隐式语义关联（如改 .py 文件→对应 memory 漏改）时重新评估
+
 [2026-03-23] **自动系统对齐扫描** | 触发条件：项目超过5个，或系统运行稳定后
 - 每天定时扫描 cowork_log.md + 各项目状态文件
 - 检查各层文件是否说同一件事（context.md / CURRENT_SESSION.md / memory 是否一致）
