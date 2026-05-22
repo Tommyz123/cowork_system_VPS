@@ -25,6 +25,10 @@
 - [feedback_preview_before_execute.md](feedback_preview_before_execute.md) — HTML邮件/视觉输出改动必须先生成样本发Discord预览，主公确认后再执行（2026-04-23明确要求）
 - [feedback_yagni.md](feedback_yagni.md) — 按需而做不过度工程化；"要需要才做，不是为了工程而做"；没真实场景就不建抽象层
 - [feedback_discord_ts_hook.md](feedback_discord_ts_hook.md) — Discord ts字段解析必须先json.loads()，直接搜原始stdin会因JSON转义失败
+- [feedback_discord_approve_design.md](feedback_discord_approve_design.md) — discord_approve.py设计原则：Skill命令不进APPROVE_KEYWORDS；关键词必须边界regex防从句误触发
+- [feedback_proposal_data_first.md](feedback_proposal_data_first.md) — 推系统优化方案前必须先grep friction_log验证痛点真实性，禁止凭直觉推方案
+- [feedback_methodology.md](feedback_methodology.md) — 主公工作方法论：小步起步+监测+数据驱动升级+已研究方案留底；与YAGNI互补
+- [feedback_token_economy.md](feedback_token_economy.md) — 系统优化必须算token经济账；真正省token优先级反直觉：开新对话 > 搜索升级 > 图谱 > LLM调用（净增）
 - [feedback_hair_ave_save.md](feedback_hair_ave_save.md) — 收到Hair Ave文件立即存入 资料/Hair Ave/2025-2026_周报/，无需确认
 - [feedback_direct_correction.md](feedback_direct_correction.md) — 主公对技术机制有误解时，第一句直接纠正，不顺着误解走讨论方案
 - [feedback_forward_thinking.md](feedback_forward_thinking.md) — 做决策必须同时考虑当下和未来影响，不能只看眼前能否解决问题
@@ -71,14 +75,12 @@
 - [reference_skill_rules.md](reference_skill_rules.md) — Skill创建规则：skill-creator用于新能力，迁移型可手写；实体在~/.claude/skills/，备份在cowork/skills/
 - [reference_semantic_search.md](reference_semantic_search.md) — VoyageAI语义搜索：API key在scripts/.env，embed_sessions/messages.py向量化，search_conversations.py hybrid模式
 - [reference_api_keys.md](reference_api_keys.md) — 所有API key统一存config/api_keys.env；SerpAPI×2/Gmail/Discord/Voyage/OpenAI/Anthropic/Tavily/DeepL/DeepSeek/Alpaca/FMP(备用)/Finnhub(P9新闻主力,2026-05-08)
-- [reference_trading_agents.md](reference_trading_agents.md) — TradingAgents框架在Desktop/trading/TradingAgents/；技术指标已废弃（第一系统停用）；BM25/Reflection待评估
 - [feedback_deprecation_cleanup.md](feedback_deprecation_cleanup.md) — 停用系统/模块时：弃用标记+全量扫描memory/playbook清理遗留引用checklist（自主执行，不等提醒）
 - [project_p9_trading.md](project_p9_trading.md) — P9 TIDE系统：主题驱动季度埋伏/叙事先行/ORA持仓/纸账号$1M/IWM基准/积累阶段完成(2026-05-08)/下次人工决策=ORA平仓
 - [reference_token_quota.md](reference_token_quota.md) — Claude Code每日token配额：长对话本身也消耗，非Codex专属；重要任务在新对话开始时执行
 - [reference_competitor_scraper.md](reference_competitor_scraper.md) — 竞品爬虫：GF/SS用Playwright捕dutchie graphql；ZZ用HTTP直连WP proxy+固定retailerId；DB在cowork/scraper/
 - [reference_dual_bot.md](reference_dual_bot.md) — 双bot架构：cowork+opus_CC频道ID/隔离4层(tmux/HOME/plugin/token)/DO VPS IP/systemd服务/远程装plugin方法
 - [reference_p11_discord.md](reference_p11_discord.md) — VPS Discord接入：plugin v0.0.4已知bug+patch位置+降级方案(discord.py自建bot~100行)
-- [reference_gstack.md](reference_gstack.md) — GStack（Garry Tan开源，91k stars）：github.com/garrytan/gstack；Skill设计可借鉴
 - cowork/reference/cron_jobs.md — 所有 cron 任务唯一总索引（每日新闻/机票/Mac监控/P9系列/rclone备份/大麻诉讼追踪），加新 cron 必须在此注册
 - cowork/reference/agent_view_rules.md — Claude Code Agent View 完整调研笔记（不启用，多窗口管理工具不适合远程遥控场景）
 - legal_library/18_Organic_Blooms_v_CCB_Tracking.md — NY大麻 December queue 诉讼追踪（Index 904497-24，影响主公申请），每周一09:00 EDT 自动 Discord 提醒查 NYSCEF

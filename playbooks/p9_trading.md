@@ -11,12 +11,24 @@ triggers: ["P9", "量化交易", "trading", "TIDE", "thesis", "scanner", "候选
 - `intraday` = 第一系统遗留，已停用，不要动
 - 2026-05-18 起**物理锁死**：`config.P9_ACCOUNT='swing'` + `assert_p9_account()`；close_position.py / alpaca_mcp.py 的 place_order/cancel_order 写入 intraday 会 raise ValueError
 
-## ⚠️ 数据完整性警告（2026-05-18 发现，未完全修复）
-- **scanner_picks.status='open' ≠ 真实持仓**！cognitive_scanner.py 只 INSERT DB，不调用 Alpaca place_order；下单是人工
-- 当前 14 只 status='open' 里只有 6 只（5/06 那批）真实在 swing 账号成交；5/11 那批 8 只是 DB ghost
-- intraday 账号有 ORA 261 股遗留持仓污染
-- 完整诊断：`trading/rca/2026_05_18_ghost_positions_and_intraday_contamination.md`
-- 修复方案（等主公拍板）：Q1 ghost 8 只 → B 重标 candidate；Q2 intraday ORA → C 合并；6 层防御实施
+## 状态机 & Cohort 系统（2026-05-19 根治版）
+
+**scanner_picks.status 状态机**：
+- `submitted` → 扫描到 + OPG 下单（cognitive_scanner 写入时）
+- `filled` / `auto_filled` → 次日 9:45 EDT reconciler 确认 Alpaca 成交
+- `filled_late` → 手动补仓标记（5/18 ghost 修复批）
+- `expired` / `auto_expired` → OPG 未成交（gap up 超 limit 价，Alpaca 自动作废）
+- `canceled` / `rejected` → broker 层撤单/拒单
+
+**scanner_picks.cohort 分类**：
+- `early_filled`：5/11 手动第一批（6 只）
+- `late_fill`：5/18 ghost 修复补仓（8 只）
+- `auto_filled` / `auto_pending` / `auto_expired`：自动 OPG 流程
+
+**当前持仓（2026-05-19 对账后）**：
+- **15 只真实持仓**：status IN ('filled','filled_late','auto_filled')
+- **5 只 expired**：GNTX/GWRE/OLLI/CXT/APPF（auto_expired，DB 与 Alpaca 一致）
+- Ghost positions 已完全根治：RCA 见 `trading/rca/2026_05_18_*.md` / `2026_05_19_*.md`
 
 ## 📊 Attribution 框架 v1（2026-05-18 上线）
 - scanner_picks 表新增 7 字段：`theme / secondary_themes / bear_thesis / hidden_risk / verdict (default tentative) / mistake_type / real_reason`
@@ -32,7 +44,7 @@ triggers: ["P9", "量化交易", "trading", "TIDE", "thesis", "scanner", "候选
 - 规则：`memory/feedback_auto_rca.md`；模板：`trading/rca/RCA_TEMPLATE_short.md` + `_full.md`
 
 ## 快速启动
-路径：`/mnt/c/Users/zhi89/Desktop/cowork/trading/`
+路径：`/home/cowork/cowork/trading/`
 
 手动触发季度扫描：
 ```bash
@@ -54,8 +66,8 @@ python3 sync_fill_prices.py
 ```bash
 python3 -c "
 import sqlite3
-conn = sqlite3.connect('/mnt/c/Users/zhi89/Desktop/cowork/trading/trading.db')
-for r in conn.execute(\"SELECT symbol, entry_price, scan_date, status FROM scanner_picks WHERE status='open' ORDER BY scan_date\"):
+conn = sqlite3.connect('/home/cowork/cowork/trading/trading.db')
+for r in conn.execute(\"SELECT symbol, entry_price, scan_date, status FROM scanner_picks WHERE status IN ('filled','filled_late','auto_filled') ORDER BY scan_date\"):
     print(r)
 conn.close()
 "
@@ -65,7 +77,7 @@ conn.close()
 ```bash
 python3 -c "
 import sqlite3
-conn = sqlite3.connect('/mnt/c/Users/zhi89/Desktop/cowork/trading/trading.db')
+conn = sqlite3.connect('/home/cowork/cowork/trading/trading.db')
 for r in conn.execute('SELECT date, symbol, source, COUNT(*) as cnt FROM signals GROUP BY date, symbol, source ORDER BY date DESC LIMIT 20'):
     print(r)
 conn.close()
@@ -78,12 +90,18 @@ conn.close()
 - 打分6维度：叙事变化 / 市场认知滞后 / 行业尾风 / 催化剂 / 可交易性 / 否定风险
 - 持仓窗口：3-6个月
 
-## 五层自动运行流程
-- 每天12PM EDT：signal_collector / signal_alert / catalyst_monitor
-- 每周一12PM EDT：scanner_tracker（持仓周报→Discord）
-- 每周三12PM EDT：thesis_monitor（thesis失效判断→Discord告警，不自动平仓）
-- 每月第一周一12PM EDT：screener（刷新候选股池）
-- 每季度第一个周一8AM UTC：run_scanner（季度主题扫描）
+## 自动运行流程（纽约时间 EDT）
+- 每天 **16:00**：signal_collector / signal_alert / catalyst_monitor（三件套）
+- 每天 **20:30**（工作日）：price_guard（持仓跌幅 >7% 告警）
+- 每天 **21:00**：price_snapshot（30/60/90 天节点价格记录）
+- 每周一 **16:30**：scanner_tracker（持仓周报→Discord）
+- 每周一 **16:45**：price_tracker（补历史价格）
+- 每周三 **16:30**：thesis_monitor（thesis 失效→Discord 告警，不自动平仓）
+- 每周日 **15:45**：gtrends_collector（alt-data sidecar 关键词趋势）
+- 每周日 **16:00**：weekly_review（结果追踪周报→Gmail）
+- 每月第一周一 **15:00**：screener（刷新候选股池）
+- 每季度第一周一 **19:30**：run_scanner（季度主题扫描+自动 OPG 下单）
+- 每季度第一周一 **18:30**：quarterly_review（季度复盘→Gmail）
 
 ## 架构原则
 - thesis_monitor失效只告警，不自动平仓，等主公人工决策
@@ -102,7 +120,7 @@ conn.close()
 **常用查询示例：**
 ```sql
 -- 当前开仓
-SELECT symbol, entry_price, scan_date, score, status FROM scanner_picks WHERE status='open'
+SELECT symbol, entry_price, scan_date, score, status FROM scanner_picks WHERE status IN ('filled','filled_late','auto_filled')
 
 -- 最近信号积累
 SELECT date, symbol, source, COUNT(*) cnt FROM signals GROUP BY date, symbol, source ORDER BY date DESC LIMIT 20
@@ -116,5 +134,10 @@ SELECT symbol, alert_date, thesis_status, headline_summary FROM thesis_alerts OR
 - 默认账号：swing（纸交易 $1M）
 - 支持 account 参数切换：`"swing"` 或 `"intraday"`
 
-## 当前阶段
-学习阶段（纸账号 $1M），积累signal原料，等2026年8月建自动主题发现。
+## 当前阶段（2026-05-19 更新）
+积累阶段（纸账号 swing $1M）：
+- **15 只真实持仓**（early_filled 6 / late_fill 8 / auto_filled 1）
+- OPG fill 率实测 17%（1/6，5/19），Q3 满载 15 只预期成交 2-3 只
+- 次季度扫描：8/4 周一 19:30 EDT（Q3 首次真正实战）
+- 下一个关键节点：5/25 自动扫描验证 retry / 5/26 reconciler 首跑 / 6/14 首批 30 天 outcome
+- alt-data sidecar：4-8 周只观察，1 年后 sample 累积 50+ 才考虑入评分

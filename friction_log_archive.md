@@ -158,3 +158,23 @@
 
 [2026-05-10 XX:XX] ⚠️ 规则违反 | CLAUDE.md加了操作习惯类内容 | 被主公纠正：只加违反会出事的规则 | 状态：已自行修复
 ✅ 归档于2026-05-11
+
+
+---
+
+## 归档批次 2026-05-21（已闭环条目 ①③④⑦⑧）
+
+[2026-05-07 17:05] ⚠️ 系统一致性 | P9 TIDE系统 | 问题：after-hours下单导致DB与Alpaca账号暂时不一致（DB超前于实际成交）；根因：place_order下单后DB立即记录open，但Alpaca市价单在市场关闭时无法立即成交；遗留问题：trades.fill_price为空，scanner_picks.entry_price用扫描价而非实际成交价；建议：开盘后需手动或脚本同步fill_price | 状态：需主公确认同步机制
+
+[2026-05-09 20:08] ⚠️ 数据诚信 | P11 SMTP 故障诊断时靠经验猜"DigitalOcean默认封SMTP"未读官方文档 | 主公纠正"需要读DO规则信息再继续，不然都靠猜" | 处理方式：用 WebFetch 抓 DO 官方文档 + WebSearch 验证社区经验，确认 25/465/587 全封 + 工单解锁概率低 + 推荐第三方API 后再列方案 | 根因：技术故障诊断时混用"经验直觉"和"事实陈述"，把猜测当结论 | 建议规则变更：CLAUDE.md "看日志先读代码"规则扩展为"看故障先读官方文档"——遇到第三方服务（云提供商/API/工具）的故障/限制，先 WebFetch 官方文档 + WebSearch 验证，再列方案；禁止把"通常这样"当事实陈述
+验证标准：下次遇到第三方服务故障/限制时，第一动作是 WebFetch 官方文档而非凭经验给方案
+验证状态：【待验证】
+
+[2026-05-09 22:30] ⚠️ 诊断方法 | Discord plugin reply bug 第 4 次诊断错——"claude 不调 reply 工具"判断错 | 表面错误：观察 TUI 输出"等待"+ Stop Hook 报"reply 漏发" → 主观推测"claude 拿到 permission 后没真调 reply 工具"；写入 archive/vps_migration_progress 当下次待办；实际 claude session jsonl `~/.claude/projects/<cwd>/<sid>.jsonl` 第 4 秒就有 `tool_use: mcp__plugin_discord_discord__reply` 记录，第 6 秒就有 `tool_result: reply failed: ... not allowlisted`，数据 5/9 早上就有，没去看 | 根因：诊断 plugin/工具执行问题时只看 hook log + server stderr + TUI 表象，没第一动作去看 claude 内部行为日志（session jsonl）；hook/stderr 是辅助，session jsonl 才是 claude 实际做了什么的真相 | 建议规则变更：CLAUDE.md "诊断顺序"规则——诊断 claude 工具/plugin 执行失败时，第一动作必须是 read claude session jsonl 解析 user/assistant/tool_use/tool_result 流，看 claude 实际做了什么；hook log/stderr 只作辅助；不看 jsonl 不下"claude 没做 X"的结论
+验证标准：下次工具/plugin 执行问题诊断时，第一句话必须是"先 read 最新 session jsonl"，不直接看 hook log 下结论
+验证状态：【待验证】
+
+[2026-05-11 00:29] ⚠️ 系统限制 | discord_approve.py hook | Discord中途消息（system-reminder）不触发UserPromptSubmit，导致task_approved未自动创建；用户已在Discord确认但需要再发一次才能生效 | 状态：待讨论
+[2026-05-11 23:44] ⚠️ 被主公纠正 | 场景：主公说"收工时整理文档也是保留草稿"，误把"收工时"理解为"现在收工"指令，Hook检测到"收工"词自动授权，未二次确认就执行收工流程 | 表面错误：误触收工 | 根因：Hook触发词过于宽泛（含"收工"的语境不全是指令），且我没有在Hook授权后判断意图就直接执行 | 建议规则变更：执行收工前先复述"我理解你要收工了，确认吗？"；或Hook收工词需要是独立指令（不在句中） | 验证标准：下次遇到含"收工"的句子但不是独立指令时，先确认再执行 | 验证状态：【待验证】 | 状态：需主公确认
+
+✅ 归档于 2026-05-21，闭环依据：规则已写入 CLAUDE.md / 代码已修复 / cron 已运行

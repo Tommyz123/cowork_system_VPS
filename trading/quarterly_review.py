@@ -4,43 +4,29 @@
 """
 import json
 import sqlite3
+import urllib.request
 from datetime import datetime
-
-import requests
 
 from db_schema import ensure_scanner_picks_schema, ensure_thesis_alerts_table
 from tide_utils import load_env
 
 DB_PATH = "/home/cowork/cowork/trading/trading.db"
-DISCORD_API_BASE = "https://discord.com/api/v10"
 
 
-def send_discord(env, message):
-    token = env.get("DISCORD_BOT_TOKEN")
-    channel_id = env.get("DISCORD_CHANNEL_ID")
-    if not token or not channel_id:
-        return
-    headers = {"Authorization": f"Bot {token}", "Content-Type": "application/json"}
-    chunks = []
-    while message:
-        if len(message) <= 1900:
-            chunks.append(message)
-            break
-        split_at = message.rfind("\n", 0, 1900)
-        if split_at == -1:
-            split_at = 1900
-        chunks.append(message[:split_at].strip())
-        message = message[split_at:].strip()
-    for chunk in chunks:
-        try:
-            requests.post(
-                f"{DISCORD_API_BASE}/channels/{channel_id}/messages",
-                headers=headers,
-                json={"content": chunk},
-                timeout=15,
-            ).raise_for_status()
-        except Exception:
-            pass
+def send_email(env: dict, subject: str, body: str) -> None:
+    payload = json.dumps({
+        "sender": {"name": "Cowork VPS", "email": env["GMAIL_USER"]},
+        "to": [{"email": env["GMAIL_TO"]}],
+        "subject": subject,
+        "textContent": body,
+    }).encode()
+    req = urllib.request.Request(
+        "https://api.brevo.com/v3/smtp/email",
+        data=payload,
+        headers={"api-key": env["BREVO_API_KEY"], "Content-Type": "application/json"},
+        method="POST",
+    )
+    urllib.request.urlopen(req, timeout=15)
 
 
 def load_post_exit_prices(raw_value):
@@ -148,7 +134,12 @@ def main():
     if not closed_rows:
         message = "📘 Quarterly Review\n暂无 closed_watching / closed / archived 交易数据"
         print(message)
-        send_discord(load_env(), message)
+        env = load_env()
+        subject = "P9 TIDE Quarterly Review " + datetime.now().strftime("%Y-%m-%d")
+        try:
+            send_email(env, subject, message)
+        except Exception as exc:
+            print(f"warning: email send failed: {exc}")
         return
 
     wins = [row for row in closed_rows if row["return_pct"] > 0]
@@ -181,7 +172,12 @@ def main():
 
     message = "\n".join(lines).strip()
     print(message)
-    send_discord(load_env(), message)
+    env = load_env()
+    subject = "P9 TIDE Quarterly Review " + datetime.now().strftime("%Y-%m-%d")
+    try:
+        send_email(env, subject, message)
+    except Exception as exc:
+        print(f"warning: email send failed: {exc}")
 
 
 if __name__ == "__main__":

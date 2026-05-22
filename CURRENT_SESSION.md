@@ -141,8 +141,14 @@ last_updated: 2026-05-17
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-05-21
-停在：CodeGraph 借鉴方案深度审视完成；**决策：暂不做图谱/LLM 语义检查**（数据驱动），技术留底；下次：P12 AI 法律顾问 prompt MVP
+last_updated: 2026-05-22
+停在：review_drafts.md 6 个草稿区块全部处理完；ARCHITECTURE.md / BACKLOG / playbooks/p9_trading.md 同步更新；下次：P12 AI 法律顾问 prompt MVP
+
+本次完成（2026-05-22 review_drafts 全清）：
+- **review_drafts.md 6 草稿区块全部处理**（5/11→5/21）：INSIGHTS 13条写入 / 4条新memory / friction 归档5+补记4 / ARCHITECTURE.md 2处更新 / BACKLOG摇摆Hook条目 / playbooks/p9_trading.md状态机+cohort+路径+cron全更新
+- **quarterly_review.py 修复**：Discord→Brevo邮件发送
+- **OPG cron 时间修正**：17:00→19:30 EDT（Alpaca OPG需7pm+提交）
+- **review_drafts.md 清空**（6草稿全处理完毕）
 
 本次完成（2026-05-19 → 2026-05-21，约 60+ 轮深度对话）：
 - **CodeGraph 借鉴方案 7 轮迭代审视**（11h → 8.5h → 6.5h → 5h → 3-4h → 0h）：

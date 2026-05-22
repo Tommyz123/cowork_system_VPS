@@ -109,7 +109,8 @@ Desktop/
 |------|---------|------|
 | `git_commit_guard.sh` | PreToolUse(Bash) | 拦截 git commit/push；拦截 Claude 自行 touch task_approved |
 | `system_file_guard.sh` | PreToolUse(Edit/Write) | 白名单放行；其他文件需 task_approved token |
-| `discord_approve.py` | UserPromptSubmit | 检测授权关键词（"可以执行"等）→ 自动 touch task_approved |
+| `discord_approve.py` | UserPromptSubmit | 检测授权关键词（"执行"等）→ 自动 touch task_approved |
+| `discord_ts_convert.py` | UserPromptSubmit | Discord 消息时间戳转换 → 注入纽约时间上下文（`⏰ Discord消息时间`） |
 | `honesty_check.sh` | Stop | 检测声称读完但实际只读了部分文件 |
 | `discord_reply_check.sh` | Stop | Discord 消息漏回复时 block |
 | `rm -f /tmp/task_approved` | UserPromptSubmit | 每次主公发消息自动清除授权 token |
@@ -122,6 +123,20 @@ Desktop/
 | 路由规则 | ①读多文件+改+验证，验收能写死，无需中途对话 → `general-purpose` 子Agent；②只读型（分析/调研/审核）→ `Explore` 子Agent；③长耗时（爬虫/批处理）→ 强制 `general-purpose`；④其他（即时/单步/需中途确认）→ Claude 直接做 |
 | 派发判据 | 「验收能写死」+「无需中途对话」两个都满足才派，缺一则 Claude 直接做 |
 | 指令写法 | 路径+做什么+约束；禁止背景/解释；改前读现状，验证通过才完成，卡住即报告 |
+
+**Auto-RCA 子系统**（2026-05-18 上线）：
+
+错误自动根因分析五件套，触发后按分级（trivial/minor/major/critical）处理：
+
+| 组件 | 位置 | 作用 |
+|------|------|------|
+| 规则 | `memory/feedback_auto_rca.md` | 三档分级标准 + 5元触发器 + 反糊弄约束 |
+| 触发入口 | `friction_log.md` | minor 以上写入，major 另建 RCA 文档 |
+| RCA 文档 | `trading/rca/` | major/critical 事件完整五问分析（按日期命名） |
+| 执行接口 | `Skill: auto-rca` | 触发 RCA 流程的 Skill 入口 |
+| 结果记录 | `cowork_log.md` | 每次 RCA 结果写日志 |
+
+触发条件（满足任一）：主公纠正 / hook报错 / 数据不一致 / 工具失败 / 我自判为major级错误。
 
 **版本控制：** cowork/ 系统文件已建立 Git 版本控制，推送至 github.com/Tommyz123/cowork_system（私有）。追踪范围：CLAUDE.md、ARCHITECTURE.md、context.md、memory/、playbooks/ 等核心文件；排除 cowork_log.md、newscripts/、backups/ 等。
 
