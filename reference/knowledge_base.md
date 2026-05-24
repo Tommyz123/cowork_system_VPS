@@ -39,6 +39,43 @@ AI 回复走 stdout，hook 日志走 stderr。
 
 ## MCP 与系统设计
 
+**"不加规则"也是决策，需要记录理由**
+系统复盘时不要直接加规则——先问"已有规则为什么没执行"。原因可能是：规则已有但没内化 / 单次违规不够升级 / 场景被现有规则覆盖。
+判断框架：不是所有摩擦都该变成规则。加规则前先确认：① 这个场景没有已有规则吗？② 已有规则为什么失效了？
+适用：系统复盘时决定是否新增规则/Hook。
+
+**Opus subagent 作为第二意见的正确用法**
+- 复杂规则/架构决策 → 先问 Opus 独立分析，置信度更高
+- 个人倾向/执行细节 → 直接做，不需要派 Opus
+关键：Opus 给的是"有据可查的推理"，不是附和。派之前确保 prompt 不泄露自己的倾向（否则容易拿到合理化而非真正第二意见）。
+
+**子 agent 任务设计三要素（高质量输出必备）**
+Opus subagent 质量高的 prompt 共性：
+(a) 输出格式严格固定（字段/结构明确）
+(b) 反糊弄条款明确（"不许只是 inverse"/"至少 3 layer 5-why"/"不能附和"）
+(c) Quality bar 说明（"读起来像 institutional analyst 而非 Twitter call"）
+三点缺一不可。随手写 prompt 输出质量不稳定。
+
+**红队对抗审核（adversarial review）暴露盲区**
+让独立 subagent 不知情当前持仓/决策状态，独立写 bear case / 反驳论点。效果显著优于自己写 bear thesis。
+P9 实测：Opus subagent 揭示 5 个 Claude 自写 bear thesis 完全没覆盖的角度（地热衰减资本化/Puna集中度/Kenya FX/储能merchant估值/IRA政策）。
+适用：任何重要决策——投资 thesis、系统设计方案、商业方案。关键：subagent 不知情，才能真正独立。
+
+**DB ≠ 真实状态，自动化系统必须有 reconciliation 机制**
+任何 DB + 外部权威系统（broker/API/账号）的组合，DB 记录不等于外部真实状态。必须有定期对账机制。
+- P9 教训：scanner_picks.status='open' 被下游误读为"已成交持仓"，实际 8 只是 DB-only 虚拟记录
+- 原则：Alpaca = 持仓 SoT；DB = thesis SoT。两者语义不同，不能混用
+- 落地：reconciler 每次 OPG 成交后自动跑（sync_fill_prices.py），weekly_review 第一段 integrity check
+适用：任何有 DB + 外部账号/服务的自动化系统设计
+
+**cowork 三层索引架构（2026-05-21 决策）**
+Layer 1 = cowork.db（对话 FTS5+向量，找过程/历史）；Layer 2 = MEMORY.md/INDEX.md（人工指针，定位文件）；Layer 3 = 知识图谱（节点+边，找规则波及范围，**待建**）。三层互补不替代，用途不同。
+Layer 3 触发条件：2 周内 ≥3 次漏更新关联文件 friction → 才重新评估。当前 4 周 0 条漏更新，暂不建。
+
+**AI 主动追责比被动响应杠杆更高**
+主公逃避项目取舍的根本原因是"承诺没有外部追责"。AI 主动发起审查（如每周一审 CURRENT_SESSION 老化项目）比写 5 个自动化 Hook 加起来更有效——Hook 只管代码行为，管不了决策节奏。
+适用：设计 AI 工作流时，主动周期性追责 > 被动响应触发。把"主动汇报过期项目"做成 cron，不是做成 Hook。
+
 **MCP 工具定义的 token 开销规律**
 每条消息固定带入所有 MCP 工具定义，Playwright MCP 约增加 2000-4000 token。
 不用的 MCP 就不要装，用不到时从 mcp.json 删掉。
@@ -141,6 +178,17 @@ with pdfplumber.open(path) as pdf:
 - `stable/company-screener` 市值上限过滤失效 → 改用 Wikipedia S&P 400+600 名单 + yfinance 补数据
 - FMP 财报 transcript 需付费 → 改用 FMP 新闻全文（`text` 字段已有内容）
 - screener 单次运行约30分钟，不能在 scanner 里重跑 → 必须读 `screener_output.json` 缓存
+
+---
+
+## P9 TIDE 量化系统
+
+**OPG 单实测 fill 率（2026-05-19 基准）**
+Alpaca paper account OPG 单实测 fill 率约 17%（1/6，5/19 首次自动扫描）。Gap up 超 limit 价时 Alpaca 自动作废订单。
+- 15 只满载 × 17% ≈ 每次扫描成交 2-3 只
+- buying_power 长期闲置，sample 累积慢（一年约 8-12 个数据点）
+- Q3（8/4）扫描预期 2-3 只成交，不要期待满载
+适用：评估 P9 sample 累积速度、讨论是否调整 limit 价策略时参考此基准
 
 ---
 

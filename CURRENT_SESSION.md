@@ -153,6 +153,14 @@ last_updated: 2026-05-23
 - **bubblewrap sandbox 完全调通**：apt install bubblewrap + sysctl 关 kernel.apparmor_restrict_unprivileged_userns（永久写 /etc/sysctl.d/99-userns.conf）；Codex 现可自主读文件 + 跑 shell（带 sandbox）
 - **cowork SSH key 配置**：root authorized_keys 复制到 /home/cowork/.ssh/；主公现可 ssh cowork@142.93.207.54 直接登入（不用 root 中转）
 
+本次完成（2026-05-23 健康检查）：
+- **cowork_log.md 归档**：334行→103行，前231行归档至 archive/cowork_log_2026_may.md
+- **INSIGHTS.md 全清**：9条处理完毕（4条迁 knowledge_base.md：DB≠真实状态/三层索引/AI主动追责/OPG fill率17%；5条删除：price_snapshot/AI工具杠杆/对AI严格vs业务松/AI Workflow架构师/其他）
+- **friction_log.md 审核**：12条逐条过，归档10条（#1#2#3#4#5#6#7#8#11#12），保留2条待验证（#9模糊纠正信号/#10推方案前验证）
+- **auto_pending.md 清空**：1条重复条目删除（收工整理先列草稿，已内化在流程）
+- **feedback_read_before_conclude.md 新建**：有信息来源时先读完再结论的新规则
+- **knowledge_base.md**：新增7个知识点
+
 下一步：
 - 🚨 **P12 AI 法律顾问 prompt MVP**（30min-2h，主公自己讲"最该现在做"）
 - 5/30 hook 命中日志审计（一周后砍 0 触发 hook）
@@ -468,7 +476,7 @@ last_updated: 2026-04-19
 
 ### [P9] AI量化交易系统（TIDE系统）
 状态：✅ 完整闭环 + 反模式根治完成（**15 只真持仓**：6 早 + 8 late + 1 auto_filled ASTE；5 只 OPG expired 已 reconcile）
-last_updated: 2026-05-19
+last_updated: 2026-05-23
 停在：✅ **15 只真持仓**（cohort: early_filled 6 / late_fill 8 / auto_filled 1 ASTE）+ 5 只 auto_expired（GNTX/GWRE/OLLI/CXT/APPF）DB 状态与 Alpaca broker 一致。**反模式（ghost positions）根治完成**：cognitive_scanner INSERT 改 'submitted'/'auto_pending' + sync_fill_prices 升级 reconciler + outcome_tracking UPSERT 修复 9 只缺口。**数据质量全维度对账 ✅**。下次关键节点：5/25 19:30 EDT 第 2 次 cron 自动扫描验证 retry / 5/26 9:45 EDT reconciler 按新逻辑首次跑 / 6/14 第一批 30 天 outcome。
 
 本次完成（2026-05-19 早+晚 P9 反模式根治 + CodeGraph 研究）：
