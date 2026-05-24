@@ -141,8 +141,24 @@ last_updated: 2026-05-17
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-05-22
-停在：review_drafts.md 6 个草稿区块全部处理完；ARCHITECTURE.md / BACKLOG / playbooks/p9_trading.md 同步更新；下次：P12 AI 法律顾问 prompt MVP
+last_updated: 2026-05-23
+停在：cowork 系统大瘦身 + Codex CLI 落地；MEMORY.md 索引精简 8 条 + 9 Skill 归档 + 12 Hook 加命中日志 + scripts/INDEX.md 登记册 + Codex CLI（ChatGPT Plus 订阅）+ bubblewrap sandbox 调通 + cowork SSH key；累计省 ~1900 token/对话
+
+本次完成（2026-05-23 系统大瘦身 + Codex 接入）：
+- **Skill 归档（9 个 → cowork/skill_archives/）**：project-plan-* 4 + todolist-* 3 + 审核架构 + 系统复盘；2 周内 0 使用但每次注入 ~1500 token；CLAUDE.md 替换为 1 行指针；SKILLS_INDEX.md 同步精简 111→70 行
+- **Hook 命中日志埋点（12 个）**：_log_hit.sh + _log_hit.py 共享 logger；7 bash + 5 python hook 各加 1 行调用；写入 cowork/logs/hook_hits.log；预计 5/30 审计后砍 0 触发 hook
+- **scripts/INDEX.md 脚本登记册（150 行）**：18 脚本 5 数据源调用扫描；分类 14 活跃 / 1 库存（send_email.py）/ 2 一次性 / 1 废弃；删 discord_approve_backup.py + 移 backfill_sessions.py 到 archive/；CLAUDE.md 加"scripts 变更同步 INDEX.md"规则
+- **MEMORY.md 索引行精简 8 条**：A 类删行 2（feedback_backlog_format + feedback_timezone，完全重叠 CLAUDE.md）；C 类压缩 4（P9 ghost_data/auto_execute/alt_data_sidecar + auto_rca，236-245→48-68 字符）；B 类精简 2（feedback_confirm_before_execute + feedback_logging，按 D 模板"主题：独有（其他 CLAUDE.md 已有）"）；15072→13996 字符，省 ~400 token
+- **Codex CLI 安装 + ChatGPT Plus 订阅认证**：用户级 npm install（~/.npm-global，无 sudo）；codex login --device-auth + ChatGPT 安全设置开启 device authorization；测试 fibonacci + send_email.py 审查（gpt-5.5，给 3 条具体改进建议）
+- **bubblewrap sandbox 完全调通**：apt install bubblewrap + sysctl 关 kernel.apparmor_restrict_unprivileged_userns（永久写 /etc/sysctl.d/99-userns.conf）；Codex 现可自主读文件 + 跑 shell（带 sandbox）
+- **cowork SSH key 配置**：root authorized_keys 复制到 /home/cowork/.ssh/；主公现可 ssh cowork@142.93.207.54 直接登入（不用 root 中转）
+
+下一步：
+- 🚨 **P12 AI 法律顾问 prompt MVP**（30min-2h，主公自己讲"最该现在做"）
+- 5/30 hook 命中日志审计（一周后砍 0 触发 hook）
+- MEMORY.md B 类剩 2 条（feedback_auto_context + feedback_codex_collaboration）可选继续
+- 内核重启（6.8.0-71 → 6.8.0-117，apt 已升级未重启，找时机做）
+- 监测：每周扫 friction_log 漏改事件 → ≥3 次/2 周触发图谱升级评估
 
 本次完成（2026-05-22 review_drafts 全清）：
 - **review_drafts.md 6 草稿区块全部处理**（5/11→5/21）：INSIGHTS 13条写入 / 4条新memory / friction 归档5+补记4 / ARCHITECTURE.md 2处更新 / BACKLOG摇摆Hook条目 / playbooks/p9_trading.md状态机+cohort+路径+cron全更新

@@ -8,19 +8,17 @@
 
 ## Feedback（行为规则）
 - [feedback_honesty.md](feedback_honesty.md) — 不讨好不奉承，客观陈述优缺点，有问题直说，不因顾虑情绪而含糊
-- [feedback_confirm_before_execute.md](feedback_confirm_before_execute.md) — 给出方案后必须等主公明确确认才执行；5步流程；新API/爬虫必须先独立验证接通再出方案；WSL用独立.py；说"直接开始"可跳过
-- [feedback_logging.md](feedback_logging.md) — 大事记cowork_log.md，细节不记；保存进度=更新CURRENT_SESSION.md+记日志，两步缺一不可；收工是保存进度的超集
+- [feedback_confirm_before_execute.md](feedback_confirm_before_execute.md) — 执行确认：WSL 必须独立 .py（其他 CLAUDE.md 已有）
+- [feedback_logging.md](feedback_logging.md) — 日志纪律：大事记不记细节；收工 ⊃ 保存进度（其他 CLAUDE.md 已有）
 - [feedback_discord_allowlist.md](feedback_discord_allowlist.md) — Discord保持pairing模式；allowlist模式会导致reply工具报错"channel is not allowlisted"，不要改
 - [feedback_auto_context.md](feedback_auto_context.md) — 涉及文件操作时主动读context.md；纯聊天不需要读
 - [feedback_memory_system.md](feedback_memory_system.md) — 按需读取+两层写入过滤；快速拒绝（想法→BACKLOG/进度→CURRENT_SESSION/可推导→不写）；5问题判断：持久/跨对话价值/改变行为/不可推导/够具体，<3个Yes不写
 - [feedback_project_pause_policy.md](feedback_project_pause_policy.md) — 暂停项目保留在活跃列表，不主动建议降BACKLOG；主公原话"放下去可能就永远不做了"
-- [feedback_backlog_format.md](feedback_backlog_format.md) — BACKLOG写想法必须注明真实讨论日期+背景+决策原因，不能只写写入日期
 - [feedback_roi_assessment.md](feedback_roi_assessment.md) — 评估新自动化/Hook前，先查friction_log+cowork_log评估违规频率，不反问主公
 - [feedback_api_key_storage.md](feedback_api_key_storage.md) — API key禁止硬编码，必须存.env文件+环境变量读取，.env加入.gitignore
 - [feedback_skill_execution.md](feedback_skill_execution.md) — disable-model-invocation Skill须直读SKILL.md执行；历史设计类问题两步查询（memory+搜索历史）；SKILL.md模型无关可供Codex使用
 - [feedback_third_party_docker.md](feedback_third_party_docker.md) — 第三方GitHub项目/工具，主动询问是否Docker隔离运行；方案在BACKLOG
 - [feedback_codex_collaboration.md](feedback_codex_collaboration.md) — 我+Codex分工：我策划验收，Codex执行；复杂分析派Opus subagent；CLAUDE.md只加"违反出事"的规则，操作习惯不写
-- [feedback_timezone.md](feedback_timezone.md) — 所有时间必须用纽约时间（EDT/EST），不说UTC，主公说UTC让他"云里雾里"
 - [feedback_claude_cli_vs_api.md](feedback_claude_cli_vs_api.md) — 脚本需AI分析时用claude CLI订阅（claude --print），不调Anthropic API，这是主公明确原则
 - [feedback_preview_before_execute.md](feedback_preview_before_execute.md) — HTML邮件/视觉输出改动必须先生成样本发Discord预览，主公确认后再执行（2026-04-23明确要求）
 - [feedback_yagni.md](feedback_yagni.md) — 按需而做不过度工程化；"要需要才做，不是为了工程而做"；没真实场景就不建抽象层
@@ -41,10 +39,11 @@
 - [feedback_artifact_indexing.md](feedback_artifact_indexing.md) — 新建脚本/cron/文档/数据必须最后一步加索引(ARCHITECTURE/cron_jobs/MEMORY/INDEX等)；沉默建文件=任务未完成
 - [feedback_tide_utils_load_env.md](feedback_tide_utils_load_env.md) — trading/scripts 读 env 必须 `from tide_utils import load_env`，不许本地复制写 load_env()（5/17 P9 提醒发送失败教训，6 脚本复发）
 - [feedback_thesis_normalization.md](feedback_thesis_normalization.md) — P9 thesis 必须 hypothesis 语气（may/could/historically），不许 declarative 断言；未验证精确数字只能放监测信号；范围 > 单点（5/18 GPT 二次纠偏）
-- [feedback_auto_rca.md](feedback_auto_rca.md) — 错误自动 RCA 流程固化：三档分级（trivial不记/minor friction一行/major详细RCA文档/critical+立刻Discord）+5元触发器（主公纠正/hook报错/数据不一致/工具失败/我自判）+反糊弄（5-why追到第3层/≥2 options/分层防御）；可执行 Skill: auto-rca
-- [feedback_p9_no_ghost_data.md](feedback_p9_no_ghost_data.md) — P9 scanner_picks.status 必须反映真实 broker 状态；2026-05-19 反模式根治：scanner 写 'submitted'/'auto_pending' + sync_fill_prices 升级 reconciler；数据层修复≠流程修复（5/18 ghost→5/19 OPG expired 24h 复发铁律）；DB 是 thesis SoT、Alpaca 是持仓 SoT
-- [feedback_p9_auto_execute.md](feedback_p9_auto_execute.md) — P9 研究阶段（2026-05-19 反模式修正版）cognitive_scanner 扫到→opg 下单+写 status='submitted'/cohort='auto_pending'；4 层 sanity check（dedup+单只≤$5000+单次≤15+buying_power）；次日 9:45 reconciler 按 Alpaca 实际 status 更新；每只标准 $3000；转真钱必须重新评估
-- [feedback_p9_alt_data_sidecar.md](feedback_p9_alt_data_sidecar.md) — P9 alt-data sidecar 设计与研究纪律：alt_signals 表 + gtrends_collector.py 完全独立 P9 主线；5 个 theme 关键词周日 15:45 EDT 自动收集；4-8 周只观察不进评分；1 年后 sample 累积再考虑入评分
+- [feedback_auto_rca.md](feedback_auto_rca.md) — 错误自动 RCA：三档分级 + 5 触发器 + 反糊弄；Skill: auto-rca
+- [feedback_p9_no_ghost_data.md](feedback_p9_no_ghost_data.md) — P9 status 反映真实 broker；数据修复≠流程修复（铁律）；DB=thesis SoT/Alpaca=持仓 SoT
+- [feedback_p9_auto_execute.md](feedback_p9_auto_execute.md) — P9 自动执行流程 + 4 层 sanity check + $3000/只；真钱前必须重评
+- [feedback_p9_alt_data_sidecar.md](feedback_p9_alt_data_sidecar.md) — P9 alt-data sidecar（独立 P9 主线）；周日自动收集；4-8 周观察 / 1 年后才入评分
+- [feedback_read_before_conclude.md](feedback_read_before_conclude.md) — 先读信息再结论：有信息源（文件/日志/脚本/配置）禁止跳读猜测（P11 调试教训）
 
 ## Project（项目背景）
 - [project_cannabis_retail.md](project_cannabis_retail.md) — ⭐ P12 大麻零售主线（2026年主线，2026-05-14 确立）；NY牌照申请中+AI赋能+SaaS化路径；八字辛卯大运对应；playbook: playbooks/cannabis_retail.md；P1/P3/P5 已并入作为子模块

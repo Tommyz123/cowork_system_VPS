@@ -1,0 +1,147 @@
+# cowork/scripts/ 脚本登记册
+
+> 每个脚本的"做什么 + 谁在用 + 状态"。新增脚本必须在此登记。
+> 最后审计：2026-05-23
+
+## 📊 状态汇总
+
+| 状态 | 数量 | 说明 |
+|---|---|---|
+| 🟢 活跃 | 14 | 有 cron / hook / Skill / 其他脚本在调用 |
+| 🟡 库存 | 1 | 当前无调用但功能有用，留作备用 |
+| ⚫ 一次性 | 1 | 历史建库，留备重建（backfill_sessions.py 已移 archive/） |
+| **总计** | **16** | （discord_approve_backup.py 已删 2026-05-23 / backfill_sessions.py 已移 archive/） |
+
+---
+
+## 🟢 活跃脚本
+
+### index_conversations.py
+- **功能**：解析 JSONL 对话历史 → FTS5 全文索引写入 cowork.db（支持 `--rebuild`）
+- **调用方**：`~/.claude/skills/收工/SKILL.md:321`（每次收工增量索引）
+- **频率**：高（每次收工，约日均 1-3 次）
+- **依赖**：`cowork.db`、`~/.claude/projects/-home-cowork-cowork/*.jsonl`
+
+### search_conversations.py
+- **功能**：FTS5 + 语义混合搜索 cowork.db，返回匹配片段
+- **调用方**：`~/.claude/skills/搜索/SKILL.md`（主公说"搜索 XXX" 时触发）
+- **频率**：低-中（每周几次）
+- **依赖**：`cowork.db`、Voyage AI API key
+
+### embed_sessions.py / embed_messages.py
+- **功能**：用 Voyage AI 把会话/消息向量化，写入 `session_embeddings` / `message_embeddings` 表
+- **调用方**：`log_session.py`（收工流程自动触发）
+- **频率**：高（每次收工）
+- **依赖**：Voyage AI API key
+
+### log_session.py
+- **功能**：收工时写 `sessions` 表（含 project_ids/summary/next-steps/corrections/files）
+- **调用方**：`~/.claude/skills/收工/SKILL.md`
+- **频率**：高（每次收工）
+
+### check_doc_sync.py
+- **功能**：收工时扫 ARCHITECTURE.md + context.md 提到的 .py 文件名，对比文件系统，输出不匹配
+- **调用方**：`~/.claude/skills/收工/SKILL.md`
+- **频率**：高（每次收工）
+
+### discord_ts_convert.py
+- **功能**：把 Discord 消息里的 UTC 时间戳转成 NYC 时间注入到 context
+- **调用方**：`~/.claude/settings.json` UserPromptSubmit hook
+- **频率**：每次主公输入都跑（约日均数百次）
+
+### p9_ora_premarket_reminder.py
+- **功能**：P9 ORA 持仓盘前邮件提醒
+- **调用方**：cron（cron_jobs.md 已登记）
+- **频率**：每个交易日盘前
+
+### rclone_backup.sh
+- **功能**：Google Drive 全量同步备份
+- **调用方**：cron 每日 02:00 EDT
+- **频率**：每日
+
+### run_mac_monitor.sh
+- **功能**：Mac mini M4 价格监控 cron 入口（调 mac_monitor.py）
+- **调用方**：cron 每日 17:30 EDT
+- **频率**：每日
+
+### mac_monitor.py
+- **功能**：抓取 Mac mini M4 价格，低于阈值发邮件
+- **调用方**：`run_mac_monitor.sh`
+- **频率**：每日（被 .sh 触发）
+
+### cannabis_docket_reminder.py
+- **功能**：NY 大麻 December Queue 诉讼追踪邮件提醒（critical / weekly 两种模式）
+- **调用方**：cron 周一 09:00 + 关键日期（5/29、5/30、5/31）
+- **频率**：每周 + 关键日
+
+### claude_opus_runner.sh
+- **功能**：Opus bot 的 tmux watchdog（HOME=opus_home，独立 socket，无限自重启）
+- **调用方**：手动启动 / systemd（双 bot 架构核心）
+- **频率**：常驻
+- **⚠️ 警告**：双 bot 架构核心，**绝不可删**
+
+### claude_runner.sh
+- **功能**：主 cowork bot 的 tmux watchdog（systemd 拉起）
+- **调用方**：systemd 服务
+- **频率**：常驻
+- **⚠️ 警告**：双 bot 架构核心，**绝不可删**
+
+---
+
+## 🟡 库存脚本（功能有用，当前无调用）
+
+### send_email.py
+- **功能**：通用 Brevo HTTP API 邮件发送工具（读 config/api_keys.env，支持 text / html 邮件）
+- **签名**：`send_email(subject, body, to=None, html=False)`
+- **调用方**：**当前无脚本 import**——trading 脚本各自定义了简化版 send_email(env, subject, body)
+- **状态**：库存。功能完整且**支持 HTML**（trading 版本不支持）
+- **🎯 未来邮件需求请优先复用此模块**——避免每个脚本独立写一遍；要 HTML 邮件这是唯一选择
+
+---
+
+## ⚫ 一次性脚本（已完成历史任务）
+
+### setup_db.py
+- **功能**：初始化 cowork.db（建 FTS5 conversations 表 + sessions / embeddings 等）
+- **调用方**：建库时手动跑过一次（2026-04-16）
+- **状态**：留备——万一 cowork.db 损坏需要重建
+
+### archive/backfill_sessions.py（2026-05-23 已移入 archive/）
+- **功能**：从历史 JSONL 提取会话总结，回填 sessions 表
+- **调用方**：一次性回填脚本（2026-04 跑过）
+- **⚠️ 路径硬编码到旧 `~/.claude/projects/-root-cowork/`**，再用需先改为 `-home-cowork-cowork/`
+- **位置**：`cowork/scripts/archive/backfill_sessions.py`
+
+---
+
+## 🗑️ 已删除记录
+
+- **discord_approve_backup.py**（2026-05-23 删）—— Discord 授权检测早期版本（40 行），被 `~/.claude/hooks/discord_approve.py`（66 行）完全替代；旧版有 "收工" 误触发 bug
+
+---
+
+## 📝 维护规则
+
+- 新增 `scripts/` 下脚本 → 必须在此 INDEX.md 加一段
+- 删除脚本 → 同步删此处对应段
+- 调用方变更（cron 启停 / Skill 改链路）→ 更新对应"调用方"行
+- 季度审计：grep 调用关系验证"调用方"是否还真实存在
+
+## 🔧 怎么扫调用方（参考给后人）
+
+```bash
+# cron 调用：
+crontab -l | grep -E "\.(py|sh)"
+
+# settings.json hook 调用：
+python3 -c "import json; d=json.load(open('/home/cowork/.claude/settings.json')); ..."
+
+# Skill 调用：
+grep -rEn "scripts/" /home/cowork/.claude/skills/ /home/cowork/cowork/skill_archives/
+
+# 文档引用：
+grep -rEn "scripts/" /home/cowork/cowork/playbooks/ /home/cowork/cowork/reference/ /home/cowork/cowork/CLAUDE.md /home/cowork/cowork/ARCHITECTURE.md /home/cowork/cowork/context.md
+
+# 脚本互调（import / subprocess）：
+grep -rEn "scripts/" /home/cowork/cowork/scripts/ /home/cowork/cowork/trading/ /home/cowork/cowork/newscripts/
+```

@@ -3,6 +3,13 @@ import re
 import json
 from datetime import datetime
 
+sys.path.insert(0, '/home/cowork/.claude/hooks')
+try:
+    from _log_hit import log_hit
+    log_hit("discord_ts_convert", "UserPromptSubmit")
+except Exception:
+    pass
+
 def utc_to_nyc(ts_str):
     dt = datetime.fromisoformat(ts_str.replace('Z', '+00:00'))
     try:
