@@ -109,3 +109,14 @@
 [2026-05-21 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
 [2026-05-22 02:05 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 120.960 MiB (126835512 Byte) → Google Drive
 [2026-05-22 09:45 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2,P9 commit:1de2c77 草稿:2条INSIGHTS+1条Friction+1条文档对齐
+[2026-05-22 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-05-22 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-05-22 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-05-22 16:02 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-05-22 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-05-22 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-05-23 02:04 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 122.085 MiB (128015889 Byte) → Google Drive
+[2026-05-23 13:01 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-05-23 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-05-23 23:13 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2,P3 commit:5cfae20 草稿:1条（c61bb128: 4 INSIGHTS + 1 操作记录 + 3 friction + 2 playbook + 2 文档对齐 + 1 MEMORY 候选）
+[2026-05-23 23:25 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2,P9 commit:c5cc38a 草稿:0条（friction直接写入）

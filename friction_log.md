@@ -26,6 +26,8 @@
 
 ## 记录区
 
+[2026-05-23 23:20 EDT] ⚠️ 规则违反 | feedback_read_before_conclude | 审核 friction #12 Discord reply hook 时，先猜"hook 复杂难做"再问要不要做；实际 `ls ~/.claude/hooks/` 读代码后发现三件套已完整落地，白猜了 | 根因："有没有实现/有没有做"类问题，没反射性先读文件就开口 | 验证标准：下次类似问题先 ls/cat 相关目录，再回答 | 验证状态：【待验证】 | 状态：已自行记录
+
 
 
 
