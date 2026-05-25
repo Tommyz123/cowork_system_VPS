@@ -165,3 +165,54 @@
 ### MEMORY.md 建议清理（无）
 
 本次未发现废弃条目
+
+---
+
+## [草稿] 2026-05-25 深度审核
+
+> 审核 session：6983ee45（P9 screener 毛利率过滤 + 策略讨论 + P12 选址研究 + P&L 分析，约 100 轮对话，跨日 5/24→5/25）
+
+### INSIGHTS 建议写入（3 条）
+
+1. **NY 大麻 280E 联邦/州税分裂（2023 起）** [src:6983ee45] [ref-worthy]
+   - 联邦 280E：大麻企业不可抵扣正常营业开支，等效税基 = 毛利润（$100K 营收 → 课税 $42K 毛利）
+   - NY State 例外：**2023 年 1 月 1 日起与 280E 脱钩**，州税可正常扣 COGS + 运营开支
+   - Entity 影响：C-Corp 21% 适合高联邦税负（LLC passthrough 收入推高个人税率至 37%+）
+   - 用途：P12 财务模型 + entity 结构选择的核心参数
+
+2. **P9 OPG 流动性陷阱假设** [src:6983ee45]
+   - 小盘叙事 alpha 可能主要在 T+0~T+5 释放，后 85 天持有期可能是噪音
+   - 真正的 edge = 股票池组成（小市值 + 分析师覆盖 ≤2），非 AI 读新闻速度
+   - 竞争者增多 → alpha 窗口压缩（历史 3x → 现在 30% 量级）；叙事本身持续 1-2 年
+   - 状态：**待验证假设（2026-12 节点看）**，来源：Opus+Codex 联合评估 2026-05-24
+
+3. **Cannabis 选址优先级公式（一手经验验证）** [src:6983ee45] [ref-worthy]
+   - 优先级：居民收入水平 > 地铁节点 > 1km 内无竞争 > 停车（nice-to-have）
+   - 人流密度 ≠ 盈利：高密度区（法拉盛 Main St 房租 $30-50K）可能反而难做
+   - 一手案例：Bayside Cannabis（Bell Blvd + LIRR 站旁）= 开门时 Queens <5 家 → 日均 $1-2 万快速起量
+   - Queens 已饱和区：Forest Hills / Jamaica / Ozone Park / Kew Gardens（2025-2026 均已有覆盖）
+
+### Playbook 建议更新（2 处）
+
+- **playbooks/p9_trading.md**（或 project_p9_trading.md）：加 screener 过滤决策原则（样本量>严格度，噪音>信号的条件不加）+ OPG 流动性陷阱假设（待验证，写明验证节点 2026-12）
+- **playbooks/cannabis_retail.md**：加 NY 280E/州税分裂节（2023 年脱钩）+ 选址优先级公式 + Queens 竞争地图（4 区已有覆盖）+ P&L sweet spot（$8k-$12k 房租，break-even ~$130-160K/月）
+
+### auto_pending 处理建议
+
+auto_pending.md 现有 4 条（2 条旧 + 2 条本次新增）：
+1. `[2026-05-24][project]` P9 TIDE 策略验证路线图 → 已在 project_p9_trading.md 中有对应内容，**建议追加为补充段落**
+2. `[2026-05-24][project]` P9 平仓提醒规则 → **建议追加到 project_p9_trading.md 新增"平仓规则"段**
+3. `[2026-05-24][feedback]` screener 过滤决策原则 → **建议新建 feedback_p9_screener_filter.md**
+4. `[2026-05-24][project]` OPG 流动性陷阱假设 → **建议追加到 project_p9_trading.md 新增"未验证假设"段**
+
+→ 下次「整理记忆」时统一处理这 4 条
+
+### 文档对齐待处理（1 处）
+
+- **memory/project_p9_trading.md**：加 grossMargins 非负过滤已上线 + screener 决策原则（等整理记忆统一处理）
+
+### MEMORY.md 建议清理（无）
+
+扫描完成，无废弃条目。
+
+[src: session 6983ee45-4381-4eee-a34c-3aea95282952]
