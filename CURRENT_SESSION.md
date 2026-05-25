@@ -16,7 +16,7 @@ last_audit_date: 2026-04-19
 ### 🔄 需人工干预（计入活跃项目数）
 | ID | 项目 | 状态 | 最后更新 | 下一步摘要 |
 |---|---|---|---|---|
-| **P12** | **Cannabis Retail 主线** | 🆕 **规划中** | **2026-05-17** | **引流主线深挖完成；playbook 1300+ 行 + 62 任务时间线 + 10 大缺失环节审计；Reality Check 仍 0/4；下次：① AI 法律顾问 prompt MVP（30 分钟）或 C 轨道时间杠杆启动** |
+| **P12** | **Cannabis Retail 主线** | 🆕 **规划中** | **2026-05-25** | **选址研究框架确立（4维：收入水平+地铁节点+竞争+商业条件）；Queens市场已基本饱和；Sweet spot房租$8k-$12k；主公背景：Bayside Cannabis+Sage Seeds；下次：给地址继续分析或AI法律顾问MVP** |
 | P2 | Cowork系统优化 | 🔄 迭代中 | 2026-05-10 | opus_CC Discord MCP修好(env.PATH)；access.json频道修正；两bot独立DM架构确认 |
 | P10 | 个人文件库 | 🔄 活跃 | 2026-04-25 | MVP完成(简历3文件)，阶段2扩展分类 |
 | P3 | Cannabis Budtender | ⏸️ 暂停（并入 P12 子模块） | 2026-05-07 | eval 100%完成；从 2026-05-14 起作为 P12 子模块继续推进 |
@@ -29,16 +29,40 @@ last_audit_date: 2026-04-19
 | P4 | 每日新闻日报 | ✅ cron运行中 | 2026-05-10 | 5/10补发成功；root权限/tmp/news_ai.txt问题已确认不影响当前脚本 |
 | P6 | 机票监控 Agent | ✅ cron运行中 | 2026-05-07 | SerpAPI key自动轮换（KEY2耗尽→自动切KEY）；直飞数据恢复 |
 | P7 | Mac mini价格监控 | ✅ cron运行中 | 2026-04-23 | HTML邮件（链接藏入<a>标签）；今日eBay $305触发提醒 |
-| P9 | AI量化交易系统 TIDE | ✅ cron运行中 | 2026-05-18 | 14只持仓三方对账完美(DB↔trades↔Alpaca)；ghost positions 全修+自动下单方向+IWM bias 修复+alt-data sidecar 上线；下次：5/24 sidecar 首次自动跑+8/4 Q3 自动扫描首次实战 |
+| P9 | AI量化交易系统 TIDE | ✅ cron运行中 | 2026-05-25 | 15只持仓+5只expired已reconcile；screener.py加毛利率非负硬过滤；策略讨论：OPG流动性陷阱假设+alpha衰减+v1→v2路线；下次：6/14首批30天outcome节点+6月底数据看hit rate |
 
 ---
 
 ## 活跃进度
 
 ### [P12] Cannabis Retail 主线 ⭐ 2026 年主线
-状态：🆕 规划中（牌照申请中 + V0 阶段 AI 系统准备中 + 引流主线深挖完成）
-last_updated: 2026-05-17
-停在：playbook 1300+ 行 + 62 任务完整时间线 + 10 大缺失环节审计完成；Reality Check 仍 0/4，主公自我认知"缺实战等真实拿到才动手"
+状态：🆕 规划中（牌照申请中 + V0 阶段 AI 系统准备中 + 选址研究框架启动）
+last_updated: 2026-05-25
+停在：选址研究框架确立（4 维分析法），Queens 市场饱和地图完成，主公一手经验（Bayside+Sage Seeds）整合进框架。下次：主公丢地址逐个分析 / 或 AI 法律顾问 prompt MVP。
+
+本次完成（2026-05-24 选址研究 + P&L 框架）：
+- **选址分析格式确立**：主公给地址 → 逐个 4 维分析（1000ft 禁区/竞争密度/客流类型/租金范围）+ 优点+风险总结
+- **Queens 市场饱和地图**（WebSearch 实测）：Forest Hills（The Flowery）/ Jamaica（Silk Road）/ Ozone Park（3-4家）/ Kew Gardens（A&P Dispensary）→ 大部分中高收入区已有覆盖
+- **首个地址分析**：248-15 Union Tpke, Bellerose NY 11426 = 主公工作的 Sage Seeds → 已占用，无法开
+- **280E 税务分析**（关键知识）：
+  - 联邦 280E：大麻企业不可抵扣正常营业开支，等效税基 = 毛利润（非 EBITDA）
+  - NY State 例外：NY 从 2023 年 1 月 1 日起与联邦 280E 脱钩，**州税可正常抵扣**
+  - C-Corp 税率 21% 更适合高 280E 税负场景（LLC passthrough 收入会直接推高个人税率）
+- **P&L 模型**（多场景）：
+  - 月营收 $100K，毛利率 ~42%，毛利 $42K
+  - NY 消费税 13%（9%州+4%本地），含税价计算前置
+  - Sweet spot：$8K-$12K 房租 → Break-even 营收 ~$130K-$160K/月
+  - $30K 房租（如法拉盛 Main St）→ Break-even ~$200K/月，风险极高
+- **主公背景整合进选址框架**：
+  - 前在 Bayside Cannabis（Bell Blvd, LIRR 站旁）：开门时 Queens 不到 5 家 → 日均 $1-2 万，很快起来
+  - 当前在 Sage Seeds（Bellerose）：一手感受日常运营
+  - 关键洞察：成功 = 开门早（竞争少）+ 地铁节点 + 附近居民收入不错，不是人流密度
+- **法拉盛 Main St 案例分析**：房租 $30-50K + 竞争加剧 + 停车差 + 大客户不会在那买 → 不适合作首店
+- **选址优先级公式确立**：居民收入水平 > 地铁节点 > 无竞争（1km 内）> 停车（nice-to-have）
+
+下一步（2026-05-25 起）：
+- 主公给更多地址 → 逐个分析（格式已确立）
+- AI 法律顾问 prompt MVP（30min，Reality Check 最低门槛）
 
 本次完成（2026-05-16 至 2026-05-17 ~10 小时引流主线深挖）：
 - **Reddit 数据生态完整探索**：
@@ -73,6 +97,15 @@ last_updated: 2026-05-17
 2. NY cannabis attorney 30 分钟咨询（$150-300）
 3. 接触 1 个 NY 持牌店谈 AI 试用合作
 4. 跟 1 个潜在投资人候选喝咖啡
+
+📍 **选址研究（下次优先做）**（2026-05-25 讨论确认）：
+主公给具体地址，逐个分析：
+- 1000 ft 内有没有学校/教堂（OCM 禁区）
+- 附近已有几家持牌店（竞争密度）
+- 客流量类型（住宅区/商业区/旅游区）
+- 该区域租金大概范围
+- 优点 + 风险 总结
+→ 下次直接丢地址过来就开始
 
 📋 **C 轨道时间杠杆（越早越值钱，不依赖选址）**：
 - Reddit 100 天潜伏 Day 1 启动（注册账号 → 每天 30 分钟潜伏）
@@ -536,8 +569,17 @@ last_updated: 2026-05-24
 
 ### [P9] AI量化交易系统（TIDE系统）
 状态：✅ 完整闭环 + 反模式根治完成（**15 只真持仓**：6 早 + 8 late + 1 auto_filled ASTE；5 只 OPG expired 已 reconcile）
-last_updated: 2026-05-23
-停在：✅ **15 只真持仓**（cohort: early_filled 6 / late_fill 8 / auto_filled 1 ASTE）+ 5 只 auto_expired（GNTX/GWRE/OLLI/CXT/APPF）DB 状态与 Alpaca broker 一致。**反模式（ghost positions）根治完成**：cognitive_scanner INSERT 改 'submitted'/'auto_pending' + sync_fill_prices 升级 reconciler + outcome_tracking UPSERT 修复 9 只缺口。**数据质量全维度对账 ✅**。下次关键节点：5/25 19:30 EDT 第 2 次 cron 自动扫描验证 retry / 5/26 9:45 EDT reconciler 按新逻辑首次跑 / 6/14 第一批 30 天 outcome。
+last_updated: 2026-05-25
+停在：screener.py 加毛利率非负硬过滤（grossMargins<0 拒绝，None放行）；策略讨论完成（大盘vs小盘/alpha衰减/OPG流动性陷阱假设/v1→v2路线）。下次关键节点：6/14 首批 30 天 outcome / 6 月底数据看 hit rate 决定是否加等确认过滤层 / 8/4 Q3 自动扫描首次实战。
+
+本次完成（2026-05-24）：
+- **screener.py 毛利率非负硬过滤**：加 3 行代码（grossMargins<0→拒绝；None/零放行），Opus+Codex 联合审核后决定只加 Condition 1（现金跑道 Condition 2 因 yfinance 年化 CF 对小盘股数据质量差+样本量优先被否决）
+- **screener 过滤决策原则确立**（写入 auto_pending）：样本量优先于过滤严格度；数据质量不可靠的过滤条件不加（噪音>信号）
+- **OPG 流动性陷阱假设**（写入 auto_pending）：小盘叙事 alpha 可能主要在 T+0~T+5 释放；真正的 edge 来自股票池组成（小市值+低分析师覆盖≤2），非 AI 读新闻速度；竞争越多→叙事 alpha 窗口越窄（历史 3x→现在 30%量级）
+- **大盘 vs 小盘策略讨论**：主公理解 NVDA/PLTR 案例；结论=TIDE 系统无能力独立识别早期大盘框架切换，机会存在但需要不同工具集
+- **Alpha 衰减讨论**：叙事本身持续 1-2 年，但竞争者增多导致窗口压缩；护城河=股票池组成（低覆盖率），非 AI 速度
+- **v1→v2 路线规划**：纸账号 v1 跑通 → 小金额真账号 → v2 纸账号测新假设（研究沙盒），两轨分离
+- **等确认再进策略讨论**：暂不现在加（实验中途换条件无法对比），等 6 月底 hit rate 数据再决策；TIDE 已有 signal_continuity 字段可支持 recurring 信号权重升级
 
 本次完成（2026-05-19 早+晚 P9 反模式根治 + CodeGraph 研究）：
 

@@ -35,3 +35,4 @@
 [2026-05-22 16:02 EDT] ✅ symbols=50 news=14 8k=34 inserted=34 | Finnhub:OK SEC:OK
 [2026-05-22 21:00 EDT] ✅ price_snapshot: updated=0 skipped=15
 [2026-05-23 21:00 EDT] ✅ price_snapshot: updated=0 skipped=15
+[2026-05-24 21:00 EDT] ✅ price_snapshot: updated=0 skipped=15

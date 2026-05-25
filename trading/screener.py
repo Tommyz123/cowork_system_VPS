@@ -84,6 +84,10 @@ def yf_filter(symbol):
         if analyst_count is None or analyst_count > ANALYST_COUNT_MAX:
             return None
 
+        gross_margin = info.get("grossMargins")
+        if gross_margin is not None and gross_margin < 0:
+            return None
+
         hist = tk.history(period="6mo", auto_adjust=True)
         if hist.empty or len(hist) < 10:
             return None

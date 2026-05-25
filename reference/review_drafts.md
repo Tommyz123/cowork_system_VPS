@@ -97,3 +97,71 @@
 - Cannabis-AI-Budtender/（248MB，主公未决定保留/删除——长期不演示可删）
 
 [src: session c61bb128-11c2-47a5-9fa1-9d9250847fd5]
+
+---
+
+## [草稿] 2026-05-24 深度审核
+
+> 审核 session：acfb36f9（P8 求职策略大重定向，1.5h 深度讨论）
+
+### INSIGHTS 建议写入（3 条）
+
+1. **岗位 title 看似相同但内涵差很大** [src:acfb36f9] [ref-worthy]
+   - "Customer Success Manager" vs "Customer Engineer" / "Solutions Engineer" vs "Sales Engineer"——title 看起来近义但工作性质完全不同
+   - 判断方法：看 JD 里有没有 `write code / build / deploy / integrate / Python / API / LLM`——有就是技术岗，没有就是客服/销售岗
+   - 推广：以后讨论求职/选岗位时不能只看 title，必须读 JD 关键词
+
+2. **跳板策略需要兼顾"履历可跳性"** [src:acfb36f9] [ref-worthy]
+   - "第一份工作"的价值不只是薪资 + 学习，还要看"6-12 月后能跳到哪里"
+   - YC 早期 AI 履历 → 跳任何 AI 公司都易（同圈互认）
+   - Cannabis Tech 履历 → 跳到 AI 公司难（AI 公司未必认）
+   - 推广：评估"敲门砖"工作时，要把"履历的下游兼容性"作为第三维度
+
+3. **Hard requirement vs nice-to-have 必须主动追问** [src:acfb36f9]
+   - 主公开头说"什么都行 / 只要进 AI 公司"——我以为是宽松偏好
+   - 多轮后才补充"必须能学到 + 能用上"——这是 hard requirement 不是偏好
+   - 教训：当用户说"什么都行"时，要主动追问 "是不是真的什么都行？有没有不接受的"
+   - 推广到所有需求收集场景
+
+### Friction 建议补记（1 条）
+
+1. **数据诚信违规（虚构精确百分比）** [src:acfb36f9]
+   - 我开头说"主公在全球用户顶级 0.5%"+ L1-L5 占比表（60/25/12/2.5/0.5）+ "到 L5 要 2-5 年"
+   - 主公追问"有根据吗" → 我承认全部是估算 + 撤回
+   - 根因：偷懒用看似精确数字（0.5%）伪装主观判断
+   - 违反规则：CLAUDE.md "数据诚信" 第 ① 条（陈述句默认有工具来源）
+   - 建议升级：以后任何分布/百分比/年限预估，必须先说"推测：" 或者干脆用定性词（"很少见" 而不是 "0.5%"）
+   - 已有相关 feedback：feedback_proposal_data_first.md（推方案前先查数据）；此次属于"评估时虚构数据"，是相邻但不同场景
+
+### Playbook 建议更新（1 处）
+
+- `playbooks/career_ops.md`（如果存在）：原"作品敲门"策略已过时，建议按 2026-05-24 新策略更新：
+  - 跳板策略（6-12 月）
+  - 甜区岗位定义（Solutions/Customer/Implementation/Founding/Applied AI Engineer）
+  - 30+ 家公司清单 4 优先级
+  - 不投清单（FDE / Tier 1 Lab / CSM / Sales / Marketing / Operations）
+  - 与 P12 双线协同方案
+  - 主公真实约束（英文 B1 / Sage Seeds 现役 / 牌照等待）
+
+### MEMORY 建议新增（2 条，待主公确认后写入）
+
+1. `memory/feedback_job_title_keyword_check.md`
+   - 评估 AI 公司岗位时，必须看 JD 里有没有 write code/Python/API/LLM 关键词
+   - 看 title 不看 JD = 错投 = 学不到 + 用不上
+   - 来源：2026-05-24 P8 策略讨论
+
+2. `memory/user_career_constraints_2026.md`（user 类型）
+   - 主公 P8 求职 hard requirement：必须能学到 + 用得上 cowork 经验
+   - 英文 B1（淘汰 FDE/Tier 1）
+   - Sage Seeds 现役 budtender + NY 牌照申请人
+   - 跳板策略 6-12 月
+   - 形式偏好：打工 > Consultant
+   - 用途：以后任何 P8 / Cannabis 相关讨论的基础上下文
+
+### 文档对齐待处理（无）
+
+本次未影响 ARCHITECTURE.md / context.md / MEMORY.md（如新增 memory 需要在 MEMORY.md 加索引）
+
+### MEMORY.md 建议清理（无）
+
+本次未发现废弃条目
