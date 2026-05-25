@@ -20,7 +20,7 @@ last_audit_date: 2026-04-19
 | P2 | Cowork系统优化 | 🔄 迭代中 | 2026-05-10 | opus_CC Discord MCP修好(env.PATH)；access.json频道修正；两bot独立DM架构确认 |
 | P10 | 个人文件库 | 🔄 活跃 | 2026-04-25 | MVP完成(简历3文件)，阶段2扩展分类 |
 | P3 | Cannabis Budtender | ⏸️ 暂停（并入 P12 子模块） | 2026-05-07 | eval 100%完成；从 2026-05-14 起作为 P12 子模块继续推进 |
-| P8 | 求职 (career-ops) | ⏸️ 暂停 | 2026-05-07 | 策略确定（作品敲门），暂停中，下次继续：LinkedIn截图重写profile |
+| P8 | 求职 (career-ops) | 🔄 策略大重定向 | 2026-05-24 | 跳板策略+甜区岗位（Solutions/Customer/Implementation/Founding/Applied AI Eng）；30+ 家清单已列；待主公 review 后启动 portfolio 搭建 |
 | P5 | Legal Library | ⏸️ 暂停（按需更新；December queue 追踪并入 P12） | 2026-05-13 | v4.5 完成；Organic Blooms 案件追踪持续中，每周一 09:00 EDT Discord 提醒 |
 
 ### ⚙️ 自动运行（不计入活跃项目数）
@@ -456,19 +456,79 @@ last_updated: 2026-05-13
 ---
 
 ### [P8] 求职 (career-ops)
-状态：活跃 - 策略确定，执行中
-last_updated: 2026-04-19
-停在：策略重定向完成，等LinkedIn截图重写profile
-本次完成（2026-04-19）：
-- 策略讨论：确定"作品敲门"路线，不依赖投简历
-- 核心策略：找1-2家认识的大麻零售商免费跑Cannabis Budtender 3个月，积累案例和testimonial
-- 目标公司：EliseAI（垂直AI Agent）/ Dutchie / LeafLink（cannabis tech，主场优势）
-- 并行行动：LinkedIn重写+X/LinkedIn发帖建presence+DataAnnotation接任务
-- 补充策略：先把Budtender做扎实（给实体做项目），再用结果敲门
-下一步：
-1. LinkedIn profile重写（等主公发截图）
-2. 找认识的大麻零售商谈试用合作
-3. DataAnnotation.tech注册尝试接任务
+状态：🔄 策略大重定向（2026-05-24 深度讨论 1.5 小时）- 待主公 review 后启动
+last_updated: 2026-05-24
+停在：策略完整收敛 + 30+ 家公司清单 + 投递岗位定义；等主公 review 后开始 Week 1 portfolio 搭建（LinkedIn / cowork case study / demo 视频）
+
+---
+
+#### 🎯 2026-05-24 策略大重定向（核心结论）
+
+**主公真实定位与约束**（新信息）：
+- **三重身份**：Sage Seeds 现役 budtender + NY 大麻牌照申请人 + AI 工程师（cowork/P9）—— 全美极稀缺组合
+- **英文水平**：B1 中级（"i built the Ai system cowork" 评估样本）；一般交流 OK，深入技术词汇吃力
+- **求职意图**：跳板策略——6-12 个月后跳，或牌照下来后回 P12
+- **Hard Requirement**：必须**能学到东西 + 用得上 cowork 经验**（不接受纯客服/销售/运营岗）
+- **薪资**：不挑，能保底过得去就行（$120k+ 接受）
+- **形式偏好**：打工 > Consultant（不喜欢自己接单的卷）
+
+**最终策略（收敛完成）**：
+
+只投"能写代码 + 接触 LLM/Agent" 甜区岗位：
+
+| ✅ 投 | ❌ 不投 |
+|---|---|
+| Solutions Engineer | Customer Success Manager（不写代码） |
+| Customer Engineer（写代码型） | Sales Engineer（纯 demo） |
+| Implementation Engineer | Marketing / Operations 任何岗 |
+| Founding Engineer（早期公司） | Account Manager / DevRel |
+| Applied AI Engineer | **Forward Deployed Engineer**（英文硬卡） |
+| AI Workflow / Platform Engineer | Anthropic/OpenAI FDE（远远不够） |
+
+**关键判断方法**：看 JD 里有没有 "write code / build / deploy / integrate / Python / API / LLM"——有就是技术岗，没有就是客服岗。
+
+**目标公司清单（30+ 家分 4 优先级）**：
+
+1. **主攻（YC W25/W26 早期 AI，10 家）**：RamAIn / Cardinal / Browser Use / Concourse / Prosper / DiligenceSquared / CollectWise / SimCare / Structured AI / Booko
+2. **次攻（中型 Vertical AI，6 家）**：Decagon / EliseAI / Klarity / Cresta / Harvey / Glean
+3. **试水（Tier 1 Customer Engineer，2 家）**：Anthropic / OpenAI（**不投 FDE**）
+4. **保底（Cannabis Tech 主场，4 家）**：Dutchie / LeafLink / Weedmaps / Jane
+
+**薪资预期**：
+- YC 早期：$140-180k base + 1-2% equity
+- 中型 Vertical AI：$180-280k base
+- Tier 1 总包：$350-550k（不投，英文卡）
+- 跳板路径：第一份 $120-160k → 6-12 月跳到 $180-260k
+
+**4 周执行节奏（待启动）**：
+- W1：搭 portfolio（LinkedIn 英文重写 + cowork 英文 case study + 60 秒 demo 视频 + GitHub `cowork-public`）
+- W2：投第一波 15 家（YC + 中型 vertical AI）
+- W3：跟进 + 第二轮加投
+- W4：第一批面试 / 没成果就扩大到 Phase 2（更多 YC 早期 + pre-seed AI startup，不降级到客服）
+
+**关键风险与对策**：
+| 风险 | 对策 |
+|---|---|
+| 英文 deep tech 吃力 | 不投 FDE，投 Solutions/Customer/Implementation；3 个月突击（5 面试模板 + 50 词 deck + Pramp 模拟） |
+| cowork 中文文档 | 选择性英文化（3 份 case study 即可，工作流不打乱） |
+| cowork 展示无 UI | 1 张架构图 + 60s demo + 1 篇 blog = MVP portfolio（1.5 天工作量） |
+| Cannabis Tech 技术栈非 AI（Rails/React/AWS） | 作为保底，主攻 YC 早期 AI |
+| 进 AI 公司"上瘾"不回 P12 | 强制 6-12 个月 deadline + P12 最小心跳维持 |
+
+**双线协同（与 P12 关系）**：
+- 进 AI 公司打工期间保持 P12 牌照追踪 + Cannabis 圈关系（每周 4-6h）
+- 学到的 AI 能力 100% 反哺未来 P12（AI-native 大麻零售店）
+- 牌照下来 = 强制 trigger 回归 P12
+
+#### 📋 下一步（主公 review 后）
+
+1. **我立刻可做**（10-15 分钟出草稿，等主公 review）：
+   - 5 个 LinkedIn headline 英文候选（突出 budtender + AI engineer 双身份）
+   - cowork 90 秒英文介绍稿（口播 + DM 双用）
+   - 前 5 家公司 hiring manager LinkedIn URL + 1 封模板英文 DM
+2. **主公手动操作**（不能代登 LinkedIn——安全 + 封号风险）：复制粘贴 + 手动发送
+3. **Phase 1 启动条件**：portfolio 3 件套（headline / case study / demo）就绪 → 第一批 DM 投出
+
 路径：`C:\Users\zhi89\Desktop\job\career-ops\`
 
 ---
