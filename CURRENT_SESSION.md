@@ -176,6 +176,26 @@ last_updated: 2026-05-25
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
+last_updated: 2026-05-26
+停在：收工 Skill 加打分机制（5 分制 + 4-5 自动写 / 2-3 送审 / 1 丢 + 冷启动 1-2 周保守只 5 分自动）；review_drafts 5/22-5/24 + 5/25 部分草稿已清理（13+13+7+4 项处理）；新机制本次首跑测试
+
+本次完成（2026-05-25 → 2026-05-26 凌晨，约 6h，review_drafts 清理 + 收工 Skill 改造）：
+- **5/22 草稿全清（4 项）**：INSIGHTS 2 条入 knowledge_base.md（SerpAPI 配额排序原则 / DB UNIQUE 不防业务唯一）+ Friction-1 归档（review_drafts 采信未先 verify）+ 修 check_doc_sync.py 加 hooks 路径
+- **5/23 草稿全清（13 项）**：INSIGHTS 3 条入 knowledge_base.md（Skill 注入 1500 token 实测 / Codex CLI VPS 装机三坑 / MEMORY ABCD 四类精简 + D 模板）+ Friction 3 条归档 + CLAUDE.md 加 _backup 7 天兜底删除规则 + ARCHITECTURE.md 加 scripts/INDEX.md + _log_hit + playbook 加归档 Skill 流程 + context.md 加 INDEX 指针 + feedback_codex_collaboration 更新 VPS Codex 实操段
+- **5/24 草稿全清（7 项）**：INSIGHTS 3 条（Title vs JD 关键词 / 履历下游兼容性 / Hard requirement 必须主动追问）— 前 2 入 career_ops playbook，第 3 写新 memory feedback_clarify_hard_requirements + Friction（虚构精确百分比复发）归档 + feedback_honesty 加强（5/24 复发案例 + 强制自检触发器）+ career_ops「核心信息」全段重写（跳板策略 + 甜区岗位 + 不投清单 + 真实约束）+ user_profile.md 更新求职偏好段
+- **5/25 草稿处理 4 项**：INSIGHTS 3 条入 cannabis_retail / p9_trading（NY 280E 联邦州税分裂第 9 章 + P9 三个未验证假设第 2 节 + 选址优先级公式第 10 章 含 Queens 饱和地图 + Sweet spot $8K-$12K）+ p9_trading 加 Screener 设计原则段
+- **收工 Skill 加打分机制（核心系统改造）**：~/.claude/skills/收工/SKILL.md（336→388 行，备份 .bak.before_scoring_2026_05_26）；5.2.1 新增 5 分制打分标准；5.3 改路由（4-5 自动写正式文件 / 2-3 送审 / 1 丢）；Discord 收工报告改成"自动写入 N / 送审 N / 丢弃 N"摘要让主公第一时间能否决回滚；冷启动 1-2 周保守只 5 分自动
+- **新增 memory（2 条）**：feedback_pacing_and_plain_language（默认逐条 + 大白话 + 主公"没理解"换比喻；5/23+5/25 节奏违反 2 次升级为正式规则）+ feedback_clarify_hard_requirements（"什么都行"必须先追问"有没有不接受的"）
+
+下一步：
+- 本次收工 = 新打分机制首跑实战测试 → 主公盯 Discord 自动写入摘要看 AI 评分准不准 → 错的立即说，回滚 + 调整标准
+- 5/25 草稿剩 2 项 + 5/25 补 反讨好实战草稿 → 下次对话清完
+- 1-2 周后评估打分机制效果，决定是否放宽到 4 分自动写
+
+---
+
+### [P2] Cowork 系统优化（旧 5/25 凌晨记录）
+状态：持续迭代中
 last_updated: 2026-05-25
 停在：评级类讨好反模式被识别 + friction_log 新增 #2026-05-25 条目；待沉淀为 feedback_anti_sycophancy_ranking.md（评级/排名/占比类问题专项防讨好）
 

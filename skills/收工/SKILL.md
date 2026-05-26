@@ -236,37 +236,89 @@ conn.close()
 → 有发现 → 列入 review_drafts.md 草稿「建议清理」，主公确认后才删
 → 无发现 → 静默跳过
 
-### 5.3 写入 review_drafts.md
+### 5.2.1 重要性评分（2026-05-26 上线 · 抗堆积机制）
+
+对 A/B/C/D/E/F 每项候选，按以下 5 分制打分。**根据分数自动路由**——避免低价值草稿堆积浪费主公审核精力。
+
+| 分数 | 标准 | 路由 |
+|---|---|---|
+| **5** | 跨项目通用 + 有真实痛点数据（friction_log / bug 实测 / 反复触发）+ 完整规则可写 | ✅ **自动写入正式文件** |
+| **4** | 跨项目通用 + 有具体场景（≥2 次类似事件 或 主公明确说过）| ✅ **自动写入正式文件** |
+| 3 | 单项目 specific + 有价值 + 第一次发现 | 📝 进 review_drafts 送审 |
+| 2 | 低 confidence 但可能有用 | 📝 进 review_drafts 送审 |
+| 1 | 可有可无 / AI 自己觉得"好像"值得但没具体场景 | 🗑️ **直接丢，不写** |
+
+**打分原则**：
+- **宁低勿高** → 错放低=多 1 条送审；错放高=污染正式文件，污染信任
+- 不确定时**取低**
+- 跨项目通用判断标准：换成另一个项目（如 P12 替换 P9）规则还能直接用 → 跨项目；不能 → 单项目
+- 完整规则可写标准：能写出 "Why + How to apply + 适用场景" 三段 → 完整；只有现象描述 → 不完整
+
+**冷启动期保守**：
+- 上线第 1-2 周，**门槛设高**：只 5 分自动写，4 分也送审
+- 收集 1-2 周主公审核反馈后，**评估是否放宽到 4 分自动写**
+
+### 5.3 路由：分数决定走向
+
+**4-5 分（自动写入正式文件）**：
+| 类型 | 写入位置 |
+|---|---|
+| INSIGHTS（[ref-worthy]）| `reference/knowledge_base.md` 对应章节 |
+| INSIGHTS（普通）| `INSIGHTS.md` |
+| Friction（已闭环）| `friction_log_archive.md` 新批次 |
+| Friction（未闭环）| `friction_log.md` |
+| Playbook 更新 | 直接修改对应 `playbooks/<name>.md` |
+| 文档对齐 | 直接修改 `ARCHITECTURE.md` / `context.md` |
+
+写入后必须在 `cowork_log.md` 单独记一行：
+`[YYYY-MM-DD HH:MM] 🤖自动写入 | [评分:5] 类型 | 内容摘要 | 写入位置`
+
+**2-3 分（送审）**：
+进 review_drafts.md，沿用现有逻辑（见 5.3 原格式）。**每条标注分数**让主公一眼看 AI 怎么判断。
+
+**1 分（丢弃）**：
+不写。在 cowork_log.md 注明：`[YYYY-MM-DD HH:MM] 🗑️丢弃 | N 条候选被 AI 自判 1 分丢弃`（不展开内容，省 token）
+
+### 5.3 写入 review_drafts.md（仅 2-3 分候选）
 
 把所有发现整理，追加到 `/home/cowork/cowork/reference/review_drafts.md`：
 
-格式：
+格式（**每条必须标分数**）：
 ```markdown
 ## [草稿] YYYY-MM-DD 深度审核
 
 ### INSIGHTS 建议写入（N条）
-1. [标题] → 内容 [src:session_xxx]
-2. ...
+1. **[评分:3]** [标题] → 内容 [src:session_xxx]
+2. **[评分:2]** [标题] → 内容 [src:session_xxx]
 
 ### 操作记录 建议起草（N份）
-- 主题：XXX
-- 背景：...
-- 建议文件名：reference/xxx_log.md
+- **[评分:2]** 主题：XXX / 背景：... / 建议文件名：reference/xxx_log.md
 
 ### Friction 建议补记（N条）
-- ...
+- **[评分:3]** ...
 
 ### Playbook 建议更新（N处）
-- playbooks/XXX.md：具体改什么
+- **[评分:3]** playbooks/XXX.md：具体改什么
 
 ### 文档对齐待处理（N处）
-- ARCHITECTURE.md：...
+- **[评分:3]** ARCHITECTURE.md：...
 
 ### MEMORY.md 建议清理（N条）
-- 建议删除：xxx.md（原因：项目已废弃/条目冗余/已内化）
+- **[评分:3]** 建议删除：xxx.md（原因：项目已废弃/条目冗余/已内化）
+
+---
+
+### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
+- **[评分:5]** [类型] [标题] → 已写入 [位置]
+- **[评分:4]** [类型] [标题] → 已写入 [位置]
+
+### 🗑️ 本次自动丢弃摘要（1 分，未保留）
+- 共 N 条 1 分候选被 AI 自判低价值丢弃（详细内容不展开，省 token）
 ```
 
 若某类别无内容 → 该小节不写，保持草稿简洁。
+
+**摘要的关键作用**：让主公一眼看到「自动写了什么 / 自动丢了多少」，发现 AI 打分不合理可立即在 Discord 反馈，触发回滚 + 调整评分标准。
 
 ### 5.4 更新 deep_reviewed_sessions.json
 
@@ -295,11 +347,11 @@ print(f'已标记 {len(new_sessions)} 个 session 为已审核')
 ```
 ✅ 深度审核完成 | YYYY-MM-DD
 - 审核 session：N个
-- INSIGHTS草稿：N条
-- 操作记录建议：N份
-- Playbook更新：N处
-- 文档对齐：N处
-→ 草稿存入 reference/review_drafts.md，明天来了第一件事展示给你决策
+- 🤖 自动写入（4-5 分）：N 条 → 已直接写入正式文件
+- 📝 送审草稿（2-3 分）：N 条 → 存 review_drafts.md
+- 🗑️ 自动丢弃（1 分）：N 条
+→ 草稿存入 reference/review_drafts.md，明天第一件事展示给你决策
+→ 自动写入的 N 条详见 cowork_log.md "🤖自动写入" 行；觉得有错立即说，我回滚
 ```
 
 写入 ops_log：

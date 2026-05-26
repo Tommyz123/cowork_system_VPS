@@ -1,6 +1,6 @@
 # Context — Tom 电脑全局文件索引
 
-> 最后更新：2026-05-07（AI量化交易系统行改为TIDE描述）
+> 最后更新：2026-05-25（cowork/scripts 段加 INDEX.md 指针：4 个核心脚本表上方 + 18 脚本全量去 INDEX.md 查）
 > 维护方式：由 Cowork AI 自动更新，每次文件变动后同步修改
 
 > ⚠️ **给 Cowork AI 的指引：**
@@ -136,6 +136,7 @@
   | `search_conversations.py` | CLI搜索：`python search_conversations.py "关键词" [--project P3] [--date 2026-04]` |
   | `log_session.py` | 收工时写入 sessions 表 + 触发增量索引 |
 
+- **完整脚本登记见 [`scripts/INDEX.md`](scripts/INDEX.md)**（2026-05-23 新建，18 脚本：状态 / 调用方 / 频率 / 依赖；表上方仅列 4 个核心搜索脚本，全量去 INDEX 查）
 - **数据库：** `cowork/cowork.db`（已索引101个历史session，2710条消息）
 - **数据库分层原则：** cowork.db=对话历史 / personal.db=个人文件 / trading.db=交易 / market.db=大麻市场；不同数据类型分库，避免职责模糊
 

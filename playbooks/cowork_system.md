@@ -63,6 +63,19 @@ status: active
 
 ---
 
+## 典型工作流：调用归档 Skill
+
+主公说出归档 Skill 触发关键词时（项目规划 / 任务清单 / 审核架构 / 系统复盘 等）：
+
+1. 读 `cowork/skill_archives/INDEX.md` 找到匹配的 Skill 名 + 关键词映射
+2. 读对应 `cowork/skill_archives/<skill-name>/SKILL.md` 完整流程
+3. 按 SKILL.md 步骤执行（跟在用 Skill 同样的执行方式，归档不影响功能）
+4. 完成后正常记 cowork_log.md（注明走的是归档 Skill 路径）
+
+规则源头：cowork/CLAUDE.md 「🔧 Skill 快速路由」一行指针；本节是该指针的展开操作步骤。
+
+---
+
 ## 格式标准
 
 | 项目 | 标准 |

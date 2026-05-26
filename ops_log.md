@@ -129,3 +129,15 @@
 [2026-05-25 02:50 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9,P12 commit:34bd9b5 草稿:3条INSIGHTS+2条Playbook+auto_pending4条待整理
 [2026-05-25 09:00 EDT] CRON[cannabis_docket_reminder] | mode=weekly | ✅ | 案号 904497-24 提醒已发
 [2026-05-25 09:58 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2 commit:[pending] 草稿:[2条INSIGHTS+1条MEMORY建议]
+[2026-05-25 13:01 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-05-25 15:06 EDT] CRON[P9] | screener | ✅ | 完成
+[2026-05-25 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-05-25 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-05-25 16:01 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-05-25 16:30 EDT] CRON[P9] | scanner_tracker | ✅ | 完成
+[2026-05-25 16:45 EDT] CRON[P9] | price_tracker | ✅ | 完成
+[2026-05-25 18:30 EDT] CRON[P9] | quarterly_review | ✅ | 完成
+[2026-05-25 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-05-25 20:47 EDT] CRON[P9] | run_scanner | ✅ | 季度扫描完成（screener+cognitive_scanner）
+[2026-05-25 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-05-25 23:41 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:c1d8504 草稿:0条（今日session已审核）

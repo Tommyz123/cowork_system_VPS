@@ -115,6 +115,20 @@ update/create 时传复杂嵌套 JSON + 中文/emoji 会报 "provided as string"
 - ❌ **不适用**：实时监控（开业后口碑 / 24h 负评告警 → 需付费住宅代理 / ScraperAPI / 主公本地住宅 IP 跑）
 - 测试脚本：`/tmp/reddit_test.py`（临时未纳入 scripts/）
 
+**SerpAPI 配额管理：列表排序 = 隐含优先级声明**（2026-05-22）[ref-worthy]
+- 月度配额耗尽时，**列表末位的项最先被跳过**（P6 机票直飞路线 JFK→HKG/CAN 原排末位被掉 → 已移到最前面修复）
+- 通用原则：写"轮询 API / 速率限制 / 配额分配 / 资源轮转"代码时，**集合的物理排序就是隐含的优先级声明**，必须显式设计排序而非随机/历史顺序
+- 排查信号：发现"某些 X 总被跳过"先检查它在列表中的位置
+
+**Codex CLI 在 VPS（无浏览器）装机三坑组合**（2026-05-23）[ref-worthy]
+- **坑 1：必须走 device-auth flow**——VPS 没浏览器，`codex login` 默认走 browser callback 直接卡死；改用 `codex login --device-auth` 走 device code flow（pair code 显示在终端，主公到 ChatGPT 网站输入）
+- **坑 2：ChatGPT 安全设置默认禁用 device authorization**——主公需到 ChatGPT 网站 → Settings → Security 主动打开 "Device Authorization" 开关，否则 device-auth flow 直接拒绝
+- **坑 3：Ubuntu 24.04 bubblewrap 二段限制**——`apt install bubblewrap` 装完还不够，AppArmor 默认 `kernel.apparmor_restrict_unprivileged_userns=1` 拦截 user namespace 创建（Codex/Docker/snap 都依赖）；需 `sudo sysctl kernel.apparmor_restrict_unprivileged_userns=0` + 写 `/etc/sysctl.d/99-userns.conf` 永久生效
+- **安装方式**：用户级 npm（`npm install -g @openai/codex --prefix ~/.npm-global`），无 sudo；`~/.npm-global/bin/codex` 是命令路径
+- **订阅模式**：ChatGPT Plus $20/月可用 codex CLI，**不耗 OpenAI API**（符合主公"用订阅不调 API"原则，详见 `memory/feedback_claude_cli_vs_api.md`）
+- **验证命令**：`codex login status` 看认证状态；`echo "..." | codex exec` 是非交互调用模式
+- 完整安装日志（如已起草）：见 `reference/codex_setup_log.md`
+
 ---
 
 ## 技术踩坑库
@@ -153,6 +167,25 @@ update/create 时传复杂嵌套 JSON + 中文/emoji 会报 "provided as string"
 
 适用：任何有 DB + 外部账号 + 文档三层的系统停用场景（P9第一系统2026-05-06停用时验证）
 
+**Skill 描述每次对话自动注入有真实 token 成本**（2026-05-23）[ref-worthy]
+- 实测数据：9 个未使用 Skill 的 description 字段被 Claude Code 自动注入 system-reminder 的 "Available skills" 列表，**累计 1,238 字符 ≈ 1,500 token / 对话**
+- 归档到 `cowork/skill_archives/<name>/` 后，Claude Code 不再扫描该目录 → 简介不再注入 → 立刻省 token
+- 单 Skill 估算：description 平均约 100-200 token 注入成本（取决于描述长度）
+- 归档后**功能不丢**：CLAUDE.md 写好路由规则（"归档 Skill → 查 skill_archives/INDEX.md → 读对应 SKILL.md 执行"），归档 Skill 依然能被关键词触发，只是从"自动注入"变成"按需读取"
+- 决策依据：日常用频次 ≥ 1 次/月 → 留在 `~/.claude/skills/`；< 1 次/月 → 归档
+- 用于：未来加/删/归档任何 Skill 时的量化决策依据
+
+**MEMORY.md 索引行精简：ABCD 四类处理 + D 模板**（2026-05-23）[ref-worthy]
+- MEMORY.md 每行每次对话开头自动注入，行长度 = 直接 token 成本
+- **A 类**（内容与 CLAUDE.md 完全重复）→ **删整行**
+- **B 类**（有独家信息 + 部分跟 CLAUDE.md 重叠）→ **只留独家，加`（其他 CLAUDE.md 已有）`后缀**
+- **C 类**（长字符串没重复但啰嗦）→ **压缩到 ≤150 字符**
+- **D 模板**（推荐新加 memory 时的标准格式）：`[主题]：[独家部分]（其他 CLAUDE.md 已有）`
+  - 例：`日志纪律：大事记不记细节；收工 ⊃ 保存进度（其他 CLAUDE.md 已有）`
+  - 优点：一眼看主题分类 + 显式标注"完整规则在 CLAUDE.md"，提示 Claude 不要在 MEMORY 重复存
+- 实测节省：全量精简后总省 **~400 token / 对话**
+- 用于：新建 memory 时写索引行 / 整理记忆 Skill 流程加一步"按 ABCD 类格式化"
+
 ---
 
 ## SQLite / 数据库
@@ -178,6 +211,14 @@ with pdfplumber.open(path) as pdf:
 - `stable/company-screener` 市值上限过滤失效 → 改用 Wikipedia S&P 400+600 名单 + yfinance 补数据
 - FMP 财报 transcript 需付费 → 改用 FMP 新闻全文（`text` 字段已有内容）
 - screener 单次运行约30分钟，不能在 scanner 里重跑 → 必须读 `screener_output.json` 缓存
+
+**DB UNIQUE 约束只能管字段重复，管不了"业务唯一"**（2026-05-22）[ref-worthy]
+- 教训源头：P9 `scanner_picks` 表 `UNIQUE(symbol, scan_date)` 只防"同一只股票+同一天"重复，**不防跨日重复扫入同一活跃股票**（5/6 扫入 ORA → 5/13 又被扫入 → DB 无报错，结果两条 ORA picks）
+- 根因：DB UNIQUE 只能约束"几个字段不重合"，无法表达"业务上同一活跃实体只能存在一条"
+- 修复：在 INSERT 前应用层加检查 — 「该 symbol 是否已有 `status IN ('submitted','filled','open')` 的活跃记录？有则跳过」
+- 通用原则：任何 append-only 表里，**"逻辑唯一"约束（同一活跃实体只能有一条）必须在应用层检查**，不能只靠 DB UNIQUE
+- 类似场景预警：trades 表（同一订单不能重复）/ news_archive（同一新闻不能重复推送）/ outcome_tracking（同一 pick 只能有一条结果记录）
+- 排查信号：发现"实体重复出现"时先查 INSERT 路径有没有应用层前置检查，不要只看 DB schema
 
 ---
 

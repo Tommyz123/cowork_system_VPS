@@ -9,6 +9,10 @@ from pathlib import Path
 
 BASE = Path("/home/cowork/cowork")
 DOCS = [BASE / "ARCHITECTURE.md", BASE / "context.md"]
+EXTRA_SCAN_DIRS = [
+    Path("/home/cowork/.claude/hooks"),
+    Path("/home/cowork/opus_home/.claude/hooks"),
+]
 
 
 def extract_py_names(doc_path):
@@ -23,7 +27,10 @@ def find_py_files():
     found = {}
     for p in BASE.rglob("*.py"):
         found[p.name] = str(p)
-        # also store basename-only for short matches
+    for extra_dir in EXTRA_SCAN_DIRS:
+        if extra_dir.exists():
+            for p in extra_dir.rglob("*.py"):
+                found[p.name] = str(p)
     return found
 
 
