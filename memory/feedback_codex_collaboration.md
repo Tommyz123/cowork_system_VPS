@@ -53,3 +53,10 @@ Codex 执行任何文件改动后，Claude 必须同步在 cowork_log.md 写带 
 **CLAUDE.md精简原则（主公明确，2026-05-08）：**
 CLAUDE.md只加"违反了会出事"的规则。操作习惯、判断标准内化到行为即可，不用写文档。主公原话："Claude.md已经很重了"。
 **How to apply:** 遇到"要不要加进CLAUDE.md"的判断时，先问：违反了会不会出问题？不会 → 不加。
+
+**VPS Codex 实操位置（2026-05-23 上线）：**
+- 安装位置：`~/.npm-global/bin/codex`（用户级 npm，无 sudo；详见 `reference/knowledge_base.md` 「Codex CLI 在 VPS 装机三坑组合」）
+- 认证：ChatGPT Plus 订阅（auth.json 在 `~/.codex/auth.json`）；**不耗 OpenAI API 额度**（符合 feedback_claude_cli_vs_api 同款原则）
+- **非交互调用模式**：`echo "..." | codex exec` — 派 Codex 长任务的标准模式，输入用 echo/cat 喂进 stdin
+- 验证命令：`codex login status` 查认证；`codex --version` 查版本
+- 适用场景：派 Codex 做长任务（"读 X 文件给改进建议" / "审查代码" / "跑测试" 等）；主公已 5/23 实战测试过 send_email.py 审查

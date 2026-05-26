@@ -25,8 +25,11 @@ originSessionId: d13aed09-f19a-44e5-81c1-fc0cfee07eea
 
 **个人背景：**
 - 36岁，目标是进入AI行业见识，非转型软件工程师
-- 目前在Sage Seeds大麻零售店上班，需要灵活工作时间
-- 求职偏好：兼职/Contract/Freelance优先，不考虑全职
+- 目前在Sage Seeds大麻零售店上班（budtender），需要灵活工作时间
+- **NY 大麻零售牌照申请中（P12，2026 主线）**——最终目标是牌照下来全职转大麻零售
+- **求职策略（2026-05-24 大重定向）**：跳板 6-12 月（先攒 AI 履历 → 牌照下来转 P12）；甜区岗位详见 `playbooks/career_ops.md`
+- **Hard requirement**：必须能学到 + 能用上 cowork 经验
+- **约束**：英文 B1 + Sage Seeds 现役 + 牌照等待中（淘汰 FDE / Tier 1 Lab / 客服销售 PM 类岗）
 
 **主要项目：**
 - AI Skill 框架研究（Desktop/cc_skill/）

@@ -29,7 +29,7 @@ last_audit_date: 2026-04-19
 | P4 | 每日新闻日报 | ✅ cron运行中 | 2026-05-10 | 5/10补发成功；root权限/tmp/news_ai.txt问题已确认不影响当前脚本 |
 | P6 | 机票监控 Agent | ✅ cron运行中 | 2026-05-07 | SerpAPI key自动轮换（KEY2耗尽→自动切KEY）；直飞数据恢复 |
 | P7 | Mac mini价格监控 | ✅ cron运行中 | 2026-04-23 | HTML邮件（链接藏入<a>标签）；今日eBay $305触发提醒 |
-| P9 | AI量化交易系统 TIDE | ✅ cron运行中 | 2026-05-25 | 15只持仓+5只expired已reconcile；screener.py加毛利率非负硬过滤；策略讨论：OPG流动性陷阱假设+alpha衰减+v1→v2路线；下次：6/14首批30天outcome节点+6月底数据看hit rate |
+| P9 | AI量化交易系统 TIDE | ✅ cron运行中 | 2026-05-25 | cognitive_scanner加system_log记录+扫描邮件(commit 1d98596)；下次：6/14首批30天outcome节点+6月底数据看hit rate |
 
 ---
 
@@ -63,6 +63,8 @@ last_updated: 2026-05-25
 下一步（2026-05-25 起）：
 - 主公给更多地址 → 逐个分析（格式已确立）
 - AI 法律顾问 prompt MVP（30min，Reality Check 最低门槛）
+- **Queens 选址数据分析（待启动）**：OCM 持牌店地址 + Census 人口数据 → 竞争地图 + 空白街区识别 → 候选地址 shortlist；确认 OCM zoning 要求后开始；Placer.ai / Headset 等确定候选地址后再考虑
+- **选址工具栈已确认**：OCM（免费）→ Census（免费）→ Placer.ai（付费验证足迹）→ Headset（付费进货决策）；竞品分析：Google Reviews + Weedmaps 评分读差评找缺口
 
 本次完成（2026-05-16 至 2026-05-17 ~10 小时引流主线深挖）：
 - **Reddit 数据生态完整探索**：
@@ -577,7 +579,13 @@ last_updated: 2026-05-24
 ### [P9] AI量化交易系统（TIDE系统）
 状态：✅ 完整闭环 + 反模式根治完成（**15 只真持仓**：6 早 + 8 late + 1 auto_filled ASTE；5 只 OPG expired 已 reconcile）
 last_updated: 2026-05-25
-停在：screener.py 加毛利率非负硬过滤（grossMargins<0 拒绝，None放行）；策略讨论完成（大盘vs小盘/alpha衰减/OPG流动性陷阱假设/v1→v2路线）。下次关键节点：6/14 首批 30 天 outcome / 6 月底数据看 hit rate 决定是否加等确认过滤层 / 8/4 Q3 自动扫描首次实战。
+停在：cognitive_scanner.py 加 system_log 记录 + 扫描邮件发送（commit 1d98596），已测试通过。下次关键节点：6/14 首批 30 天 outcome / 6 月底数据看 hit rate / 8/4 Q3 自动扫描首次实战。
+
+本次完成（2026-05-25）：
+- **cognitive_scanner.py 加 system_log 记录**：每次扫描后追加一行到 trading/system_log.md（`[时间 EDT] ✅ cognitive_scan: scanned=N analyzed=N submitted=N dedup_skip=N | Alpaca:OK`）
+- **cognitive_scanner.py 加扫描邮件发送**：HTML 彩色邮件发 zhitao776@gmail.com，绿色=submitted/红色=rejected，每只附 thesis 摘要（旧标签/新信号/爆发催化剂/失效条件）
+- **git commit 1d98596**：2 个文件（cognitive_scanner.py + system_log.md）已 push 到 GitHub
+- **TIDE 策略三问讨论（Codex rescue）**：三个升级方向优先级（财务硬过滤>信号连续>等确认）；最大盲点（OPG 流动性/卖压时机/持仓 correlation）；"AI 读公开信息找叙事 alpha"在小盘股有可能但边际持续压缩
 
 本次完成（2026-05-24）：
 - **screener.py 毛利率非负硬过滤**：加 3 行代码（grossMargins<0→拒绝；None/零放行），Opus+Codex 联合审核后决定只加 Condition 1（现金跑道 Condition 2 因 yfinance 年化 CF 对小盘股数据质量差+样本量优先被否决）
