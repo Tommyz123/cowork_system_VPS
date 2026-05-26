@@ -36,3 +36,6 @@
 [2026-05-22 21:00 EDT] ✅ price_snapshot: updated=0 skipped=15
 [2026-05-23 21:00 EDT] ✅ price_snapshot: updated=0 skipped=15
 [2026-05-24 21:00 EDT] ✅ price_snapshot: updated=0 skipped=15
+[2026-05-25 16:01 EDT] ✅ symbols=54 news=6 8k=0 inserted=6 | Finnhub:OK SEC:OK
+[2026-05-25 21:00 EDT] ✅ price_snapshot: updated=0 skipped=15
+[2026-05-25 21:14 EDT] ✅ cognitive_scan: scanned=54 analyzed=7 submitted=7 dedup_skip=0 | Alpaca:OK

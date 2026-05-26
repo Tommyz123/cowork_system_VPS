@@ -11,6 +11,7 @@ import sys
 import requests
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, "/home/cowork/cowork/scripts")
 import screener, transcript_fetcher
 
 from db_schema import ensure_scanner_picks_schema
@@ -20,6 +21,7 @@ from tide_utils import load_env
 
 DB_PATH = "/home/cowork/cowork/trading/trading.db"
 TRANSCRIPTS_DIR = "/home/cowork/cowork/trading/transcripts"
+SYSTEM_LOG_PATH = "/home/cowork/cowork/trading/system_log.md"
 DISCORD_API_BASE = "https://discord.com/api/v10"
 ALPACA_BASE = "https://paper-api.alpaca.markets/v2"
 DEFAULT_POSITION_NOTIONAL = 5000.0
@@ -649,6 +651,87 @@ def run_full_pipeline(test_symbol=None):
     }
 
 
+def write_system_log(submitted_count, dedup_count, analyzed_count, scanned_count):
+    from datetime import timezone, timedelta
+    edt = timezone(timedelta(hours=-4))
+    now = datetime.now(edt).strftime("%Y-%m-%d %H:%M EDT")
+    line = f"[{now}] ✅ cognitive_scan: scanned={scanned_count} analyzed={analyzed_count} submitted={submitted_count} dedup_skip={dedup_count} | Alpaca:OK\n"
+    try:
+        with open(SYSTEM_LOG_PATH, "a", encoding="utf-8") as f:
+            f.write(line)
+        print(f"[INFO] system_log 已追加：{line.strip()}", flush=True)
+    except Exception as e:
+        print(f"[WARN] system_log 写入失败：{e}", flush=True)
+
+
+def send_scan_email(results, executed_summary, scan_date, scanned_count):
+    try:
+        from send_email import send_email
+    except ImportError:
+        print("[WARN] send_email 模块不可用，跳过邮件", flush=True)
+        return
+    executed_summary = executed_summary or []
+    submitted = [s for s in executed_summary if s.get("status") in ("accepted", "submitted", "filled", "pending_new", "new")]
+    rejected = [s for s in executed_summary if s.get("status") == "rejected"]
+    total_notional = sum(s.get("notional", 0) for s in submitted)
+
+    rows = ""
+    for item in results:
+        sym = item["symbol"]
+        exe = next((s for s in executed_summary if s["symbol"] == sym), None)
+        if exe and exe.get("status") in ("accepted", "submitted", "filled", "pending_new", "new"):
+            tag = f"✅ 已下单 {exe['qty']}股 (${exe.get('notional',0):,.0f})"
+            row_color = "#e6f4ea"
+        elif exe and exe.get("status") == "rejected":
+            tag = f"❌ 拒绝：{exe.get('note','')}"
+            row_color = "#fce8e6"
+        else:
+            tag = "⏸️ 无记录"
+            row_color = "#fff"
+        rows += f"""
+        <tr style="background:{row_color}">
+          <td style="padding:8px;font-weight:bold">{sym}</td>
+          <td style="padding:8px">{item.get('total_score',0)}/12</td>
+          <td style="padding:8px">{tag}</td>
+        </tr>
+        <tr style="background:{row_color}">
+          <td colspan="3" style="padding:4px 8px 2px;font-size:12px;color:#555">
+            <b>旧标签：</b>{item.get('old_label','')}<br>
+            <b>新信号：</b>{item.get('new_signal','')}<br>
+            <b>爆发条件：</b>{item.get('explosion_catalyst','')}<br>
+            <b>失效条件：</b>{item.get('invalidation_conditions','')}
+          </td>
+        </tr>
+        <tr><td colspan="3" style="padding:2px"></td></tr>"""
+
+    rejected_html = ""
+    if rejected:
+        items = "".join(f"<li>{r['symbol']}: {r.get('note','')}</li>" for r in rejected)
+        rejected_html = f"<p><b>⚠️ 被拒绝（{len(rejected)}只）：</b><ul>{items}</ul></p>"
+
+    html = f"""
+    <h2>📋 TIDE 认知滞后扫描报告 — {scan_date}</h2>
+    <p>扫描 <b>{scanned_count}</b> 家 → 入围 <b>{len(results)}</b> 家 → 已下单 <b>{len(submitted)}</b> 只 | 预计 notional <b>${total_notional:,.0f}</b></p>
+    {rejected_html}
+    <table style="border-collapse:collapse;width:100%;font-family:sans-serif;font-size:13px">
+      <tr style="background:#1a73e8;color:#fff">
+        <th style="padding:8px">股票</th><th style="padding:8px">评分</th><th style="padding:8px">状态</th>
+      </tr>
+      {rows}
+    </table>
+    <p style="color:#888;font-size:11px">由 TIDE cognitive_scanner 自动生成，OPG 单将在下一交易日开盘成交</p>
+    """
+    try:
+        send_email(
+            subject=f"TIDE 扫描报告 {scan_date} | {len(submitted)} 只已下单",
+            body=html,
+            html=True,
+        )
+        print(f"[INFO] 扫描结果邮件已发送至 zhitao776@gmail.com", flush=True)
+    except Exception as e:
+        print(f"[WARN] 邮件发送失败：{e}", flush=True)
+
+
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--test", metavar="SYMBOL")
@@ -680,6 +763,11 @@ def main():
     write_watchlist(top_results, scan_date)
     executed_summary = write_scanner_picks(top_results, scan_date, env)
     send_discord_report(env, top_results, scan_date, scanned_count, executed_summary=executed_summary)
+
+    submitted = [s for s in executed_summary if s.get("status") in ("accepted", "submitted", "filled", "pending_new", "new")]
+    rejected = [s for s in executed_summary if s.get("status") == "rejected"]
+    write_system_log(len(submitted), len(rejected), analyzed_count, scanned_count)
+    send_scan_email(top_results, executed_summary, scan_date, scanned_count)
 
 
 if __name__ == "__main__":
