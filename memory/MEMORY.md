@@ -1,6 +1,6 @@
 # Memory Index
 
-> 最后更新：2026-05-19（更新 feedback_p9_no_ghost_data + feedback_p9_auto_execute：反模式根治版——cognitive_scanner 写 'submitted'/'auto_pending' + sync_fill_prices 升级 reconciler，防 ghost positions 同款 24h 复发）
+> 最后更新：2026-05-27（① reference_dual_bot 升级为 3 实例架构 ② 新增 feedback_immediate_vs_longterm_framing：3 选 1 建议前必须问"立即 vs 长期"）
 > 维护规则：新增记忆文件后立即在此处添加条目；不用的记忆文件同步删除对应条目
 
 ## User
@@ -47,6 +47,7 @@
 - [feedback_pacing_and_plain_language.md](feedback_pacing_and_plain_language.md) — 默认逐条+大白话+无术语；主公"没理解"立即换比喻重讲（5/23+5/25 节奏违反 2 次 + 术语致"没理解"反复触发）
 - [feedback_clarify_hard_requirements.md](feedback_clarify_hard_requirements.md) — "什么都行/都可以/看你"必须先追问"有没有不接受的"再讨论选项；用户说宽松词≠真的宽松，常是没想到先说底线
 - [feedback_proactive_update_alert.md](feedback_proactive_update_alert.md) — 主动扫描+及时提醒：工作中扫描到任何需要更新的内容(文档/索引/记忆/简历)立即 Discord 提醒，不等主公问；write_triggers_scan/artifact_indexing/deprecation_cleanup 的总纲
+- [feedback_immediate_vs_longterm_framing.md](feedback_immediate_vs_longterm_framing.md) — 推 3 选 1 / 优先级建议前必须先问"立即推动 vs 长期方向"；两种场景判断框架完全不同（立即→看难度+ROI；长期→看战略契合度，重不再是缺点）
 
 ## Project（项目背景）
 - [project_cannabis_retail.md](project_cannabis_retail.md) — ⭐ P12 大麻零售主线（2026年主线，2026-05-14 确立）；NY牌照申请中+AI赋能+SaaS化路径；八字辛卯大运对应；playbook: playbooks/cannabis_retail.md；P1/P3/P5 已并入作为子模块
@@ -82,9 +83,9 @@
 - [project_p9_trading.md](project_p9_trading.md) — P9 TIDE系统：主题驱动季度埋伏/叙事先行/ORA持仓/纸账号$1M/IWM基准/积累阶段完成(2026-05-08)/下次人工决策=ORA平仓
 - [reference_token_quota.md](reference_token_quota.md) — Claude Code每日token配额：长对话本身也消耗，非Codex专属；重要任务在新对话开始时执行
 - [reference_competitor_scraper.md](reference_competitor_scraper.md) — 竞品爬虫：GF/SS用Playwright捕dutchie graphql；ZZ用HTTP直连WP proxy+固定retailerId；DB在cowork/scraper/
-- [reference_dual_bot.md](reference_dual_bot.md) — 双bot架构：cowork+opus_CC频道ID/隔离4层(tmux/HOME/plugin/token)/DO VPS IP/systemd服务/远程装plugin方法
+- [reference_dual_bot.md](reference_dual_bot.md) — 3 实例架构：cowork+opus_CC+opus2 频道ID/隔离4层(tmux/HOME/plugin/token)/DO VPS IP/3 systemd服务全自启(opus2 在 2026-05-27 上线)/远程装plugin方法
 - [reference_p11_discord.md](reference_p11_discord.md) — VPS Discord接入：plugin v0.0.4已知bug+patch位置+降级方案(discord.py自建bot~100行)
-- cowork/reference/cron_jobs.md — 所有 cron 任务唯一总索引（每日新闻/机票/Mac监控/P9系列/rclone备份/大麻诉讼追踪），加新 cron 必须在此注册
+- cowork/reference/cron_jobs.md — 所有 cron + systemd 自启任务唯一总索引（每日新闻/机票/Mac监控/P9系列/rclone备份/大麻诉讼追踪 + 3 个 Claude 实例 systemd），加新 cron / service 必须在此注册
 - cowork/reference/agent_view_rules.md — Claude Code Agent View 完整调研笔记（不启用，多窗口管理工具不适合远程遥控场景）
 - legal_library/18_Organic_Blooms_v_CCB_Tracking.md — NY大麻 December queue 诉讼追踪（Index 904497-24，影响主公申请），每周一09:00 EDT 自动 Discord 提醒查 NYSCEF
 

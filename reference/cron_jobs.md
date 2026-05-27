@@ -1,9 +1,9 @@
 # Cowork Cron 任务总览
 
-> 最后更新：2026-05-26（新增 AI 动态日报 09:00 EDT；Anthropic/OpenAI/Google AI 博客 + arXiv + Claude Code）
-> 来源：`crontab -l` on VPS (DigitalOcean 142.93.207.54, user=cowork)
+> 最后更新：2026-05-27（新增 systemd 自启服务区块——cowork-opus2 装好后顺手把 3 个 service 集中登记）
+> 来源：`crontab -l` + `systemctl list-units` on VPS (DigitalOcean 142.93.207.54, user=cowork)
 > 时区：America/New_York (EDT/EST)
-> 用途：所有定时任务的**唯一索引**——加新 cron 必须在此注册
+> 用途：所有**自动触发任务**（cron 定时 + systemd 自启）的唯一索引——加新 cron / service 必须在此注册
 
 ---
 
@@ -28,6 +28,7 @@ PATH=/home/cowork/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 | `0 21 * * *` (21:00 daily) | `trading/run_py.sh trading/price_snapshot.py` | P9 每日价格快照 | `trading/price_snapshot.log` |
 | `30 17 * * 2,4` (周二/四 17:30) | `flightscripts/run_flight.sh` | 机票监控（SerpAPI 双 key 自动轮换） | `flightscripts/run.log` |
 | `0 17 * * 3` (周三 17:00) | `stability_check.sh` | 系统稳定性检查 | `stability_check.log` |
+| `* * * * *` (每分钟) | `scripts/detect_conflict.py` | 共享文件冲突监测（扫 `logs/write_events.log`，10 秒窗口内同文件被两个不同 HOME 写过 → 写 `reference/conflict_log.md` + DM 频道告警；幂等） | `logs/detect_conflict.log` |
 
 ---
 
@@ -68,6 +69,38 @@ PATH=/home/cowork/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 | `0 9 31 5 *` (5/31 09:00) | `scripts/cannabis_docket_reminder.py critical` | 关键日 | 同上 |
 
 ⚠️ **注意:** 5/29-31 critical 提醒**明年仍会触发**——届时根据案件状态决定是否保留。
+
+---
+
+## 🤖 Systemd 自启服务（3 个 Claude Code 实例）
+
+VPS 启动时由 systemd 自动拉起，**reboot 不需要主公手动管**。
+
+| Service | HOME | tmux socket / session | Runner | Discord 频道 |
+|---|---|---|---|---|
+| `cowork-claude.service` | `/home/cowork` | 默认 socket / `cowork` | `scripts/claude_runner.sh` | DM `1485128242808619079` |
+| `cowork-opus.service` | `/home/cowork/opus_home` | `opus_socket` / `cowork_opus` | `scripts/claude_opus_runner.sh` | DM `1503165641379545228` (opus_CC#0475) |
+| `cowork-opus2.service` | `/home/cowork/opus2_home` | `opus2_socket` / `cowork_opus2` | `scripts/claude_opus2_runner.sh` | TT基地 guild `1466957346310717636`（具体 DM 频道见 `opus2_home/.claude/channels/discord/access.json`） |
+
+**3 个 service 都 `enabled`**（验证：`systemctl is-enabled cowork-claude cowork-opus cowork-opus2`）。
+
+**常用管理命令：**
+```bash
+sudo systemctl status cowork-opus2    # 查状态
+sudo systemctl restart cowork-opus2   # 重启
+sudo systemctl stop cowork-opus2      # 停（要 root）
+sudo journalctl -u cowork-opus2 -n 50 # 看最近日志
+```
+
+**Service 文件源：** `/home/cowork/cowork/scripts/cowork-*.service`（git 跟踪），装到 `/etc/systemd/system/` 用：
+```bash
+sudo cp /home/cowork/cowork/scripts/cowork-opus2.service /etc/systemd/system/
+sudo systemctl daemon-reload && sudo systemctl enable --now cowork-opus2
+```
+
+**历史：**
+- 2026-05-10：cowork + opus_CC 双 bot 上线（systemd 自启）
+- 2026-05-27：opus2（第 3 实例）从手动启升级为 systemd 自启
 
 ---
 

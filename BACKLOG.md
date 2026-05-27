@@ -29,6 +29,14 @@
 
 ## ⏳ 等触发条件
 
+[2026-05-27] **跨实例通讯（3 个 Claude Code 实例互发消息）** | 触发条件：① 牌照下来开始搭店里 AI 系统（对应 cannabis_retail playbook 触发 0） 或 ② 出现 subagent 解决不了 + cron 也凑合不了的具体协作场景
+- 背景：2026-05-27 凌晨讨论。opus2 systemd 化后主公问"3 实例打通能玩什么"。讨论 4 vision 玩法（专家委员会/反方辩论/永续研究/群体智能投票）+ 3 赚钱路径（A/B/C）。主公"不马上做"约束下选 A 大麻店 SaaS 为长期方向。
+- 方案：MVP（1 晚）= ① 改 3 个 access.json 加 cross-bot allowFrom（10 min）② 写 send_to_agent.sh helper（30 min）③ CLAUDE.md 加 [AGENT] 前缀约定（15 min）④ 端到端测试（1 h）；防护必做 = 消息深度计数防死循环
+- Production（2-3 天）：单开 #agent-talk 总线频道+主公围观/Redis 异步队列/retry+告警/真并行投票
+- 现在不做原因：① YAGNI - subagent 已覆盖 90% 当前需求 ② 没真痛点 ③ 主公 A 路径还在等牌照 ④ 立即建 = 为未来需求做的过度工程
+- 详细 vision 章节：playbooks/cannabis_retail.md "🎯 长期路线图：A → AI 全能员工 SaaS"
+- 不做时间限制（不设删除日期）：因为 A 路径就是 P12 主线终点，长期价值高
+
 [2026-05-21] **CodeGraph 借鉴 - 文档关系图谱方案** | 触发条件：friction_log "漏改"事件 ≥3 次/2 周
 - 背景：2026-05-19→2026-05-21 Opus 4.7 + 主公 7 轮深度审视 CodeGraph 借鉴；从 11h 砍到 6.5h 真图谱最小集；最终因 friction_log 4 周 0 条漏改数据未支撑而暂不做
 - 方案：F 真图谱最小集（doc_nodes 章节级 + doc_edges 链接/sync_marker/contains 三种边 + BFS 反向遍历 + impact 查询接口）；6.5h 工时

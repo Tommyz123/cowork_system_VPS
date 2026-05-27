@@ -7,10 +7,10 @@
 
 | 状态 | 数量 | 说明 |
 |---|---|---|
-| 🟢 活跃 | 16 | 有 cron / hook / Skill / 其他脚本在调用 |
+| 🟢 活跃 | 18 | 有 cron / hook / Skill / 其他脚本在调用 |
 | 🟡 库存 | 1 | 当前无调用但功能有用，留作备用 |
 | ⚫ 一次性 | 1 | 历史建库，留备重建（backfill_sessions.py 已移 archive/） |
-| **总计** | **18** | （discord_approve_backup.py 已删 2026-05-23；ai_news_monitor.py + run_ai_news.sh 新增 2026-05-26） |
+| **总计** | **20** | （log_write_event.py + detect_conflict.py 新增 2026-05-26 共享文件冲突监测） |
 
 ---
 
@@ -85,6 +85,18 @@
 - **调用方**：systemd 服务
 - **频率**：常驻
 - **⚠️ 警告**：双 bot 架构核心，**绝不可删**
+
+### log_write_event.py
+- **功能**：PostToolUse hook，记录每次 Edit/Write/MultiEdit 共享文件的事件到 `logs/write_events.log`（共享文件清单：cowork_log.md / CURRENT_SESSION.md / friction_log.md / INSIGHTS.md）
+- **调用方**：`/home/cowork/cowork/.claude/settings.json` PostToolUse hook（项目级，所有 claude 实例共享）
+- **频率**：每次写共享文件触发（约日均几十次）
+- **依赖**：无（标准库 Python）
+
+### detect_conflict.py
+- **功能**：扫 `write_events.log`，找 10 秒内同文件被两个不同 HOME 实例写过 → 追加到 `reference/conflict_log.md` + 发 Discord 告警（DM 频道，与 cron 系列一致）；用 `.conflict_alerted` 保证幂等
+- **调用方**：cron `* * * * *`（每分钟）
+- **频率**：每分钟
+- **依赖**：`requests`、`/home/cowork/.claude/channels/discord/.env`（DISCORD_BOT_TOKEN）
 
 ---
 

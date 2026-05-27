@@ -1,21 +1,23 @@
 ---
 name: reference_dual_bot
-description: VPS双bot架构：cowork bot + opus_CC bot，完全隔离，频道ID/IP/systemd/plugin安装方法
+description: VPS 3 实例 Claude Code 架构：cowork + opus_CC + opus2，完全隔离，频道ID/IP/systemd/plugin安装方法（文件名仍叫 dual_bot 是历史，实际已 3 实例 since 2026-05-27）
 type: reference
 originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 ---
-## 双Bot身份
+## 3 实例身份（2026-05-27 加入 opus2）
 
-| | cowork bot | opus_CC bot |
-|---|---|---|
-| Discord DM channel | 1485128242808619079 | 1503165641379545228 |
-| Discord user_id | — | 1503158821345034360 |
-| Discord username | — | opus_CC#0475 |
-| HOME | /home/cowork/ | /home/cowork/opus_home/ |
-| Discord token | /home/cowork/.claude/channels/discord/.env | /home/cowork/opus_home/.claude/channels/discord/.env |
-| tmux | 默认 socket，session: cowork | socket: opus_socket，session: cowork_opus |
+| | cowork bot | opus_CC bot | opus2 bot |
+|---|---|---|---|
+| Discord DM channel | 1485128242808619079 | 1503165641379545228 | （在 TT基地 guild 内，具体 ID 见 opus2_home access.json） |
+| Discord user_id | — | 1503158821345034360 | （token 解码可得，未单列） |
+| Discord username | — | opus_CC#0475 | — |
+| 模型 | Sonnet 4.6 | Opus 4.7 | Opus 4.7 |
+| HOME | /home/cowork/ | /home/cowork/opus_home/ | /home/cowork/opus2_home/ |
+| Discord token | /home/cowork/.claude/channels/discord/.env | /home/cowork/opus_home/.claude/channels/discord/.env | /home/cowork/opus2_home/.claude/channels/discord/.env |
+| tmux | 默认 socket，session: cowork | socket: opus_socket，session: cowork_opus | socket: opus2_socket，session: cowork_opus2 |
+| systemd | cowork-claude.service | cowork-opus.service | cowork-opus2.service（**2026-05-27 上线**） |
 
-两个 bot 都在 server TT基地（id=1466957346310717636）
+3 个 bot 都在 server TT基地（id=1466957346310717636），3 个 systemd service 都 `enabled` 开机自启。
 
 ---
 
@@ -49,9 +51,10 @@ originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 
 ## systemd 服务架构
 
-- **cowork bot**：`cowork-claude.service`，Environment=HOME=/home/cowork/，ExecStart 在 /home/cowork/ 下
+- **cowork bot**：`cowork-claude.service`，Environment=HOME=/home/cowork/，ExecStart=claude_runner.sh
 - **opus_CC**：`cowork-opus.service`，Environment=HOME=/home/cowork/opus_home/，ExecStart=claude_opus_runner.sh，ExecStop=`tmux -L opus_socket kill-server`
-- 两个服务都 `enabled`，VPS reboot 自动起
+- **opus2**：`cowork-opus2.service`，Environment=HOME=/home/cowork/opus2_home/，ExecStart=claude_opus2_runner.sh，ExecStop=`tmux -L opus2_socket kill-server`（2026-05-27 上线）
+- 3 个服务都 `enabled`，VPS reboot 自动起；完整索引见 `cowork/reference/cron_jobs.md` 的 Systemd 区块
 
 ---
 

@@ -1,0 +1,17 @@
+[Unit]
+Description=Cowork Opus2 Claude Code (tmux-wrapped, non-root, watchdog)
+After=network.target
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=5
+User=cowork
+Group=cowork
+Environment=HOME=/home/cowork/opus2_home
+WorkingDirectory=/home/cowork/cowork
+ExecStart=/home/cowork/cowork/scripts/claude_opus2_runner.sh
+ExecStop=/bin/sh -c "/usr/bin/tmux -L opus2_socket has-session -t cowork_opus2 && /usr/bin/tmux -L opus2_socket kill-server || true"
+
+[Install]
+WantedBy=multi-user.target

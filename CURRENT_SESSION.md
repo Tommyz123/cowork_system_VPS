@@ -37,9 +37,21 @@ last_audit_date: 2026-04-19
 ## 活跃进度
 
 ### [P12] Cannabis Retail 主线 ⭐ 2026 年主线
-状态：🆕 规划中（牌照申请中 + V0 阶段 AI 系统准备中 + 选址研究框架启动）
-last_updated: 2026-05-25
-停在：选址研究框架确立（4 维分析法），Queens 市场饱和地图完成，主公一手经验（Bayside+Sage Seeds）整合进框架。下次：主公丢地址逐个分析 / 或 AI 法律顾问 prompt MVP。
+状态：🆕 规划中（牌照申请中 + V0 阶段 AI 系统准备中 + 选址研究框架启动 + A → SaaS 长期路线图入库）
+last_updated: 2026-05-27
+停在：A → AI 全能员工 SaaS 长期路线图已写进 playbook BACKLOG 段（4 阶段触发条件+B/D 备胎），跨实例通讯定为 enabler（MVP 评估 1 天可跑通但暂不建，等触发）。下次：主公丢地址逐个分析 / 或 AI 法律顾问 prompt MVP。
+
+本次完成（2026-05-27 凌晨 opus2 上线 + A 路线图入库）：
+- **opus2 systemd 化**：3 实例（cowork/opus_CC/opus2）全部 systemd 自启；reboot 不需手动管；详见日志 2026-05-27 01:05 EDT 条目
+- **跨实例通讯 vision 深度讨论**：4 玩法（专家委员会/反方辩论/永续研究 agent/群体智能投票）+ 3 赚钱路径（A 大麻店 SaaS / B 法律订阅 / C 求职作品）
+- **A 长期路线图入库**：playbooks/cannabis_retail.md 新增 "🎯 长期路线图：A → AI 全能员工 SaaS（2026-05-27 草拟）" 章节；4 阶段触发条件（触发 0=牌照下来搭跨实例底座 / 触发 1=店开张验证 / 触发 2=至少 1 家试点 / 触发 3=订阅 ≥10 家）；B/D 备胎路径；3 件现在明确不做
+- **跨实例通讯实现成本评估**：MVP 1 晚就能跑通（基础设施 90% 已有：3 bot/access.json/Discord 总线），死循环防护必做；production 2-3 天；现在不建（YAGNI + 没真痛点）
+- **新 memory：feedback_immediate_vs_longterm_framing**：3 选 1 / 优先级建议前必须先问"立即推动 vs 长期方向"；今晚我第一次猜 B 错就因为没问框架（主公确认）
+- **校准点**：模型变强不会让 A 过时；真正护城河 = 持牌店+实操数据+NY 大麻人脉；不是"我会建 multi-agent"
+
+下一步：
+- **跨实例通讯 BACKLOG 状态：🟡 缓做**（触发条件 = 牌照下来开始搭店里 AI 系统时启动，或某个具体 subagent 解决不了的协作场景出现）
+- P12 原下一步保持：主公给地址逐个分析 / AI 法律顾问 prompt MVP / Reality Check 0/4 仍待启动（剩 12 天）
 
 本次完成（2026-05-24 选址研究 + P&L 框架）：
 - **选址分析格式确立**：主公给地址 → 逐个 4 维分析（1000ft 禁区/竞争密度/客流类型/租金范围）+ 优点+风险总结
@@ -177,8 +189,20 @@ last_updated: 2026-05-25
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-05-26
-停在：收工 Skill 加打分机制（5 分制 + 4-5 自动写 / 2-3 送审 / 1 丢 + 冷启动 1-2 周保守只 5 分自动）；review_drafts 5/22-5/24 + 5/25 部分草稿已清理（13+13+7+4 项处理）；新机制本次首跑测试
+last_updated: 2026-05-27
+停在：3 实例底座完成（cowork/opus_CC/opus2 全部 systemd 自启）；跨实例通讯 vision + 实现成本评估完成（暂不建，缓做）；feedback_immediate_vs_longterm_framing memory 新增。
+
+本次完成（2026-05-27 凌晨，opus2 上线 + 跨实例通讯 vision 讨论）：
+- **opus2 systemd 化**：DO Reset Root → 主公改 root+cowork 密码 → 装 cowork-opus2.service → enable+start → opus2 频道 ping 通；3 实例全部自启
+- **同步 3 份文档**：① cron_jobs.md 新增"🤖 Systemd 自启服务"区块（3 service 一表+管理命令） ② reference_dual_bot.md 从"双bot"升级到 3 实例（加 opus2 列+systemd 行） ③ MEMORY.md 索引同步
+- **跨实例通讯讨论**：主公问"打通能玩什么"→ 4 vision 玩法 + 3 赚钱路径 → 主公"不马上做"约束下选 A → 评估 MVP 1 晚可建（基础设施 90% 已有）→ 但暂不建
+- **新 memory：feedback_immediate_vs_longterm_framing**（25 行）+ MEMORY.md 索引
+- **playbook 升级**：cannabis_retail.md 新增"🎯 长期路线图：A → AI 全能员工 SaaS"章节（详见 P12 块）
+
+下一步：
+- 跨实例通讯 MVP 评估留底（缓做，等触发）
+- AI 动态日报 5/27 09:00 EDT 第一次实战观察
+- 1-2 周后评估收工 Skill 打分机制（继续 5 分 only 还是放宽到 4 分）
 
 本次完成（2026-05-25 → 2026-05-26 凌晨，约 6h，review_drafts 清理 + 收工 Skill 改造）：
 - **5/22 草稿全清（4 项）**：INSIGHTS 2 条入 knowledge_base.md（SerpAPI 配额排序原则 / DB UNIQUE 不防业务唯一）+ Friction-1 归档（review_drafts 采信未先 verify）+ 修 check_doc_sync.py 加 hooks 路径
