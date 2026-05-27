@@ -6,7 +6,7 @@
 
 ## 元数据
 
-last_memory_sync: 2026-05-11
+last_memory_sync: 2026-05-26
 last_audit_date: 2026-04-19
 
 ---
@@ -17,7 +17,7 @@ last_audit_date: 2026-04-19
 | ID | 项目 | 状态 | 最后更新 | 下一步摘要 |
 |---|---|---|---|---|
 | **P12** | **Cannabis Retail 主线** | 🆕 **规划中** | **2026-05-25** | **选址研究框架确立（4维：收入水平+地铁节点+竞争+商业条件）；Queens市场已基本饱和；Sweet spot房租$8k-$12k；主公背景：Bayside Cannabis+Sage Seeds；下次：给地址继续分析或AI法律顾问MVP** |
-| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-05-26 | 加2条memory规则(主动扫描+及时提醒 / 学习项目升级触发条件)；金字塔学习项目化讨论；收工Skill打分机制持续 |
+| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-05-26 | AI动态日报上线(09:00 EDT cron)；双bot×2扩展计划启动（待主公提供Discord token）；收工Skill打分机制持续 |
 | P13 | 金字塔原理学习 | 🆕 第1章已通过 | 2026-05-26 | cowork架构学+测+实战；第1章已通过+2简历项目改写；第2章未开始；架构升级4触发条件已写入memory |
 | P10 | 个人文件库 | 🔄 活跃 | 2026-04-25 | MVP完成(简历3文件)，阶段2扩展分类 |
 | P3 | Cannabis Budtender | ⏸️ 暂停（并入 P12 子模块） | 2026-05-07 | eval 100%完成；从 2026-05-14 起作为 P12 子模块继续推进 |
@@ -199,6 +199,14 @@ last_updated: 2026-05-26
   - `project_pyramid_learning.md` 末尾加"架构升级 4 触发条件"段（≥3本并行/跨书交叉/实战≥5份/题库≥20题任一触发我主动提醒主公升级 cowork/learning/ 目录）
 - **YAGNI 实践**：识别"1 本书搭 7 文件 = 过度工程"自我修正，避免给主公"思路 90 执行 30"加新拖延源
 - **诚信修正立场 2 次**：①cowork 架构 vs 纯净 Claude（最初推 cowork → 承认护短 → 修正为"看是否愿写起手 prompt"）②目录架构（最初推搭 → 自己评估过度工程 → 修正为 YAGNI）
+
+本次追加（2026-05-26 02:09-02:15 EDT，cowork bot）：
+- **AI 动态日报上线**：`newscripts/ai_news_monitor.py` + `run_ai_news.sh`；Anthropic/OpenAI/GoogleAI博客+arXiv cs.AI（Claude haiku过滤）+Claude Code升级雷达；邮件HTML输出；cron 09:00 EDT daily；seed完成（57条已标记）
+- **双 bot × 2 扩展计划**：主公确认可新增第三、四个 bot（Sonnet + Opus）；只需2个新 Discord bot token；参考 `reference/dual_bot_setup_log.md`；等主公建好 token 来配
+
+下一步：
+- 主公在 Discord Developer Portal 建 2 个新 bot → 发 token → 配置第三/四 bot（HOME隔离+tmux+systemd+plugin）
+- 观察 AI 动态日报 5/27 09:00 EDT 是否有新内容推送
 
 ---
 

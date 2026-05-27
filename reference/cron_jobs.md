@@ -1,6 +1,6 @@
 # Cowork Cron 任务总览
 
-> 最后更新：2026-05-18（新增 P9 alt-data sidecar gtrends_collector 周日 15:45 EDT；独立模块不影响 P9 主线）
+> 最后更新：2026-05-26（新增 AI 动态日报 09:00 EDT；Anthropic/OpenAI/Google AI 博客 + arXiv + Claude Code）
 > 来源：`crontab -l` on VPS (DigitalOcean 142.93.207.54, user=cowork)
 > 时区：America/New_York (EDT/EST)
 > 用途：所有定时任务的**唯一索引**——加新 cron 必须在此注册
@@ -22,6 +22,7 @@ PATH=/home/cowork/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 | 时间 (EDT) | 脚本 | 作用 | Log 路径 |
 |---|---|---|---|
 | `0 2 * * *` (02:00 daily) | `scripts/rclone_backup.sh` | Google Drive 全量同步备份 | `scripts/rclone_backup.log` |
+| `0 9 * * *` (09:00 daily) | `newscripts/run_ai_news.sh` | AI 动态日报（Anthropic/OpenAI/Google AI 博客 + arXiv + Claude Code 更新）→ 邮件 | `newscripts/ai_news.log` |
 | `0 13 * * *` (13:00 daily) | `newscripts/run_daily_news.sh` | 每日新闻日报（政治/股市/加密/AI/大麻NY 5类） | `newscripts/run.log` |
 | `30 17 * * *` (17:30 daily) | `scripts/run_mac_monitor.sh` | Mac mini M4 价格监控 | `scripts/mac_monitor.log` |
 | `0 21 * * *` (21:00 daily) | `trading/run_py.sh trading/price_snapshot.py` | P9 每日价格快照 | `trading/price_snapshot.log` |

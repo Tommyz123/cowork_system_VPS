@@ -1,16 +1,16 @@
-# cowork/scripts/ 脚本登记册
+# cowork/scripts/ + newscripts/ 脚本登记册
 
 > 每个脚本的"做什么 + 谁在用 + 状态"。新增脚本必须在此登记。
-> 最后审计：2026-05-23
+> 最后审计：2026-05-26
 
 ## 📊 状态汇总
 
 | 状态 | 数量 | 说明 |
 |---|---|---|
-| 🟢 活跃 | 14 | 有 cron / hook / Skill / 其他脚本在调用 |
+| 🟢 活跃 | 16 | 有 cron / hook / Skill / 其他脚本在调用 |
 | 🟡 库存 | 1 | 当前无调用但功能有用，留作备用 |
 | ⚫ 一次性 | 1 | 历史建库，留备重建（backfill_sessions.py 已移 archive/） |
-| **总计** | **16** | （discord_approve_backup.py 已删 2026-05-23 / backfill_sessions.py 已移 archive/） |
+| **总计** | **18** | （discord_approve_backup.py 已删 2026-05-23；ai_news_monitor.py + run_ai_news.sh 新增 2026-05-26） |
 
 ---
 
@@ -85,6 +85,22 @@
 - **调用方**：systemd 服务
 - **频率**：常驻
 - **⚠️ 警告**：双 bot 架构核心，**绝不可删**
+
+---
+
+## 📰 Newscripts 目录（/home/cowork/cowork/newscripts/）
+
+### ai_news_monitor.py
+- **功能**：AI 动态日报：抓取 Anthropic/OpenAI/Google AI 博客新文章 + arXiv cs.AI（Claude haiku 过滤）+ Claude Code 版本更新雷达；HTML 邮件发 zhitao776@gmail.com
+- **调用方**：`newscripts/run_ai_news.sh`（cron 09:00 EDT daily）
+- **频率**：每日
+- **依赖**：`config/api_keys.env`（BREVO_API_KEY/CLAUDE_API_KEY）、`newscripts/ai_news.db`（seen_items 去重）、`scripts/send_email.py`、`claude --print`（haiku 过滤）
+
+### run_ai_news.sh
+- **功能**：ai_news_monitor.py 的 cron 包装（set -e + ERR trap → Brevo 失败告警邮件）
+- **调用方**：cron `0 9 * * *`（cron_jobs.md 已登记）
+- **频率**：每日 09:00 EDT
+- **log**：`newscripts/ai_news.log`
 
 ---
 

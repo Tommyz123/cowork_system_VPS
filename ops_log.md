@@ -141,3 +141,14 @@
 [2026-05-25 20:47 EDT] CRON[P9] | run_scanner | ✅ | 季度扫描完成（screener+cognitive_scanner）
 [2026-05-25 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
 [2026-05-25 23:41 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:c1d8504 草稿:0条（今日session已审核）
+[2026-05-26 01:50 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2 commit:3010d7e 草稿:3条(2 INSIGHTS+1 Friction，4 分被冷启动期送审) 自动写入:0条(冷启动期门槛 5 分) 自动丢弃:0条
+[2026-05-26 02:05 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 125.264 MiB (131349179 Byte) → Google Drive
+[2026-05-26 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-05-26 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-05-26 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-05-26 16:04 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-05-26 17:36 EDT] CRON[P6] | flight_monitor | ✅ | 机票日报发送完成
+[2026-05-26 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-05-26 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-05-26 21:38 EDT] SKILL[SYS] | 保存进度 | ✅ | [P13]金字塔原理学习项目化+[P2]规则2条 进度已保存
+[2026-05-26 23:06 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P12,P13,P2 commit:a9548a3 草稿:5条+1自动写+1丢弃
