@@ -46,6 +46,7 @@
 - [feedback_read_before_conclude.md](feedback_read_before_conclude.md) — 先读信息再结论：有信息源（文件/日志/脚本/配置）禁止跳读猜测（P11 调试教训）
 - [feedback_pacing_and_plain_language.md](feedback_pacing_and_plain_language.md) — 默认逐条+大白话+无术语；主公"没理解"立即换比喻重讲（5/23+5/25 节奏违反 2 次 + 术语致"没理解"反复触发）
 - [feedback_clarify_hard_requirements.md](feedback_clarify_hard_requirements.md) — "什么都行/都可以/看你"必须先追问"有没有不接受的"再讨论选项；用户说宽松词≠真的宽松，常是没想到先说底线
+- [feedback_proactive_update_alert.md](feedback_proactive_update_alert.md) — 主动扫描+及时提醒：工作中扫描到任何需要更新的内容(文档/索引/记忆/简历)立即 Discord 提醒，不等主公问；write_triggers_scan/artifact_indexing/deprecation_cleanup 的总纲
 
 ## Project（项目背景）
 - [project_cannabis_retail.md](project_cannabis_retail.md) — ⭐ P12 大麻零售主线（2026年主线，2026-05-14 确立）；NY牌照申请中+AI赋能+SaaS化路径；八字辛卯大运对应；playbook: playbooks/cannabis_retail.md；P1/P3/P5 已并入作为子模块
@@ -59,6 +60,7 @@
 - [project_cowork_roadmap.md](project_cowork_roadmap.md) — Cowork多agent路线图+Codex审核3个发展方向；路线可灵活调整，我有更好判断时提出讨论
 - [project_career_ops.md](project_career_ops.md) — P8求职：作品敲门路线+Cannabis Budtender实体试用+目标EliseAI/Dutchie/LeafLink；兼职/Contract优先
 - [project_personal_library.md](project_personal_library.md) — P10个人文件库：267文件已索引(简历/lease/财务/证书/cannabis)，personal.db独立，阶段5-8暂停等OCR
+- [project_pyramid_learning.md](project_pyramid_learning.md) — 《金字塔原理》精读项目：第1章已通过(三层结构/MECE/结论先行/自上而下)+实战改写2简历项目；待第2章(纵横关系+SCQA)；写材料时主动引用
 
 ## Reference（位置索引）
 - [reference_claude_md_rules.md](reference_claude_md_rules.md) — Claude Code官方规则：CLAUDE.md目标≤200行；超180行优先删旧；拆分用@import或.claude/rules/
