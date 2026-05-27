@@ -17,7 +17,8 @@ last_audit_date: 2026-04-19
 | ID | 项目 | 状态 | 最后更新 | 下一步摘要 |
 |---|---|---|---|---|
 | **P12** | **Cannabis Retail 主线** | 🆕 **规划中** | **2026-05-25** | **选址研究框架确立（4维：收入水平+地铁节点+竞争+商业条件）；Queens市场已基本饱和；Sweet spot房租$8k-$12k；主公背景：Bayside Cannabis+Sage Seeds；下次：给地址继续分析或AI法律顾问MVP** |
-| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-05-10 | opus_CC Discord MCP修好(env.PATH)；access.json频道修正；两bot独立DM架构确认 |
+| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-05-26 | 加2条memory规则(主动扫描+及时提醒 / 学习项目升级触发条件)；金字塔学习项目化讨论；收工Skill打分机制持续 |
+| P13 | 金字塔原理学习 | 🆕 第1章已通过 | 2026-05-26 | cowork架构学+测+实战；第1章已通过+2简历项目改写；第2章未开始；架构升级4触发条件已写入memory |
 | P10 | 个人文件库 | 🔄 活跃 | 2026-04-25 | MVP完成(简历3文件)，阶段2扩展分类 |
 | P3 | Cannabis Budtender | ⏸️ 暂停（并入 P12 子模块） | 2026-05-07 | eval 100%完成；从 2026-05-14 起作为 P12 子模块继续推进 |
 | P8 | 求职 (career-ops) | 🔄 策略大重定向 | 2026-05-24 | 跳板策略+甜区岗位（Solutions/Customer/Implementation/Founding/Applied AI Eng）；30+ 家清单已列；待主公 review 后启动 portfolio 搭建 |
@@ -191,6 +192,13 @@ last_updated: 2026-05-26
 - 本次收工 = 新打分机制首跑实战测试 → 主公盯 Discord 自动写入摘要看 AI 评分准不准 → 错的立即说，回滚 + 调整标准
 - 5/25 草稿剩 2 项 + 5/25 补 反讨好实战草稿 → 下次对话清完
 - 1-2 周后评估打分机制效果，决定是否放宽到 4 分自动写
+
+本次追加（2026-05-26 19:17-21:35 EDT）：
+- **新增 memory（2 条）**：
+  - `feedback_proactive_update_alert.md`：主动扫描+及时提醒规则总纲（9 类触发场景：学新概念/改配置/新建文件/主公说话冲突/项目状态变/概念≥3周没用/完成任务/文档不一致/待办≥1周没动 → 立即 Discord 提醒）
+  - `project_pyramid_learning.md` 末尾加"架构升级 4 触发条件"段（≥3本并行/跨书交叉/实战≥5份/题库≥20题任一触发我主动提醒主公升级 cowork/learning/ 目录）
+- **YAGNI 实践**：识别"1 本书搭 7 文件 = 过度工程"自我修正，避免给主公"思路 90 执行 30"加新拖延源
+- **诚信修正立场 2 次**：①cowork 架构 vs 纯净 Claude（最初推 cowork → 承认护短 → 修正为"看是否愿写起手 prompt"）②目录架构（最初推搭 → 自己评估过度工程 → 修正为 YAGNI）
 
 ---
 
@@ -404,6 +412,31 @@ gbrain升级后续：
 - B+C（知识图谱）：等session > 100条再做
 路径：`C:\Users\zhi89\Desktop\cowork\personal\`
 数据库：`cowork/personal/personal.db`
+
+### [P13] 金字塔原理学习
+状态：🆕 进行中（第1章已通过 + 第2章未开始）
+last_updated: 2026-05-26
+停在：第1章已通过 + 落地2简历项目改写；第2章（纵横关系+SCQA）未开始；待办：核实向量数据库+简历更新
+
+本次完成（2026-05-26 19:17-21:35 EDT 项目化讨论+架构）：
+- **决定用 cowork 架构教学**（非纯净 Claude）：核心价值 = 学完写入 memory，未来 P12 pitch / P8 cover letter 写真实材料时主动引用；纯净 Claude 学完是孤岛
+- **教学规则 5 条**（另一对话交接过来）：分小节讲 → 章末出 3 题（概念+识别+实战）→ 通过才进下一章；严格诚实不附和；AI 只给框架/素材/诊断，主公自己写；每章落地真实场景再进下一章；称呼"主公"
+- **进度交接**：第1章已通过（金字塔三层结构 / MECE / 结论先行 / 自上而下表达 + 3 题全过）+ 落地完成（Cannabis AI Budtender 3 轮通过 + NY Cannabis Legal Assistant 2 轮通过）
+- **待办 2 项**（第1章遗留）：核实 NY Cannabis Legal Assistant 向量数据库（主公记成"voli"需查 GitHub）+ 改好的项目描述更新到简历
+- **YAGNI 决策**：不搭 `cowork/learning/` 目录（1 本书 7 文件 = 大炮打蚊子）；架构升级 4 个触发条件写入 memory，任一触发我主动 Discord 提醒主公升级
+  1. 并行学的书 ≥ 3 本
+  2. 跨书概念需要交叉引用
+  3. 实战练习材料 ≥ 5 份散落
+  4. 测试题积累 ≥ 20 道
+- **写入 memory（2 个）**：
+  - `project_pyramid_learning.md`（学习进度+核心概念+实战成果+架构升级触发条件）
+  - `feedback_proactive_update_alert.md`（主动扫描+及时提醒规则，9 类典型触发场景，是 write_triggers_scan / artifact_indexing / deprecation_cleanup 的总纲）
+
+下一步：
+- 主公自选：进第2章（纵横关系+SCQA） / 重过第1章测试 / 处理第1章待办（向量数据库+简历更新）
+- 写入即生效——下次会话 cowork 架构会自动读 memory 知道本项目状态
+
+路径：暂无独立目录（YAGNI 决策），全部状态在 memory/project_pyramid_learning.md
 
 ### [P3] Cannabis AI Budtender
 状态：活跃 - Eval 100% + Streaming 修复 + 文档架构重构
