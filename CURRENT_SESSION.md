@@ -192,6 +192,11 @@ last_updated: 2026-05-27
 last_updated: 2026-05-28
 停在：Opus 4.8 切换（5/28 发布当天升级，2 个 settings.json 改 model ID + 重启 2 个 tmux）；AI 动态日报 v2 升级进行中（6 处改动已完成 1 处 parse_rss）；待新对话继续剩 5 处。
 
+本次完成（2026-05-28 18:47 EDT，系统评估 + 收工重复检查）：
+- **两个收工对比分析**：检查 5/28 两个收工（5cf9dba + 109975d）草稿是否重复 → 结论：草稿内容无重复（话题完全不同）；session 94c2988a 被双审但提取不同内容；第二个收工"4条"计数错误实为3条
+- **3实例冲突状态**：查 write_events.log + conflict_log.md → 目前无冲突，3实例错峰使用正常；潜在风险为同时活跃时10秒内写同文件（检测器已在跑）
+- **系统评估**：输入侧8/10（架构/memory/automation完善）；输出侧3/10（P12 Reality Check 0/4剩11天 / P8无具体申请 / P9事后发现漏项）；核心问题"系统在给系统本身服务"
+
 本次完成（2026-05-28 18:30 EDT，Opus 4.8 切换 + AI 动态日报 v2 起步）：
 - **AI 动态日报 v2 升级（进行中 1/6）**：主公反馈"公司公告只有标题没介绍"→ 定方案：抓 RSS description + Anthropic 抓页面 og:description + Sonnet 批量生成大白话摘要+意义 + 公告区改卡片样式 + 现有 2 处 Haiku 升 Sonnet；已改 1 处（parse_rss 加 description 字段，ai_news_monitor.py 第 76-94 行）；剩 5 处待 Opus 4.8 新对话继续；/tmp/task_approved 已设
 - **Opus 4.8 升级**：5/28 当天 Anthropic 发布；官方文档确认 model ID = claude-opus-4-8（pricing 不变 $5/$25 per MTok，effort 默认 high，1M token 上下文，knowledge cutoff Jan 2026）；改两个 settings.json（opus_home + opus2_home）"model" 字段 → claude-opus-4-8；杀 opus_socket + opus2_socket 两个 tmux 让 runner 自动重启
