@@ -189,8 +189,19 @@ last_updated: 2026-05-27
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-05-27
-停在：3 实例底座完成（cowork/opus_CC/opus2 全部 systemd 自启）；跨实例通讯 vision + 实现成本评估完成（暂不建，缓做）；feedback_immediate_vs_longterm_framing memory 新增。
+last_updated: 2026-05-28
+停在：Opus 4.8 切换（5/28 发布当天升级，2 个 settings.json 改 model ID + 重启 2 个 tmux）；AI 动态日报 v2 升级进行中（6 处改动已完成 1 处 parse_rss）；待新对话继续剩 5 处。
+
+本次完成（2026-05-28 18:30 EDT，Opus 4.8 切换 + AI 动态日报 v2 起步）：
+- **AI 动态日报 v2 升级（进行中 1/6）**：主公反馈"公司公告只有标题没介绍"→ 定方案：抓 RSS description + Anthropic 抓页面 og:description + Sonnet 批量生成大白话摘要+意义 + 公告区改卡片样式 + 现有 2 处 Haiku 升 Sonnet；已改 1 处（parse_rss 加 description 字段，ai_news_monitor.py 第 76-94 行）；剩 5 处待 Opus 4.8 新对话继续；/tmp/task_approved 已设
+- **Opus 4.8 升级**：5/28 当天 Anthropic 发布；官方文档确认 model ID = claude-opus-4-8（pricing 不变 $5/$25 per MTok，effort 默认 high，1M token 上下文，knowledge cutoff Jan 2026）；改两个 settings.json（opus_home + opus2_home）"model" 字段 → claude-opus-4-8；杀 opus_socket + opus2_socket 两个 tmux 让 runner 自动重启
+- **诚实性踩坑 3 次（5/27-5/28）**：①评级编百分比"Top 1%/90%/9%"（5/27 二犯，friction_log 已记） ②推 Hermes/OpenClaw 借鉴方案没先 grep friction（5/28 三犯 feedback_proposal_data_first） ③混淆时间线"cowork 9 个月"（实际 2 个月，主公纠正）— 全部进 friction_log，标"待 Hook 强制"但主公先不上 Hook；Opus 4.8 主打"more likely to flag uncertainties and less likely to make unsupported claims"对症下药
+
+下一步：
+- 重启后新对话继续 ai_news_monitor.py 剩 5 处改动（按已对齐方案：fetch_anthropic_items 加抓页面 og:description / 新增 enrich_blog_with_llm 函数 / main() 加调用 / build_html() 公告区改卡片样式 / 2 处 Haiku→Sonnet 模型升级）
+- 跑预览 + 发邮件给主公看效果（不直接覆盖 cron）
+- 确认 OK 后 commit；关键路径 /home/cowork/cowork/newscripts/ai_news_monitor.py
+- 观察 Opus 4.8 实战 vs 4.7 是否"诚实性"真的提升（看主公接下来是否还要纠正百分比/时间线类错误）
 
 本次完成（2026-05-27 凌晨，opus2 上线 + 跨实例通讯 vision 讨论）：
 - **opus2 systemd 化**：DO Reset Root → 主公改 root+cowork 密码 → 装 cowork-opus2.service → enable+start → opus2 频道 ping 通；3 实例全部自启
