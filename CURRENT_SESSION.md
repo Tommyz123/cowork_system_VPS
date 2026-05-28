@@ -30,7 +30,7 @@ last_audit_date: 2026-04-19
 | P4 | 每日新闻日报 | ✅ cron运行中 | 2026-05-10 | 5/10补发成功；root权限/tmp/news_ai.txt问题已确认不影响当前脚本 |
 | P6 | 机票监控 Agent | ✅ cron运行中 | 2026-05-07 | SerpAPI key自动轮换（KEY2耗尽→自动切KEY）；直飞数据恢复 |
 | P7 | Mac mini价格监控 | ✅ cron运行中 | 2026-04-23 | HTML邮件（链接藏入<a>标签）；今日eBay $305触发提醒 |
-| P9 | AI量化交易系统 TIDE | ✅ cron运行中 | 2026-05-25 | cognitive_scanner加system_log记录+扫描邮件(commit 1d98596)；下次：6/14首批30天outcome节点+6月底数据看hit rate |
+| P9 | AI量化交易系统 TIDE | ✅ cron运行中 | 2026-05-28 | VRRM止损出场(-73.23%，Avis合同终止)，DB已记录；下次：6/14首批30天outcome节点+6月底数据看hit rate |
 
 ---
 
@@ -662,9 +662,15 @@ last_updated: 2026-05-24
 
 
 ### [P9] AI量化交易系统（TIDE系统）
-状态：✅ 完整闭环 + 反模式根治完成（**15 只真持仓**：6 早 + 8 late + 1 auto_filled ASTE；5 只 OPG expired 已 reconcile）
-last_updated: 2026-05-25
-停在：cognitive_scanner.py 加 system_log 记录 + 扫描邮件发送（commit 1d98596），已测试通过。下次关键节点：6/14 首批 30 天 outcome / 6 月底数据看 hit rate / 8/4 Q3 自动扫描首次实战。
+状态：✅ cron运行中（VRRM 已止损出场，DB 已更新）
+last_updated: 2026-05-28
+停在：VRRM exit 完成（-73.23%，Avis合同终止），其余持仓正常运行。下次关键节点：6/14 首批 30 天 outcome / 6 月底数据看 hit rate / 8/4 Q3 自动扫描首次实战。
+
+本次完成（2026-05-28）：
+- **VRRM 止损出场**：Avis Budget 终止合同（9月生效），-$135-145M 年化收入，分析师集体降级（MS目标价$15→$4）
+- **4层sanity check 通过 → Alpaca 市价卖单**：order_id=7d829543，09:30 EDT 以 $3.85 成交，210 股全出
+- **DB 已记录**：scanner_picks（verdict=thesis_invalidated_external / mistake_type=missing_customer_concentration_risk）+ trades（realized_pnl=-$2,211.30）
+- **教训**：Bear thesis 警告政治/政府合同风险，但遗漏客户集中度风险（Avis >10% 收入）；下次扫股 bear_thesis 必须专门写单一大客户 >10% 风险
 
 本次完成（2026-05-25）：
 - **cognitive_scanner.py 加 system_log 记录**：每次扫描后追加一行到 trading/system_log.md（`[时间 EDT] ✅ cognitive_scan: scanned=N analyzed=N submitted=N dedup_skip=N | Alpaca:OK`）
