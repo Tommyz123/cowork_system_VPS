@@ -1,6 +1,6 @@
 # Memory Index
 
-> 最后更新：2026-05-27（① reference_dual_bot 升级为 3 实例架构 ② 新增 feedback_immediate_vs_longterm_framing：3 选 1 建议前必须问"立即 vs 长期"）
+> 最后更新：2026-05-27（① reference_dual_bot 升级为 3 实例架构 ② 新增 feedback_immediate_vs_longterm_framing：3 选 1 建议前必须问"立即 vs 长期" ③ user_profile 加 Claude Code 使用起点 2025-08；feedback_pacing 升级术语分层：Claude Code 生态术语直接用，底层技术仍需比喻）
 > 维护规则：新增记忆文件后立即在此处添加条目；不用的记忆文件同步删除对应条目
 
 ## User
@@ -44,7 +44,7 @@
 - [feedback_p9_auto_execute.md](feedback_p9_auto_execute.md) — P9 自动执行流程 + 4 层 sanity check + $3000/只；真钱前必须重评
 - [feedback_p9_alt_data_sidecar.md](feedback_p9_alt_data_sidecar.md) — P9 alt-data sidecar（独立 P9 主线）；周日自动收集；4-8 周观察 / 1 年后才入评分
 - [feedback_read_before_conclude.md](feedback_read_before_conclude.md) — 先读信息再结论：有信息源（文件/日志/脚本/配置）禁止跳读猜测（P11 调试教训）
-- [feedback_pacing_and_plain_language.md](feedback_pacing_and_plain_language.md) — 默认逐条+大白话+无术语；主公"没理解"立即换比喻重讲（5/23+5/25 节奏违反 2 次 + 术语致"没理解"反复触发）
+- [feedback_pacing_and_plain_language.md](feedback_pacing_and_plain_language.md) — 默认逐条+大白话+术语分层（Claude Code 生态/业务领域术语直接用，底层技术术语需比喻）；"没理解"立即换比喻（2026-05-27 升级）
 - [feedback_clarify_hard_requirements.md](feedback_clarify_hard_requirements.md) — "什么都行/都可以/看你"必须先追问"有没有不接受的"再讨论选项；用户说宽松词≠真的宽松，常是没想到先说底线
 - [feedback_proactive_update_alert.md](feedback_proactive_update_alert.md) — 主动扫描+及时提醒：工作中扫描到任何需要更新的内容(文档/索引/记忆/简历)立即 Discord 提醒，不等主公问；write_triggers_scan/artifact_indexing/deprecation_cleanup 的总纲
 - [feedback_immediate_vs_longterm_framing.md](feedback_immediate_vs_longterm_framing.md) — 推 3 选 1 / 优先级建议前必须先问"立即推动 vs 长期方向"；两种场景判断框架完全不同（立即→看难度+ROI；长期→看战略契合度，重不再是缺点）

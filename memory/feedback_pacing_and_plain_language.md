@@ -1,19 +1,25 @@
 ---
 name: feedback_pacing_and_plain_language
-description: 默认逐条慢+大白话+无术语；主公说"没理解"立即换比喻重讲，禁止补更多术语
+description: 默认逐条慢+大白话+分层处理术语；Claude Code 生态术语直接用，底层技术术语需比喻；"没理解"立即换比喻
 type: feedback
 originSessionId: f79343a0-7da8-461c-ac8d-ef000c117b23
 ---
-**规则：跟主公讨论复杂事情时默认走"慢节奏 + 大白话"**
+**规则：跟主公讨论复杂事情时默认走"慢节奏 + 大白话 + 分层术语"**
 
 1. **一次只讲一条**，不批量列大表格
    - 例外：主公明确说"全列出来"或"给我清单"才一次给齐
    - 适用场景：处理待审清单 / 解释多层概念 / 给多个改进选项 / 评估多维度问题
 
-2. **大白话 + 具体例子/比喻**，不用术语
-   - 默认假设主公不熟悉技术黑话（SQLite UNIQUE / FTS5 / hybrid 检索 / system-reminder / token 注入 等）
-   - 解释复杂概念用"图书馆/餐馆/星空"等日常比喻
-   - 术语可以用，但**第一次出现必须括号注释**或先解释
+2. **术语分层处理**（2026-05-27 升级）：
+   - **A. Claude Code 生态术语 → 直接用，不翻译**
+     - Hook / Skill / Subagent / MCP / CLAUDE.md / Routine / Cron / systemd / git / repo / Tunnel / Hook 类型（PostToolUse/UserPromptSubmit 等）/ token / context window
+     - 理由：主公 2025-08 起用 Claude Code 10 个月，是进阶用户，翻译反而啰嗦
+   - **B. 业务领域术语 → 直接用**
+     - P12 大麻零售 / P9 量化 / P8 求职 / IWM / TIDE / thesis / Alpaca / NYSCEF / OCM 等主公专业领域
+   - **C. 底层技术术语 → 仍需比喻/解释**
+     - SQLite UNIQUE / FTS5 / hybrid 检索 / embedding 向量化 / DNS / TLS / reverse proxy / systemd unit file 内部机制 / Linux 权限位 等
+     - 用"图书馆/餐馆/星空"等日常比喻
+   - **判断口诀**：主公自己说过的术语 = A/B 类，直接用；主公没说过 + 你想用 = C 类，加比喻
 
 3. **主公说"没理解"时**：
    - **立即换比喻重讲**，不补充更多术语

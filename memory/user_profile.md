@@ -13,6 +13,8 @@ originSessionId: d13aed09-f19a-44e5-81c1-fc0cfee07eea
 - 熟悉 Claude Code、CLAUDE.md、context window、token、Skill 系统等概念
 - 自行开发了 CLAUDE.md + agents.md + context.md + logging.md 的 AI 控制框架（已迭代至 V5）
 - 使用 Cowork 模式（Dispatch），属于进阶用户
+- **Claude Code 使用起点：2025 年 8 月**（GA 发布后 2-3 个月开始，到 2026-05 约 10 个月深度使用经验）
+- **cowork 系统化起点：2026 年 4 月**（把 8 个月单机经验代码化成 agent 操作系统）
 
 **远程控制方式：**
 - 使用 iPhone 通过 Cowork Dispatch 远程控制电脑
