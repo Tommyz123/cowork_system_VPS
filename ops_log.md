@@ -164,3 +164,12 @@
 [2026-05-27 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
 [2026-05-27 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
 [2026-05-28 02:03 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 127.902 MiB (134115042 Byte) → Google Drive
+[2026-05-28 10:04 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2,P9 commit:5cf9dba 草稿:3条(4分1+3分2) 自动写:0 丢弃:2
+[2026-05-28 10:17 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9,P2 commit:109975d 草稿:4条(2INSIGHTS+1Playbook+1fix)
+[2026-05-28 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-05-28 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-05-28 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-05-28 16:02 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-05-28 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-05-28 17:35 EDT] CRON[P6] | flight_monitor | ✅ | 机票日报发送完成
+[2026-05-28 18:39 EDT] SKILL[SYS] | 保存进度 | ✅ | [P2] 进度已保存 (AI 动态日报 v2 + Opus 4.8 切换)

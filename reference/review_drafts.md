@@ -343,3 +343,32 @@ cron_jobs.md / reference_dual_bot.md / MEMORY.md / playbook / CURRENT_SESSION / 
 
 ### 🗑️ 本次自动丢弃摘要（1 分，未保留）
 - 2 条 1 分候选被丢弃：API 中转站原理拆解（账号池/计费/协议兼容）/ AI 行业 3 层结构（模型/应用/套利层）— 通识知识，非 cowork 系统真实痛点，主公已掌握
+
+## [草稿] 2026-05-28 深度审核
+
+> 审核 session：94c2988a（opus2架构讨论，17条）+ 9cffe957（本次：稳定周报+VRRM止损，29条）
+
+### INSIGHTS 建议写入（2 条）
+
+1. **[评分:4]** **P9 bear_thesis 必须覆盖客户集中度风险** [src:9cffe957]
+   - VRRM Avis合同终止案例：Avis占收入>10%，合同终止导致-70.6%单日暴跌
+   - Bear thesis 当时只写了政治/政府合同风险，遗漏了私人大客户集中度这一显性风险
+   - 规则：任何单一客户占收入>10%的公司，bear_thesis 必须单独写一段"客户集中度风险"，否则视为不完整
+   - 推荐去处：reference/knowledge_base.md「P9 TIDE系统」章节 + playbooks/p9_trading.md bear_thesis模板
+
+2. **[评分:3]** **stability_check.sh 负数 NEW 值未处理 → 误报 ⚠️** [src:9cffe957]
+   - NEW=CURRENT-LAST_COUNT，friction 减少时 NEW 为负数，脚本判断 NEW<=2 触发"轻微波动"
+   - 修复：加 `if [ "$NEW" -le 0 ]` 分支，输出"✅ friction 减少 X 条，系统好转"
+   - 推荐去处：修 stability_check.sh 第26-34行
+
+### Playbook 建议更新（1 处）
+
+1. **[评分:4]** **playbooks/p9_trading.md**：在 bear_thesis 模板段新增强制检查项
+   - 「单一客户/合同占收入 >10%？→ 必填：客户集中度风险段，写明客户名/占比/合同到期日/历史续签率」
+   - 依据：VRRM -$2,211 实际亏损案例（2026-05-27-28）
+
+---
+
+### 🗑️ 本次自动丢弃摘要（1 分，未保留）
+- 共 2 条 1 分候选被 AI 自判低价值丢弃（澄清对话流程 × 2 次，属于正常操作无规则价值）
+
