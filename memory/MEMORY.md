@@ -59,7 +59,7 @@
 - [project_insights_system.md](project_insights_system.md) — INSIGHTS双轨：INSIGHTS.md=临时缓冲区，reference/knowledge_base.md=已审核永久参考库（2026-04-17确定）
 - [project_mac_mini.md](project_mac_mini.md) — Mac mini M4服务器计划：SSH+Discord+Email方案，Email已配好(zhitao776@gmail.com)，买了后全程协助迁移
 - [project_cowork_roadmap.md](project_cowork_roadmap.md) — Cowork多agent路线图+Codex审核3个发展方向；路线可灵活调整，我有更好判断时提出讨论
-- [project_career_ops.md](project_career_ops.md) — P8求职：作品敲门路线+Cannabis Budtender实体试用+目标EliseAI/Dutchie/LeafLink；兼职/Contract优先
+- [project_career_ops.md](project_career_ops.md) — P8求职：作品敲门路线+Cannabis Budtender实体试用+目标EliseAI/Dutchie/LeafLink；兼职/Contract优先；2026-05在职dispensary老板给Alpine IQ API key让做客户分析(=作品机会)
 - [project_personal_library.md](project_personal_library.md) — P10个人文件库：267文件已索引(简历/lease/财务/证书/cannabis)，personal.db独立，阶段5-8暂停等OCR
 - [project_pyramid_learning.md](project_pyramid_learning.md) — 《金字塔原理》精读项目：第1章已通过(三层结构/MECE/结论先行/自上而下)+实战改写2简历项目；待第2章(纵横关系+SCQA)；写材料时主动引用
 

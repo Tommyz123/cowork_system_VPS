@@ -175,3 +175,9 @@
 [2026-05-28 18:39 EDT] SKILL[SYS] | 保存进度 | ✅ | [P2] 进度已保存 (AI 动态日报 v2 + Opus 4.8 切换)
 [2026-05-28 18:45 EDT] SKILL[SYS] | 收工 | ✅ | 项目:SYS commit:561dcf0 草稿:0条(今日session已全部审核过)
 [2026-05-28 18:47 EDT] SKILL[SYS] | 收工(opus2) | ✅ | 本对话仅模型问答，无项目工作；561dcf0已由另一实例完整收工，本次仅收尾索引 | 草稿:0
+[2026-05-28 18:54 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2 commit:1bb269a 草稿:1条(opus限额卡菜单解锁流程)
+[2026-05-28 19:57 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-05-28 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-05-28 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-05-29 02:02 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 129.269 MiB (135548436 Byte) → Google Drive
+[2026-05-29 09:00 EDT] CRON[cannabis_docket_reminder] | mode=critical | ✅ | 案号 904497-24 提醒已发

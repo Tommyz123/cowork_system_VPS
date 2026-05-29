@@ -372,3 +372,28 @@ cron_jobs.md / reference_dual_bot.md / MEMORY.md / playbook / CURRENT_SESSION / 
 ### 🗑️ 本次自动丢弃摘要（1 分，未保留）
 - 共 2 条 1 分候选被 AI 自判低价值丢弃（澄清对话流程 × 2 次，属于正常操作无规则价值）
 
+
+---
+
+## [草稿] 2026-05-28 深度审核 #2（晚间session）
+
+> 审核 5 个 session：21056fc2（opus收工，8条）/ 795a54f7（Opus 4.8升级+撞限额，13条）/ 4f086ce4（opus2收工，8条）/ 919e1238（麻将连连看+opus限额卡死rescue，30条）/ bcf3134c（本次：系统评估+收工对比，13条）
+> ⚠️ 冷启动期保守策略：**只 5 分才自动写**，4 分本期送审
+
+### INSIGHTS 建议写入（1 条）
+
+1. **[评分:4]** **opus 实例撞 rate limit 卡菜单 → tmux Esc 解锁流程** [src:919e1238]
+   - 症状：opus 实例 systemd `active`，但 Discord 无回复；`tmux attach` 看到 `/rate-limit-options` 选择菜单停在屏幕
+   - 诊断步骤：① `systemctl status cowork-opus` ② `tmux -L opus_socket attach` 看屏幕 ③ `.claude.json` 时间戳确认进程活着但卡住
+   - 修复：`tmux send-keys -t cowork_opus Escape ''`，菜单关闭，积压 Discord 消息自动处理
+   - 根因：高 token 任务（cron/embedding）耗尽 5h 配额，限额重置后 Claude 弹出选择菜单等交互输入，无人值守状态永远卡死
+   - 方案（主公未选）：A 假死防御 Hook（检测菜单字符串自动 Esc）/ B 高 token cron 任务改 Haiku / C 监控+告警（发 Discord 通知主公手动处理）
+   - 推荐去处：reference/knowledge_base.md「Claude Code 使用」章节（运营踩坑）
+
+---
+
+### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
+- 无（冷启动期 4 分送审，5 分才自动写；本次最高 4 分）
+
+### 🗑️ 本次自动丢弃摘要（1 分，未保留）
+- 2 条 1 分候选丢弃：麻将开局算法细节（一次性娱乐项目，已删代码）/ 系统评估框架（5/26草稿已有，不重复记）
