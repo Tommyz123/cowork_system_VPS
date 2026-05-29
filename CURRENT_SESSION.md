@@ -599,9 +599,28 @@ last_updated: 2026-05-13
 ---
 
 ### [P8] 求职 (career-ops)
-状态：🔄 策略大重定向（2026-05-24 深度讨论 1.5 小时）- 待主公 review 后启动
-last_updated: 2026-05-24
-停在：策略完整收敛 + 30+ 家公司清单 + 投递岗位定义；等主公 review 后开始 Week 1 portfolio 搭建（LinkedIn / cowork case study / demo 视频）
+状态：🔄 策略大重定向（2026-05-24）+ 🆕 真实作品线启动（2026-05-29 Dutchie/AIQ API）
+last_updated: 2026-05-29
+停在：已帮主公起草并定稿 Dutchie 只读 API 申请（发给 Dutchie PSE team）+ Alpine IQ 补 UID 申请（发老板 Sejal）；等 Dutchie 回信拿 key/文档 → 我帮写只读测试脚本验证连通（对标 AIQ /tmp/aiq_readonly_test.py）
+
+---
+
+#### 🆕 2026-05-29 真实作品线启动（Dutchie + Alpine IQ 客户数据分析）
+
+**背景**：主公在职 dispensary（Sage Seeds）用 Dutchie POS + Alpine IQ CRM；老板 Sejal（sejalbakshi@sageseedsny.com）授权主公拿 API 做客户分析 = 真实作品敲门机会，同时推进 P8。
+
+**本次完成**：
+- **Dutchie 只读 API 申请定稿**：PSE team 问 4 题（应用名/描述/端点/联系人），按"内部只读客户分析工具"口径起草。端点 = Orders/Transactions + Products/Inventory + Customers(profile+purchase history+loyalty)。联系人：老板为主 + 主公 cc + "技术对接找我"句。已交主公发出。
+- **Alpine IQ 补 UID 申请**：起草英文让主公发老板，要 UID（AIQ 光有 key 报 403，UID 在 Settings→API 同页）。
+- **IP/作品归属策略澄清（重要）**：
+  - 决策路径：最初想要 write 权限 → 意识到风险 → 降为只读、写入留后面 → 确认"只读先做练手、做出价值再补协议"
+  - 红线：🚩加 write 权限前 / 🚩拿真实门店数据给招聘方前 → 必须先跟老板补轻量书面授权（留痕即可）+ 数据必脱敏
+  - 关键纠偏：保护归属靠"物理隔离（自己电脑/自己时间）+ 作品只展示脱敏代码方法 + 一句话留痕声明个人项目"，且声明要趁早；Dutchie/AIQ key 绑店里账号非个人资产、离职带不走，能当作品的是代码+架构
+
+**下一步**：
+- 等 Dutchie 回信 → 拿到 key/文档 → 写只读测试脚本验证连通
+- 拿到 AIQ UID → 跑通 /tmp/aiq_readonly_test.py
+- 数据通了 → 做客户洞察报告（复购率/沉睡客户/VIP/品类偏好）
 
 ---
 

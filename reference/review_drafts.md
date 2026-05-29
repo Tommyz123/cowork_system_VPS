@@ -397,3 +397,45 @@ cron_jobs.md / reference_dual_bot.md / MEMORY.md / playbook / CURRENT_SESSION / 
 
 ### 🗑️ 本次自动丢弃摘要（1 分，未保留）
 - 2 条 1 分候选丢弃：麻将开局算法细节（一次性娱乐项目，已删代码）/ 系统评估框架（5/26草稿已有，不重复记）
+
+---
+
+## [草稿] 2026-05-29 深度审核
+
+> 审核今天 5 个 session：09f14390（opus重启，4条）/ 65ae0663（收工中断，6条）/ 927b72de（本会话 opus2：Dutchie+AIQ作品线，67条）/ 94a08d58（跨实例诊断opus/sonnet，16条）/ de06dd37（P4新闻日报三层改造，71条）
+> ⚠️ 冷启动期保守：4 分送审，5 分才自动写；本批最高 4 分，无自动写入
+
+### INSIGHTS 建议写入（2 条）
+
+1. **[评分:3]** **跨实例诊断：先确认对方任务是否已完成再下结论** [src:94a08d58]
+   - 场景：opus2 检查 opus 是否卡死，基于中途 tmux 画面判断"在打转烧 token"，发了纠偏消息；实际 opus 在检查间隙已收尾、且诊断比 opus2 更准（403 是缺 UID 非 key 无效）
+   - 规则：跨实例诊断时，先确认对方任务状态（spinner/最新输出/是否已回 Discord），别用中途快照下"在打转"的结论
+   - 推荐去处：reference/knowledge_base.md「跨实例协作」或新 memory feedback
+
+2. **[评分:2]** **haiku 输出偶尔包 ```html 代码块围栏 → 邮件渲染乱码** [src:de06dd37]
+   - 让 haiku 生成 HTML 邮件正文时，偶尔会把输出包进 ```html ... ``` 围栏，直接当邮件发会显示字面围栏
+   - 修复：脚本加 sed 去围栏步骤（run_daily_news.sh 已实装）
+   - 推荐去处：reference/knowledge_base.md 或 script_standards
+
+### Friction 建议补记（3 条）
+
+1. **[评分:4]** **socket 冲突：sonnet（默认实例）无 tmux pane 可触达** [src:94a08d58] — 未闭环 infra bug
+   - 现象：`default` socket 和 `opus2_socket` 的 session 都叫 `cowork_opus2`、同一时间戳、都指向 opus2 PID（262960）；sonnet 进程（PID 244856, pts/1）活着但没有任何 tmux pane 指向它
+   - 后果：无法像给 opus 那样 `tmux send-keys` 触达 sonnet，跨实例派任务断链
+   - 状态：未解决，需主公确认是否修 socket 命名冲突
+
+2. **[评分:3]** **newscripts/ 独立仓库 .env（含 Discord token）未被 .gitignore 忽略** [src:de06dd37] — 待主公决策
+   - newscripts/ 是独立 git 仓库（GitHub: cowork-scripts），.gitignore 只忽略 1 个文件，含 Discord token 的 .env 显示为未跟踪 → 误提交即泄露
+   - 状态：已 flag 主公，待决定是否加固 .gitignore（建议尽快，安全风险）
+
+3. **[评分:3]** **跨实例误判 + tmux 注入消息时机偏差** [src:94a08d58]
+   - 注入给 opus 的"点破"消息发晚了且方向偏（说成 key 无效），opus 此时已自行得出更准结论
+   - 教训同 INSIGHTS #1，归档时可合并
+
+---
+
+### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
+- 无（冷启动期 4 分送审，5 分才自动写；本批最高 4 分 socket 冲突，送审）
+
+### 🗑️ 本次自动丢弃摘要（1 分，未保留）
+- 3 条 1 分候选丢弃：opus重启(已记cowork_log)/收工中断session(无新内容)/Dutchie策略(已写CURRENT_SESSION+auto_pending不重复)
