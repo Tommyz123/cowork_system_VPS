@@ -4,6 +4,54 @@
 
 ---
 
+## [草稿] 2026-05-29 深度审核
+
+> 审核 session：94c2988a（opus2收工+VPS架构讨论，20条）、9cffe957（系统稳定周报+VRRM止损，32条）
+
+### INSIGHTS 建议写入（3 条）
+
+1. **[评分:3]** **VPS 3-session 架构实测内存数据** [src:94c2988a]
+   - 3 Claude Code 进程：150-320MB/个；3 Discord plugin（bun）：60-75MB/个；3 tmux：~5MB；总约 1GB
+   - Mac mini 16GB 理论能塞 25-35 个客户端进程，真瓶颈在 API 配额非内存
+   - 推荐去处：reference/knowledge_base.md「VPS 基础设施」章节
+
+2. **[评分:3]** **Claude Max 配额机制：5 小时滚动窗口 + session 共享** [src:94c2988a]
+   - 配额按 5 小时滚动窗口计算（非 RPM/TPM）
+   - 所有 session 共享同一池：开多个 session 不增加配额
+   - 子 agent 也算主账号额度；自动化/共享行为踩 ToS 边界
+   - 推荐去处：reference/knowledge_base.md「Claude Code 使用技巧」章节
+
+3. **[评分:2]** **API 中转站：自用 vs 商用风险层级** [src:94c2988a]
+   - 自用账号池（One API/NewAPI）= 极推荐，技术门槛低、无 ToS 风险
+   - 商用（公开卖钱）= 高风险：ToS 违规+账号随时封+价格战毛利 5-10%+幸存者偏差严重
+   - 当前主公用 Max 单账号 3 session，无即时自建需求
+
+### 操作记录 建议起草（1 份）
+
+- **[评分:3]** **P9 paper 账号止损完整操作流程** [src:9cffe957]
+  - 背景：VRRM 因 Avis 合同终止（基本面永久损伤）→ thesis 失效
+  - 流程：① 查暴跌原因（新闻/基本面）→ ② 确认 DB thesis_status=invalidated → ③ 4 层 sanity check → ④ Alpaca API 提交市价卖单 → ⑤ 次日确认成交 → ⑥ 更新 DB realized_pnl + mistake_type
+  - 建议追加到：playbooks/p9_trading.md「操作手册」段
+
+### Friction 建议补记（1 条）
+
+- **[评分:2]** **stability_check.log 负数处理 bug** [src:9cffe957]
+  - 现象：friction 数量减少（18→6）也被标成 ⚠️，实际是好事
+  - 根因：脚本对 delta 不区分正负，减少=改善也触发告警
+  - 状态：已发现，未修复（非紧急）；建议下次 P2 系统维护时顺手修
+
+---
+
+### 🤖 本次自动写入摘要（4-5 分）
+
+冷启动期保守策略：0 条 4-5 分候选 → 无自动写入
+
+### 🗑️ 本次自动丢弃摘要（1 分）
+
+共 1 条：VRRM 规则实战验证（memory 已有 feedback_p9_auto_execute.md，执行非新发现）
+
+---
+
 ## [草稿] 2026-05-26 深度审核（首次使用 5 分制打分机制）
 
 > 审核 session：f79343a0（review_drafts 5/22-5/25 大清理 + 收工 Skill 加打分机制，约 80+ 轮对话，跨 5/25 18:14 → 5/26 01:45 EDT）
