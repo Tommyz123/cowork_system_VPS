@@ -30,9 +30,9 @@ SECTOR_LIMIT = 600000.0
 
 # 2026-05-18 ghost positions 事件后：研究阶段允许自动下单
 # 见 memory/feedback_p9_auto_execute.md
-AUTO_EXECUTE_NOTIONAL_TARGET = 3000.0   # 每只目标 notional
-AUTO_EXECUTE_NOTIONAL_MAX = 5000.0      # 单只 hard cap（防 qty 计算错误）
-AUTO_EXECUTE_BATCH_MAX = 15             # 单次扫描下单数量上限
+AUTO_EXECUTE_NOTIONAL_TARGET = 1000.0   # 每只目标 notional（2026-05-30 3000→1000：纸账号只需样本数据，缩小金额→同现金埋更多票→更快攒样本，hit rate 算 return% 不受影响）
+AUTO_EXECUTE_NOTIONAL_MAX = 2000.0      # 单只 hard cap（2026-05-30 5000→2000，留缓冲防高价股整数股 round 溢出）
+AUTO_EXECUTE_BATCH_MAX = 30             # 单次扫描下单数量上限（2026-05-30 15→30：配合 top10→top25 拓宽季度样本，季度框架内攒样本，节奏不变）
 
 
 def build_prompt(symbol, news_content, historical_signal_block=""):
@@ -657,7 +657,8 @@ def run_full_pipeline(test_symbol=None):
     return {
         "scanned_count": len(symbols),
         "analyzed_count": len(analyses),
-        "top_results": [item for item in analyses if item.get("total_score", 0) >= 5][:10],
+        # 2026-05-30 上限 10→25：金额降至 $1000 后单只成本降，季度框架内拓宽样本广度（节奏不变），并引入分数梯度以验证评分系统
+        "top_results": [item for item in analyses if item.get("total_score", 0) >= 5][:25],
     }
 
 

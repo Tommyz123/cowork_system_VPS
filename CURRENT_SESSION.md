@@ -30,7 +30,7 @@ last_audit_date: 2026-04-19
 | P4 | 每日新闻日报 | ✅ cron运行中 | 2026-05-10 | 5/10补发成功；root权限/tmp/news_ai.txt问题已确认不影响当前脚本 |
 | P6 | 机票监控 Agent | ✅ cron运行中 | 2026-05-07 | SerpAPI key自动轮换（KEY2耗尽→自动切KEY）；直飞数据恢复 |
 | P7 | Mac mini价格监控 | ✅ cron运行中 | 2026-04-23 | HTML邮件（链接藏入<a>标签）；今日eBay $305触发提醒 |
-| P9 | AI量化交易系统 TIDE | ✅ cron运行中+第一层bug已修(未commit) | 2026-05-29 | 数据质量审计修3致命bug(大小写过滤/状态名幽灵/缺import)，14只持仓周报恢复；下一步=新对话commit+第二层8K全链路(④⑤⑥⑦) |
+| P9 | AI量化交易系统 TIDE | ✅ cron运行中+第一二层全done+全库审计通过 | 2026-05-30 | 第一层3bug(b0bda41)+第二层8K全链路重写(4e9bdc2)+全库10表审计(核心干净/2死表标deprecated)；下一步=6月初~月底首批outcome数据验证edge |
 
 ---
 
@@ -720,9 +720,22 @@ last_updated: 2026-05-29 晚
 
 
 ### [P9] AI量化交易系统（TIDE系统）
-状态：✅ cron运行中 + 第一层数据质量 bug 已修（未 commit）
-last_updated: 2026-05-29
-停在：**第一层 3 个 bug 修完已验证、但未 git commit**；下一步=第二层 8K 全链路打通（④⑤⑥⑦）。新对话先 commit 第一层，再做第二层。固定节点：6/14 首批 30 天 outcome / 6 月底 hit rate / 8/4 Q3 扫描实战。
+状态：✅ cron运行中 + 第一二层数据质量全部完成 + 全库审计通过
+last_updated: 2026-05-30
+停在：**数据质量这条线已闭环交付**（第一层3bug + 第二层8K全链路 + 全库10表审计全部完成并 commit）。下一步=等 6 月初~月底首批 outcome 数据出来验证系统 edge（这是判断有没有 alpha 的真正时刻，在那之前不下"系统有效"结论）。固定节点：6/14 首批 30 天 outcome / 6 月底 hit rate / 8/4 Q3 扫描实战。
+
+本次完成（2026-05-30 — P9 第二层 8K 全链路 + 全库数据质量审计）：
+- **第二层 8K 全链路重写（commit 4e9bdc2）**：把死了 25 天的 8K 信号源从"录黑屏"修成"真摄像头"。先写独立脚本 test_edgar_chain.py 用 AAPL/ORA/MSFT 真实数据验证全链路通（已删）。四环节：
+  - ⑤ symbol→CIK 精确查：建 company_tickers.json 映射（cik_map.json 本地缓存/已 gitignore），efts 改用 ciks 参数；根治旧 `q="{symbol}"` 全文搜命中无关公司（实证 ABM 旧抓成 EKSO、AVA 抓成 HEALTHPEAK）
+  - ⑥ Item 评级：直接用 efts 返回的 items 字段分级（1.01/8.01=high，5.02/2.02=medium），替代旧从 headline 找代码（headline 无代码→永远 low）。关键发现=efts 搜索结果自带 items 字段，⑥ 不用拉正文
+  - ④ 真正文：fetch_filing_text 用 adsh 拉 EDGAR 文档，re.search 跳 SGML 头定位第一个 Item 锚点存 1200 字（signal_collector.py 补 import re，同源 bug）
+  - ⑦ 喂 prompt：cognitive_scanner build_historical_signal_block 给 8K 附正文摘要（fetch_recent_signal_headlines 改返回 dict 带 signal_type/full_text）
+- **数据清理（B+ 方案）**：删旧 1146 条垃圾 8K（94% 错配公司+全占位符+全 low+AI 从没读到）→ backfill --backfill 27 用新逻辑重抓 → 75 条真 8K（19 high/55 medium）。删前备份 trading_before_8k_chain_20260529_235734.db
+- **端到端验证全过**：AGYS 实测历史信号块含真 8K 正文摘要（Item 2.02 财报正文，非占位符）；第一层 3 bug 回归检查仍在
+- **全库 10 表数据质量审计**：核心活表（signals 1480/scanner_picks 31/outcome_tracking 16/trades 28）全部干净无空值/无格式错/无重复；4 条 5/06 老 picks 缺 bear_thesis=5/19 必填规则前的历史空缺，如实保留不补（补=马后炮造假）
+- **死表认定修正**：原以为 4 张死表，实测只 news+insider_transactions 真死（0 引用，标 deprecated 保留不删）；alt_signals（gtrends sidecar）+decisions（alpaca_mcp 下单写）是活表勿删
+- **旧 WSL 路径清理（commit 8cb8330）**：6 playbook + 3 记忆文件的 /mnt/c 旧路径改 VPS；cc_source 指向文件未迁移已标注；cannabis budtender 另一项目 Windows venv 路径未动（超范围）
+- **闭环评估**：链路结构完整（采集→扫描→下单→追踪全通），但学习闭环最后一环未跑完一圈（16 持仓 0 条满 30 天，verdict 30 tentative/1 盖棺）；现状=装好等数据，非已验证有效
 
 **🔜 下一步：第二层 8K 全链路（新对话做，估 2-4h，需边做边测真实 8K 数据）**
 让 1146 条 8K 信号真正"给 AI 读"，4 环节缺一不可：

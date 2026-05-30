@@ -152,3 +152,8 @@ tail -50 /home/cowork/cowork/scripts/cannabis_docket_reminder.log
   - 脚本：`scripts/p9_ora_premarket_reminder.py`
   - 触发后自删 cron 条目 + 守卫 `if TODAY != "2026-05-18"`
   - 背景：`trading/case_studies/ORA_2026_05_18.md`
+- 2026-06-18 09:15 EDT - P9 首批完整 hit rate 提醒（16 只 5 月持仓全满 30 天）
+  - cron：`15 9 18 6 *`
+  - 脚本：`scripts/p9_first_hitrate_reminder.py`（log: `scripts/p9_first_hitrate_reminder.log`）
+  - 触发后自删 cron 条目 + 守卫 `if TODAY != "2026-06-18"`；发至 cowork bot DM 频道
+  - 背景：5/6 那 7 只 6/5 满期 / 5/18 那 8 只 6/17 / 5/19 那 1 只 6/18 → 6/18 全到期；2026-05-30 主公确认 B 方案（完整 hit rate，非 6/5 局部预览）

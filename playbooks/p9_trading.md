@@ -145,14 +145,15 @@ SELECT symbol, alert_date, thesis_status, headline_summary FROM thesis_alerts OR
 
 ### alpaca-trading（实时账户）
 工具：`mcp__alpaca-trading__get_account` / `get_positions` / `get_orders`
-- 默认账号：swing（纸交易 $1M）
+- 默认账号：swing（纸交易，实际权益 ~$10万，以实时查询为准——2026-05-30 核实 equity $106k / cash $58k，旧记的 $1M 是错的）
 - 支持 account 参数切换：`"swing"` 或 `"intraday"`
 
-## 当前阶段（2026-05-19 更新）
-积累阶段（纸账号 swing $1M）：
-- **15 只真实持仓**（early_filled 6 / late_fill 8 / auto_filled 1）
-- OPG fill 率实测 17%（1/6，5/19），Q3 满载 15 只预期成交 2-3 只
-- 次季度扫描：8/4 周一 19:30 EDT（Q3 首次真正实战）
+## 当前阶段（2026-05-30 更新）
+积累阶段（纸账号 swing，实际 ~$10万 equity / ~$5.8万 cash）：
+- **14 只真实持仓**（filled 6 / filled_late 8）
+- OPG fill 率实测 17%（1/6，5/19）
+- **2026-05-30 攒样本提速（季度框架内，节奏不变）**：每只下单金额 $3000→$1000、单只硬上限 $5000→$2000、季度埋伏上限 top10→top25、batch_max 15→30。理由：hit rate 算 return% 与金额无关，缩小金额+拓宽广度→同现金埋更多票→更快攒够 30+ 样本（统计门槛），且引入分数梯度验证评分系统。⚠️ 不改扫描频率（季度叙事埋伏是策略本身，数据回来前不改策略）。
+- 次季度扫描：8/4 周一 19:30 EDT（按新参数最多埋 25 只，样本 16→~40）
 - 下一个关键节点：5/25 自动扫描验证 retry / 5/26 reconciler 首跑 / 6/14 首批 30 天 outcome
 - alt-data sidecar：4-8 周只观察，1 年后 sample 累积 50+ 才考虑入评分
 
