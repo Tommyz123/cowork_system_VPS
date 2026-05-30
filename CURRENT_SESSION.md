@@ -30,7 +30,7 @@ last_audit_date: 2026-04-19
 | P4 | 每日新闻日报 | ✅ cron运行中 | 2026-05-10 | 5/10补发成功；root权限/tmp/news_ai.txt问题已确认不影响当前脚本 |
 | P6 | 机票监控 Agent | ✅ cron运行中 | 2026-05-07 | SerpAPI key自动轮换（KEY2耗尽→自动切KEY）；直飞数据恢复 |
 | P7 | Mac mini价格监控 | ✅ cron运行中 | 2026-04-23 | HTML邮件（链接藏入<a>标签）；今日eBay $305触发提醒 |
-| P9 | AI量化交易系统 TIDE | ✅ cron运行中 | 2026-05-28 | VRRM止损出场(-73.23%，Avis合同终止)，DB已记录；下次：6/14首批30天outcome节点+6月底数据看hit rate |
+| P9 | AI量化交易系统 TIDE | ✅ cron运行中+第一层bug已修(未commit) | 2026-05-29 | 数据质量审计修3致命bug(大小写过滤/状态名幽灵/缺import)，14只持仓周报恢复；下一步=新对话commit+第二层8K全链路(④⑤⑥⑦) |
 
 ---
 
@@ -636,6 +636,10 @@ last_updated: 2026-05-29
 - 拿到 AIQ UID → 跑通 /home/cowork/sage_seeds/aiq/readonly_test.py（注：UID 4757 已拿到，当前卡在账号侧 API 未开通，403）
 - 数据通了 → 做客户洞察报告（复购率/沉睡客户/VIP/品类偏好）
 
+**🔔 触发型提醒（主公 2026-05-29 嘱"到时候提醒我，需要的时候你写入"）**：
+- 🔔 **AIQ 开通 API 后** → 主动提醒主公到后台 regenerate 新 key，并由我写入 sage_seeds/aiq/aiq.env 覆盖旧 key（旧 key 已暴露在 Discord 服务器+本地日志，regenerate 后归零）
+- 🔔 **主公决定把 sage_seeds 当独立作品/仓库时** → 主动提醒并由我执行 git init（.gitignore 已就位待生效）
+
 ---
 
 #### 🎯 2026-05-24 策略大重定向（核心结论）
@@ -711,9 +715,27 @@ last_updated: 2026-05-29
 
 
 ### [P9] AI量化交易系统（TIDE系统）
-状态：✅ cron运行中（VRRM 已止损出场，DB 已更新）
-last_updated: 2026-05-28
-停在：VRRM exit 完成（-73.23%，Avis合同终止），其余持仓正常运行。下次关键节点：6/14 首批 30 天 outcome / 6 月底数据看 hit rate / 8/4 Q3 自动扫描首次实战。
+状态：✅ cron运行中 + 第一层数据质量 bug 已修（未 commit）
+last_updated: 2026-05-29
+停在：**第一层 3 个 bug 修完已验证、但未 git commit**；下一步=第二层 8K 全链路打通（④⑤⑥⑦）。新对话先 commit 第一层，再做第二层。固定节点：6/14 首批 30 天 outcome / 6 月底 hit rate / 8/4 Q3 扫描实战。
+
+**🔜 下一步：第二层 8K 全链路（新对话做，估 2-4h，需边做边测真实 8K 数据）**
+让 1146 条 8K 信号真正"给 AI 读"，4 环节缺一不可：
+- ④ 抓真正 8K 正文：signal_collector.py:194 现存"公司名+日期"占位符 → 用 SEC 返回的 adsh 编号去 EDGAR 拉文档提正文（已实测可行：adsh→`https://www.sec.gov/Archives/edgar/data/{CIK}/{adsh_nodash}/{adsh}.txt` 拉到 30万字符 + 正则提到 `Item 9.01`）
+- ⑤ 修 symbol 错配：signal_collector.py:149 现用 `q="{symbol}"` 全文搜（搜 AAPL 命中加拿大清算公司）→ 改按公司 CIK 精确查；需先建 symbol→CIK 映射（SEC 有公开映射表 company_tickers.json）
+- ⑥ 8K 评级改用正文 Item：signal_collector.py:231 现从 headline 找 8.01/1.01（headline 无 item 代码→全 low）→ 改从正文读 Item 类型（8.01/1.01=high，5.02/7.01=medium）
+- ⑦ prompt 喂 8K 正文：cognitive_scanner.py:124 现只拼 headline → 8K 类信号附正文摘要给 LLM
+说明：四个一起做才有价值（抓了正文但评级 low 进不去；评级对了但 symbol 错配抓错公司；都对了但 prompt 不喂正文 AI 还是只看公司名）。
+**第三层（低优先，本轮不做）**：4 张死表 news/alt_signals/insider_transactions/decisions 标 deprecated（先 grep 确认无引用再下次删，删表不可逆）。
+
+本次完成（2026-05-29 晚 — P9 数据质量深度审计 + 第一层修复）：
+- **审计起点**：主公问数据质量 → 查 trading.db（非看日志）发现 signals 表才是真采集落点（1796条），news 表已废停在 5/6
+- **🔴 Bug1 大小写过滤（致命）**：cognitive_scanner.py:136 查 `IN ('HIGH','MEDIUM')` 大写，但 signal_collector 写小写 → 实测大写 0 条/小写 650 条 → 历史信号永远进不了 LLM。**已修：改小写**，dry-run ELF 验证 0→15 条
+- **🔴 Bug2 持仓状态名幽灵（致命）**：scanner_tracker.py:148 + price_tracker.py:175 查 `('open','closed_watching')`，但 scanner_picks 根本没 'open'（真实 filled/filled_late）→ 周报+30/60/90d 追踪漏掉 14 只。**已修：统一 `('filled','filled_late','closed_watching')` + scanner_tracker:166 分支判断同步改**；先验证 14 只在 outcome_tracking 全有行无需补
+- **🔴 Bug3 thesis_monitor 缺 import**：thesis_monitor.py:103 用 requests.post 但只 import urllib + `except:pass` 静默吞 NameError → thesis 失效告警一直发不出。**已修：加 import requests**
+- **验证**：4 脚本编译全通过；手动跑 scanner_tracker 周报成功发频道，14 只持仓全显示（7 涨 AGYS+25.3%/ORA+10.9% 领涨，7 跌 FSS-9.1% 领跌）
+- **DB 备份**：backups/trading_before_p9fix_20260529_215017.db
+- **认知教训**：我中途两次纠正自己立场——先说"8K 没人读不用修"被主公质疑后查证，发现 8K 是设计给 AI 读的（fetch 函数不挑 signal_type），只是被评级+大小写两道门挡死，且喂的是 headline 非正文 → 才有第二层全链路方案
 
 本次完成（2026-05-28）：
 - **VRRM 止损出场**：Avis Budget 终止合同（9月生效），-$135-145M 年化收入，分析师集体降级（MS目标价$15→$4）

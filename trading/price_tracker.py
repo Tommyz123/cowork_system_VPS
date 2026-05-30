@@ -172,7 +172,7 @@ def initialize_rows(env: Dict[str, str]) -> None:
             LEFT JOIN outcome_tracking ot
               ON ot.scanner_pick_id = sp.id
              OR (ot.symbol = sp.symbol AND ot.tagged_date = sp.scan_date)
-            WHERE sp.status IN ('open', 'closed_watching')
+            WHERE sp.status IN ('filled', 'filled_late', 'closed_watching')
               AND COALESCE(TRIM(sp.symbol), '') != ''
               AND COALESCE(TRIM(sp.scan_date), '') != ''
               AND ot.id IS NULL

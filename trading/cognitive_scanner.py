@@ -133,7 +133,7 @@ def fetch_recent_signal_headlines(conn, symbol):
         SELECT headline
         FROM signals
         WHERE symbol = ?
-          AND signal_quality IN ('HIGH', 'MEDIUM')
+          AND signal_quality IN ('high', 'medium')
           AND date >= ?
           AND headline IS NOT NULL
           AND TRIM(headline) != ''

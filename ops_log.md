@@ -189,3 +189,7 @@
 [2026-05-29 16:02 EDT] CRON[P9] | signal_collector | ✅ | 完成
 [2026-05-29 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
 [2026-05-29 20:04 EDT] SKILL[SYS] | 收工 | ✅ | 项目:[P2] commit:275ebcc 草稿:6条(含1条修正上批假bug)
+[2026-05-29 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-05-29 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-05-29 21:50 EDT] CRON[P9] | _chk_imp | ✅ | 完成
+[2026-05-29 23:07 EDT] CRON[P9] | scanner_tracker | ✅ | 完成

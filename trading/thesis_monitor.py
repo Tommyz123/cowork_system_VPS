@@ -9,6 +9,7 @@ import re
 import sqlite3
 import subprocess
 import urllib.request
+import requests
 from datetime import datetime
 
 from db_schema import ensure_scanner_picks_schema, ensure_thesis_alerts_table

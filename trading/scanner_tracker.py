@@ -145,14 +145,14 @@ def main():
         """
         SELECT *
         FROM scanner_picks
-        WHERE status IN ('open', 'closed_watching')
+        WHERE status IN ('filled', 'filled_late', 'closed_watching')
         ORDER BY score DESC, scan_date DESC
         """
     ).fetchall()
 
     if not rows:
         conn.close()
-        print("没有 open 或 closed_watching 状态的持仓")
+        print("没有 filled / filled_late / closed_watching 状态的持仓")
         return
 
     today = datetime.now().strftime("%Y-%m-%d")
@@ -163,7 +163,7 @@ def main():
     watching_count = 0
 
     for row in rows:
-        if row["status"] == "open":
+        if row["status"] in ("open", "filled", "filled_late"):
             open_count += 1
             current_price = fetch_price(row["symbol"])
             if current_price and row["entry_price"]:
