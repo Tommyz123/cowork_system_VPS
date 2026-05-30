@@ -89,5 +89,5 @@ status: active
 ## 历史对话搜索
 搜索此项目相关历史对话：
 ```bash
-python3 /mnt/c/Users/zhi89/Desktop/cowork/scripts/search_conversations.py "关键词"
+python3 /home/cowork/cowork/scripts/search_conversations.py "关键词"
 ```

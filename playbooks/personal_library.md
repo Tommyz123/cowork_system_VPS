@@ -10,7 +10,7 @@ triggers: [个人文件, 简历, 文件库, 发我简历, 出租租约, 证书, 
 
 ```bash
 # 搜索文件（主要入口）
-cd /mnt/c/Users/zhi89/Desktop/cowork
+cd /home/cowork/cowork
 python3 personal/search_personal.py "查询词"
 
 # 重新索引（新增文件后）

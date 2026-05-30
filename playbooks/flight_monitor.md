@@ -9,26 +9,26 @@ triggers: [机票, 航班, 监控, flight, flightscripts]
 
 ```bash
 # 手动运行日报
-bash /mnt/c/Users/zhi89/Desktop/cowork/flightscripts/run_flight.sh
+bash /home/cowork/cowork/flightscripts/run_flight.sh
 
 # 查看运行日志
-tail -f /mnt/c/Users/zhi89/Desktop/cowork/flightscripts/run.log
+tail -f /home/cowork/cowork/flightscripts/run.log
 
 # 查看价格历史
-sqlite3 /mnt/c/Users/zhi89/Desktop/cowork/flightscripts/flight_prices.db \
+sqlite3 /home/cowork/cowork/flightscripts/flight_prices.db \
   "SELECT record_date, label, price, airlines FROM prices ORDER BY record_date DESC LIMIT 20;"
 ```
 
 ## 路径
 
 - 主目录：`C:\Users\zhi89\Desktop\cowork\flightscripts\`
-- WSL路径：`/mnt/c/Users/zhi89/Desktop/cowork/flightscripts/`
+- 路径：`/home/cowork/cowork/flightscripts/`
 - 详细文档：`flightscripts/README.md`
 
 ## cron 设置
 
 ```
-30 17 * * * bash /mnt/c/Users/zhi89/Desktop/cowork/flightscripts/run_flight.sh >> /mnt/c/Users/zhi89/Desktop/cowork/flightscripts/run.log 2>&1
+30 17 * * * bash /home/cowork/cowork/flightscripts/run_flight.sh >> /home/cowork/cowork/flightscripts/run.log 2>&1
 ```
 每天 17:30 UTC = 13:30 EDT
 
@@ -62,5 +62,5 @@ sqlite3 /mnt/c/Users/zhi89/Desktop/cowork/flightscripts/flight_prices.db \
 ## 历史对话搜索
 搜索此项目相关历史对话：
 ```bash
-python3 /mnt/c/Users/zhi89/Desktop/cowork/scripts/search_conversations.py "关键词"
+python3 /home/cowork/cowork/scripts/search_conversations.py "关键词"
 ```

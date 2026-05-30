@@ -48,7 +48,7 @@ triggers: ["P9", "量化交易", "trading", "TIDE", "thesis", "scanner", "候选
 
 手动触发季度扫描：
 ```bash
-cd /mnt/c/Users/zhi89/Desktop/cowork/trading && bash run_scanner.sh
+cd /home/cowork/cowork/trading && bash run_scanner.sh
 ```
 
 平仓 TIDE 持仓（swing，默认）：
