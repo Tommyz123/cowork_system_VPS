@@ -189,8 +189,20 @@ last_updated: 2026-05-27
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-05-28
-停在：Opus 4.8 切换（5/28 发布当天升级，2 个 settings.json 改 model ID + 重启 2 个 tmux）；AI 动态日报 v2 升级进行中（6 处改动已完成 1 处 parse_rss）；待新对话继续剩 5 处。
+last_updated: 2026-05-29
+停在：跨实例任务派发链路（AA→CC→主公）首次实测端到端跑通 + 3 bot 全部改名（AA/BB/CC+模型名，Discord 群昵称 + 私聊 username 双层都改）；定调：send-keys 是 hack，不建管道，等"非持久并行实例不可"的真实任务出现再投入。
+
+本次完成（2026-05-29 晚，跨实例派发实测 + 3 bot 改名）：
+- **跨实例派发三跳接力实测通**：主公"叫AA查纽约天气→发给CC→CC发我"→ AA(Sonnet) WebSearch 写入 /tmp/team_mailbox/for_cc_weather.txt → send-keys 投门铃给 CC(Opus) → CC 读信箱调 Discord reply 发主公手机（注明 AA查/CC转）→ 主公"收到回报了"确认；这是团队协作最小闭环（一个实例派活、另一实例执行并汇报）
+- **3 bot 改名（AA/BB/CC + 模型名 + 版本）**：cowork=AA-Sonnet4.6 / opus_CC=BB-Opus4.8 / opus2=CC-Opus4.8；Discord 两层都改：群昵称 `PATCH /guilds/{guild}/members/@me {"nick"}` + 私聊 username `PATCH /users/@me {"username"}`（坑：global_name 字段 bot 不认，HTTP 200 但不生效，必须用 username；bot username 允许大写+连字符）
+- **诚实定调（未顺着主公"值得优化吗"凑数）**：明确说 send-keys 是终端注入 hack，天花板低（Enter 必须分开发/ghost 文字/靠 capture-pane 轮询猜状态），封装脚本只能缓解消不掉；"值不值得优化"取决于有没有"非持久并行实例不可"的真实反复任务 → 没有就别建管道（YAGNI）
+- **reference_dual_bot.md 更新**：填入 opus2 真实 chat_id=1509045714808737842（从 jsonl 挖）+ 新增"实例间任务派发"段（send-keys + Enter 分开发坑 + bypass permissions）+ Discord 改名方法 + AA/BB/CC 命名表
+- **friction_log 自身误判（已纠正）**：tmux 内查别实例 socket 被 $TMUX 带偏，误判"AA 死了"→ 主公在场时纠正，教训=跨实例查/操作 tmux 必须先 `TMUX= ` 清空环境变量；违反 feedback_read_before_conclude
+
+下一步：
+- 跨实例派发暂停在"手动能跑通"（主公发指令→我编排→链路完成）；不主动建一键流程，等真实任务触发
+- 若主公给出具体反复任务 → 按该任务最短路径优化（封装 send-keys 脚本消 Enter 坑 + 评估 Stop hook 自动收信箱）
+- 与 P12 "跨实例通讯 BACKLOG（🟡 缓做，等牌照触发）" 状态一致，不冲突
 
 本次完成（2026-05-28 18:47 EDT，系统评估 + 收工重复检查）：
 - **两个收工对比分析**：检查 5/28 两个收工（5cf9dba + 109975d）草稿是否重复 → 结论：草稿内容无重复（话题完全不同）；session 94c2988a 被双审但提取不同内容；第二个收工"4条"计数错误实为3条
@@ -601,7 +613,9 @@ last_updated: 2026-05-13
 ### [P8] 求职 (career-ops)
 状态：🔄 策略大重定向（2026-05-24）+ 🆕 真实作品线启动（2026-05-29 Dutchie/AIQ API）
 last_updated: 2026-05-29
-停在：已帮主公起草并定稿 Dutchie 只读 API 申请（发给 Dutchie PSE team）+ Alpine IQ 补 UID 申请（发老板 Sejal）；等 Dutchie 回信拿 key/文档 → 我帮写只读测试脚本验证连通（对标 AIQ /tmp/aiq_readonly_test.py）
+停在：已帮主公起草并定稿 Dutchie 只读 API 申请（发给 Dutchie PSE team）+ Alpine IQ 补 UID 申请（发老板 Sejal）；等 Dutchie 回信拿 key/文档 → 我帮写只读测试脚本验证连通（对标 AIQ 脚本）
+
+**⚠️ 隔离存放（2026-05-29）**：所有 Sage Seeds 敏感内容（API key/脚本/草稿/IP策略）已迁至独立项目 `/home/cowork/sage_seeds/`（cowork 仓库外，物理隔离，key 走 .gitignore 永不提交）。本处只做进度追踪指针，不存敏感信息。AIQ 测试脚本现位于 `/home/cowork/sage_seeds/aiq/readonly_test.py`。
 
 ---
 
@@ -619,7 +633,7 @@ last_updated: 2026-05-29
 
 **下一步**：
 - 等 Dutchie 回信 → 拿到 key/文档 → 写只读测试脚本验证连通
-- 拿到 AIQ UID → 跑通 /tmp/aiq_readonly_test.py
+- 拿到 AIQ UID → 跑通 /home/cowork/sage_seeds/aiq/readonly_test.py（注：UID 4757 已拿到，当前卡在账号侧 API 未开通，403）
 - 数据通了 → 做客户洞察报告（复购率/沉睡客户/VIP/品类偏好）
 
 ---

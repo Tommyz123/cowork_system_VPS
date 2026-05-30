@@ -6,9 +6,16 @@ originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 ---
 ## 3 实例身份（2026-05-27 加入 opus2）
 
+**Discord 显示昵称（2026-05-29 主公定，AA/BB/CC+模型名）**：cowork=**AA-Sonnet4.6** / opus_CC=**BB-Opus4.8** / opus2=**CC-Opus4.8**。模型已从各 HOME settings.json 核实。日常称呼也用这套。
+改名方法（2026-05-29 全实测通，token 在各 HOME `.claude/channels/discord/.env` 的 `DISCORD_BOT_TOKEN`）——**两处要分开改**：
+- **群昵称**（只在 TT基地群显示）：`PATCH /api/v10/guilds/1466957346310717636/members/@me` body `{"nick":"新名"}`
+- **私聊名 = bot username**（DM 里显示的）：`PATCH /api/v10/users/@me` body `{"username":"新名"}`；bot 的 username 允许大写和连字符（如 BB-Opus4.8）。⚠️ 坑：先试 `global_name` 字段 bot 账号不认（HTTP 200 但不生效），必须改 username
+- 改 username 不影响 plugin 连接（认 token 不认名）；只动显示层，不碰 tmux/systemd/路径
+
+
 | | cowork bot | opus_CC bot | opus2 bot |
 |---|---|---|---|
-| Discord DM channel | 1485128242808619079 | 1503165641379545228 | （在 TT基地 guild 内，具体 ID 见 opus2_home access.json） |
+| Discord DM channel | 1485128242808619079 | 1503165641379545228 | 1509045714808737842（2026-05-29 从 opus2 jsonl 挖出确认） |
 | Discord user_id | — | 1503158821345034360 | （token 解码可得，未单列） |
 | Discord username | — | opus_CC#0475 | — |
 | 模型 | Sonnet 4.6 | Opus 4.7 | Opus 4.7 |
@@ -69,3 +76,28 @@ tmux -L opus_socket send-keys -t cowork_opus '/reload-plugins' Enter
 ```
 
 之后重启进程让顶部 banner 刷新（显示 "Listening for channel messages from: ..." 表示订阅生效）
+
+---
+
+## 实例间任务派发（2026-05-29 实测打通）
+
+一个实例可直接给另一个实例派任务，三段链已验证：**投递 → 执行 → 共享文件回传**。实测从 opus_CC 派"查纽约天气"给 opus2，opus2 自动 WebSearch 后写回 `/tmp/team_mailbox/opus2_weather.txt`，18 秒拿到结果。
+
+**用法**：
+```bash
+# 1. 先只读看目标是否空闲，避免打断
+tmux -L opus2_socket capture-pane -t cowork_opus2 -p | tail
+# 2. 发任务文字（单引号防本机 $ 展开）
+tmux -L opus2_socket send-keys -t cowork_opus2 '任务文字...'
+# 3. 必须【单独】再发一次 Enter 才会提交（关键坑）
+tmux -L opus2_socket send-keys -t cowork_opus2 Enter
+# 4. 轮询共享文件取结果（约定 /tmp/team_mailbox/）
+```
+
+**实测要点**：
+- **Enter 必须分开发**：文字和 Enter 同一条 send-keys（如 `'...' Enter`）→ 文字进输入框但**不提交**；补发单独 Enter 才提交。（与上面装 plugin 的写法不同，长任务文字尤其要分开）
+- **opus2 当时是 bypass permissions 模式** → 执行工具不弹授权、不卡死；非 bypass 实例派需工具授权的活会卡（无人点允许）
+- **输入框里的历史命令是 ghost 提示**，不是真内容，Ctrl+U/Escape/退格都删不掉，但一打字就被替换 → 直接输入即可，不用清
+- 回传走共享文件最稳（send-keys 反向"门铃"叫醒发起方是可选增强；Stop hook 自动查信未测）
+
+**让被派实例把结果发回主公 Discord（2026-05-29 实测通）**：派任务时在指令里给它自己的频道 chat_id，让它调 `mcp__plugin_discord_discord__reply`。opus2 的 chat_id = `1509045714808737842`。坑：send-keys 进去的是**终端门**，不经 Discord，所以默认主公在频道看不到；要主公手机可见必须显式让被派实例 reply 到自己频道。chat_id 不在 access.json，要从该实例 jsonl `grep 'chat_id="[0-9]+"'` 挖。

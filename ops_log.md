@@ -184,3 +184,7 @@
 [2026-05-29 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
 [2026-05-29 14:19 EDT] SKILL[SYS] | 收工(opus2) | ✅ | 项目:P8 草稿:5条审核/INSIGHTS2+Friction3送审 memory备份跳过(防跨实例覆盖)
 [2026-05-29 14:27 EDT] SKILL[SYS] | 收工 | ✅ | 项目:SYS commit:3278f33 草稿:5条(2-3分)
+[2026-05-29 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-05-29 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-05-29 16:02 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-05-29 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
