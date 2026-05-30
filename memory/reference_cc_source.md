@@ -2,9 +2,10 @@
 name: reference_cc_source
 description: Claude Code 源码架构研究笔记位置——已探索 Hook/权限/工具/多智能体/压缩/记忆等模块，含对主公系统的具体建议
 type: reference
+originSessionId: 86246452-fb54-41c3-b885-429d75a9d489
 ---
-
-详细研究笔记在：`/mnt/c/Users/zhi89/Desktop/cowork/research/cc_source_insights.md`
+详细研究笔记原在：`/mnt/c/Users/zhi89/Desktop/cowork/research/cc_source_insights.md`
+> ⚠️ 该文件未从 WSL 迁移到 VPS，当前 VPS（`/home/cowork/cowork/research/`）上不存在；如需原文请从旧 Windows 备份找回。下方结论摘要仍有效。
 
 **已覆盖的模块：**
 Hook 系统（stdin JSON机制）、权限模型、ToolSearch延迟加载、工具注册、协调器模式、Stop Hooks后处理、SessionMemory自动提取、对话压缩三层策略、成本追踪、Memory四分类、QueryEngine会话管理、extractMemories、autoDream

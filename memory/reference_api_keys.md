@@ -6,7 +6,7 @@ originSessionId: d13aed09-f19a-44e5-81c1-fc0cfee07eea
 ---
 所有API key统一存在 `cowork/config/api_keys.env`（已加.gitignore不追踪）。
 
-**文件路径：** `/mnt/c/Users/zhi89/Desktop/cowork/config/api_keys.env`
+**文件路径：** `/home/cowork/cowork/config/api_keys.env`
 
 **Key清单（2026-05-08更新）：**
 - SerpAPI KEY1 — Mac mini价格监控专用

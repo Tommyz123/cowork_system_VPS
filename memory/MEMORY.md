@@ -7,6 +7,7 @@
 - [user_profile.md](user_profile.md) — Tom（zhi89，Discord: tommzzz.）；Windows + iPhone遥控Claude；AI+大麻零售双轨创业；自研V5框架（Planning/Skill/Memory/Execution/Evaluation）；偏好先讨论机制再动手，直说实话不讨好
 
 ## Feedback（行为规则）
+- [feedback_understand_before_act.md](feedback_understand_before_act.md) — ⭐习惯：做任何事/给任何建议前，先了解清楚背景和实际情况（查实际数据/代码/战略，别凭记忆直觉）；禁止"先抛听起来合理的答案再回头补功课"
 - [feedback_honesty.md](feedback_honesty.md) — 不讨好不奉承，客观陈述优缺点，有问题直说，不因顾虑情绪而含糊
 - [feedback_confirm_before_execute.md](feedback_confirm_before_execute.md) — 执行确认：WSL 必须独立 .py（其他 CLAUDE.md 已有）
 - [feedback_logging.md](feedback_logging.md) — 日志纪律：大事记不记细节；收工 ⊃ 保存进度（其他 CLAUDE.md 已有）
@@ -41,13 +42,14 @@
 - [feedback_thesis_normalization.md](feedback_thesis_normalization.md) — P9 thesis 必须 hypothesis 语气（may/could/historically），不许 declarative 断言；未验证精确数字只能放监测信号；范围 > 单点（5/18 GPT 二次纠偏）
 - [feedback_auto_rca.md](feedback_auto_rca.md) — 错误自动 RCA：三档分级 + 5 触发器 + 反糊弄；Skill: auto-rca
 - [feedback_p9_no_ghost_data.md](feedback_p9_no_ghost_data.md) — P9 status 反映真实 broker；数据修复≠流程修复（铁律）；DB=thesis SoT/Alpaca=持仓 SoT
-- [feedback_p9_auto_execute.md](feedback_p9_auto_execute.md) — P9 自动执行流程 + 4 层 sanity check + $3000/只；真钱前必须重评
+- [feedback_p9_auto_execute.md](feedback_p9_auto_execute.md) — P9 自动执行流程 + 4 层 sanity check + $1000/只 + 季度上限 top25（2026-05-30 攒样本提速）；真钱前必须重评
 - [feedback_p9_alt_data_sidecar.md](feedback_p9_alt_data_sidecar.md) — P9 alt-data sidecar（独立 P9 主线）；周日自动收集；4-8 周观察 / 1 年后才入评分
 - [feedback_read_before_conclude.md](feedback_read_before_conclude.md) — 先读信息再结论：有信息源（文件/日志/脚本/配置）禁止跳读猜测（P11 调试教训）
 - [feedback_pacing_and_plain_language.md](feedback_pacing_and_plain_language.md) — 默认逐条+大白话+术语分层（Claude Code 生态/业务领域术语直接用，底层技术术语需比喻）；"没理解"立即换比喻（2026-05-27 升级）
 - [feedback_clarify_hard_requirements.md](feedback_clarify_hard_requirements.md) — "什么都行/都可以/看你"必须先追问"有没有不接受的"再讨论选项；用户说宽松词≠真的宽松，常是没想到先说底线
 - [feedback_proactive_update_alert.md](feedback_proactive_update_alert.md) — 主动扫描+及时提醒：工作中扫描到任何需要更新的内容(文档/索引/记忆/简历)立即 Discord 提醒，不等主公问；write_triggers_scan/artifact_indexing/deprecation_cleanup 的总纲
 - [feedback_immediate_vs_longterm_framing.md](feedback_immediate_vs_longterm_framing.md) — 推 3 选 1 / 优先级建议前必须先问"立即推动 vs 长期方向"；两种场景判断框架完全不同（立即→看难度+ROI；长期→看战略契合度，重不再是缺点）
+- [feedback_p9_strategy_discipline.md](feedback_p9_strategy_discipline.md) — P9 优化提案先过"是否改了策略本身"关；攒样本只能框架内拓宽广度，不能改扫描频率（数据回来前不改策略）
 
 ## Project（项目背景）
 - [project_cannabis_retail.md](project_cannabis_retail.md) — ⭐ P12 大麻零售主线（2026年主线，2026-05-14 确立）；NY牌照申请中+AI赋能+SaaS化路径；八字辛卯大运对应；playbook: playbooks/cannabis_retail.md；P1/P3/P5 已并入作为子模块

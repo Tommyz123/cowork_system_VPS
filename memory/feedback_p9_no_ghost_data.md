@@ -15,7 +15,7 @@ P9 系统数据完整性铁律：**scanner_picks.status 必须反映真实 broke
    - **次日 9:45 EDT sync_fill_prices.py reconciler 按 Alpaca 实际 status 更新**：
      - filled → status='filled' / cohort='auto_filled' + 回填 fill 字段
      - expired/canceled/rejected → 同名状态（DB-broker 一致，下游自动过滤）
-   - 4 层 sanity check（每只 $3000 上限 / 单次扫描 ≤ 15 只 / dedup 同 ticker / buying_power 充足）
+   - 4 层 sanity check（每只 notional 上限 / 单次扫描数量上限 / dedup 同 ticker / buying_power 充足）— 具体数值见 feedback_p9_auto_execute（2026-05-30 起每只 $1000 / 上限 30 只）
    - **永远禁止**：INSERT 时硬编码 'filled' 假设 broker 100% 成交（2026-05-19 OPG 1/6 实测 fill 率证伪此假设；RCA: trading/rca/2026_05_19_opg_expired_anti_pattern_recurrence.md）
    - 详见 [feedback_p9_auto_execute.md](feedback_p9_auto_execute.md)
 

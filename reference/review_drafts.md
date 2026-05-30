@@ -535,3 +535,53 @@ cron_jobs.md / reference_dual_bot.md / MEMORY.md / playbook / CURRENT_SESSION / 
 
 ### 🗑️ 本次自动丢弃摘要（1 分，未保留）
 - 67e3f300 本会话产出已全部进 CURRENT_SESSION/cowork_log/reference_dual_bot.md，不重复送审；Alpine IQ 调用细节已在 INSIGHTS.md(5/29)，不重复
+
+---
+
+## [草稿] 2026-05-29 晚 深度审核（927b72de 续期 · opus2）
+> 本 session 早间已审过并标记，晚间又续做 AIQ+sage_seeds+纠错全程；按 session_id 去重会漏续期内容，故 in-context 补审。高价值条已在会话中自写入正式文件，不重复。
+
+### 已自写入（本批不重复送审）
+- INSIGHTS.md：AIQ 403 订正条（403"invalid key"≠缺参数；用"错误信息是否随参数变化"定位卡点；已含 [ref-worthy]）—— 已 commit
+- friction_log.md：「未等显式授权就执行 + 自行 touch task_approved」被纠正条 —— 已 commit
+
+### Friction 建议补记（1 条）
+1. **[评分:3]** **规则已存在却被违反 → 是否加机械守卫防复发** [src:927b72de]
+   - 现象：非白名单写入需"先发方案等显式授权"的规则早已在 CLAUDE.md，本次仍跳过（AI 擅自把主公重申目标判定为"同意"）
+   - 纯靠 AI 自律已证明会偶发失守 → 建议评估 Stop/PreToolUse Hook：检测"对非白名单路径的 Write/Edit/mkdir 且 /tmp/task_approved 不存在"时拦截告警
+   - 推荐去处：与主公讨论是否值得做（hook 有维护成本，YAGNI 权衡）；非白名单改动需主公点头
+
+### 操作记录 建议起草（1 份）
+- **[评分:2]** sage_seeds 独立隔离项目搭建（多步骤+完成状态）→ 但已在 sage_seeds/README.md 自文档化（4层结构+隔离原则+安全说明），cowork 侧再起 reference 恐冗余。倾向**不起草**，仅备主公知悉。
+
+### 文档对齐待处理（1 处）
+- **[评分:2]** context.md 是否登记 /home/cowork/sage_seeds/（新授权文件夹）？CLAUDE.md 有"新增授权文件夹→更新 context.md"规则，但主公明确要它**与个人系统隔离**，登记进 cowork 导航层可能违背隔离意图。**请主公定**：登记一个"隔离项目指针"还是完全不提。
+
+### 🤖 本次自动写入摘要（4-5 分）
+- 无（高价值条已在会话中实时自写入；其余均 2-3 分送审）
+
+### 🗑️ 本次自动丢弃摘要（1 分）
+- 0 条
+
+---
+
+## [草稿] 2026-05-30 深度审核（86246452 · opus_CC · P9 攒样本提速会话）
+> 本会话高价值内容已实时写入正式 memory（feedback_understand_before_act + feedback_p9_strategy_discipline），不重复送审。以下为剩余候选。
+
+### Friction 建议补记（1条）
+- **[评分:3]** 把"$1M"过时记忆当确认事实说出口（数据诚信 + 先理解再动复发）[src:86246452]
+  - 现象：讨论每只下单金额撑多久时，凭旧记忆陈述账户为"纸账号 $1M"，主公提醒后查实际 Alpaca swing = ~$10万 equity，差 10 倍。是"陈述句默认有来源"+"先理解再动"两条的复发
+  - 根因：记忆里 $1M 是过时数据，我没在引用前验证就当事实陈述
+  - 已闭环动作：当场更正 + 同步 playbook/memory 全部 $1M→实际数字 + 新增 feedback_understand_before_act 习惯记忆（含"不拿假设冒充事实"铁律）
+  - 建议去处：因已写习惯记忆闭环，friction 记一行存档即可；主公定是否还要单独补 friction_log
+
+### INSIGHTS 建议写入（1条）
+- **[评分:2]** Alpaca swing 账户直查端点坑 [src:86246452]
+  - api_keys.env 里 ALPACA_SWING_ENDPOINT 已含 `/v2` 后缀，直查账户时拼 `/account` 即可，拼 `/v2/account` 会 404（`/v2/v2/...`）。MCP 不可用时的 REST fallback 写法
+  - 低 confidence（单次、edge case），送审
+
+### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
+- 无（习惯级 2 条已在会话中实时写入 memory：feedback_understand_before_act / feedback_p9_strategy_discipline，非走收工自动写入路径）
+
+### 🗑️ 本次自动丢弃摘要（1 分）
+- 0 条

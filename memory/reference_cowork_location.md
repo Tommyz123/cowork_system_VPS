@@ -4,6 +4,8 @@ description: cowork/ 文件夹路径和核心文件位置速查
 type: reference
 originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 ---
+> ⚠️ 当前主力运行环境 = VPS（`/home/cowork/cowork/`）。下方 Windows/WSL 地址仅作历史对照，操作时一律用 VPS 路径。
+
 主公电脑桌面有一个专属文件夹 `Desktop/cowork/`，存放所有 Cowork AI 的规则和状态文件。
 
 **Windows 路径：** `C:\Users\zhi89\Desktop\cowork\`
