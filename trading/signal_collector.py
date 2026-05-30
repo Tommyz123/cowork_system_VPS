@@ -7,6 +7,7 @@ TIDE系统 - 每日信号积累器（每天12PM EDT自动跑）
 """
 import argparse
 import json
+import re
 import sqlite3
 import urllib.request
 from datetime import date, datetime, timedelta
@@ -21,6 +22,13 @@ DB_PATH = Path("/home/cowork/cowork/trading/trading.db")
 SCREEN_OUTPUT_PATH = Path("/home/cowork/cowork/trading/screener_output.json")
 SYSTEM_LOG_PATH = Path("/home/cowork/cowork/trading/system_log.md")
 SEC_URL = "https://efts.sec.gov/LATEST/search-index"
+CIK_MAP_PATH = Path("/home/cowork/cowork/trading/cik_map.json")
+CIK_MAP_URL = "https://www.sec.gov/files/company_tickers.json"
+SEC_USER_AGENT = "cowork-signal-collector/1.0 (zhitao776@gmail.com)"
+
+# 8-K Item 类型 → 信号质量。一份 8-K 可含多个 Item，取最高档。
+ITEM_HIGH = {"1.01", "8.01", "1.03", "2.01"}  # 重大合同/重大事件/破产/资产收购
+ITEM_MEDIUM = {"5.02", "7.01", "2.02", "5.07"}  # 高管变动/Reg FD/财报/股东投票
 
 
 def load_env():
@@ -32,6 +40,42 @@ def load_env():
                 k, v = line.split("=", 1)
                 env[k.strip()] = v.strip()
     return env
+
+
+def load_cik_map():
+    """symbol→CIK 映射。本地缓存当天有效；过期或缺失则从 SEC 拉取。
+    SEC company_tickers.json 结构: {"0": {"cik_str": 320193, "ticker": "AAPL", ...}, ...}
+    """
+    if CIK_MAP_PATH.exists():
+        age_days = (datetime.now() - datetime.fromtimestamp(CIK_MAP_PATH.stat().st_mtime)).days
+        if age_days < 1:
+            try:
+                return {k: int(v) for k, v in json.loads(CIK_MAP_PATH.read_text()).items()}
+            except Exception:
+                pass
+    try:
+        r = requests.get(CIK_MAP_URL, headers={"User-Agent": SEC_USER_AGENT}, timeout=20)
+        r.raise_for_status()
+        data = r.json()
+    except Exception as e:
+        print(f"[cik_map] 拉取失败: {e}，尝试用旧缓存")
+        if CIK_MAP_PATH.exists():
+            try:
+                return {k: int(v) for k, v in json.loads(CIK_MAP_PATH.read_text()).items()}
+            except Exception:
+                return {}
+        return {}
+    mapping = {}
+    for row in data.values():
+        ticker = str(row.get("ticker", "")).strip().upper()
+        cik = row.get("cik_str")
+        if ticker and cik is not None:
+            mapping[ticker] = int(cik)
+    try:
+        CIK_MAP_PATH.write_text(json.dumps(mapping))
+    except Exception:
+        pass
+    return mapping
 
 
 def init_db():
@@ -144,18 +188,49 @@ def _coerce_text(value):
 
 
 
-def fetch_sec_8k_signals(symbol, start_day, end_day):
+def quality_from_items(item_codes):
+    """8-K Item 代码列表 → 信号质量，取最高档。"""
+    codes = {str(c).strip() for c in (item_codes or [])}
+    if codes & ITEM_HIGH:
+        return "high"
+    if codes & ITEM_MEDIUM:
+        return "medium"
+    return "low"
+
+
+def fetch_filing_text(cik, adsh):
+    """用 adsh 拉 8-K 完整提交文本，提取正文摘要。失败返回空串。"""
+    adsh_nodash = adsh.replace("-", "")
+    url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{adsh_nodash}/{adsh}.txt"
+    try:
+        r = requests.get(url, headers={"User-Agent": SEC_USER_AGENT}, timeout=30)
+        r.raise_for_status()
+    except Exception:
+        return ""
+    raw = r.text
+    # 跳过 SGML 头/XBRL，从第一个 "Item X.XX" 正文锚点开始；找不到则退回去标签全文
+    match = re.search(r"Item\s+\d+\.\d+", raw)
+    body = raw[match.start():] if match else raw
+    text = re.sub(r"<[^>]+>", " ", body)
+    text = re.sub(r"&[a-zA-Z#0-9]+;", " ", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text[:1200]
+
+
+def fetch_sec_8k_signals(symbol, cik, start_day, end_day):
+    """按 CIK 精确查 8-K（替代旧的 q=symbol 全文搜，避免命中无关公司）。
+    items 字段直接来自 efts 搜索结果用于评级；正文用 adsh 单独拉。
+    """
+    if cik is None:
+        return []
     params = {
-        "q": f'"{symbol}"',
         "forms": "8-K",
         "dateRange": "custom",
         "startdt": start_day.isoformat(),
         "enddt": end_day.isoformat(),
+        "ciks": f"{int(cik):010d}",
     }
-    headers = {
-        "User-Agent": "cowork-signal-collector/1.0 (local automation)",
-        "Accept": "application/json",
-    }
+    headers = {"User-Agent": SEC_USER_AGENT, "Accept": "application/json"}
     try:
         response = requests.get(SEC_URL, params=params, headers=headers, timeout=15)
         response.raise_for_status()
@@ -169,7 +244,7 @@ def fetch_sec_8k_signals(symbol, start_day, end_day):
     if not isinstance(raw_hits, list):
         return []
 
-    items = []
+    results = []
     for hit in raw_hits:
         source = hit.get("_source", hit) if isinstance(hit, dict) else {}
         file_date = source.get("file_date") or source.get("filedAt") or source.get("date")
@@ -178,24 +253,32 @@ def fetch_sec_8k_signals(symbol, start_day, end_day):
         display_names = _coerce_text(
             source.get("display_names") or source.get("display_name") or source.get("displayNames")
         )
-        form_type = _coerce_text(
-            source.get("form") or source.get("form_type") or source.get("formType") or "8-K"
-        )
-        entity_name = _coerce_text(
-            source.get("entity_name") or source.get("entityName") or source.get("company_name") or symbol
-        )
-        headline = f"{display_names} {form_type}".strip() or f"{symbol} 8-K"
-        items.append(
+        item_codes = source.get("items") or []
+        if isinstance(item_codes, str):
+            item_codes = [c.strip() for c in item_codes.split(",") if c.strip()]
+        quality = quality_from_items(item_codes)
+        items_label = ", ".join(str(c) for c in item_codes) if item_codes else "?"
+        headline = f"{display_names} 8-K Item {items_label}".strip() or f"{symbol} 8-K"
+
+        # adsh 来自 _id（格式 "adsh:primary_doc"）或 source.adsh
+        _id = hit.get("_id", "") if isinstance(hit, dict) else ""
+        adsh = _id.split(":")[0] if ":" in _id else _coerce_text(source.get("adsh"))
+        full_text = fetch_filing_text(cik, adsh) if adsh else ""
+        if not full_text:
+            full_text = f"{display_names} 8-K Items: {items_label}".strip()
+
+        results.append(
             {
                 "symbol": symbol,
                 "date": str(parse_iso_day(file_date)),
                 "signal_type": "8k",
                 "headline": headline,
-                "full_text": f"{entity_name} {str(parse_iso_day(file_date))}".strip(),
+                "full_text": full_text,
                 "source": "SEC EDGAR",
+                "signal_quality": quality,
             }
         )
-    return items
+    return results
 
 
 def insert_signals(conn, signals):
@@ -226,13 +309,10 @@ def insert_signals(conn, signals):
 
 
 def compute_signal_quality(item):
+    # 8-K 在 fetch_sec_8k_signals 里已按 efts items 字段评级
+    if item.get("signal_quality"):
+        return item["signal_quality"]
     signal_type = str(item.get("signal_type") or "").strip().lower()
-    headline = str(item.get("headline") or "")
-    if signal_type == "8k":
-        if "8.01" in headline or "1.01" in headline:
-            return "high"
-        if "7.01" in headline or "5.02" in headline:
-            return "medium"
     if signal_type == "news":
         return "medium"
     return "low"
@@ -327,17 +407,18 @@ def collect_signals(backfill_days):
     start_day = end_day - timedelta(days=max(backfill_days - 1, 0))
     conn = init_db()
     symbols = get_target_symbols(conn)
+    cik_map = load_cik_map()
 
     inserted = 0
     processed = 0
     news_count = 0
     sec_count = 0
 
-    print(f"[signal_collector] symbols={len(symbols)} window={start_day.isoformat()}..{end_day.isoformat()}")
+    print(f"[signal_collector] symbols={len(symbols)} cik_map={len(cik_map)} window={start_day.isoformat()}..{end_day.isoformat()}")
     for symbol in symbols:
         processed += 1
         news_items = fetch_finnhub_signals(symbol, finnhub_key, start_day, end_day) if finnhub_key else []
-        sec_items = fetch_sec_8k_signals(symbol, start_day, end_day)
+        sec_items = fetch_sec_8k_signals(symbol, cik_map.get(symbol.upper()), start_day, end_day)
         n = insert_signals(conn, news_items + sec_items)
         inserted += n
         news_count += len(news_items)

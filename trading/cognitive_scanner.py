@@ -117,12 +117,18 @@ def build_news_content(news_rows, max_items=15):
     return "\n\n".join(parts) or "无相关新闻"
 
 
-def build_historical_signal_block(headlines):
-    if not headlines:
+def build_historical_signal_block(signals):
+    if not signals:
         return ""
     lines = ["[近90天关键信号]"]
-    for headline in headlines[:15]:
+    for sig in signals[:15]:
+        headline = sig.get("headline", "") if isinstance(sig, dict) else str(sig)
         lines.append(f"- {headline}")
+        # 8-K 类信号附正文摘要，让 LLM 读到事件实质（签了什么/换了谁），不只公司名
+        if isinstance(sig, dict) and sig.get("signal_type") == "8k":
+            body = (sig.get("full_text") or "").strip()
+            if body:
+                lines.append(f"  正文摘要: {body[:400]}")
     return "\n".join(lines)
 
 
@@ -130,7 +136,7 @@ def fetch_recent_signal_headlines(conn, symbol):
     since = (datetime.now() - timedelta(days=90)).strftime("%Y-%m-%d")
     rows = conn.execute(
         """
-        SELECT headline
+        SELECT headline, signal_type, full_text
         FROM signals
         WHERE symbol = ?
           AND signal_quality IN ('high', 'medium')
@@ -142,7 +148,11 @@ def fetch_recent_signal_headlines(conn, symbol):
         """,
         (symbol, since),
     ).fetchall()
-    return [row[0] for row in rows if row[0]]
+    return [
+        {"headline": row[0], "signal_type": row[1], "full_text": row[2]}
+        for row in rows
+        if row[0]
+    ]
 
 
 def run_claude_analysis(symbol, news_rows, historical_headlines=None, max_retries=1):

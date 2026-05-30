@@ -34,6 +34,9 @@ scripts/__pycache__/
 trading/strategy.yaml
 settings.json.bak
 
+# SEC symbol→CIK 映射缓存（可重新生成，每日刷新）
+trading/cik_map.json
+
 # 本机配置（机器相关，不追踪）
 .claude/settings.local.json
 
