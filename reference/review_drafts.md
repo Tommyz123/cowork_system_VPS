@@ -487,3 +487,51 @@ cron_jobs.md / reference_dual_bot.md / MEMORY.md / playbook / CURRENT_SESSION / 
 
 ### 🗑️ 本次自动丢弃摘要（1 分，未保留）
 - 3 条 1 分候选丢弃：opus重启(已记cowork_log)/收工中断session(无新内容)/Dutchie策略(已写CURRENT_SESSION+auto_pending不重复)
+
+---
+
+## [草稿] 2026-05-29 深度审核（第二批 · 收工 BB session）
+
+> 审核今天 3 个未审 session：67e3f300（本会话 BB：跨实例派发实测+3 bot 改名，已大量进 CURRENT_SESSION/cowork_log/reference_dual_bot）/ 9a095522（opus 重启延迟诊断+内存 swap+December queue，43条）/ cbf5e4ea（December queue 诉讼深挖+OCM FAQ+Variscite+Alpine IQ，117条）
+> ⚠️ 冷启动期保守：4 分送审，5 分才自动写；本批无自动写入
+
+### ‼️ 建议修正上一批草稿（重要 · 防主公据假 bug 行动）
+
+- **[评分:4]** **上一批 Friction #1「socket 冲突：sonnet 无 tmux pane 可触达」(score 4, src:94a08d58) 已被本会话证伪** [src:67e3f300]
+  - 那条说"sonnet 进程活着但无 tmux pane、无法 send-keys 触达、跨实例派任务断链、状态未解决"——**是假 bug**
+  - 本会话实测：AA(sonnet) 完全可触达，整条 AA→CC→主公 接力就是用 `TMUX= tmux send-keys -t cowork` 投递成功的，AA 活在默认 socket 的 `cowork` session
+  - 真正根因：在 tmux session 内跑**裸 `tmux`** 命令会被 `$TMUX` 环境变量重定向到自己的 socket，于是看不到别实例的 session、误判"没 pane / 死了"。94a08d58 和我自己都踩了同一个坑
+  - **建议**：撤回/作废上一批 Friction #1；改记真实教训——「跨实例查/操作 tmux 必须先 `TMUX= ` 清空环境变量；裸 tmux 在 session 内只看得到自己」（本会话已写进 friction_log，可考虑升 knowledge_base ref-worthy）
+
+### INSIGHTS 建议写入（2 条）
+
+1. **[评分:3]** **实例"重启慢 3 分钟"= 冷启动开销，非卡死、与 4.7/4.8 无关** [src:9a095522]
+   - 机制（scripts/claude_opus_runner.sh）：kill-server → 看门狗 `while true; sleep 5` 最多 5 秒才发现进程没了 → 重拉 claude（从零载全局/项目 CLAUDE.md+MEMORY.md）→ Discord 插件重连握手 → 就绪
+   - 大头推测在「Opus 重启后首次推理重 + Discord 握手」串行累加；无秒级日志无法精确拆段
+   - 改进点（待主公授权）：runner 加时间戳打点，下次重启即可拆段定位瓶颈
+   - 推荐去处：reference/knowledge_base.md「系统维护/实例运维」
+
+2. **[评分:3]** **NY December queue 关键节点 + Variscite 案识别（时效性强，affects 主公申请）** [src:cbf5e4ea, 9a095522]
+   - **节点变了**：原 5/29 deadline → Doc 113(5/26) AG 申请延期、原告反对 → 法院批准延到 **2026-06-12**；queue 继续冻结
+   - **OCM FAQ(2025-11-20) 权威纠正**：revOrder = 第三方审计随机定死的「审核起始顺序」，**≠ 发证顺序**（FAQ 1d）；现有 2,704 份申请无需重交，等的是"解冻+恢复审"非"重新报名"
+   - **FAQ 第 11 条"另一桩诉讼"强候选 = Variscite NY Four 案**：加州申请人告 NY 发牌规则违宪（休眠商业条款），2025-08-12 第二巡回判其赢，逼 OCM 重写打分规则；时间线对得上 FAQ
+   - 推荐去处：**legal_library/18_Organic_Blooms_v_CCB_Tracking.md（主公授权后更新：节点改 6/12 + Variscite 段 + revOrder 机制 + CHANGELOG）**——该文件停在 2026-05-12，已落后；非白名单需主公点头
+
+### Friction 建议补记（2 条）
+
+1. **[评分:3]** **2GB VPS 跑 3 个 Opus 实例内存偏紧（已记 friction_log，状态暂缓）** [src:9a095522]
+   - 可用约 787M、动用 swap 353M；主公决定暂不升级，日后卡顿加剧时作 2G→4G 升级依据
+   - 注：本条 9a095522 session 内已写入 friction_log（暂缓），此处仅备审核可见，**不重复写**
+
+2. **[评分:2]** **Opus 工具调用偶发 parse 失败（"The model's tool call could not be parsed, retry also failed"）** [src:9a095522]
+   - 9a095522 内连续出现 ≥3 次，导致消息没发出、主公等待；5/28 21:17 也有一次 parse 失败卡死需重启
+   - 暂无可控修复（Claude 内部），仅记录频率；若持续高频可考虑反馈 Anthropic
+   - 推荐去处：知识库「已知限制」备查，低优先
+
+---
+
+### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
+- 无（冷启动期 4 分送审，5 分才自动写；本批最高 4 分=修正假 bug 草稿，送审）
+
+### 🗑️ 本次自动丢弃摘要（1 分，未保留）
+- 67e3f300 本会话产出已全部进 CURRENT_SESSION/cowork_log/reference_dual_bot.md，不重复送审；Alpine IQ 调用细节已在 INSIGHTS.md(5/29)，不重复
