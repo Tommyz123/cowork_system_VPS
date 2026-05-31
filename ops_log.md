@@ -197,3 +197,6 @@
 [2026-05-30 02:05 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 134.968 MiB (141524143 Byte) → Google Drive
 [2026-05-30 09:00 EDT] CRON[cannabis_docket_reminder] | mode=critical | ✅ | 案号 904497-24 提醒已发
 [2026-05-30 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-05-30 17:08 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:17e2709 草稿:2条
+[2026-05-30 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-05-30 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成

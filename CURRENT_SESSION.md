@@ -23,6 +23,7 @@ last_audit_date: 2026-04-19
 | P3 | Cannabis Budtender | ⏸️ 暂停（并入 P12 子模块） | 2026-05-07 | eval 100%完成；从 2026-05-14 起作为 P12 子模块继续推进 |
 | P8 | 求职 (career-ops) | 🔄 策略大重定向 | 2026-05-24 | 跳板策略+甜区岗位（Solutions/Customer/Implementation/Founding/Applied AI Eng）；30+ 家清单已列；待主公 review 后启动 portfolio 搭建 |
 | P5 | Legal Library | ⏸️ 暂停（按需更新；December queue 追踪并入 P12） | 2026-05-13 | v4.5 完成；Organic Blooms 案件追踪持续中，每周一 09:00 EDT Discord 提醒 |
+| P14 | Cannabis 行业信息库 | 🆕 新建 | 2026-05-31 | cannabis_industry/ 独立项目（行业通用info，非单公司）；含OCM 5/7+5/29会议要点+行业活动日历；legal/预留待与本地法律合并；下一步：持续攒OCM会议/政策/市场数据 |
 
 ### ⚙️ 自动运行（不计入活跃项目数）
 | ID | 项目 | 状态 | 最后更新 | 备注 |
@@ -184,6 +185,25 @@ last_updated: 2026-05-27
 
 路径：`/home/cowork/cowork/playbooks/cannabis_retail.md`（持续讨论载体）
 关联：`/home/cowork/legal_library/18_Organic_Blooms_v_CCB_Tracking.md`
+
+---
+
+### [P14] Cannabis 行业信息库
+状态：🆕 新建（行业通用信息收集，与 Sage Seeds 单公司项目、cowork 个人系统三者隔离）
+last_updated: 2026-05-31
+停在：项目已建+commit+push（17987b6）。含 OCM 5/7、5/29 两次 CCB 会议要点 + 行业活动/求职日历。legal/ 与 market_data/ 预留空。
+
+本次完成（2026-05-31）：
+- **新建 cannabis_industry 项目**：`/home/cowork/cowork/cannabis_industry/`（移入 cowork 仓库，直接 git 跟踪；内容全公开信息无 PII/key，无需物理隔离）
+- **OCM 5/7 会议笔记**：32 张新牌照、全州累计 2259、YTD $553M、655+ 在营店；Gotham Buds LPA 案完整背景（联邦 12/28 判 NLRA 优先排除 + 俄勒冈同向判例 + 两轨道分析）
+- **OCM 5/29 会议笔记（逐行读完逐字稿）**：决议 2026-33~42；Gotham 谈崩(impasse)→转 OGC 45 天起草拟议裁决(约7月)；联邦 Schedule III + DEA 6/26 大限；RO 费 $20万→$2万；983 零售牌照/634 开业/349 未开；公众意见 5 条实质政策诉求（微企扩产排除/律师clearinghouse/DASNY掠夺性贷款/TPI漏洞race-to-bottom/proximity误算）；社区基金 $1500 万(翻3倍)
+- **events_calendar.md**：8/11 招聘会(+NYC/西部待定)、11/19-20 医用研讨会、6/26 DEA大限、12月底临时牌照到期
+
+下一步：
+- 持续攒 OCM 会议/政策/市场数据
+- 🔔 主公本地大麻法律资料整理好后 → 合并进 legal/
+- ⚠️ 边界铁律：本项目只装行业通用信息；单公司(Sage Seeds)内容永不进此处
+路径：`/home/cowork/cowork/cannabis_industry/`
 
 ---
 
