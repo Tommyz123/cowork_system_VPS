@@ -30,6 +30,12 @@ SCANNER_PICKS_EXTRA_COLUMNS = {
     "verdict": "TEXT DEFAULT 'tentative'",
     "mistake_type": "TEXT",
     "real_reason": "TEXT",
+    # 玄学分隔离观察列(只记录, 不参与任何选股/下单决策)
+    "meihua_score": "INTEGER",
+    "meihua_hexagram": "TEXT",
+    "meihua_relation": "TEXT",
+    "meihua_random": "INTEGER",
+    "listing_date": "TEXT",
 }
 
 

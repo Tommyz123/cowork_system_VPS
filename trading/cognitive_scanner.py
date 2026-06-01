@@ -17,6 +17,7 @@ import screener, transcript_fetcher
 from db_schema import ensure_scanner_picks_schema
 from config import BENCHMARK_SYMBOL, DEFAULT_SECTOR_ETF
 from tide_utils import load_env
+import meihua  # 玄学分: 隔离观察, 只记录不参与任何决策
 
 
 DB_PATH = "/home/cowork/cowork/trading/trading.db"
@@ -525,14 +526,21 @@ def write_scanner_picks(results, scan_date, env):
 
             spy_entry = fetch_current_price(BENCHMARK_SYMBOL)
             sector_etf_entry = fetch_current_price(sector_etf)
+            # 玄学分: 隔离观察列, 算不出就留空, 绝不影响下单
+            try:
+                mh = meihua.compute(symbol, scan_date, build_dt=datetime.now())
+            except Exception:
+                mh = None
             conn.execute(
                 """
                 INSERT OR IGNORE INTO scanner_picks
                 (symbol, entry_price, scan_date, score, old_label, new_signal,
                  invalidation, explosion_catalyst, status, spy_entry, sector_etf, sector_etf_entry,
                  theme, secondary_themes, bear_thesis, hidden_risk,
-                 signal_date, signal_entry_price, cohort)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'submitted', ?, ?, ?, ?, ?, ?, ?, ?, ?, 'auto_pending')
+                 signal_date, signal_entry_price, cohort,
+                 meihua_score, meihua_hexagram, meihua_relation, meihua_random, listing_date)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'submitted', ?, ?, ?, ?, ?, ?, ?, ?, ?, 'auto_pending',
+                        ?, ?, ?, ?, ?)
                 """,
                 (
                     symbol, price, scan_date, item.get("total_score", 0),
@@ -542,6 +550,11 @@ def write_scanner_picks(results, scan_date, env):
                     item.get("theme"), item.get("secondary_themes"),
                     item.get("bear_thesis"), item.get("hidden_risk"),
                     scan_date, price,
+                    mh["meihua_score"] if mh else None,
+                    mh["meihua_hexagram"] if mh else None,
+                    mh["meihua_relation"] if mh else None,
+                    mh["meihua_random"] if mh else None,
+                    mh["listing_date"] if mh else None,
                 ),
             )
             # Record trade (fill_price NULL，等 sync_fill_prices.py 次日 9:45 EDT 回填)
