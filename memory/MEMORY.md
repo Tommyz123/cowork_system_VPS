@@ -1,6 +1,6 @@
 # Memory Index
 
-> 最后更新：2026-05-27（① reference_dual_bot 升级为 3 实例架构 ② 新增 feedback_immediate_vs_longterm_framing：3 选 1 建议前必须问"立即 vs 长期" ③ user_profile 加 Claude Code 使用起点 2025-08；feedback_pacing 升级术语分层：Claude Code 生态术语直接用，底层技术仍需比喻）
+> 最后更新：2026-06-02（project_pyramid_learning 大更新：第1-2章学透毕业(L3)+训练承诺+核心深练边角略过策略+全书深浅地图+4个易错点；reference_p3_cannabis_budtender 路径从旧Windows更新为VPS实际路径+启动流程）
 > 维护规则：新增记忆文件后立即在此处添加条目；不用的记忆文件同步删除对应条目
 
 ## User
@@ -50,6 +50,7 @@
 - [feedback_proactive_update_alert.md](feedback_proactive_update_alert.md) — 主动扫描+及时提醒：工作中扫描到任何需要更新的内容(文档/索引/记忆/简历)立即 Discord 提醒，不等主公问；write_triggers_scan/artifact_indexing/deprecation_cleanup 的总纲
 - [feedback_immediate_vs_longterm_framing.md](feedback_immediate_vs_longterm_framing.md) — 推 3 选 1 / 优先级建议前必须先问"立即推动 vs 长期方向"；两种场景判断框架完全不同（立即→看难度+ROI；长期→看战略契合度，重不再是缺点）
 - [feedback_p9_strategy_discipline.md](feedback_p9_strategy_discipline.md) — P9 优化提案先过"是否改了策略本身"关；攒样本只能框架内拓宽广度，不能改扫描频率（数据回来前不改策略）
+- [feedback_tmux_cross_instance.md](feedback_tmux_cross_instance.md) — tmux send-keys 跨实例通讯必须用英文/ASCII；中文字符会被丢弃对方收不到（tmux 编码限制）
 
 ## Project（项目背景）
 - [project_cannabis_retail.md](project_cannabis_retail.md) — ⭐ P12 大麻零售主线（2026年主线，2026-05-14 确立）；NY牌照申请中+AI赋能+SaaS化路径；八字辛卯大运对应；playbook: playbooks/cannabis_retail.md；P1/P3/P5 已并入作为子模块
@@ -63,7 +64,7 @@
 - [project_cowork_roadmap.md](project_cowork_roadmap.md) — Cowork多agent路线图+Codex审核3个发展方向；路线可灵活调整，我有更好判断时提出讨论
 - [project_career_ops.md](project_career_ops.md) — P8求职：作品敲门路线+Cannabis Budtender实体试用+目标EliseAI/Dutchie/LeafLink；兼职/Contract优先；2026-05在职dispensary老板给Alpine IQ API key让做客户分析(=作品机会)
 - [project_personal_library.md](project_personal_library.md) — P10个人文件库：267文件已索引(简历/lease/财务/证书/cannabis)，personal.db独立，阶段5-8暂停等OCR
-- [project_pyramid_learning.md](project_pyramid_learning.md) — 《金字塔原理》精读项目：第1章已通过(三层结构/MECE/结论先行/自上而下)+实战改写2简历项目；待第2章(纵横关系+SCQA)；写材料时主动引用
+- [project_pyramid_learning.md](project_pyramid_learning.md) — 《金字塔原理》精读：第1-2章学透毕业(L3达标)；含教学5规则+训练承诺(学透L3)+核心深练边角略过策略+全书深浅地图+4个易错点；下次开第3章(中等深度)；写材料时主动引用
 
 ## Reference（位置索引）
 - [reference_claude_md_rules.md](reference_claude_md_rules.md) — Claude Code官方规则：CLAUDE.md目标≤200行；超180行优先删旧；拆分用@import或.claude/rules/

@@ -13,10 +13,10 @@ disable-model-invocation: true
 
 ## 步骤0：处理 auto_pending.md
 
-读 `/root/cowork/memory/auto_pending.md`，检查有无 `[` 开头的待审条目。
+读 `/home/cowork/.claude/projects/-home-cowork-cowork/memory/auto_pending.md`，检查有无 `[` 开头的待审条目。
 
-- **有**：逐条列出，请主公确认（✅保留 / ✏️修改 / ❌删除），确认后写入正式 memory/ 文件并清除已处理条目，再继续以下步骤
 - **无**：直接进入步骤1
+- **有**：通过 Discord reply 列出所有条目，每条附上建议处理方式（✅写入 / ❌删除），**然后停在这里等主公回复**。收到回复后按指示处理，再继续步骤1。禁止使用 AskUserQuestion 弹窗（主公在 Discord 遥控，看不到 UI 弹窗）。
 
 ---
 
@@ -25,8 +25,8 @@ disable-model-invocation: true
 读取 `CURRENT_SESSION.md` 中的 `last_memory_sync` 时间戳。
 
 分别列出两个路径的文件列表：
-- Claude 内部路径：`/root/.claude/projects/-root-cowork/memory/`
-- Desktop 本地路径：`/root/cowork/memory/`
+- Claude 内部路径：`/home/cowork/.claude/projects/-home-cowork-cowork/memory/`
+- Desktop 本地路径：`/home/cowork/cowork/memory/`
 
 对比差异，有分叉则列出并询问主公如何合并。
 
@@ -54,7 +54,7 @@ disable-model-invocation: true
 ## 步骤4：检查 MEMORY.md 行数
 
 ```bash
-wc -l /root/cowork/memory/MEMORY.md
+wc -l /home/cowork/cowork/memory/MEMORY.md
 ```
 
 超过180行则提醒主公精简（目标上限200行）。
