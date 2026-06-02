@@ -209,8 +209,15 @@ last_updated: 2026-05-31
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-06-01
-停在：Codex CLI 设备码登录已完成，gpt-5.5 测试通过，系统就绪可用 /codex:rescue 派活。
+last_updated: 2026-06-02
+停在：Hook 三实例统一已完成并通过 CC 实例 6 维独立审核，配置已重启加载生效，无残留问题。
+
+本次完成（2026-06-02，Hook 三实例统一核实+审核）：
+- **背景**：上一对话（另一实例）完成 hook 三实例统一改动，本会话(CC/opus2_home)负责独立核实+审核，非凭记忆而是读文件验证
+- **6 维审核全过**：①4个settings.json语法OK ②共享层引用12脚本全存在 ③守卫脚本bash-n/py编译全过 ④分层无违规(AA用户层仅position_check.py实例专属,BB/CC零通用hook) ⑤fail-safe生效(未知HOME→exit2拒绝放行) ⑥token隔离=代码层路径分离(task_approved_<实例>/git_approved_<实例>,物理不同文件,git守卫一次性consume)
+- **共享层15条hook**：PreToolUse3(git守卫+文件守卫×2) / PostToolUse3(日志记录+context_watch+discord清flag) / UserPromptSubmit7(日志提醒+health_check+memory_capture+时间转换+清token+授权检测+回复flag) / Stop2(回复检查+诚信检查)
+- **立场纠正(数据诚信)**：先前误判"内存跑旧配置需重启才生效"，主公追问后据实证(每条消息收到的⏰时间提醒正是discord_ts_convert.py输出)纠正→配置已生效；同时澄清"记忆没了"是重启冷启动开新会话的正常代价，与hook无关
+- **实时证据**：审核时手动touch token被git守卫当场拦下("Claude无权自行touch")，反证守卫正在运行
 
 本次完成（2026-06-01，Codex CLI 登录）：
 - **Codex CLI 认证**：设备码方式（codex login --device-auth）登录 zhitao776@gmail.com，ready: true，gpt-5.5 实测通过

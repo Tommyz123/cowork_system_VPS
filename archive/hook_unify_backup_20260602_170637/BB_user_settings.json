@@ -1,0 +1,64 @@
+{
+  "env": {
+    "PATH": "/home/cowork/.bun/bin:/home/cowork/.local/bin:/home/cowork/.nvm/versions/node/v22.18.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(uvicorn *)",
+      "Bash(bash scripts/*)",
+      "Bash(ls *)",
+      "Bash(mkdir *)",
+      "Bash(mv *)",
+      "Write(/mnt/c/Users/zhi89/Desktop/*)",
+      "Edit(/mnt/c/Users/zhi89/Desktop/*)",
+      "mcp__plugin_discord_discord__reply",
+      "mcp__plugin_discord_discord__react",
+      "mcp__plugin_discord_discord__edit_message",
+      "mcp__plugin_discord_discord__fetch_messages",
+      "mcp__plugin_discord_discord__download_attachment",
+      "WebFetch",
+      "WebSearch"
+    ],
+    "deny": [
+      "Bash(rm -rf /*)",
+      "Bash(rm -rf ~*)",
+      "Bash(rm -rf $HOME*)",
+      "Bash(rm -rf /root*)",
+      "Bash(rm -rf /home*)",
+      "Bash(mkfs*)",
+      "Bash(dd of=/dev/*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "Bash(curl * | bash*)",
+      "Bash(curl * | sh*)",
+      "Bash(wget * | bash*)",
+      "Bash(wget * | sh*)",
+      "Bash(chmod -R 777 /*)",
+      "Bash(chown -R *)"
+    ],
+    "defaultMode": "bypassPermissions"
+  },
+  "model": "claude-opus-4-8",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/cowork/opus_home/.claude/hooks/inject_time.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "discord@claude-plugins-official": true
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "alwaysThinkingEnabled": false
+}

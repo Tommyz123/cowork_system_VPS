@@ -1,0 +1,180 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "PATH": "/home/cowork/.bun/bin:/home/cowork/.local/bin:/home/cowork/.nvm/versions/node/v22.18.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(uvicorn *)",
+      "Bash(bash scripts/*)",
+      "Bash(ls *)",
+      "Bash(mkdir *)",
+      "Bash(mv *)",
+      "Write(/mnt/c/Users/zhi89/Desktop/*)",
+      "Edit(/mnt/c/Users/zhi89/Desktop/*)",
+      "mcp__plugin_discord_discord__reply",
+      "mcp__plugin_discord_discord__react",
+      "mcp__plugin_discord_discord__edit_message",
+      "mcp__plugin_discord_discord__fetch_messages",
+      "mcp__plugin_discord_discord__download_attachment",
+      "WebFetch",
+      "WebSearch"
+    ],
+    "deny": [
+      "Bash(rm -rf /*)",
+      "Bash(rm -rf ~*)",
+      "Bash(rm -rf $HOME*)",
+      "Bash(rm -rf /root*)",
+      "Bash(rm -rf /home*)",
+      "Bash(mkfs*)",
+      "Bash(dd of=/dev/*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "Bash(curl * | bash*)",
+      "Bash(curl * | sh*)",
+      "Bash(wget * | bash*)",
+      "Bash(wget * | sh*)",
+      "Bash(chmod -R 777 /*)",
+      "Bash(chown -R *)"
+    ],
+    "defaultMode": "bypassPermissions"
+  },
+  "model": "claude-sonnet-4-6",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /home/cowork/.claude/hooks/git_commit_guard.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /home/cowork/.claude/hooks/system_file_guard.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /home/cowork/.claude/hooks/system_file_guard.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /home/cowork/.claude/hooks/context_watch.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__plugin_discord_discord__reply",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /home/cowork/.claude/hooks/discord_reply_clear.py"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"⚠️ 提醒：完成任务后记得写 cowork_log.md 日志（格式：[日期时间] 类型 | 对象 | 结果）。\"}}'"
+          },
+          {
+            "type": "command",
+            "command": "bash /home/cowork/.claude/hooks/health_check.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash /home/cowork/.claude/hooks/memory_capture.sh"
+          },
+          {
+            "type": "command",
+            "command": "python3 /home/cowork/cowork/scripts/discord_ts_convert.py"
+          },
+          {
+            "type": "command",
+            "command": "rm -f /tmp/task_approved"
+          },
+          {
+            "type": "command",
+            "command": "python3 /home/cowork/.claude/hooks/discord_approve.py"
+          },
+          {
+            "type": "command",
+            "command": "python3 /home/cowork/.claude/hooks/discord_reply_flag.py"
+          },
+          {
+            "type": "command",
+            "command": "python3 /home/cowork/.claude/hooks/position_check.py"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /home/cowork/.claude/hooks/discord_reply_check.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash /home/cowork/.claude/hooks/honesty_check.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "/home/cowork/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "agent-sdk-dev@claude-plugins-official": true,
+    "greptile@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "discord@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "codex@openai-codex": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    },
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    }
+  },
+  "language": "中文",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "light"
+}

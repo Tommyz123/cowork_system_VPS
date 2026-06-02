@@ -223,3 +223,10 @@
 [2026-06-02 00:05 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2 commit:8eae1ed 草稿:0条(ae8aed06全Score1丢弃)
 [2026-06-02 00:45 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P13,P3 commit:2713f74 草稿:2条
 [2026-06-02 02:07 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 138.278 MiB (144995039 Byte) → Google Drive
+[2026-06-02 13:03 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-02 15:06 EDT] CRON[P9] | screener | ✅ | 完成
+[2026-06-02 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-06-02 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-06-02 16:03 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-06-02 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-02 17:33 EDT] CRON[P6] | flight_monitor | ✅ | 机票日报发送完成

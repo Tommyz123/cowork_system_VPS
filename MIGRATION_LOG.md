@@ -233,3 +233,29 @@ tail -50 /tmp/discord-server.log
 ---
 
 **保存于 2026-05-09 00:10 EDT。主公好梦，明天接续。**
+
+---
+
+# 2026-06-02：三实例 hook 统一（共享层架构）
+
+## 背景
+迁移后发现 BB(opus_home)/CC(opus2) 用户层 settings.json 只有 inject_time.sh，缺 AA 的全套守卫 hook（漏配，见 friction_log 2026-06-02）。
+
+## 架构决策
+- **通用 hook → 项目共享层** `/home/cowork/cowork/.claude/settings.json`（三实例自动合并继承，改一处三处同步）
+- **实例专属 → 用户层** `$HOME/.claude/settings.json`（model/env.PATH/permissions/enabledPlugins/statusLine 各自保留）
+- **P9 专用 position_check.py → 只留 AA 用户层**（P9 只在 AA 跑）
+- **时间注入统一**：废弃 inject_time.sh，三实例统一用 `discord_ts_convert.py`（共享层）
+
+## token 实例隔离
+`/tmp/task_approved` / `/tmp/git_approved` → 带实例后缀 `_AA/_BB/_CC`，由 `$HOME` 推导：
+- /home/cowork/opus_home→BB，/home/cowork/opus2_home→CC，/home/cowork→AA，其他→拒绝放行(fail-safe)
+- 改了 3 脚本：discord_approve.py / system_file_guard.sh / git_commit_guard.sh
+- 共享层 UserPromptSubmit 的 `rm -f` 也改成带后缀
+
+## 备份位置
+`/home/cowork/cowork/archive/hook_unify_backup_20260602_170637/`（4 个 settings.json + 3 个脚本）
+回滚：cp 对应 .bak 回原位 → 重启对应实例
+
+## 验证状态
+脚本已手动测试全通过（token 隔离/fail-safe/守卫拦截）。配置层需**重启三实例**后才真正加载生效——这是残留风险，重启后看 write_events.log + 手动触发守卫确认。
