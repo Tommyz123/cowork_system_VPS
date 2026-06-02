@@ -186,6 +186,17 @@ update/create 时传复杂嵌套 JSON + 中文/emoji 会报 "provided as string"
 - 实测节省：全量精简后总省 **~400 token / 对话**
 - 用于：新建 memory 时写索引行 / 整理记忆 Skill 流程加一步"按 ABCD 类格式化"
 
+**三实例重启加载新配置：杀 session 不杀 server，无需 sudo**（2026-06-02）[ref-worthy]
+- 场景：改了共享层 settings.json（hook）后需重启实例让新配置生效；`sudo systemctl restart` 会卡密码
+- **无需 sudo 的正确做法**：杀掉 tmux **session**（不是整个 server），runner 会自动重生 session 并加载新配置
+- **AA 与 BB/CC 的 runner 机制不同**（实测 2026-06-02）：
+  - **BB/CC**（opus_home/opus2_home）：runner 是 `while true` 内循环，每 5s 检查 session 是否存在，不在就自己重生 → 杀 session 后 ≤5s 自动回来
+  - **AA**（默认 socket）：runner 在 session 死后 **exit 1** → 靠 systemd `Restart=on-failure` 重启（spawn 新 runner 创建新 session）
+- **坑**：杀 AA session 后立即检查会看到 "no server running"，那是 systemd RestartSec 窗口内（约几秒），不是失败——等几秒 NRestarts 会 +1，session 回来
+- **CC 杀自己 session = 终止当前会话**：先发 Discord 通知主公，再杀；`while true` runner ≤5s 用新配置重生
+- 验证配置已生效：看每条 Discord 消息收到的 `⏰ Discord消息时间` system-reminder（= 共享层 discord_ts_convert.py 输出），出现即证明新 hook 已加载
+- 用于：任何改共享层 settings.json / hook 后需重启实例的场景
+
 ---
 
 ## SQLite / 数据库

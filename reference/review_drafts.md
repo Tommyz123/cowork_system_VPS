@@ -4,6 +4,26 @@
 
 ---
 
+## [草稿] 2026-06-02 深度审核（session 1a7af34a · hermes对比 + 三实例重启）
+
+### INSIGHTS 建议写入（2条）
+1. **[评分:3]** **hermes-agent 是 Agent 框架不是本地模型（纠正4月旧记忆错误）** [src:1a7af34a]
+   - 实读 GitHub（github.com/NousResearch/hermes-agent）确认：hermes-agent 是 Nous Research 出品的开源 AI Agent 框架（Python，MIT，177k stars，topics 含 anthropic/claude/claude-code/openclaw），**不是**之前某 session 误记的"Nous Hermes 本地模型"。
+   - **cowork ≈ hermes 理念的"手搓复刻版"**：设计哲学一一对应（自学习闭环/记忆/Skills/压缩/Cron/多平台/子agent），因 cowork 4月就是借鉴 hermes 搭的；本质区别=hermes 是通用可移植模型无关成品框架，cowork 是长在 Claude Code 里为主公定制的系统。
+   - 价值：4月旧记忆自相矛盾（一处说框架一处说模型），下次再问 hermes 时直接用此更正过的事实，别再凭旧记忆。
+
+2. **[评分:2]** **feedback_proposal_data_first 第N次正确执行（成功validation）** [src:1a7af34a]
+   - 主公问"hermes 有哪些值得 cowork 借鉴"——正是 5/28 三犯的同一场景。这次正确执行：先复述+声明会先验痛点，再实际 grep friction_log 验证痛点真实性，没讨好式列清单。
+   - 价值：记录一次规则被正确遵守的正例（避免只存纠正、漂移掉已验证的好做法）。
+
+### 🤖 本次自动写入（4-5 分）
+- **[评分:5]** 运维知识：三实例重启机制（杀session不杀server/AA=exit1+systemd vs BB/CC=while-true自重生/RestartSec窗口坑/配置生效看⏰提醒）→ 已写入 reference/knowledge_base.md
+
+### 🗑️ 自动丢弃（1 分）
+- 927b72de(631条)实质内容已被前序两次嵌套收工充分记录(玄学分实验设计→已在5/29草稿;Dutchie/AlpineIQ→cowork_log);f998d136仅1条重启消息无内容。本次无1分独立候选。
+
+---
+
 ## [草稿] 2026-05-29 深度审核
 
 > 审核 session：94c2988a（opus2收工+VPS架构讨论，20条）、9cffe957（系统稳定周报+VRRM止损，32条）
