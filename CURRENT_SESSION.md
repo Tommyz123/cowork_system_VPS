@@ -740,9 +740,18 @@ last_updated: 2026-05-29 晚
 
 
 ### [P9] AI量化交易系统（TIDE系统）
-状态：✅ cron运行中 + 第一二层数据质量全部完成 + 全库审计通过
-last_updated: 2026-05-30
-停在：**数据质量这条线已闭环交付**（第一层3bug + 第二层8K全链路 + 全库10表审计全部完成并 commit）。下一步=等 6 月初~月底首批 outcome 数据出来验证系统 edge（这是判断有没有 alpha 的真正时刻，在那之前不下"系统有效"结论）。固定节点：6/14 首批 30 天 outcome / 6 月底 hit rate / 8/4 Q3 扫描实战。
+状态：✅ cron运行中 + 第一二层数据质量全部完成 + 全库审计通过 + 玄学分隔离观察列上线
+last_updated: 2026-06-01
+停在：**数据质量这条线已闭环交付**（第一层3bug + 第二层8K全链路 + 全库10表审计全部完成并 commit）。2026-06-01 新增「玄学分」隔离观察列（梅花起卦打分，只记录不参与决策，commit e91d357 已 push）。下一步=等 6 月初~月底首批 outcome 数据出来验证系统 edge（这是判断有没有 alpha 的真正时刻，在那之前不下"系统有效"结论）。固定节点：6/14 首批 30 天 outcome / 6 月底 hit rate / 8/4 Q3 扫描实战。玄学分验证另需攒 1-2 季度平仓收益。
+
+本次完成（2026-06-01 — P9 玄学分隔离观察系统）：
+- **新建 trading/meihua.py**：梅花易数时间起卦打分模块（v4：体用五行生克主分 base50 + 动爻位置微调 ±3 + 互卦微调 ±3）。100% 可复现，无临场解读。起卦本命=上市日(yfinance首个交易日)月/日，当下=建仓日/时辰（历史无时分用午时=7占位，实时建仓用真实 datetime）。
+- **scanner_picks 加 5 列**：meihua_score / meihua_hexagram / meihua_relation / meihua_random(hash随机对照分) / listing_date。只加列，现有列与逻辑零改动。db_schema.py 的 SCANNER_PICKS_EXTRA_COLUMNS 同步登记。
+- **回填全部 31 只 picks**：含已平仓的（验证样本更大），分布 17 个唯一值（健康，第一版只用体用生克时只有4个值，加微调后改善）。
+- **建仓处接入**（cognitive_scanner.py:531）：try/except 包住，算分异常留空跳过，绝不影响下单。grep 验证 meihua 仅出现在 import + 写库两处，不入任何筛选/排序/下单逻辑。
+- **commit e91d357 已 push**（只含 meihua.py + cognitive_scanner.py + db_schema.py 三个文件，无关改动未卷入）。DB 备份 trading.db.bak_meihua_20260601_1739。
+- **当前相关性（n=14 浮盈，统计不显著，仅记录）**：玄学分 vs 当前浮盈 Spearman -0.125 / Pearson -0.207 轻微负相关（高分组+3.4% < 低分组+11.5%，AGYS 最低分25却+35.4%）。设计本意就是先隔离攒样本，平仓后用真实收益验证，玄学分须跑赢随机对照分才算真信号。
+- **待办**：6/8 清理 DB 备份 trading.db.bak_meihua_20260601_1739（确认无问题后）。
 
 本次完成（2026-05-30 — P9 第二层 8K 全链路 + 全库数据质量审计）：
 - **第二层 8K 全链路重写（commit 4e9bdc2）**：把死了 25 天的 8K 信号源从"录黑屏"修成"真摄像头"。先写独立脚本 test_edgar_chain.py 用 AAPL/ORA/MSFT 真实数据验证全链路通（已删）。四环节：

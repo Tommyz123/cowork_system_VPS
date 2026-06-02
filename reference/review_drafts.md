@@ -585,3 +585,22 @@ cron_jobs.md / reference_dual_bot.md / MEMORY.md / playbook / CURRENT_SESSION / 
 
 ### 🗑️ 本次自动丢弃摘要（1 分）
 - 0 条
+
+---
+
+## [草稿] 2026-05-31 深度审核（4a5aa7d8 · P9 数据质量审计修复 / e28d2d3f · API-400）
+
+> 4a5aa7d8 = P9 第一层修复主会话（3 bug 验证+修复），核心成果已实时写入 cowork_log.md + memory（feedback_understand_before_act 含"先理解再动"+"信而后验"已是 CLAUDE.md 规则）。以下为剩余候选。
+> e28d2d3f = thinking-block + Discord plugin 400 循环（8 条全报错），已知问题已于 5/29 修复（settings.json alwaysThinkingEnabled:false），无新内容。
+
+### INSIGHTS 建议写入（2条）
+1. **[评分:4]** 不为验证触发有副作用的操作 → 验证脚本正确性时，若脚本最后一步有真实副作用（发 Discord 周报 / 写外部系统 / 下单）且无 dry-run 开关，**不实跑**；改用 `py_compile` 语法检查 + DB 查询模拟（如查询命中数 0→14）验证逻辑，真实运行留给定时任务自然触发或主公明确授权。本次 scanner_tracker 无 dry-run 开关、221 行无条件发周报，故未实跑，等主公授权后才手动触发。[src:4a5aa7d8]
+   - 跨项目通用（任何带外部副作用的脚本验证都适用），有具体场景，规则完整 → 4 分。冷启动期 4 分送审等主公确认是否升正式 knowledge_base
+2. **[评分:2]** 设计意图 vs 代码现实 必须分开陈述 → 主公说"8K 是给 AI 读的"（设计意图），代码现实是 8K 因评级 bug（headline 无 item 代码→全 'low'）+ 大小写过滤被全部挡在 LLM 门外。被质疑时不维持"没人读"的立场，而是区分"应该读（设计对）"vs"现在没读到（代码 bug）"——这反而让 8K 修复重新变重要。[src:4a5aa7d8]
+   - 单项目 specific、第一次发现，送审
+
+### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
+- 无（4 分在冷启动期送审，不自动写）
+
+### 🗑️ 本次自动丢弃摘要（1 分）
+- 1 条："信而后验子agent"——已是 CLAUDE.md「子Agent协作」既定规则，非新发现，丢弃

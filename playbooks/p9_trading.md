@@ -199,3 +199,17 @@ SELECT symbol, alert_date, thesis_status, headline_summary FROM thesis_alerts OR
 ---
 
 **统一验证节点**：2026-06 月底 hit rate 数据 + 2026-12 全年 outcome → 三个假设一起评估，**任何一个验证为真都触发 v1→v2 策略切换**。
+
+---
+
+## 🔮 玄学分隔离观察（2026-06-01 上线）
+
+**这是什么**：scanner_picks 多了 5 个列（meihua_score / meihua_hexagram / meihua_relation / meihua_random / listing_date），P9 建仓时由 `trading/meihua.py` 自动算一个梅花易数"玄学分" + 一个 hash 随机对照分写库。
+
+**⚠️ 关键边界 — 只记录，绝不参与决策**：meihua 在 `cognitive_scanner.py` 里只出现在 import + 写库两处，不入任何筛选/打分/排序/下单逻辑。算分异常（如 yfinance 拿不到上市日）会留空，绝不影响下单。**改 P9 选股/下单逻辑时不要去读这几个列**。
+
+**起卦规则（v4，100% 可复现）**：本命=上市日(yfinance首个交易日)月/日；当下=建仓日/时辰（历史无时分用午时占位，实时建仓用真实 datetime）。主分=体用五行生克(base50)，微调=动爻位置 ±3 + 互卦 ±3。
+
+**验证计划**：攒 1-2 季度、平仓后用真实收益验证。**玄学分必须跑赢随机对照分(meihua_random)才算真信号**，否则就是噪声。当前 n=14 浮盈下与收益轻微负相关(Spearman -0.125)但统计不显著。
+
+代码：`trading/meihua.py`（独立模块，可 `python3 meihua.py` 自测）。
