@@ -209,8 +209,12 @@ last_updated: 2026-05-31
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-05-29
-停在：跨实例任务派发链路（AA→CC→主公）首次实测端到端跑通 + 3 bot 全部改名（AA/BB/CC+模型名，Discord 群昵称 + 私聊 username 双层都改）；定调：send-keys 是 hack，不建管道，等"非持久并行实例不可"的真实任务出现再投入。
+last_updated: 2026-06-01
+停在：Codex CLI 设备码登录已完成，gpt-5.5 测试通过，系统就绪可用 /codex:rescue 派活。
+
+本次完成（2026-06-01，Codex CLI 登录）：
+- **Codex CLI 认证**：设备码方式（codex login --device-auth）登录 zhitao776@gmail.com，ready: true，gpt-5.5 实测通过
+- **VPS 无头机提醒**：澄清 !codex login 是 Claude Code 语法，不是 Windows PowerShell 命令
 
 本次完成（2026-05-29 晚，跨实例派发实测 + 3 bot 改名）：
 - **跨实例派发三跳接力实测通**：主公"叫AA查纽约天气→发给CC→CC发我"→ AA(Sonnet) WebSearch 写入 /tmp/team_mailbox/for_cc_weather.txt → send-keys 投门铃给 CC(Opus) → CC 读信箱调 Discord reply 发主公手机（注明 AA查/CC转）→ 主公"收到回报了"确认；这是团队协作最小闭环（一个实例派活、另一实例执行并汇报）

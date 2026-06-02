@@ -200,3 +200,23 @@
 [2026-05-30 17:08 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:17e2709 草稿:2条
 [2026-05-30 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
 [2026-05-30 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-05-31 00:41 EDT] SKILL[SYS] | 收工 | ✅ | 项目:[P14] commit:e68ad0c 草稿:2条 | 审核session:2(4a5aa7d8/e28d2d3f)
+[2026-05-31 02:03 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 135.193 MiB (141760097 Byte) → Google Drive
+[2026-05-31 09:00 EDT] CRON[cannabis_docket_reminder] | mode=critical | ✅ | 案号 904497-24 提醒已发
+[2026-05-31 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-05-31 16:00 EDT] CRON[P9] | weekly_review | ✅ | 完成
+[2026-05-31 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-05-31 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-06-01 02:01 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 135.199 MiB (141766110 Byte) → Google Drive
+[2026-06-01 09:00 EDT] CRON[cannabis_docket_reminder] | mode=weekly | ✅ | 案号 904497-24 提醒已发
+[2026-06-01 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-01 15:06 EDT] CRON[P9] | screener | ✅ | 完成
+[2026-06-01 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-06-01 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-06-01 16:03 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-06-01 16:30 EDT] CRON[P9] | scanner_tracker | ✅ | 完成
+[2026-06-01 16:45 EDT] CRON[P9] | price_tracker | ✅ | 完成
+[2026-06-01 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-01 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-06-01 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-06-01 21:21 EDT] SKILL[SYS] | 收工 | ✅ | 项目:[P9] commit:46e893b 草稿:4条
