@@ -65,6 +65,7 @@
 - [project_career_ops.md](project_career_ops.md) — P8求职：作品敲门路线+Cannabis Budtender实体试用+目标EliseAI/Dutchie/LeafLink；兼职/Contract优先；2026-05在职dispensary老板给Alpine IQ API key让做客户分析(=作品机会)
 - [project_personal_library.md](project_personal_library.md) — P10个人文件库：267文件已索引(简历/lease/财务/证书/cannabis)，personal.db独立，阶段5-8暂停等OCR
 - [project_pyramid_learning.md](project_pyramid_learning.md) — 《金字塔原理》精读：第1-2章学透毕业(L3达标)；含教学5规则+训练承诺(学透L3)+核心深练边角略过策略+全书深浅地图+4个易错点；下次开第3章(中等深度)；写材料时主动引用
+- [project_p9_validation_philosophy.md](project_p9_validation_philosophy.md) — P9 验证哲学「先改进再认输」：三指数基准(IWM/SPY/QQQ)+Sharpe，跑输=找根因改进，认输门槛需多季度稳定跑输（2026-06-02 主公确立）
 
 ## Reference（位置索引）
 - [reference_claude_md_rules.md](reference_claude_md_rules.md) — Claude Code官方规则：CLAUDE.md目标≤200行；超180行优先删旧；拆分用@import或.claude/rules/

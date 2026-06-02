@@ -33,7 +33,7 @@ allowed-tools: Bash
 ## 第二步：执行搜索
 
 ```bash
-python3 /root/cowork/scripts/search_conversations.py \
+python3 /home/cowork/cowork/scripts/search_conversations.py \
   "keyword" \
   [--project P3] \
   [--date 2026-04] \
