@@ -78,7 +78,7 @@
           },
           {
             "type": "command",
-            "command": "rm -f /tmp/task_approved_$(case \"$HOME\" in /home/cowork/opus_home) echo BB ;; /home/cowork/opus2_home) echo CC ;; /home/cowork) echo AA ;; *) echo UNKNOWN ;; esac)"
+            "command": "INST=$(case \"$HOME\" in /home/cowork/opus_home) echo BB ;; /home/cowork/opus2_home) echo CC ;; /home/cowork) echo AA ;; *) echo UNKNOWN ;; esac); rm -f /tmp/task_approved_$INST /tmp/git_approved_$INST"
           },
           {
             "type": "command",
