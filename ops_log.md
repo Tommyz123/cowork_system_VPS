@@ -231,3 +231,5 @@
 [2026-06-02 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
 [2026-06-02 17:33 EDT] CRON[P6] | flight_monitor | ✅ | 机票日报发送完成
 [2026-06-02 17:51 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2 commit:62aa88c 草稿:2条+自动写入1条
+[2026-06-02 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-06-02 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成

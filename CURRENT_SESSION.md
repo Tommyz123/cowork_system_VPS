@@ -209,8 +209,16 @@ last_updated: 2026-05-31
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-06-02
-停在：Hook 三实例统一已完成并通过 CC 实例 6 维独立审核，配置已重启加载生效，无残留问题。
+last_updated: 2026-06-03
+停在：OpenAgents Workspace 只读研究完成，拆解笔记已落地 research/openagents_teardown.md，结论=理念契合但当下不融合生产（提取设计范式即可）。
+
+本次完成（2026-06-03，OpenAgents Workspace 只读研究 + 方法论拆解）：
+- **背景**：主公问 OpenAgents Workspace（开源多 agent 协作框架，非 OpenAI Workspace Agents）→ clone 到 /tmp 只读研究（118M，未安装未运行）→ 评估是否适合融合本系统
+- **架构理解**：事件驱动（一切皆 Event）+ 中央 Event Gateway 路由 + Mod 插件拦截器 + 7 积木（Network/Addressing/Verification/Events/Mods/Resources/Transport）+ 渐进验证 0-3 级 + 传输无关（HTTP ~5-10ms / gRPC ~1-3ms / A2A ~0.5-1ms）
+- **Claude 适配器实现**：用 claude CLI stream-json 子进程 + 轮询 + MCP server 接管（非 claude-agent-sdk）
+- **拆解笔记落地**：research/openagents_teardown.md，3 部分（①工程方法论 7 条 ②产品/商业方法论 5 条 PLG 打法 ③对主公迁移价值 + 关键文件位置）；主公选 c=工程+商业方法论都要
+- **诚实评估（未顺着主公期待凑数）**：理念契合（多 agent 协作/隔离边界/模型无关/插件化与本系统同源）但落地有摩擦——要把三实例 tmux 改成中央网关=换骨；中央单点与现有隔离优点相反；Web 面板与 Discord 遥控重叠；还是 Alpha(0.9.x)；结论=当下不融合生产，提取设计范式用到主公自己作品里
+- **附带科普（无项目映射）**：AI 经济（OpenAI/Anthropic 营收/盈利/泡沫）+ Robinhood Agentic Trading（MCP 接入，Claude 原生支持，随时可接）全程标推测/观点非事实
 
 本次完成（2026-06-02，Hook 三实例统一核实+审核）：
 - **背景**：上一对话（另一实例）完成 hook 三实例统一改动，本会话(CC/opus2_home)负责独立核实+审核，非凭记忆而是读文件验证
