@@ -4,6 +4,20 @@
 
 ---
 
+## [草稿] 2026-06-03 深度审核（session d83700cd · OpenAgents 研究 + 收工流程）
+
+### Friction 建议补记（1 条 · 规则 vs Hook 冲突）
+- **[评分:4]** **收工流程中 git_commit_guard.sh / system_file_guard.sh 与「收工=固定触发跳过5步」规则冲突** [src:d83700cd]：CLAUDE.md 第27行明确「收工=固定触发指令，直接执行跳过5步」，意味着主公说"收工"已授权整个流程含 commit/push 和写 review_drafts。但 git_commit_guard.sh 和 system_file_guard.sh 两个 hook 仍把收工内的 commit、review_drafts 写入当成需逐次人工确认的操作拦截。本次我先误把 git 守卫当成"要再问主公"，发 Discord 问"确认就 commit 吗"，被主公纠正"收工不是应该全自动的吗？为什么还有询问"；纠正后写 review_drafts 又被任务守卫拦，再次需主公回"可以"。根因=规则说收工自动，但 hook 不认收工上下文，对每个 commit/非白名单写入一视同仁拦截。注：授权守卫正确阻止了 Claude 自行 touch token（这是对的，不该改），冲突点在于"收工本身是预授权流程"这个上下文没传给 hook。建议三选一：①给收工流程一个上下文标记（如收工启动时写 /tmp/saving_session_BB flag），让两个守卫检测到该 flag 时放行收工内的 commit + review_drafts/CURRENT_SESSION 等收工固定产物，收工结束清 flag；②把 review_drafts.md 加进任务守卫白名单（它本就是收工固定写入目标）；③维持现状，接受收工需主公两次点头。属系统规则冲突，建议主公定方向。
+
+### 🤖 本次自动写入（4-5 分）
+- 无（评分4但属"规则冲突需主公定方向"类，按惯例送审不自动改系统规则/Hook）
+
+### 🗑️ 自动丢弃（1 分）
+- OpenAgents 研究内容：已是 research/openagents_teardown.md 成品，不另起草稿
+- AI 经济/Robinhood Q&A：纯科普，无持久跨对话记忆价值
+
+---
+
 ## [草稿] 2026-06-02 深度审核（session 1a7af34a · hermes对比 + 三实例重启）
 
 ### INSIGHTS 建议写入（2条）
