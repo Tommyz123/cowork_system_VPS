@@ -54,7 +54,7 @@
 
 ## Project（项目背景）
 - [project_cannabis_retail.md](project_cannabis_retail.md) — ⭐ P12 大麻零售主线（2026年主线，2026-05-14 确立）；NY牌照申请中+AI赋能+SaaS化路径；八字辛卯大运对应；playbook: playbooks/cannabis_retail.md；P1/P3/P5 已并入作为子模块
-- [project_cannabis_advisor.md](project_cannabis_advisor.md) — 纽约大麻AI顾问；目录Desktop/marketing/；数据库market.db（SQLite）；技术栈Python+SQLite+curl_cffi；当前暂停（2026-04-06）；【已并入 P12】
+- [project_cannabis_advisor.md](project_cannabis_advisor.md) — 🗄️已并入P12(AI增强层子模块)；纽约大麻AI顾问；保留独有细节market.db(SQLite)+curl_cffi技术栈；原项目暂停（2026-04-06）
 - [project_ai_skill.md](project_ai_skill.md) — cc_skill V5框架；P2 cowork.db+5个Skill化（2026-04-17完成）；P2方向：规则→Hook/Skill自动化；目录Desktop/cc_skill/
 - [project_daily_news_digest.md](project_daily_news_digest.md) — 本地cron每天13:00 EDT；脚本cowork/newscripts/run_daily_news.sh；新闻5类（政治/股市/加密/AI/大麻NY）；每条要真实链接+AI点评
 - legal_library — 纽约大麻法律知识库；详见 [reference_legal_library.md](reference_legal_library.md)；进度见CURRENT_SESSION.md [P5]
@@ -73,8 +73,7 @@
 - [reference_cowork_github.md](reference_cowork_github.md) — github.com/Tommyz123/cowork_system（私有）；收工时commit核心系统文件；不追踪cowork_log.md和.log文件
 - [reference_cc_source.md](reference_cc_source.md) — 研究笔记在cowork/research/cc_source_insights.md；Stop Hook可解日志漏记；记忆相关性过滤省token；已借鉴落地：last_memory_sync/180行预警/收工双写检查
 - [reference_legal_library.md](reference_legal_library.md) — legal_library路径+GitHub(Tommyz123/legal_library私有)+入库标准指向RULE.md+收工时git push
-- [feedback_legal_library_workflow.md](feedback_legal_library_workflow.md) — VPS本地保留/home/cowork/legal_library/，每次git pull不重新clone；主公说push才推GitHub
-- [feedback_legal_library_review.md](feedback_legal_library_review.md) — 审核材料3步：①详细讲内容（具体条款/数字/案件）②入库判断③主动扫描12月批次线索（December Queue/队列进展/主公申请相关）
+- [feedback_legal_library_workflow.md](feedback_legal_library_workflow.md) — Legal Library 工作流：①入库(VPS本地/home/cowork/legal_library/,git pull不重clone,主公说push才推)②审核材料3步(详细讲内容/入库判断/扫12月批次线索)
 - [reference_p3_cannabis_budtender.md](reference_p3_cannabis_budtender.md) — P3路径+Flickr API(key在api_keys.env)+图片踩坑：Unsplash猜ID不稳定，用Flickr/loremflickr
 - [reference_hair_ave.md](reference_hair_ave.md) — 理发店投资文件在资料/Hair Ave/；.numbers需导出CSV/Excel才能在WSL处理
 - [reference_discord_permissions.md](reference_discord_permissions.md) — Claude Code Allow/Deny弹窗出现在Discord，手机可操作；当前用/tmp/task_approved token机制代替

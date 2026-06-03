@@ -10,7 +10,7 @@ originSessionId: 7c28c936-b9d6-4c38-900c-13e6e9aec5ed
 
 **How to apply:** 涉及 marketing/ 目录或大麻数据库时，直接使用此背景。路径和技术栈见 `playbooks/marketing.md`；当前进度见 `CURRENT_SESSION.md`。
 
-**当前状态：** ⏸️ 暂停中（2026-04-06）。如需重启，在 CURRENT_SESSION.md 新建 P 块。
+**当前状态：** 🗄️ 已并入 P12 大麻零售主线（作为「AI 增强层」子模块，见 project_cannabis_retail.md）；原项目 ⏸️ 暂停中（2026-04-06）。本条仅保留 P12 未记录的独有细节（market.db / curl_cffi 技术栈）。如需重启，在 CURRENT_SESSION.md 新建 P 块。
 
 **商业化方向（2026-04-20）：**
 Agent架构+门店合规查询/库存推荐是最现实路径；legal_library是核心壁垒；Dutchie API是接入切入点；先找1-2个纽约门店试用。
