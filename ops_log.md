@@ -243,3 +243,5 @@
 [2026-06-03 16:50 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2 commit:c546734 修复双路径漂移+抢救3条求职记忆 草稿:0新(d83700cd已审补标记)
 [2026-06-03 17:00 EDT] CRON[SYS] | stability_check | ✅ | ❌ 需关注 新增friction:10条(6→16)
 [2026-06-03 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-03 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-06-03 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成

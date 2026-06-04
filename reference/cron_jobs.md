@@ -41,6 +41,7 @@ PATH=/home/cowork/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 | `0 16 * * 1-5` (工作日 16:00) | `trading/signal_alert.py` | 信号告警 | `trading/signal_alert.log` |
 | `30 16 * * 1` (周一 16:30) | `trading/scanner_tracker.py` | 周扫描器结果追踪 | `trading/scanner_tracker.log` |
 | `45 16 * * 1` (周一 16:45) | `trading/price_tracker.py` | 价格追踪 | `trading/tracker.log` |
+| `0 17 * * 1` (周一 17:00) | `trading/post_exit_tracker.py` | 平仓后追踪：记录已平仓票平仓日之后走势(post_exit_peak/3m_return)，验证 P9 卖出时机；平仓日期取自 trades.exit_date，无 exit_date 的历史平仓票跳过等补齐；纯观察不碰选股/下单 | `trading/post_exit_tracker.log` |
 | `30 16 * * 3` (周三 16:30) | `trading/thesis_monitor.py` | 持仓 thesis 监控 | `trading/thesis_monitor.log` |
 | `0 16 * * 0` (周日 16:00) | `trading/weekly_review.py` | 周报 | `trading/weekly.log` |
 | `30 20 * * 1-5` (工作日 20:30) | `trading/price_guard.py` | 价格守卫 | `trading/price_guard.log` |
