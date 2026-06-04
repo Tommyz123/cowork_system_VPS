@@ -87,6 +87,10 @@
           {
             "type": "command",
             "command": "python3 /home/cowork/.claude/hooks/discord_reply_flag.py"
+          },
+          {
+            "type": "command",
+            "command": "python3 /home/cowork/cowork/scripts/check_rating_question.py"
           }
         ]
       }
@@ -101,6 +105,10 @@
           {
             "type": "command",
             "command": "bash /home/cowork/.claude/hooks/honesty_check.sh"
+          },
+          {
+            "type": "command",
+            "command": "python3 /home/cowork/cowork/scripts/check_proposal_words.py"
           }
         ]
       }

@@ -92,6 +92,18 @@
 - **频率**：每次写共享文件触发（约日均几十次）
 - **依赖**：无（标准库 Python）
 
+### check_rating_question.py
+- **功能**：UserPromptSubmit Hook，检测主公输入是否含评级/排名类问题词（什么水平/算高手/和别人比等），命中则注入 system-reminder 警告"禁止编造百分比/等级分布"
+- **调用方**：`/home/cowork/cowork/.claude/settings.json` UserPromptSubmit hook（项目级，三实例共享）
+- **频率**：每次主公输入时触发
+- **依赖**：无（标准库 Python）
+
+### check_proposal_words.py
+- **功能**：Stop Hook，检测 AI 回复是否含推方案词（值得抄/不妨试试/加到BACKLOG等），命中则追加记录到 `friction_log.md`（留痕不阻断）
+- **调用方**：`/home/cowork/cowork/.claude/settings.json` Stop hook（项目级，三实例共享）
+- **频率**：每次 Claude 回复结束时触发
+- **依赖**：无（标准库 Python）
+
 ### detect_conflict.py
 - **功能**：扫 `write_events.log`，找 10 秒内同文件被两个不同 HOME 实例写过 → 追加到 `reference/conflict_log.md` + 发 Discord 告警（DM 频道，与 cron 系列一致）；用 `.conflict_alerted` 保证幂等
 - **调用方**：cron `* * * * *`（每分钟）

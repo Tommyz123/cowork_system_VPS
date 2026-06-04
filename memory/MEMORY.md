@@ -5,6 +5,7 @@
 
 ## User
 - [user_profile.md](user_profile.md) — Tom（zhi89，Discord: tommzzz.）；Windows + iPhone遥控Claude；AI+大麻零售双轨创业；自研V5框架（Planning/Skill/Memory/Execution/Evaluation）；偏好先讨论机制再动手，直说实话不讨好
+- [user_bazi.md](user_bazi.md) — 主公真实八字真盘（1990-11-29未时·福建长乐）：戊土日主·身强财旺·食神生财命；辛卯大运(2023-2032)；2026-06-03 用lunar_python修正旧"丁火身弱"错误
 
 ## Feedback（行为规则）
 - [feedback_understand_before_act.md](feedback_understand_before_act.md) — ⭐习惯：做任何事/给任何建议前，先了解清楚背景和实际情况（查实际数据/代码/战略，别凭记忆直觉）；禁止"先抛听起来合理的答案再回头补功课"

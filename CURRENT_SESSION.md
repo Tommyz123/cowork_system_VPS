@@ -209,8 +209,19 @@ last_updated: 2026-05-31
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-06-03
-停在：OpenAgents Workspace 只读研究完成，拆解笔记已落地 research/openagents_teardown.md，结论=理念契合但当下不融合生产（提取设计范式即可）。
+last_updated: 2026-06-04
+停在：系统复盘完成，3个新防护 Hook 已上线，待主公重启三实例使 settings.json 新 Hook 生效。
+
+本次完成（2026-06-04，系统复盘 + 3个新Hook）：
+- **系统复盘执行**：分析 friction_log 17条，归档9条已闭环；识别3组复发问题（推方案3犯/评级编数据2犯/执行确认2犯）
+- **check_proposal_words.py（Stop Hook）**：推方案词（值得抄/不妨试试/加到BACKLOG等）出现时自动留痕 friction_log
+- **check_rating_question.py（UserPromptSubmit Hook）**：主公问评级/水平/排名类问题时自动注入警告"禁止编造百分比/等级"
+- **discord_approve.py LOOSE_APPROVE_KEYWORDS**：加"你可以/那可以/可以先/那你可以"连写变体，解决 6/3 边界漏匹配问题
+- **feedback_honesty.md 更新**：加"评级问题专项防讨好"规则（含二犯记录+Hook已上线标注）
+- **state.md 首次写入**：记录8条活跃 friction + 3个已部署 Hook，供下次复盘追踪对比
+
+下一步：
+- **主公操作**：重启三实例（AA/BB/CC 各发 `!重启`），使 check_proposal_words + check_rating_question 两个新 Hook 生效
 
 本次完成（2026-06-03，OpenAgents Workspace 只读研究 + 方法论拆解）：
 - **背景**：主公问 OpenAgents Workspace（开源多 agent 协作框架，非 OpenAI Workspace Agents）→ clone 到 /tmp 只读研究（118M，未安装未运行）→ 评估是否适合融合本系统
