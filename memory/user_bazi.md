@@ -2,8 +2,8 @@
 name: user_bazi
 description: 主公的真实八字命盘（原始生辰+四柱+喜用神+大运），戊土日主身强任财，食神生财命；2026-06-03 用lunar_python精排修正旧"丁火"错误
 type: user
+originSessionId: f876b8d9-6e42-4a8e-889c-7fba6b63737d
 ---
-
 # 主公八字真盘（权威来源）
 
 **原始生辰（务必保留，勿丢）：**

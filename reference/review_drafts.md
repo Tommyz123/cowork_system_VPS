@@ -4,6 +4,33 @@
 
 ---
 
+## [草稿] 2026-06-04 深度审核（系统复盘 + 3个新Hook + 八字修正）
+
+> 审核内容：本次系统复盘 session（约60轮）—— 分析17条friction/归档9条/3个新Hook上线/discord_approve宽松授权词/state.md跨次追踪首建
+
+### INSIGHTS 建议写入（1条送审）
+
+1. **[评分:4]** **UserPromptSubmit Hook 作为"提前警示"机制 > Stop Hook 事后记录** [本次实操]
+   - 评级问题 Hook 选 UserPromptSubmit 不选 Stop：前者在用户发问前注入提醒（AI 看到警告再回答），后者在 AI 回答后记录（伤害已发生）
+   - 通用原则：对"AI 回答时容易偏的问题类型"，PreToolUse/UserPromptSubmit 拦截比 Stop 记录更有效；Stop 适合留痕/统计型场景（推方案词）
+   - 适用：未来设计 Hook 时，先判断"提前防还是事后留痕"，再选 Hook 类型
+   - 推荐去处：reference/knowledge_base.md「Hook设计」章节 或 feedback_rule_vs_hook.md 补"选Hook类型"段
+
+### 🤖 本次自动写入（5分，已直接写入正式文件）
+
+- **[评分:5]** 系统复盘 state.md 首次建立：`~/.claude/skills/系统复盘/state.md` 跨次追踪 last_run / 未解决数 / known_friction 列表 / hooks_deployed，解决"每次复盘不知道上次结论"的信息孤岛问题 → 已写入
+
+### Friction 建议补记（0条）
+
+本次两条已在 friction_log 记录（记忆清理凭索引下"可删"结论 + 重申目标当授权），不重复。
+
+### 🗑️ 自动丢弃（1分）
+
+- 执行确认"重申目标 vs 显式授权"语义区分：规则已存在，本次是执行不合规（主公明确），无新规则价值，不重复记
+- 系统复盘分析过程（各条 friction 诊断细节）：已在 state.md + friction_log，不重复保存
+
+---
+
 ## [草稿] 2026-06-03 深度审核（session 332a722a · 币圈科普→P9 深聊 + 平仓后追踪上线）
 
 ### 操作记录 建议起草（1 份）
