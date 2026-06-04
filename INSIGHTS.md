@@ -6,8 +6,8 @@
 
 ---
 
-[2026-05-29] [P8/Alpine IQ] AIQ API 正确调用方式（实测验证）→ ① 真实端点 `https://lab.alpineiq.com/api/v1.1/piis/{UID}`（v1.1、是 piis 不是 piiList，旧文档记错，旧路径全 404）② 认证 `Authorization: Bearer {KEY}` ③ UID 在 AIQ 后台 Settings→API 页面、生成 key 处同屏显示。只读测试脚本 /tmp/aiq_readonly_test.py。[ref-worthy]
-[2026-05-29] [P8/Alpine IQ] 【订正上一条】403 "Please provide a valid API key" ≠ 缺 UID → 之前（opus 实例）判断"403 是缺 UID 导致、补上 UID 就好"是错的。实测：带真实 UID 4757 + 主公二次确认完整正确的 key，跑 11 种认证写法（Bearer/原始/apiKey头/X-API-KEY/query/uid:key 拼接/uid 放各种位置）全部同一个 403，错误信息不随 UID 放法变化 → 服务器在「验 key」阶段就拒、根本没到 UID。诊断法：错误信息恒定 = 卡在 key 校验层 = 账号侧没开通 API 权限（或 key 未激活/IP 限制），客户端无解，需 AIQ 后台/老板开通。教训：403+"invalid key" 别想当然归因缺参数，先做「错误信息是否随参数变化」实验定位卡点。[ref-worthy]
+[2026-06-04] [P8/Alpine IQ] ✅ AIQ API 正确认证方式（最终确认）→ header 必须是 `x-apikey: {KEY}`（全小写无连字符）。Bearer/X-API-Key/x-api-key/Authorization 全部 403。端点格式：`https://lab.alpineiq.com/api/v1.1/{endpoint}/{UID}`。Sage Seeds UID=4757，env 在 /home/cowork/sage_seeds/aiq/aiq.env，测试脚本在 readonly_test.py（同目录）。[ref-worthy]
+[2026-06-04] [P8/Alpine IQ] 【5/29旧记录订正】之前两条记录均错误 → ①"Authorization: Bearer"是错的；②"账号侧没开通权限/客户端无解"也是错的。真正原因：header 名称非标，AIQ 用 `x-apikey` 不是 `Authorization`，用对了立即通。教训：遇到"Please provide a valid API key"且 11 种写法全 403，下次要试非标 header 名（x-apikey/apikey/token 等），不要轻易断定是账号权限问题。
 [2026-06-03] [P9/yfinance] 单 ticker 取历史价 history['Close'] 返 DataFrame 不是 Series → yf.download(单只票) 时 history['Close'] 是 DataFrame（列名=ticker），对它 .items() 遍历的是列名(str)不是(日期,价格)，下游 .strftime() 报 'str' object has no attribute 'strftime'。修法：取出后判 `if hasattr(closes, "columns"): closes = closes.iloc[:, 0]` 还原成 Series 再 .items()。适用所有 P9 单票取价脚本(post_exit_tracker/price_tracker)，新写取价逻辑直接套这个守卫。[src:332a722a] [ref-worthy]
 
 

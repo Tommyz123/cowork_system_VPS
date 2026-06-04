@@ -17,11 +17,11 @@ last_audit_date: 2026-04-19
 | ID | 项目 | 状态 | 最后更新 | 下一步摘要 |
 |---|---|---|---|---|
 | **P12** | **Cannabis Retail 主线** | 🆕 **规划中** | **2026-05-25** | **选址研究框架确立（4维：收入水平+地铁节点+竞争+商业条件）；Queens市场已基本饱和；Sweet spot房租$8k-$12k；主公背景：Bayside Cannabis+Sage Seeds；下次：给地址继续分析或AI法律顾问MVP** |
-| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-05-26 | AI动态日报上线(09:00 EDT cron)；双bot×2扩展计划启动（待主公提供Discord token）；收工Skill打分机制持续 |
+| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-06-04 | Codex Discord Bot 方案B验证通过(订阅制多轮记忆可行,需单独写Python bot)；待主公建新bot发token即实施；3个防护Hook待重启生效 |
 | P13 | 金字塔原理学习 | ✅ 第2章学透毕业 | 2026-06-02 | 第2章 L3 达标(3份真材料独立写对 SCQA+归纳带证据)；下次开第3章(中等深度,练1次即可)；4个易错点+全书深浅地图已入memory |
 | P10 | 个人文件库 | 🔄 活跃 | 2026-04-25 | MVP完成(简历3文件)，阶段2扩展分类 |
 | P3 | Cannabis Budtender | ⏸️ 暂停（并入 P12 子模块） | 2026-05-07 | eval 100%完成；从 2026-05-14 起作为 P12 子模块继续推进 |
-| P8 | 求职 (career-ops) | 🔄 策略大重定向 | 2026-05-24 | 跳板策略+甜区岗位（Solutions/Customer/Implementation/Founding/Applied AI Eng）；30+ 家清单已列；待主公 review 后启动 portfolio 搭建 |
+| P8 | 求职 (career-ops) | 🔄 AIQ 已通！作品进行中 | 2026-06-04 | AIQ x-apikey 连通，7992客户/35受众/4568转化；4个分析方向已列，BB接手等主公选择；Dutchie 待回信 |
 | P5 | Legal Library | ⏸️ 暂停（按需更新；December queue 追踪并入 P12） | 2026-05-13 | v4.5 完成；Organic Blooms 案件追踪持续中，每周一 09:00 EDT Discord 提醒 |
 | P14 | Cannabis 行业信息库 | 🆕 新建 | 2026-05-31 | cannabis_industry/ 独立项目（行业通用info，非单公司）；含OCM 5/7+5/29会议要点+行业活动日历；legal/预留待与本地法律合并；下一步：持续攒OCM会议/政策/市场数据 |
 
@@ -210,7 +210,20 @@ last_updated: 2026-05-31
 ### [P2] Cowork 系统优化
 状态：持续迭代中
 last_updated: 2026-06-04
-停在：系统复盘完成，3个新防护 Hook 已上线，待主公重启三实例使 settings.json 新 Hook 生效。
+停在：Codex Discord Bot 等主公建新 Discord bot 提供 token；AIQ 分析任务已转 BB，等主公选分析方向（1/2/3/4）。
+
+本次完成（2026-06-04 晚）：
+- **CLAUDE.md 全局新规则**：Discord 遥控场景禁用交互式菜单/UI，所有选项必须 Discord 文字呈现（因 BB 用 Codex 交互菜单卡住触发）
+- **Codex Discord Bot 方案确认**：VPS 已装 Codex CLI v0.136.0 + auth_mode=chatgpt（订阅制），只差新 Discord bot token；方案 A=OpenAI API 直调/B=codex resume 订阅制/C=remote-control 实验性，等主公决策
+- **BB 跨实例协作排查**：tmux 传计划 BB 收到；BB 用交互菜单卡住，Escape 解除+指示改 Discord reply 修复；friction_log 已记录
+
+本次完成（2026-06-04 下午，Codex Discord Bot 方案 B 验证）：
+- **背景**：aa(主实例)规划"给 Codex 单独开 Discord 频道(带多轮记忆)"并 tmux send-keys 转给 BB 实施；首条卡输入框未回车，capture-pane 抓出完整计划
+- **方案定为 B（订阅制 codex exec resume）**：排除 A(OpenAI API直连=花钱,违反"用订阅不调API"原则) 和 C(daemon实验性)
+- **多轮记忆实测通过**：codex exec 建会话取 session_id(019e9133...) → codex exec resume <id> 问上轮数字 → 准确答出 4827，证明原生 session 跨调用记住完整上下文，无需 daemon
+- **落地机制**：codex exec "..." --skip-git-repo-check -o out.txt 建会话+抓session id；codex exec resume <id> "..." 续轮带记忆；-o 取干净回复；沙箱用 -c sandbox_mode="read-only"(resume不支持-s短选项)
+- **技术决策已对齐**：Codex 非 Claude Code，无法复用现有 plugin 接入；需单独写轻量 Python bot(discord.py ~100行)，与现有 cowork/opus/opus2 三频道两套独立互不影响
+- **待主公**：①Discord后台建新Application+Bot,开MESSAGE CONTENT INTENT,OAuth2邀请进服务器,建新频道 ②把 Bot Token 发我 → 我即写 bot+session映射+systemd自启+注册索引
 
 本次完成（2026-06-04，系统复盘 + 3个新Hook）：
 - **系统复盘执行**：分析 friction_log 17条，归档9条已闭环；识别3组复发问题（推方案3犯/评级编数据2犯/执行确认2犯）
@@ -668,9 +681,14 @@ last_updated: 2026-05-13
 ---
 
 ### [P8] 求职 (career-ops)
-状态：🔄 策略大重定向（2026-05-24）+ 🆕 真实作品线启动（2026-05-29 Dutchie/AIQ API，AIQ 卡账号侧开通）
-last_updated: 2026-05-29 晚
-停在：AIQ 连接已深挖定位（账号侧 API 未开通，待老板/AIQ 启用）；Sage Seeds 所有内容已隔离进独立项目。等 AIQ 开通 + Dutchie 回信。
+状态：🔄 活跃（AIQ API 已连通！）
+last_updated: 2026-06-04
+停在：Alpine IQ 数据探索完成，4个分析方向已列出（Win Back/产品偏好×流失/邮件效果/积分休眠），已转 BB，等主公选方向后 BB 写分析脚本。
+
+本次完成（2026-06-04）：
+- **AIQ API 终于通了**：正确 header 是 `x-apikey`（全小写无连字符），之前 Bearer/X-API-Key 等全部 403；knowledge_base.md 写入踩坑记录，INSIGHTS.md 订正两条旧错误记录，readonly_test.py 修正
+- **数据探索**：7,992 客户 / 35 受众群体 / 4,568 转化记录 / 邮件打开率 32%（行业均值 ~20%）；关键受众：Top 20% Spenders(1415人)/Win Back 60+(2445人)/流失预警 30+ days(6347人)
+- **分析作品方向已列 4 条**，BB 已接手等主公选择
 
 **本次完成（2026-05-29 晚）**：
 - **AIQ 403 根因定位**：拿真实 UID 4757 后仍 403「Please provide a valid API key」。试 11 种认证写法全部同一 403；主公二次粘贴 key 与原值一致 + 截图后台确认配置完全一致 → 判定卡在服务端「验 key」层 = **账号侧 API 未开通**（非缺参数）。已给主公向老板/AIQ 提的开通话术。

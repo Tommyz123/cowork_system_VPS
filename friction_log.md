@@ -40,3 +40,14 @@
 [2026-05-29 18:20 EDT] ⚠️ 自身误判(已纠正) | 在 tmux 内查别的实例 socket 被 $TMUX 带偏，误判"AA 死了" | 场景：主公要"叫AA搜天气"，我用 `tmux list-sessions`/`capture-pane -t cowork` 查 AA 没查到 `cowork` 会话，据此推断 AA 假死+三实例会话名前缀撞车 bug+重启会误杀 BB——并已告知主公。后用 `TMUX= tmux ...` 强制查真默认 socket，发现 **AA 活得好好的**（Sonnet 4.6/空闲/bypass），整套 bug 推断作废 | 根因：我自己跑在 opus_socket 的 tmux 里，$TMUX 指向 opus_socket，裸 `tmux` 命令会连到**我自己的 server**而非默认 socket → 查不到 AA。三实例其实各自独立 socket（默认=cowork / opus_socket=cowork_opus / opus2_socket=cowork_opus2），不撞车 | 表面错误：把"我查不到"当成"它不存在" | 真正教训：**跨实例查/操作 tmux 必须先 `TMUX= ` 清空环境变量**，否则裸 tmux 命令被导到自己所在 server | 违反规则：feedback_read_before_conclude（够不到信息源≠不存在，该换查法验证再下结论）| 验证标准：下次查其他实例 tmux，命令一律带 `TMUX=` 前缀 | 验证状态：【待验证】| 状态：已自行纠正 + 已向主公更正
 
 [2026-06-02 17:10 EDT] ⚠️ 配置漏配(已修复) | BB/CC 实例缺失 AA 的全套 hook | 场景：审查三实例 hook 配置时发现 BB(opus_home)/CC(opus2) 的用户层 settings.json 只有 inject_time.sh 一个 hook，而 AA(cowork) 有完整 13 个（git守卫/文件守卫/context_watch/discord系列/honesty_check等）。意味着 BB/CC 上的 git commit 守卫、系统文件修改守卫、漏回复检测、诚信检测全部失效 | 根因：2026-05-27 三实例 systemd 化迁移时只把 AA 的配置照搬未同步 hook，BB/CC 是后建实例没补 hook（非有意精简，主公确认）| 表面错误：BB/CC 无 hook 防护 | 真正教训：**通用 hook 必须放项目共享层 `/home/cowork/cowork/.claude/settings.json`，三实例自动继承合并，改一处=三处同步**，不能各实例用户层各配一份（会漏） | 修复：把 12 个通用 hook 上提共享层；position_check.py(P9专用)留 AA 用户层；token 按实例后缀隔离(_AA/_BB/_CC) | 验证标准：三实例重启后 write_events.log 各自有记录 + 手动触发 git/文件守卫被拦 | 验证状态：【待验证-需重启三实例】| 状态：配置已改+脚本已测，待重启验证
+
+[2026-06-04 01:44] ⚠️ 数据诚信 | 八字记忆只存"丁火日主"结论却丢了原始生辰，主公再问时无法复核、且结论本身是错的(真盘戊土) | 用lunar_python按真实生辰重排修正为戊土,新建user_bazi.md把原始生辰+四柱一并存档 | 状态：已自行修复
+  根因：结论性记忆(命盘/算法输出/分析结果)当时只记了"推导结果",没同时保留"可复算的原始输入/来源"，导致结论无法验证、错了也发现不了。违反数据诚信"陈述句必须有来源"精神。
+  建议规则变更：写"结论性/推导性记忆"时(命盘、统计结论、分析判断)，必须同时存可复算的原始输入或来源出处(如生辰、数据快照、文件:行号)，否则结论不可验证=隐患。
+  验证标准：以后再存此类结论记忆，文件内能找到"原始输入/来源"字段。
+  验证状态：【待验证】
+[2026-06-04 17:10] ⚠️ Skill摩擦 | BB实例 | BB在Discord遥控场景下用Codex交互式菜单等键盘输入，主公看不到导致双方卡等；根因：忘记主公不在终端前；修复：tmux Escape+指示改用Discord reply工具 | 状态：已自行修复
+
+[2026-06-04 17:18] ⚠️ 被纠正 | Discord遥控场景用了AskUserQuestion交互式弹窗 | 表面错误：开头给四个分析方向选项时调了AskUserQuestion，主公在Discord遥控看不到终端弹窗会卡等 | 根因：默认终端有人在前面，没考虑Discord遥控=无终端可视；建议规则变更：Discord来源消息一律用reply文字呈现选项，禁交互式UI | 状态：已自行修复（主公已加进~/.claude/CLAUDE.md第11行） | 验证标准：后续所有Discord对话的选项/确认都走reply文字 | 验证状态：【待验证】
+
+[2026-06-04 19:11] ⚠️ Hook机制摩擦 | task_approved_BB token消耗后,主公用非授权关键词指令(如"花一个结构图")继续派活,守卫拦截但无法自动续token,我又不能自己touch(授权守卫拦)→陷入要再讨一个授权词的循环 | 场景:连续多个写文件子任务时反复触发 | 处理:如实告知主公卡点请补授权词 | 状态:需主公确认 是否考虑①授权词覆盖整个任务会话而非one-shot ②或扩充关键词识别("做/画/建"等动作词)
