@@ -4,6 +4,24 @@
 
 ---
 
+## [草稿] 2026-06-03 深度审核（session 332a722a · 币圈科普→P9 深聊 + 平仓后追踪上线）
+
+### 操作记录 建议起草（1 份）
+- **[评分:3]** 主题：P9 扫描分两层（日频 signal_collector vs 季度 run_scanner）的「实时信号 × 季度埋伏」结构性错配 [src:332a722a] / 背景：主公质疑"我们一季度才扫一次，那 8-K 不是滞后了？"——查 cron 证实 signal_collector.py 每工作日采集 8-K（不滞后），但 run_scanner.sh 季度建仓（2/5/8/11 月），早发现的信号要等下个季度窗口才下单 → "早发现"被"晚建仓"吃掉。已记入 CURRENT_SESSION P9 块待验证假设。/ 建议文件名：可不另起，等 8 月数据验证后若成立再写入 playbooks/p9_trading.md「策略局限」区块
+
+### Playbook 建议更新（1 处）
+- **[评分:3]** playbooks/p9_trading.md：建议补「平仓后追踪」一节——post_exit_tracker.py（周一 17:00 cron）记录已平仓票平仓日后走势(post_exit_peak/3m_return)验证卖出时机，纯观察不碰选股/下单；首样本 VRRM 显示砍早了(+7.27%)。等 8 月样本累积后此追踪是"长期持有 vs 及时止损"决策的数据支撑。
+
+### 🤖 本次自动写入（4-5 分，已直接写入正式文件）
+- **[评分:4]** INSIGHTS（[ref-worthy]）：yfinance 单 ticker history['Close'] 返 DataFrame 非 Series 的取价守卫 → 已写入 INSIGHTS.md（适用所有 P9 单票取价脚本）
+
+### 🗑️ 自动丢弃（1 分）
+- 投资框架教学（鹰鸽=逆风顺风/讲故事vs交作业/水波分层）：纯金融科普，非 cowork 运维记忆，无持久跨对话价值
+- VRRM 单点平仓后走势数据：已在 CURRENT_SESSION P9 块，单数据点不另存
+- 账本不一致发现：已记 CURRENT_SESSION P9 块 + 2 待办，不重复
+
+---
+
 ## [草稿] 2026-06-03 深度审核（session d83700cd · OpenAgents 研究 + 收工流程）
 
 ### Friction 建议补记（1 条 · 规则 vs Hook 冲突）
