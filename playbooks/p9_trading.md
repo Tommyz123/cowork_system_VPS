@@ -245,3 +245,10 @@ SELECT symbol, alert_date, thesis_status, headline_summary FROM thesis_alerts OR
 **⚠️ 磨刀红线（防火土旺无限完善）**：❌不做登录/实时刷新/手机适配/多主题/重构后端/优化DB。✅只要"打开网页招聘方能看懂这是个AI量化系统"就算砍下这根柴。
 
 **下一步**：主公说"开始"→ 写 `trading/dashboard.py` 第1步骨架。
+
+---
+
+## 📚 投资学习笔记库（怎么思考投资）
+
+本 playbook 记"怎么操作 P9 系统"；投资思维/方法论笔记另存 `trading/notes/`（读 `notes/INDEX.md`）。
+首篇 `认知内的钱_瓶颈理论.md`：只赚认知内的钱 + Serenity 瓶颈理论 + P9 与之的关系（2026-06-04）。

@@ -1,6 +1,6 @@
 # Context — Tom 电脑全局文件索引
 
-> 最后更新：2026-05-31（快速查找指引加 cannabis_industry 行业信息库指针）
+> 最后更新：2026-06-04（快速查找指引加 trading/notes 投资学习笔记库指针）
 > 维护方式：由 Cowork AI 自动更新，每次文件变动后同步修改
 
 > ⚠️ **给 Cowork AI 的指引：**
@@ -203,6 +203,7 @@
 | 每日新闻脚本 | `cowork/newscripts/`（改配置读 news_agent_instructions.md） |
 | 机票监控脚本 | `cowork/flightscripts/`（run_flight.sh 主入口） |
 | AI量化交易系统 | `cowork/trading/`（TIDE系统：cognitive_scanner.py 建仓 / signal_collector.py 日报 / bash run_scanner.sh 手动触发） |
+| 投资学习笔记库 | `cowork/trading/notes/`（投资思维/方法论累积区，读 INDEX.md；区别于 playbook 操作手册，这里记"怎么思考投资"） |
 | 大麻行业信息库 | `cowork/cannabis_industry/`（行业通用信息：OCM政策/法规/市场，与 sage_seeds 单公司项目隔离；读 README.md 看边界） |
 | Mac mini价格监控 | `cowork/scripts/mac_monitor.py`（低于$450发Email） |
 | AI 控制框架最新版 | `Desktop/cc_skill/context/V6/` |
