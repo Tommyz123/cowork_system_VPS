@@ -747,3 +747,38 @@ cron_jobs.md / reference_dual_bot.md / MEMORY.md / playbook / CURRENT_SESSION / 
 
 ### 🗑️ 本次自动丢弃摘要（1 分，未保留）
 - 共 0 条
+
+---
+
+## [草稿] 2026-06-04 深度审核（AIQ API连通 + Codex Discord Bot + CLAUDE.md规则）
+
+> 审核 sessions：71f43b5b（本次主对话）+ cd8bc524（今日凌晨系统复盘）
+
+### Playbook 建议更新（1处）
+- **[评分:3]** 检查 playbooks/ 是否有 P8/求职相关 playbook，若有则更新 AIQ 连接状态（旧："账号侧 API 未开通"→ 新："已通，header=x-apikey，详见 knowledge_base.md"）
+
+---
+
+### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
+- **[评分:5]** CLAUDE.md规则：Discord遥控禁止用交互式菜单/UI → 已写入 ~/.claude/CLAUDE.md
+- **[评分:5]** knowledge_base.md：Alpine IQ API x-apikey 踩坑完整记录 → 已写入 reference/knowledge_base.md
+
+### 🗑️ 本次自动丢弃摘要（1 分，未保留）
+- 共 1 条（Codex CLI 状态信息——暂时性不适合写记忆）
+
+---
+
+## [草稿] 2026-06-05 深度审核（瓶颈理论实战 + 太空瓶颈观察入库）
+
+> 审核 session：183c28d2（本次投资学习主对话）
+
+### Friction 建议补记（1条）
+- **[评分:2]** 多条消息只给 "5N.TO" 不给完整代码（VNP.TO/FPLSF），导致主公在 Robinhood 反复搜不到、多轮往返才定位到"是代码不全+Robinhood不支持OTC粉单"。建议:给海外/OTC标的时一次性给全（主交易所正股代码 + 美股OTC代码 + 该券商能否买），别挤牙膏。属轻微交付不完整，单次，故评2分送审。
+
+---
+
+### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
+- 无（本次为投资学习实战，方法论已沉淀进 trading/notes 笔记库专门载体，不重复进 INSIGHTS/knowledge_base）
+
+### 🗑️ 本次自动丢弃摘要（1 分，未保留）
+- 共 2 条：①npx mermaid-cli 渲染中文PNG(单次工具操作坑浅)②查OTC券商支持(一次性查询)——均无复用价值不写
