@@ -279,3 +279,4 @@
 [2026-06-07 01:57 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2 commit:2c0cd0e 草稿:0新(本次会话in-context审核:1条friction补记+1条INSIGHTS自动写入评分4)
 [2026-06-07 02:05 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 157.702 MiB (165362509 Byte) → Google Drive
 [2026-06-07 10:17 EDT] SKILL[SYS] | 收工 | ✅ | 项目:个人攻略+记忆管理 commit:0657fd1 深度审核:session 6a73ad5f+68228bb3 已审(自动写入:1条knowledge_base/丢弃:2条) 索引:1535条消息+193条向量
+[2026-06-07 15:00 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2系统做减法(续) commit:1d196f5 捕获feedback_savework_continuous(收工须连贯+自动commit) 索引:1915条消息+202条向量
