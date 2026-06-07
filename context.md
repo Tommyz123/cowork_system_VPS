@@ -1,6 +1,6 @@
 # Context — Tom 电脑全局文件索引
 
-> 最后更新：2026-06-04（快速查找指引加 trading/notes 投资学习笔记库指针）
+> 最后更新：2026-06-06（新增 Sage Seeds 营销实验定位指针：sage_seeds/ + 召回活动_2026-06/ 存档）
 > 维护方式：由 Cowork AI 自动更新，每次文件变动后同步修改
 
 > ⚠️ **给 Cowork AI 的指引：**
@@ -205,6 +205,7 @@
 | AI量化交易系统 | `cowork/trading/`（TIDE系统：cognitive_scanner.py 建仓 / signal_collector.py 日报 / bash run_scanner.sh 手动触发） |
 | 投资学习笔记库 | `cowork/trading/notes/`（投资思维/方法论累积区，读 INDEX.md；区别于 playbook 操作手册，这里记"怎么思考投资"） |
 | 大麻行业信息库 | `cowork/cannabis_industry/`（行业通用信息：OCM政策/法规/市场，与 sage_seeds 单公司项目隔离；读 README.md 看边界） |
+| Sage Seeds营销实验(主公在职大麻店) | `/home/cowork/sage_seeds/`（Alpine IQ客户数据分析；aiq/=拉数据脚本+使用记录+数据结构图；召回活动_2026-06/=第一个召回实验完整存档读其README；营销实验手册.md=策略台账。含PII不外传） |
 | Mac mini价格监控 | `cowork/scripts/mac_monitor.py`（低于$450发Email） |
 | AI 控制框架最新版 | `Desktop/cc_skill/context/V6/` |
 | Skill 最新版本 | `Desktop/cc_skill/skill/skills_v5/` |

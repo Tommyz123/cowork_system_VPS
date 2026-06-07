@@ -78,7 +78,7 @@
           },
           {
             "type": "command",
-            "command": "INST=$(case \"$HOME\" in /home/cowork/opus_home) echo BB ;; /home/cowork/opus2_home) echo CC ;; /home/cowork) echo AA ;; *) echo UNKNOWN ;; esac); rm -f /tmp/task_approved_$INST /tmp/git_approved_$INST"
+            "command": "bash /home/cowork/.claude/hooks/token_utils.sh clear git"
           },
           {
             "type": "command",
@@ -109,6 +109,10 @@
           {
             "type": "command",
             "command": "python3 /home/cowork/cowork/scripts/check_proposal_words.py"
+          },
+          {
+            "type": "command",
+            "command": "bash /home/cowork/.claude/hooks/token_utils.sh clear task"
           }
         ]
       }

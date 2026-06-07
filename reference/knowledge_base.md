@@ -304,3 +304,12 @@ headers = {"x-apikey": API_KEY}  # 全小写，无连字符
 **Sage Seeds 数据概览（2026-06-04）：** 1 家门店 / 8,516 会员 / 35 个受众群体 / 4,568 条转化记录
 
 **踩坑历史：** 2026-05-29 两次诊断均错误，误以为是 Bearer 格式或账号权限问题。真正原因：AIQ header 名称非标准，用 `x-apikey` 而非 `Authorization`。
+
+---
+
+**yfinance 单 ticker `history['Close']` 返回 DataFrame 不是 Series（2026-06-03）**[ref-worthy]
+- `yf.download('AAPL')` 后 `history['Close']` 是 DataFrame（列名=ticker），不是 Series
+- 直接 `.items()` 遍历得到列名字符串，下游 `.strftime()` 报 `'str' has no attribute 'strftime'`
+- 修法：取出后加守卫 `if hasattr(closes, "columns"): closes = closes.iloc[:, 0]` 还原 Series
+- 适用所有 P9 单票取价脚本（post_exit_tracker / price_tracker），新写取价逻辑直接套此守卫
+- [src: 332a722a]

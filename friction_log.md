@@ -29,6 +29,5 @@
 
 [2026-05-28 19:52 EDT] ⚠️ 资源限制 | 2GB VPS 跑 3 个 Opus 实例内存偏紧 | 场景：主公追问"为什么回复慢/卡住"。体检数据：mem 总 1.9G/已用 1.2G/可用 787M + swap 已用 353M，3 实例常驻、峰值动 swap 拖慢。诊断结论：①重启那 3 分钟是冷启动(进程重生+上下文重载+Discord 握手)非模型慢 ②日常回复慢大头是 Opus 模型本身(速度换质量)+长上下文，加内存治不好 ③内存偏紧只影响卡顿/swap 颠簸。建议 2GB→4GB。主公决定：暂时先用不升级 | 状态：暂缓，日后卡顿加剧时作升级依据
 
-[2026-06-04 19:11] ⚠️ Hook机制摩擦 | task_approved token消耗后，主公用非授权关键词指令继续派活，守卫拦截但无法自动续token，陷入要再讨一个授权词的循环 | 场景：连续多个写文件子任务时反复触发 | 处理：如实告知主公卡点请补授权词 | 状态：需主公确认——是否考虑①授权词覆盖整个任务会话（非one-shot消耗）②或扩充关键词识别（"做/画/建"等动作词）
 
 [2026-06-06 20:15] ⚠️ Hook机制摩擦 | 收工 git commit 两个独立问题 | 场景：执行收工 Skill 第3步 commit+push | ①`touch /tmp/git_approved_CC && git commit` 写在同一个 Bash 调用里被 PreToolUse 守卫拦截——守卫在 `&&` 左侧 touch 执行**之前**就检查 token，此时 token 还没生成。**正解：touch 必须单独一个 Bash 调用先跑，git commit 再单独一个调用。** ②本次收工 savework 自动授权（`git_approved_CC` 内容 savework）**没触发**，discord_approve hook 没写该 token，回退到手动 one-shot touch；按 CLAUDE.md「收工自动授权 git」规则本应自动放行整个 commit+push。另：失败重试之间 staging 被 reset，需重新 git add | 状态：需主公确认——savework 自动授权为何没触发（可能因这是 Discord 续聊会话、UserPromptSubmit 没带"收工"原词触发 discord_approve）；及是否在 CLAUDE.md 明确「token touch 与 git 命令必须分两次 Bash 调用」

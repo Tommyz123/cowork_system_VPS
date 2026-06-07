@@ -274,3 +274,4 @@
 [2026-06-06 15:06 EDT] CRON[P9] | screener | ✅ | 完成
 [2026-06-06 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
 [2026-06-06 20:16 EDT] SKILL[SYS] | 收工 | ✅ | 项目:Mac mini选配咨询 commit:f7b04a1 深度审核:session 46d62c14 已审(1 Friction入库:收工git token坑) 索引:1770条消息+89条向量
+[2026-06-06 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成

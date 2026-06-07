@@ -209,8 +209,15 @@ last_updated: 2026-05-31
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-06-04
-停在：Codex Discord Bot 等主公建新 Discord bot 提供 token；AIQ 分析任务已转 BB，等主公选分析方向（1/2/3/4）。
+last_updated: 2026-06-07
+停在：Codex Discord Bot 等主公建新 Discord bot 提供 token；token_utils.sh + Stop 清 task_approved 已部署，需重启三实例生效。
+
+本次完成（2026-06-07 — friction_log 复盘 + 响应级授权 + token_utils.sh 重构）：
+- **SOUN 跌幅分析（P9 咨询）**：告警 -7.7%，查明 ① Halper Sadeh 法律调查（噪音）② $300M ATM 稀释（实质）；51.7% 增速未变 thesis 未破，建议持有守止损 $6.5
+- **friction_log 复盘**：12 条→2 条留档（VPS 内存暂缓 + CC 收工 git 问题）；10 条归档至 friction_log_archive.md
+- **task_approved 响应级授权**：从"每条消息级清除"升级为"Stop hook 响应结束自动清除"；批准一次→整个响应持续有效，不中途失效
+- **token_utils.sh 新建**（`/home/cowork/.claude/hooks/token_utils.sh`）：统一 token 操作单一入口，消除 system_file_guard/git_commit_guard/discord_approve/settings.json 四处分散的实例推导逻辑
+- **文档三处同步**：全局 CLAUDE.md + cowork/CLAUDE.md + hooks_system.md 均更新授权机制说明；cowork_log.md 归档 298→18 行
 
 本次完成（2026-06-04 晚）：
 - **CLAUDE.md 全局新规则**：Discord 遥控场景禁用交互式菜单/UI，所有选项必须 Discord 文字呈现（因 BB 用 Codex 交互菜单卡住触发）
@@ -796,7 +803,11 @@ last_updated: 2026-06-04
 
 ### [P9] AI量化交易系统（TIDE系统）
 状态：✅ cron运行中 + 数据质量全完成 + 玄学分隔离观察 + 验证哲学确立 + 平仓后追踪上线(06-03) + 🆕前端作品集Dashboard规划(06-04,待开工) + 🆕投资学习笔记库trading/notes扩充(06-05)
-last_updated: 2026-06-05
+last_updated: 2026-06-06
+
+本次完成（2026-06-06 — SOUN 跌幅咨询）：
+- **TIDE 告警触发（-7.7%）**：买入价 $8.45，查明两触发因素：① Halper Sadeh 法律调查（股价噪音，非基本面）② $300M ATM 配售稀释（实质但被 51.7% 营收增速覆盖）。建议持有守止损 $6.5，不加仓。thesis 未破。
+- 边界：纯咨询，未触碰 P9 代码/数据库/选股逻辑。
 
 本次完成（2026-06-05 — 瓶颈理论实战：太空产业链拆解 + 观察标的入库）：
 - **用「五因子瓶颈理论」实战拆太空/卫星星座行业**（主公喂行业→我跑分析，全程 WebSearch 核实数据）。结论=最硬卡点是太空太阳能电池(GaAs砷化镓+Ge锗衬底)：产能仅~2MW/年远不够+镓98%产自中国+2024已对美禁运=技术+地缘双绕不过；次级=抗辐射芯片(BAE/ST/TI做但太空占比小,纯太空VORAGO/Apogee未上市)、电推进剂氙(可被氪/氩替代=议价权打折)。
