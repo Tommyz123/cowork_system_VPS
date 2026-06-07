@@ -210,7 +210,14 @@ last_updated: 2026-05-31
 ### [P2] Cowork 系统优化
 状态：持续迭代中
 last_updated: 2026-06-07
-停在：方法论库闭环上线（加入/发现/使用/更新四环，提醒环选A软约束先观察）。剩余可做：清僵尸项目（P3/P4/P6/P10）。Codex Discord Bot 仍等主公建 bot 给 token。
+停在：自建vs原生取代盘点完成（结论：系统已基本对齐，无真正"被取代该砍"项；多数自建是主动保留=原生无等价或不适合三实例场景）。剩余可做：清僵尸项目（P3/P4/P6/P10）。Codex Discord Bot 仍等主公建 bot 给 token。
+
+本次完成（2026-06-07 傍晚 — 自建功能 vs Claude Code 原生取代盘点）：
+- **三档盘点**：①已对齐2项（子Agent路由→原生自动匹配 / 记忆双路径已废）②部分重叠待讨论4项（进度/搜索/记忆/方法论）③建议保留自建5项（Hook/friction/复盘/cron，原生无等价）
+- **第3条进度管理**：核实原生 TaskList = 仅当前对话非持久 → 不取代而"各管一层"：CURRENT_SESSION 管项目级跨对话进度，TaskList 管单次对话多步追踪（我自动调用，零配置零常驻token）
+- **第6条方法论（结论翻转）**：原推荐"装回原生skill"被推翻——skill_archives/INDEX.md 顶部写明这些是 2026-05-23 主动从 ~/.claude/skills 移出省~1500token/对话，装回=逆转主公减法。结论：维持归档态+官方插件文档态最省token，不装回
+- **关键认知**：「常驻型」skill/plugin 的 description 每次对话注入吃token，「按需型」文档平时不进上下文 → 高频常驻、低频按需才对；官方19插件全装是纯浪费
+- **实操清理**：删 skill_archives/系统复盘/state.md（41字节空壳占位），系统复盘状态档案统一认常驻份 ~/.claude/skills/系统复盘/state.md，消除一文两份脱节
 
 本次完成（2026-06-07 下午 — 方法论统一库建设 + 闭环）：
 - **扒官方 knowledge-work-plugins**：git clone Anthropic 官方仓库(19.5k★)，提取 16 插件/140 skill 的 name+描述+连接器，存 `reference/official_plugins/`（每插件1.md + INDEX含主动提醒触发点）；纯参考未配置，Alpine IQ 不在官方连接器内只借方法论

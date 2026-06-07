@@ -851,3 +851,16 @@ cron_jobs.md / reference_dual_bot.md / MEMORY.md / playbook / CURRENT_SESSION / 
 
 ### 🗑️ 本次自动丢弃摘要（1 分，未保留）
 - 无
+
+---
+
+## [草稿] 2026-06-07 深度审核（session 17ae4c40 方法论库建设）
+
+### Friction 建议补记（1条）
+- **[评分:3]** Discord reply 漏发**复发**（本次 session 至少5次被 discord_reply_check.sh 拦截补发）→ friction_log 已有 2026-06-07 00:47 同类条目且标"已自行修复"，但本次又反复触发=修复规则未生效。**关键观察：hook 兜底成功**（每次漏发都被拦+补发，未真漏给主公），损失被吸收。建议：①更新 friction_log 该条标注"二次复发+hook兜底有效" ②按 feedback_rule_vs_hook"违反超1次升Hook"——但此处 hook 已存在并生效，属"规则软约束失效但硬兜底成功"，无需新建 hook，只需我执行层注意"Discord消息回复第一动作=reply工具"。[src:17ae4c40]
+
+### 🤖 本次自动写入摘要（4-5分）
+- 无（本次方法论库机制已全部固化进 methodology_index.md + CLAUDE.md，属可推导，不重复入正式文件）
+
+### 🗑️ 本次自动丢弃摘要（1分）
+- A(INSIGHTS)/B(操作记录)/D(playbook)/E(文档对齐)/F(MEMORY废弃) 共5类候选经判断均无独立价值（方法论库内容已在文档/已登记/无废弃项），不写
