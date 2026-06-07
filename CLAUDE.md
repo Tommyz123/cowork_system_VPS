@@ -22,6 +22,7 @@
 - 归档 Skills（项目规划/任务清单/审核架构/系统复盘）→ 查 `cowork/skill_archives/INDEX.md`，按索引读对应 SKILL.md 执行
 - 创建新Skill → `skill: "skill-creator:skill-creator"`
 - 完整 Skill 列表 → `~/.claude/skills/SKILLS_INDEX.md`
+- **方法论总索引** → `reference/methodology_index.md`：汇总所有「按需调用方法论」(自有skill_archives + 官方official_plugins + external预留)。主公做营销/法律/数据/项目规划/客户开发等工作时，**主动查此索引的触发点 → 提醒"有现成方法论可借鉴"+给路径**（不自动配置，只提醒+读取套用）；新增方法论必带「来源+日期+类型(self/official/external)」出处三字段
 
 ## ✅ 执行确认补充（cowork 专属）
 固定触发指令（直接执行，跳过5步）：保存进度 / 读取进度 / 整理记忆 / 收工 / 系统复盘 / 审核系统架构

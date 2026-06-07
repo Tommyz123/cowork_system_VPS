@@ -210,7 +210,15 @@ last_updated: 2026-05-31
 ### [P2] Cowork 系统优化
 状态：持续迭代中
 last_updated: 2026-06-07
-停在：做减法三项已落地（子Agent路由/记忆双路径/收工衔接）。剩余可做：清僵尸项目（P3/P4/P6/P10）。Codex Discord Bot 仍等主公建 bot 给 token。
+停在：方法论库闭环上线（加入/发现/使用/更新四环，提醒环选A软约束先观察）。剩余可做：清僵尸项目（P3/P4/P6/P10）。Codex Discord Bot 仍等主公建 bot 给 token。
+
+本次完成（2026-06-07 下午 — 方法论统一库建设 + 闭环）：
+- **扒官方 knowledge-work-plugins**：git clone Anthropic 官方仓库(19.5k★)，提取 16 插件/140 skill 的 name+描述+连接器，存 `reference/official_plugins/`（每插件1.md + INDEX含主动提醒触发点）；纯参考未配置，Alpine IQ 不在官方连接器内只借方法论
+- **建方法论统一总索引** `reference/methodology_index.md`（方案②逻辑整合，两库物理不动零断链）：四区=自有self(skill_archives 8个可执行)/官方official(16参考)/外部external(预留)/其他方法论指路
+- **出处规范3字段**：来源+记录日期+类型(self/official/external)，新增必带
+- **覆盖铁律**：同名+同源才够资格覆盖 → 即使够资格也必须先问主公(不可逆) → 相似≠同一绝不盖各自保留 → 拿不准问 → 覆盖动作Write替换+git留底
+- **三处指针登记**：MEMORY.md / knowledge_base.md / CLAUDE.md 启动路由（写明"主动查触发点提醒，不自动配置"）
+- **闭环确认**：加入/发现/使用/更新四环规则闭合；诚实指出"发现/提醒"是软约束(靠自觉无Hook)，主公选 A 先观察、真漏再升级Hook
 
 本次完成（2026-06-07 深夜 — 原生功能对照 + 系统做减法）：
 - **原生 Claude Code 功能 vs cowork 硬对照**：抓官方文档8功能能力边界，发现自建了多处平台已原生支持的东西

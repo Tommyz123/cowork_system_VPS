@@ -1,6 +1,6 @@
 # Memory Index
 
-> 最后更新：2026-06-07（新增 feedback_three_instance_purpose：三实例并行任务用途非备份）
+> 最后更新：2026-06-07（新增 official_plugins 参考库登记：Anthropic官方职能插件方法论）
 > 维护规则：新增记忆文件后立即在此处添加条目；不用的记忆文件同步删除对应条目
 
 ## User
@@ -27,7 +27,6 @@
 - [feedback_yagni.md](feedback_yagni.md) — 按需而做不过度工程化；"要需要才做，不是为了工程而做"；没真实场景就不建抽象层
 - [feedback_discord_ts_hook.md](feedback_discord_ts_hook.md) — Discord ts字段解析必须先json.loads()，直接搜原始stdin会因JSON转义失败
 - [feedback_discord_approve_design.md](feedback_discord_approve_design.md) — discord_approve.py设计原则：Skill命令不进APPROVE_KEYWORDS；关键词必须边界regex防从句误触发
-- [feedback_savework_continuous.md](feedback_savework_continuous.md) — 收工必须连贯一口气跑完、commit+push全自动，中途绝不停问git授权（异步收工不触发授权是bug）
 - [feedback_proposal_data_first.md](feedback_proposal_data_first.md) — 推系统优化方案前必须先grep friction_log验证痛点真实性，禁止凭直觉推方案
 - [feedback_methodology.md](feedback_methodology.md) — 主公工作方法论：小步起步+监测+数据驱动升级+已研究方案留底；与YAGNI互补
 - [feedback_token_economy.md](feedback_token_economy.md) — 系统优化必须算token经济账；真正省token优先级反直觉：开新对话 > 搜索升级 > 图谱 > LLM调用（净增）
@@ -98,6 +97,8 @@
 - cowork/reference/cron_jobs.md — 所有 cron + systemd 自启任务唯一总索引（每日新闻/机票/Mac监控/P9系列/rclone备份/大麻诉讼追踪 + 3 个 Claude 实例 systemd），加新 cron / service 必须在此注册
 - cowork/reference/agent_view_rules.md — Claude Code Agent View 完整调研笔记（不启用，多窗口管理工具不适合远程遥控场景）
 - legal_library/18_Organic_Blooms_v_CCB_Tracking.md — NY大麻 December queue 诉讼追踪（Index 904497-24，影响主公申请），每周一09:00 EDT 自动 Discord 提醒查 NYSCEF
+- cowork/reference/methodology_index.md — ⭐方法论统一总索引：一页看全所有按需调用方法论(自有skill_archives 8个 + 官方official_plugins 16个 + external预留)；主公做相关工作时查触发点主动提醒；不含已配置的自动加载skill
+- cowork/reference/official_plugins/INDEX.md — Anthropic官方 knowledge-work-plugins 方法论参考库(16插件/140skill)；纯参考未配置；属上面总索引的official区块
 
 ## Auto Pending（待审区）
 - [auto_pending.md](auto_pending.md) — 系统自动捕获的待审记忆缓冲区；有[开头条目时需列出请主公确认后写入正式memory/

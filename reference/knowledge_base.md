@@ -319,3 +319,12 @@ headers = {"x-apikey": API_KEY}  # 全小写，无连字符
 - 修法：取出后加守卫 `if hasattr(closes, "columns"): closes = closes.iloc[:, 0]` 还原 Series
 - 适用所有 P9 单票取价脚本（post_exit_tracker / price_tracker），新写取价逻辑直接套此守卫
 - [src: 332a722a]
+
+---
+
+**官方 knowledge-work-plugins 方法论参考库（2026-06-07）**[ref-worthy]
+- Anthropic 官方开源职能插件（19.5k★）的 skill 方法论已扒成参考库：`reference/official_plugins/`（16插件/140 skill）
+- **纯参考，未安装未配置**：官方连接器(HubSpot/Klaviyo等)我们没连，Alpine IQ 也不在其中 → 不能即插即用，只借方法论/输出模板
+- 用法：主公做相关工作时主动提醒读对应 .md（触发点见 `official_plugins/INDEX.md`）；高相关=marketing/legal/data/sales/small-business
+- 需 skill 完整 Body → 抓 `github.com/anthropics/knowledge-work-plugins/blob/main/<插件>/skills/<skill>/SKILL.md`
+- **总入口**：`reference/methodology_index.md` 把官方(official)+自有 skill_archives(self)+外部(external)统一索引，一页看全所有按需调用方法论；新增方法论必带「来源+日期+类型」出处三字段
