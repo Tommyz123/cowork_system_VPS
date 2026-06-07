@@ -1,6 +1,6 @@
 # Memory Index
 
-> 最后更新：2026-06-06（新增 feedback_self_organize_artifacts：产出自动整理成带README文件夹+登记位置）
+> 最后更新：2026-06-07（新增 feedback_three_instance_purpose：三实例并行任务用途非备份）
 > 维护规则：新增记忆文件后立即在此处添加条目；不用的记忆文件同步删除对应条目
 
 ## User
@@ -55,6 +55,7 @@
 - [feedback_immediate_vs_longterm_framing.md](feedback_immediate_vs_longterm_framing.md) — 推 3 选 1 / 优先级建议前必须先问"立即推动 vs 长期方向"；两种场景判断框架完全不同（立即→看难度+ROI；长期→看战略契合度，重不再是缺点）
 - [feedback_p9_strategy_discipline.md](feedback_p9_strategy_discipline.md) — P9 优化提案先过"是否改了策略本身"关；攒样本只能框架内拓宽广度，不能改扫描频率（数据回来前不改策略）
 - [feedback_tmux_cross_instance.md](feedback_tmux_cross_instance.md) — tmux send-keys 跨实例通讯必须用英文/ASCII；中文字符会被丢弃对方收不到（tmux 编码限制）
+- [feedback_three_instance_purpose.md](feedback_three_instance_purpose.md) — 三实例(AA/BB/CC)是并行任务工具不是备份；不建议减少实例数量，维护成本是必要成本
 
 ## Project（项目背景）
 - [project_cannabis_retail.md](project_cannabis_retail.md) — ⭐ P12 大麻零售主线（2026年主线，2026-05-14 确立）；NY牌照申请中+AI赋能+SaaS化路径；八字辛卯大运对应；playbook: playbooks/cannabis_retail.md；P1/P3/P5 已并入作为子模块
