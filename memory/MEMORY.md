@@ -66,6 +66,7 @@
 - [project_insights_system.md](project_insights_system.md) — INSIGHTS双轨：INSIGHTS.md=临时缓冲区，reference/knowledge_base.md=已审核永久参考库（2026-04-17确定）
 - [project_mac_mini.md](project_mac_mini.md) — Mac mini M4服务器计划：SSH+Discord+Email方案，Email已配好(zhitao776@gmail.com)，买了后全程协助迁移
 - [project_cowork_roadmap.md](project_cowork_roadmap.md) — Cowork多agent路线图+Codex审核3个发展方向；路线可灵活调整，我有更好判断时提出讨论
+- [project_sage_seeds_aiq.md](project_sage_seeds_aiq.md) — P8 Sage Seeds Alpine IQ数据能力边界：cmpID活动归因+漏斗可做/discID优惠码核销字段空查不了/code归因需老板建测试码实测（2026-06-07）
 - [project_career_ops.md](project_career_ops.md) — P8求职：作品敲门路线+Cannabis Budtender实体试用+目标EliseAI/Dutchie/LeafLink；兼职/Contract优先；2026-05在职dispensary老板给Alpine IQ API key让做客户分析(=作品机会)
 - [project_personal_library.md](project_personal_library.md) — P10个人文件库：267文件已索引(简历/lease/财务/证书/cannabis)，personal.db独立，阶段5-8暂停等OCR
 - [project_pyramid_learning.md](project_pyramid_learning.md) — 《金字塔原理》精读：第1-2章学透毕业(L3达标)；含教学5规则+训练承诺(学透L3)+核心深练边角略过策略+全书深浅地图+4个易错点；下次开第3章(中等深度)；写材料时主动引用

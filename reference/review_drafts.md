@@ -816,3 +816,23 @@ cron_jobs.md / reference_dual_bot.md / MEMORY.md / playbook / CURRENT_SESSION / 
 
 ### 🗑️ 本次自动丢弃摘要（1 分，未保留）
 - 共 2 条：①npx mermaid-cli 渲染中文PNG(单次工具操作坑浅)②查OTC券商支持(一次性查询)——均无复用价值不写
+
+---
+
+## [草稿] 2026-06-07 深度审核（P8 Sage Seeds API能力+召回存档）
+
+> 审核 session：4542a474（本次主对话）
+
+### Playbook 建议更新（1处）
+- **[评分:3]** 目前无 sage_seeds/P8 专属 playbook。本次摸清 Alpine IQ 数据能力+建了拉数据脚本+召回活动存档文件夹，已成体系。建议评估是否新建 `playbooks/sage_seeds_marketing.md`（快速启动：拉数据=python3 sage_seeds/aiq/pull_conversions.py / 召回存档在 召回活动_2026-06/ / 能力边界见 project_sage_seeds_aiq.md / 4待办清单）。等主公决定是否值得建。
+
+### 待办备忘（非草稿，提醒主公）
+- 4个P8待办悬置：①老板建测试码验证discID能否查核销 ②6/5召回对照组12人确认（查回头前必须先定）③约6/19查回头率 ④166活动回头率排名（随时可做，立即出结果指导下次活动）
+
+---
+
+### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
+- **[评分:4]** 项目记忆：Sage Seeds Alpine IQ数据能力边界 → 已写入 memory/project_sage_seeds_aiq.md
+
+### 🗑️ 本次自动丢弃摘要（1 分，未保留）
+- 无
