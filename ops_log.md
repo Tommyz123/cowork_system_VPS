@@ -270,3 +270,7 @@
 [2026-06-05 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
 [2026-06-06 02:01 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 150.278 MiB (157577998 Byte) → Google Drive
 [2026-06-06 12:36 EDT] SKILL[SYS] | 收工 | ✅ | 项目:通用(财经科普) commit:待填 草稿:0条
+[2026-06-06 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-06 15:06 EDT] CRON[P9] | screener | ✅ | 完成
+[2026-06-06 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-06 20:16 EDT] SKILL[SYS] | 收工 | ✅ | 项目:Mac mini选配咨询 commit:f7b04a1 深度审核:session 46d62c14 已审(1 Friction入库:收工git token坑) 索引:1770条消息+89条向量
