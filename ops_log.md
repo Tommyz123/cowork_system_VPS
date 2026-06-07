@@ -276,3 +276,6 @@
 [2026-06-06 20:16 EDT] SKILL[SYS] | 收工 | ✅ | 项目:Mac mini选配咨询 commit:f7b04a1 深度审核:session 46d62c14 已审(1 Friction入库:收工git token坑) 索引:1770条消息+89条向量
 [2026-06-06 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
 [2026-06-07 00:28 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P8 commit:23f6255 草稿:1条(playbook建议)+自动写入1条(项目记忆)
+[2026-06-07 01:57 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2 commit:2c0cd0e 草稿:0新(本次会话in-context审核:1条friction补记+1条INSIGHTS自动写入评分4)
+[2026-06-07 02:05 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 157.702 MiB (165362509 Byte) → Google Drive
+[2026-06-07 10:17 EDT] SKILL[SYS] | 收工 | ✅ | 项目:个人攻略+记忆管理 commit:0657fd1 深度审核:session 6a73ad5f+68228bb3 已审(自动写入:1条knowledge_base/丢弃:2条) 索引:1535条消息+193条向量

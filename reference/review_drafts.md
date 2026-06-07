@@ -4,6 +4,21 @@
 
 ---
 
+## [草稿] 2026-06-07 深度审核 #2（个人攻略 + 记忆管理 + INSIGHTS迁入）
+
+> 审核 session：6a73ad5f（review_drafts 上次已写）+ 68228bb3（BB架构咨询3条）
+
+### 🤖 本次自动写入（4-5分，已直接写入正式文件）
+
+- **[评分:4]** knowledge_base：评估自建功能vs原生时必须先WebFetch官方文档（[src:1a423ab7]）→ 已写入「系统维护」章节，INSIGHTS已清除
+
+### 🗑️ 自动丢弃（1分）
+
+- 68228bb3（BB架构咨询，3条截断）：token_utils.sh减耦合建议来源，已实施+已在review_drafts捕获，不重复
+- personal/攻略.md 创建：纯生活记录，无技术/系统价值
+
+---
+
 ## [草稿] 2026-06-07 深度审核（friction复盘 + 响应级授权 + token_utils.sh重构）
 
 > 审核内容：friction_log 12条复盘 + task_approved 授权机制升级 + token_utils.sh 统一重构 + SOUN 跌幅咨询
