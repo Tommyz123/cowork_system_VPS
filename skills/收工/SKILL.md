@@ -340,6 +340,12 @@ print(f'已标记 {len(new_sessions)} 个 session 为已审核')
 
 ### 5.5 发 Discord 通知 + 写入 ops_log
 
+**先查 auto_pending 待审记忆条数（轻量衔接整理记忆，2026-06-07）：**
+```bash
+grep -c "^\[" /home/cowork/.claude/projects/-home-cowork-cowork/memory/auto_pending.md 2>/dev/null || echo 0
+```
+> 收工不跑整理记忆的逐条确认（会卡住无人值守流程），只在通知末尾提醒条数，留待下次对话开始处理（现有 ⏳[待审记忆] hook 会自动提醒，形成闭环）。
+
 无论有无草稿，收工完成时通过 mcp__plugin_discord_discord__reply 发送：
 
 ```
@@ -350,6 +356,11 @@ print(f'已标记 {len(new_sessions)} 个 session 为已审核')
 - 🗑️ 自动丢弃（1 分）：N 条
 → 草稿存入 reference/review_drafts.md，明天第一件事展示给你决策
 → 自动写入的 N 条详见 cowork_log.md "🤖自动写入" 行；觉得有错立即说，我回滚
+```
+
+**若上面 grep 出的待审记忆条数 > 0，通知末尾追加一行：**
+```
+⏳ 另有 N 条待审记忆未处理，下次对话开始我列给你确认
 ```
 
 写入 ops_log：

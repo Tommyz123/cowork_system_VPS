@@ -210,7 +210,14 @@ last_updated: 2026-05-31
 ### [P2] Cowork 系统优化
 状态：持续迭代中
 last_updated: 2026-06-07
-停在：Codex Discord Bot 等主公建新 Discord bot 提供 token；token_utils.sh + Stop 清 task_approved 已部署，需重启三实例生效。
+停在：做减法三项已落地（子Agent路由/记忆双路径/收工衔接）。剩余可做：清僵尸项目（P3/P4/P6/P10）。Codex Discord Bot 仍等主公建 bot 给 token。
+
+本次完成（2026-06-07 深夜 — 原生功能对照 + 系统做减法）：
+- **原生 Claude Code 功能 vs cowork 硬对照**：抓官方文档8功能能力边界，发现自建了多处平台已原生支持的东西
+- **减法①子Agent路由**：CLAUDE.md+ARCHITECTURE.md 删手写①②④路由判据（平台已内置自动委派），保留"拿不准自己做"门槛+长耗时强制派，11行→5行
+- **减法②记忆系统**：废除失效的"双路径同步"假机制（原生路径从未写入、ARCHITECTURE还写旧WSL路径）。明确唯一源=cowork/memory（git追踪+三实例AA/BB/CC共享，原生auto-memory各实例独立故不用）。整理记忆SKILL.md步骤1"对比双路径"→"确定增量范围"
+- **减法③收工×整理记忆轻量衔接**：收工SKILL.md步骤5.5加auto_pending待审条数检查，>0则通知末尾提醒，不打断无人值守流程
+- **关键认知**：收工步骤5深度审核=自动版整理记忆（扫对话→评分→4-5分自动写/2-3送审/1分丢），两者本已部分整合，逐条确认部分刻意不合（避免卡住收工）
 
 本次完成（2026-06-07 — friction_log 复盘 + 响应级授权 + token_utils.sh 重构）：
 - **SOUN 跌幅分析（P9 咨询）**：告警 -7.7%，查明 ① Halper Sadeh 法律调查（噪音）② $300M ATM 稀释（实质）；51.7% 增速未变 thesis 未破，建议持有守止损 $6.5

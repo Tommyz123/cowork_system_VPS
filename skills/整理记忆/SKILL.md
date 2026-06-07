@@ -1,6 +1,6 @@
 ---
 name: 整理记忆
-description: 执行 cowork 系统的记忆整理流程。主公说"整理记忆"时触发。对比两个 memory 路径、处理 auto_pending 待审条目、写入正式 memory/ 文件、更新 MEMORY.md 索引。
+description: 执行 cowork 系统的记忆整理流程。主公说"整理记忆"时触发。处理 auto_pending 待审条目、扫描增量来源、写入正式 memory/ 文件、更新 MEMORY.md 索引。
 allowed-tools: Read, Write, Edit, Bash
 disable-model-invocation: true
 ---
@@ -20,17 +20,13 @@ disable-model-invocation: true
 
 ---
 
-## 步骤1：对比两个 memory 路径
+## 步骤1：确定增量扫描范围
 
 读取 `CURRENT_SESSION.md` 中的 `last_memory_sync` 时间戳。
 
-分别列出两个路径的文件列表：
-- Claude 内部路径：`/home/cowork/.claude/projects/-home-cowork-cowork/memory/`
-- Desktop 本地路径：`/home/cowork/cowork/memory/`
+只扫 `last_memory_sync` 时间戳之后的 `cowork_log.md` 条目和 Discord 消息（无时间戳则全量扫），找出值得入库的偏好/决策/背景/资源位置。
 
-对比差异，有分叉则列出并询问主公如何合并。
-
-只扫 `last_memory_sync` 时间戳之后的 `cowork_log.md` 条目和 Discord 消息（无时间戳则全量扫）。
+> 唯一记忆源是 `/home/cowork/cowork/memory/`（git 追踪、三实例共享）。平台原生 auto-memory 路径留空不用，**不需要对比双路径**（旧机制已于 2026-06-07 废除，详见 ARCHITECTURE.md memory 层）。
 
 ---
 

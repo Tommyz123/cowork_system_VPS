@@ -1,6 +1,6 @@
 # Cowork 系统架构说明
 
-> 最后更新：2026-05-10（子Agent协作层替换Codex执行层；收工Skill由4步升级为6步）
+> 最后更新：2026-06-07（做减法：子Agent路由改用平台内置自动匹配；记忆系统废除失效的"双路径同步"，唯一源 cowork/memory）
 > 用途：帮助 AI 在新对话中快速理解整套系统，不需要主公重复解释
 
 ---
@@ -27,17 +27,17 @@ Desktop/
 
 ## 二、memory/ 层（跨对话记忆层）
 
-**位置（双路径，需了解区别）：**
-- Claude 内部路径：`/home/zhi8939/.claude/projects/-mnt-c-Users-zhi89-Desktop-cowork/memory/` — auto-memory 系统自动写入此处；每次对话自动加载 MEMORY.md
-- Desktop 本地路径：`/mnt/c/Users/zhi89/Desktop/cowork/memory/` — 手动整理记忆写入此处；被 git 版本控制追踪
+**唯一记忆源：** `/home/cowork/cowork/memory/`（git 版本控制追踪，三实例 AA/BB/CC 共享同一份）
 
-**两条写入路径说明：**
-- **auto-memory**（Claude Code 平台内置）：对话中自动判断并写入 Claude 内部路径，无需触发
-- **整理记忆**（主公触发）：人工审查后写入 Desktop 本地路径，同时更新 MEMORY.md 索引
+**为什么不用平台原生 auto-memory（2026-06-07 决策）：**
+- 平台 auto-memory 写入各实例独立路径（`$HOME/.claude/projects/<cwd>/memory/`），三实例**各记各的、互不相通**
+- 自建 `cowork/memory/` 在 git 仓库里 → 三实例共享 + 可审查 + 可回滚，正是三实例场景需要的
+- 故：平台原生路径**留空不用**，唯一源是 `cowork/memory/`
+- ⚠️ 历史包袱清理：旧版文档曾描述"Claude内部路径 ↔ Desktop本地路径 双路径同步"，实为失效机制（原生路径从未写入，从未真正同步），已于 2026-06-07 删除
 
-**同步策略：** 每次执行"整理记忆"时，对比两个路径的文件差异，有分叉则合并，保持一致。
+**写入方式：** 主公触发"整理记忆" → 人工审查后写入 `cowork/memory/` + 更新 MEMORY.md 索引
 
-**用途：** 存储 AI 对主公的长期理解，跨对话持久生效。
+**用途：** 存储 AI 对主公的长期理解，跨对话 + 跨实例持久生效。
 
 | 文件 | 职责 | 加载方式 |
 |------|------|---------|
@@ -60,7 +60,7 @@ Desktop/
 - 记忆可能过时，使用前先验证是否仍然准确
 
 > ⚠️ **v2 变更**：v1 存在两套记忆（`.auto-memory/` + `cowork/memory/`）并存的问题。v2 起，手动整理记忆的真实源为 `cowork/memory/`（git 追踪），`.auto-memory/` 已废弃。
-> ⚠️ **v3 说明**：auto-memory（平台内置）写入 Claude 内部路径，整理记忆写入 Desktop 本地路径，两者独立运行，通过整理记忆时的人工对比保持同步。
+> ⚠️ **v4 说明（2026-06-07）**：废除"双路径同步"机制（原生路径从未写入，描述失效）。唯一记忆源为 `cowork/memory/`（git 追踪、三实例共享），平台原生 auto-memory 留空不用。理由见上方「为什么不用平台原生 auto-memory」。
 
 ---
 
@@ -96,7 +96,7 @@ Desktop/
 |-------|---------|------|
 | `/收工` | `skill: "收工"` | 6步会话结束流程（保存进度+日志 / 文档同步检查 / 备份+commit+push / 写入cowork.db / 深度审核草稿 / 索引更新） |
 | `/搜索` | `skill: "搜索"` | 自然语言搜索 cowork.db 历史对话 |
-| `/整理记忆` | `skill: "整理记忆"` | 5步记忆整理流程（auto_pending审核→对比双路径→写入→更新时间戳） |
+| `/整理记忆` | `skill: "整理记忆"` | 记忆整理流程（auto_pending审核→增量扫描→列出建议→写入 cowork/memory→更新时间戳；步骤以 SKILL.md 为准） |
 | `/系统复盘` | `skill: "系统复盘"` | friction归类统计→检查复发→输出报告→等确认后修改 |
 | `/审核架构` | `skill: "审核架构"` | 7维度系统架构检查，输出问题清单 |
 | `project-plan/todolist 系列` | 各自 skill 名 | 项目规划工作流（生成/审核/修复） |
@@ -117,13 +117,12 @@ Desktop/
 | `discord_reply_check.sh` | Stop | Discord 消息漏回复时 block |
 | `rm -f /tmp/task_approved` | UserPromptSubmit | 每次主公发消息自动清除授权 token |
 
-**子Agent 协作层**（2026-05-10 更新）：
+**子Agent 协作层**（2026-06-07 精简：路由判断改用平台内置自动匹配，删除手写①②④判据）：
 
 | 项目 | 说明 |
 |------|------|
 | 角色 | Claude 策划+验收，子Agent 执行（读多文件+改+验证场景） |
-| 路由规则 | ①读多文件+改+验证，验收能写死，无需中途对话 → `general-purpose` 子Agent；②只读型（分析/调研/审核）→ `Explore` 子Agent；③长耗时（爬虫/批处理）→ 强制 `general-purpose`；④其他（即时/单步/需中途确认）→ Claude 直接做 |
-| 派发判据 | 「验收能写死」+「无需中途对话」两个都满足才派，缺一则 Claude 直接做 |
+| 路由规则 | 平台内置自动匹配（按子agent说明书选 `Explore`/`general-purpose`/`Plan`）；拿不准就自己做，不强行派；长耗时（爬虫/批处理）强制 `general-purpose` 防阻塞 |
 | 指令写法 | 路径+做什么+约束；禁止背景/解释；改前读现状，验证通过才完成，卡住即报告 |
 
 **Auto-RCA 子系统**（2026-05-18 上线）：
