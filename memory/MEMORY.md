@@ -27,6 +27,7 @@
 - [feedback_yagni.md](feedback_yagni.md) — 按需而做不过度工程化；"要需要才做，不是为了工程而做"；没真实场景就不建抽象层
 - [feedback_discord_ts_hook.md](feedback_discord_ts_hook.md) — Discord ts字段解析必须先json.loads()，直接搜原始stdin会因JSON转义失败
 - [feedback_discord_approve_design.md](feedback_discord_approve_design.md) — discord_approve.py设计原则：Skill命令不进APPROVE_KEYWORDS；关键词必须边界regex防从句误触发
+- [feedback_savework_continuous.md](feedback_savework_continuous.md) — 收工必须连贯一口气跑完、commit+push全自动，中途绝不停问git授权（异步收工不触发授权是bug）
 - [feedback_proposal_data_first.md](feedback_proposal_data_first.md) — 推系统优化方案前必须先grep friction_log验证痛点真实性，禁止凭直觉推方案
 - [feedback_methodology.md](feedback_methodology.md) — 主公工作方法论：小步起步+监测+数据驱动升级+已研究方案留底；与YAGNI互补
 - [feedback_token_economy.md](feedback_token_economy.md) — 系统优化必须算token经济账；真正省token优先级反直觉：开新对话 > 搜索升级 > 图谱 > LLM调用（净增）
