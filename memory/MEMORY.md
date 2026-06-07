@@ -1,6 +1,6 @@
 # Memory Index
 
-> 最后更新：2026-06-02（project_pyramid_learning 大更新：第1-2章学透毕业(L3)+训练承诺+核心深练边角略过策略+全书深浅地图+4个易错点；reference_p3_cannabis_budtender 路径从旧Windows更新为VPS实际路径+启动流程）
+> 最后更新：2026-06-06（补登 2 个孤儿文件 feedback_backlog_format + feedback_timezone 进索引；user_profile 新增"记录+提醒"私人助理定位）
 > 维护规则：新增记忆文件后立即在此处添加条目；不用的记忆文件同步删除对应条目
 
 ## User
@@ -10,11 +10,12 @@
 ## Feedback（行为规则）
 - [feedback_understand_before_act.md](feedback_understand_before_act.md) — ⭐习惯：做任何事/给任何建议前，先了解清楚背景和实际情况（查实际数据/代码/战略，别凭记忆直觉）；禁止"先抛听起来合理的答案再回头补功课"
 - [feedback_honesty.md](feedback_honesty.md) — 不讨好不奉承，客观陈述优缺点，有问题直说，不因顾虑情绪而含糊
+- [feedback_investment_direct.md](feedback_investment_direct.md) — 投资/购买/判断类问题直接给推测+推荐，不堆免责声明；但无权威来源的事实仍标注"推测非事实"
 - [feedback_confirm_before_execute.md](feedback_confirm_before_execute.md) — 执行确认：WSL 必须独立 .py（其他 CLAUDE.md 已有）
 - [feedback_logging.md](feedback_logging.md) — 日志纪律：大事记不记细节；收工 ⊃ 保存进度（其他 CLAUDE.md 已有）
 - [feedback_discord_allowlist.md](feedback_discord_allowlist.md) — Discord保持pairing模式；allowlist模式会导致reply工具报错"channel is not allowlisted"，不要改
 - [feedback_auto_context.md](feedback_auto_context.md) — 涉及文件操作时主动读context.md；纯聊天不需要读
-- [feedback_memory_system.md](feedback_memory_system.md) — 按需读取+两层写入过滤；快速拒绝（想法→BACKLOG/进度→CURRENT_SESSION/可推导→不写）；5问题判断：持久/跨对话价值/改变行为/不可推导/够具体，<3个Yes不写
+- [feedback_memory_system.md](feedback_memory_system.md) — 按需读取+两层写入过滤；快速拒绝（想法→BACKLOG/进度→CURRENT_SESSION/可推导→不写）；5问题判断：持久/跨对话价值/改变行为/不可推导/够具体，<3个Yes不写；决策变更=更新最新+保留旧决定原因(不删旧/不新旧并存)
 - [feedback_project_pause_policy.md](feedback_project_pause_policy.md) — 暂停项目保留在活跃列表，不主动建议降BACKLOG；主公原话"放下去可能就永远不做了"
 - [feedback_roi_assessment.md](feedback_roi_assessment.md) — 评估新自动化/Hook前，先查friction_log+cowork_log评估违规频率，不反问主公
 - [feedback_api_key_storage.md](feedback_api_key_storage.md) — API key禁止硬编码，必须存.env文件+环境变量读取，.env加入.gitignore
@@ -48,6 +49,8 @@
 - [feedback_read_before_conclude.md](feedback_read_before_conclude.md) — 先读信息再结论：有信息源（文件/日志/脚本/配置）禁止跳读猜测（P11 调试教训）
 - [feedback_pacing_and_plain_language.md](feedback_pacing_and_plain_language.md) — 默认逐条+大白话+术语分层（Claude Code 生态/业务领域术语直接用，底层技术术语需比喻）；"没理解"立即换比喻（2026-05-27 升级）
 - [feedback_clarify_hard_requirements.md](feedback_clarify_hard_requirements.md) — "什么都行/都可以/看你"必须先追问"有没有不接受的"再讨论选项；用户说宽松词≠真的宽松，常是没想到先说底线
+- [feedback_backlog_format.md](feedback_backlog_format.md) — BACKLOG 记想法必须注明真实讨论日期+背景/来源+决策原因，不能只写写入日期
+- [feedback_timezone.md](feedback_timezone.md) — 主公在纽约，所有时间用纽约时间（EDT/EST）表达，不说 UTC
 - [feedback_proactive_update_alert.md](feedback_proactive_update_alert.md) — 主动扫描+及时提醒：工作中扫描到任何需要更新的内容(文档/索引/记忆/简历)立即 Discord 提醒，不等主公问；write_triggers_scan/artifact_indexing/deprecation_cleanup 的总纲
 - [feedback_immediate_vs_longterm_framing.md](feedback_immediate_vs_longterm_framing.md) — 推 3 选 1 / 优先级建议前必须先问"立即推动 vs 长期方向"；两种场景判断框架完全不同（立即→看难度+ROI；长期→看战略契合度，重不再是缺点）
 - [feedback_p9_strategy_discipline.md](feedback_p9_strategy_discipline.md) — P9 优化提案先过"是否改了策略本身"关；攒样本只能框架内拓宽广度，不能改扫描频率（数据回来前不改策略）
