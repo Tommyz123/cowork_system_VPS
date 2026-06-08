@@ -71,6 +71,11 @@ VPS（DigitalOcean 142.93.207.54）上运行**两个完全独立的 Claude Code 
 - cowork → 默认 socket，session `cowork`
 - opus_CC → `-L opus_socket`，session `cowork_opus`
 
+**坑3b（2026-06-07 BB 派活给 AA 时实测）：从 BB/CC 的 shell 里用「裸 `tmux`」或「`tmux -t cowork`」够不到 AA。**
+根因：BB 的 `$HOME=/home/cowork/opus_home`，tmux 默认 socket 路径由 HOME 推导，会指到 BB 自己的 socket dir → `tmux capture-pane -t cowork` 抓到的是 BB 自己的 pane（屏幕上看到自己刚写的字 = 这个症状的信号）。
+正确寻址 AA：用显式 socket 路径 `tmux -S /tmp/tmux-$(id -u)/default ...`（`default` socket name = AA；该 socket 文件的创建时间 = AA service 启动时间，可对账确认），session 名 `cowork`。
+> 即派活前必须先确认 socket 路由对了，否则会自己派给自己、capture 自己。reference_dual_bot.md「实例间任务派发」段的 `tmux -L opusN_socket` 写法只适用于从 AA 派给 BB/CC（AA 在默认 socket 能直接 -L 到别人）；反向（BB/CC→AA）必须走 `-S 显式路径`。
+
 ---
 
 ### 坑4：opus_CC 蹭 cowork 的 plugin cache（没有独立插件状态）

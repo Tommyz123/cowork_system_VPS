@@ -880,3 +880,15 @@ cron_jobs.md / reference_dual_bot.md / MEMORY.md / playbook / CURRENT_SESSION / 
 
 ### 🗑️ 本次自动丢弃摘要（1分）
 - B(操作记录)/D(playbook)/E(文档对齐)/F(MEMORY废弃) 共4类候选经判断无独立价值，不写
+
+## [草稿] 2026-06-07 深度审核
+
+审核 session：1个（d04fb4e6，本次对话）
+
+### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
+- **[评分:4]** Friction/操作记录 「BB/CC→AA 跨实例 tmux 寻址坑」→ 已写入 reference/dual_bot_setup_log.md 坑3b（裸 tmux 因 HOME 推导 socket 够不到 AA，须用 -S 显式路径）
+
+### 无 2-3 分送审草稿
+（本次另一可记内容「cowork memory vs 原生 memory 护城河」已于会话中作为 [ref-worthy] 写入 INSIGHTS.md，非新发现；ai_news 增强已入日志+CURRENT_SESSION，无需起草独立文档）
+
+---
