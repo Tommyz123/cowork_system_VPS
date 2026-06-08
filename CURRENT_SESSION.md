@@ -212,6 +212,14 @@ last_updated: 2026-05-31
 last_updated: 2026-06-07
 停在：自建vs原生取代盘点完成（结论：系统已基本对齐，无真正"被取代该砍"项；多数自建是主动保留=原生无等价或不适合三实例场景）。剩余可做：清僵尸项目（P3/P4/P6/P10）。Codex Discord Bot 仍等主公建 bot 给 token。
 
+本次完成（2026-06-07 晚 — AI 动态日报 博客+arXiv 解读增强）：
+- **需求**：技术日报每条新闻/论文加两句：📖白话「是什么」（零基础也懂）+ 💡「对你有用」（cowork 这套文件+脚本+Claude 助理能怎么用上）
+- **改动 `newscripts/ai_news_monitor.py`**：①新增 `analyze_blog_items()` 用 claude haiku 跑公司博客标题出 gist+cowork_use ②arXiv `filter_arxiv_with_claude` prompt/输出加 `cowork_use` 字段 ③`build_html` 公司公告从裸链接→卡片（含📖💡）、arXiv 卡片加💡行 ④`main()` 接线 `analyze_blog_items`（seed 模式跳过）
+- **端到端实跑通**：2 条样本博客真实跑出解读（如 OpenAI 并行工具调用→提醒"需 GPT-5，对当前帮助有限"）；预览 PNG 发 Discord，主公认可
+- **Source C（Claude Code 更新区）此前已做**：版本+新功能列表+✅可加入/⚠️可砍掉
+- **P9 委托旁路**：本对话把 P9 ledger 幽灵数据清理跨实例委托给 AA（仅 AA 连 Alpaca=持仓真相源），AA 已处理并回各自频道
+- 每天早上 9:00 EDT cron 照旧
+
 本次完成（2026-06-07 傍晚 — 自建功能 vs Claude Code 原生取代盘点）：
 - **三档盘点**：①已对齐2项（子Agent路由→原生自动匹配 / 记忆双路径已废）②部分重叠待讨论4项（进度/搜索/记忆/方法论）③建议保留自建5项（Hook/friction/复盘/cron，原生无等价）
 - **第3条进度管理**：核实原生 TaskList = 仅当前对话非持久 → 不取代而"各管一层"：CURRENT_SESSION 管项目级跨对话进度，TaskList 管单次对话多步追踪（我自动调用，零配置零常驻token）

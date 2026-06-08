@@ -37,3 +37,5 @@
 [2026-06-07 01:25] ⚠️ 工具限制 | discord_approve.py 授权词匹配对"是的，执行c"这种连写/带后缀的组合失效，未触发 task_approved，导致主公以为已授权但守卫仍拦截 | 处理：让主公重发干净授权词 | 状态：需主公确认 — 建议优化匹配逻辑(去标点/分词后再匹配，或对"执行"做包含式而非整词匹配)
 
 [2026-06-07 01:55] ⚠️ 工具限制 | 主公在我上个响应"执行中"异步发"收工"，该消息未走正常UserPromptSubmit授权链，discord_approve.py未写git_approved savework，导致收工commit被守卫拦截 | 处理：让主公重发"收工"作为独立消息才触发授权 | 状态：需主公确认 — 根因：异步到达消息(system-reminder"message arrived while working")不触发hook；建议探讨能否让异步消息也触发授权，或收工流程检测到此情况主动提示重发
+
+[2026-06-07 18:38] ⚠️ 工具限制 | claude.ai Google Calendar/Gmail MCP 授权必须终端跑/mcp,authenticate工具调用只返回该指引不吐授权URL=纯Discord手机遥控无法完成授权 | 处理:如实告知主公需某刻碰终端SSH | 状态：需主公确认(是否换可远程授权的日历/邮箱接入方案,如直连CalDAV/Google API service account)
