@@ -4,6 +4,25 @@
 
 ---
 
+## [草稿] 2026-06-08 深度审核（MiroFish 预测方法论拆解）
+
+> 审核 session：265fe3c9（MiroFish拆解+订阅版复刻+三实例当大脑）
+
+### 🤖 本次自动写入（4-5分，已直接写入正式文件）
+- **[评分:5]** 操作记录：MiroFish六步预测流水线+9个坑拆解 → 已写入 `reference/mirofish_拆解笔记.md`（含源码持久化 mirofish_source/）
+- **[评分:5]** feedback：预测前必先夯实数据(主公定性"儿戏") → 已写入 `memory/feedback_prediction_data_first.md` + MEMORY.md登记
+- **[评分:4]** friction：Discord reply 参数名是 `text` 不是 `content` → 已写入 friction_log.md
+- **[评分:4]** methodology_index：登记「三.5预测方法论(建设中)」→ 已写入
+
+### 📝 送审（2-3分，等主公决策）
+- **[评分:3]** Task#6「先理解原理再执行」CLAUDE.md规则：主公本次明确要求"写入和改正"，但需主公确认规则原文措辞后才写入 ~/.claude/CLAUDE.md。**这是待办，非已完成**。
+- **[评分:3]** 待主公点头的3件事：①写预测标准正式文档 prediction_method.md（七铁律+环境一环）②三实例当大脑最小验证（另起干净临时实例）③大麻案复刻继续(②建图谱起)。
+
+### 🗑️ 自动丢弃（1分）
+- 共 2 条（第一版v2预测的具体50-55%数字结论=反面教材已在拆解笔记标注无需单记；OASIS包安装细节=已在笔记记）
+
+---
+
 ## [草稿] 2026-06-07 深度审核 #2（个人攻略 + 记忆管理 + INSIGHTS迁入）
 
 > 审核 session：6a73ad5f（review_drafts 上次已写）+ 68228bb3（BB架构咨询3条）
