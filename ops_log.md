@@ -287,3 +287,5 @@
 [2026-06-07 17:26 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2 commit:96dd136 草稿:2条
 [2026-06-07 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
 [2026-06-07 20:40 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2,P4,P9 commit:69d1c78 草稿:1条(自动写入)
+[2026-06-07 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-06-08 02:05 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 166.341 MiB (174420937 Byte) → Google Drive

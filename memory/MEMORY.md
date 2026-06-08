@@ -9,6 +9,7 @@
 
 ## Feedback（行为规则）
 - [feedback_understand_before_act.md](feedback_understand_before_act.md) — ⭐习惯：做任何事/给任何建议前，先了解清楚背景和实际情况（查实际数据/代码/战略，别凭记忆直觉）；禁止"先抛听起来合理的答案再回头补功课"
+- [feedback_prediction_data_first.md](feedback_prediction_data_first.md) — 做任何预测/推演前必先把事实数据100%核实+标来源确信度+补缺口；数据不准就预测=主公定性"儿戏"（2026-06-08）
 - [feedback_direct_investment_advice.md](feedback_direct_investment_advice.md) — 投资/判断类问题直给推测+推荐，免责声明压到一句内；不展开边界列表（2026-06-06）
 - [feedback_honesty.md](feedback_honesty.md) — 不讨好不奉承，客观陈述优缺点，有问题直说，不因顾虑情绪而含糊
 - [feedback_confirm_before_execute.md](feedback_confirm_before_execute.md) — 执行确认：WSL 必须独立 .py（其他 CLAUDE.md 已有）
