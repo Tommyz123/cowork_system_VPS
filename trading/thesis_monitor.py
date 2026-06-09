@@ -176,40 +176,42 @@ def main():
     ensure_thesis_alerts_table(conn)
     ensure_thesis_status_column(conn)
 
-    top3 = conn.execute(
+    picks = conn.execute(
         """
-        SELECT symbol, score, new_signal, invalidation, explosion_catalyst, scan_date, entry_price
+        SELECT symbol, score, new_signal, invalidation, explosion_catalyst, scan_date, entry_price, status
         FROM scanner_picks
-        WHERE status IN ('filled', 'filled_late')
-        ORDER BY score DESC
+        WHERE status IN ('filled', 'filled_late', 'closed_watching', 'exited')
+        ORDER BY CASE status WHEN 'closed_watching' THEN 1 WHEN 'exited' THEN 1 ELSE 0 END, score DESC
         """
     ).fetchall()
 
-    if not top3:
-        print("没有 open 持仓")
+    if not picks:
+        print("没有持仓或平仓追踪")
         conn.close()
         return
 
     today = datetime.now().strftime("%Y-%m-%d")
     lines = [f"📋 Thesis 追踪 - {today}", ""]
 
-    for row in top3:
-        symbol, score, new_signal, invalidation, explosion_catalyst, scan_date, entry_price = row
-        print(f"追踪 {symbol}...", flush=True)
+    for row in picks:
+        symbol, score, new_signal, invalidation, explosion_catalyst, scan_date, entry_price, pick_status = row
+        is_closed = pick_status == 'closed_watching'
+        label = " | 🏁已平仓·归因追踪" if is_closed else ""
+        print(f"追踪 {symbol}{label}...", flush=True)
         headlines = fetch_recent_news(symbol, conn)
 
         prompt = build_monitor_prompt(symbol, new_signal, explosion_catalyst, invalidation, headlines)
         result = run_claude(prompt)
 
         if not result:
-            lines.append(f"❓ {symbol} | LLM 分析失败")
+            lines.append(f"❓ {symbol}{label} | LLM 分析失败")
             lines.append("")
             continue
 
         status = result.get("status", "neutral")
         emoji = STATUS_EMOJI.get(status, "❓")
         entry_str = f"{entry_price:.2f}" if entry_price else "N/A"
-        lines.append(f"{emoji} **{symbol}** | {status.upper()} | 评分 {score}/12 | 入场 {entry_str}")
+        lines.append(f"{emoji} **{symbol}**{label} | {status.upper()} | 评分 {score}/12 | 入场 {entry_str}")
         lines.append(f"  {result.get('status_reason', '')}")
         lines.append(f"  爆发条件: {result.get('catalyst_progress', '')}")
         if result.get("key_headline"):
@@ -218,7 +220,10 @@ def main():
             lines.append(f"  ⚠️ 警报: {result['alert']}")
         lines.append("")
 
-        # 写回数据库
+        if is_closed:
+            continue  # 已平仓：不写 DB、不触发告警，纯归因观察
+
+        # 写回数据库（仅持仓中）
         write_thesis_status(conn, symbol, status)
 
         if status == "invalidated":
