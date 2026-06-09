@@ -41,3 +41,10 @@
 [2026-06-07 18:38] ⚠️ 工具限制 | claude.ai Google Calendar/Gmail MCP 授权必须终端跑/mcp,authenticate工具调用只返回该指引不吐授权URL=纯Discord手机遥控无法完成授权 | 处理:如实告知主公需某刻碰终端SSH | 状态：需主公确认(是否换可远程授权的日历/邮箱接入方案,如直连CalDAV/Google API service account)
 
 [2026-06-08 02:42] ⚠️ 工具限制 | Discord reply 工具参数名是 `text` 不是 `content` | 用 content 报错 "undefined is not an object (evaluating 'text.length')"，改用 text 即通 | 状态：已自行修复
+
+[2026-06-08 18:00] ⚠️ 工具参数错误 | Discord reply 工具连续3次报错 "undefined is not an object (evaluating 'text.length')" | 读 jsonl 确认我传的是 message 字段，但工具 schema 要求的是 text 字段；改用 text 后发送成功 | 状态：已自行修复
+[2026-06-08 18:00] ✅ 处理结果：记录正确参数名 = chat_id + text（非 message）；reply schema 必填 {chat_id, text}，可选 {reply_to, files} | 状态：已自行修复
+
+[2026-06-08 19:35] ⚠️ 被主公纠正(自查) | MiroFish原版人设机制 | ①表面错误:我说"原版用自由文本人设不是MBTI",主公追问"原版用什么",读oasis_profile_generator.py发现原版profile结构明确含mbti字段(:50)+MBTI_TYPES 16型列表(:155)+age/gender/profession/interested_topics ②根因:没读oasis_profile_generator.py就凭"~2000字人设"的印象答MBTI有无,正好踩刚写进CLAUDE.md的"没读到的别靠猜补全" ③建议规则变更:无需改规则(规则已对),是执行没遵守——回答"原版有没有X"前必须grep源码确认 | 验证标准:今后答原版机制问题前先读对应源码文件 | 验证状态:已自行修复(读代码纠正)
+
+[2026-06-08 23:47] ⚠️ 被纠正 | Discord遥控时误用AskUserQuestion交互菜单 | 主公在Discord问"美国债务危机预测哪个方向"，我用AskUserQuestion弹终端交互菜单收集选择——主公在Discord看不到终端UI，导致卡等(主公连发"为什么没有回复""hi")。表面错误=用了交互式选择界面；根因=澄清需求时下意识用了AskUserQuestion工具，忘了CLAUDE.md明令"禁止用交互式菜单/UI/键盘选择界面，所有选项必须以Discord文字消息呈现"；建议规则变更=无需改规则(规则已存在)，是执行时违规——澄清/给选项一律走Discord reply文字版(带编号选项)，AskUserQuestion仅限主公在终端前时用。验证标准:下次需要主公在多选项间澄清时，用Discord文字列编号选项而非AskUserQuestion。验证状态：【待验证】 | 状态：已自行修复(当场道歉+改回Discord文字)
