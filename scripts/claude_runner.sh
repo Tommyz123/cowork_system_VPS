@@ -5,7 +5,7 @@
 TMUX_BIN=/usr/bin/tmux
 SESSION=cowork
 WORKDIR=/home/cowork/cowork
-CLAUDE_BIN=/usr/bin/claude
+CLAUDE_BIN=/home/cowork/.local/bin/claude
 
 # 清残留 session（确保干净起步）
 if $TMUX_BIN has-session -t $SESSION 2>/dev/null; then

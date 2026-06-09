@@ -6,7 +6,7 @@
 TMUX_BIN="/usr/bin/tmux -L opus_socket"
 SESSION=cowork_opus
 WORKDIR=/home/cowork/cowork
-CLAUDE_BIN=/usr/bin/claude
+CLAUDE_BIN=/home/cowork/.local/bin/claude
 export HOME=/home/cowork/opus_home
 
 while true; do

@@ -6,7 +6,8 @@ originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 ---
 ## 3 实例身份（2026-05-27 加入 opus2）
 
-**Discord 显示昵称（2026-05-29 主公定，AA/BB/CC+模型名）**：cowork=**AA-Sonnet4.6** / opus_CC=**BB-Opus4.8** / opus2=**CC-Opus4.8**。模型已从各 HOME settings.json 核实。日常称呼也用这套。
+**Discord 显示昵称（2026-05-29 主公定，AA/BB/CC+模型名）**：cowork=**AA-Sonnet4.6** / opus_CC=**BB-Fable5**（2026-06-09升级） / opus2=**CC-Opus4.8**。模型已从各 HOME settings.json 核实。日常称呼也用这套。
+⚠️ 命名易混：内部进程叫 "opus_CC" 但 Discord 昵称是 **BB**；"opus2" 对应 Discord **CC**。记忆口诀：opus=BB，opus2=CC。
 改名方法（2026-05-29 全实测通，token 在各 HOME `.claude/channels/discord/.env` 的 `DISCORD_BOT_TOKEN`）——**两处要分开改**：
 - **群昵称**（只在 TT基地群显示）：`PATCH /api/v10/guilds/1466957346310717636/members/@me` body `{"nick":"新名"}`
 - **私聊名 = bot username**（DM 里显示的）：`PATCH /api/v10/users/@me` body `{"username":"新名"}`；bot 的 username 允许大写和连字符（如 BB-Opus4.8）。⚠️ 坑：先试 `global_name` 字段 bot 账号不认（HTTP 200 但不生效），必须改 username
@@ -18,7 +19,7 @@ originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 | Discord DM channel | 1485128242808619079 | 1503165641379545228 | 1509045714808737842（2026-05-29 从 opus2 jsonl 挖出确认） |
 | Discord user_id | — | 1503158821345034360 | （token 解码可得，未单列） |
 | Discord username | — | opus_CC#0475 | — |
-| 模型 | Sonnet 4.6 | Opus 4.7 | Opus 4.7 |
+| 模型 | Sonnet 4.6 | **Fable 5**（2026-06-09改） | Opus 4.8 |
 | HOME | /home/cowork/ | /home/cowork/opus_home/ | /home/cowork/opus2_home/ |
 | Discord token | /home/cowork/.claude/channels/discord/.env | /home/cowork/opus_home/.claude/channels/discord/.env | /home/cowork/opus2_home/.claude/channels/discord/.env |
 | tmux | 默认 socket，session: cowork | socket: opus_socket，session: cowork_opus | socket: opus2_socket，session: cowork_opus2 |
