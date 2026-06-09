@@ -81,14 +81,15 @@
 
 ---
 
-## 三.5、预测方法论（self，建设中）
+## 三.5、预测方法论（self，引擎已落地）
 
-> 来源：通读 MiroFish 仓库(/tmp/MiroFish) + 主公与 Claude 对话拆解 | 类型：self | 记录日期：2026-06-08
-> ⚠️ **建设中**：拆解笔记已成，正式「预测标准 SKILL/铁律」尚未定稿。
+> 来源：通读 MiroFish 仓库 + 主公与 Claude 对话拆解 | 类型：self | 记录日期：2026-06-08
+> ✅ **通用引擎已落地**：六步流水线已实现为可复用脚本，换题目不改代码。正式「预测标准铁律文档」prediction_method.md 仍待写。
 
 | 触发关键词 | 路径 | 内容 |
 |---|---|---|
-| 做预测 / 复刻MiroFish / 涌现推演 / 订阅版预测 | `reference/mirofish_拆解笔记.md` | MiroFish 六步涌现流水线+代码出处+5致命错铁律+订阅版替换表+三实例当大脑可行性 |
+| 做预测 / 预测走向 / 涌现推演 / 复刻MiroFish | `prediction_engine/predict.py` + `README.md` | **通用预测引擎**：输入facts+问题→自动跑六步出预测报告。用法见README。订阅版零API费 |
+| 预测原理/拆坑 | `reference/mirofish_拆解笔记.md` | MiroFish 六步涌现流水线+代码出处+9个坑铁律+订阅版替换表 |
 
 ---
 

@@ -290,3 +290,16 @@
 [2026-06-07 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
 [2026-06-08 02:05 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 166.341 MiB (174420937 Byte) → Google Drive
 [2026-06-08 03:17 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2,P5 commit:280384b 草稿:1批(自动写入4条+送审2条)
+[2026-06-08 09:00 EDT] CRON[cannabis_docket_reminder] | mode=weekly | ✅ | 案号 904497-24 提醒已发
+[2026-06-08 13:01 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-08 15:06 EDT] CRON[P9] | screener | ✅ | 完成
+[2026-06-08 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-06-08 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-06-08 16:02 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-06-08 16:30 EDT] CRON[P9] | scanner_tracker | ✅ | 完成
+[2026-06-08 16:45 EDT] CRON[P9] | price_tracker | ✅ | 完成
+[2026-06-08 17:00 EDT] CRON[P9] | post_exit_tracker | ✅ | 完成
+[2026-06-08 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-08 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-06-08 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-06-08 23:45 EDT] SKILL[SYS] | 保存进度 | ✅ | P9 进度已保存

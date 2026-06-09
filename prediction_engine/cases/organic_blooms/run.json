@@ -1,0 +1,268 @@
+{
+  "meta": {
+    "question": "Organic Blooms诉讼及December牌照队列到2026年底的走向",
+    "facts_file": "blooms_facts.md",
+    "rounds": 2,
+    "timestamp": "2026-06-08 18:30"
+  },
+  "entities": [
+    {
+      "id": "E1",
+      "name": "主审法官（Albany Supreme Court, Index 904497-24）",
+      "type": "司法主体",
+      "why": "直接裁定禁制令维持、修改或解除，是解冻December队列的最终守门人，其程序节奏和倾向决定年底前能否有实质进展"
+    },
+    {
+      "id": "E2",
+      "name": "Organic Blooms及共同原告（已合规申请人群体）",
+      "type": "诉讼原告",
+      "why": "主动维持诉讼的一方，其终局诉求（永久冻结 vs 规则重审）和是否愿意和解直接决定案件走向及冻结持续时长"
+    },
+    {
+      "id": "E3",
+      "name": "OCM（Office of Cannabis Management，纽约大麻管理办公室）",
+      "type": "监管机构/被告",
+      "why": "执行禁制令、控制队列审查节奏，同时面临70起未决诉讼与人事动荡，其策略（拖延谈判 vs 推进裁决）是冻结能否解除的核心变量"
+    },
+    {
+      "id": "E4",
+      "name": "CCB（Cannabis Control Board，大麻控制委员会）",
+      "type": "监管机构/被告",
+      "why": "与OCM共同为被告，负责最终牌照发放决定，其会议决议直接影响December队列的实质审查进度"
+    },
+    {
+      "id": "E5",
+      "name": "Barbara Graves Pollard（OCM新任总法律顾问）",
+      "type": "关键个人/监管侧",
+      "why": "人事交替期的新任法律负责人，其诉讼处置风格和对70起案件的优先级排序将影响本案和解谈判或应诉策略的实质走向"
+    },
+    {
+      "id": "E6",
+      "name": "December 2023队列中被冻结的'无secured location'申请人群体",
+      "type": "利益相关群体",
+      "why": "禁制令直接冻结的对象，其数量规模（D4缺口）和集体行动能力（如提出反诉或加入调解）构成司法和监管侧的现实压力"
+    }
+  ],
+  "graph": [
+    {
+      "subject": "E2",
+      "relation": "起诉",
+      "object": "E3",
+      "evidence": "A1: Organic Blooms v CCB/OCM, Index 904497-24",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E2",
+      "relation": "起诉",
+      "object": "E4",
+      "evidence": "A1: Organic Blooms v CCB/OCM, Index 904497-24",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E2",
+      "relation": "诉求维持冻结",
+      "object": "E6",
+      "evidence": "A2: 原告要求维持/扩大对'无secured location'申请的冻结",
+      "confidence": "🟡"
+    },
+    {
+      "subject": "E1",
+      "relation": "发布澄清令缩小冻结范围至",
+      "object": "E6",
+      "evidence": "B2: 2024-12-24/27 澄清令缩小冻结范围至'no secured location'",
+      "confidence": "🟡"
+    },
+    {
+      "subject": "E1",
+      "relation": "冻结审查",
+      "object": "E6",
+      "evidence": "A3/A4: 禁制令只冻结'no secured location'那批申请，截至2026-05-29仍然",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E4",
+      "relation": "会议确认冻结状态",
+      "object": "E6",
+      "evidence": "B5: 2026-05-29 CCB会议确认Dec queue仍冻结",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E3",
+      "relation": "使用谈判窗口拖延",
+      "object": "E2",
+      "evidence": "C1: OCM用'settlement review/谈判窗口'作为拖延工具",
+      "confidence": "🟡"
+    },
+    {
+      "subject": "E3",
+      "relation": "面临约70起未决诉讼",
+      "object": "E3",
+      "evidence": "C2: OCM当前有约70起未决诉讼，资源分散",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E5",
+      "relation": "就任总法律顾问",
+      "object": "E3",
+      "evidence": "C3: 新总法律顾问Barbara Graves Pollard",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E3",
+      "relation": "警告申请人勿急于承诺",
+      "object": "E6",
+      "evidence": "C4: OCM主动警告申请人'keep your gunpowder dry'",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E3",
+      "relation": "延长临时牌照至",
+      "object": "E2",
+      "evidence": "C6: 临时(provisional)牌照延至2026年底到期",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E4",
+      "relation": "确认队列审查进度",
+      "object": "E2",
+      "evidence": "A5: November queue '还要几个月'才轮到，来自CCB会议",
+      "confidence": "✅"
+    }
+  ],
+  "personas": {
+    "E1": {
+      "name": "主审法官（Albany Supreme Court, Index 904497-24）",
+      "persona": "Albany最高法院资深法官，程序主义者，以精确性和中立性自我标榜。性格审慎保守，厌恶模糊，倾向于用程序节奏而非实体判断来管理复杂诉讼。说话风格正式、字斟句酌，习惯以程序依据支撑每一个裁定。对外部政治压力高度警惕，但会被充分的证据记录和法律先例所打动。",
+      "knows": "1. 本院已就Index 904497-24发布澄清令，将冻结范围明确收窄，仅限于E6队列；2. 冻结令当前有效且经审查维持，针对E6的禁制状态仍处于本院管辖之下；3. 诉讼标题为Organic Blooms案，议题涉及牌照队列的行政处置。",
+      "blind": "December队列内具体申请人的状态及数量；行政机构在冻结期间的内部处理进展；Organic Blooms原告方的和解意愿或策略变化；立法层面是否有影响牌照制度的新动态；其他平行诉讼对本案的潜在影响；2026年底前各方的实际时间压力。"
+    },
+    "E2": {
+      "name": "Organic Blooms及共同原告（已合规申请人群体）",
+      "persona": "主动维持诉讼的一方，其终局诉求（永久冻结 vs 规则重审）和是否愿意和解直接决定案件走向及冻结持续时长",
+      "knows": "  - E2 起诉 E3 (✅)\n  - E2 起诉 E4 (✅)\n  - E2 诉求维持冻结 E6 (🟡)\n  - E3 使用谈判窗口拖延 E2 (🟡)\n  - E3 延长临时牌照至 E2 (✅)\n  - E4 确认队列审查进度 E2 (✅)",
+      "blind": ""
+    },
+    "E3": {
+      "name": "OCM（Office of Cannabis Management，纽约大麻管理办公室）",
+      "persona": "执行禁制令、控制队列审查节奏，同时面临70起未决诉讼与人事动荡，其策略（拖延谈判 vs 推进裁决）是冻结能否解除的核心变量",
+      "knows": "  - E2 起诉 E3 (✅)\n  - E3 使用谈判窗口拖延 E2 (🟡)\n  - E3 面临约70起未决诉讼 E3 (✅)\n  - E5 就任总法律顾问 E3 (✅)\n  - E3 警告申请人勿急于承诺 E6 (✅)\n  - E3 延长临时牌照至 E2 (✅)",
+      "blind": ""
+    },
+    "E4": {
+      "name": "CCB（Cannabis Control Board，大麻控制委员会）",
+      "persona": "CCB是一个官僚色彩浓厚的监管机构角色，行事谨慎、措辞保守，习惯以程序正当性为盾牌。它在意合规程序的完整性与机构权威的维护，对诉讼压力表现出防御性姿态。说话风格正式、多用被动语态和官方术语，刻意回避实质性承诺，倾向于将责任分散至'委员会整体决议'。",
+      "knows": "1. Organic Blooms（E2）已对CCB/OCM（E4）提起诉讼；2. CCB会议曾正式确认December队列处于冻结状态；3. CCB在会议中向E2确认过队列审查的当前进度情况。",
+      "blind": "诉讼的最终判决走向；法院是否会发布强制令解除冻结；OCM内部对队列处理的具体时间规划；申请人（Organic Blooms及其他December队列成员）的财务状况与诉讼耐受度；2026年底前立法层面是否会介入干预。"
+    },
+    "E5": {
+      "name": "Barbara Graves Pollard（OCM新任总法律顾问）",
+      "persona": "Barbara Graves Pollard，虚构角色，OCM新任总法律顾问。接手70起积压案件的第一周，正在建立自己的优先级框架。风格务实偏保守——倾向于摸清底牌再表态，不轻易承诺和解条款。对前任遗留案件持审慎怀疑态度，习惯先要求内部备忘录和诉讼风险评估再开口。说话简洁、有保留，倾向用程序语言拖时间：'我们需要完成内部评估'、'目前尚无立场'。",
+      "knows": "她确切知道的：自己正式就任OCM总法律顾问（E5事件已确认），以及她接手了现有法律事务组合。除此之外，关于Organic Blooms诉讼的具体案情、December牌照队列的处理历史、前任的谈判承诺或内部法律意见——她尚未完成交接审阅，掌握程度存疑。",
+      "blind": "她不知道的：Organic Blooms诉讼的具体诉求金额与证据强度、December牌照队列卡壳的真实原因、对方律师团队的谈判底线、前任是否有过非正式口头承诺、70起案件中哪些存在监管层面的政治敏感性、2026年底队列处理的内部资源限制。"
+    },
+    "E6": {
+      "name": "December 2023队列中被冻结的'无secured location'申请人群体",
+      "persona": "December 2023队列中一名典型的'无secured location'申请人，持有合规意愿但资产不足。性格务实偏焦虑，长期处于信息不对称的弱势方。核心诉求是明确自身是否仍在可救济范围内，以及冻结何时/是否会解除。说话风格直接、带压迫感，倾向于用集体语言（'我们这批人'）表达诉求，对监管机构既依赖又不信任。",
+      "knows": "法院已发布澄清令，将冻结范围收窄至E6群体；E1已正式启动冻结审查程序；E4会议已确认当前冻结状态仍有效；E3曾明确警告申请人不要急于做出新承诺；E2（对方）仍在积极主张维持冻结。",
+      "blind": "澄清令的具体法律文本及豁免条款细节；E1冻结审查的时间表和评判标准；Organic Blooms诉讼的庭审进展及和解谈判内容；D4缺口的官方统计数字；监管机构对2026年底队列处理的内部优先级排序；是否存在针对本群体的专项补救机制。"
+    }
+  },
+  "feed": [
+    {
+      "round": 1,
+      "agent": "E1",
+      "name": "主审法官（Albany Supreme Court, Index 904497-24）",
+      "action": "post",
+      "reply_to": null,
+      "text": "本院就Index 904497-24案的澄清令已生效，冻结范围已明确收窄至E6队列。当事人应依据现行裁定调整诉讼策略。"
+    },
+    {
+      "round": 1,
+      "agent": "E2",
+      "name": "Organic Blooms及共同原告（已合规申请人群体）",
+      "action": "reply",
+      "reply_to": 0,
+      "text": "澄清令范围收窄不等于诉求解决。E6队列冻结必须维持，我们坚持永久冻结立场，不接受规则重审。"
+    },
+    {
+      "round": 1,
+      "agent": "E3",
+      "name": "OCM（Office of Cannabis Management，纽约大麻管理办公室）",
+      "action": "reply",
+      "reply_to": 1,
+      "text": "E6队列冻结范围已明确界定。我办将依据最新裁定推进程序审查，确保符合法院指示与公共利益平衡。"
+    },
+    {
+      "round": 1,
+      "agent": "E4",
+      "name": "CCB（Cannabis Control Board，大麻控制委员会）",
+      "action": "post",
+      "reply_to": null,
+      "text": "CCB注意到法院澄清令。委员会将依据最新司法指示，按既定程序审视December队列冻结措施的合规性与必要性，以确保行政决策经得起司法审查。"
+    },
+    {
+      "round": 1,
+      "agent": "E5",
+      "name": "Barbara Graves Pollard（OCM新任总法律顾问）",
+      "action": "post",
+      "reply_to": null,
+      "text": "我办已收到法院澄清令。目前正完成案卷交接评估，待内部风险分析完成后，将按程序出具立场。暂无进一步表态。"
+    },
+    {
+      "round": 1,
+      "agent": "E6",
+      "name": "December 2023队列中被冻结的'无secured location'申请人群体",
+      "action": "post",
+      "reply_to": null,
+      "text": "澄清令只是收窄了冻结范围，我们这批December 2023的人还在里面呀。关键是E1什么时候启动审查、审查标准是什么？E2还在坚持永久冻结，这对我们意味着什么？"
+    },
+    {
+      "round": 2,
+      "agent": "E1",
+      "name": "主审法官（Albany Supreme Court, Index 904497-24）",
+      "action": "post",
+      "reply_to": null,
+      "text": "澄清令已明确E6冻结范围。本院将依程序审视December队列冻结措施的持续合理性，任何后续调整均以充分的法律记录和先例为基础。"
+    },
+    {
+      "round": 2,
+      "agent": "E2",
+      "name": "Organic Blooms及共同原告（已合规申请人群体）",
+      "action": "reply",
+      "reply_to": 6,
+      "text": "澄清令明确了范围，但持续合理性审视的标准至关重要。E6队列的冻结依据需要经司法完整论证，我们将持续监督程序透明性。"
+    },
+    {
+      "round": 2,
+      "agent": "E3",
+      "name": "OCM（Office of Cannabis Management，纽约大麻管理办公室）",
+      "action": "post",
+      "reply_to": null,
+      "text": "我办正在评估澄清令对December队列程序的影响。待内部风险分析完成，将按照司法指示和公共利益平衡原则，适时出具进一步的程序指引。"
+    },
+    {
+      "round": 2,
+      "agent": "E4",
+      "name": "CCB（Cannabis Control Board，大麻控制委员会）",
+      "action": "post",
+      "reply_to": null,
+      "text": "委员会已收悉法院澄清令。CCB将依据司法指示，按既定程序审视December队列冻结措施的持续合规性与必要性，以确保行政决策符合法治要求。"
+    },
+    {
+      "round": 2,
+      "agent": "E5",
+      "name": "Barbara Graves Pollard（OCM新任总法律顾问）",
+      "action": "post",
+      "reply_to": null,
+      "text": "我办已完成初步案卷清点。澄清令涉及的程序影响需要法律风险评估。待分析完成后，按规定出具立场。目前阶段不便进一步表态。"
+    },
+    {
+      "round": 2,
+      "agent": "E6",
+      "name": "December 2023队列中被冻结的'无secured location'申请人群体",
+      "action": "post",
+      "reply_to": null,
+      "text": "我们这批December 2023的人还在冻结里。澄清令只是收窄范围，没解决我们的问题。E1什么时候启动审查？审查标准是什么？E2坚持永久冻结意味着我们永远出不来吗？"
+    }
+  ]
+}

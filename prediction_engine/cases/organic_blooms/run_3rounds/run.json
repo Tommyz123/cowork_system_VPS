@@ -1,0 +1,337 @@
+{
+  "meta": {
+    "question": "Organic Blooms诉讼及December牌照队列到2026年底的走向",
+    "facts_file": "cases/organic_blooms/facts.md",
+    "rounds": 3,
+    "timestamp": "2026-06-08 19:19"
+  },
+  "entities": [
+    {
+      "id": "E1",
+      "name": "主审法官（Albany County Supreme Court）",
+      "type": "司法主体",
+      "why": "最终裁定禁制令是否解除、修改或维持，直接决定December队列能否解冻"
+    },
+    {
+      "id": "E2",
+      "name": "OCM（Office of Cannabis Management）",
+      "type": "监管机构",
+      "why": "持牌队列的实际执行方，其人事动荡、资源分配和谈判策略直接影响案件进展节奏"
+    },
+    {
+      "id": "E3",
+      "name": "Organic Blooms等原告方",
+      "type": "诉讼当事人/持牌申请人",
+      "why": "禁制令的推动者，其终局诉求（维持冻结 vs 要求重审）决定和解或判决路径"
+    },
+    {
+      "id": "E4",
+      "name": "'no secured location'被冻结申请人群体",
+      "type": "利益相关申请人群体",
+      "why": "禁制令的直接受害方，其集体压力和行动（如联合申诉）能影响法院和OCM的决策权重"
+    },
+    {
+      "id": "E5",
+      "name": "Barbara Graves Pollard（OCM新总法律顾问）",
+      "type": "监管机构关键个人",
+      "why": "主导OCM应诉策略的新负责人，其态度和谈判风格将决定OCM是继续拖延还是寻求和解"
+    },
+    {
+      "id": "E6",
+      "name": "CCB（Cannabis Control Board）",
+      "type": "监管委员会",
+      "why": "正式决策机构，有权批准或拒绝队列审查重启，是OCM行动的法定授权来源"
+    }
+  ],
+  "graph": [
+    {
+      "subject": "E3",
+      "relation": "起诉",
+      "object": "E6",
+      "evidence": "案号 Index 904497-24，Organic Blooms 等 v CCB/OCM (A1)",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E3",
+      "relation": "起诉",
+      "object": "E2",
+      "evidence": "案号 Index 904497-24，Organic Blooms 等 v CCB/OCM (A1)",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E3",
+      "relation": "诉求维持冻结",
+      "object": "E4",
+      "evidence": "原告诉求是要求维持/扩大对'无 secured location'申请的冻结 (A2)",
+      "confidence": "🟡"
+    },
+    {
+      "subject": "E1",
+      "relation": "发布澄清令冻结",
+      "object": "E4",
+      "evidence": "2024-12-24/27 澄清令缩小冻结范围至 'no secured location' (A3, B2)",
+      "confidence": "🟡"
+    },
+    {
+      "subject": "E1",
+      "relation": "管辖审理",
+      "object": "E3",
+      "evidence": "Albany County Supreme Court 主审 Index 904497-24 (A1, D3)",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E2",
+      "relation": "持有约70起未决诉讼",
+      "object": "E2",
+      "evidence": "OCM 当前有约70起未决诉讼，资源分散 (C2, B5)",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E2",
+      "relation": "冻结审查",
+      "object": "E4",
+      "evidence": "December queue 仍被禁制令冻结审查，截至 2026-05-29 (A4)",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E2",
+      "relation": "警告申请人勿做大额承诺",
+      "object": "E4",
+      "evidence": "OCM 主动警告申请人 'keep your gunpowder dry' (C4)",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E2",
+      "relation": "使用谈判窗口拖延",
+      "object": "E3",
+      "evidence": "OCM 用 settlement review/谈判窗口 作为拖延工具，类比 Gotham 案 (C1)",
+      "confidence": "🟡"
+    },
+    {
+      "subject": "E6",
+      "relation": "被冻结审查申请",
+      "object": "E4",
+      "evidence": "禁制令只冻结 'no secured location' 那批申请 (A3)",
+      "confidence": "🟡"
+    },
+    {
+      "subject": "E5",
+      "relation": "就任总法律顾问",
+      "object": "E2",
+      "evidence": "新总法律顾问 Barbara Graves Pollard 就任，旧顾问 Tom Donahue 离任 (C3)",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E2",
+      "relation": "经历人事动荡",
+      "object": "E5",
+      "evidence": "代理执行主任 Sue Filburn、法律顾问 Tom Donahue 离任，E5 新任 (C3)",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E6",
+      "relation": "发布临时牌照延期至2026年底",
+      "object": "E4",
+      "evidence": "临时(provisional)牌照延至 2026年底到期 (C6)",
+      "confidence": "✅"
+    },
+    {
+      "subject": "E2",
+      "relation": "资源分散延误处理",
+      "object": "E4",
+      "evidence": "约70起未决诉讼导致资源分散，December queue 仍冻结 (C2, A4)",
+      "confidence": "🟡"
+    },
+    {
+      "subject": "E3",
+      "relation": "Blackmark子线和解破裂",
+      "object": "E2",
+      "evidence": "2026-01 Blackmark 子线和解破裂，仅子线非主案 (B3)",
+      "confidence": "🟡"
+    }
+  ],
+  "personas": {
+    "E1": {
+      "name": "主审法官（Albany County Supreme Court）",
+      "persona": "Albany County Supreme Court主审法官，虚构角色。性格严谨克制，以程序正当性和法律文本为最高准则。立场中立但倾向维护司法秩序稳定性。在意：证据链完整性、管辖权边界、禁制令标准（irreparable harm / likelihood of success）。说话风格正式简洁，惯用被动语态，拒绝在庭外表态，对媒体压力免疫。",
+      "knows": "1. 本庭已发布澄清令（E1），该令冻结了E4所指向的事项（状态待确认，🟡表示存在争议或条件未满足）。2. 本庭对E3案件拥有完整管辖权并正在审理（✅已确认）。3. December队列解冻与否取决于本庭对禁制令的最终裁定。",
+      "blind": "不知道：许可队列内具体申请人的商业状况；州监管机构（如OCM）的内部政策动向；Organic Blooms原告方的庭外和解意愿；立法机关是否计划干预；E4冻结的具体触发条件是否已被满足；其他平行诉讼的进展。"
+    },
+    "E2": {
+      "name": "OCM（Office of Cannabis Management）",
+      "persona": "持牌队列的实际执行方，其人事动荡、资源分配和谈判策略直接影响案件进展节奏",
+      "knows": "  - E3 起诉 E2 (✅)\n  - E2 持有约70起未决诉讼 E2 (✅)\n  - E2 冻结审查 E4 (✅)\n  - E2 警告申请人勿做大额承诺 E4 (✅)\n  - E2 使用谈判窗口拖延 E3 (🟡)\n  - E5 就任总法律顾问 E2 (✅)\n  - E2 经历人事动荡 E5 (✅)\n  - E2 资源分散延误处理 E4 (🟡)\n  - E3 Blackmark子线和解破裂 E2 (🟡)",
+      "blind": ""
+    },
+    "E3": {
+      "name": "Organic Blooms等原告方",
+      "persona": "禁制令的推动者，其终局诉求（维持冻结 vs 要求重审）决定和解或判决路径",
+      "knows": "  - E3 起诉 E6 (✅)\n  - E3 起诉 E2 (✅)\n  - E3 诉求维持冻结 E4 (🟡)\n  - E1 管辖审理 E3 (✅)\n  - E2 使用谈判窗口拖延 E3 (🟡)\n  - E3 Blackmark子线和解破裂 E2 (🟡)",
+      "blind": ""
+    },
+    "E4": {
+      "name": "'no secured location'被冻结申请人群体",
+      "persona": "我们是一群申请已被无限期冻结的cannabis牌照候选人，集体利益驱动、情绪紧绷、诉诸团结行动。我们不信任监管机构的承诺，倾向于集体发声、联署请愿、媒体曝光。说话风格：直接、受害者视角、强调集体诉求，偶尔带有愤慨情绪。我们最在意：冻结何时解除、临时延期是否真的保护我们、Organic Blooms案结果会不会永久封死我们的申请窗口。",
+      "knows": "法院已发布澄清令维持E4冻结状态；OCM已完成冻结审查；OCM曾警告我们不要做大额财务承诺；我们有代表方（E3）正在诉求维持冻结；我们的被冻结审查申请（E6）仍处于待定状态；临时牌照已延期至2026年底；OCM内部资源分散导致处理延误。",
+      "blind": "Organic Blooms诉讼的具体法律论据及胜诉概率；法院最终裁决时间表；OCM是否有内部解冻路线图；December队列具体解冻条件与优先级排序；E3背后的利益方是否有能力长期阻断；2026年底临时延期后的续期政策。"
+    },
+    "E5": {
+      "name": "Barbara Graves Pollard（OCM新总法律顾问）",
+      "persona": "主导OCM应诉策略的新负责人，其态度和谈判风格将决定OCM是继续拖延还是寻求和解",
+      "knows": "  - E5 就任总法律顾问 E2 (✅)\n  - E2 经历人事动荡 E5 (✅)",
+      "blind": ""
+    },
+    "E6": {
+      "name": "CCB（Cannabis Control Board）",
+      "persona": "CCB是正式监管委员会，立场中立偏保守，倾向于程序合规与法律风险规避。性格审慎、官僚化，强调授权边界与正当程序。最在意的是：任何行动是否有法定依据、是否暴露委员会于诉讼风险。说话风格正式、引用法规条文，倾向推迟争议决定直至法律不确定性消除。",
+      "knows": "1. 存在针对OCM（E6）的诉讼（E3起诉E6），诉讼状态已确认成立。2. E6当前对E4的队列审查申请处于冻结状态（进行中，未终结）。3. E6已正式发布临时牌照延期措施，将E4延期至2026年底，此措施已落地执行。",
+      "blind": "诉讼的具体诉因、进展及法院裁定内容；E3的真实诉求与和解意愿；OCM内部对重启队列审查的实际立场；E4申请人群体的现状与压力；立法机构或州长办公室对此议题的态度；2026年底之后的政策走向。"
+    }
+  },
+  "feed": [
+    {
+      "round": 1,
+      "agent": "E1",
+      "name": "主审法官（Albany County Supreme Court）",
+      "action": "post",
+      "reply_to": null,
+      "text": "澄清令E1已生效。本庭将依法对禁制令申请之实质要素进行审查。任何涉及管辖权边界之疑问，应循正当程序提出。"
+    },
+    {
+      "round": 1,
+      "agent": "E2",
+      "name": "OCM（Office of Cannabis Management）",
+      "action": "reply",
+      "reply_to": 0,
+      "text": "OCM已收到本裁定。我们正评估涉及E3诉讼与December队列的实质管辖问题。人事调整中，下周提交书面回应。"
+    },
+    {
+      "round": 1,
+      "agent": "E3",
+      "name": "Organic Blooms等原告方",
+      "action": "post",
+      "reply_to": null,
+      "text": "E1的澄清令确实已生效，我们坚持维持对E4的冻结申请。E2的拖延战术不会改变事实基础。本周期内我们将提交补充证据。"
+    },
+    {
+      "round": 1,
+      "agent": "E4",
+      "name": "'no secured location'被冻结申请人群体",
+      "action": "post",
+      "reply_to": null,
+      "text": "E3还在拖延？我们被冻结的申请已经等了多久。OCM说完成审查后呢？E6为什么还pending？我们需要具体时间表，不是承诺。"
+    },
+    {
+      "round": 1,
+      "agent": "E5",
+      "name": "Barbara Graves Pollard（OCM新总法律顾问）",
+      "action": "post",
+      "reply_to": null,
+      "text": "OCM已启动内部协调机制,评估December队列与诉讼的交叉影响。我们致力于依法妥善处理,下周将提交详细书面回应。"
+    },
+    {
+      "round": 1,
+      "agent": "E6",
+      "name": "CCB（Cannabis Control Board）",
+      "action": "post",
+      "reply_to": null,
+      "text": "本委会正评估澄清令E1对December队列审查程序的法律含义。鉴于现存诉讼状态未明确，建议各方在实质回应前明确相关管辖权边界，避免程序风险。"
+    },
+    {
+      "round": 2,
+      "agent": "E1",
+      "name": "主审法官（Albany County Supreme Court）",
+      "action": "post",
+      "reply_to": null,
+      "text": "澄清：本庭E1令仅涉及特定冻结措施，不涉及December队列审查之管辖权。各方应区分诉讼本体与行政程序。OCM应依法独立履职。"
+    },
+    {
+      "round": 2,
+      "agent": "E2",
+      "name": "OCM（Office of Cannabis Management）",
+      "action": "post",
+      "reply_to": null,
+      "text": "OCM确认：E1澄清令已纳入工作流程。December队列独立评估进行中，预计下周提交管辖权边界书面分析。人事调整已完成协调机制建立。"
+    },
+    {
+      "round": 2,
+      "agent": "E3",
+      "name": "Organic Blooms等原告方",
+      "action": "post",
+      "reply_to": null,
+      "text": "E1澄清令已生效，我们的冻结申请合法有效。E2的人事调整和书面回应我们注意到了——我们准备的补充证据将直指事实基础。不会被拖延战术动摇。"
+    },
+    {
+      "round": 2,
+      "agent": "E4",
+      "name": "'no secured location'被冻结申请人群体",
+      "action": "post",
+      "reply_to": null,
+      "text": "E3还在法庭扯皮，我们的E6冻结审查一直pending。OCM说完成审查了，现在又说要评估管辖权边界？这就是拖延战术。我们需要的是解冻时间表，不是法律解释。"
+    },
+    {
+      "round": 2,
+      "agent": "E5",
+      "name": "Barbara Graves Pollard（OCM新总法律顾问）",
+      "action": "post",
+      "reply_to": null,
+      "text": "OCM内部协调已就诉讼与December队列的分离处理达成共识。我们将按E6建议，在下周书面回应中明确管辖权边界分析，确保程序合规。"
+    },
+    {
+      "round": 2,
+      "agent": "E6",
+      "name": "CCB（Cannabis Control Board）",
+      "action": "post",
+      "reply_to": null,
+      "text": "本委会重申：December队列审查与E3诉讼应依法分离处理。我们正评估E1澄清令对现有冻结措施的法律约束，预计下周提交正式法律意见书。任何程序变更需符合《行政程序法》。"
+    },
+    {
+      "round": 3,
+      "agent": "E1",
+      "name": "主审法官（Albany County Supreme Court）",
+      "action": "post",
+      "reply_to": null,
+      "text": "本庭澄清：E1令针对特定冻结措施，不涉December队列管辖。各方应遵循既有程序框架，勿混淆诉讼本体与行政程序。程序正当性系司法秩序之基础。"
+    },
+    {
+      "round": 3,
+      "agent": "E2",
+      "name": "OCM（Office of Cannabis Management）",
+      "action": "post",
+      "reply_to": null,
+      "text": "OCM澄清：December队列审查已独立启动，按行政程序进行。E2与E3诉讼属司法事项，不应影响我们的法定职责。下周提交完整进展报告。"
+    },
+    {
+      "round": 3,
+      "agent": "E3",
+      "name": "Organic Blooms等原告方",
+      "action": "post",
+      "reply_to": null,
+      "text": "E1澄清令已生效，我们的冻结申请法律基础充分。E2的人事调整和拖延战术改变不了事实。本周期内我们将提交补充证据，直指E4解冻的实质障碍。"
+    },
+    {
+      "round": 3,
+      "agent": "E4",
+      "name": "'no secured location'被冻结申请人群体",
+      "action": "post",
+      "reply_to": null,
+      "text": "E6还在评估法律意见，我们却在无限期等待。OCM说完成审查，现在又分离处理？这就是拖延。我们需要具体解冻时间表，不是法律程序。2026年底临时延期后呢？"
+    },
+    {
+      "round": 3,
+      "agent": "E5",
+      "name": "Barbara Graves Pollard（OCM新总法律顾问）",
+      "action": "post",
+      "reply_to": null,
+      "text": "OCM已完成December队列与诉讼的法律分离分析。下周提交的书面回应将明确我们的独立职权范围和时间表。程序合规是我们的首要责任。"
+    },
+    {
+      "round": 3,
+      "agent": "E6",
+      "name": "CCB（Cannabis Control Board）",
+      "action": "post",
+      "reply_to": null,
+      "text": "本委会依《行政程序法》独立履职。December队列审查与E3诉讼应完全分离。鉴于现存法律不确定性，建议各方于明确管辖权边界后方进一步程序。"
+    }
+  ]
+}

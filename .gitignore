@@ -42,3 +42,4 @@ trading/cik_map.json
 
 # 数据库备份
 *.db.bak*
+prediction_engine/__pycache__/
