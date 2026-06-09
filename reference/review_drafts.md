@@ -4,6 +4,21 @@
 
 ---
 
+## [草稿] 2026-06-09 深度审核（BB升级fable-5 + CLI升级 + 贾维斯方向确认）
+
+> 审核 session：1f40c2d9（BB模型切换+CLI升2.1.170+BB昵称+BB/CC混淆修复）
+
+### 🤖 本次自动写入（4分，已直接写入正式文件）
+- **[评分:4]** knowledge_base：VPS实例重启正确方式（杀 tmux session 不杀 runner，runner while-true 自动重起）→ 已写入 `reference/knowledge_base.md`
+
+### INSIGHTS 建议写入（1条·送审）
+1. **[评分:3]** Claude Code CLI 无 sudo 权限时升级方式：`npm install -g --prefix ~/.local @anthropic-ai/claude-code@latest` 安装到用户目录（`~/.local/bin/`），再把所有 runner 脚本 CLAUDE_BIN 指向新路径；用户目录 PATH 在 `/usr/bin` 前所以优先生效。[src:1f40c2d9]
+
+### 🗑️ 自动丢弃（1分）
+- 共 1 条：贾维斯方向确认 → 已在 auto_pending 捕获，不重复
+
+---
+
 ## [草稿] 2026-06-08 深度审核（通用预测引擎落地 + 美债危机案例）
 
 > 审核 session：dd612b3b（引擎落地+MBTI+修parse_json真bug+两案例换题验证+原版能力对照）

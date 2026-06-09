@@ -328,3 +328,15 @@ headers = {"x-apikey": API_KEY}  # 全小写，无连字符
 - 用法：主公做相关工作时主动提醒读对应 .md（触发点见 `official_plugins/INDEX.md`）；高相关=marketing/legal/data/sales/small-business
 - 需 skill 完整 Body → 抓 `github.com/anthropics/knowledge-work-plugins/blob/main/<插件>/skills/<skill>/SKILL.md`
 - **总入口**：`reference/methodology_index.md` 把官方(official)+自有 skill_archives(self)+外部(external)统一索引，一页看全所有按需调用方法论；新增方法论必带「来源+日期+类型」出处三字段
+
+---
+
+**VPS 三实例重启正确方式：杀 tmux session，不杀 runner（2026-06-09）**[ref-worthy]
+- **错误做法**：`kill <runner_PID>`（SIGTERM）→ runner 干净退出 → systemd `Restart=on-failure` 不触发（只对非 TERM 信号）→ 服务变 `inactive (dead)`，需手动再起
+- **正确做法**：`tmux -L <socket> kill-server`（或 `kill-session`）→ tmux session 消失 → runner while-true 循环探测 session 不在 → 自动起新 session（15秒内完成）→ runner 进程保持存活，systemd 层完全不感知
+- **适用场景**：想让某实例加载新 settings.json（改了 model/plugin 后需重启）
+- **实例对照**：
+  - AA（cowork）：`tmux kill-session -t cowork`
+  - BB（opus）：`tmux -L opus_socket kill-server`
+  - CC（opus2）：`tmux -L opus2_socket kill-server`
+- **runner 路径**：`cowork/scripts/claude_runner.sh` / `claude_opus_runner.sh` / `claude_opus2_runner.sh`
