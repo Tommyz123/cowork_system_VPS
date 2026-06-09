@@ -17,7 +17,7 @@ last_audit_date: 2026-04-19
 | ID | 项目 | 状态 | 最后更新 | 下一步摘要 |
 |---|---|---|---|---|
 | **P12** | **Cannabis Retail 主线** | 🆕 **规划中** | **2026-05-25** | **选址研究框架确立（4维：收入水平+地铁节点+竞争+商业条件）；Queens市场已基本饱和；Sweet spot房租$8k-$12k；主公背景：Bayside Cannabis+Sage Seeds；下次：给地址继续分析或AI法律顾问MVP** |
-| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-06-08 | 通用预测引擎落地跑通(predict.py六步+MBTI)+修parse_json真bug+两案例换题零改验证(大麻诉讼/美债危机)+原版能力对照归档；Task#6已完成；待办：写预测标准正式文档/三实例当大脑最小验证 |
+| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-06-09 | BB升claude-fable-5(Anthropic今日新旗舰)+CLI升2.1.170+三runner脚本更新+BB昵称改BB-Fable5；长期方向确认：cowork=贾维斯雏形，记忆系统是ROI最高改善点；待办：写预测标准正式文档/三实例当大脑最小验证/评估记忆系统改善方案 |
 | P13 | 金字塔原理学习 | ✅ 第2章学透毕业 | 2026-06-02 | 第2章 L3 达标(3份真材料独立写对 SCQA+归纳带证据)；下次开第3章(中等深度,练1次即可)；4个易错点+全书深浅地图已入memory |
 | P10 | 个人文件库 | 🔄 活跃 | 2026-04-25 | MVP完成(简历3文件)，阶段2扩展分类 |
 | P3 | Cannabis Budtender | ⏸️ 暂停（并入 P12 子模块） | 2026-05-07 | eval 100%完成；从 2026-05-14 起作为 P12 子模块继续推进 |
@@ -209,8 +209,22 @@ last_updated: 2026-05-31
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-06-08
-停在：**通用预测引擎已落地并跑通**（predict.py 六步全跑通，含 MBTI）；两个案例实跑成功（大麻诉讼 + 美国债务危机），换题零改代码验证通用性✅。剩余待办：预测标准正式文档(prediction_method.md)未写、三实例当大脑最小验证未跑——待主公点头/选向。
+last_updated: 2026-06-09
+停在：BB 实例已升级到 claude-fable-5（Anthropic 6/9 新旗舰）；CLI 升 2.1.170；三个 runner 脚本更新为新 CLI 路径。长期方向：cowork = 贾维斯雏形，记忆系统是 ROI 最高改善点（主公已认可方向）。
+
+本次完成（2026-06-09）：
+- **BB 升级 claude-fable-5**：opus_home/settings.json model 改为 claude-fable-5；CC 保持 opus-4-8
+- **Claude Code CLI 升级 2.1.170**：旧版 2.1.138 不认 fable-5 → 用户级安装到 ~/.local/bin/claude
+- **三 runner 脚本更新**：claude_runner/claude_opus_runner/claude_opus2_runner.sh CLAUDE_BIN 改为新路径
+- **BB Discord 昵称更新**：群昵称+username 均改为 BB-Fable5
+- **BB/CC 混淆修复**：误把 opus2(CC) 改成 fable-5，已纠正；口诀：opus=BB，opus2=CC 写入 memory
+- **长期方向对齐**：主公确认 cowork = 贾维斯雏形；记忆系统（持久化、跨会话遗漏）是最薄弱也 ROI 最高的改善点
+
+下一步：
+- 评估记忆系统改善方案（重要对话自动写入 / 新会话主动读上下文）
+- 写预测标准正式文档 prediction_method.md
+- 三实例当大脑最小验证（等主公点头）
+路径：cowork/ | runner 脚本：scripts/claude_*_runner.sh | BB 设置：/home/cowork/opus_home/.claude/settings.json
 
 本次完成（2026-06-08 晚 — 通用预测引擎落地 + MBTI + 修真bug + 换题验证）：
 - **引擎 predict.py 六步全跑通**：抽实体→建图谱→长角色+MBTI→造环境→多轮碰撞→提取预测；引擎层零硬编码，换 facts+问题代码一行不改

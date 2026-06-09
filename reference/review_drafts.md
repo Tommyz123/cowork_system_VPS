@@ -946,3 +946,19 @@ cron_jobs.md / reference_dual_bot.md / MEMORY.md / playbook / CURRENT_SESSION / 
 - B(操作记录·纯讨论无操作)/C(friction·已记日志)/D(playbook)/E(文档对齐)/F(MEMORY废弃·无冗余) 共5类无独立价值，不写
 
 ---
+
+---
+
+## [草稿] 2026-06-09 深度审核（loop engineering 自查 + 舞蹈姿态管线）
+
+> 审核 session：180559f6(空收工) / 67f4f08e(舞蹈管线) / 399cb07b(loop engineering自查) / 2ac51975+4d7bed1c(身份问答) / a3fe80e0(本次CC问答)
+
+### 🤖 本次自动写入（4-5分，已直接写入正式文件）
+- **[评分:4]** friction：实例身份混淆复发（多session自报BB/Fable5，但opus2_home实为CC+模型Opus4.8）→ 已写入 `friction_log.md`（跨实例复发、有今日4次触发数据，规则=自报身份前查token_utils.sh）
+
+### INSIGHTS 建议写入（1条·送审）
+1. **[评分:3]** cowork系统已是"部件齐备但编排层缺失"的半套loop engineering：六部件（Automations/Skills/Sub-agents/记忆/Connectors/Worktrees）占五个，但①cron任务零调子agent ②无编排脚本串联任务 ③cron产出只是.tmp非状态文件 ④从未用/goal自延续。本质=「人在循环里」非「人在循环外」。最难补的地基(memory 80+文件)反而已领先，真正只缺两根连接线。[src:399cb07b]（注：主公追问下经两次实地核对得出，含硬证据）
+
+### 操作记录 建议起草（1份·送审）
+- **[评分:2]** 主题：舞蹈姿态识别管线本地执行计划 / 背景：主公要把跳舞视频拆成动作单元+可视化骨架，VPS跑不动改本地电脑跑，已交付单人版+双人版计划到/tmp / 建议文件名：reference/dance_pose_pipeline_log.md（若主公认可此方向长期做）/ 要点：ffmpeg拆帧→MediaPipe(单人)/YOLOv8-Pose(双人)抠骨骼→按姿态变速分段→左右并排文档+骨架叠加视频；坑=MediaPipe不吃py3.12、双人交叉换位会标错人 [src:67f4f08e]
+
