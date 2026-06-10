@@ -37,12 +37,15 @@ originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 3. **plugin cache**：各自单独跑 `/plugin install`，不能共用
 4. **Discord token**：各自独立 .env 文件
 
-**Memory 例外（2026-05-12 决策）：**
-打破原 4 层隔离中的 memory 独立，改为 symlink 共享：
-- `/home/cowork/opus_home/.claude/projects/-home-cowork-cowork/memory/` 是 symlink
-- → 指向 `/home/cowork/.claude/projects/-home-cowork-cowork/memory/`（cowork bot 活 memory）
-- 两个 bot 共享同一份 memory，任一 bot 修改另一个立即生效
-- 理由：主公双模型入口共享上下文需求，远程使用切换繁杂
+**Memory 例外（2026-05-12 决策，2026-06-10 升级为单一物理目录）：**
+打破原 4 层隔离中的 memory 独立，三实例共享**同一份物理记忆** `/home/cowork/cowork/memory/`（git 正本）：
+- AA/BB/CC 的 `$HOME/.claude/projects/-home-cowork-cowork/memory` **全部是 symlink** → `/home/cowork/cowork/memory`
+- 原生记忆机制和自建规矩（CLAUDE.md/整理记忆 skill）写的是同一处，任一实例修改全员立即生效
+- 历史教训（2026-06-10 漂移事故）：5/12 只链了 BB、5/27 CC 上线漏链 → CC 裸跑无记忆 + 双目录漂移；详见 friction_log 2026-06-10 + INSIGHTS [ref-worthy]
+- ⚠️ **新实例上线 checklist（必做）**：创建 `$NEW_HOME/.claude/projects/-home-cowork-cowork/` 后，**禁止留真目录**，必须执行
+  `ln -s /home/cowork/cowork/memory $NEW_HOME/.claude/projects/-home-cowork-cowork/memory`
+  并用 `readlink -f` 逐实例实测确认（不能凭记录断言已配置）
+- 理由：主公多模型入口共享上下文需求，远程使用切换繁杂
 - 详细记录见 `reference/dual_bot_setup_log.md` 章节六
 
 ---

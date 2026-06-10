@@ -36,6 +36,7 @@ triggers: ["P9", "量化交易", "trading", "TIDE", "thesis", "scanner", "候选
 - `theme` 词表（5 选 1）：AI电力 / AI软件 / 公用事业现代化 / 分析师重定价 / 行业重分类
 - cognitive_scanner.py prompt 强制四件套：Bull Thesis / Bear Thesis / Invalidation / Hidden Risk
 - thesis 写作规则：hypothesis 语气强制（may/could/historically），不许 declarative 断言；未验证精确数字只能放监测信号，不进 thesis 散文（详见 memory/feedback_thesis_normalization.md）
+- **bear_thesis 强制检查项（2026-06-09 入库，VRRM -$2,211 教训）**：单一客户/合同占收入 >10% 的公司，bear_thesis 必须单独写"客户集中度风险"段（客户名/占比/合同到期日/历史续签率），否则视为不完整。VRRM 案例：Avis 占收入 >10%，合同终止单日 -70.6%，当时 bear_thesis 只写了政治/政府合同风险，漏了私人大客户集中度
 - 完整 case study 示例：`trading/case_studies/ORA_2026_05_18.md`（含 red team adversarial review）
 
 ## 🚨 错误处理（auto-rca 流程）
@@ -83,6 +84,20 @@ for r in conn.execute('SELECT date, symbol, source, COUNT(*) as cnt FROM signals
 conn.close()
 "
 ```
+
+## 🛑 止损操作流程（2026-05-28 VRRM 实战，2026-06-09 入库）
+持仓基本面永久损伤（thesis 失效）时的完整步骤：
+1. 查暴跌原因（新闻/基本面），区分噪音 vs 实质损伤
+2. 确认 DB `thesis_status=invalidated`
+3. 过 4 层 sanity check（见 memory/feedback_p9_auto_execute.md）
+4. Alpaca API 提交市价卖单（`python3 close_position.py <SYMBOL>`，默认 swing）
+5. 次日确认成交
+6. 更新 DB `realized_pnl` + `mistake_type`（7 选 1）+ `verdict`
+
+## 📈 平仓后追踪（post_exit_tracker，2026-06-03 上线）
+- `post_exit_tracker.py`（周一 17:00 cron）记录已平仓票平仓日后走势（post_exit_peak / 3m_return），验证卖出时机
+- 纯观察不碰选股/下单；首样本 VRRM 显示砍早了（平仓后 +7.27%）
+- 用途：等 8 月样本累积后，作为"长期持有 vs 及时止损"决策的数据支撑
 
 ## 策略定位
 主题驱动季度埋伏（不是技术面短线）：

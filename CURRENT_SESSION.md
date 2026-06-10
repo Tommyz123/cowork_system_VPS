@@ -209,8 +209,21 @@ last_updated: 2026-05-31
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-06-09
-停在：BB 实例已升级到 claude-fable-5（Anthropic 6/9 新旗舰）；CLI 升 2.1.170；三个 runner 脚本更新为新 CLI 路径。长期方向：cowork = 贾维斯雏形，记忆系统是 ROI 最高改善点（主公已认可方向）。
+last_updated: 2026-06-10
+停在：memory 双目录漂移已根治（三实例 symlink → cowork/memory 单一物理目录）；prediction_method.md 已落地；草稿区清零。长期方向：cowork = 贾维斯雏形，记忆系统是 ROI 最高改善点（主公已认可方向）。
+
+本次完成（2026-06-10 — memory 统一 + 草稿清零 + 预测铁律文档）：
+- **memory 双目录漂移根治**：hook 误报"待审记忆"牵出 cowork/memory 与 ~/.claude/projects/.../memory 两份物理目录双向漂移；且"三实例symlink共享"实际只链了 BB、CC 5/27 上线漏链（CC 一直裸跑无记忆注入）——主公"你确定吗"抓出我凭旧记录断言的错误
+- **修复**：备份→双向合并（2 新文件入正本+3 孤儿补索引+去重 feedback_investment_direct 并入 direct_investment_advice）→ AA/CC 目录全改 symlink → cowork/memory；readlink 三实例实测全通过（90 文件）
+- **防复发**：reference_dual_bot.md Memory 例外区块更新 + 新增「新实例上线 checklist」（必须 ln -s + readlink 逐实例实测）
+- **prediction_method.md 落地**：七条铁律+六步骨架+能力边界+实跑检查清单；登记 methodology_index 三.5；mirofish 笔记待办闭环
+- **草稿区清零**：3 份积压草稿全处理（2 条 INSIGHTS 查重发现已入库、话术免责入 knowledge_base、CLAUDE.md 规则确认已存在）
+- **2 条待审记忆入正式 memory**：feedback_delegation_task_spec（需求翻译层）+ feedback_three_stances（三姿态防滑回老师）
+- **三实例当大脑 → 🧊 搁置**（主公认可：无需求拉动+ROI 低；重启条件=有几十 agent 规模预测题）
+
+下一步：
+- 评估记忆系统改善方案（重要对话自动写入 / 新会话主动读上下文）
+- friction_log 15 条待复盘（系统健康提醒）；cowork_log 接近 280 行需归档
 
 本次完成（2026-06-09）：
 - **BB 升级 claude-fable-5**：opus_home/settings.json model 改为 claude-fable-5；CC 保持 opus-4-8
@@ -220,10 +233,6 @@ last_updated: 2026-06-09
 - **BB/CC 混淆修复**：误把 opus2(CC) 改成 fable-5，已纠正；口诀：opus=BB，opus2=CC 写入 memory
 - **长期方向对齐**：主公确认 cowork = 贾维斯雏形；记忆系统（持久化、跨会话遗漏）是最薄弱也 ROI 最高的改善点
 
-下一步：
-- 评估记忆系统改善方案（重要对话自动写入 / 新会话主动读上下文）
-- 写预测标准正式文档 prediction_method.md
-- 三实例当大脑最小验证（等主公点头）
 路径：cowork/ | runner 脚本：scripts/claude_*_runner.sh | BB 设置：/home/cowork/opus_home/.claude/settings.json
 
 本次完成（2026-06-08 晚 — 通用预测引擎落地 + MBTI + 修真bug + 换题验证）：

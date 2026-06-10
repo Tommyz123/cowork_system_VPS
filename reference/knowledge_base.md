@@ -203,6 +203,79 @@ update/create 时传复杂嵌套 JSON + 中文/emoji 会报 "provided as string"
 - 验证配置已生效：看每条 Discord 消息收到的 `⏰ Discord消息时间` system-reminder（= 共享层 discord_ts_convert.py 输出），出现即证明新 hook 已加载
 - 用于：任何改共享层 settings.json / hook 后需重启实例的场景
 
+**Hook 减耦合：3 处以上脚本共用同一段逻辑时抽成 CLI 工具**（2026-06-07 实战，2026-06-09 入库）[ref-worthy]
+- 案例：system_file_guard / git_commit_guard / discord_approve.py 各自维护"实例推导"逻辑（$HOME→AA/BB/CC），逻辑一变要改 N 处易漏改
+- 方案：抽 `token_utils.sh` 暴露 CLI 接口（instance/path/write/check/clear），调用方全部改为 `bash token_utils.sh <action>`
+- 效果：改一处=全部同步；新增实例只改一个文件
+- 通用原则：hooks/ 下任何"多处共用逻辑"（token、实例推导、路径拼接）≥3 处即抽工具
+
+**Hook 选型原则：提前警示型 > 事后留痕型**（2026-06-04 实战，2026-06-09 入库）
+- 对"AI 回答时容易偏的问题类型"（如评级类讨好），用 UserPromptSubmit/PreToolUse 在回答**前**注入警告，比 Stop hook 事后记录有效（伤害已发生才记没意义）
+- Stop hook 适合留痕/统计型场景（如推方案词检测）
+- 设计新 Hook 第一问："提前防还是事后留痕？"再选类型
+
+**AI 自动判断 + 主公审的二级路由：打分门槛宁低勿高 + 冷启动从严**（2026-05-26 实战，2026-06-09 入库）
+- 错放低分=多 1 条送审（成本小）；错放高分=污染正式文件+污染信任（成本大）→ 拿不准就压低分
+- 新上线任何 AI 自动决策机制，第 1-2 周阈值设高（如收工打分只 5 分自动写），让主公早期 100% 看到 AI 判断，攒数据后再放宽
+- 适用：收工打分、auto_pending 捕获、未来任何"AI 自动写入"机制
+
+**验证带外部副作用的脚本：不实跑**（2026-05-31 实战，2026-06-09 入库）[ref-worthy]
+- 脚本最后一步有真实副作用（发 Discord/写外部系统/下单）且无 dry-run 开关时，**禁止为验证逻辑而实跑**
+- 替代：`py_compile` 语法检查 + DB 查询模拟核心逻辑（如查询命中数变化）；真实运行留给定时任务自然触发或主公明确授权
+- 案例：scanner_tracker 221 行无条件发周报，用模拟验证后等授权才手动触发
+
+**opus 实例撞限额卡交互菜单 → tmux Esc 解锁**（2026-05-28 实战，2026-06-09 入库）
+- 症状：systemd active 但 Discord 无回复；`tmux attach` 见 `/rate-limit-options` 菜单停在屏幕
+- 修复：`tmux send-keys -t <session> Escape ''` → 菜单关闭，积压消息自动处理
+- 根因：高 token 任务耗尽 5h 配额，限额重置后弹菜单等交互输入，无人值守永远卡死
+- 诊断顺序：① systemctl status ② tmux attach 看屏幕 ③ .claude.json 时间戳确认进程活着
+
+**Claude Max 配额机制：5 小时滚动窗口 + 全 session 共享**（2026-05-28/29 实测，2026-06-09 入库）
+- 配额按 5h 滚动窗口算（非 RPM/TPM）；所有 session（含子 agent）共享同一池
+- **开多 session 不增加配额**，只是更快耗光窗口——"加 session 解决配额"是误判
+- 自动化/批量使用踩 ToS 边界；重要任务放新对话开头执行
+
+**VPS 3-session 内存基线**（2026-05-28 实测，2026-06-09 入库）
+- 每个 Claude Code 完整开销：进程 150-320MB + Discord plugin(bun) 60-75MB + tmux ~5MB ≈ 250-400MB/session
+- 2GB VPS 跑 3 session 总 ~1GB，swap 已用 ~500MB；再加 session 上限约 1-2 个
+- Mac mini 16GB 理论 25-35 个，真瓶颈是 API 配额非内存
+
+**跨实例诊断/操作两条铁律**（2026-05-29 实战，2026-06-09 入库）[ref-worthy]
+- ① 跨实例查/操作 tmux 必须先 `TMUX= ` 清空环境变量：session 内跑裸 tmux 会被 $TMUX 重定向到自己 socket，看不到别实例 → 误判"对方死了/无 pane"（两实例先后踩同坑，曾产出假 bug 报告）
+- ② 下结论前先确认对方任务状态（spinner/最新输出/是否已回 Discord），别用中途快照判"在打转"——曾据中途画面发错纠偏消息，对方实际已自行得出更准结论
+
+**hermes-agent 是 Agent 框架不是本地模型**（2026-06-02 实读 GitHub 纠正）
+- github.com/NousResearch/hermes-agent = Nous Research 开源 AI Agent 框架（Python/MIT），**不是**旧记忆误记的"Nous Hermes 本地模型"
+- cowork ≈ hermes 理念的手搓定制版（4 月借鉴而建）；区别=hermes 是模型无关通用框架，cowork 长在 Claude Code 里为主公定制
+- 下次问 hermes 用此条，别再凭 4 月自相矛盾的旧记忆
+
+**Claude Code CLI 无 sudo 升级方式**（2026-06-09）
+- `npm install -g --prefix ~/.local @anthropic-ai/claude-code@latest` 装到用户目录（~/.local/bin/）
+- 再把 runner 脚本 CLAUDE_BIN 指向新路径；用户目录 PATH 排在 /usr/bin 前所以优先生效
+
+**加字段/改输出后必须实跑验证"字段真填上"**（2026-06-08 实战，2026-06-09 入库）
+- "跑了没崩"≠"字段有值"：MBTI 字段加完不报错但全空(0/7)，因 parse_json 误抓内嵌数组
+- 任何"加字段→跑→以为成功"场景，验证标准=抽查输出里新字段非空率，不是无报错
+
+---
+
+## AI 项目评估与验证方法
+
+**AI 当杠杆 vs AI 自主：可行性第一问**（2026-05-26 入库 2026-06-09）[ref-worthy]
+- "AI 无监督自主赚钱"做不到（①不能主动发起 ②长任务幻觉 ③收款/合规/客户关系需真人）；能赚钱的是"AI 当主公判断力的杠杆"
+- 评估任何 AI 项目先问：是"无监督自主"还是"杠杆放大"？前者基本不可行
+- 配套评估法：**输入侧 vs 输出侧分维打分**——输入侧（规划/系统化/自动化数量）vs 输出侧（PR/收入/Reality Check 完成度）；输入高+输出低=高级拖延。首次应用 5/28：输入 8/10 输出 3/10 → 暴露 P12 落地缺口
+
+**可验证"玄学/直觉"信号的实验设计三件套**（2026-06-01 P9 梅花易数实战，commit e91d357）[ref-worthy]
+- ① 杀掉随机性做到 100% 可复现（同输入永远同输出，禁临场解读）② 同时记一个随机对照分（hash 映射同区间），真信号必须跑赢随机对照 ③ 先隔离只记录不参与决策，攒 1-2 季度样本后用真实结果验证
+- 验证别只看 hit rate：要看分组收益、IC、t 检验/bootstrap 置信区间；分数过于离散会削弱统计力 → 加正交维度拉散分布
+- **隔离观察列代码模式**：算分逻辑独立模块 / 写入处 try-except 包住算不出留空不阻断主流程 / grep 验证新字段只出现在 import+写库两处不进决策逻辑 / playbook 写明"改决策逻辑别读这些列"
+- 适用：任何"我觉得 X 可能有用但不确定"的因子，低风险验证而不是直接信或直接否
+
+**预测引擎对外结果必带定位免责**（2026-06-08 实战，2026-06-09 入库）
+- 每次用 prediction_engine 对外给结果时必带一句："这是机制推演沙盘，不是基于今日数据的实时预测；角色编的具体数字是 roleplay 非真数据"
+- 目的：避免把模拟数字当真。详见 `reference/prediction_method.md` 铁律七
+
 ---
 
 ## SQLite / 数据库

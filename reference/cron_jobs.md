@@ -65,9 +65,9 @@ PATH=/home/cowork/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 | 时间 (EDT) | 脚本 | 作用 | Log 路径 |
 |---|---|---|---|
 | `0 9 * * 1` (周一 09:00) | `scripts/cannabis_docket_reminder.py weekly` | 周提醒：查 NYSCEF docket | `scripts/cannabis_docket_reminder.log` |
-| `0 9 29 5 *` (5/29 09:00) | `scripts/cannabis_docket_reminder.py critical` | 关键日：OCM 答辩 deadline | 同上 |
-| `0 9 30 5 *` (5/30 09:00) | `scripts/cannabis_docket_reminder.py critical` | 关键日：后续 reply / 和解可能公告 | 同上 |
-| `0 9 31 5 *` (5/31 09:00) | `scripts/cannabis_docket_reminder.py critical` | 关键日 | 同上 |
+| `0 9 12 6 *` (6/12 09:00) | `scripts/cannabis_docket_reminder.py critical` | 关键日：OCM 答辩 deadline（Doc 113 延期后） | 同上 |
+| `0 9 13 6 *` (6/13 09:00) | `scripts/cannabis_docket_reminder.py critical` | 关键日：后续 reply / 和解可能公告 | 同上 |
+| `0 9 14 6 *` (6/14 09:00) | `scripts/cannabis_docket_reminder.py critical` | 关键日 | 同上 |
 
 ⚠️ **注意:** 5/29-31 critical 提醒**明年仍会触发**——届时根据案件状态决定是否保留。
 

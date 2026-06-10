@@ -8,4 +8,9 @@ originSessionId: 6a73ad5f-201f-4832-8b08-c91a66ab46e3
 
 **Why:** 主公要的是有用的方向判断，过度对冲/堆免责声明把结论稀释成废话（原话："你就直接给我推测，和推荐去，不要说什么乱七八糟"）。
 
-**How to apply:** 被问"该怎么买/会涨吗/哪个最好/你觉得呢"时，先给明确推测+推荐（可带一句简短风险），不展开边界列表。区别于 feedback_thesis_normalization（P9 thesis写库必须 hypothesis 语气——那是系统数据库规范，不是口头交付风格）。
+**How to apply:** 被问"该怎么买/会涨吗/哪个最好/你觉得呢"时，先给明确推测+推荐（可带一句简短风险），不展开边界列表。
+- 区别于 feedback_thesis_normalization（P9 thesis写库必须 hypothesis 语气——那是系统数据库规范，不是口头交付风格）
+- 区别于 feedback_honesty（客观直说优缺点、不讨好）——那是通用诚实原则，这条是"别用免责声明稀释结论"的交付风格
+- 注意：涉及尚未发布产品/无权威来源的事实（如发布日期），仍须标注"这是推测非事实"——给推测不等于编造确定性
+
+（2026-06-10 合并自重复文件 feedback_investment_direct.md，原文件已删，备份在 /tmp/memory_backup_20260610.tar.gz）

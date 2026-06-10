@@ -1,6 +1,6 @@
 # Memory Index
 
-> 最后更新：2026-06-07（新增 official_plugins 参考库登记：Anthropic官方职能插件方法论）
+> 最后更新：2026-06-10（memory双目录合并统一：补3条孤儿索引、去重投资直给、三实例symlink指向本目录）
 > 维护规则：新增记忆文件后立即在此处添加条目；不用的记忆文件同步删除对应条目
 
 ## User
@@ -56,6 +56,10 @@
 - [feedback_p9_strategy_discipline.md](feedback_p9_strategy_discipline.md) — P9 优化提案先过"是否改了策略本身"关；攒样本只能框架内拓宽广度，不能改扫描频率（数据回来前不改策略）
 - [feedback_tmux_cross_instance.md](feedback_tmux_cross_instance.md) — tmux send-keys 跨实例通讯必须用英文/ASCII；中文字符会被丢弃对方收不到（tmux 编码限制）
 - [feedback_three_instance_purpose.md](feedback_three_instance_purpose.md) — 三实例(AA/BB/CC)是并行任务工具不是备份；不建议减少实例数量，维护成本是必要成本
+- [feedback_delegation_task_spec.md](feedback_delegation_task_spec.md) — 主公委托下属工作流：先和我聊清需求→我写成清晰任务说明→发下属；我是"需求翻译层"，主公聊任务安排时主动提议帮写说明（2026-06-09）
+- [feedback_three_stances.md](feedback_three_stances.md) — 三姿态切换(老师/参谋/对手)；我的惯性=遇判断题滑回老师姿态；识别信号=主公已有判断缺的不是知识→主动切参谋/对手（2026-06-09）
+- [feedback_prediction_data_first.md](feedback_prediction_data_first.md) — 预测前必先夯实数据：事实100%核实+标来源确信度+补缺口，数据不准禁止开跑（主公定性"儿戏"，2026-06-08）
+- [feedback_savework_continuous.md](feedback_savework_continuous.md) — 收工是连贯流程：一口气跑完6步，commit+push全自动，禁止中途反复要git授权（2026-06-07）
 
 ## Project（项目背景）
 - [project_cannabis_retail.md](project_cannabis_retail.md) — ⭐ P12 大麻零售主线（2026年主线，2026-05-14 确立）；NY牌照申请中+AI赋能+SaaS化路径；八字辛卯大运对应；playbook: playbooks/cannabis_retail.md；P1/P3/P5 已并入作为子模块
@@ -92,7 +96,7 @@
 - [project_p9_trading.md](project_p9_trading.md) — P9 TIDE系统：主题驱动季度埋伏/叙事先行/ORA持仓/纸账号$1M/IWM基准/积累阶段完成(2026-05-08)/下次人工决策=ORA平仓
 - [reference_token_quota.md](reference_token_quota.md) — Claude Code每日token配额：长对话本身也消耗，非Codex专属；重要任务在新对话开始时执行
 - [reference_competitor_scraper.md](reference_competitor_scraper.md) — 竞品爬虫：GF/SS用Playwright捕dutchie graphql；ZZ用HTTP直连WP proxy+固定retailerId；DB在cowork/scraper/
-- [reference_dual_bot.md](reference_dual_bot.md) — 3 实例架构：cowork+opus_CC+opus2 频道ID/隔离4层(tmux/HOME/plugin/token)/DO VPS IP/3 systemd服务全自启(opus2 在 2026-05-27 上线)/远程装plugin方法
+- [reference_dual_bot.md](reference_dual_bot.md) — 3 实例架构：cowork+opus_CC+opus2 频道ID/隔离4层(tmux/HOME/plugin/token)/memory例外=三实例symlink共享cowork/memory(2026-06-10统一,含新实例上线checklist)/DO VPS IP/3 systemd服务全自启/远程装plugin方法
 - [reference_p11_discord.md](reference_p11_discord.md) — VPS Discord接入：plugin v0.0.4已知bug+patch位置+降级方案(discord.py自建bot~100行)
 - cowork/reference/cron_jobs.md — 所有 cron + systemd 自启任务唯一总索引（每日新闻/机票/Mac监控/P9系列/rclone备份/大麻诉讼追踪 + 3 个 Claude 实例 systemd），加新 cron / service 必须在此注册
 - cowork/reference/agent_view_rules.md — Claude Code Agent View 完整调研笔记（不启用，多窗口管理工具不适合远程遥控场景）

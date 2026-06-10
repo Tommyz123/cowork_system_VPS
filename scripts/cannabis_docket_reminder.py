@@ -2,7 +2,7 @@
 """
 NY 大麻 December Queue 诉讼追踪提醒
 - 周一 09:00 EDT: 常规周提醒（查 NYSCEF docket）
-- 关键日 (2026-05-29/30/31): 特别提醒
+- 关键日 (2026-06-12/13/14): 特别提醒（Doc 113 延期后节点，原 5/29-31）
 - 调用: python cannabis_docket_reminder.py [weekly|critical]
 
 发送至 cowork bot DM channel (1485128242808619079)。
@@ -22,8 +22,8 @@ if MODE == "critical":
     HEADER = "🚨 [关键日提醒] NY 大麻 December Queue 诉讼"
     EXTRA = (
         "\n⚡ **今天是 OCM 答辩或和解关键节点附近**\n"
-        "5/29: OCM 答辩 deadline（已延期自 5/8）\n"
-        "5/30-31: 后续 reply / 和解可能公告\n"
+        "6/12: OCM 答辩 deadline（Doc 113 再延期，原告曾反对）\n"
+        "6/13-14: 后续 reply / 和解可能公告\n"
     )
 else:
     HEADER = "🔔 [周一提醒] NY 大麻 December Queue 诉讼追踪"
@@ -36,19 +36,19 @@ MSG = f"""{HEADER}
 🏛️ 法院: Albany County Supreme Court
 👨‍⚖️ 法官: Hon. Sharon A. Graff, J.S.C.
 {EXTRA}
-⏰ 下个关键节点: **2026-05-29**（OCM 答辩或和解 deadline）
+⏰ 下个关键节点: **2026-06-12**（OCM 答辩或和解 deadline，Doc 113 延期后）
 
 📌 今天该做的:
 1️⃣ 登录 NYSCEF: https://iapps.courts.state.ny.us/nyscef/CaseSearch
 2️⃣ 查询 Index No. 904497-24
-3️⃣ 看最近 7 天 docket 有无新 Doc（最新已知 Doc 112，2026-05-01）
+3️⃣ 看最近 7 天 docket 有无新 Doc（最新已知 Doc 113，2026-05-26）
 4️⃣ 重点关注: 法官 order / 双方信件 / 和解 stipulation
 
 📁 本地追踪文档: legal_library/18_Organic_Blooms_v_CCB_Tracking.md
 
-💡 最新状态 (2026-05-01 Doc 112):
-"the parties are continuing their efforts to reach a settlement"
-OCM 在积极审视和解方案，原告同意延期 → 友好谈判中
+💡 最新状态 (2026-05-26 Doc 113):
+AG 第二次申请延期答辩至 6/12，这次原告反对、法院仍批准
+→ 谈判气氛信号转弱，queue 继续冻结
 
 — 发送时间: {NOW}"""
 

@@ -1,6 +1,6 @@
 # Cowork 系统架构说明
 
-> 最后更新：2026-06-07（做减法：子Agent路由改用平台内置自动匹配；记忆系统废除失效的"双路径同步"，唯一源 cowork/memory）
+> 最后更新：2026-06-10（记忆系统 v5：三实例原生路径 symlink 合一到 cowork/memory，根治双目录漂移）
 > 用途：帮助 AI 在新对话中快速理解整套系统，不需要主公重复解释
 
 ---
@@ -29,11 +29,11 @@ Desktop/
 
 **唯一记忆源：** `/home/cowork/cowork/memory/`（git 版本控制追踪，三实例 AA/BB/CC 共享同一份）
 
-**为什么不用平台原生 auto-memory（2026-06-07 决策）：**
-- 平台 auto-memory 写入各实例独立路径（`$HOME/.claude/projects/<cwd>/memory/`），三实例**各记各的、互不相通**
-- 自建 `cowork/memory/` 在 git 仓库里 → 三实例共享 + 可审查 + 可回滚，正是三实例场景需要的
-- 故：平台原生路径**留空不用**，唯一源是 `cowork/memory/`
-- ⚠️ 历史包袱清理：旧版文档曾描述"Claude内部路径 ↔ Desktop本地路径 双路径同步"，实为失效机制（原生路径从未写入，从未真正同步），已于 2026-06-07 删除
+**原生 auto-memory 与自建记忆的关系（2026-06-10 v5：symlink 合一）：**
+- 平台 auto-memory 默认写各实例独立路径（`$HOME/.claude/projects/<cwd>/memory/`），三实例各记各的 → 曾导致双目录漂移（6/7"原生路径从未写入"的判断是错的——原生机制一直在写，2026-06-10 实测抓到漂移）
+- **现行结构**：三实例的原生路径**全部 symlink → `cowork/memory/`**；原生机制和自建规矩写的是同一份物理文件，每次对话原生注入的 MEMORY.md 就是 git 正本
+- 好处：三实例共享 + git 可审查可回滚 + 原生自动注入照常工作，零漂移
+- ⚠️ 新实例上线必须补 symlink 并 readlink 实测，checklist 见 `memory/reference_dual_bot.md`「Memory 例外」区块
 
 **写入方式：** 主公触发"整理记忆" → 人工审查后写入 `cowork/memory/` + 更新 MEMORY.md 索引
 
@@ -60,7 +60,8 @@ Desktop/
 - 记忆可能过时，使用前先验证是否仍然准确
 
 > ⚠️ **v2 变更**：v1 存在两套记忆（`.auto-memory/` + `cowork/memory/`）并存的问题。v2 起，手动整理记忆的真实源为 `cowork/memory/`（git 追踪），`.auto-memory/` 已废弃。
-> ⚠️ **v4 说明（2026-06-07）**：废除"双路径同步"机制（原生路径从未写入，描述失效）。唯一记忆源为 `cowork/memory/`（git 追踪、三实例共享），平台原生 auto-memory 留空不用。理由见上方「为什么不用平台原生 auto-memory」。
+> ⚠️ **v4 说明（2026-06-07）**：废除"双路径同步"机制，唯一记忆源定为 `cowork/memory/`。
+> ⚠️ **v5 说明（2026-06-10）**：v4"原生路径留空不用/从未写入"判断有误（原生机制一直在写，导致漂移+CC漏链裸跑）。改为三实例原生路径全部 symlink → `cowork/memory/`，物理合一。详见上方「原生 auto-memory 与自建记忆的关系」。
 
 ---
 
