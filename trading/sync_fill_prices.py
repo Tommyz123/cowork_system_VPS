@@ -84,15 +84,22 @@ def main():
             order = alpaca_get(env, f"/orders/{order_id}")
             fill_price = order.get("filled_avg_price")
             status = order.get("status")
+            filled_qty = float(order.get("filled_qty") or 0)
             filled_at = order.get("filled_at", "")[:10] if order.get("filled_at") else None
-            print(f"[{symbol}] order_id={order_id[:8]} status={status} fill_price={fill_price}")
+            print(f"[{symbol}] order_id={order_id[:8]} status={status} fill_price={fill_price} filled_qty={filled_qty:g}")
 
-            if status == "filled" and fill_price:
+            # 2026-06-10 部分成交修复：OPG 单部分成交后终态是 expired/canceled 但 filled_qty>0，
+            # 持仓真实存在。只看 status 会把真实持仓标成 expired（GNTX 97/132、WTS 9/10 漏记 3 周教训）。
+            is_partial_fill = status in ("expired", "canceled") and filled_qty > 0 and fill_price
+
+            if (status == "filled" or is_partial_fill) and fill_price:
+                if is_partial_fill:
+                    print(f"  ⚠️ 部分成交：订单终态 {status} 但实际成交 {filled_qty:g} 股 → 按 filled 处理")
                 fill_price = float(fill_price)
-                # 1. trades: status='filled' + fill_price
+                # 1. trades: status='filled' + fill_price + 实际成交股数（部分成交时 != 下单 qty）
                 conn.execute(
-                    "UPDATE trades SET fill_price = ?, status = 'filled' WHERE id = ?",
-                    (fill_price, trade_id),
+                    "UPDATE trades SET fill_price = ?, filled_qty = ?, status = 'filled' WHERE id = ?",
+                    (fill_price, filled_qty, trade_id),
                 )
                 # 2. scanner_picks: 'submitted'→'filled' / 'auto_pending'→'auto_filled' + 回填 fill 字段
                 # （不覆盖 entry_price=signal price 保留语义，只更新 fill_entry_price/fill_date 执行端字段）

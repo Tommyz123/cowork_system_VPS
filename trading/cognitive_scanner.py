@@ -332,7 +332,42 @@ def ensure_watchlist_table(conn):
         )
         """
     )
+    # 2026-06-10 C项扩展：watchlist 从"top picks 副本"升级为"全量分析留底"（含低分票）。
+    # 低分组 = 评分系统的免费对照组；scan_price 留底供日后用 yfinance 回算收益对比。
+    from db_schema import ensure_columns
+    ensure_columns(conn, "watchlist", {
+        "score_narrative": "INTEGER",
+        "score_market_lag": "INTEGER",
+        "score_tailwind": "INTEGER",
+        "score_catalyst": "INTEGER",
+        "score_tradability": "INTEGER",
+        "score_disconfirmation": "INTEGER",
+        "theme": "TEXT",
+        "scan_price": "REAL",
+        "analyst_count": "INTEGER",
+        "avg_dollar_volume": "REAL",
+    })
     conn.commit()
+
+
+def fetch_hard_data(symbol):
+    """拉分析师覆盖数 + 日均成交额（美元）。纯记录用，失败留 None 不阻塞扫描。
+    2026-06-10 C项扩展：LLM 打 market_lag/tradability 分时没有这些硬数据（只能从新闻猜），
+    先并行记录不改打分逻辑，年底验证时拆"LLM 猜的分 vs 真实数据"。"""
+    try:
+        import yfinance as yf
+        info = yf.Ticker(symbol).info or {}
+        analyst_count = info.get("numberOfAnalystOpinions")
+        avg_vol = info.get("averageVolume")
+        price = info.get("regularMarketPrice") or info.get("currentPrice")
+        avg_dollar_volume = float(avg_vol) * float(price) if avg_vol and price else None
+        return {
+            "analyst_count": int(analyst_count) if analyst_count is not None else None,
+            "avg_dollar_volume": avg_dollar_volume,
+        }
+    except Exception as e:
+        print(f"[WARN] fetch_hard_data({symbol}) 失败: {e}", flush=True)
+        return {"analyst_count": None, "avg_dollar_volume": None}
 
 
 def fetch_current_price(symbol):
@@ -437,7 +472,7 @@ def auto_place_order(env, symbol, qty, time_in_force="opg"):
         return {"error": str(e)}
 
 
-def write_scanner_picks(results, scan_date, env):
+def write_scanner_picks(results, scan_date, env, hard_data=None):
     """2026-05-19 改：扫描后直接自动下单到 swing（opg 单），写 status='submitted' + cohort='auto_pending'。
     成交结果由次日 9:45 EDT sync_fill_prices.py 按 Alpaca 实际 status reconcile：
       filled → 'filled' / cohort='auto_filled' + 回填 fill 字段
@@ -531,6 +566,7 @@ def write_scanner_picks(results, scan_date, env):
                 mh = meihua.compute(symbol, scan_date, build_dt=datetime.now())
             except Exception:
                 mh = None
+            hd = (hard_data or {}).get(symbol, {})
             conn.execute(
                 """
                 INSERT OR IGNORE INTO scanner_picks
@@ -538,9 +574,11 @@ def write_scanner_picks(results, scan_date, env):
                  invalidation, explosion_catalyst, status, spy_entry, sector_etf, sector_etf_entry,
                  theme, secondary_themes, bear_thesis, hidden_risk,
                  signal_date, signal_entry_price, cohort,
-                 meihua_score, meihua_hexagram, meihua_relation, meihua_random, listing_date)
+                 meihua_score, meihua_hexagram, meihua_relation, meihua_random, listing_date,
+                 score_narrative, score_market_lag, score_tailwind, score_catalyst,
+                 score_tradability, score_disconfirmation, analyst_count, avg_dollar_volume)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'submitted', ?, ?, ?, ?, ?, ?, ?, ?, ?, 'auto_pending',
-                        ?, ?, ?, ?, ?)
+                        ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     symbol, price, scan_date, item.get("total_score", 0),
@@ -555,6 +593,10 @@ def write_scanner_picks(results, scan_date, env):
                     mh["meihua_relation"] if mh else None,
                     mh["meihua_random"] if mh else None,
                     mh["listing_date"] if mh else None,
+                    item.get("score_narrative"), item.get("score_market_lag"),
+                    item.get("score_tailwind"), item.get("score_catalyst"),
+                    item.get("score_tradability"), item.get("score_disconfirmation"),
+                    hd.get("analyst_count"), hd.get("avg_dollar_volume"),
                 ),
             )
             # Record trade (fill_price NULL，等 sync_fill_prices.py 次日 9:45 EDT 回填)
@@ -578,25 +620,43 @@ def write_scanner_picks(results, scan_date, env):
     return executed_summary
 
 
-def write_watchlist(results, scan_date):
+def write_watchlist(results, scan_date, hard_data=None):
+    """2026-06-10 C项扩展：接收全量分析结果（含 <5 分低分票），不再只存 top picks。
+    低分票纯留底不下单——是日后验证"高分票是否真跑赢低分票"的对照组。"""
+    hard_data = hard_data or {}
     conn = sqlite3.connect(DB_PATH)
     try:
         ensure_watchlist_table(conn)
         for item in results:
+            symbol = item.get("symbol")
+            hd = hard_data.get(symbol, {})
             conn.execute(
                 """
                 INSERT INTO watchlist
-                (symbol, score, old_label, new_signal, invalidation, explosion_catalyst, scan_date)
-                VALUES (?, ?, ?, ?, ?, ?, ?)
+                (symbol, score, old_label, new_signal, invalidation, explosion_catalyst, scan_date,
+                 score_narrative, score_market_lag, score_tailwind, score_catalyst,
+                 score_tradability, score_disconfirmation, theme, scan_price,
+                 analyst_count, avg_dollar_volume)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
-                    item.get("symbol"),
+                    symbol,
                     item.get("total_score", 0),
                     item.get("old_label"),
                     item.get("new_signal"),
                     item.get("invalidation_conditions"),
                     item.get("explosion_catalyst"),
                     scan_date,
+                    item.get("score_narrative"),
+                    item.get("score_market_lag"),
+                    item.get("score_tailwind"),
+                    item.get("score_catalyst"),
+                    item.get("score_tradability"),
+                    item.get("score_disconfirmation"),
+                    item.get("theme"),
+                    fetch_current_price(symbol),
+                    hd.get("analyst_count"),
+                    hd.get("avg_dollar_volume"),
                 ),
             )
         conn.commit()
@@ -672,6 +732,8 @@ def run_full_pipeline(test_symbol=None):
         "analyzed_count": len(analyses),
         # 2026-05-30 上限 10→25：金额降至 $1000 后单只成本降，季度框架内拓宽样本广度（节奏不变），并引入分数梯度以验证评分系统
         "top_results": [item for item in analyses if item.get("total_score", 0) >= 5][:25],
+        # 2026-06-10 C项扩展：全量分析结果（含低分票）留底进 watchlist 作对照组；下单仍只用 top_results
+        "all_results": analyses,
     }
 
 
@@ -773,19 +835,27 @@ def main():
     scanned_count = (result or {}).get("scanned_count", 0)
     analyzed_count = (result or {}).get("analyzed_count", 0)
     top_results = (result or {}).get("top_results", [])
+    all_results = (result or {}).get("all_results", []) or top_results
 
     if scanned_count > 0 and analyzed_count == 0:
         print(f"[FATAL] 扫描了 {scanned_count} 家公司但 0 家成功分析，pipeline 全跪", flush=True)
         sys.exit(1)
 
-    if not top_results:
-        print(f"[INFO] 扫描 {scanned_count} 家，分析 {analyzed_count} 家，无标的达到入选阈值（≥5分）", flush=True)
-        return
-
     scan_date = datetime.now().strftime("%Y-%m-%d")
     env = load_env()
-    write_watchlist(top_results, scan_date)
-    executed_summary = write_scanner_picks(top_results, scan_date, env)
+
+    # C项扩展：每票拉一次硬数据（分析师覆盖数/日均成交额），watchlist 和 scanner_picks 共用
+    print(f"拉取 {len(all_results)} 家硬数据（analyst_count / avg_dollar_volume）...", flush=True)
+    hard_data = {item["symbol"]: fetch_hard_data(item["symbol"]) for item in all_results}
+
+    # 全量留底（含低分票=对照组）；下单仍只用 top_results，选股/下单逻辑不变
+    write_watchlist(all_results, scan_date, hard_data=hard_data)
+
+    if not top_results:
+        print(f"[INFO] 扫描 {scanned_count} 家，分析 {analyzed_count} 家，无标的达到入选阈值（≥5分）；全量 {len(all_results)} 条已留底 watchlist", flush=True)
+        return
+
+    executed_summary = write_scanner_picks(top_results, scan_date, env, hard_data=hard_data)
     send_discord_report(env, top_results, scan_date, scanned_count, executed_summary=executed_summary)
 
     submitted = [s for s in executed_summary if s.get("status") in ("accepted", "submitted", "filled", "pending_new", "new")]

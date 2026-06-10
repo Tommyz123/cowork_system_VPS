@@ -16,6 +16,47 @@ from tide_utils import load_env
 
 DB_PATH = "/home/cowork/cowork/trading/trading.db"
 DISCORD_API_BASE = "https://discord.com/api/v10"
+ALPACA_BASE = "https://paper-api.alpaca.markets/v2"
+
+
+def fetch_alpaca_positions(env):
+    """拉 Alpaca swing 账户真实持仓。失败返回 None（跳过对账，不误报）。"""
+    import urllib.request
+    req = urllib.request.Request(
+        f"{ALPACA_BASE}/positions",
+        headers={
+            "APCA-API-KEY-ID": env.get("ALPACA_SWING_KEY", ""),
+            "APCA-API-SECRET-KEY": env.get("ALPACA_SWING_SECRET", ""),
+        },
+    )
+    try:
+        return json.loads(urllib.request.urlopen(req, timeout=15).read())
+    except Exception as e:
+        print(f"[reconcile] Alpaca positions 拉取失败: {e}")
+        return None
+
+
+def position_level_reconcile(conn, env):
+    """持仓级对账：Alpaca /positions vs DB filled 清单，逐 symbol 比对。
+    订单级对账（sync_fill_prices）堵不住所有洞——2026-06-10 发现 OPG 部分成交
+    （终态 expired 但 filled_qty>0）让 GNTX/WTS 真实持仓漏记 3 周。
+    返回 (告警行 list, broker 持仓数)；list 空 = 一致。"""
+    positions = fetch_alpaca_positions(env)
+    if positions is None:
+        return ["⚠️ 持仓级对账跳过：Alpaca positions 拉取失败"], None
+    broker = {p["symbol"]: float(p["qty"]) for p in positions}
+    db_syms = {
+        r[0]
+        for r in conn.execute(
+            "SELECT symbol FROM scanner_picks WHERE status IN ('filled', 'filled_late')"
+        )
+    }
+    alerts = []
+    for sym in sorted(set(broker) - db_syms):
+        alerts.append(f"🚨 {sym}: Alpaca 持有 {broker[sym]:g} 股但 DB 无 filled 记录（幽灵持仓，监控全漏）")
+    for sym in sorted(db_syms - set(broker)):
+        alerts.append(f"🚨 {sym}: DB 记录 filled 但 Alpaca 无此持仓（DB 残留）")
+    return alerts, len(broker)
 
 
 def fetch_price(symbol):
@@ -204,6 +245,9 @@ def main():
         )
         watching_lines.append("")
 
+    env = load_env()
+    reconcile_alerts, broker_count = position_level_reconcile(conn, env)
+
     conn.commit()
     conn.close()
 
@@ -214,10 +258,14 @@ def main():
     else:
         lines = open_lines
 
+    if reconcile_alerts:
+        lines = [f"🚨 持仓级对账发现 {len(reconcile_alerts)} 处 DB-broker 不一致："] + reconcile_alerts + ["", "—" * 20, ""] + lines
+    elif broker_count is not None:
+        lines.append(f"🛡️ 持仓级对账：Alpaca {broker_count} 只 vs DB 一致")
+
     message = "\n".join(lines).strip()
     print(message)
 
-    env = load_env()
     send_discord(env, message)
 
 

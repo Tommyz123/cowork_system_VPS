@@ -36,6 +36,17 @@ SCANNER_PICKS_EXTRA_COLUMNS = {
     "meihua_relation": "TEXT",
     "meihua_random": "INTEGER",
     "listing_date": "TEXT",
+    # 2026-06-10 C项扩展：6 分项分数入库（此前只存总分，无法分析哪个维度真能预测收益）
+    "score_narrative": "INTEGER",
+    "score_market_lag": "INTEGER",
+    "score_tailwind": "INTEGER",
+    "score_catalyst": "INTEGER",
+    "score_tradability": "INTEGER",
+    "score_disconfirmation": "INTEGER",
+    # 2026-06-10 C项扩展：硬数据记录（LLM 打 market_lag/tradability 时没喂这些数据，
+    # 先记录不改打分；也是假设2"低分析师覆盖=真edge"年底验证的必需数据）
+    "analyst_count": "INTEGER",
+    "avg_dollar_volume": "REAL",
 }
 
 

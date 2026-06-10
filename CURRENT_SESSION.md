@@ -874,19 +874,23 @@ last_updated: 2026-06-04
 
 
 ### [P9] AI量化交易系统（TIDE系统）
-状态：✅ cron运行中 + 账本清理完成(06-08) + 闭环形成(归因追踪上线) + ASTE平仓(+5.75%) + 15只追踪(13持仓+VRRM+ASTE归因)
-last_updated: 2026-06-08
+状态：✅ cron运行中 + 深度审核完成(06-10) + P0×2已修复(部分成交幽灵根治/gtrends断供) + C项扩展上线 + **双层方向定案(P9实验田+趋势主线)**
+last_updated: 2026-06-10
 
-本次完成（2026-06-08 — 账本清理 + ASTE平仓 + 归因追踪闭环）：
-- **账本清理完成**：删4条幽灵(CALX/CRK/CNR早期占位+ARLO旧幽灵)，scanner_picks 31→27行，Alpaca实盘核对后确认
-- **ASTE平仓**：63股@$50.23，入场$48.78，+5.75%/$91.35；exit_reason=thesis_invalidated(Investor Day催化剂失效，管理层未能说服市场)；verdict=failure/mistake=catalyst
-- **thesis_monitor归因追踪上线**：closed_watching+exited状态进每周三追踪；VRRM+ASTE自动归因；平仓后新闻不断线，支持attribution复盘
-- **闭环确认**：选股→入场→监控→平仓→归因(新闻+价格)全通，策略迭代留8月人工判断
+本次完成（2026-06-10 — 深度审核 + P0修复 + C项扩展 + 双层方向定案）：
+- **深度审核**：发现P0×2——①GNTX(97股)/WTS(9股)真实持仓DB标expired裸奔3周（根因：Alpaca OPG部分成交终态expired但filled_qty>0，reconciler只看status）②gtrends自5/31 SerpAPI 429静默断2周
+- **P0修复全闭环**：sync_fill_prices.py加filled_qty>0部分成交分支；GNTX/WTS补录三表(trades/scanner_picks/outcome_tracking,含fill日IWM)；scanner_tracker.py加持仓级对账(每周一Alpaca /positions vs DB逐symbol,不一致🚨告警)，实跑"Alpaca 15只 vs DB一致"；gtrends_collector.py加KEY1→KEY2自动fallback+全失败raise邮件告警，补回2周缺口(alt_signals 280条)
+- **策略层评估**：🔴评分维度缺数据(market_lag/tradability要的分析师覆盖数/成交额没喂LLM=编分=全9-11分通胀根源)🔴低分样本全丢弃(无对照组评分不可验证)🟡narrative用二手新闻/样本主题相关性高/signal_quality全medium
+- **C项扩展上线**(副本测试后动正式库)：6分项分数+analyst_count/avg_dollar_volume入scanner_picks和watchlist；write_watchlist改全量留底(含<5分=对照组)+scan_price；15只持仓已补记硬数据
+- **扎心实证**：15只持仓分析师覆盖5-11个无一≤2，LLM"认知滞后"分与数据不符——P9实际赚的是主题趋势钱(赚钱票全是趋势股AGYS+30%/LIF+20%，亏钱票全是捡漏逻辑SOUN/LZ/VRRM)
+- **双层方向定案（主公拍板）**：第1层P9=AI自动实验田(swing,不动不加码,12月验收)；第2层趋势主线=主力方向(intraday账号$1M纸钱原样用,固定单只金额看%；人机分工=我参谋出报告+主公司令拍板；吃鱼身策略=放弃鱼头等摊牌信号上车,五维判断框架=真金白银/利润上财报/巨头capex/供需缺口/渗透率S曲线；双保险丝=下车信号+保命线-25%)
+- 备份：trading.db.bak.partial_fill_fix_20260610（**6/17后删**）
 
 下一步：
-- 6/14 首批30天outcome(MP/APPF/KTB/GNTX/WTS/SPXC/ROCK，5/25入场批)
-- 8月：累积胜率验证，决定是否调策略
-- Dashboard作品集（待主公说"开始"）
+- **新对话第一件事：写「趋势判断手册」**(正面NVDA/TSLA/闪迪+反面氢能源/3D打印/元宇宙→量鱼大小检查清单)→趋势地图→主公拍板试水
+- 6/17-18 晚批首批30天outcome数据(提醒cron已就位)
+- 8/4 Q3扫描(新增字段自动生效)；评分prompt重校准等6月底数据后议
+- D项尾巴：playbook持仓数字修正(本次收工同步处理)；Dashboard作品集（待主公说"开始"）
 
 本次完成（2026-06-06 — SOUN 跌幅咨询）：
 - **TIDE 告警触发（-7.7%）**：买入价 $8.45，查明两触发因素：① Halper Sadeh 法律调查（股价噪音，非基本面）② $300M ATM 配售稀释（实质但被 51.7% 营收增速覆盖）。建议持有守止损 $6.5，不加仓。thesis 未破。

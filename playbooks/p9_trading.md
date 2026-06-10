@@ -19,16 +19,17 @@ triggers: ["P9", "量化交易", "trading", "TIDE", "thesis", "scanner", "候选
 - `filled_late` → 手动补仓标记（5/18 ghost 修复批）
 - `expired` / `auto_expired` → OPG 未成交（gap up 超 limit 价，Alpaca 自动作废）
 - `canceled` / `rejected` → broker 层撤单/拒单
+- **⚠️ 部分成交规则（2026-06-10）**：Alpaca OPG 单部分成交后终态仍是 `expired` 但 `filled_qty>0`、持仓真实存在——reconciler 必须先查 filled_qty 再定状态（GNTX 97/132、WTS 9/10 漏记 3 周教训，已修 sync_fill_prices.py）
 
 **scanner_picks.cohort 分类**：
 - `early_filled`：5/11 手动第一批（6 只）
 - `late_fill`：5/18 ghost 修复补仓（8 只）
 - `auto_filled` / `auto_pending` / `auto_expired`：自动 OPG 流程
 
-**当前持仓（2026-05-19 对账后）**：
-- **15 只真实持仓**：status IN ('filled','filled_late','auto_filled')
-- **5 只 expired**：GNTX/GWRE/OLLI/CXT/APPF（auto_expired，DB 与 Alpaca 一致）
-- Ghost positions 已完全根治：RCA 见 `trading/rca/2026_05_18_*.md` / `2026_05_19_*.md`
+**当前持仓（2026-06-10 对账后）**：
+- **15 只真实持仓**：status IN ('filled','filled_late')，与 Alpaca /positions 逐 symbol 一致（含 6/10 补录的 GNTX/WTS 部分成交）
+- **双层对账（2026-06-10 上线）**：订单级=每日 9:45 sync_fill_prices.py；持仓级=每周一 scanner_tracker.py 比对 Alpaca /positions vs DB，不一致 🚨 Discord 告警
+- Ghost positions 家族 RCA：`trading/rca/2026_05_18_*.md` / `2026_05_19_*.md`；第3次复发（部分成交反向幽灵）2026-06-10 根治
 
 ## 📊 Attribution 框架 v1（2026-05-18 上线）
 - scanner_picks 表新增 7 字段：`theme / secondary_themes / bear_thesis / hidden_risk / verdict (default tentative) / mistake_type / real_reason`
@@ -172,14 +173,21 @@ SELECT symbol, alert_date, thesis_status, headline_summary FROM thesis_alerts OR
 - 默认账号：swing（纸交易，实际权益 ~$10万，以实时查询为准——2026-05-30 核实 equity $106k / cash $58k，旧记的 $1M 是错的）
 - 支持 account 参数切换：`"swing"` 或 `"intraday"`
 
-## 当前阶段（2026-05-30 更新）
-积累阶段（纸账号 swing，实际 ~$10万 equity / ~$5.8万 cash）：
-- **14 只真实持仓**（filled 6 / filled_late 8）
-- OPG fill 率实测 17%（1/6，5/19）
+## 🏗️ 双层结构（2026-06-10 主公定案）
+- **第1层 P9 = AI 自动实验田**（本 playbook 范围）：swing 账号、纸钱、全自动；任务=验证"AI 自动选股行不行"，**12 月验收定去留，期间不动不加码**
+- **第2层 趋势主线 = 主力方向**（独立体系，不在本 playbook）：**intraday 账号**（$1M 纸钱原样用，固定单只金额只看%）；人机分工=AI 参谋出报告+主公司令拍板；策略=吃鱼身（放弃鱼头、等摊牌信号上车、下车信号+保命线-25%）；五维判断框架=真金白银/利润上财报/巨头capex投票/供需缺口持续性/渗透率S曲线
+- 两层完全分开跑，趋势主线复用 P9 代码框架（数据采集/对账/告警）但独立部署；下一步=写「趋势判断手册」
+- **2026-06-10 实证（方向定案依据）**：15 只持仓分析师覆盖 5-11 个、无一 ≤2——P9 赚钱票全是趋势股（AGYS +30%/LIF +20%）、亏钱票全是捡漏逻辑（SOUN/LZ/VRRM），实际赚的就是主题趋势钱
+
+## 当前阶段（2026-06-10 更新）
+积累阶段（纸账号 swing，~$10.6万 equity / ~$6.1万 cash）：
+- **15 只真实持仓**（filled 7 / filled_late 8，含 6/10 补录 GNTX/WTS）
+- OPG fill 率实测 17%（1/6，5/19）；注意部分成交规则（见状态机）
+- **C项扩展（2026-06-10 上线）**：6 分项分数 + analyst_count/avg_dollar_volume 入库（scanner_picks+watchlist）；watchlist 改全量留底（含 <5 分低分票=评分系统对照组）+scan_price；8/4 扫描自动生效。已知问题：评分通胀（全 9-11 分，market_lag/tradability 缺数据基础 LLM 编分）——prompt 重校准属改策略，等 6 月底数据后议
 - **2026-05-30 攒样本提速（季度框架内，节奏不变）**：每只下单金额 $3000→$1000、单只硬上限 $5000→$2000、季度埋伏上限 top10→top25、batch_max 15→30。理由：hit rate 算 return% 与金额无关，缩小金额+拓宽广度→同现金埋更多票→更快攒够 30+ 样本（统计门槛），且引入分数梯度验证评分系统。⚠️ 不改扫描频率（季度叙事埋伏是策略本身，数据回来前不改策略）。
-- 次季度扫描：8/4 周一 19:30 EDT（按新参数最多埋 25 只，样本 16→~40）
-- 下一个关键节点：5/25 自动扫描验证 retry / 5/26 reconciler 首跑 / 6/14 首批 30 天 outcome
-- alt-data sidecar：4-8 周只观察，1 年后 sample 累积 50+ 才考虑入评分
+- 次季度扫描：8/4 周一 19:30 EDT（按新参数最多埋 25 只，C项扩展字段自动生效）
+- 下一个关键节点：6/17-18 晚批首批 30 天 outcome（提醒 cron 6/18 09:15 已就位）/ 6 月底 hit rate / 8/4 Q3 扫描
+- alt-data sidecar：4-8 周只观察，1 年后 sample 累积 50+ 才考虑入评分；**gtrends_collector 已加 SerpAPI KEY1→KEY2 自动 fallback + 全失败邮件告警（2026-06-10，KEY1 配额耗尽断供 2 周教训）**
 
 ---
 
