@@ -327,3 +327,5 @@
 [2026-06-10 17:00 EDT] CRON[SYS] | stability_check | ✅ | ❌ 需关注 新增friction:3条(16→19)
 [2026-06-10 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
 [2026-06-10 20:03 EDT] SKILL[SYS] | 收工(CC) | ✅ | 项目:SYS commit:f7f630d 草稿:1条(Discord灰点根因)
+[2026-06-10 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-06-10 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
