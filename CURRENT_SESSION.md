@@ -877,6 +877,13 @@ last_updated: 2026-06-04
 状态：✅ cron运行中 + 深度审核完成(06-10) + P0×2已修复(部分成交幽灵根治/gtrends断供) + C项扩展上线 + **双层方向定案(P9实验田+趋势主线)**
 last_updated: 2026-06-10
 
+本次完成（2026-06-10 下午 — 趋势判断手册 v1.0 成稿）：
+- **趋势主线第1步完成**：`trading/notes/趋势判断手册.md` v1.0 成稿+已登记notes/INDEX.md+Discord发审
+- 内容：五维框架（每维真/假趋势对照）+5正4反案例五维倒推打分（NVDA 5/5、TSLA、闪迪 5/5、苹果、AWS vs 氢能源 0/5、3D打印、元宇宙、大麻股 1/5）+落地清单（摊牌信号5条/量级三档/一票否决5条/双保险丝/持有期纪律）+弱点交代+复盘回写机制
+- 案例配置经主公确认扩为5正4反（补苹果/AWS防单周期过拟合+大麻股=主公认知内校准案例，手册内留题请主公批注"当年行业内何时看出供给过剩"）
+- 关键数字web核实并标确信度：SNDK现价$1,627（一年30.5倍/$42B backlog）、NVDA $208.19（摊牌日买入至今~5.5倍）、PLUG $4.14（-94%）、TLRY $17→$300→-99%
+- 新提炼摊牌信号（AWS案例）：公司首次单独披露某业务分部=管理层自己喊"藏不住了"
+
 本次完成（2026-06-10 — 深度审核 + P0修复 + C项扩展 + 双层方向定案）：
 - **深度审核**：发现P0×2——①GNTX(97股)/WTS(9股)真实持仓DB标expired裸奔3周（根因：Alpaca OPG部分成交终态expired但filled_qty>0，reconciler只看status）②gtrends自5/31 SerpAPI 429静默断2周
 - **P0修复全闭环**：sync_fill_prices.py加filled_qty>0部分成交分支；GNTX/WTS补录三表(trades/scanner_picks/outcome_tracking,含fill日IWM)；scanner_tracker.py加持仓级对账(每周一Alpaca /positions vs DB逐symbol,不一致🚨告警)，实跑"Alpaca 15只 vs DB一致"；gtrends_collector.py加KEY1→KEY2自动fallback+全失败raise邮件告警，补回2周缺口(alt_signals 280条)
@@ -887,7 +894,7 @@ last_updated: 2026-06-10
 - 备份：trading.db.bak.partial_fill_fix_20260610（**6/17后删**）
 
 下一步：
-- **新对话第一件事：写「趋势判断手册」**(正面NVDA/TSLA/闪迪+反面氢能源/3D打印/元宇宙→量鱼大小检查清单)→趋势地图→主公拍板试水
+- ~~写「趋势判断手册」~~ ✅ 2026-06-10 成稿待主公审 → **第2步：用清单扫当下市场出「趋势地图」（早/中/晚段）** → 主公拍板试水（启用intraday账号时建议重置为真实金额$20-50k）
 - 6/17-18 晚批首批30天outcome数据(提醒cron已就位)
 - 8/4 Q3扫描(新增字段自动生效)；评分prompt重校准等6月底数据后议
 - D项尾巴：playbook持仓数字修正(本次收工同步处理)；Dashboard作品集（待主公说"开始"）
