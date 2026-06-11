@@ -310,6 +310,14 @@ with pdfplumber.open(path) as pdf:
 - 类似场景预警：trades 表（同一订单不能重复）/ news_archive（同一新闻不能重复推送）/ outcome_tracking（同一 pick 只能有一条结果记录）
 - 排查信号：发现"实体重复出现"时先查 INSERT 路径有没有应用层前置检查，不要只看 DB schema
 
+**SQLite 存向量做语义搜索：cosine 必须 numpy 批量，禁止 python 逐条循环**（2026-06-10）[ref-worthy]
+- 教训源头：cowork.db 对话搜索 `search_conversations.py` 原用 python `for` 循环逐条算 cosine，10920 条消息向量耗时 **3 秒**且随数据量线性增长；换 numpy 矩阵运算后降到 **<0.1 秒**（约 30 倍）
+- 改法：`np.frombuffer(b"".join(blobs), dtype=np.float32).reshape(n, -1)` 一次性读全部 blob → `mat @ q` 矩阵乘 + `np.linalg.norm(axis=1)` 批量算分母，避免逐条 python 浮点循环
+- embedding 用 `struct.pack("{n}f")` 存的 float32 blob，与 `np.frombuffer(dtype=np.float32)` 完全兼容，无需改存储格式
+- 验证方法（改算法必做）：同一 query 向量，新旧两套逐条对比相似度，最大差值 < 1e-4 即纯浮点误差 = 结果一致（本次实测 1.55e-07）
+- **架构判断（防过度工程）**：1 万条量级用 **SQLite + numpy 手算**完全够（毫秒级），不需要上 Milvus/向量数据库——Milvus 是十万条以上才有价值，小规模上它只增加一个要维护的服务。工业级 RAG 图（Milvus+reranker+文档转MD+LLM生成）对"对话记忆检索"这种小规模场景多数是过度工程，唯一普适可借鉴的是"向量计算别用慢算法"
+- 剩余瓶颈：query embedding 的 API 网络往返（Voyage ~10s）才是大头，本地计算优化后想再快得靠 query 向量缓存
+
 ---
 
 ## P9 TIDE 量化系统

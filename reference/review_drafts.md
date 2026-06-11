@@ -49,3 +49,12 @@
 
 ### 待办（非草稿，提醒主公）
 - 绿点改动主公已说"是的"要做，但我列计划后未拿到授权词、对话即收工 → 改绿点(3 server.ts 加 setPresence+重启3实例)留作下次待办
+
+## [草稿] 2026-06-11 深度审核补充（session 16a8769c 二次,RAG评估+搜索提速)
+
+### 操作记录 建议起草（1份）
+- **[评分:3]** 主题：cowork对话搜索numpy提速 / 背景：评估工业RAG图后落地唯一可借鉴点,完整记录"逐条循环→numpy批量"改法+验证法+架构取舍(为何不上Milvus) / 建议文件名：可并入现有reference或作knowledge_base扩展(核心已写入KB SQLite章节,此条仅备查是否需独立操作记录) [src:16a8769c]
+
+### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
+- **[评分:4]** INSIGHTS[ref-worthy]：SQLite向量cosine必须numpy批量+1万条不需Milvus → 已写 reference/knowledge_base.md
+- **[评分:4]** Friction：git守卫标记单次消耗+复合命令被hook整条拦 → 已写 friction_log.md
