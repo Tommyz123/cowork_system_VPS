@@ -41,3 +41,11 @@
 
 ### CLAUDE.md 微调建议（1处）
 - **[评分:2]** "token操作走token_utils.sh"未写路径(实际在~/.claude/hooks/)，今日猜错一次 → 建议补路径
+
+## [草稿] 2026-06-11 深度审核（session 16a8769c，CC实例-Discord灰点排查）
+
+### INSIGHTS 建议写入（1条）
+1. **[评分:3]** Discord 机器人在 Discord 显示灰点(离线)≠没工作，是插件预期行为 → 根因：discord 插件 `server.ts` 的 `ready` 回调从未调用 `setPresence/setStatus`（全文件搜 presence/status/online 零命中），且插件用轻量连接不维持完整 gateway presence 心跳，故 Discord 服务端判离线显灰点；但收发消息完全正常。改绿点方法：`ready` 回调加 `c.user.setPresence({status:'online'})`。注意三实例各用各的 server.ts（AA=cache/0.0.4、BB=opus_home/cache/0.0.4、CC=opus_home/marketplaces/external_plugins），且 cache 目录已标 `.orphaned_at`，改了可能被插件更新覆盖。建议入 knowledge_base「Discord/工具行为」区块备查。[src:16a8769c]
+
+### 待办（非草稿，提醒主公）
+- 绿点改动主公已说"是的"要做，但我列计划后未拿到授权词、对话即收工 → 改绿点(3 server.ts 加 setPresence+重启3实例)留作下次待办
