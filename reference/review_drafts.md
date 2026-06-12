@@ -58,3 +58,17 @@
 ### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
 - **[评分:4]** INSIGHTS[ref-worthy]：SQLite向量cosine必须numpy批量+1万条不需Milvus → 已写 reference/knowledge_base.md
 - **[评分:4]** Friction：git守卫标记单次消耗+复合命令被hook整条拦 → 已写 friction_log.md
+
+## [草稿] 2026-06-12 深度审核（session 88241a79，趋势主线基建大会话 6/10-12）
+
+### 送审（2-4分，等主公决策）
+1. **[评分:4]** 跨响应任务的授权机制改进：后台 agent 模式的长任务会在"agent 完成通知"的新响应里丢失 task token（Stop hook 已清），写文件被守卫拦（6/11 趋势地图实锤）。已验证的 workaround=需授权的任务用**同步 agent 调用**（6/11 选股深挖成功实践）。建议讨论：①把"同步 agent 保 token"写入 CLAUDE.md 子agent协作区块 ②是否建"任务级授权"机制（类似 savework 标记跨响应有效）。friction_log 6/11 已记原始。[src:88241a79]（4分保守送审：涉及授权安全机制，主公点头才改）
+2. **[评分:3]** ARCHITECTURE.md 新增"趋势主线（第2层）"区块：6/10 草稿曾说"等实际落地再加"，现已落地（4文档+2 cron+喂趋势协议+双层隔离），建议正式加章节（素材在 playbooks/p9_trading.md 双层结构区块，可直接浓缩）。[src:88241a79]
+3. **[评分:3]** memory/project_p9_trading.md 过时更新：现内容停在"积累阶段完成(05-08)/下次人工决策=ORA平仓"——ORA 已平仓（5/18）、双层结构未反映。建议重写为：P9=第1层实验田(12月验收)+趋势主线=第2层主力（指针指向 playbook 双层区块）。[src:88241a79]
+4. **[评分:2]** discord_approve.py APPROVE_KEYWORDS 变体增补："可以加，但是…"未触发授权（6/11 实锤，friction 已记）。增补"可以加/加吧/可以做"需权衡防从句误触发原则（feedback_discord_approve_design）。[src:88241a79]
+
+### 🤖 本次自动写入摘要（5分，已直接写入正式文件）
+- **[评分:5]** INSIGHTS [ref-worthy] 迁移：hard negative 测特异性+当日可知信息回测+独立agent对抗审核 → 已迁入 `reference/knowledge_base.md` AI项目评估区块（INSIGHTS 原行已删）
+
+### 🗑️ 本次自动丢弃摘要（1分，未保留）
+- 共 1 条丢弃（Discord 消息单次乱码笔误，已当场更正无规律）
