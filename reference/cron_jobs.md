@@ -158,3 +158,13 @@ tail -50 /home/cowork/cowork/scripts/cannabis_docket_reminder.log
   - 脚本：`scripts/p9_first_hitrate_reminder.py`（log: `scripts/p9_first_hitrate_reminder.log`）
   - 触发后自删 cron 条目 + 守卫 `if TODAY != "2026-06-18"`；发至 cowork bot DM 频道
   - 背景：5/6 那 7 只 6/5 满期 / 5/18 那 8 只 6/17 / 5/19 那 1 只 6/18 → 6/18 全到期；2026-05-30 主公确认 B 方案（完整 hit rate，非 6/5 局部预览）
+
+## 📡 趋势主线（第2层）观察池周检（2026-06-11 新建）
+
+**清单实体:** `/home/cowork/cowork/trading/notes/趋势观察池.md`（W1-W6 信号 + E 事件日历）
+**背景:** 趋势地图 2026-Q2 配套盯防层；触发条件命中→Discord 报警主公
+
+| 时间 (EDT) | 脚本 | 作用 | Log 路径 |
+|---|---|---|---|
+| `35 9 * * 1` (周一 09:35) | `scripts/trend_watch_reminder.py` | 周提醒：按观察池清单执行周检（对 BB 说"趋势周检"） | `scripts/trend_watch_reminder.log` |
+| `5 17 * * *` (每天 17:05) | `scripts/ferc_watch.py` | FERC裁决自动哨兵(观察池E1)：SerpAPI搜新闻命中报警，静默无打扰；**一次性**——裁决落地后删cron行+归档脚本 | `scripts/ferc_watch.log` |

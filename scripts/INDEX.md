@@ -74,6 +74,18 @@
 - **调用方**：cron 周一 09:00 + 关键日期（5/29、5/30、5/31）
 - **频率**：每周 + 关键日
 
+### trend_watch_reminder.py
+- **作用**：趋势观察池周检提醒（周一 09:35 EDT 发 Discord，清单在 trading/notes/趋势观察池.md）
+- **调用方**：cron（见 reference/cron_jobs.md 趋势主线区块）
+- **依赖**：`newscripts/send_discord_dm.py`
+- **新建**：2026-06-11（趋势地图 2026-Q2 配套）
+
+### ferc_watch.py
+- **作用**：FERC 裁决自动哨兵（每天 17:05 SerpAPI 搜裁决新闻，命中→Discord 报警，无命中静默）；一次性使命，裁决落地后删 cron+归档
+- **调用方**：cron（见 reference/cron_jobs.md 趋势主线区块）；`--test` 验证管道
+- **依赖**：SerpAPI KEY1→KEY2 fallback（config/api_keys.env）、`newscripts/send_discord_dm.py`
+- **新建**：2026-06-12（观察池 E1 配套；KEY1 已 429 实测 fallback 正常）
+
 ### claude_opus_runner.sh
 - **功能**：Opus bot 的 tmux watchdog（HOME=opus_home，独立 socket，无限自重启）
 - **调用方**：手动启动 / systemd（双 bot 架构核心）
