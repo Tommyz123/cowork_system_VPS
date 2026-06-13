@@ -17,7 +17,7 @@ last_audit_date: 2026-04-19
 | ID | 项目 | 状态 | 最后更新 | 下一步摘要 |
 |---|---|---|---|---|
 | **P12** | **Cannabis Retail 主线** | 🆕 **规划中** | **2026-05-25** | **选址研究框架确立（4维：收入水平+地铁节点+竞争+商业条件）；Queens市场已基本饱和；Sweet spot房租$8k-$12k；主公背景：Bayside Cannabis+Sage Seeds；下次：给地址继续分析或AI法律顾问MVP** |
-| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-06-09 | BB升claude-fable-5(Anthropic今日新旗舰)+CLI升2.1.170+三runner脚本更新+BB昵称改BB-Fable5；长期方向确认：cowork=贾维斯雏形，记忆系统是ROI最高改善点；待办：写预测标准正式文档/三实例当大脑最小验证/评估记忆系统改善方案 |
+| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-06-13 | BB模型修复(fable-5→opus-4-8，BB账号无Fable5权限)；BB/CC下线修复(systemd超限手动拉runner)；待办：systemctl reset-failed cowork-opus cowork-opus2(需sudo)；评估记忆系统改善方案 |
 | P13 | 金字塔原理学习 | ✅ 第2章学透毕业 | 2026-06-02 | 第2章 L3 达标(3份真材料独立写对 SCQA+归纳带证据)；下次开第3章(中等深度,练1次即可)；4个易错点+全书深浅地图已入memory |
 | P10 | 个人文件库 | 🔄 活跃 | 2026-04-25 | MVP完成(简历3文件)，阶段2扩展分类 |
 | P3 | Cannabis Budtender | ⏸️ 暂停（并入 P12 子模块） | 2026-05-07 | eval 100%完成；从 2026-05-14 起作为 P12 子模块继续推进 |
@@ -209,8 +209,13 @@ last_updated: 2026-05-31
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-06-10
-停在：memory 双目录漂移已根治（三实例 symlink → cowork/memory 单一物理目录）；prediction_method.md 已落地；草稿区清零。长期方向：cowork = 贾维斯雏形，记忆系统是 ROI 最高改善点（主公已认可方向）。
+last_updated: 2026-06-13
+停在：BB模型已修复为opus-4-8(fable-5无权限)；BB/CC runner已手动拉起，但systemd失败计数未清（需sudo：systemctl reset-failed cowork-opus cowork-opus2）；VPS上Cannabis-AI-Budtender可随时启动展示。
+
+本次完成（2026-06-13）：
+- **BB模型修复**：opus_home/settings.json model fable-5→claude-opus-4-8；BB账号（独立订阅）无Fable5权限，收消息后报错无回复；改后重启session即恢复
+- **BB/CC实例下线修复（2026-06-09）**：16:33 systemd重试超限；手动nohup启动两个runner脚本拉起；根因=三实例同时崩溃（可能内存压力）后systemd超限不再自启；长期修法=sudo systemctl reset-failed（暂无sudo）
+- **Cannabis AI Budtender展示（2026-06-10）**：VPS /home/cowork/Cannabis-AI-Budtender/ 完整项目；uvicorn启动→http://142.93.207.54:8000展示完毕→关闭
 
 本次完成（2026-06-10 — memory 统一 + 草稿清零 + 预测铁律文档）：
 - **memory 双目录漂移根治**：hook 误报"待审记忆"牵出 cowork/memory 与 ~/.claude/projects/.../memory 两份物理目录双向漂移；且"三实例symlink共享"实际只链了 BB、CC 5/27 上线漏链（CC 一直裸跑无记忆注入）——主公"你确定吗"抓出我凭旧记录断言的错误
