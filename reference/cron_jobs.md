@@ -65,11 +65,11 @@ PATH=/home/cowork/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 | 时间 (EDT) | 脚本 | 作用 | Log 路径 |
 |---|---|---|---|
 | `0 9 * * 1` (周一 09:00) | `scripts/cannabis_docket_reminder.py weekly` | 周提醒：查 NYSCEF docket | `scripts/cannabis_docket_reminder.log` |
-| `0 9 12 6 *` (6/12 09:00) | `scripts/cannabis_docket_reminder.py critical` | 关键日：OCM 答辩 deadline（Doc 113 延期后） | 同上 |
-| `0 9 13 6 *` (6/13 09:00) | `scripts/cannabis_docket_reminder.py critical` | 关键日：后续 reply / 和解可能公告 | 同上 |
-| `0 9 14 6 *` (6/14 09:00) | `scripts/cannabis_docket_reminder.py critical` | 关键日 | 同上 |
+| `0 9 2 7 *` (7/2 09:00) | `scripts/cannabis_docket_reminder.py critical` | 关键日：SJ 动议开庭前一天 | 同上 |
+| `0 9 3 7 *` (7/3 09:00) | `scripts/cannabis_docket_reminder.py critical` | 关键日：summary judgment 动议开庭日 09:30 | 同上 |
+| `0 9 4 7 *` (7/4 09:00) | `scripts/cannabis_docket_reminder.py critical` | 关键日：开庭后（关注裁决/原告 affidavit） | 同上 |
 
-⚠️ **注意:** 5/29-31 critical 提醒**明年仍会触发**——届时根据案件状态决定是否保留。
+⚠️ **注意:** critical 提醒按年循环（`* `月份字段）**明年仍会触发**——案件结束后需手动清理 7/2-7/4 三条。原 6/12-14 节点（OCM 答辩，已于 2026-06-12 提交）已更新为 7/3 SJ 开庭节点。
 
 ---
 

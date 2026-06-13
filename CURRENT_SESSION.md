@@ -22,7 +22,7 @@ last_audit_date: 2026-04-19
 | P10 | 个人文件库 | 🔄 活跃 | 2026-04-25 | MVP完成(简历3文件)，阶段2扩展分类 |
 | P3 | Cannabis Budtender | ⏸️ 暂停（并入 P12 子模块） | 2026-05-07 | eval 100%完成；从 2026-05-14 起作为 P12 子模块继续推进 |
 | P8 | 求职 (career-ops) | 🔄 召回活动存档+API能力摸清 | 2026-06-07 | 召回活动整合进 sage_seeds/召回活动_2026-06/(README+4CSV+快照)；pull_conversions.py拉数据脚本+API使用记录.md就位实测通(4669笔到6/6)；Alpine IQ能力摸清:cmpID可做活动归因+漏斗(收到/打开/点击)，discID优惠码核销字段空(code归因待实测验证)；4待办悬置(测试码验证/对照组12人确认/查回头约6/19/166活动回头率排名) |
-| P5 | Legal Library | ⏸️ 暂停（按需更新；December queue 追踪并入 P12） | 2026-05-13 | v4.5 完成；Organic Blooms 案件追踪持续中，每周一 09:00 EDT Discord 提醒 |
+| P5 | Legal Library | ⏸️ 暂停（按需更新；December queue 追踪并入 P12） | 2026-06-13 | v4.8；Organic Blooms 追踪按"数据/判断分层"重构；州政府 6/12 交答辩+SJ动议未和解；下节点 7/3 开庭已设自动提醒 |
 | P14 | Cannabis 行业信息库 | 🆕 新建 | 2026-05-31 | cannabis_industry/ 独立项目（行业通用info，非单公司）；含OCM 5/7+5/29会议要点+行业活动日历；legal/预留待与本地法律合并；下一步：持续攒OCM会议/政策/市场数据 |
 
 ### ⚙️ 自动运行（不计入活跃项目数）
@@ -713,10 +713,17 @@ SerpAPI Key：已改为环境变量读取（SERPAPI_KEY in .env）
 
 ---
 
-### [P5] Legal Library v4.5
+### [P5] Legal Library v4.8
 状态：活跃 - 持续更新中
-last_updated: 2026-05-13
-停在：Organic Blooms v. CCB 案件追踪建立 + SEE+前200真实定位 + 找 December queue 群清单
+last_updated: 2026-06-13
+停在：Organic Blooms 追踪文件按"数据/判断分层"规则重构完成；下一节点 7/3 SJ 动议开庭，已设自动提醒
+
+本次完成（2026-06-13，opus2 CC bot）：
+- **读完主公上传 18 个 NYSCEF PDF**（存 cowork/cases/案件/）：州政府 6/12 提交 Answer + Affirmation + Memorandum of Law + summary judgment 动议（请求驳回 CPLR 3001 部分），**未和解**；新关键节点 **2026-07-03 09:30 开庭**
+- **确立通用规则「数据/判断分层」**（memory: feedback_tracking_facts_only）：主公定——所有文件记录数据区零主观、判断单独分区+标时点；我补 2 边界（警惕伪装成事实的因果判断 / 判断带可验证条件），主公认可定稿
+- **追踪文件 v4.8 重构**：物理分「数据区（纯事实）」+「分析层（标 2026-06-13，各判断带依据+验证条件）」；订正 December retail 申请数 3,664（原误记 2,704）、Blackmark/Windward 最终仍 voided（与 Doc 110"愿重启"对不上，以卷宗为准）
+- **自动提醒节点更新**：脚本+crontab+cron_jobs.md 关键日 6/12-14 → 7/2-7/4（语法已验证）
+- 主公申请定位确认：December queue + provisional（无店面）→ 落入 2025-01-15 injunction 冻结范围；2023 申请窗口已关闭无法补店面改类别（自我纠正过一次错误建议，已记 friction）
 
 本次完成（2026-05-13，opus_CC bot）：
 - **December queue 诉讼真相反复校准**：基于主公真实信息（SEE + 排前 200 + 全 December 都是 provisional 没 non）调整时间预测；从我之前"1-2 年"改为基于 historical data "provisional 2027 中-底，final 2028"

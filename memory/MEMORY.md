@@ -60,6 +60,7 @@
 - [feedback_three_stances.md](feedback_three_stances.md) — 三姿态切换(老师/参谋/对手)；我的惯性=遇判断题滑回老师姿态；识别信号=主公已有判断缺的不是知识→主动切参谋/对手（2026-06-09）
 - [feedback_prediction_data_first.md](feedback_prediction_data_first.md) — 预测前必先夯实数据：事实100%核实+标来源确信度+补缺口，数据不准禁止开跑（主公定性"儿戏"，2026-06-08）
 - [feedback_savework_continuous.md](feedback_savework_continuous.md) — 收工是连贯流程：一口气跑完6步，commit+push全自动，禁止中途反复要git授权（2026-06-07）
+- [feedback_tracking_facts_only.md](feedback_tracking_facts_only.md) — ⭐通用:所有文件记录数据与主观判断必须分层隔离——数据区零主观,判断单独分区+标时点,禁混写污染数据(数据会变判断会跟着变,分层才能追溯对比)（2026-06-13 Organic Blooms案）
 
 ## Project（项目背景）
 - [project_cannabis_retail.md](project_cannabis_retail.md) — ⭐ P12 大麻零售主线（2026年主线，2026-05-14 确立）；NY牌照申请中+AI赋能+SaaS化路径；八字辛卯大运对应；playbook: playbooks/cannabis_retail.md；P1/P3/P5 已并入作为子模块
