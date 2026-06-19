@@ -411,3 +411,8 @@
 [2026-06-18 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
 [2026-06-19 02:01 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 212.428 MiB (222746933 Byte) → Google Drive
 [2026-06-19 03:45 EDT] SKILL[SYS] | 收工 | ✅ | 项目:SYS commit:168f7ca 草稿:0条(系统维护会话,4分自动写入1条hook登记)
+[2026-06-19 11:56 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2 commit:8443829 草稿:0条(核心教训4分自动写入friction_log)
+[2026-06-19 13:03 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-19 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-06-19 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-06-19 16:00 EDT] CRON[P9] | signal_collector | ✅ | 完成

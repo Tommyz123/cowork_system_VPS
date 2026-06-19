@@ -105,6 +105,14 @@
 - **依赖**：pgrep/pstree/ps（procps，标准）
 - **由来**：2026-06-19 教训，CC 两次把 BB 误当 AA 查，固化映射为只读工具
 
+### instance_watchdog.sh
+- **功能**：三实例(AA/BB/CC)会话外卡死看门狗（只通知版）。cron 每 5 分钟跑，进程外读各实例最新 jsonl，检测卡死信号（A.最近3条assistant输出高度重复/含 don't reply 类死扛短语 B.discord_reply_needed 标记滞留≥12分钟未消除），命中→Discord 通知主公"XX疑似卡死,建议发『重启』"。**只通知不自动重启**（2026-06-19 主公定档1）。防刷屏：同会话只报一次（/tmp/watchdog_alerted_<sid>）
+- **调用方**：cron `*/5 * * * *`（见 reference/cron_jobs.md）
+- **频率**：每 5 分钟
+- **依赖**：python3/curl/标准 coreutils
+- **由来**：2026-06-19 AA 幻觉卡死事故根因——现有防线(context_watch/reply_check)全挂会话内,会话烂了一起失效;本脚本是会话外独立监测,不受工具失效/幻觉影响。测试：DRY_RUN=1 跑（不发 Discord）
+- **Log**：scripts/instance_watchdog.log
+
 ### log_write_event.py
 - **功能**：PostToolUse hook，记录每次 Edit/Write/MultiEdit 共享文件的事件到 `logs/write_events.log`（共享文件清单：cowork_log.md / CURRENT_SESSION.md / friction_log.md / INSIGHTS.md）
 - **调用方**：`/home/cowork/cowork/.claude/settings.json` PostToolUse hook（项目级，所有 claude 实例共享）

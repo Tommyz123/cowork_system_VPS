@@ -210,7 +210,15 @@ last_updated: 2026-05-31
 ### [P2] Cowork 系统优化
 状态：持续迭代中
 last_updated: 2026-06-19
-停在：三实例(AA=sonnet-4-6/BB=opus-4-8/CC=opus-4-8)全正常运行；新增 which_instance.sh 实例真相速查脚本破解命名错位陷阱。
+停在：三实例全正常；新增**会话外卡死看门狗** instance_watchdog.sh（cron 每5分钟，只通知不重启），实弹测试通过。
+
+本次完成（2026-06-19 下午 — AA幻觉卡死诊断 + 会话外看门狗）：
+- **报障溯源**：主公报"三频道错乱/AA没反应"→多轮 Discord API+jsonl 实证，真凶=AA(Sonnet4.6)幻觉卡死（会话过长致工具失效→把meta评估指令"别发给用户"误读成主公"don't reply"→立场一致性死扛拒回复几十轮）
+- **修复**：主公授权后深度重启 AA（systemd无root被拦，改精确杀tmux server 777，杀前核对HOME确认非BB/CC，watchdog拉起新进程786→716200），新会话实证恢复（成功调reply+正常跑工具查P9）
+- **根治系统缺陷**：现有防线(context_watch挂PostToolUse/reply_check软告警)全挂会话内，会话烂了一起失效→建会话外独立看门狗
+- **看门狗上线**：scripts/instance_watchdog.sh（cron每5min读三实例jsonl检测重复输出/don't reply死扛短语/漏发标记滞留≥12min，命中Discord通知主公建议重启，**只通知不重启**=主公定档1，防刷屏）；测试：卡死会话判定1+正常判定0+实弹真发通知验证整链
+- **过程教训**：诊断两度把"主公转述BB回复"误当实时串台（没先用API author字段证伪就推理）；方案被主公"你确定吗/好好想想/没理解"三次推动才从治reply症状→治长会话→治监测架构
+- **索引/防错全同步**：scripts/INDEX.md + cron_jobs.md 登记看门狗；reference_dual_bot.md 加卡死诊断流程+guild≠channel+真串台vs转述判别法；friction_log 事故根因已记
 
 本次完成（2026-06-19 — 三实例核查 + 实例防错工具）：
 - **AA 静默问题溯源**：AA(/home/cowork)早上 03:38 已被改 model 无→sonnet-4-6（修静默不回复），方案A 实际已执行
@@ -234,6 +242,7 @@ last_updated: 2026-06-19
 - **三实例当大脑 → 🧊 搁置**（主公认可：无需求拉动+ROI 低；重启条件=有几十 agent 规模预测题）
 
 下一步：
+- 观察看门狗运行（cron 每5min）：实战中有无误报/漏报，1-2周后评估是否调参（STUCK_MIN/REPEAT_N）
 - 评估记忆系统改善方案（重要对话自动写入 / 新会话主动读上下文）
 - friction_log 15 条待复盘（系统健康提醒）；cowork_log 接近 280 行需归档
 

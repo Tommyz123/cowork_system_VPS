@@ -107,3 +107,22 @@ tmux -L opus2_socket send-keys -t cowork_opus2 Enter
 - 回传走共享文件最稳（send-keys 反向"门铃"叫醒发起方是可选增强；Stop hook 自动查信未测）
 
 **让被派实例把结果发回主公 Discord（2026-05-29 实测通）**：派任务时在指令里给它自己的频道 chat_id，让它调 `mcp__plugin_discord_discord__reply`。opus2 的 chat_id = `1509045714808737842`。坑：send-keys 进去的是**终端门**，不经 Discord，所以默认主公在频道看不到；要主公手机可见必须显式让被派实例 reply 到自己频道。chat_id 不在 access.json，要从该实例 jsonl `grep 'chat_id="[0-9]+"'` 挖。
+
+---
+
+## 实例疑似卡死/串台 诊断防错（2026-06-19 AA 幻觉事故沉淀）
+
+**🩺 实例疑似卡死的标准诊断流程**（别凭体感猜，按序走）：
+1. `bash scripts/which_instance.sh` → 确认进程活没活（活着但不回 ≠ 进程死）
+2. 读它最新 jsonl（`$HOME/.claude/projects/-home-cowork-cowork/*.jsonl`）→ 看是不是**幻觉死扛**：连续重复输出 / 把某条指令误读成"别回复"等
+3. 确认是会话级卡死 → 杀对应 tmux server（**杀前必核对 `/proc/<pid>/environ` 的 HOME 确认是目标实例**，systemd 无 root 权限重启会被拦）→ watchdog 自动拉起干净进程
+4. 看门狗 `scripts/instance_watchdog.sh` 已自动做第1-2步检测并通知（每5分钟），但**只通知不自动重启**，重启仍需主公/人工触发
+
+**🆔 guild ID ≠ channel ID（曾误判）**：
+`1466957346310717636` 是 Discord 服务器「TT基地」的 **guild ID**，**不是频道号**。三 bot 都在这个 guild，但日常对话走各自 DM 频道（type=1）。看到它别当成"残留频道号"。三实例 DM 频道见上表（AA=...18619079 / BB=...79545228 / CC=...09737842）。
+
+**🔍 "真串台 vs 主公转述" 判别法**（曾两度误判）：
+看到**别的实例的署名/回复出现在我频道**时，先查 Discord API 该消息的 `author` 字段：
+`GET /api/v10/channels/<chan>/messages/<msgid>` → author.id 若是主公(811758070534766613)=**主公手动转述**（给我看的），不是实时串台；若是某 bot id=才是真串台。
+辅证：跨频道 `fetch_messages` 报 **403 Missing Access** = 频道物理隔离正常，bot 进不去别人频道。
+**别凭"看到别的实例名字"就推理串台**，先用 author 字段证伪。
