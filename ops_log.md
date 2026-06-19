@@ -354,3 +354,59 @@
 [2026-06-12 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
 [2026-06-13 02:03 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 192.043 MiB (201371778 Byte) → Google Drive
 [2026-06-13 09:00 EDT] CRON[cannabis_docket_reminder] | mode=critical | ✅ | 案号 904497-24 提醒已发
+[2026-06-13 12:51 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P5,P12 commit:8d355ed(cowork)+d9c5ced(legal未push) 草稿:1条playbook+1条insight
+[2026-06-13 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-13 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-13 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-06-14 02:01 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 209.252 MiB (219416785 Byte) → Google Drive
+[2026-06-14 13:01 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-14 16:00 EDT] CRON[P9] | weekly_review | ✅ | 完成
+[2026-06-14 17:05 EDT] CRON[ferc_watch] | daily | ✅ | 无命中（静默）
+[2026-06-14 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-14 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-06-15 02:03 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 209.257 MiB (219421852 Byte) → Google Drive
+[2026-06-15 09:00 EDT] CRON[cannabis_docket_reminder] | mode=weekly | ✅ | 案号 904497-24 提醒已发
+[2026-06-15 09:35 EDT] CRON[trend_watch_reminder] | weekly | ✅ | 趋势观察池周检提醒已发
+[2026-06-15 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-15 15:06 EDT] CRON[P9] | screener | ✅ | 完成
+[2026-06-15 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-06-15 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-06-15 16:00 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-06-15 16:30 EDT] CRON[P9] | scanner_tracker | ✅ | 完成
+[2026-06-15 16:45 EDT] CRON[P9] | price_tracker | ✅ | 完成
+[2026-06-15 17:00 EDT] CRON[P9] | post_exit_tracker | ✅ | 完成
+[2026-06-15 17:05 EDT] CRON[ferc_watch] | daily | ✅ | 无命中（静默）
+[2026-06-15 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-15 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-06-15 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-06-16 02:04 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 208.393 MiB (218515477 Byte) → Google Drive
+[2026-06-16 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-16 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-06-16 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-06-16 16:00 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-06-16 17:05 EDT] CRON[ferc_watch] | daily | ✅ | 无命中（静默）
+[2026-06-16 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 低价提醒邮件已发
+[2026-06-16 17:35 EDT] CRON[P6] | flight_monitor | ✅ | 机票日报发送完成
+[2026-06-16 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-06-16 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-06-17 13:01 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-17 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-06-17 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-06-17 16:00 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-06-17 16:35 EDT] CRON[P9] | thesis_monitor | ✅ | 完成
+[2026-06-17 17:00 EDT] CRON[SYS] | stability_check | ✅ | ❌ 需关注 新增friction:4条(19→23)
+[2026-06-17 17:05 EDT] CRON[ferc_watch] | daily | ✅ | 无命中（静默）
+[2026-06-17 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-17 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-06-17 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-06-18 09:15 EDT] CRON[p9_first_hitrate_reminder] | matured=18 filled_30d=14 | ✅ | 首批 hit rate 提醒已发 + cron 自删
+[2026-06-18 13:03 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-18 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-06-18 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-06-18 16:00 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-06-18 17:05 EDT] CRON[ferc_watch] | daily | ✅ | 无命中（静默）
+[2026-06-18 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 低价提醒邮件已发
+[2026-06-18 17:34 EDT] CRON[P6] | flight_monitor | ✅ | 机票日报发送完成
+[2026-06-18 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-06-18 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-06-19 02:01 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 212.428 MiB (222746933 Byte) → Google Drive

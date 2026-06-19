@@ -6,7 +6,8 @@ originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 ---
 ## 3 实例身份（2026-05-27 加入 opus2）
 
-**Discord 显示昵称（2026-05-29 主公定，AA/BB/CC+模型名）**：cowork=**AA-Sonnet4.6** / opus_CC=**BB-Fable5**（2026-06-09升级） / opus2=**CC-Opus4.8**。模型已从各 HOME settings.json 核实。日常称呼也用这套。
+**Discord 显示昵称（2026-05-29 主公定，AA/BB/CC+模型名）**：cowork=**AA-Sonnet4.6** / opus_CC=**BB-Opus4.8**（2026-06-19 从 Fable5 改回，username+群昵称两处已改） / opus2=**CC-Opus4.8**。日常称呼用这套。
+**当前真实模型（2026-06-19 从各 HOME settings.json 实测）**：AA=无model字段(用默认) / BB=**claude-opus-4-8**（注：原记 Fable5，fable5 限量期后改回 Opus，6/19 核实为 opus-4-8） / CC=**claude-opus-4-8**。⚠️ 昵称里的模型名可能滞后于真实 settings，自报身份以 settings.json 为准（2026-06-19 已加 instance_identity.sh hook 自动注入）。
 ⚠️ 命名易混：内部进程叫 "opus_CC" 但 Discord 昵称是 **BB**；"opus2" 对应 Discord **CC**。记忆口诀：opus=BB，opus2=CC。
 改名方法（2026-05-29 全实测通，token 在各 HOME `.claude/channels/discord/.env` 的 `DISCORD_BOT_TOKEN`）——**两处要分开改**：
 - **群昵称**（只在 TT基地群显示）：`PATCH /api/v10/guilds/1466957346310717636/members/@me` body `{"nick":"新名"}`

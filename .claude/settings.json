@@ -66,6 +66,10 @@
           },
           {
             "type": "command",
+            "command": "bash /home/cowork/.claude/hooks/instance_identity.sh"
+          },
+          {
+            "type": "command",
             "command": "bash /home/cowork/.claude/hooks/health_check.sh"
           },
           {
