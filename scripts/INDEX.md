@@ -98,6 +98,13 @@
 - **频率**：常驻
 - **⚠️ 警告**：双 bot 架构核心，**绝不可删**
 
+### which_instance.sh
+- **功能**：三实例(AA/BB/CC)真相速查——读运行时进程 HOME + settings.json model，输出 实例↔PID↔HOME↔model↔tmux 对照表。不靠记忆/目录名直觉（破解命名错位陷阱：opus_home=BB 非AA，opus2_home=CC）
+- **调用方**：手动（涉及实例操作前先跑一遍核对，防搞错）
+- **频率**：按需
+- **依赖**：pgrep/pstree/ps（procps，标准）
+- **由来**：2026-06-19 教训，CC 两次把 BB 误当 AA 查，固化映射为只读工具
+
 ### log_write_event.py
 - **功能**：PostToolUse hook，记录每次 Edit/Write/MultiEdit 共享文件的事件到 `logs/write_events.log`（共享文件清单：cowork_log.md / CURRENT_SESSION.md / friction_log.md / INSIGHTS.md）
 - **调用方**：`/home/cowork/cowork/.claude/settings.json` PostToolUse hook（项目级，所有 claude 实例共享）

@@ -209,8 +209,15 @@ last_updated: 2026-05-31
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-06-13
-停在：BB模型已修复为opus-4-8(fable-5无权限)；BB/CC runner已手动拉起，但systemd失败计数未清（需sudo：systemctl reset-failed cowork-opus cowork-opus2）；VPS上Cannabis-AI-Budtender可随时启动展示。
+last_updated: 2026-06-19
+停在：三实例(AA=sonnet-4-6/BB=opus-4-8/CC=opus-4-8)全正常运行；新增 which_instance.sh 实例真相速查脚本破解命名错位陷阱。
+
+本次完成（2026-06-19 — 三实例核查 + 实例防错工具）：
+- **AA 静默问题溯源**：AA(/home/cowork)早上 03:38 已被改 model 无→sonnet-4-6（修静默不回复），方案A 实际已执行
+- **三实例全核查**：pstree 实证 AA(PID786,sonnet-4-6)/BB(PID788,opus-4-8)/CC(PID658444,opus-4-8) 均正常运行
+- **根因定位**：我两次把 opus_home(BB) 误当 AA 查——客观=命名错位陷阱(opus_home≠AA)，主观=凭目录名直觉猜没核对+用陈述句说不确定结论
+- **防错工具落地**：新建 scripts/which_instance.sh（读运行时 HOME+settings.json，输出实例对照表），登记 INDEX.md，写入 reference_dual_bot.md 查询入口
+- **顺手修正**：reference_dual_bot.md AA model 记录 无→sonnet-4-6（已过时）
 
 本次完成（2026-06-13）：
 - **BB模型修复**：opus_home/settings.json model fable-5→claude-opus-4-8；BB账号（独立订阅）无Fable5权限，收消息后报错无回复；改后重启session即恢复
