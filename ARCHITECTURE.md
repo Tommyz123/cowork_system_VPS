@@ -104,7 +104,7 @@ Desktop/
 | `SKILLS_INDEX.md` | 读取文件 | 所有 Skill 的触发词/调用语法/不适用场景说明书 |
 
 **Hook 守卫系统**（2026-04-13 上线，配置在 `~/.claude/settings.json`）：
-完整文档见 [`reference/hooks_system.md`](reference/hooks_system.md)（14项 Hook 详细说明 + 授权流程图）
+完整文档见 [`reference/hooks_system.md`](reference/hooks_system.md)（15项 Hook 详细说明 + 授权流程图）
 
 **Hook 命中日志机制**（2026-05-23 上线）：每个 hook 顶部加 1 行调用共享 logger `~/.claude/hooks/_log_hit.sh`（bash hook）或 `_log_hit.py`（python hook），统一写入 `cowork/logs/hook_hits.log`（格式 `[ts] hook | event | outcome`），供使用频率审计（5/30 首次审计 → 砍 0 触发 hook）。
 

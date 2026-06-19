@@ -41,6 +41,7 @@
 | UserPromptSubmit | discord_approve.py | 收到消息 | 检测授权关键词，自动 touch task_approved |
 | UserPromptSubmit | discord_reply_flag.py | 收到消息 | 标记 Discord 消息待回复 |
 | UserPromptSubmit | discord_ts_convert.py* | 收到消息 | 转换 Discord 时间戳为纽约时间注入上下文 |
+| UserPromptSubmit | instance_identity.sh | 收到消息 | 按 $HOME 推导实例身份(AA/BB/CC)+读 settings 真实模型，注入"🪪本实例身份"上下文，防自报身份误报（2026-06-19） |
 | UserPromptSubmit | health_check.sh | 收到消息 | 系统健康检查（friction/CLAUDE.md行数等） |
 | UserPromptSubmit | memory_capture.sh | 收到消息 | 每10轮触发记忆捕获提醒；有待审记忆时提醒 |
 | UserPromptSubmit | position_check.py | 收到消息 | P9 TIDE 持仓状态检查 |
@@ -104,6 +105,12 @@
 - **触发**：每条消息
 - **逻辑**：解析 stdin JSON，提取 Discord `ts` 字段（UTC），转换为纽约时间（EDT/EST），输出到 additionalContext 注入上下文
 - **为什么**：所有时间统一纽约时间，主公看到"2026-05-10 15:54 EDT"而非 UTC
+
+#### `instance_identity.sh`（2026-06-19）
+- **触发**：每条消息
+- **逻辑**：按 `$HOME` case 推导实例代号（opus_home→BB / opus2_home→CC / cowork→AA / 其他→明确报推导失败不瞎猜），从该实例 settings.json grep 真实 `model` 字段，注入"🪪 本实例身份：你是 X（进程名…）当前模型 Y"到上下文
+- **为什么**：系统无任何地方硬声明实例身份，原须由 HOME→reference_dual_bot.md 映射表手动推导；BB 实例曾连续多次把自己误报成 AA（违反数据诚信，friction 2026-06-19）→ 软规则升级为硬注入
+- **坑**：grep model 无匹配时需 `|| true`，否则 `set -e` 会让整个脚本静默退出（AA 无 model 字段时复现过）
 
 #### `health_check.sh`
 - **触发**：每条消息

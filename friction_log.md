@@ -70,3 +70,8 @@
 - 建议规则变更：已落地——新增共享层 hook instance_identity.sh，UserPromptSubmit 按 HOME 自动注入"你是X-模型名"到上下文，软规则升级为硬注入(符合"关键行为违反超一次→升级Hook")
 - 验证标准：重启三实例后，每轮对话上下文出现"🪪 本实例身份"行，且代号与 HOME 映射一致
 - 验证状态：【待验证】(需重启实例生效)
+
+[2026-06-19 03:42] ⚠️ Hook摩擦 | discord_approve.py 收工未自动写git授权 | 主公发"可以。收工。"组合句，discord_approve.py 写了 task_approved_BB 但未写 git_approved_BB(savework)，收工commit被git守卫拦截，手动 write-savework 后通过 | 状态：需主公确认
+- 根因待查：可能 discord_approve.py 的收工触发逻辑没匹配"可以。收工。"这种与授权词同句的写法，或savework触发关键词与"收工"边界匹配问题
+- 影响：收工流程被打断一次，需手动 token_utils.sh write-savework 解锁
+- 建议：检查 discord_approve.py savework 触发分支(grep "收工"逻辑) vs 组合句场景；本次已用 Skill 设计的标准机制(write-savework)解锁，非违规绕过
