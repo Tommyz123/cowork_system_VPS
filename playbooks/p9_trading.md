@@ -124,6 +124,7 @@ conn.close()
 - 每周三 **16:30**：thesis_monitor（thesis 失效→Discord 告警，不自动平仓）
 - 每周日 **15:45**：gtrends_collector（alt-data sidecar 关键词趋势）
 - 每周日 **16:00**：weekly_review（结果追踪周报→Gmail）
+- 每周一 **10:00**：dossier_weekly（趋势主线第2层 AI 周报：读趋势追踪档案→判逻辑状态→归档 trading/reports/weekly/ + email；护栏只事实分析不写买卖）
 - 每月第一周一 **15:00**：screener（刷新候选股池）
 - 每季度第一周一 **19:30**：run_scanner（季度主题扫描+自动 OPG 下单）
 - 每季度第一周一 **18:30**：quarterly_review（季度复盘→Gmail）
