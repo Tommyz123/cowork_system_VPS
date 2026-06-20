@@ -169,3 +169,4 @@ tail -50 /home/cowork/cowork/scripts/cannabis_docket_reminder.log
 |---|---|---|---|
 | `35 9 * * 1` (周一 09:35) | `scripts/trend_watch_reminder.py` | 周提醒：按观察池清单执行周检（对 BB 说"趋势周检"） | `scripts/trend_watch_reminder.log` |
 | `5 17 * * *` (每天 17:05) | `scripts/ferc_watch.py` | FERC裁决自动哨兵(观察池E1)：SerpAPI搜新闻命中报警，静默无打扰；**一次性**——裁决落地后删cron行+归档脚本 | `scripts/ferc_watch.log` |
+| `0 10 * * 1` (周一 10:00) | `trading/dossier_weekly.py` | 趋势追踪档案AI周报：读`趋势追踪档案.md`→claude CLI分析每对象逻辑状态→归档`trading/reports/weekly/`+email推送主公；护栏=只事实分析不写买卖；阶段2-A（2026-06-20新建） | `trading/dossier_weekly.log` |
