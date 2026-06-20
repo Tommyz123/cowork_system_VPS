@@ -85,3 +85,18 @@
   - 注：此点已在 friction_log 2026-06-13 条目的"建议规则变更"中捕获，且与 feedback_tracking_facts_only 同源，送审仅供主公决定是否单列
 
 ---
+
+## [草稿] 2026-06-19 深度审核
+
+> 审核 session：ae137b03（BB实例-Fable5限量排查）、4fa8d709（friction归档+僵尸项目政策冲突）、5478679b（本次对话-P9状态查看）
+
+### Friction 建议补记（1条）
+- **[评分:3]** `friction_log.md`：P9 signal_collector 发现两个数据质量 bug ① 缺日期过滤（Finnhub偶返旧文章导致历史数据混入，已实测5条/5799条）② Benzinga 偶发不相关新闻入库（SPXC下挂Dogecoin文章）。当前未修复，已告知主公。建议记录供下次 P9 迭代参考。[src:5478679b]
+
+### 🤖 本次自动写入摘要（4-5分）
+（无）
+
+### 🗑️ 本次自动丢弃摘要（1分，未保留）
+- 共 2 条丢弃：① ae137b03 Fable5限量信息（auto_pending 已有 BB账号无Fable5权限记录，重复）② 4fa8d709 AI提议与政策冲突并自纠（属已知 feedback_project_pause_policy 覆盖场景，无新信息）
+
+---
