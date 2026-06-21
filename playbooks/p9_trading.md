@@ -124,6 +124,7 @@ conn.close()
 - 每周三 **16:30**：thesis_monitor（thesis 失效→Discord 告警，不自动平仓）
 - 每周日 **15:45**：gtrends_collector（alt-data sidecar 关键词趋势）
 - 每周日 **16:00**：weekly_review（结果追踪周报→Gmail）
+- 每周一 **09:30**：dossier_autowrite（趋势主线第2层 阶段2-B：**从档案自动解析对象**(读`**追踪代码**`字段,不硬编码)→yfinance 查价→给每对象轨迹表追加数据行；逻辑状态留🔍待校准等人工补；有崩溃告警；先于10:00周报让其读到最新轨迹）
 - 每周一 **10:00**：dossier_weekly（趋势主线第2层 AI 周报：读趋势追踪档案→判逻辑状态→归档 trading/reports/weekly/ + email；护栏只事实分析不写买卖）
 - 每月第一周一 **15:00**：screener（刷新候选股池）
 - 每季度第一周一 **19:30**：run_scanner（季度主题扫描+自动 OPG 下单）

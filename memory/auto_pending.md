@@ -10,3 +10,4 @@
 [2026-06-10 21:30] [feedback] 给主公发长文档禁止只发md附件（手机Discord打不开，2026-06-10趋势手册实证被纠正）；默认分段贴Discord文字消息（表格转条目式，每条≤1900字符），文件路径只作存档说明附在末尾
 [2026-06-13 01:54] [reference] VPS上Cannabis-AI-Budtender完整项目路径=/home/cowork/Cannabis-AI-Budtender/；venv已装好；启动命令：cd /home/cowork/Cannabis-AI-Budtender && nohup venv/bin/uvicorn backend.main:app --host 0.0.0.0 --port 8000 > /tmp/budtender.log 2>&1 &；访问：http://142.93.207.54:8000
 [2026-06-13 01:54] [reference] BB实例(opus_home)账号对claude-fable-5无权限；BB/CC实例最多只能用claude-opus-4-8；如改fable-5会静默失败(收消息不回复)；当前BB已设为opus-4-8；AA=sonnet-4-6(当前会话模型)，BB=opus-4-8，CC=opus-4-8
+[2026-06-21 00:56][项目原则] P9趋势主线/所有投资标的选择：我们只做美股。选任何标的或趋势代理时，非美股(德股如RHM.DE/港股/A股/OTC粉单ADR如RNMBY)一律排除。教训:趋势档案国防趋势误用德股RHM.DE(欧元)做代理,主公纠正→改用美股国防ETF ITA。主公强调两次"我们做的是美股"。
