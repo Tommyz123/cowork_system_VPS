@@ -85,3 +85,6 @@
 [2026-06-19 16:07] ⚠️ Hook摩擦(复发) | 收工savework git授权未自动写 | 场景:主公说"可以，收工"(组合句),discord_approve.py写了task_approved_CC但未写git_approved_CC(savework),收工commit被git守卫拦截。与2026-06-19 03:42同一bug复发(组合句"可以。收工。"未触发savework分支)。处理:用标准机制token_utils.sh write-savework解锁(非违规绕过)+分次调用(PreToolUse hook在命令执行前跑,write与commit必须分开两次Bash调用,同一调用内写无效)。根因待查:discord_approve.py savework触发关键词对"可以，收工"组合句匹配失败。状态:已用标准机制解锁完成收工,需查discord_approve.py收工触发逻辑
 
 [2026-06-20 00:16 EDT] ⚠️ Hook摩擦 | task_approved响应级授权与多步执行冲突 | 主公说"可以"后UserPromptSubmit hook提示已自动授权task_approved_BB,但我在同一响应内先跑了多个Bash验证(claude CLI测试/读脚本)再到Write建脚本时,token已不存在被system_file_guard拦截;且授权守卫禁止我自行touch补建 | 处理方式:请主公重新发授权词;根因待查(疑似token在响应内被某环节清除,或自动授权写入时机晚于首个工具调用) | 状态：需主公确认
+
+[2026-06-20 21:05] ⚠️ 自我误判 | AA/BB登录401诊断 | 重启后看欢迎页显示"Claude Max"就判定已恢复，未等实际消息验证→主公实测仍无反应，回头查才发现底层凭证refreshToken为空(重启拉不回)。表面错误：把缓存的账号名当成"登录正常"的证据。根因：违反"先验证再下结论"——重启类修复必须用真实收发消息验证，不能凭启动屏字样。建议规则变更：重启实例后，验证恢复必须以"实测一条消息能正常回复"为准，欢迎页/账号名不算数。验证标准：下次重启实例后，先抓屏确认无报错+(可行时)实测回复，再向主公报"已恢复"。验证状态：【待验证】
+[2026-06-21 01:05] ⚠️ Hook摩擦 | task_approved响应级授权复发 | 审核修脚本时被system_file_guard拦截(授权已被上轮Stop hook清除),需主公重新说授权词→修改才放行 | 处理方式:列清单等"可以执行"重授权后继续 | 状态:已知问题复发(6/20已记同类),多步骤跨响应任务的授权粒度待与主公讨论是否升级(响应级vs任务级)

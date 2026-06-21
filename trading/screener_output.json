@@ -1,472 +1,472 @@
 [
   {
     "symbol": "PLUS",
-    "market_cap": 2182349568,
+    "market_cap": 2174635008,
     "sector": "Technology",
     "industry": "Software - Application",
     "revenue_growth": 21.7,
     "gross_margins": 25.2,
     "analyst_count": 1,
-    "6m_return": -6.23
+    "6m_return": -9.39
   },
   {
     "symbol": "ARIS",
-    "market_cap": 3195072000,
+    "market_cap": 3531504128,
     "sector": "Basic Materials",
     "industry": "Gold",
     "revenue_growth": 136.5,
     "gross_margins": 58.8,
     "analyst_count": 1,
-    "6m_return": 11.37
-  },
-  {
-    "symbol": "MLI",
-    "market_cap": 14733534208,
-    "sector": "Industrials",
-    "industry": "Metal Fabrication",
-    "revenue_growth": 19.3,
-    "gross_margins": 29.7,
-    "analyst_count": 1,
-    "6m_return": 19.88
+    "6m_return": 8.63
   },
   {
     "symbol": "NFG",
-    "market_cap": 7282084352,
+    "market_cap": 7324375040,
     "sector": "Energy",
     "industry": "Oil & Gas Integrated",
     "revenue_growth": 17.6,
     "gross_margins": 64.1,
     "analyst_count": 2,
-    "6m_return": -4.79
+    "6m_return": -5.31
   },
   {
     "symbol": "DNOW",
-    "market_cap": 2494490880,
+    "market_cap": 2527349248,
     "sector": "Industrials",
     "industry": "Industrial Distribution",
     "revenue_growth": 97.5,
     "gross_margins": 20.8,
     "analyst_count": 2,
-    "6m_return": -1.05
+    "6m_return": -1.67
   },
   {
     "symbol": "ROCK",
-    "market_cap": 1145691648,
+    "market_cap": 1214507264,
     "sector": "Industrials",
     "industry": "Building Products & Equipment",
     "revenue_growth": 44.6,
     "gross_margins": 26.1,
     "analyst_count": 3,
-    "6m_return": -21.38
+    "6m_return": -19.42
   },
   {
     "symbol": "KAI",
-    "market_cap": 3479363328,
+    "market_cap": 3489577728,
     "sector": "Industrials",
     "industry": "Specialty Industrial Machinery",
     "revenue_growth": 17.7,
     "gross_margins": 45.2,
     "analyst_count": 3,
-    "6m_return": 5.1
+    "6m_return": 2.77
   },
   {
     "symbol": "UTL",
-    "market_cap": 917351552,
+    "market_cap": 927876160,
     "sector": "Utilities",
     "industry": "Utilities - Diversified",
     "revenue_growth": 27.0,
     "gross_margins": 40.1,
     "analyst_count": 3,
-    "6m_return": 8.87
+    "6m_return": 5.63
   },
   {
     "symbol": "HNI",
-    "market_cap": 2272456192,
+    "market_cap": 2388004864,
     "sector": "Consumer Cyclical",
     "industry": "Furnishings, Fixtures & Appliances",
     "revenue_growth": 124.7,
     "gross_margins": 41.1,
     "analyst_count": 4,
-    "6m_return": -21.04
+    "6m_return": -18.66
   },
   {
     "symbol": "GATX",
-    "market_cap": 6122273792,
+    "market_cap": 6232509440,
     "sector": "Industrials",
     "industry": "Rental & Leasing Services",
     "revenue_growth": 38.4,
     "gross_margins": 74.1,
     "analyst_count": 4,
-    "6m_return": 4.99
+    "6m_return": 3.82
   },
   {
     "symbol": "ASTE",
-    "market_cap": 1185270016,
+    "market_cap": 1201939712,
     "sector": "Industrials",
     "industry": "Farm & Heavy Construction Machinery",
     "revenue_growth": 20.3,
     "gross_margins": 26.4,
     "analyst_count": 4,
-    "6m_return": 16.17
+    "6m_return": 13.58
   },
   {
     "symbol": "QNST",
-    "market_cap": 676706432,
+    "market_cap": 703131264,
     "sector": "Communication Services",
     "industry": "Advertising Agencies",
     "revenue_growth": 28.3,
     "gross_margins": 10.5,
     "analyst_count": 5,
-    "6m_return": -17.61
-  },
-  {
-    "symbol": "ARLO",
-    "market_cap": 1392377856,
-    "sector": "Industrials",
-    "industry": "Building Products & Equipment",
-    "revenue_growth": 26.3,
-    "gross_margins": 45.1,
-    "analyst_count": 5,
-    "6m_return": -9.72
+    "6m_return": -15.47
   },
   {
     "symbol": "CPK",
-    "market_cap": 2938902784,
+    "market_cap": 2952825600,
     "sector": "Utilities",
     "industry": "Utilities - Regulated Gas",
     "revenue_growth": 18.2,
     "gross_margins": 40.3,
     "analyst_count": 5,
-    "6m_return": -1.81
+    "6m_return": -2.5
+  },
+  {
+    "symbol": "ARLO",
+    "market_cap": 1441252352,
+    "sector": "Industrials",
+    "industry": "Building Products & Equipment",
+    "revenue_growth": 26.3,
+    "gross_margins": 45.1,
+    "analyst_count": 5,
+    "6m_return": -1.12
   },
   {
     "symbol": "WOR",
-    "market_cap": 2881133824,
+    "market_cap": 2971308800,
     "sector": "Industrials",
     "industry": "Metal Fabrication",
     "revenue_growth": 24.4,
     "gross_margins": 27.8,
     "analyst_count": 5,
-    "6m_return": 6.16
+    "6m_return": 4.28
   },
   {
-    "symbol": "CXT",
-    "market_cap": 2113818880,
+    "symbol": "RES",
+    "market_cap": 1533734528,
+    "sector": "Energy",
+    "industry": "Oil & Gas Equipment & Services",
+    "revenue_growth": 36.6,
+    "gross_margins": 23.1,
+    "analyst_count": 5,
+    "6m_return": 22.12
+  },
+  {
+    "symbol": "GVA",
+    "market_cap": 6220124672,
     "sector": "Industrials",
-    "industry": "Specialty Industrial Machinery",
-    "revenue_growth": 17.4,
-    "gross_margins": 42.0,
-    "analyst_count": 6,
-    "6m_return": -35.48
+    "industry": "Engineering & Construction",
+    "revenue_growth": 30.4,
+    "gross_margins": 15.9,
+    "analyst_count": 5,
+    "6m_return": 23.15
   },
   {
     "symbol": "CALX",
-    "market_cap": 2432337920,
+    "market_cap": 2454661888,
     "sector": "Technology",
     "industry": "Software - Infrastructure",
     "revenue_growth": 27.1,
     "gross_margins": 57.1,
     "analyst_count": 6,
-    "6m_return": -30.5
+    "6m_return": -28.72
+  },
+  {
+    "symbol": "CXT",
+    "market_cap": 2509422592,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "revenue_growth": 17.4,
+    "gross_margins": 42.0,
+    "analyst_count": 6,
+    "6m_return": -11.55
   },
   {
     "symbol": "CVI",
-    "market_cap": 3349679616,
+    "market_cap": 2910360832,
     "sector": "Energy",
     "industry": "Oil & Gas Refining & Marketing",
     "revenue_growth": 20.3,
     "gross_margins": 9.9,
     "analyst_count": 6,
-    "6m_return": 2.45
+    "6m_return": -6.24
   },
   {
     "symbol": "LAUR",
-    "market_cap": 4790756864,
+    "market_cap": 4959430656,
     "sector": "Consumer Defensive",
     "industry": "Education & Training Services",
     "revenue_growth": 15.4,
     "gross_margins": 37.0,
     "analyst_count": 6,
-    "6m_return": 14.16
+    "6m_return": 8.35
   },
   {
     "symbol": "HCC",
-    "market_cap": 5204953600,
+    "market_cap": 5087997440,
     "sector": "Basic Materials",
     "industry": "Coking Coal",
     "revenue_growth": 54.0,
     "gross_margins": 28.3,
     "analyst_count": 6,
-    "6m_return": 24.94
+    "6m_return": 15.6
   },
   {
     "symbol": "CSW",
-    "market_cap": 4382107648,
+    "market_cap": 4488918528,
     "sector": "Industrials",
     "industry": "Specialty Industrial Machinery",
     "revenue_growth": 34.0,
     "gross_margins": 41.9,
     "analyst_count": 7,
-    "6m_return": -9.07
+    "6m_return": -12.94
   },
   {
     "symbol": "FSS",
-    "market_cap": 6545847296,
+    "market_cap": 6740749312,
     "sector": "Industrials",
     "industry": "Farm & Heavy Construction Machinery",
     "revenue_growth": 34.9,
     "gross_margins": 29.0,
     "analyst_count": 7,
-    "6m_return": -2.44
+    "6m_return": 0.68
   },
   {
     "symbol": "KMT",
-    "market_cap": 2566756352,
+    "market_cap": 2738991104,
     "sector": "Industrials",
     "industry": "Tools & Accessories",
     "revenue_growth": 21.8,
     "gross_margins": 32.1,
     "analyst_count": 7,
-    "6m_return": 22.41
+    "6m_return": 24.66
   },
   {
     "symbol": "SOUN",
-    "market_cap": 3259923712,
+    "market_cap": 3221969920,
     "sector": "Technology",
     "industry": "Software - Application",
     "revenue_growth": 51.7,
     "gross_margins": 40.6,
     "analyst_count": 8,
-    "6m_return": -40.59
+    "6m_return": -31.0
   },
   {
     "symbol": "APPF",
-    "market_cap": 5835926016,
+    "market_cap": 5611045376,
     "sector": "Technology",
     "industry": "Software - Application",
     "revenue_growth": 20.4,
     "gross_margins": 63.7,
     "analyst_count": 8,
-    "6m_return": -29.03
-  },
-  {
-    "symbol": "VSEC",
-    "market_cap": 4876333056,
-    "sector": "Industrials",
-    "industry": "Aerospace & Defense",
-    "revenue_growth": 26.8,
-    "gross_margins": 14.7,
-    "analyst_count": 8,
-    "6m_return": 3.95
+    "6m_return": -29.32
   },
   {
     "symbol": "MIDD",
-    "market_cap": 7229119488,
+    "market_cap": 7424672768,
     "sector": "Industrials",
     "industry": "Specialty Industrial Machinery",
     "revenue_growth": 15.0,
     "gross_margins": 38.7,
     "analyst_count": 8,
-    "6m_return": 24.73
+    "6m_return": 11.5
+  },
+  {
+    "symbol": "VSEC",
+    "market_cap": 5638926336,
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "revenue_growth": 26.8,
+    "gross_margins": 14.7,
+    "analyst_count": 8,
+    "6m_return": 18.77
   },
   {
     "symbol": "LIF",
-    "market_cap": 3780938496,
+    "market_cap": 3902486016,
     "sector": "Technology",
     "industry": "Software - Application",
     "revenue_growth": 38.1,
     "gross_margins": 77.1,
     "analyst_count": 9,
-    "6m_return": -36.58
+    "6m_return": -25.58
   },
   {
     "symbol": "HL",
-    "market_cap": 9983553536,
+    "market_cap": 11056694272,
     "sector": "Basic Materials",
     "industry": "Other Precious Metals & Mining",
     "revenue_growth": 100.4,
     "gross_margins": 59.6,
     "analyst_count": 9,
-    "6m_return": -6.05
-  },
-  {
-    "symbol": "KNF",
-    "market_cap": 4102736384,
-    "sector": "Basic Materials",
-    "industry": "Building Materials",
-    "revenue_growth": 16.0,
-    "gross_margins": 18.2,
-    "analyst_count": 9,
-    "6m_return": -3.3
-  },
-  {
-    "symbol": "KTB",
-    "market_cap": 4001785088,
-    "sector": "Consumer Cyclical",
-    "industry": "Apparel Manufacturing",
-    "revenue_growth": 45.0,
-    "gross_margins": 48.1,
-    "analyst_count": 9,
-    "6m_return": -1.67
-  },
-  {
-    "symbol": "CR",
-    "market_cap": 11169747968,
-    "sector": "Industrials",
-    "industry": "Specialty Industrial Machinery",
-    "revenue_growth": 24.9,
-    "gross_margins": 44.6,
-    "analyst_count": 9,
-    "6m_return": 3.44
+    "6m_return": -12.46
   },
   {
     "symbol": "SHOO",
-    "market_cap": 3300538368,
+    "market_cap": 3306385408,
     "sector": "Consumer Cyclical",
     "industry": "Footwear & Accessories",
     "revenue_growth": 18.0,
     "gross_margins": 46.0,
     "analyst_count": 9,
-    "6m_return": 5.98
+    "6m_return": 3.59
+  },
+  {
+    "symbol": "KNF",
+    "market_cap": 4619196416,
+    "sector": "Basic Materials",
+    "industry": "Building Materials",
+    "revenue_growth": 16.0,
+    "gross_margins": 18.2,
+    "analyst_count": 9,
+    "6m_return": 6.71
+  },
+  {
+    "symbol": "CR",
+    "market_cap": 12067405824,
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery",
+    "revenue_growth": 24.9,
+    "gross_margins": 44.6,
+    "analyst_count": 9,
+    "6m_return": 9.23
   },
   {
     "symbol": "GNTX",
-    "market_cap": 5286529536,
+    "market_cap": 5556978176,
     "sector": "Consumer Cyclical",
     "industry": "Auto Parts",
     "revenue_growth": 17.1,
     "gross_margins": 34.4,
     "analyst_count": 9,
-    "6m_return": 8.28
+    "6m_return": 11.51
   },
   {
     "symbol": "WTS",
-    "market_cap": 10550853632,
+    "market_cap": 11174260736,
     "sector": "Industrials",
     "industry": "Specialty Industrial Machinery",
     "revenue_growth": 21.4,
     "gross_margins": 49.2,
     "analyst_count": 9,
-    "6m_return": 16.97
+    "6m_return": 19.41
   },
   {
     "symbol": "MIR",
-    "market_cap": 4244801024,
+    "market_cap": 4088196608,
     "sector": "Industrials",
     "industry": "Specialty Industrial Machinery",
     "revenue_growth": 27.5,
     "gross_margins": 47.1,
     "analyst_count": 10,
-    "6m_return": -31.4
+    "6m_return": -31.29
   },
   {
     "symbol": "BLD",
-    "market_cap": 11284843520,
+    "market_cap": 11632710656,
     "sector": "Industrials",
     "industry": "Engineering & Construction",
     "revenue_growth": 17.2,
     "gross_margins": 29.0,
     "analyst_count": 10,
-    "6m_return": -7.47
+    "6m_return": -3.56
   },
   {
     "symbol": "DCH",
-    "market_cap": 1491849856,
+    "market_cap": 1553565312,
     "sector": "Consumer Cyclical",
     "industry": "Auto Parts",
     "revenue_growth": 68.6,
     "gross_margins": 11.7,
     "analyst_count": 10,
-    "6m_return": 2.53
+    "6m_return": 3.4
+  },
+  {
+    "symbol": "KTB",
+    "market_cap": 4372596224,
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "revenue_growth": 45.0,
+    "gross_margins": 48.1,
+    "analyst_count": 10,
+    "6m_return": 21.64
   },
   {
     "symbol": "CNX",
-    "market_cap": 4755062272,
+    "market_cap": 4718985216,
     "sector": "Energy",
     "industry": "Oil & Gas E&P",
     "revenue_growth": 28.2,
     "gross_margins": 74.8,
     "analyst_count": 11,
-    "6m_return": -17.48
+    "6m_return": -13.59
   },
   {
     "symbol": "CMC",
-    "market_cap": 8208992768,
+    "market_cap": 8599871488,
     "sector": "Industrials",
     "industry": "Metal Fabrication",
     "revenue_growth": 21.5,
     "gross_margins": 17.7,
     "analyst_count": 11,
-    "6m_return": 11.51
+    "6m_return": 9.43
   },
   {
     "symbol": "CWEN",
-    "market_cap": 9433402368,
+    "market_cap": 9255730176,
     "sector": "Utilities",
     "industry": "Utilities - Renewable",
     "revenue_growth": 18.8,
     "gross_margins": 63.5,
     "analyst_count": 11,
-    "6m_return": 21.86
+    "6m_return": 20.66
+  },
+  {
+    "symbol": "ORA",
+    "market_cap": 8456316416,
+    "sector": "Utilities",
+    "industry": "Utilities - Renewable",
+    "revenue_growth": 75.8,
+    "gross_margins": 27.5,
+    "analyst_count": 11,
+    "6m_return": 21.5
   },
   {
     "symbol": "SPXC",
-    "market_cap": 11543700480,
+    "market_cap": 11949225984,
     "sector": "Industrials",
     "industry": "Building Products & Equipment",
     "revenue_growth": 17.4,
     "gross_margins": 40.6,
     "analyst_count": 12,
-    "6m_return": 11.84
+    "6m_return": 9.42
   },
   {
     "symbol": "GWRE",
-    "market_cap": 10735076352,
+    "market_cap": 9993678848,
     "sector": "Technology",
     "industry": "Software - Application",
     "revenue_growth": 26.9,
     "gross_margins": 64.0,
     "analyst_count": 13,
-    "6m_return": -35.56
+    "6m_return": -38.2
   },
   {
     "symbol": "BOOT",
-    "market_cap": 4931767296,
+    "market_cap": 5081077248,
     "sector": "Consumer Cyclical",
     "industry": "Apparel Retail",
     "revenue_growth": 18.7,
     "gross_margins": 38.1,
     "analyst_count": 14,
-    "6m_return": -17.78
-  },
-  {
-    "symbol": "CRGY",
-    "market_cap": 3852385024,
-    "sector": "Energy",
-    "industry": "Oil & Gas E&P",
-    "revenue_growth": 24.5,
-    "gross_margins": 57.7,
-    "analyst_count": 14,
-    "6m_return": 20.02
-  },
-  {
-    "symbol": "ELF",
-    "market_cap": 3111711488,
-    "sector": "Consumer Defensive",
-    "industry": "Household & Personal Products",
-    "revenue_growth": 35.1,
-    "gross_margins": 61.0,
-    "analyst_count": 15,
-    "6m_return": -32.26
+    "6m_return": -18.43
   },
   {
     "symbol": "VVV",
-    "market_cap": 4644864000,
+    "market_cap": 4885269504,
     "sector": "Consumer Cyclical",
     "industry": "Auto & Truck Dealerships",
     "revenue_growth": 25.0,
     "gross_margins": 38.5,
     "analyst_count": 15,
-    "6m_return": 16.32
+    "6m_return": 23.37
   }
 ]

@@ -159,6 +159,18 @@ update/create 时传复杂嵌套 JSON + 中文/emoji 会报 "provided as string"
 
 ## 系统维护
 
+**三实例 Claude 登录 401 掉线：根因=同账号 refreshToken 互挤**（2026-06-20）[ref-worthy]
+- **现象**：某实例对 Discord 消息只回 `Please run /login · API Error: 401 Invalid authentication credentials`，看似卡死，实为登录失效被踢下线。
+- **诊断路径**（按此顺序，别凭印象）：
+  1. 抓该实例 tmux 末屏看是否反复回 401（AA=默认socket `tmux -S /tmp/tmux-1000/default capture-pane -t cowork -p`；BB=`-S .../opus_socket -t cowork_opus`；CC=opus2_socket/cowork_opus2）
+  2. 查凭证文件 `<HOME>/.claude/.credentials.json` 的 `claudeAiOauth.refreshToken` 长度——**空(0 chars)=病根**：accessToken 过期后无法自动续 → 永久 401；正常实例 refreshToken 有 108 chars
+- **根因（强推测，未坐实）**：三实例用**同一个 Claude 账号**登录（同 email + 同 accountUuid，`.claude.json` 的 `oauthAccount` 可查）。OAuth refreshToken 会轮换——同账号谁刷新一次就可能让其他实例的旧 refreshToken 作废 → 它们 accessToken 过期后掉线。解释了"只最近登录的活/其余先后掉/重启无效"全现象。**未抓到轮换直接日志**（旧凭证被新登录覆盖无法回溯）。
+- **修复**：唯一解=该实例手动 `/login` 重授权（交互式 OAuth+涉凭证，AI 不代操）。步骤：SSH 上 VPS → `tmux [-L socket] attach -t <session>` → 输 `/login` → 复制链接到手机/电脑浏览器授权 → 贴回 code → `Ctrl+b` 再 `d` 安全 detach（别按 Ctrl+C/别直接关窗会杀进程）。
+- **关键坑**：①**重启无效**——重启只重读那个残缺凭证文件，缺的 refreshToken 变不出来 ②**别凭欢迎页判断恢复**——启动屏的 "Claude Max" 是缓存账号名，凭证可能仍失效，必须实测一条消息能回才算恢复（见 friction 2026-06-21）。
+- 关联：`claude --print`（P4 新闻/P9 脚本）的 401 与此同根，鉴权失效会在三实例间扩散。
+- 防复发待评估：独立登录态 / refreshToken 变空·过期前主动告警（不等掉线）。
+- [src: 8100a43c]
+
 **评估"自建功能是否被原生取代"必须先抓官方文档**（2026-06-07）[ref-worthy]
 - 不能凭印象判断原生功能的能力边界，必须 WebFetch 官方文档确认（是否跨对话/如何写入/有何限制），再与自建实现逐条硬对照。
 - 本次教训：第一版凭印象的对照被主公纠正"看表面"，抓文档后多处判断被推翻——Plan模式≠idea持久文档/原生auto-memory三实例各自独立（非跨实例共享）。

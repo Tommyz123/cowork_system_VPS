@@ -209,8 +209,19 @@ last_updated: 2026-05-31
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-06-19
-停在：三实例全正常；新增**会话外卡死看门狗** instance_watchdog.sh（cron 每5分钟，只通知不重启），实弹测试通过。
+last_updated: 2026-06-21
+停在：AA/BB 登录 401 掉线已由主公 /login 修复；根因=三实例同账号 refreshToken 互挤（强推测，未坐实），会复发，防复发方案待定。
+
+本次完成（2026-06-20/21 — 三实例登录 401 事故诊断 + 根因调查）：
+- **报障**：主公报 AA/BB 不回复 → 抓两实例 tmux 末屏：均反复回 `Please run /login · API Error: 401 Invalid authentication credentials`
+- **第一次误判（已认错记 friction）**：主公说"重启" → 我 kill 各自 tmux session 让 systemd 拉起 → 抓欢迎页见 "Claude Max" 就报"已恢复"，未实测 → 主公实测仍无反应。教训=重启验证必须以"实测消息能回"为准，欢迎页/账号名是缓存不算数
+- **根因锁定（铁证）**：挖凭证文件 .credentials.json → AA/BB 的 refreshToken=空(0 chars)，accessToken 过期(AA 06:41/BB 16:21)后无法自动续→永久 401；CC 有 refreshToken(108 chars)故一直正常。重启读的还是残缺凭证故无效
+- **修复**：唯一解=手动 /login 重授权（交互式+涉凭证，我不代操）→ 给主公手机可操作步骤（SSH→tmux attach→/login→浏览器授权→贴 code→Ctrl+b d）→ 主公 21:08/21:10 自行 /login 成功，AA/BB 恢复（凭证→470字节完整，BB 已在跑 P9）
+- **深层根因调查（主公"查一下"）**：①查实=三实例同一 Claude 账号(zhitao776@gmail.com，同 accountUuid 77ecbf03)②排除脚本/env 清凭证(无 apiKeyHelper/无 ANTHROPIC_KEY，runner 不动凭证)③**强推测=同账号多实例 OAuth refreshToken 轮换互相挤掉**（完美解释"只 CC 活/AA·BB 先后掉/重启无效"全现象，但无直接日志，旧凭证已被覆盖无法回溯）④dual_bot 隔离 3 层未含"账号登录层"=结构性来源
+- **关联发现**：当天 P4 新闻 13:00 失败的 401 与此同根（鉴权失效三实例扩散）
+
+下一步（P2 登录 401）：
+- 主公定是否深入：①坐实根因（盯三实例凭证变化抓一次轮换现场）②防复发方案（独立登录态 / 凭证快过期·refreshToken 变空提前告警，不等掉线）
 
 本次完成（2026-06-19 下午 — AA幻觉卡死诊断 + 会话外看门狗）：
 - **报障溯源**：主公报"三频道错乱/AA没反应"→多轮 Discord API+jsonl 实证，真凶=AA(Sonnet4.6)幻觉卡死（会话过长致工具失效→把meta评估指令"别发给用户"误读成主公"don't reply"→立场一致性死扛拒回复几十轮）
@@ -689,15 +700,17 @@ last_updated: 2026-04-12
 路径：`C:\Users\zhi89\Desktop\cannabis_AI_BUDTENDER\` | 前端：`frontend-next/preview.html` | 后端：`localhost:8000`
 
 ### [P4] 每日新闻日报
-状态：本地 cron 正常运行，格式修复完成
-last_updated: 2026-04-16
-停在：GitHub Action 删除，发布时间标注功能上线（2026-03-31）
-本次完成（2026-03-31）：
-- 诊断格式错误根因：GitHub Actions 无 ANTHROPIC_API_KEY，走 fallback 只显示裸标题
-- 删除 `.github/workflows/daily_news.yml`，push 到 GitHub
-- `daily_news.py` 新增 `published` 字段抓取
-- `run_daily_news.sh` prompt 加入发布时间要求，测试通过
+状态：本地 cron 正常运行；2026-06-20 遇 Claude CLI 401 失败已手动补发
+last_updated: 2026-06-21
+停在：6/20 13:00 因 claude --print 返回 401 失败 → 已手动重跑补发
+本次完成（2026-06-20）：
+- 诊断 6/20 失败根因：第②步 claude --print 返回 401 鉴权失败（与三实例登录 401 同根），错误文本进了 news_ai.tmp，触发告警 trap
+- 手动重跑 run_daily_news.sh 补发，三步全过（5879 字节正常日报）
+- 与主公讨论两个增强方向（均未做，待主公拍板）：
+  - **失败自动重试**：claude 那步失败时等 30s 重试 1-2 次，规避临时 401 抖动（改 run_daily_news.sh）
+  - **主题追踪能力**：主公给方向→日报加「🎯 持续追踪」板块跨天追踪进展+有记忆看脉络（建 tracking_topics.txt + 历史记忆文件 + 改脚本）。当前主公无具体主题，按 YAGNI 暂不搭，等有真实主题再做
 下一步：
+0. 主公若要：加失败重试 / 搭主题追踪（二者均需授权改脚本）
 1. **迁移到 Routines（待排期）** — 方案已确定：
    - `newscripts/` 加入 GitHub（移出 .gitignore）
    - `run_daily_news.sh` 移除 `claude --print` 调用，改纯数据输出

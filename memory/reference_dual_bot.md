@@ -39,6 +39,11 @@ originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 3. **plugin cache**：各自单独跑 `/plugin install`，不能共用
 4. **Discord token**：各自独立 .env 文件
 
+**⚠️ Claude 账号登录 = 共享层（非隔离，2026-06-20 事故暴露）：**
+三实例用**同一个 Claude 账号**登录（同 email zhitao776@gmail.com + 同 accountUuid，各 `$HOME/.claude/.credentials.json`）。这是 OAuth refreshToken **互挤掉线**的结构性来源——同账号谁刷新一次可能让其他实例旧 refreshToken 作废 → accessToken 过期后 401。
+- 症状/诊断/修复（手动 /login）详见 `reference/knowledge_base.md` "三实例 Claude 登录 401 掉线"
+- 排查铁律：①重启无效（重读残缺凭证）②别凭欢迎页 "Claude Max" 判断恢复，必须实测消息能回
+
 **Memory 例外（2026-05-12 决策，2026-06-10 升级为单一物理目录）：**
 打破原 4 层隔离中的 memory 独立，三实例共享**同一份物理记忆** `/home/cowork/cowork/memory/`（git 正本）：
 - AA/BB/CC 的 `$HOME/.claude/projects/-home-cowork-cowork/memory` **全部是 symlink** → `/home/cowork/cowork/memory`
