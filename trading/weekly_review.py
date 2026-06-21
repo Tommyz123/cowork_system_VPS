@@ -92,7 +92,74 @@ def fetch_iwm_returns() -> dict:
         return {}
 
 
-def build_message(counts, averages, recent, iwm=None):
+def fetch_position_health():
+    """当前持仓走势体检（复盘观察，非交易信号）。
+    读 filled 持仓，用 yfinance 算「入场至今累计%」+「近1周走向」，
+    阴跌打标。涨跌%是事实，状态标签是固定阈值判定（非主观）。
+    返回 list[dict]，无持仓返回 []。"""
+    conn = sqlite3.connect(DB_PATH)
+    try:
+        rows = conn.execute(
+            "SELECT symbol, entry_price FROM scanner_picks "
+            "WHERE status IN ('filled', 'filled_late')"
+        ).fetchall()
+    finally:
+        conn.close()
+
+    health = []
+    for symbol, entry_price in rows:
+        try:
+            hist = yf.Ticker(symbol).history(period="10d")
+            if hist.empty or not entry_price:
+                continue
+            current = float(hist["Close"].iloc[-1])
+            since_entry = (current - entry_price) / entry_price * 100
+            # 近1周走向：取约5个交易日前
+            week_ago = float(hist["Close"].iloc[-6]) if len(hist) >= 6 else float(hist["Close"].iloc[0])
+            week_chg = (current - week_ago) / week_ago * 100
+        except Exception:
+            continue
+
+        # 状态标签：固定阈值判定（事实派生，非主观臆测）
+        if since_entry <= -10 and week_chg < 0:
+            status = "🔴 阴跌中"
+        elif since_entry <= -10:
+            status = "🟠 深亏待观察"
+        elif week_chg <= -5:
+            status = "🟠 近期走弱"
+        elif since_entry > 0:
+            status = "🟢 走强" if week_chg >= 0 else "🟢 持稳"
+        else:
+            status = "🟡 小幅承压"
+        health.append({
+            "symbol": symbol, "since_entry": since_entry,
+            "week_chg": week_chg, "status": status,
+        })
+    # 按入场至今涨跌升序（最惨的排最上，方便复盘抓重点）
+    health.sort(key=lambda x: x["since_entry"])
+    return health
+
+
+def build_position_health_block(health):
+    if not health:
+        return ""
+    lines = [
+        "",
+        "📊 持仓走势体检（复盘观察，非交易信号）",
+        "  入场至今 | 近1周 | 状态（按入场至今升序，最惨在上）",
+    ]
+    for h in health:
+        arrow = "↗" if h["week_chg"] > 1 else ("↘" if h["week_chg"] < -1 else "→")
+        lines.append(
+            f"  {h['symbol']:<6} {h['since_entry']:+6.1f}%  {arrow} {h['week_chg']:+5.1f}%   {h['status']}"
+        )
+    flagged = [h["symbol"] for h in health if h["status"].startswith(("🔴", "🟠"))]
+    if flagged:
+        lines.append(f"  ⚠️ 走弱/深亏 {len(flagged)} 只（{', '.join(flagged)}）→ 12月复盘重点看 thesis 是否失效")
+    return "\n".join(lines)
+
+
+def build_message(counts, averages, recent, iwm=None, health=None):
     iwm = iwm or {}
     lines = [
         "P9 TIDE Weekly Outcome Review",
@@ -114,6 +181,9 @@ def build_message(counts, averages, recent, iwm=None):
             lines.append(f"- {row['symbol']} | {row['tagged_date']} | 30d {ret}")
     else:
         lines.append("- no records")
+    block = build_position_health_block(health or [])
+    if block:
+        lines.append(block)
     return "\n".join(lines)
 
 
@@ -137,7 +207,8 @@ def main():
     env = load_env()
     counts, averages, recent = fetch_summary()
     iwm = fetch_iwm_returns()
-    message = build_message(counts, averages, recent, iwm)
+    health = fetch_position_health()
+    message = build_message(counts, averages, recent, iwm, health)
     log("weekly summary generated")
     for line in message.splitlines():
         log(line)
