@@ -90,3 +90,4 @@
 [2026-06-21 01:05] ⚠️ Hook摩擦 | task_approved响应级授权复发 | 审核修脚本时被system_file_guard拦截(授权已被上轮Stop hook清除),需主公重新说授权词→修改才放行 | 处理方式:列清单等"可以执行"重授权后继续 | 状态:已知问题复发(6/20已记同类),多步骤跨响应任务的授权粒度待与主公讨论是否升级(响应级vs任务级)
 [2026-06-21 14:51 EDT] ⚠️ 工具限制 | discord_approve.py授权词覆盖 | 主公说"可以去，按照你推荐的做"未被识别为授权词，但上一条"那可以"反被误判授权(时机错位)；任务守卫正确拦截、授权守卫正确禁止Claude自行touch token | 处理方式：请主公回标准授权词"可以执行"；建议系统复盘时评估①补"可以去/按你推荐的做"等常见授权表达 ②查"那可以"为何会匹配 | 状态：需主公确认
 [2026-06-21 21:12 EDT] ⚠️ 待办(P9迭代) | signal_collector 数据质量bug(2个) | ①Finnhub新闻路径缺日期过滤,偶混旧文章(实测5/5799),代码确认SEC路径有within_range过滤但Finnhub路径无 ②Benzinga偶塞不相关新闻(SPXC挂Dogecoin) | 处理方式:今晚不动(改新闻入库主路径有误伤风险),留下次P9迭代专门处理,先量化污染样本(什么样旧文章/多旧)再定过滤窗口 | 状态:待P9迭代
+[2026-06-22 12:57] ⚠️ Hook冲突 | task_approved授权token写入失败 | UserPromptSubmit的discord_approve hook报告"✅已自动授权/tmp/task_approved_CC"，但实际文件不存在；system_file_guard拦截写文件，授权守卫又禁止Claude自行touch→死锁。主公连发"可以/执行"多次token都没落地。处理方式：请主公重发授权词观察token是否真写入 | 状态：需主公确认（疑discord_approve.py写入路径/时机与守卫检查不一致）

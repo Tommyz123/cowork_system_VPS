@@ -15,8 +15,13 @@ fi
 # 起新 session（detached）
 $TMUX_BIN new-session -d -s $SESSION -c $WORKDIR $CLAUDE_BIN --channels plugin:discord@claude-plugins-official
 
-# Watchdog: 5 秒轮询 session 存活
+# Watchdog: 5 秒轮询 session 存活 + Claude 活跃状态
 while $TMUX_BIN has-session -t $SESSION 2>/dev/null; do
+    CURRENT_CMD=$($TMUX_BIN list-panes -t $SESSION -F '#{pane_current_command}' 2>/dev/null | head -1)
+    if [ "$CURRENT_CMD" != "claude" ]; then
+        echo "$(date -Iseconds) [claude_runner] Claude idle (cmd=$CURRENT_CMD), restarting..." >&2
+        $TMUX_BIN send-keys -t $SESSION "claude --channels plugin:discord@claude-plugins-official" Enter
+    fi
     sleep 5
 done
 

@@ -115,6 +115,16 @@ tmux -L opus2_socket send-keys -t cowork_opus2 Enter
 
 ---
 
+## BB/CC MCP 配置（2026-06-22 资源优化）
+
+BB（opus_home）已**禁用** `context7` 和 `playwright` 两个常驻 MCP（`/home/cowork/opus_home/.claude/settings.json` 中 `disabled: true`）。禁后 swap 435M→293M，常驻内存占用降低。CC（opus2_home）配置同步跟进。
+
+**原因**：VPS 1核/1.9G，三实例 Claude 主进程合计 ~877M，同时跑重任务仍会卡顿，禁用不常用 MCP 是缓解措施，根治需升级 2核4G（待 Mac mini 迁移解决）。
+
+**bot token 警示（2026-06-22 教训）**：AA 曾错误对调 BB/CC 的 Discord bot token，导致 BB 两小时无响应。root cause：凭目录名序号（opus2=第2个=BB）直觉动手而非查文档。**操作铁律：涉及 BB/CC 任何操作前，先查 `memory/feedback_instance_mapping.md` 表格或跑 `which_instance.sh`**。
+
+---
+
 ## 实例疑似卡死/串台 诊断防错（2026-06-19 AA 幻觉事故沉淀）
 
 **🩺 实例疑似卡死的标准诊断流程**（别凭体感猜，按序走）：

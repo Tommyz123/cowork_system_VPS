@@ -17,7 +17,7 @@ last_audit_date: 2026-04-19
 | ID | 项目 | 状态 | 最后更新 | 下一步摘要 |
 |---|---|---|---|---|
 | **P12** | **Cannabis Retail 主线** | 🆕 **规划中** | **2026-05-25** | **选址研究框架确立（4维：收入水平+地铁节点+竞争+商业条件）；Queens市场已基本饱和；Sweet spot房租$8k-$12k；主公背景：Bayside Cannabis+Sage Seeds；下次：给地址继续分析或AI法律顾问MVP** |
-| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-06-13 | BB模型修复(fable-5→opus-4-8，BB账号无Fable5权限)；BB/CC下线修复(systemd超限手动拉runner)；待办：systemctl reset-failed cowork-opus cowork-opus2(需sudo)；评估记忆系统改善方案 |
+| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-06-22 | runner脚本升级(pane_current_command检测Claude idle自动重拉)；三实例映射表写入memory；VPS资源瓶颈诊断(1核/1.9G/swap)；BB禁用context7+playwright MCP；下次：Mac mini迁移规划 |
 | P13 | 金字塔原理学习 | ✅ 第2章学透毕业 | 2026-06-02 | 第2章 L3 达标(3份真材料独立写对 SCQA+归纳带证据)；下次开第3章(中等深度,练1次即可)；4个易错点+全书深浅地图已入memory |
 | P10 | 个人文件库 | 🔄 活跃 | 2026-04-25 | MVP完成(简历3文件)，阶段2扩展分类 |
 | P3 | Cannabis Budtender | ⏸️ 暂停（并入 P12 子模块） | 2026-05-07 | eval 100%完成；从 2026-05-14 起作为 P12 子模块继续推进 |

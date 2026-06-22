@@ -441,3 +441,15 @@
 [2026-06-21 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
 [2026-06-21 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
 [2026-06-21 21:17 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:c939e7f 草稿:3条(2-3分送审)+1条自动写入(pipefail)
+[2026-06-22 09:00 EDT] CRON[cannabis_docket_reminder] | mode=weekly | ✅ | 案号 904497-24 提醒已发
+[2026-06-22 09:35 EDT] CRON[trend_watch_reminder] | weekly | ✅ | 趋势观察池周检提醒已发
+[2026-06-22 13:01 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-22 15:06 EDT] CRON[P9] | screener | ✅ | 完成
+[2026-06-22 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-06-22 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-06-22 16:01 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-06-22 16:30 EDT] CRON[P9] | scanner_tracker | ✅ | 完成
+[2026-06-22 16:45 EDT] CRON[P9] | price_tracker | ✅ | 完成
+[2026-06-22 17:00 EDT] CRON[P9] | post_exit_tracker | ✅ | 完成
+[2026-06-22 17:05 EDT] CRON[ferc_watch] | daily | 🚨 | 命中 1 条，已报警
+[2026-06-22 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
