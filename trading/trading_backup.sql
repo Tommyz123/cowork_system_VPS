@@ -295,6 +295,11 @@ INSERT INTO "alt_signals" VALUES(908,'gtrends_theme','公用事业现代化','ut
 INSERT INTO "alt_signals" VALUES(962,'gtrends_theme','AI 电力','data center energy demand','2026-06-13',21,'serpapi','2026-06-14 19:45:06');
 INSERT INTO "alt_signals" VALUES(1016,'gtrends_theme','分析师重定价','stock upgrade','2026-06-13',31,'serpapi','2026-06-14 19:45:08');
 INSERT INTO "alt_signals" VALUES(1070,'gtrends_theme','行业重分类','sector rotation','2026-06-13',25,'serpapi','2026-06-14 19:45:09');
+INSERT INTO "alt_signals" VALUES(1124,'gtrends_theme','AI 软件','generative AI software','2026-06-20',16,'serpapi','2026-06-21 19:45:02');
+INSERT INTO "alt_signals" VALUES(1178,'gtrends_theme','公用事业现代化','utility infrastructure','2026-06-20',17,'serpapi','2026-06-21 19:45:04');
+INSERT INTO "alt_signals" VALUES(1232,'gtrends_theme','AI 电力','data center energy demand','2026-06-20',3,'serpapi','2026-06-21 19:45:07');
+INSERT INTO "alt_signals" VALUES(1286,'gtrends_theme','分析师重定价','stock upgrade','2026-06-20',28,'serpapi','2026-06-21 19:45:08');
+INSERT INTO "alt_signals" VALUES(1340,'gtrends_theme','行业重分类','sector rotation','2026-06-20',15,'serpapi','2026-06-21 19:45:12');
 CREATE TABLE decisions (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             date TEXT, symbol TEXT, signal TEXT,
@@ -2904,6 +2909,6 @@ INSERT INTO "sqlite_sequence" VALUES('insider_transactions',165);
 INSERT INTO "sqlite_sequence" VALUES('trades',43);
 INSERT INTO "sqlite_sequence" VALUES('signals',5808);
 INSERT INTO "sqlite_sequence" VALUES('outcome_tracking',18);
-INSERT INTO "sqlite_sequence" VALUES('alt_signals',1070);
+INSERT INTO "sqlite_sequence" VALUES('alt_signals',1340);
 INSERT INTO "sqlite_sequence" VALUES('thesis_alerts',2);
 COMMIT;

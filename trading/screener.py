@@ -65,7 +65,9 @@ def fetch_wiki_symbols(url):
 def yf_filter(symbol):
     """yfinance过滤：市值/行业/收入增速/分析师数量/6个月涨幅"""
     try:
-        tk = yf.Ticker(symbol)
+        # 维基成分股表用点号(CWEN.A)，Yahoo/yfinance 要横杠(CWEN-A)，否则 class A/B 股每次 404 静默漏选
+        yf_symbol = symbol.replace(".", "-")
+        tk = yf.Ticker(yf_symbol)
         info = tk.info
 
         mc = info.get("marketCap")

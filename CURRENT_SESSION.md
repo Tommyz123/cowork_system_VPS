@@ -918,6 +918,15 @@ last_updated: 2026-06-04
 状态：✅ P9 cron运行中(不动不加码,12月验收) + **趋势主线全套基建落地(手册v1.1+地图+选股候选+观察池+双哨兵)**，等FERC裁决触发第一份一页纸方案
 last_updated: 2026-06-21
 停在：趋势主线"等待触发"；追踪档案阶段2-B**轨迹自动写入上线**(每周一09:30脚本自动补数据行,逻辑状态留待校准等人工)；首仓双闸=FERC落地+7月底capex季检
+**闭环判断(2026-06-21确立)**：机械闭环✅已闭合(系统层cron全绿+数据层零ghost)；认知闭环⏳待样本满90天(outcome全pending,0条过60天milestone)+建"verdict→改scanner评分"回流机制
+
+本次完成（2026-06-21夜 — P9系统运维:误报修复+告警增强+全面体检+bug修复）：
+- **verify_vrrm误报查清**：CC手动调试脚本(核实VRRM价格)第一版代码笔误(idx.strftime对字符串调日期方法→AttributeError),run_py.sh的trap ERR把调试报错当生产失败发告警;脚本用完即删。系统无bug,真VRRM-70%是真实暴跌非数据污染
+- **告警系统增强**(run_py.sh+ops_alert.py)：失败邮件带真实Traceback末15行+删误导"请检查xxx.log";run_py.sh加set -o pipefail(防tee吞python退出码致漏报);注释"只服务正式cron,调试脚本直接python3跑"。自测4场景通过
+- **P9全面体检**：机器层近7天cron全绿零真实失败;Alpaca Swing账号组合$106,688约+6.7%,15只持仓浮盈+$2,577(11盈4亏);已平仓ASTE+91/VRRM-2211;DB持仓vs Alpaca零ghost对账有效
+- **CWEN.A静默漏选修复**(screener.py)：yf_filter加symbol.replace(".","-")转Yahoo格式(class A/B股点号CWEN.A→CWEN-A),自测CWEN-A拿到$83亿数据;通用修复非补单只
+- **decisions空列确认**：非bug是设计(alpaca_mcp.py:214 INSERT无entry_price列,入场价真相源=trades.fill_price),不动
+- **signal_collector 2bug落待办**(friction_log)：Finnhub缺日期过滤+Benzinga塞不相关新闻,今晚不动(改主路径有误伤风险),留P9迭代先量化污染样本
 
 本次完成（2026-06-21 — 追踪档案阶段2-B轨迹自动写入 + 审核修复）：
 - **补断档**：追踪档案断档9天(只有6/11基线),手动补9对象6/20轨迹(yfinance);核心观察=电力股6/11→6/20普涨(GEV+28%/CEG+11%/VST+10%),TLN/ETN已逼近52周高→"低位埋伏"买点收窄(矛盾留主公判断)

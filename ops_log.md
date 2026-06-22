@@ -429,3 +429,14 @@
 [2026-06-20 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
 [2026-06-20 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
 [2026-06-21 01:07 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:09e3927 草稿:1条
+[2026-06-21 01:26 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P4,P2 commit:6c8c4dc 草稿:0条送审(2条自动写入4分)
+[2026-06-21 01:44 EDT] CRON[P9] | verify_vrrm | ❌ | 失败→Brevo告警已发
+[2026-06-21 01:45 EDT] CRON[P9] | verify_vrrm | ✅ | 完成
+[2026-06-21 01:45 EDT] CRON[P9] | verify_vrrm | ✅ | 完成
+[2026-06-21 01:45 EDT] CRON[P9] | verify_vrrm | ✅ | 完成
+[2026-06-21 02:05 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 214.390 MiB (224804139 Byte) → Google Drive
+[2026-06-21 13:04 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-21 16:00 EDT] CRON[P9] | weekly_review | ✅ | 完成
+[2026-06-21 17:05 EDT] CRON[ferc_watch] | daily | ✅ | 无命中（静默）
+[2026-06-21 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-21 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
