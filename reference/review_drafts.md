@@ -153,3 +153,22 @@
 ### 待主公决策（非草稿，提醒）
 - P2 登录401防复发：是否要①坐实根因(盯凭证抓轮换现场)②防复发方案(独立登录态/过期前告警)
 - P4 增强：失败重试 / 主题追踪(主公暂无主题,YAGNI挂起)
+
+---
+
+## [草稿] 2026-06-22 深度审核（收工）
+
+> 审核 session：2ec6c482（BB实例-P9系统运维:verify_vrrm误报查清+告警增强+全面体检+CWEN.A修复，主公连环追问逼出多层真根因）
+
+### INSIGHTS 建议写入（2条）
+1. **[评分:3]** 通用包装器误用是误报温床 → run_py.sh本为正式cron设计(失败该告警),被CC拿来跑临时调试脚本,调试中代码报错正常但trap一律告警=误报。规则:调试/临时脚本直接`python3 xxx.py`跑,只有正式cron走run_py.sh。[src:2ec6c482]
+2. **[评分:3]** 维基成分股表ticker点号 vs Yahoo横杠 → class A/B股维基写`CWEN.A`但yfinance要`CWEN-A`,不转换则每次404静默漏选(不报错不告警)。screener等用维基symbol喂yfinance前必做`.replace(".","-")`。最讨厌的是"静默漏选"——不报错但悄悄漏数据。[src:2ec6c482]
+
+### Playbook 建议更新（1处）
+- **[评分:3]** playbooks/p9_trading.md 协作区补一条:「调试/临时脚本直接python3跑,不走run_py.sh(它只服务正式cron,否则调试报错会误触发告警)」
+
+### Friction（已当场记入 friction_log，0条送审）
+- [评分:已记] 授权词"可以去/按你推荐的做"未被discord_approve.py识别,而"那可以"反误触发 → friction_log 2026-06-21,建议系统复盘评估补词
+
+### 🤖 本次自动写入摘要（4-5分，已直接写入正式文件）
+- **[评分:4]** CLI踩坑「cmd|tee必须set -o pipefail防漏报」→ 已写入 reference/knowledge_base.md CLI工具行为(跨项目通用shell陷阱+差点埋漏报雷的真实场景+完整规则可写)

@@ -440,3 +440,4 @@
 [2026-06-21 17:05 EDT] CRON[ferc_watch] | daily | ✅ | 无命中（静默）
 [2026-06-21 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
 [2026-06-21 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-06-21 21:17 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:c939e7f 草稿:3条(2-3分送审)+1条自动写入(pipefail)

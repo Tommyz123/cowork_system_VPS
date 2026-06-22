@@ -143,6 +143,7 @@ update/create 时传复杂嵌套 JSON + 中文/emoji 会报 "provided as string"
 ### CLI工具行为
 - **`claude --print`** → 回复内容只输出到 stdout；不要加 `2>&1`（会混入系统日志）；必须加 `< /dev/null` 防止挂起；用临时文件 `> /tmp/out.txt` 捕获输出
 - **Codex 原生调用方式** → `codex-companion.mjs task --background "..."` → 轮询 status → 读 result（JSON）；比用 result.md 文件传递更简洁，适合后台执行后读取结果
+- **`cmd | tee` 管道吞退出码 → 必须 `set -o pipefail`**（2026-06-21 P9 run_py.sh 增强时发现）：bash 管道默认返回**最后一个命令**的退出码，`python3 x.py 2>&1 | tee log` 里 tee 几乎总成功 → 整条管道退出码=0，即使 python 失败也判成功。后果：依赖退出码的 `trap ... ERR` / `set -e` / `&& 告警` **全部漏触发 = 漏报**（比误报危险）。凡是「跑命令 + tee 留日志 + 失败要告警」的脚本，开头必加 `set -o pipefail`。验证：python 故意报错时 `echo $?` 应=1 而非 0。
 
 ### Discord API限制
 - **Discord Bot reply** → pairing 模式下 reply 工具正常；allowlist 模式导致"channel is not allowlisted"报错，不要切换到 allowlist 模式
