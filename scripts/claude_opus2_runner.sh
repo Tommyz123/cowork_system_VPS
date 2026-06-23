@@ -1,6 +1,7 @@
 #!/bin/bash
 # Cowork Opus2 Claude Code watchdog runner
-# 第 3 个独立 claude 实例，HOME=opus2_home，监听 Discord 频道 1466957346310717636
+# 第 3 个独立 claude 实例（=CC），HOME=opus2_home，DM 频道 1509045714808737842
+# 注：1466957346310717636 是 guild「TT基地」ID，非频道号，勿混淆（见 memory/feedback_instance_mapping.md）
 # 无限循环自重启：session不存在→新建；Claude进程idle→重拉
 
 TMUX_BIN="/usr/bin/tmux -L opus2_socket"
