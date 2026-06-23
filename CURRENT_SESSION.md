@@ -209,8 +209,18 @@ last_updated: 2026-05-31
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-06-21
-停在：AA/BB 登录 401 掉线已由主公 /login 修复；根因=三实例同账号 refreshToken 互挤（强推测，未坐实），会复发，防复发方案待定。
+last_updated: 2026-06-23
+停在：深度审核12批全清（12:41 commit 4cc349f）；AA重启后完成当日收工。下次：防复发方案评估（同账号refreshToken互挤/凭证预警）；Mac mini迁移规划。
+
+本次完成（2026-06-23 — 深度审核清仓 + AA重启）：
+- **深度审核12批+待审记忆6条全清**：knowledge_base入库9条；3条memory新建；project_p9_trading双层结构重写；ARCHITECTURE同步
+- **AA重启**：主公指令，systemd拉起，新会话正常
+
+本次完成（2026-06-22 下午/晚 — BB卡顿+runner升级+AskUserQuestion拦截）：
+- **BB卡顿排查**：VPS资源瓶颈（1核/1.9G）；BB禁用context7+playwright MCP减内存压力（swap 435M→293M）
+- **三实例runner升级**：pane_current_command检测Claude idle，自动重拉（防卡死）
+- **AskUserQuestion拦截（permissions.deny）**：BB反复弹终端选择菜单（三次违反规则）→ 共享层settings.json加deny=["AskUserQuestion"]；JSON合法验证；5a86386已commit
+- **三实例映射memory**：feedback_instance_mapping.md新建（AA/BB/CC↔HOME↔bot↔频道完整对照表）；CC频道ID笔误修正（guild ID→channel ID）
 
 本次完成（2026-06-20/21 — 三实例登录 401 事故诊断 + 根因调查）：
 - **报障**：主公报 AA/BB 不回复 → 抓两实例 tmux 末屏：均反复回 `Please run /login · API Error: 401 Invalid authentication credentials`

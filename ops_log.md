@@ -453,3 +453,7 @@
 [2026-06-22 17:00 EDT] CRON[P9] | post_exit_tracker | ✅ | 完成
 [2026-06-22 17:05 EDT] CRON[ferc_watch] | daily | 🚨 | 命中 1 条，已报警
 [2026-06-22 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-22 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-06-22 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-06-23 02:04 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 214.260 MiB (224668055 Byte) → Google Drive
+[2026-06-23 12:43 EDT] SKILL[SYS] | 收工 | ✅ | 项目:[审核会话] commit:4cc349f 草稿:0(12批全清)

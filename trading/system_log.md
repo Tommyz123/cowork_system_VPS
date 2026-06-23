@@ -86,3 +86,7 @@
 [2026-06-19 21:00 EDT] ✅ price_snapshot: updated=0 skipped=17
 [2026-06-20 21:00 EDT] ✅ price_snapshot: updated=0 skipped=17
 [2026-06-21 21:00 EDT] ✅ price_snapshot: updated=0 skipped=17
+[2026-06-22 16:01 EDT] ✅ symbols=49 news=15 8k=2 inserted=17 | Finnhub:OK SEC:OK
+[7天兜底删除] 2026-06-29 删 trading/notes/趋势追踪档案.md.bak (git已留底)
+[2026-06-22 21:00 EDT] ✅ price_snapshot: updated=0 skipped=17
+[7天兜底删除] 2026-06-29 删 .claude/settings.json.bak (git已留底)
