@@ -163,11 +163,12 @@ tail -50 /home/cowork/cowork/scripts/cannabis_docket_reminder.log
 ## 📡 趋势主线（第2层）观察池周检（2026-06-11 新建）
 
 **清单实体:** `/home/cowork/cowork/trading/notes/趋势观察池.md`（W1-W6 信号 + E 事件日历）
+**信号→动作速查（给AI看）:** `/home/cowork/cowork/trading/notes/信号作战表.md`（一信号一行:谁盯/什么算触发/机器做啥/然后AI做啥/为什么；周检时 AI 必须对着它逐条过）
 **背景:** 趋势地图 2026-Q2 配套盯防层；触发条件命中→Discord 报警主公
 
 | 时间 (EDT) | 脚本 | 作用 | Log 路径 |
 |---|---|---|---|
 | `30 9 * * 1` (周一 09:30) | `trading/dossier_autowrite.py` | 趋势追踪档案轨迹自动写入：**从档案自身解析对象**(读`**追踪代码**`字段,不硬编码)→yfinance查价→给每对象轨迹表追加一行(价格/估值/距高)；逻辑状态列留`🔍待校准`等人工补；加新对象只改档案脚本零改动；阶段2-B（2026-06-21新建，先于09:35周检让其读到最新轨迹） | `trading/dossier_autowrite.log` |
 | `35 9 * * 1` (周一 09:35) | `scripts/trend_watch_reminder.py` | 周提醒：按观察池清单执行周检（对 BB 说"趋势周检"） | `scripts/trend_watch_reminder.log` |
-| `5 17 * * *` (每天 17:05) | `scripts/ferc_watch.py` | FERC裁决自动哨兵(观察池E1)：SerpAPI搜新闻命中报警，静默无打扰；**一次性**——裁决落地后删cron行+归档脚本 | `scripts/ferc_watch.log` |
+| `5 17 * * *` (每天 17:05) | `scripts/ferc_watch.py` | FERC大负荷接入规则哨兵(观察池E1)：SerpAPI搜新闻命中报警，静默无打扰；**两阶段**(2026-06-23改:一阶段6/18 show cause已落非终局→继续盯二阶段最终规则约8-9月,落地且利好才退役)；命中后必须BB人工确认真假 | `scripts/ferc_watch.log` |
 | `0 10 * * 1` (周一 10:00) | `trading/dossier_weekly.py` | 趋势追踪档案AI周报：读`趋势追踪档案.md`→claude CLI分析每对象(直出📊数据/🧭判断两字段)→归档`trading/reports/weekly/`(markdown)+`render_dossier_html.py`渲染HTML卡片email推送主公；护栏=只事实分析不写买卖；阶段2-A（2026-06-20新建，2026-06-22排版重排+数据判断分层） | `trading/dossier_weekly.log` |

@@ -1,14 +1,28 @@
 #!/usr/bin/env python3
 """
-FERC 裁决自动哨兵（趋势主线观察池 E1，一次性使命）
-- 每天 17:05 EDT 自动搜 FERC co-location/large load 裁决新闻
-- 命中"裁决落地"特征 → Discord 报警（标题+链接）；没消息一声不吭
-- 裁决落地报警后：人工删 cron 行 + 归档本脚本（一次性哨兵）
+FERC 大负荷接入规则哨兵（趋势主线观察池 E1）
+
+【这是什么】每天 17:05 EDT 自动搜 FERC co-location/large load 接入规则新闻，
+            命中"动作词+主题词"特征 → Discord 报警（标题+链接）；无命中一声不吭。
+【为什么做】FERC 对 RM26-4（大负荷/数据中心接入电网规则）的裁决，是电力链选股
+            (CEG/VST 等 IPP) 首仓的前置条件①——规则明确利好才是出手时点。
+            这事有明确日期窗口但不可预测哪天落地，人工天天盯成本高、易漏，故上哨兵。
+【为什么这样设计】
+  - 命中条件 = 动作词(ruling/order/approves...) + 主题词(colocation/large load...)：
+    宁可偶尔误报(成本=一条消息)，不可漏报(漏=错过出手信号)。
+  - KEY1→KEY2 fallback：抄 gtrends_collector 2026-06-10 配额耗尽断供 2 周的教训。
+  - 命中后**必须人工确认**：哨兵只负责"抓到疑似"，真假需 BB 联网核实再回写档案——
+    2026-06-23 教训：6/22 命中但漏确认，档案误记"无命中"(见档案修订记录)。
+
+【使命演进】原设计=一次性(裁决落地即退役)。2026-06-23 修正为两阶段：
+  - 一阶段(已落 2026-06-18)：FERC 出 show cause orders(责令令，非终局规则)，
+    命 6 大电网 60-90 天交方案。程序推进，但终局未定、对 IPP 喜忧参半。
+  - 二阶段(待，约 2026-08~09)：6 大电网交方案后的**最终规则**——这才是真出手判据。
+  → 故哨兵不退役，继续盯二阶段最终规则；终局落地且明确利好后再人工归档。
 - 调用: python3 ferc_watch.py [--test]（--test 强制发送当前搜索结果，验证管道）
 - 创建: 2026-06-12（趋势主线第2层；背景见 trading/notes/趋势观察池.md E1）
 
-依赖: SerpAPI Google News（KEY1→KEY2 fallback，抄 gtrends_collector 2026-06-10 教训）
-      newscripts/send_discord_dm.py
+依赖: SerpAPI Google News（KEY1→KEY2 fallback）/ newscripts/send_discord_dm.py
 """
 import json
 import subprocess

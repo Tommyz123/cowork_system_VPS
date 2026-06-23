@@ -4,4 +4,4 @@
 > 格式：[时间][类型] 内容
 > 类型：user / feedback / project / reference
 
-（空 — 上批 6 条已于 2026-06-23 处理完：①③⑥ 入正式 memory / ④已被 reference_p3 覆盖删 / ⑤补入 dual_bot / ②P9双层结构已重写入 project_p9_trading.md + ARCHITECTURE.md）
+（空 — 2026-06-23 "记逻辑+为什么"条已并入正式 memory: feedback_docs_for_ai.md 作为总纲的 How 部分）

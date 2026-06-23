@@ -66,6 +66,7 @@
 - [feedback_tracking_facts_only.md](feedback_tracking_facts_only.md) — ⭐通用:所有文件记录数据与主观判断必须分层隔离——数据区零主观,判断单独分区+标时点,禁混写污染数据(数据会变判断会跟着变,分层才能追溯对比)（2026-06-13 Organic Blooms案）
 - [feedback_data_driven_no_hardcode.md](feedback_data_driven_no_hardcode.md) — ⭐通用:会随业务增删的对象集合(股票/客户/关键词/文件清单)禁硬编码,必须从数据源解析;规矩要落文档防重犯(2026-06-21 趋势档案自动写入案)
 - [feedback_instance_mapping.md](feedback_instance_mapping.md) — ⭐三实例映射表(AA/BB/CC↔HOME↔bot↔群频道)；口诀opus=BB/opus2=CC；操作前必查which_instance.sh禁凭目录名猜（2026-06-22 token对调教训）
+- [feedback_docs_for_ai.md](feedback_docs_for_ai.md) — ⭐总纲:文档分两类(定时发出的给人看/留系统里的给AI看得懂);系统内文档第一读者=没上下文的未来AI,标准="新AI能否看懂整个结构与分工不混乱";脚本头部四段(是什么/为什么做/为什么这样设计/演进);artifact_indexing等是其分身（2026-06-23）
 
 ## Project（项目背景）
 - [project_cannabis_retail.md](project_cannabis_retail.md) — ⭐ P12 大麻零售主线（2026年主线，2026-05-14 确立）；NY牌照申请中+AI赋能+SaaS化路径；八字辛卯大运对应；playbook: playbooks/cannabis_retail.md；P1/P3/P5 已并入作为子模块
