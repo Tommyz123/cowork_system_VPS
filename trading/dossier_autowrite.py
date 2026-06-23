@@ -111,7 +111,10 @@ def build_row(obj: dict, d: dict) -> str:
     else:
         keynums = (f"{obj['ticker']} ${fmt(price, '', 2)}；"
                    f"距高{fmt(from_hi, '%')}；1年{fmt(yr, '%')}")
-    return f"| {DATE_STR} | {keynums} | {PENDING} | 数据已更新，逻辑状态待人工校准 |"
+    # 5 列：日期 | 📊数据 | 🧭逻辑状态 | 🧭判断 | 数据源
+    #   机器只写「📊数据」列（客观可查），逻辑状态/判断两列留待人工校准——
+    #   判断不是数据，不让脚本编（承袭数据/判断分层铁律，2026-06-22 改）
+    return f"| {DATE_STR} | {keynums} | {PENDING} | 待人工校准 | yfinance |"
 
 
 def insert_row(lines: list[str], obj: dict, new_row: str) -> str:

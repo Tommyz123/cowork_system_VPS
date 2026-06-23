@@ -27,6 +27,15 @@
             "command": "bash /home/cowork/.claude/hooks/system_file_guard.sh"
           }
         ]
+      },
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /home/cowork/.claude/hooks/block_ask_question.py"
+          }
+        ]
       }
     ],
     "PostToolUse": [
@@ -120,6 +129,11 @@
           }
         ]
       }
+    ]
+  },
+  "permissions": {
+    "deny": [
+      "AskUserQuestion"
     ]
   }
 }
