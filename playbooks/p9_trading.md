@@ -134,6 +134,7 @@ conn.close()
 - thesis_monitor失效只告警，不自动平仓，等主公人工决策
 - signal_collector积累60-90天后建theme_discovery.py（约2026年8月）
 - 有效前置信号：8-K 8.01+1.01密集 / backlog跳升 / 政策信号；分析师首次覆盖是滞后指标
+- **调试/临时脚本直接 `python3 xxx.py` 跑，不走 `run_py.sh`**（2026-06-22）：run_py.sh 内置失败 trap 告警，只服务正式 cron；拿来跑临时调试脚本时调试报错会误触发告警邮件（误报）。只有正式 cron 走 run_py.sh
 
 ## 🔧 Screener 设计原则（2026-05-24 入库）
 **核心：样本量 > 过滤严格度；数据质量不可靠的过滤条件不加（噪音 > 信号）**

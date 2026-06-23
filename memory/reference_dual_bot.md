@@ -8,6 +8,7 @@ originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 
 **Discord 显示昵称（2026-05-29 主公定，AA/BB/CC+模型名）**：cowork=**AA-Sonnet4.6** / opus_CC=**BB-Opus4.8**（2026-06-19 从 Fable5 改回，username+群昵称两处已改） / opus2=**CC-Opus4.8**。日常称呼用这套。
 **当前真实模型（2026-06-19 从各 HOME settings.json 实测）**：AA=**claude-sonnet-4-6**（2026-06-19 03:38 从"无model字段"改回 sonnet，修静默不回复） / BB=**claude-opus-4-8**（注：原记 Fable5，fable5 限量期后改回 Opus，6/19 核实为 opus-4-8） / CC=**claude-opus-4-8**。⚠️ 昵称里的模型名可能滞后于真实 settings，自报身份以 settings.json 为准（2026-06-19 已加 instance_identity.sh hook 自动注入）。
+⚠️ **BB/CC 账号对 claude-fable-5 无权限**（2026-06-13）：BB/CC 最多只能用 opus-4-8；若误设 fable-5 会**静默失败**——收得到消息但**不回复**（无报错，极难排查）。改模型只能在 opus-4-8 范围内。
 ⚠️ 命名易混：内部进程叫 "opus_CC" 但 Discord 昵称是 **BB**；"opus2" 对应 Discord **CC**。记忆口诀：opus=BB，opus2=CC（裸 /home/cowork=AA）。
 🔧 **查实例状态用 `bash /home/cowork/cowork/scripts/which_instance.sh`**：读运行时进程 HOME + settings.json，输出 AA/BB/CC↔PID↔HOME↔model↔tmux 对照表。涉及实例操作前先跑，靠运行时真相不靠记忆/目录名直觉（2026-06-19 CC 两次把 opus_home 误当 AA 查的防错工具）。
 改名方法（2026-05-29 全实测通，token 在各 HOME `.claude/channels/discord/.env` 的 `DISCORD_BOT_TOKEN`）——**两处要分开改**：

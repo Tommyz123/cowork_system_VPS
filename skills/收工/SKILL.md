@@ -87,11 +87,7 @@ for skill in 收工 审核架构 搜索 整理记忆 系统复盘; do
 done
 ```
 
-同步 memory 备份：
-```bash
-cp /home/cowork/.claude/projects/-home-cowork-cowork/memory/*.md \
-   /home/cowork/cowork/memory/ 2>/dev/null
-```
+> ⚠️ memory 备份 cp 已于 2026-06-23 删除：三实例 memory 目录已全部 symlink → `/home/cowork/cowork/memory`（git 正本），原"原生→cowork/memory"的 cp 是同一文件自拷贝，无意义。
 
 **备份 trading DB（SQL dump）：**
 ```bash
@@ -139,9 +135,14 @@ git -C /home/cowork/cowork push
    ```
 3. 生成会话摘要并写入数据库：
 
+> ⚠️ **2026-06-23 修复（误抓他项目教训）**：旧写法 `grep -A 25 "本次完成（${TODAY}"` 会命中 CURRENT_SESSION.md 里**其他项目**同日的"本次完成"区块（6-10 实锤：抓到 P2 的 memory 工作喂给 haiku，摘要全错）。必须**先按本次实际 project_id 定位到该项目块**，再在块内 grep 日期。
+
 ```bash
 TODAY=$(date +%Y-%m-%d)
-COMPLETED=$(grep -A 25 "本次完成（${TODAY}" /home/cowork/cowork/CURRENT_SESSION.md 2>/dev/null | head -20)
+# PROJ=本次实际涉及的项目ID（如 P2）；多项目则循环。先用 awk 切出该项目块，再在块内取"本次完成"
+PROJ="P2"   # ← 改成本次实际项目ID
+BLOCK=$(awk "/^### \[${PROJ}\]/{f=1} f&&/^### \[/&&!/\[${PROJ}\]/{exit} f" /home/cowork/cowork/CURRENT_SESSION.md)
+COMPLETED=$(echo "$BLOCK" | grep -A 25 "本次完成（${TODAY}" | head -20)
 AUTO_SUMMARY=$(cd /tmp && claude --print --model haiku "用1-2句话总结以下cowork对话核心产出（说清楚改了什么/决定了什么，不废话）：
 
 ${COMPLETED}")
@@ -270,6 +271,8 @@ conn.close()
 
 写入后必须在 `cowork_log.md` 单独记一行：
 `[YYYY-MM-DD HH:MM] 🤖自动写入 | [评分:5] 类型 | 内容摘要 | 写入位置`
+
+> ⚠️ **去重铁律（2026-06-09 重复送审教训）**：4-5 分自动写入的条目**只进 review_drafts.md 的「🤖本次自动写入摘要」区**，**禁止再写进送审编号列表（2-3分区）**——否则同一条既"已写入"又"待送审"，主公会重复审核。送审编号列表只放 2-3 分的真·待决策项。
 
 **2-3 分（送审）**：
 进 review_drafts.md，沿用现有逻辑（见 5.3 原格式）。**每条标注分数**让主公一眼看 AI 怎么判断。

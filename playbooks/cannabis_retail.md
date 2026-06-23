@@ -45,7 +45,9 @@ status: planning
 - **状态**：申请中（CCB / OCM 流程）
 - **December queue 影响**：受 Organic Blooms v CCB（Index 904497-24）诉讼影响
 - **追踪**：详见 `legal_library/18_Organic_Blooms_v_CCB_Tracking.md`
+- **下一节点**：2026-07-03 SJ（简易判决）动议开庭（追踪文件已设 7/2-7/4 自动提醒）
 - **每周一 09:00 EDT 自动 Discord 提醒查 NYSCEF 进展**
+- ⚠️ **案件追踪/分析类产出遵循「数据/判断分层」**（[[feedback_tracking_facts_only]]）：卷宗事实与主观判断必须分区，判断单独标时点，禁混写污染事实区
 
 ---
 

@@ -10,6 +10,9 @@
 ## Feedback（行为规则）
 - [feedback_understand_before_act.md](feedback_understand_before_act.md) — ⭐习惯：做任何事/给任何建议前，先了解清楚背景和实际情况（查实际数据/代码/战略，别凭记忆直觉）；禁止"先抛听起来合理的答案再回头补功课"
 - [feedback_direct_investment_advice.md](feedback_direct_investment_advice.md) — 投资/判断类问题直给推测+推荐，免责声明压到一句内；不展开边界列表（2026-06-06）
+- [feedback_investment_thesis.md](feedback_investment_thesis.md) — ⭐投资真实意图=押时代级大趋势本身（英伟达/特斯拉/闪迪式链条受益股），不必精确押龙头；核心=容错率+趋势判断；选标的/评P9以此为锚（2026-06-10）
+- [feedback_us_stock_only.md](feedback_us_stock_only.md) — ⭐只做美股，非美股（德股/港股/A股/OTC粉单ADR）一律排除；选标的前先过这道筛子；主公强调两次（2026-06-21）
+- [feedback_discord_long_doc.md](feedback_discord_long_doc.md) — 给主公发长文档禁止只发md附件（手机Discord打不开）；默认分段贴Discord文字每段≤1900字符，路径只作存档（2026-06-10）
 - [feedback_honesty.md](feedback_honesty.md) — 不讨好不奉承，客观陈述优缺点，有问题直说，不因顾虑情绪而含糊
 - [feedback_confirm_before_execute.md](feedback_confirm_before_execute.md) — 执行确认：WSL 必须独立 .py（其他 CLAUDE.md 已有）
 - [feedback_logging.md](feedback_logging.md) — 日志纪律：大事记不记细节；收工 ⊃ 保存进度（其他 CLAUDE.md 已有）

@@ -91,6 +91,12 @@ Desktop/
 | `trading/` | P9 TIDE量化交易系统：`cognitive_scanner.py`(季度建仓扫描) / `signal_collector.py`+`signal_alert.py`(每日信号) / `screener.py`(月度候选股池) / `close_position.py`(手动平仓+归因) / `quarterly_review.py`(季度复盘) / `trading.db`(scanner_picks/trades/thesis_alerts) | 查看P9状态、修改策略时；入口脚本：`bash run_scanner.sh` |
 | `cowork.db` | FTS5+向量对话搜索数据库：conversations/sessions/session_embeddings/message_embeddings（1844条消息级向量） | 搜索历史对话（/搜索 Skill）；收工时自动写入 |
 
+**交易体系双层结构**（2026-06-10 主公定案 / 2026-06-12 趋势主线基建落地）：
+- **第1层 P9 = AI 自动实验田**：swing 纸账号、全自动 TIDE 系统、12 月验收定去留、期间不加码（即上表 `trading/`）
+- **第2层 趋势主线 = 主力方向**：intraday 账号（至今 0 交易）、人机协作（Claude 参谋 + 主公拍板）、六维判断框架 + 双保险丝；实体在 `trading/notes/`（趋势手册/趋势地图/选股候选/观察池）
+- **隔离四层**：账号（P9 代码硬锁 `ALLOWED_WRITE_ACCOUNTS=("swing",)`）/ 数据库（trading.db 只属 P9）/ cron（P9 交易系列 vs 趋势只有提醒+哨兵）/ 文档（playbook vs trading/notes/）；唯一交集 = 复用方法论与告警基建
+- 详见 `playbooks/p9_trading.md` 双层结构区 + `memory/project_p9_trading.md`
+
 **Skill 系统**（2026-04-17 上线，位置 `~/.claude/skills/`；本地备份 `cowork/skills/`）：
 
 | Skill | 调用方式 | 功能 |
