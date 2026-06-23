@@ -31,7 +31,7 @@ last_audit_date: 2026-04-19
 | P4 | 每日新闻日报 | ✅ cron运行中 | 2026-05-10 | 5/10补发成功；root权限/tmp/news_ai.txt问题已确认不影响当前脚本 |
 | P6 | 机票监控 Agent | ✅ cron运行中 | 2026-05-07 | SerpAPI key自动轮换（KEY2耗尽→自动切KEY）；直飞数据恢复 |
 | P7 | Mac mini价格监控 | ✅ cron运行中 | 2026-04-23 | HTML邮件（链接藏入<a>标签）；今日eBay $305触发提醒 |
-| P9 | AI量化交易系统 TIDE | ✅ cron运行中+全系统状态核查通过 | 2026-06-19 | 15只持仓全在跑(7赢8负平均+3.4%≈IWM)；高分组10/12均值+13%有区分度；两个小bug(signal_collector缺日期过滤/Benzinga偶发不相关)不影响核心；下一步=等7月中30d样本达30条验证edge |
+| P9 | AI量化交易系统 TIDE | ✅ cron运行中+theme_discovery阶段0上线 | 2026-06-23 | 15只持仓在跑(7赢8负≈IWM)；**新增信号升温榜loop**(theme_heatmap.py每周一16:50发Discord,验证"信号聚集→预示主题"地基假设)+8/24自动验收提醒(命中率≥60%进阶段1)；loop engineering方法论入库；下一步=每周看榜+8/24验收 |
 
 ---
 
