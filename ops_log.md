@@ -461,3 +461,9 @@
 [2026-06-23 13:04 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
 [2026-06-23 13:45 EDT] SKILL[SYS] | 收工 | ✅ | 项目:SYS commit:04d82f1 草稿:0条(3session无新增可审)
 [2026-06-23 15:17 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:1703511 草稿:第二批(4自动写入/2丢弃/2待决策)
+[2026-06-23 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-06-23 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-06-23 16:01 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-06-23 17:05 EDT] CRON[ferc_watch] | daily | 🚨 | 命中 1 条，已报警
+[2026-06-23 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-23 17:35 EDT] CRON[P6] | flight_monitor | ✅ | 机票日报发送完成

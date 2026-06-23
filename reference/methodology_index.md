@@ -72,12 +72,14 @@
 
 ---
 
-## 三、外部方法论（external）— 预留
+## 三、外部方法论（external）
 
-> 物理位置：`cowork/reference/external_methodology/`（暂未创建，首次添加时建）
-> 以后从博客/书/他人处看到的成熟方法论入此，必带出处规范三字段。
+> 物理位置：`cowork/reference/external_methodology/`
+> 从博客/书/他人处看到的成熟方法论入此，必带出处规范三字段。
 
-（暂无）
+| 触发关键词 | 路径 | 内容 | 出处 |
+|---|---|---|---|
+| 给XX加自动循环/自动化/loop/让它自己跑 / loop engineering / 评估自动化值不值得做 / 审视真闭环vs半loop | `reference/external_methodology/loop_engineering.md` | **Loop Engineering（循环工程）完整框架**：7零件(触发/目标/上下文/动作/验证/状态/停止)+4循环类型(心跳/定时/事件/目标,含成本+失败模式)+5反模式+4护栏+防过度工程3道关+本系统现状盘点 | Addy Osmani 2026-06 / external / 2026-06-23 |
 
 ---
 
