@@ -467,3 +467,7 @@
 [2026-06-23 17:05 EDT] CRON[ferc_watch] | daily | 🚨 | 命中 1 条，已报警
 [2026-06-23 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
 [2026-06-23 17:35 EDT] CRON[P6] | flight_monitor | ✅ | 机票日报发送完成
+[2026-06-23 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-06-23 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-06-24 02:06 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 223.247 MiB (234091489 Byte) → Google Drive
+[2026-06-24 13:03 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成

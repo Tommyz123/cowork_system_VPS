@@ -23,7 +23,8 @@ set -uo pipefail
 
 # ---- 配置 ----
 REPEAT_N=3          # 最近多少条 assistant 输出用于查重复
-STUCK_MIN=12        # 漏发标记滞留超过多少分钟算卡死
+STUCK_MIN=25        # 漏发标记滞留超过多少分钟算卡死（12→25，给长任务留余量，配合活跃度闸门防误报）
+ALIVE_MIN=10        # jsonl 最近多少分钟内有写入 = 实例在干活（活跃度闸门，低于此视为活着不报警）
 SIMILAR_LEN=40      # 比较输出相似性时取前多少字符
 LOG=/home/cowork/cowork/scripts/instance_watchdog.log
 
@@ -102,6 +103,17 @@ check_stuck_reply() {
   [ "$age_min" -ge "$STUCK_MIN" ] && echo "1" || echo "0"
 }
 
+# 活跃度闸门：jsonl 最近 ALIVE_MIN 分钟内有写入 = 实例在干活（埋头跑长任务，不是卡死）
+# 返回 1=活着(在写日志)  0=安静(jsonl 没动静)
+# 仅用于压制"漏发滞留(信号B)"的误报：在干活但没空回消息时不该报警。
+# 不压制"死循环重复输出(信号A)"——死循环时 jsonl 反而疯狂在写，活跃≠健康。
+check_alive() {
+  local f="$1"
+  [ -z "$f" ] || [ ! -f "$f" ] && { echo "0"; return; }
+  local age_min=$(( ( $(date +%s) - $(stat -c %Y "$f" 2>/dev/null || echo 0) ) / 60 ))
+  [ "$age_min" -lt "$ALIVE_MIN" ] && echo "1" || echo "0"
+}
+
 # ---- 主循环 ----
 for inst in $INSTANCES; do
   name="${inst%%|*}"; home="${inst##*|}"
@@ -114,11 +126,16 @@ for inst in $INSTANCES; do
 
   rep=$(check_repeat "$f")
   stk=$(check_stuck_reply "$sid")
+  alive=$(check_alive "$f")
+
+  # 信号B(漏发滞留)过活跃度闸门：jsonl 近 ALIVE_MIN 分钟还在写=在干活，压制误报。
+  # 信号A(死循环)不过闸门：死循环时 jsonl 照样在写，必须照报。
+  [ "$alive" = "1" ] && stk="0"
 
   if [ "$rep" = "1" ] || [ "$stk" = "1" ]; then
     reason=""
     [ "$rep" = "1" ] && reason="${reason}连续重复输出/死扛短语 "
-    [ "$stk" = "1" ] && reason="${reason}消息${STUCK_MIN}分钟+未回复 "
+    [ "$stk" = "1" ] && reason="${reason}消息${STUCK_MIN}分钟+未回复(且jsonl静默) "
     msg="⚠️ 看门狗警报：${name} 疑似卡死（${reason}）。建议在该实例频道发「重启」。（本会话只报一次）"
     notify "$name" "$home" "$msg"
     touch "$alerted"

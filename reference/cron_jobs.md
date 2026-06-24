@@ -29,7 +29,7 @@ PATH=/home/cowork/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 | `30 17 * * 2,4` (周二/四 17:30) | `flightscripts/run_flight.sh` | 机票监控（SerpAPI 双 key 自动轮换） | `flightscripts/run.log` |
 | `0 17 * * 3` (周三 17:00) | `stability_check.sh` | 系统稳定性检查 | `stability_check.log` |
 | `* * * * *` (每分钟) | `scripts/detect_conflict.py` | 共享文件冲突监测（扫 `logs/write_events.log`，10 秒窗口内同文件被两个不同 HOME 写过 → 写 `reference/conflict_log.md` + DM 频道告警；幂等） | `logs/detect_conflict.log` |
-| `*/5 * * * *` (每5分钟) | `scripts/instance_watchdog.sh` | 三实例(AA/BB/CC)会话外卡死看门狗——读各实例最新 jsonl 检测卡死信号（重复输出/don't reply死扛短语/漏发标记滞留≥12min），命中→Discord 通知主公建议「重启」。**只通知不自动重启**（2026-06-19 主公定档1）。防刷屏：同会话只报一次。由来=2026-06-19 AA 幻觉卡死事故 | `scripts/instance_watchdog.log` |
+| `*/5 * * * *` (每5分钟) | `scripts/instance_watchdog.sh` | 三实例(AA/BB/CC)会话外卡死看门狗——读各实例最新 jsonl 检测卡死信号（重复输出/don't reply死扛短语/漏发标记滞留≥25min），命中→Discord 通知主公建议「重启」。**只通知不自动重启**（2026-06-19 主公定档1）。防刷屏：同会话只报一次。由来=2026-06-19 AA 幻觉卡死事故。**2026-06-24 防误报升级**：阈值12→25min + 新增「活跃度闸门」（漏发滞留信号B 须 jsonl 近10min 静默才报，区分"埋头干长任务"vs"真卡死"；死循环信号A 不过闸门照报，因死循环时 jsonl 反而疯狂写） | `scripts/instance_watchdog.log` |
 
 ---
 
