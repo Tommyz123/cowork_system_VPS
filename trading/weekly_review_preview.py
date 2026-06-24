@@ -171,7 +171,7 @@ def build_discord_chunks(positions):
     # ===== Chunk 1: 开场 + 数据快照（含术语翻译）=====
     chunk1 = f"""📋 **P9 TIDE 周报 - {NOW.strftime('%Y-%m-%d')}**
 
-主公早，本周给您汇报一下纸账号 ($1M paper trading，模拟交易、不是真钱) 的运行情况。
+主公早，本周给您汇报一下纸账号 (swing paper trading，模拟交易、不是真钱；余额以 Alpaca 实时为准) 的运行情况。
 
 ---
 

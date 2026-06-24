@@ -28,6 +28,7 @@
 - [feedback_claude_cli_vs_api.md](feedback_claude_cli_vs_api.md) — 脚本需AI分析时用claude CLI订阅（claude --print），不调Anthropic API，这是主公明确原则
 - [feedback_preview_before_execute.md](feedback_preview_before_execute.md) — HTML邮件/视觉输出改动必须先生成样本发Discord预览，主公确认后再执行（2026-04-23明确要求）
 - [feedback_yagni.md](feedback_yagni.md) — 按需而做不过度工程化；"要需要才做，不是为了工程而做"；没真实场景就不建抽象层
+- [feedback_doc_single_source.md](feedback_doc_single_source.md) — ⭐文档纪律(治"更新追不上")：①会变的事实别写死只写"实时查XXX"②要写的判断改就改干净禁新旧并存(区别于轨迹只增不改)；报"问题/差异"前必读权威文档当前态（2026-06-24 P9审核连环误报后立）
 - [feedback_discord_ts_hook.md](feedback_discord_ts_hook.md) — Discord ts字段解析必须先json.loads()，直接搜原始stdin会因JSON转义失败
 - [feedback_discord_approve_design.md](feedback_discord_approve_design.md) — discord_approve.py设计原则：Skill命令不进APPROVE_KEYWORDS；关键词必须边界regex防从句误触发
 - [feedback_proposal_data_first.md](feedback_proposal_data_first.md) — 推系统优化方案前必须先grep friction_log验证痛点真实性，禁止凭直觉推方案
@@ -52,7 +53,7 @@
 - [feedback_read_before_conclude.md](feedback_read_before_conclude.md) — 先读信息再结论：有信息源（文件/日志/脚本/配置）禁止跳读猜测（P11 调试教训）
 - [feedback_pacing_and_plain_language.md](feedback_pacing_and_plain_language.md) — 默认逐条+大白话+术语分层（Claude Code 生态/业务领域术语直接用，底层技术术语需比喻）；"没理解"立即换比喻（2026-05-27 升级）
 - [feedback_clarify_hard_requirements.md](feedback_clarify_hard_requirements.md) — "什么都行/都可以/看你"必须先追问"有没有不接受的"再讨论选项；用户说宽松词≠真的宽松，常是没想到先说底线
-- [feedback_cleanup_temp_data.md](feedback_cleanup_temp_data.md) — 做完涉及数据/文件生成的任务后，主动提醒主公删多余临时数据/中间文件（2026-06-06；上次堆17个垃圾文件教训）
+- [feedback_cleanup_temp_data.md](feedback_cleanup_temp_data.md) — 做完涉及数据/文件/一次性脚本的任务后，主动提醒主公判断删多余临时数据/中间文件/临时脚本（2026-06-06；2026-06-24补点名「临时脚本」也纳入；上次堆17个垃圾文件教训）
 - [feedback_self_organize_artifacts.md](feedback_self_organize_artifacts.md) — 每完成一摊多文件产出，自动整合进专门文件夹+写README+context.md登记位置，不等提醒（2026-06-06；给未来Claude看懂上下文）
 - [feedback_proactive_update_alert.md](feedback_proactive_update_alert.md) — 主动扫描+及时提醒：工作中扫描到任何需要更新的内容(文档/索引/记忆/简历)立即 Discord 提醒，不等主公问；write_triggers_scan/artifact_indexing/deprecation_cleanup 的总纲
 - [feedback_immediate_vs_longterm_framing.md](feedback_immediate_vs_longterm_framing.md) — 推 3 选 1 / 优先级建议前必须先问"立即推动 vs 长期方向"；两种场景判断框架完全不同（立即→看难度+ROI；长期→看战略契合度，重不再是缺点）
@@ -100,7 +101,7 @@
 - [reference_semantic_search.md](reference_semantic_search.md) — VoyageAI语义搜索：API key在scripts/.env，embed_sessions/messages.py向量化，search_conversations.py hybrid模式
 - [reference_api_keys.md](reference_api_keys.md) — 所有API key统一存config/api_keys.env；SerpAPI×2/Gmail/Discord/Voyage/OpenAI/Anthropic/Tavily/DeepL/DeepSeek/Alpaca/FMP(备用)/Finnhub(P9新闻主力,2026-05-08)
 - [feedback_deprecation_cleanup.md](feedback_deprecation_cleanup.md) — 停用系统/模块时：弃用标记+全量扫描memory/playbook清理遗留引用checklist（自主执行，不等提醒）
-- [project_p9_trading.md](project_p9_trading.md) — P9 TIDE系统：主题驱动季度埋伏/叙事先行/ORA持仓/纸账号$1M/IWM基准/积累阶段完成(2026-05-08)/下次人工决策=ORA平仓
+- [project_p9_trading.md](project_p9_trading.md) — P9 TIDE系统：主题驱动季度埋伏/叙事先行/ORA持仓/纸账号swing(余额实时查Alpaca不写死)/IWM基准/积累阶段完成(2026-05-08)/下次人工决策=ORA平仓
 - [reference_token_quota.md](reference_token_quota.md) — Claude Code每日token配额：长对话本身也消耗，非Codex专属；重要任务在新对话开始时执行
 - [reference_competitor_scraper.md](reference_competitor_scraper.md) — 竞品爬虫：GF/SS用Playwright捕dutchie graphql；ZZ用HTTP直连WP proxy+固定retailerId；DB在cowork/scraper/
 - [reference_dual_bot.md](reference_dual_bot.md) — 3 实例架构：cowork+opus_CC+opus2 频道ID/隔离4层(tmux/HOME/plugin/token)/memory例外=三实例symlink共享cowork/memory(2026-06-10统一,含新实例上线checklist)/DO VPS IP/3 systemd服务全自启/远程装plugin方法

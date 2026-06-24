@@ -173,12 +173,12 @@ SELECT symbol, alert_date, thesis_status, headline_summary FROM thesis_alerts OR
 
 ### alpaca-trading（实时账户）
 工具：`mcp__alpaca-trading__get_account` / `get_positions` / `get_orders`
-- 默认账号：swing（纸交易，实际权益 ~$10万，以实时查询为准——2026-05-30 核实 equity $106k / cash $58k，旧记的 $1M 是错的）
+- 默认账号：swing（纸交易）。**权益/现金一律实时查 Alpaca，文档不写死数字**（数字会过期，写死=埋雷）。注：旧记的 "$1M" 是错的，已废弃。
 - 支持 account 参数切换：`"swing"` 或 `"intraday"`
 
 ## 🏗️ 双层结构（2026-06-10 主公定案；2026-06-12 趋势主线基建落地）
 - **第1层 P9 = AI 自动实验田**（本 playbook 范围）：swing 账号、纸钱、全自动；任务=验证"AI 自动选股行不行"，**12 月验收定去留，期间不动不加码**
-- **第2层 趋势主线 = 主力方向**：**intraday 账号**（$1M 纸钱，至今未接任何代码 0 交易，试水时建议重置 $20-50k）；人机分工=我参谋出报告+主公司令拍板（主公只出手 2 次：拍板买/拍板卖）；策略=吃鱼身；**六维判断框架**（v1.1 起：真金白银/利润上财报/巨头capex投票/供需缺口/渗透率S曲线/**利润来源分解-量vs价**）；双保险丝=成本-25%强制讨论+峰值-30%信号核查
+- **第2层 趋势主线 = 主力方向**：**intraday 账号**（至今未接任何代码、0 交易；余额实时查 Alpaca，旧记 "$1M" 是误记勿引用；真试水时建议重置 $20-50k）；人机分工=我参谋出报告+主公司令拍板（主公只出手 2 次：拍板买/拍板卖）；策略=吃鱼身；**六维判断框架**（v1.1 起：真金白银/利润上财报/巨头capex投票/供需缺口/渗透率S曲线/**利润来源分解-量vs价**）；双保险丝=成本-25%强制讨论+峰值-30%信号核查
 - **隔离四层**：账号（P9 代码硬锁 `config.py:29 ALLOWED_WRITE_ACCOUNTS=("swing",)`）/数据库（trading.db 只有 P9）/cron（P9 交易系列 vs 趋势只有提醒+哨兵）/文档（本 playbook vs trading/notes/）；唯一交集=复用方法论与告警基建，不复用账号数据
 - **趋势主线实体（全在 trading/notes/，INDEX.md 有登记）**：①趋势判断手册.md v1.1（尺子；两轮对抗审核后定稿）②趋势地图_2026Q2.md（排行榜；电力 5/5/国防 83% 领跑，NAND 一票否决）③电力链选股候选_2026Q2.md（选股模块 v0.1）④趋势观察池.md（W1-W7 信号+事件日历）
 - **盯防三频率**：每天 17:05 FERC 哨兵（scripts/ferc_watch.py，一次性）→ 每周一 09:35 周检 W1-W7（scripts/trend_watch_reminder.py）→ 每季度全市场重扫地图
@@ -187,7 +187,7 @@ SELECT symbol, alert_date, thesis_status, headline_summary FROM thesis_alerts OR
 - **2026-06-10 实证（方向定案依据）**：15 只持仓分析师覆盖 5-11 个、无一 ≤2——P9 赚钱票全是趋势股（AGYS +30%/LIF +20%）、亏钱票全是捡漏逻辑（SOUN/LZ/VRRM），实际赚的就是主题趋势钱
 
 ## 当前阶段（2026-06-10 更新）
-积累阶段（纸账号 swing，~$10.6万 equity / ~$6.1万 cash）：
+积累阶段（纸账号 swing；equity/cash 实时查 Alpaca，不写死）：
 - **15 只真实持仓**（filled 7 / filled_late 8，含 6/10 补录 GNTX/WTS）
 - OPG fill 率实测 17%（1/6，5/19）；注意部分成交规则（见状态机）
 - **C项扩展（2026-06-10 上线）**：6 分项分数 + analyst_count/avg_dollar_volume 入库（scanner_picks+watchlist）；watchlist 改全量留底（含 <5 分低分票=评分系统对照组）+scan_price；8/4 扫描自动生效。已知问题：评分通胀（全 9-11 分，market_lag/tradability 缺数据基础 LLM 编分）——prompt 重校准属改策略，等 6 月底数据后议
