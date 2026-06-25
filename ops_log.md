@@ -482,3 +482,4 @@
 [2026-06-24 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
 [2026-06-24 20:58 EDT] SKILL[SYS] | 收工 | ✅ | 项目:SYS(重启+收工) commit:b5b4c7c 草稿:1条(CLAUDE.md白名单文字对齐friction_log*,D修复已解决技术层只剩文档一致性)
 [2026-06-24 20:58 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P6,P9,P2 commit:b5b4c7c 草稿:0条(本轮成果已实时入档,bcfbf1ac已审无新增高分项)
+[2026-06-24 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成

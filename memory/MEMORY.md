@@ -64,8 +64,9 @@
 - [feedback_three_stances.md](feedback_three_stances.md) — 三姿态切换(老师/参谋/对手)；我的惯性=遇判断题滑回老师姿态；识别信号=主公已有判断缺的不是知识→主动切参谋/对手（2026-06-09）
 - [feedback_prediction_data_first.md](feedback_prediction_data_first.md) — 预测前必先夯实数据：事实100%核实+标来源确信度+补缺口，数据不准禁止开跑（主公定性"儿戏"，2026-06-08）
 - [feedback_savework_continuous.md](feedback_savework_continuous.md) — 收工是连贯流程：一口气跑完6步，commit+push全自动，禁止中途反复要git授权（2026-06-07）
-- [feedback_tracking_facts_only.md](feedback_tracking_facts_only.md) — ⭐通用:所有文件记录数据与主观判断必须分层隔离——数据区零主观,判断单独分区+标时点,禁混写污染数据(数据会变判断会跟着变,分层才能追溯对比)（2026-06-13 Organic Blooms案）
+- [feedback_tracking_facts_only.md](feedback_tracking_facts_only.md) — ⭐通用:所有文件记录数据与主观判断必须分层隔离——数据区零主观,判断单独分区+标时点,禁混写污染数据(数据会变判断会跟着变,分层才能追溯对比);分层=每次写入前置自检,写入即分层不事后补不靠提醒（2026-06-13 Organic Blooms案立,2026-06-24 P9 E1案强化）
 - [feedback_data_driven_no_hardcode.md](feedback_data_driven_no_hardcode.md) — ⭐通用:会随业务增删的对象集合(股票/客户/关键词/文件清单)禁硬编码,必须从数据源解析;规矩要落文档防重犯(2026-06-21 趋势档案自动写入案)
+- [feedback_dossier_outmigration.md](feedback_dossier_outmigration.md) — ⭐通用:总览表条目一旦从"一句话"长成"需持续追进展+判断演进的活体对象"就外迁独立档案+总览留一句话指针(防总览表撑爆);独立档案=头部4要素+事实/判断分层(2026-06-24 P9 E1案立,Organic Blooms为范本)
 - [feedback_instance_mapping.md](feedback_instance_mapping.md) — ⭐三实例映射表(AA/BB/CC↔HOME↔bot↔群频道)；口诀opus=BB/opus2=CC；操作前必查which_instance.sh禁凭目录名猜（2026-06-22 token对调教训）
 - [feedback_docs_for_ai.md](feedback_docs_for_ai.md) — ⭐总纲:文档分两类(定时发出的给人看/留系统里的给AI看得懂);系统内文档第一读者=没上下文的未来AI,标准="新AI能否看懂整个结构与分工不混乱";脚本头部四段(是什么/为什么做/为什么这样设计/演进);artifact_indexing等是其分身（2026-06-23）
 
