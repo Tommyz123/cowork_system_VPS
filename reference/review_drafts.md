@@ -45,6 +45,18 @@
 
 ---
 
+## [草稿] 2026-06-25 深度审核（本场=重启+收工，复核昨日大会话 bcfbf1ac）
+
+### ⚠️ 上一条草稿状态复核（重要）
+- 上面「CLAUDE.md 白名单补 `friction_log_archive.md`」**hook 层已自动解决**：6/24 20:53 的 D 修复已把 `system_file_guard.sh:27` 白名单从 `friction_log.md` 改成子串 `friction_log`，子串匹配同时覆盖 `friction_log.md` + `friction_log_archive.md`，task 守卫不再拦归档文件。
+- **但残留一处文档↔实现不一致**：`~/.claude/CLAUDE.md:29` 文字白名单仍写 `friction_log.md`（人读文档），与 hook 实际放行的 `friction_log`（含 archive）不符。
+  - **[评分:3]** 建议：把 `~/.claude/CLAUDE.md:29` 白名单文字 `friction_log.md` 改成 `friction_log*`（或注明"含 archive"），让人读文档与 hook 行为一致（符合 feedback_doc_single_source）。需主公确认。这是**唯一仍需处理项**，原"补白名单"诉求已由 D 技术解决。
+
+### 其他类别
+- INSIGHTS/Friction/Playbook/文档对齐/MEMORY清理：本场无新增。昨日大会话的洞察（先读代码再诊断、自我更正、停手防数据丢失）均为已有 memory 规则的再次印证，无新规则可写。F 检查 MEMORY.md 无废弃孤儿（🗄️ 两条为有意保留）。
+
+---
+
 ### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
 - **[评分:5]** Feedback 文档纪律 `feedback_doc_single_source` → 已写入 memory/（会变的别写死+状态类就地覆盖禁新旧并存；治"文档更新追不上"）
 - **[评分:4]** Feedback `feedback_cleanup_temp_data` 扩展"临时脚本"纳入 → 已写入 memory/（主公 6/24 点名）
