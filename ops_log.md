@@ -471,3 +471,12 @@
 [2026-06-23 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
 [2026-06-24 02:06 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 223.247 MiB (234091489 Byte) → Google Drive
 [2026-06-24 13:03 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-24 14:02 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:faf4b31 草稿:1条(CLAUDE.md白名单补friction_log_archive)
+[2026-06-24 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-06-24 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-06-24 16:00 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-06-24 16:37 EDT] CRON[P9] | thesis_monitor | ✅ | 完成
+[2026-06-24 17:00 EDT] CRON[SYS] | stability_check | ✅ | ❌ 需关注 新增friction:14条(23→37)
+[2026-06-24 17:05 EDT] CRON[ferc_watch] | daily | 🚨 | 命中 1 条，已报警
+[2026-06-24 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-24 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成

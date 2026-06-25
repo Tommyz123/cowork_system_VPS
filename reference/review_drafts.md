@@ -31,3 +31,20 @@
 
 ### 📌 留主公决策（非草稿，已记 CURRENT_SESSION）
 - P9 两待决策：① NAND/光模块是否加轻量哨兵 ② 通知是否改三级分级（🔴出手即时/🟡事件当天/⚪周检心跳）
+
+## [草稿] 2026-06-24 深度审核
+
+### Friction 建议补记（0条）
+（本场 2 条假问题 friction 已实时记入 friction_log，无需补）
+
+### Playbook 建议更新（0处）
+（playbooks/p9_trading.md 本场已直接更新账号实时查口径）
+
+### CLAUDE.md 规则建议（1处）
+- **[评分:3]** CLAUDE.md 白名单补 `friction_log_archive.md`：本场(及 6/24 00:38 AA 场)发现收工归档 friction 时，改 `friction_log.md`(白名单内)放行但写 `friction_log_archive.md`(白名单写的是目录 `archive/`,不含根目录的 `friction_log_archive.md`)被任务守卫拦。两者同性质(收工高频归档操作),建议白名单加 `friction_log_archive.md` 给同等权限。需主公确认是否改 CLAUDE.md。
+
+---
+
+### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
+- **[评分:5]** Feedback 文档纪律 `feedback_doc_single_source` → 已写入 memory/（会变的别写死+状态类就地覆盖禁新旧并存；治"文档更新追不上"）
+- **[评分:4]** Feedback `feedback_cleanup_temp_data` 扩展"临时脚本"纳入 → 已写入 memory/（主公 6/24 点名）
