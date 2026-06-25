@@ -80,3 +80,18 @@
 - **[评分:5]** Feedback `feedback_dossier_outmigration`(新建) → memory/（总览表条目长成活体对象就外迁独立档案+留指针;主公明确"以后会越来越多"+Organic Blooms范本，跨项目通用+完整规则）
 - **[评分:4]** Feedback `feedback_tracking_facts_only`强化"写入即分层前置自检" → memory/（主公明确"每次写入都自动分层好"）
 - **[评分:4]** Feedback `feedback_docs_for_ai`升级验收标准"看懂→能独立接手"+头部4要素 → memory/（主公连环追问"AI看得懂吗"逼出）
+
+---
+
+## [草稿] 2026-06-25 深度审核（晚场=sonnet任务半收尾+失忆事故，sessions 4392e122+7f6ac272）
+
+### 审核范围说明
+今天晚场两个未审 session 实为**同一连续任务的两段**（context 压缩切分）：4392e122=BB 做 sonnet 任务上半场（含 CC plugin 2.1.191 排查）+ 7f6ac272=本会话下半场（断片后误判→复盘）。核心产出已全部落地，仅 1 条执行教训送审。
+
+### Friction/规则强化 建议（1条）
+- **[评分:3]** 失忆事故根因=**违反既有"超40轮该开新对话"规则**（CLAUDE.md 已有，本次拖到740轮才触发 context 压缩→摘要丢"sonnet任务是BB自做"上下文→对主公"做好了吗"断片+把自己写的报告误判成"AA发的"连环错）。属执行问题非缺规则。**送审决策**：要不要把"40轮软提醒"升级为**硬 hook**（轮次超阈值时 UserPromptSubmit 强插显著警告/或自动建议收工）？依据 feedback_rule_vs_hook「关键行为违反超过一次→评估升级 Hook」。需主公定。[src:7f6ac272]
+
+### 其他类别
+- CC plugin 2.1.191 升级踩坑（4392e122 主线之一）→ 已闭环：friction_log 17:42+18:10 两条 + reference_dual_bot.md 升级指南(138行起)，无新增。
+- sonnet 任务 → 待办已记 CURRENT_SESSION P2，无送审项。
+- INSIGHTS/Playbook/文档对齐/MEMORY清理：本场无新增。

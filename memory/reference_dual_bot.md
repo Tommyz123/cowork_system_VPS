@@ -4,31 +4,29 @@ description: VPS 3 实例 Claude Code 架构：cowork + opus_CC + opus2，完全
 type: reference
 originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 ---
-## 3 实例身份（2026-05-27 加入 opus2）
+## 3 实例身份 — 唯一权威映射表（2026-06-25 全字段运行时实测+交叉验证，单一来源）
 
-**Discord 显示昵称（2026-05-29 主公定，AA/BB/CC+模型名）**：cowork=**AA-Sonnet4.6** / opus_CC=**BB-Opus4.8**（2026-06-19 从 Fable5 改回，username+群昵称两处已改） / opus2=**CC-Opus4.8**。日常称呼用这套。
-**当前真实模型（2026-06-19 从各 HOME settings.json 实测）**：AA=**claude-sonnet-4-6**（2026-06-19 03:38 从"无model字段"改回 sonnet，修静默不回复） / BB=**claude-opus-4-8**（注：原记 Fable5，fable5 限量期后改回 Opus，6/19 核实为 opus-4-8） / CC=**claude-opus-4-8**。⚠️ 昵称里的模型名可能滞后于真实 settings，自报身份以 settings.json 为准（2026-06-19 已加 instance_identity.sh hook 自动注入）。
-⚠️ **BB/CC 账号对 claude-fable-5 无权限**（2026-06-13）：BB/CC 最多只能用 opus-4-8；若误设 fable-5 会**静默失败**——收得到消息但**不回复**（无报错，极难排查）。改模型只能在 opus-4-8 范围内。
-⚠️ 命名易混：内部进程叫 "opus_CC" 但 Discord 昵称是 **BB**；"opus2" 对应 Discord **CC**。记忆口诀：opus=BB，opus2=CC（裸 /home/cowork=AA）。
-🔧 **查实例状态用 `bash /home/cowork/cowork/scripts/which_instance.sh`**：读运行时进程 HOME + settings.json，输出 AA/BB/CC↔PID↔HOME↔model↔tmux 对照表。涉及实例操作前先跑，靠运行时真相不靠记忆/目录名直觉（2026-06-19 CC 两次把 opus_home 误当 AA 查的防错工具）。
-改名方法（2026-05-29 全实测通，token 在各 HOME `.claude/channels/discord/.env` 的 `DISCORD_BOT_TOKEN`）——**两处要分开改**：
-- **群昵称**（只在 TT基地群显示）：`PATCH /api/v10/guilds/1466957346310717636/members/@me` body `{"nick":"新名"}`
-- **私聊名 = bot username**（DM 里显示的）：`PATCH /api/v10/users/@me` body `{"username":"新名"}`；bot 的 username 允许大写和连字符（如 BB-Opus4.8）。⚠️ 坑：先试 `global_name` 字段 bot 账号不认（HTTP 200 但不生效），必须改 username
-- 改 username 不影响 plugin 连接（认 token 不认名）；只动显示层，不碰 tmux/systemd/路径
+> ⚠️ **认实例只认「tmux socket + HOME」，绝不能靠 session 名**：AA 和 BB 的 session 名**撞名**（都叫 `cowork_opus`），靠名字判断会把 AA 当 BB、把自己当别人（2026-06-25 BB 升级险些用 session 名误杀自己实锤）。任何实例操作前先跑 `bash /home/cowork/cowork/scripts/which_instance.sh`（读运行时 HOME+settings，不靠记忆/目录名）。
 
-
-| | cowork bot | opus_CC bot | opus2 bot |
+| 字段 | **AA** | **BB**（本文件所在实例常态） | **CC** |
 |---|---|---|---|
-| Discord DM channel | 1485128242808619079 | 1503165641379545228 | 1509045714808737842（2026-05-29 从 opus2 jsonl 挖出确认） |
-| Discord user_id | — | 1503158821345034360 | （token 解码可得，未单列） |
-| Discord username | — | opus_CC#0475 | — |
-| 模型 | Sonnet 4.6 | **Fable 5**（2026-06-09改） | Opus 4.8 |
-| HOME | /home/cowork/ | /home/cowork/opus_home/ | /home/cowork/opus2_home/ |
+| 模型(settings.json权威) | **claude-sonnet-4-6** | **claude-opus-4-8** | **claude-opus-4-8** |
+| HOME | /home/cowork | /home/cowork/opus_home | /home/cowork/opus2_home |
+| 进程别名 | cowork | opus_CC | opus2 |
+| tmux socket | **默认**(无 -L) | **-L opus_socket** | **-L opus2_socket** |
+| tmux session 名 | cowork_opus ⚠️撞名 | cowork_opus ⚠️撞名 | cowork_opus2 |
+| Discord DM 频道 | 1485128242808619079 | 1503165641379545228 | 1509045714808737842 |
+| bot app id(token解码) | 1485125345014452234 | 1503158821345034360 | 1509035650823753798 |
 | Discord token | /home/cowork/.claude/channels/discord/.env | /home/cowork/opus_home/.claude/channels/discord/.env | /home/cowork/opus2_home/.claude/channels/discord/.env |
-| tmux | 默认 socket，session: cowork | socket: opus_socket，session: cowork_opus | socket: opus2_socket，session: cowork_opus2 |
-| systemd | cowork-claude.service | cowork-opus.service | cowork-opus2.service（**2026-05-27 上线**） |
+| systemd service | cowork-claude.service | cowork-opus.service | cowork-opus2.service |
+| claude-code 版本 | **2.1.193**(2026-06-25升) | 2.1.170(待升) | **2.1.193**(2026-06-25升) |
 
-3 个 bot 都在 server TT基地（id=1466957346310717636），3 个 systemd service 都 `enabled` 开机自启。
+口诀：**opus=BB，opus2=CC，裸/home/cowork=AA**。Discord 昵称 AA-Sonnet4.6 / BB-Opus4.8 / CC-Opus4.8（昵称模型名可能滞后，自报身份以 settings.json 为准，instance_identity.sh hook 自动注入）。重启某实例只 kill 其 socket（`tmux -L <socket> kill-server`，AA 是默认 socket 用确切 pid `kill <tmux_pid>` 最稳），watchdog 自动拉回。
+3 个 bot 同在 server TT基地（guild id=1466957346310717636，**是 guild 不是频道**），3 个 systemd service 均 `enabled` 开机自启。
+
+⚠️ **BB/CC 账号对 claude-fable-5 无权限**（2026-06-13）：最多 opus-4-8；误设 fable-5 会**静默失败**（收得到消息但不回复，无报错）。改模型只能在 opus-4-8 范围内。
+
+**改 Discord 显示名方法**（2026-05-29 实测，token 在各 HOME `.claude/channels/discord/.env`）——两处分开改：群昵称 `PATCH /api/v10/guilds/1466957346310717636/members/@me {"nick":"X"}`；私聊名=bot username `PATCH /api/v10/users/@me {"username":"X"}`（允许大写连字符；坑：`global_name` 字段 bot 不认，HTTP 200 但不生效，必须改 username）。改名只动显示层，不碰 tmux/systemd/路径/plugin 连接（认 token 不认名）。
 
 ---
 
@@ -136,6 +134,20 @@ BB（opus_home）已**禁用** `context7` 和 `playwright` 两个常驻 MCP（`/
 
 **🆔 guild ID ≠ channel ID（曾误判）**：
 `1466957346310717636` 是 Discord 服务器「TT基地」的 **guild ID**，**不是频道号**。三 bot 都在这个 guild，但日常对话走各自 DM 频道（type=1）。看到它别当成"残留频道号"。三实例 DM 频道见上表（AA=...18619079 / BB=...79545228 / CC=...09737842）。
+
+**⬆️ 升级 claude-code 的完整指南（2026-06-25 CC 实测打通 2.1.170→2.1.191）**：
+- ⚠️ **两份安装陷阱**：实例实际跑的是 `/home/cowork/.local/bin/claude`（PATH 里它在前），而 `npm config get prefix` 指向 `opus_home/.npm-global`。**`npm i -g` 升的是 .npm-global 那份=没人用、白升**。要升必须 `npm install -g --prefix /home/cowork/.local @anthropic-ai/claude-code@<ver>`。
+- **升级标准流程（务必先试一个非当前对话实例，CC 最佳）**：
+  1. 备份 `$HOME/.claude/plugins/{installed_plugins,known_marketplaces}.json`
+  2. 升级 .local（见上）
+  3. **关键：用新版重装 Discord plugin** `HOME=$TARGET /home/cowork/.local/bin/claude plugin install discord@claude-plugins-official`（旧的 project-scope 登记 2.1.191 不认，重装成 user-scope 才识别）
+  4. 重启实例 `tmux -L <socket> kill-server`（systemd 无 root 重启会被拦），watchdog 自动拉回；CC socket=opus2_socket
+  5. 验证：debug 日志 `Found N plugins (N enabled)` + `MCP server "plugin:discord:discord": Successfully connected` + bun discord 进程归属对（`ps` 看 HOME）；最后实测发条 Discord 消息确认双向通
+- **2.1.191 不兼容的真根因（不是版本 bug）**：旧版 2.1.170 宽容，2.1.191 严格按 `known_marketplaces.json` 的 `installLocation` + `installed_plugins.json` 的 `installPath` 找 plugin 缓存；CC 这两处历史上**错写成 opus_home（BB目录）跨实例错位**，旧版能绕过、新版 cache-miss→`Found 0 plugins`→plugin 不加载→Discord 失联。修法=改对路径指回自己 opus2_home + 用新版重装（见上步骤3）。
+- 首启会弹 "Try fullscreen renderer? 1/2" 交互菜单卡启动，选 2 跳过一次后记住。
+- **隔离调试法**（不碰运行实例）：独立 socket 跑 `tmux -L test_sock ... HOME=$TARGET /home/cowork/.local/bin/claude --debug --channels plugin:discord@...`，读 `$HOME/.claude/debug/*.txt` 看 plugin 加载报错。
+- 回滚：`npm install -g --prefix /home/cowork/.local @anthropic-ai/claude-code@2.1.170` + 重启。磁盘换版不影响运行中进程（旧版在内存），故可单实例试错。
+- 状态（2026-06-25）：**CC 已在 2.1.193**（最新），AA/BB 仍 2.1.170（按上流程可随时升；plugin 已重装成 user-scope，2.1.193 直接认无坑）。
 
 **🔍 "真串台 vs 主公转述" 判别法**（曾两度误判）：
 看到**别的实例的署名/回复出现在我频道**时，先查 Discord API 该消息的 `author` 字段：

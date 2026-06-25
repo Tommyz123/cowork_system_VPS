@@ -486,3 +486,12 @@
 [2026-06-24 23:45 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:4099982 草稿:1条送审+3条自动写入
 [2026-06-25 00:00 EDT] CRON[ferc_watch] | daily | ✅ | 无命中（静默）
 [2026-06-25 02:05 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 227.803 MiB (238868245 Byte) → Google Drive
+[2026-06-25 10:33 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9,SYS commit:a60343a 草稿:0新(已有2条pending)
+[2026-06-25 13:01 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-25 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-06-25 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-06-25 16:00 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-06-25 17:05 EDT] CRON[ferc_watch] | daily | ✅ | 无命中（静默）
+[2026-06-25 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-25 17:36 EDT] CRON[P6] | flight_monitor | ✅ | 机票日报发送完成
+[2026-06-25 19:09 EDT] SKILL[SYS] | 收工 | ✅ | 项目:[P2] 草稿:1条 审核session:2个(4392e122+7f6ac272同任务两段) commit:待push

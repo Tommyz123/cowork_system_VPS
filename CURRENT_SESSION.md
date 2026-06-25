@@ -17,7 +17,7 @@ last_audit_date: 2026-06-25
 | ID | 项目 | 状态 | 最后更新 | 下一步摘要 |
 |---|---|---|---|---|
 | **P12** | **Cannabis Retail 主线** | 🆕 **规划中** | **2026-05-25** | **选址研究框架确立（4维：收入水平+地铁节点+竞争+商业条件）；Queens市场已基本饱和；Sweet spot房租$8k-$12k；主公背景：Bayside Cannabis+Sage Seeds；下次：给地址继续分析或AI法律顾问MVP** |
-| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-06-22 | runner脚本升级(pane_current_command检测Claude idle自动重拉)；三实例映射表写入memory；VPS资源瓶颈诊断(1核/1.9G/swap)；BB禁用context7+playwright MCP；下次：Mac mini迁移规划 |
+| P2 | Cowork系统优化 | 🔄 迭代中 | 2026-06-25 | ⏳**待办(需主公在家终端sudo)**：AA改名sonnet收尾——脚本已改SESSION=sonnet+备份就绪,但AA服务cowork-claude=inactive(dead)需 `sudo systemctl start cowork-claude.service` 启动(BB无sudo权限,主公手机跑不了)。｜旧:runner脚本升级/三实例映射表入memory/VPS瓶颈诊断；Mac mini迁移规划 |
 | P13 | 金字塔原理学习 | ✅ 第2章学透毕业 | 2026-06-02 | 第2章 L3 达标(3份真材料独立写对 SCQA+归纳带证据)；下次开第3章(中等深度,练1次即可)；4个易错点+全书深浅地图已入memory |
 | P10 | 个人文件库 | 🔄 活跃 | 2026-04-25 | MVP完成(简历3文件)，阶段2扩展分类 |
 | P3 | Cannabis Budtender | ⏸️ 暂停（并入 P12 子模块） | 2026-05-07 | eval 100%完成；从 2026-05-14 起作为 P12 子模块继续推进 |
@@ -209,8 +209,22 @@ last_updated: 2026-05-31
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-06-24
-停在：授权机制痛点A(收工"可以"抢跑→已修+实战验证)+D(白名单补archive→已修)根治完成；#1 git授权痛点大幅缓解。下次：①B授权粒度(响应级vs任务级)留讨论②signal_collector 2杂质bug待P9迭代③ORA fix备份7/1后兜底删。
+last_updated: 2026-06-25
+停在：⏳**AA改名sonnet待收尾**（脚本已改SESSION=sonnet+备份就绪，AA服务cowork-claude=inactive(dead)，需主公在家终端跑 `sudo systemctl start cowork-claude.service` 启动→BB无sudo权限、主公手机跑不了）。其余：①B授权粒度(响应级vs任务级)留讨论②signal_collector 2杂质bug待P9迭代③ORA fix备份7/1后兜底删。
+
+⏳ **待办：AA 改名 sonnet 收尾（2026-06-25，等主公在家终端执行）**
+- 背景：清理"脱离 systemd 管理的脏残留会话"问题，把 AA 会话名 cowork→sonnet（独一无二，不与 BB 的 cowork_opus 撞名）
+- 已完成（前置就绪）：`scripts/claude_runner.sh` 已改 `SESSION=sonnet`（注释 2026-06-25），备份 `claude_runner.sh.bak_20260625_184503` 在
+- **卡点**：AA 服务 `cowork-claude.service` 当前 = inactive(dead)（18:45 被 SIGTERM 杀后未起），需 `systemctl start` 启动让新名生效。但启动 system 级服务需 sudo 密码 → BB(cowork用户)无权限；主公在手机无法跑终端
+- **为什么不能绕过**：直接手动跑脚本会脱离 systemd 管理 → systemd 仍认 dead，后续自动拉起会撞名/双进程，正是这次要清的脏状态成因。必须走 systemd
+- **下次主公在家：提醒主公跑** `sudo systemctl start cowork-claude.service`，跑完 BB 验证三项：①AA 会话名=sonnet ②服务 active running ③Discord AA 频道恢复
+- 验证后需同步文档：AA 会话名从 cowork→sonnet（scripts/INDEX.md / playbook / reference_dual_bot.md 等凡记 AA 会话名处）
+  - **已发现具体不一致点**：`memory/reference_dual_bot.md` 映射表 AA 行「tmux session 名」栏现写 `cowork_opus ⚠️撞名`，AA 起来后须改为 `sonnet`（撞名问题随之消失，⚠️标记可去）
+
+本次完成（2026-06-25晚 — sonnet改名任务半收尾 + 频道映射文档确认 + 失忆事故复盘）：
+- **接手AA改名sonnet任务**：实时核查确认脚本已改`SESSION=sonnet`+备份就绪，但AA服务cowork-claude=inactive(dead)，最后一步`systemctl start`需sudo→BB无权限+主公在手机→**任务半收尾**，完整待办（背景/前置/卡点/为何不能绕过systemd/下次执行命令/验证三项/文档同步清单）记入P2待办区
+- **频道↔实例映射文档确认**：核实`memory/reference_dual_bot.md`今天已重写为唯一权威映射表（AA/BB/CC↔模型↔DM频道↔socket↔service全字段准确）；BB频道=1503165641379545228；诚实指出1处滞后=AA的session名栏仍写cowork_opus（已改sonnet，待AA启动后同步）
+- **失忆事故复盘**：对话累计740轮触发context压缩，摘要丢失"sonnet任务是BB自做"上下文→对主公"做好了吗"断片+把自己写的报告误判成"AA发的"连环错；jsonl实证（首条即"做好了吗"+4处compact标记）；根因=违反"超40轮该开新对话"规则拖到740轮
 
 本次完成（2026-06-24晚 — 系统复盘 + 授权机制痛点A/D根治）：
 - **系统复盘触发**（稳定性周报报❌新增14 friction）：判断=虚惊（脚本只机械数⚠️不看死活，14条=6已闭环+8待办且大半同根因重复）；执行系统复盘6步

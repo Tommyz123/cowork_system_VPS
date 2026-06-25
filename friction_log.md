@@ -95,3 +95,7 @@
 [2026-06-24 21:51] ⚠️ 文档纪律 | 写P9档案时未主动套用"数据判断分层"通用规矩,靠主公点出 | 处理方式:①重整E1为分层结构②强化memory feedback_tracking_facts_only加"写入即分层前置自检" | 状态：已自行修复（主公2026-06-24确认升为每次写入自检项）
 
 [2026-06-24 23:45] ⚠️ 操作事故 | bash写文件用相对路径>>friction_log.md,因前面cd到trading/notes导致误建孤儿文件trading/notes/friction_log.md(内容旧版重复) | 处理:收工时git status发现并删除,正式文件已有闭环版 | 状态：已自行修复(教训:>>追加日志类文件一律用绝对路径)
+
+[2026-06-25 17:42] ⚠️ 工具限制 | VPS升级claude-code 2.1.170→2.1.191试水CC发现两坑致Discord失联 | 坑1:2.1.191首次启动弹"Try fullscreen renderer? 1/2"交互菜单,实例卡菜单无法继续启动(三实例若齐升会全卡→全失联);坑2:2.1.191下Discord plugin(0.0.4)进程死活不拉起(CC配置与BB完全对等仍不起,非配置问题=版本不兼容),实例上线但收不到消息 | 处理方式:按"先试一个"只搭CC,精准回滚.local回2.1.170+重启,三实例全恢复;同时发现历史隐患=机器装两份claude(实例实际跑.local,以往npm i -g升的是没人用的.npm-global=白升) | 状态：已自行修复(升级暂缓,待官方修plugin兼容或先升级Discord plugin再重试)
+
+[2026-06-25 18:10] ✅ 解决(承接17:42条) | 2.1.191升级Discord失联根因已挖到并修通 | 真根因(实锤,非版本bug):2.1.170宽容/2.1.191严格,后者按known_marketplaces.json的installLocation+installed_plugins.json的installPath找plugin缓存;CC这两处历史错写成opus_home(BB目录)跨实例错位→新版cache-miss→"Found 0 plugins"→plugin不加载→Discord失联;且旧project-scope登记2.1.191不认 | 修法(已验证打通):①改对两处路径指回opus2_home②用新版重装`claude plugin install discord@claude-plugins-official`(装成user-scope)③重启CC;CC已在2.1.191且Discord双向通(实测发收消息);完整流程已写入memory/reference_dual_bot.md升级指南 | 状态：已解决

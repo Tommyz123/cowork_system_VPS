@@ -3,7 +3,7 @@
 # 起 tmux session 跑 claude，session 死了脚本退出 1，systemd Restart=on-failure 自动拉起
 
 TMUX_BIN=/usr/bin/tmux
-SESSION=cowork
+SESSION=sonnet  # AA 会话名(2026-06-25 从 cowork 改, 避免与 BB 的 cowork_opus 历史脏状态撞名)
 WORKDIR=/home/cowork/cowork
 CLAUDE_BIN=/home/cowork/.local/bin/claude
 
