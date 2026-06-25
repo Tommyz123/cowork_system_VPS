@@ -150,17 +150,12 @@ tail -50 /home/cowork/cowork/scripts/cannabis_docket_reminder.log
 
 ## 一次性 cron（已清理）
 - ~~2026-05-17 18:00 EDT - P9 outcome 模板评估提醒~~ → 触发后 token 路径读错发送失败；2026-05-17 手动清理 cron + 删脚本；背景文档 `reference/p9_outcome_template_review_pending.md` 保留待主公 A/B/C/D 决策
+- ~~2026-05-18 09:00 EDT - P9 ORA pre-market 提醒~~ → 5/18 触发时 Discord 发送报 403 崩在自删逻辑之前，cron 沦为僵尸（每年 5/18 复活崩一次）；2026-06-25 系统审核发现后手动删 cron + 删脚本 `scripts/p9_ora_premarket_reminder.py`；背景：`trading/case_studies/ORA_2026_05_18.md`
+- ~~2026-06-18 09:15 EDT - P9 首批完整 hit rate 提醒~~ → 6/18 触发后已自删 cron（脚本 `scripts/p9_first_hitrate_reminder.py` 自删逻辑生效）；2026-06-25 审核确认 crontab 已无此条，移入已清理
 
 ## 一次性 cron（active）
-- 2026-05-18 09:00 EDT - P9 ORA pre-market 提醒（trim 30-60% 决策）
-  - 脚本：`scripts/p9_ora_premarket_reminder.py`
-  - 触发后自删 cron 条目 + 守卫 `if TODAY != "2026-05-18"`
-  - 背景：`trading/case_studies/ORA_2026_05_18.md`
-- 2026-06-18 09:15 EDT - P9 首批完整 hit rate 提醒（16 只 5 月持仓全满 30 天）
-  - cron：`15 9 18 6 *`
-  - 脚本：`scripts/p9_first_hitrate_reminder.py`（log: `scripts/p9_first_hitrate_reminder.log`）
-  - 触发后自删 cron 条目 + 守卫 `if TODAY != "2026-06-18"`；发至 cowork bot DM 频道
-  - 背景：5/6 那 7 只 6/5 满期 / 5/18 那 8 只 6/17 / 5/19 那 1 只 6/18 → 6/18 全到期；2026-05-30 主公确认 B 方案（完整 hit rate，非 6/5 局部预览）
+- 2026-06-28 09:00 EDT - 删 P9 告警重构 .bak（`run_py.sh.bak` / `ops_alert.py.bak`）→ 触发后自删 cron 行（run_py/ops_alert 重构兜底；目标文件现已手动删，触发时为空操作但 cron 仍按时自删）
+- 2026-07-01 04:00 EDT - 删 `instance_watchdog.sh.bak`（标记 `WD_BAK_CLEANUP_20260701`）→ 触发后自删 cron 行（watchdog 活跃度闸门重构兜底）
 
 ## 📡 趋势主线（第2层）观察池周检（2026-06-11 新建）
 

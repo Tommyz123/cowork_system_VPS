@@ -1,6 +1,6 @@
 # Context — Tom 电脑全局文件索引
 
-> 最后更新：2026-06-08（新增通用预测引擎 prediction_engine/ 定位指针）
+> 最后更新：2026-06-25（系统审核修正任务守卫机制描述：路径补 hooks/ 子目录 + 对齐响应级自动授权流程）
 > 维护方式：由 Cowork AI 自动更新，每次文件变动后同步修改
 
 > ⚠️ **给 Cowork AI 的指引：**
@@ -179,7 +179,7 @@
 2. **读取此文件**：新对话开始时，如需了解文件位置，直接读取本文件
 3. **自动维护**：每次文件新增/修改/项目状态变化后，自动更新本文件对应条目和"最后更新"时间
 4. **授权提醒**：新文件夹需要主公授权后，才能扫描写入
-5. **任务守卫机制**（2026-04-15 上线）：非白名单文件改动前，必须先 Discord 报计划，主公确认后执行 `touch /tmp/task_approved`，任务完成后 `rm -f /tmp/task_approved`。白名单文件（cowork_log.md / CURRENT_SESSION.md 等）直接放行，无需 token。Hook 脚本：`~/.claude/system_file_guard.sh`
+5. **任务守卫机制**（2026-04-15 上线，2026-06-06 升级为响应级自动授权）：非白名单文件改动前，必须先 Discord 报计划，主公说授权词（"执行/可以"等）→ `discord_approve.py` 自动写 token `/tmp/task_approved_<实例>` → 整个响应内有效，Stop hook 响应结束自动清除（无需手动 touch/rm）。白名单文件直接放行无需 token（cowork_log.md / CURRENT_SESSION.md / friction_log* / INSIGHTS.md / auto_pending.md / archive/ 等，权威清单见 `~/.claude/CLAUDE.md` 白名单行 + hook 脚本 WHITELIST 数组）。Hook 脚本：`~/.claude/hooks/system_file_guard.sh`
 
 ---
 

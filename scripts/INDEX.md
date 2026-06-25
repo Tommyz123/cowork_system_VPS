@@ -49,11 +49,6 @@
 - **调用方**：`~/.claude/settings.json` UserPromptSubmit hook
 - **频率**：每次主公输入都跑（约日均数百次）
 
-### p9_ora_premarket_reminder.py
-- **功能**：P9 ORA 持仓盘前邮件提醒
-- **调用方**：cron（cron_jobs.md 已登记）
-- **频率**：每个交易日盘前
-
 ### rclone_backup.sh
 - **功能**：Google Drive 全量同步备份
 - **调用方**：cron 每日 02:00 EDT

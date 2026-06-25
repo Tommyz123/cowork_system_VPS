@@ -484,3 +484,5 @@
 [2026-06-24 20:58 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P6,P9,P2 commit:b5b4c7c 草稿:0条(本轮成果已实时入档,bcfbf1ac已审无新增高分项)
 [2026-06-24 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
 [2026-06-24 23:45 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:4099982 草稿:1条送审+3条自动写入
+[2026-06-25 00:00 EDT] CRON[ferc_watch] | daily | ✅ | 无命中（静默）
+[2026-06-25 02:05 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 227.803 MiB (238868245 Byte) → Google Drive

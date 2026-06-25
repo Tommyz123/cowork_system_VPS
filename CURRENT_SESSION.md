@@ -6,8 +6,8 @@
 
 ## 元数据
 
-last_memory_sync: 2026-06-02
-last_audit_date: 2026-04-19
+last_memory_sync: 2026-06-10
+last_audit_date: 2026-06-25
 
 ---
 
@@ -31,7 +31,7 @@ last_audit_date: 2026-04-19
 | P4 | 每日新闻日报 | ✅ cron运行中 | 2026-05-10 | 5/10补发成功；root权限/tmp/news_ai.txt问题已确认不影响当前脚本 |
 | P6 | 机票监控 Agent | ✅ cron运行中 | 2026-06-24 | 已迁VPS（周二/四17:30），最近6次全成功；6/23快照EWR→CAN超经$2590历史最低；JFK→CAN经济直飞长期无数据待查 |
 | P7 | Mac mini价格监控 | ✅ cron运行中 | 2026-04-23 | HTML邮件（链接藏入<a>标签）；今日eBay $305触发提醒 |
-| P9 | AI量化交易系统 TIDE | ✅ cron运行中 | 2026-06-24 | 实时核查：权益$106k/15持仓/+$2272浮盈/10赢5负；清掉ORA幽灵卖出记录(账本↔券商零ghost)；待办=FERC 6/23哨兵命中未人工确认；下一步=每周看榜+8/24验收 |
+| P9 | AI量化交易系统 TIDE | ✅ cron运行中 | 2026-06-24 | 账户/持仓/盈亏实时查 Alpaca（不写死）；账本↔券商零 ghost（ORA 幽灵卖出已清）；待办=FERC 6/23哨兵命中未人工确认；下一步=每周看榜+8/24验收 |
 
 ---
 
@@ -1288,7 +1288,7 @@ last_updated: 2026-06-24
 - **P9 Attribution 框架 v1**：scanner_picks 加 7 字段（theme/secondary_themes/bear_thesis/hidden_risk/verdict default tentative/mistake_type/real_reason）；cognitive_scanner.py prompt 强制 Bull/Bear/Invalidation/Hidden Risk 四件套 + thesis normalization 纪律；close_position.py 加 verdict/mistake_type/real_reason 交互；14 只 open 全部 UPDATE bear_thesis（含 ORA 用 case study 强化版）
 - **ORA case study + Red team adversarial review**：trading/case_studies/ORA_2026_05_18.md；Red team 揭示 5 大盲区（地热衰减资本化掩盖 / Puna 集中度 / Kenya FX / 储能 merchant 估值 mismatch / IRA 政策回滚）；推荐 trim 30-60%
 - **Thesis normalization 规则**：memory/feedback_thesis_normalization.md（hypothesis 语气强制 / 未验证精确数字只能放监测信号 / 范围>单点 / 二次违反升级 Hook）
-- **ORA 9:00 EDT pre-market 提醒 cron**：scripts/p9_ora_premarket_reminder.py + 一次性 cron（已触发后自删）
+- **ORA 9:00 EDT pre-market 提醒 cron**：scripts/p9_ora_premarket_reminder.py + 一次性 cron（2026-06-25 更正：5/18 触发时 Discord 403 崩在自删前→沦为僵尸 cron，已于 6/25 系统审核手动删 cron+脚本）
 - **Weekly review 中文友好版 V2**：trading/weekly_review_preview.py（理财顾问对客户口吻 + 每只 14 只通俗一句话 + 术语前置翻译）
 - **P9 账号路由锁定**：config.P9_ACCOUNT='swing' + assert_p9_account()；close_position.py 删 intraday 参数；alpaca_mcp.py 的 place_order/cancel_order 加 assert 守卫拦截 intraday 写入
 - **intraday 审计 → 重大发现**：5/11 那批 8 只在 swing 30 天订单里完全没有（DB ghost）；intraday 账号有 ORA 261 股遗留持仓（手动操作）；ORA 实际敞口 swing 27 + intraday 261 = 288 股而非系统认为的 27
