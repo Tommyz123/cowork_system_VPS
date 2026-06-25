@@ -60,3 +60,23 @@
 ### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
 - **[评分:5]** Feedback 文档纪律 `feedback_doc_single_source` → 已写入 memory/（会变的别写死+状态类就地覆盖禁新旧并存；治"文档更新追不上"）
 - **[评分:4]** Feedback `feedback_cleanup_temp_data` 扩展"临时脚本"纳入 → 已写入 memory/（主公 6/24 点名）
+
+---
+
+## [草稿] 2026-06-25 深度审核（本场=FERC新闻引出文档纪律连锁，session 51f703d0）
+
+### ⚠️ 上一条草稿状态复核
+- 上面「`~/.claude/CLAUDE.md:29` 白名单文字 `friction_log.md`→`friction_log*` 对齐」**仍待主公确认**，本场未动。这是唯一历史遗留待决项。
+
+### Playbook 建议更新（1处）
+- **[评分:3]** `playbooks/p9_trading.md`：建议补一句哨兵命中处理SOP——FERC等事件哨兵命中后按 🆕[新事]/🔁[复述] 分类记入对应事件独立档案(命中次数≠真事件数)，攒"真新事数"判断是否值得上自动记录。本场新立的实操习惯，值得在playbook留指针。需主公确认。
+
+### 其他类别
+- INSIGHTS/Friction/文档对齐/MEMORY清理：本场无新增送审项。核心洞察(命中频率≠真事件数/活体对象外迁)已直接写入E1档案+memory(见下方自动写入摘要)。2条friction(文档纪律未自检+相对路径事故)已实时闭环记入friction_log。F检查MEMORY.md无废弃孤儿。
+
+---
+
+### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
+- **[评分:5]** Feedback `feedback_dossier_outmigration`(新建) → memory/（总览表条目长成活体对象就外迁独立档案+留指针;主公明确"以后会越来越多"+Organic Blooms范本，跨项目通用+完整规则）
+- **[评分:4]** Feedback `feedback_tracking_facts_only`强化"写入即分层前置自检" → memory/（主公明确"每次写入都自动分层好"）
+- **[评分:4]** Feedback `feedback_docs_for_ai`升级验收标准"看懂→能独立接手"+头部4要素 → memory/（主公连环追问"AI看得懂吗"逼出）
