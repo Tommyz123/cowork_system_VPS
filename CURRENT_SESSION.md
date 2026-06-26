@@ -216,10 +216,18 @@ last_updated: 2026-06-25
 - 背景：清理"脱离 systemd 管理的脏残留会话"问题，把 AA 会话名 cowork→sonnet（独一无二，不与 BB 的 cowork_opus 撞名）
 - 已完成（前置就绪）：`scripts/claude_runner.sh` 已改 `SESSION=sonnet`（注释 2026-06-25），备份 `claude_runner.sh.bak_20260625_184503` 在
 - **卡点**：AA 服务 `cowork-claude.service` 当前 = inactive(dead)（18:45 被 SIGTERM 杀后未起），需 `systemctl start` 启动让新名生效。但启动 system 级服务需 sudo 密码 → BB(cowork用户)无权限；主公在手机无法跑终端
+- 🔴 **新发现活bug（2026-06-25晚 CC核查）**：`cowork-claude.service` 的 **ExecStop 仍杀旧名 `cowork`**（`kill-session -t cowork`），但 runner 启动用新名 `sonnet` → **systemd 永远停不掉 AA**（杀错 session），疑似今天 AA"停了又没干净拉回"的元凶。这是 root 文件 CC 改不了。
 - **为什么不能绕过**：直接手动跑脚本会脱离 systemd 管理 → systemd 仍认 dead，后续自动拉起会撞名/双进程，正是这次要清的脏状态成因。必须走 systemd
-- **下次主公在家：提醒主公跑** `sudo systemctl start cowork-claude.service`，跑完 BB 验证三项：①AA 会话名=sonnet ②服务 active running ③Discord AA 频道恢复
-- 验证后需同步文档：AA 会话名从 cowork→sonnet（scripts/INDEX.md / playbook / reference_dual_bot.md 等凡记 AA 会话名处）
-  - **已发现具体不一致点**：`memory/reference_dual_bot.md` 映射表 AA 行「tmux session 名」栏现写 `cowork_opus ⚠️撞名`，AA 起来后须改为 `sonnet`（撞名问题随之消失，⚠️标记可去）
+- **下次主公在家两步（都需 sudo）**：
+  1. 改 ExecStop 旧名：`sudo sed -i 's/kill-session -t cowork/kill-session -t sonnet/g; s/has-session -t cowork /has-session -t sonnet /g' /etc/systemd/system/cowork-claude.service && sudo systemctl daemon-reload`
+  2. 启动 AA：`sudo systemctl start cowork-claude.service`
+  跑完 BB 验证三项：①AA 会话名=sonnet（`tmux ls`）②服务 active running ③Discord AA 频道变亮恢复回消息
+- ✅ **文档对齐已完成（2026-06-25晚，主公授权"执行"）**：4 处活文档 AA session 名已统一 sonnet — `memory/feedback_instance_mapping.md` / `memory/reference_dual_bot.md`（含删过时"撞名"警告）/ `scripts/claude_runner.sh`（注释修正+加 ExecStop 同步警示）/ `reference/knowledge_base.md` L481。全仓扫描确认无残留（历史轨迹文件 setup_log/log 不动）
+
+本次完成（2026-06-26早 — 技术债盘点 + 授权机制大白话解释 + sonnet文档同步收尾）：
+- **cowork系统技术债盘点**：按真实数据(CURRENT_SESSION+friction_log+BACKLOG)分3档——🔴急(sonnet收尾/2bak 7/2删/1待审记忆)🟡中(⭐授权机制23条占62%最大债:剩B响应级粒度+C授权词覆盖；8条待验证规则)🟢慢(BACKLOG想法债有触发条件不算债)；判断=真该上心只#4授权机制
+- **授权机制大白话解释**：向主公用比喻讲清"门卫耳朵不好使"三类毛病(授权词没听懂/多步执行中途收通行证/收工git没自动放行)
+- **sonnet改名文档同步收尾**(提交工作区已就绪改动)：①claude_runner.sh注释补全(AA/BB不同server本不撞名+改名须同步service ExecStop)②MEMORY.md+feedback_instance_mapping去重(完整映射表统一到reference_dual_bot单一权威源,符合doc_single_source)③knowledge_base AA重启命令cowork→sonnet④reference_dual_bot标"唯一权威全表"
 
 本次完成（2026-06-25晚 — sonnet改名任务半收尾 + 频道映射文档确认 + 失忆事故复盘）：
 - **接手AA改名sonnet任务**：实时核查确认脚本已改`SESSION=sonnet`+备份就绪，但AA服务cowork-claude=inactive(dead)，最后一步`systemctl start`需sudo→BB无权限+主公在手机→**任务半收尾**，完整待办（背景/前置/卡点/为何不能绕过systemd/下次执行命令/验证三项/文档同步清单）记入P2待办区

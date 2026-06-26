@@ -495,3 +495,7 @@
 [2026-06-25 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
 [2026-06-25 17:36 EDT] CRON[P6] | flight_monitor | ✅ | 机票日报发送完成
 [2026-06-25 19:09 EDT] SKILL[SYS] | 收工 | ✅ | 项目:[P2] 草稿:1条 审核session:2个(4392e122+7f6ac272同任务两段) commit:待push
+[2026-06-25 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-06-25 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-06-26 02:02 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 229.080 MiB (240207885 Byte) → Google Drive
+[2026-06-26 11:57 EDT] SKILL[SYS] | 收工 | ✅ | 项目:[P2] 技术债盘点+授权机制解释+sonnet文档同步 草稿:0(讨论性,今日session待索引后下次审)

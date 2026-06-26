@@ -3,7 +3,7 @@
 # 起 tmux session 跑 claude，session 死了脚本退出 1，systemd Restart=on-failure 自动拉起
 
 TMUX_BIN=/usr/bin/tmux
-SESSION=sonnet  # AA 会话名(2026-06-25 从 cowork 改, 避免与 BB 的 cowork_opus 历史脏状态撞名)
+SESSION=sonnet  # AA 会话名(2026-06-25 从 cowork 改名)。注:AA用默认socket、BB用-L opus_socket,本不在同一server不会撞名;改名只为清掉默认socket上"cowork"旧脏session历史。⚠️改此名必须同步改 cowork-claude.service 的 ExecStop(否则systemd停不掉AA)
 WORKDIR=/home/cowork/cowork
 CLAUDE_BIN=/home/cowork/.local/bin/claude
 

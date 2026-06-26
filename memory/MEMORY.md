@@ -67,7 +67,7 @@
 - [feedback_tracking_facts_only.md](feedback_tracking_facts_only.md) — ⭐通用:所有文件记录数据与主观判断必须分层隔离——数据区零主观,判断单独分区+标时点,禁混写污染数据(数据会变判断会跟着变,分层才能追溯对比);分层=每次写入前置自检,写入即分层不事后补不靠提醒（2026-06-13 Organic Blooms案立,2026-06-24 P9 E1案强化）
 - [feedback_data_driven_no_hardcode.md](feedback_data_driven_no_hardcode.md) — ⭐通用:会随业务增删的对象集合(股票/客户/关键词/文件清单)禁硬编码,必须从数据源解析;规矩要落文档防重犯(2026-06-21 趋势档案自动写入案)
 - [feedback_dossier_outmigration.md](feedback_dossier_outmigration.md) — ⭐通用:总览表条目一旦从"一句话"长成"需持续追进展+判断演进的活体对象"就外迁独立档案+总览留一句话指针(防总览表撑爆);独立档案=头部4要素+事实/判断分层(2026-06-24 P9 E1案立,Organic Blooms为范本)
-- [feedback_instance_mapping.md](feedback_instance_mapping.md) — ⭐三实例映射表(AA/BB/CC↔HOME↔bot↔群频道)；口诀opus=BB/opus2=CC；操作前必查which_instance.sh禁凭目录名猜（2026-06-22 token对调教训）
+- [feedback_instance_mapping.md](feedback_instance_mapping.md) — ⭐三实例**操作铁律**(动手前必查映射/禁凭目录名猜/token对调教训)；口诀opus=BB/opus2=CC；**完整映射表已移至reference_dual_bot单一权威源**，本文件只留"为什么+怎么做"（2026-06-25 去重）
 - [feedback_docs_for_ai.md](feedback_docs_for_ai.md) — ⭐总纲:文档分两类(定时发出的给人看/留系统里的给AI看得懂);系统内文档第一读者=没上下文的未来AI,标准="新AI能否看懂整个结构与分工不混乱";脚本头部四段(是什么/为什么做/为什么这样设计/演进);artifact_indexing等是其分身（2026-06-23）
 
 ## Project（项目背景）
@@ -105,7 +105,7 @@
 - [project_p9_trading.md](project_p9_trading.md) — P9 TIDE系统：主题驱动季度埋伏/叙事先行/ORA持仓/纸账号swing(余额实时查Alpaca不写死)/IWM基准/积累阶段完成(2026-05-08)/下次人工决策=ORA平仓
 - [reference_token_quota.md](reference_token_quota.md) — Claude Code每日token配额：长对话本身也消耗，非Codex专属；重要任务在新对话开始时执行
 - [reference_competitor_scraper.md](reference_competitor_scraper.md) — 竞品爬虫：GF/SS用Playwright捕dutchie graphql；ZZ用HTTP直连WP proxy+固定retailerId；DB在cowork/scraper/
-- [reference_dual_bot.md](reference_dual_bot.md) — 3 实例架构：cowork+opus_CC+opus2 频道ID/隔离4层(tmux/HOME/plugin/token)/memory例外=三实例symlink共享cowork/memory(2026-06-10统一,含新实例上线checklist)/DO VPS IP/3 systemd服务全自启/远程装plugin方法
+- [reference_dual_bot.md](reference_dual_bot.md) — ⭐**三实例唯一权威全表**(AA/BB/CC全字段:模型/HOME/socket/session/频道/token/appid/service/版本)+架构：隔离4层(tmux/HOME/plugin/token)/memory例外=三实例symlink共享cowork/memory(2026-06-10统一,含新实例上线checklist)/DO VPS IP/3 systemd服务全自启/远程装plugin方法/升级指南。查实例任何字段认这张
 - [reference_p11_discord.md](reference_p11_discord.md) — VPS Discord接入：plugin v0.0.4已知bug+patch位置+降级方案(discord.py自建bot~100行)
 - cowork/reference/cron_jobs.md — 所有 cron + systemd 自启任务唯一总索引（每日新闻/机票/Mac监控/P9系列/rclone备份/大麻诉讼追踪 + 3 个 Claude 实例 systemd），加新 cron / service 必须在此注册
 - cowork/reference/agent_view_rules.md — Claude Code Agent View 完整调研笔记（不启用，多窗口管理工具不适合远程遥控场景）

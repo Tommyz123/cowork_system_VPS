@@ -6,7 +6,7 @@ originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 ---
 ## 3 实例身份 — 唯一权威映射表（2026-06-25 全字段运行时实测+交叉验证，单一来源）
 
-> ⚠️ **认实例只认「tmux socket + HOME」，绝不能靠 session 名**：AA 和 BB 的 session 名**撞名**（都叫 `cowork_opus`），靠名字判断会把 AA 当 BB、把自己当别人（2026-06-25 BB 升级险些用 session 名误杀自己实锤）。任何实例操作前先跑 `bash /home/cowork/cowork/scripts/which_instance.sh`（读运行时 HOME+settings，不靠记忆/目录名）。
+> ⚠️ **认实例只认「tmux socket + HOME」，绝不能靠 session 名**：三实例各用独立 socket（AA 默认 / BB opus_socket / CC opus2_socket），不在同一命名空间，session 名不会撞；但仍**禁止靠 session 名判断实例**（名字会改、会误记，2026-06-25 BB 升级险些用 session 名误杀自己实锤）。任何实例操作前先跑 `bash /home/cowork/cowork/scripts/which_instance.sh`（读运行时 HOME+settings，不靠记忆/目录名）。
 
 | 字段 | **AA** | **BB**（本文件所在实例常态） | **CC** |
 |---|---|---|---|
@@ -14,12 +14,12 @@ originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 | HOME | /home/cowork | /home/cowork/opus_home | /home/cowork/opus2_home |
 | 进程别名 | cowork | opus_CC | opus2 |
 | tmux socket | **默认**(无 -L) | **-L opus_socket** | **-L opus2_socket** |
-| tmux session 名 | cowork_opus ⚠️撞名 | cowork_opus ⚠️撞名 | cowork_opus2 |
+| tmux session 名 | sonnet | cowork_opus | cowork_opus2 |
 | Discord DM 频道 | 1485128242808619079 | 1503165641379545228 | 1509045714808737842 |
 | bot app id(token解码) | 1485125345014452234 | 1503158821345034360 | 1509035650823753798 |
 | Discord token | /home/cowork/.claude/channels/discord/.env | /home/cowork/opus_home/.claude/channels/discord/.env | /home/cowork/opus2_home/.claude/channels/discord/.env |
 | systemd service | cowork-claude.service | cowork-opus.service | cowork-opus2.service |
-| claude-code 版本 | **2.1.193**(2026-06-25升) | 2.1.170(待升) | **2.1.193**(2026-06-25升) |
+| claude-code 版本 | 三实例**共享同一二进制** `/home/cowork/.local/bin/claude`（BB/CC 无独立安装；runner 脚本用**绝对路径** `CLAUDE_BIN=/home/cowork/.local/bin/claude` 调用，不靠 PATH）→ 磁盘版本必然相同，**别写死、实时查** `claude --version`。升一次=三个全升；差异只在"进程是否已重启加载新版"，不在版本号。⚠️ 系统里另潜伏一份 `/usr/bin/claude`=`/bin/claude`(root装,旧版2.1.138)——实例靠绝对路径用不到它，但**在 PATH 不含 .local/bin 的环境(如 systemd 精简 PATH)手敲 `claude` 会误中旧版**，排查版本诡异先 `readlink -f $(which claude)` 钉死用的哪份 | ← 同左 | ← 同左 |
 
 口诀：**opus=BB，opus2=CC，裸/home/cowork=AA**。Discord 昵称 AA-Sonnet4.6 / BB-Opus4.8 / CC-Opus4.8（昵称模型名可能滞后，自报身份以 settings.json 为准，instance_identity.sh hook 自动注入）。重启某实例只 kill 其 socket（`tmux -L <socket> kill-server`，AA 是默认 socket 用确切 pid `kill <tmux_pid>` 最稳），watchdog 自动拉回。
 3 个 bot 同在 server TT基地（guild id=1466957346310717636，**是 guild 不是频道**），3 个 systemd service 均 `enabled` 开机自启。
@@ -147,7 +147,7 @@ BB（opus_home）已**禁用** `context7` 和 `playwright` 两个常驻 MCP（`/
 - 首启会弹 "Try fullscreen renderer? 1/2" 交互菜单卡启动，选 2 跳过一次后记住。
 - **隔离调试法**（不碰运行实例）：独立 socket 跑 `tmux -L test_sock ... HOME=$TARGET /home/cowork/.local/bin/claude --debug --channels plugin:discord@...`，读 `$HOME/.claude/debug/*.txt` 看 plugin 加载报错。
 - 回滚：`npm install -g --prefix /home/cowork/.local @anthropic-ai/claude-code@2.1.170` + 重启。磁盘换版不影响运行中进程（旧版在内存），故可单实例试错。
-- 状态（2026-06-25）：**CC 已在 2.1.193**（最新），AA/BB 仍 2.1.170（按上流程可随时升；plugin 已重装成 user-scope，2.1.193 直接认无坑）。
+- ⚠️ **关于"各实例版本"的澄清（2026-06-25 CC 实测）**：三实例共享同一二进制（见上表版本栏），不存在"某实例还停在旧版"这回事——磁盘上只有一份，当前 2.1.193。升级 = 换那一份 = 三个一起换。本指南里的 `2.1.170` 是**历史踩坑记录**（当时从 2.1.170 升 2.1.191 的过程），不是任何实例的当前状态。要查当前版本永远跑 `claude --version`。
 
 **🔍 "真串台 vs 主公转述" 判别法**（曾两度误判）：
 看到**别的实例的署名/回复出现在我频道**时，先查 Discord API 该消息的 `author` 字段：
