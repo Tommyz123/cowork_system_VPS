@@ -104,7 +104,7 @@
 今天 8 个 session：主线=授权债死循环修复(1396886a,本会话BB亲历)+DO root救援(0ec674fc,昨晚sonnet改名操作,已记P2)+**BB Discord plugin重启后没起来**(02db1c46+ee866ce0两段同事)+改密码引导(40f0d303)+hi测试/resume若干(无价值)。
 
 ### Friction/规则强化 建议（1条）
-- **[评分:3]** **BB Discord plugin VPS重启后启动失败**(02db1c46+ee866ce0)：6/26 20:28 VPS被DO平台层硬重启(无shutdown记录,13天周期=6/13也一次,疑DO维护/宿主迁移),重启后AA/CC的plugin正常拉起但**BB(opus_home)的Discord plugin子进程没起来**→主公Discord发消息BB静默→SSH进来排查。证据链查到:plugin cache有`.in_use`锁(时间戳=重启时刻),且kill-server重启BB后plugin仍不起,最终暴露**进程身份混乱**(SSH对话的"BB"实为老BB派生的游离`daemon run --origin transient`后台daemon PID5727,非systemd主线)。**送审决策**:①此故障最终是否闭环(BB plugin是否恢复正常)我未看到确认结局,需主公说明当时结果②是否值得记一条knowledge"BB突然Discord静默→第一查plugin cache .in_use锁+确认是否游离daemon"③13天周期DO重启是否要加监控/重启后plugin自检。结局未明前不自动写正式文件(怕污染)。[src:02db1c46][src:ee866ce0]
+- **[评分:3]** **BB Discord plugin VPS重启后启动失败**(02db1c46+ee866ce0)：6/26 20:28 VPS被DO平台层硬重启(无shutdown记录,13天周期=6/13也一次,疑DO维护/宿主迁移),重启后AA/CC的plugin正常拉起但**BB(opus_home)的Discord plugin子进程没起来**→主公Discord发消息BB静默→SSH进来排查。证据链查到:plugin cache有`.in_use`锁(时间戳=重启时刻),且kill-server重启BB后plugin仍不起,最终暴露**进程身份混乱**(SSH对话的"BB"实为老BB派生的游离`daemon run --origin transient`后台daemon PID5727,非systemd主线)。**[AA补充结局]** 最终通过`tmux -L opus_socket kill-server`+watchdog 2s拉起全新session，BB专属bun discord进程(PID10168 HOME=opus_home)成功起来，三实例Discord全恢复(AA 20:51日志实锤)。**送审决策**:①结局已闭环(AA补充确认)②是否值得记一条knowledge"BB突然Discord静默→第一查plugin cache .in_use锁+确认是否游离daemon→kill-server+watchdog重建"③13天周期DO重启是否要加监控/重启后plugin自检。[src:02db1c46][src:ee866ce0]
 
 ### 其他类别
 - DO root救援(0ec674fc)→已记P2(AA改名sonnet),无新增。
@@ -118,3 +118,21 @@
 
 ### 🗑️ 本次自动丢弃摘要（1 分，未保留）
 - 共 3 条 1 分候选丢弃（hi连接测试61d762ed/90c38713 + resume卡background agent 31b3b1d8，纯连接/无内容）。
+
+---
+
+## [草稿] 2026-06-27 AA深度审核（三实例分层核查 + CC token恢复）
+
+### 审核范围
+今天AA未审session：d983d518（本收工会话，三实例分层核查+CC token恢复）、19809fbd（BB/CC故障状态快速确认，6条）。
+
+### 其他类别
+- d983d518/19809fbd：无新价值（日常核查+已记日志），1分丢弃。
+- BB 6-27草稿里的BB plugin故障「结局未明」：AA已补充闭环事实（见上方补注）。
+- INSIGHTS/Friction/Playbook/文档对齐/MEMORY清理：本场无新增。
+
+### 🤖 本次自动写入摘要（4-5 分）
+- 本场无 4-5 分自动写入。
+
+### 🗑️ 本次自动丢弃摘要（1 分）
+- 共 2 条 1 分候选丢弃：d983d518（日常三实例分层核查，无新洞察）、19809fbd（BB/CC故障状态确认，已记日志）。
