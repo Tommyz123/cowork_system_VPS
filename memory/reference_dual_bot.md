@@ -64,6 +64,11 @@ originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 - SSH: `ssh root@142.93.207.54`（已配 SSH key，无需密码）
 - 管理优先级：①DO网页 Droplet Console（最简单）②本地 WSL SSH
 
+**root 救援通道 + cowork 已获 sudo（2026-06-26 根治）：**
+- **忘 root 密码救援走法**：DO 网页 cloud.digitalocean.com → Droplets → 点服务器名进详情 → 右上角 **Console** 按钮开网页终端；重置密码用详情页左侧 **Access → Reset Root Password**，临时密码发邮箱(zhitao776@gmail.com)，首登强制改密（`Current password` 先输临时密码 → 再设新密码两遍）。主公手机也能开 Console。
+- **cowork 用户已加 sudo（2026-06-26）**：`usermod -aG sudo cowork` + `passwd cowork`（解锁设新密码），`sudo whoami`=root 验证通过。以后系统级操作（改 /etc/systemd 等）cowork 直接 `sudo xxx` 输 cowork 密码即可，**不必再走 DO 重置 root** 那一长串。
+- ⚠️ 注意：①三实例进程是「加 sudo 组之前」启动的，需**实例重启**才刷新带 sudo 组；②`sudo` 仍要 cowork 密码，**实例无法无人值守 sudo**（更安全）；③root 与 cowork 是两个独立密码，各自管好。
+
 ---
 
 ## systemd 服务架构
