@@ -511,3 +511,5 @@
 [2026-06-27 02:04 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 233.492 MiB (244833644 Byte) → Google Drive
 [2026-06-27 08:58 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2 commit:f86dcca 草稿:1条(BB plugin重启失起待主公说明结局)
 [2026-06-27 10:08 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2(SYS) commit:18cb237 草稿:1条(BB plugin结局补充+AA审核2session丢弃)
+[2026-06-27 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-27 14:54 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:26c7773 草稿:CC 4条送审(2 INSIGHTS/1 friction/1 playbook)
