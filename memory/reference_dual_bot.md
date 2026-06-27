@@ -132,6 +132,11 @@ BB（opus_home）已**禁用** `context7` 和 `playwright` 两个常驻 MCP（`/
 3. 确认是会话级卡死 → 杀对应 tmux server（**杀前必核对 `/proc/<pid>/environ` 的 HOME 确认是目标实例**，systemd 无 root 权限重启会被拦）→ watchdog 自动拉起干净进程
 4. 看门狗 `scripts/instance_watchdog.sh` 已自动做第1-2步检测并通知（每5分钟），但**只通知不自动重启**，重启仍需主公/人工触发
 
+**🚫 一个实例无法从自己的 Bash 工具干净拉起「别的」实例（2026-06-26 CC 实测两次踩坑）**：
+某实例（如 CC）想用自己的 Bash 工具 `setsid`/`nohup`/`env` 启动另一个实例（如 AA）的 runner，**HOME 会被强制注入成发起方自己的值**（CC 起 AA → 子进程 HOME 仍是 opus2_home），结果起出来的是发起方的副本（又一个 CC），不是目标实例，并会双进程连同一 Discord 频道冲突。`HOME=/home/cowork` 命令前缀**穿不透**（源头是 claude 进程对子进程的 env 注入/shell-snapshot，非脚本文本）。
+- **铁律**：拉起/重启某实例**只有两条干净路径**——① 主公用 `sudo systemctl start/restart <service>`（systemd 启动环境干净，不继承任何实例 shell）；② 从一个**不受发起方 shell 污染**的独立终端。**禁止**用 Bash 工具 setsid/nohup 跨实例拉起。
+- 若误起了副本：立即 `kill <pid>`（**先核 `/proc/<pid>/environ` 的 HOME 确认是误起的副本再杀**），CC/BB 正常进程不受影响。
+
 **🆔 guild ID ≠ channel ID（曾误判）**：
 `1466957346310717636` 是 Discord 服务器「TT基地」的 **guild ID**，**不是频道号**。三 bot 都在这个 guild，但日常对话走各自 DM 频道（type=1）。看到它别当成"残留频道号"。三实例 DM 频道见上表（AA=...18619079 / BB=...79545228 / CC=...09737842）。
 
