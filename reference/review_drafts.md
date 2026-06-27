@@ -95,3 +95,26 @@
 - CC plugin 2.1.191 升级踩坑（4392e122 主线之一）→ 已闭环：friction_log 17:42+18:10 两条 + reference_dual_bot.md 升级指南(138行起)，无新增。
 - sonnet 任务 → 待办已记 CURRENT_SESSION P2，无送审项。
 - INSIGHTS/Playbook/文档对齐/MEMORY清理：本场无新增。
+
+---
+
+## [草稿] 2026-06-27 深度审核（授权债修复 + BB plugin重启失起故障）
+
+### 审核范围说明
+今天 8 个 session：主线=授权债死循环修复(1396886a,本会话BB亲历)+DO root救援(0ec674fc,昨晚sonnet改名操作,已记P2)+**BB Discord plugin重启后没起来**(02db1c46+ee866ce0两段同事)+改密码引导(40f0d303)+hi测试/resume若干(无价值)。
+
+### Friction/规则强化 建议（1条）
+- **[评分:3]** **BB Discord plugin VPS重启后启动失败**(02db1c46+ee866ce0)：6/26 20:28 VPS被DO平台层硬重启(无shutdown记录,13天周期=6/13也一次,疑DO维护/宿主迁移),重启后AA/CC的plugin正常拉起但**BB(opus_home)的Discord plugin子进程没起来**→主公Discord发消息BB静默→SSH进来排查。证据链查到:plugin cache有`.in_use`锁(时间戳=重启时刻),且kill-server重启BB后plugin仍不起,最终暴露**进程身份混乱**(SSH对话的"BB"实为老BB派生的游离`daemon run --origin transient`后台daemon PID5727,非systemd主线)。**送审决策**:①此故障最终是否闭环(BB plugin是否恢复正常)我未看到确认结局,需主公说明当时结果②是否值得记一条knowledge"BB突然Discord静默→第一查plugin cache .in_use锁+确认是否游离daemon"③13天周期DO重启是否要加监控/重启后plugin自检。结局未明前不自动写正式文件(怕污染)。[src:02db1c46][src:ee866ce0]
+
+### 其他类别
+- DO root救援(0ec674fc)→已记P2(AA改名sonnet),无新增。
+- 改密码引导(40f0d303)→主公曾贴临时密码到Discord,我已当场安全提醒,临时密码用完即废,无需记。
+- INSIGHTS/操作记录/Playbook/文档对齐/MEMORY清理:本场无新增。
+
+---
+
+### 🤖 本次自动写入摘要（4-5 分，已直接写入正式文件）
+- 本场无 4-5 分自动写入。
+
+### 🗑️ 本次自动丢弃摘要（1 分，未保留）
+- 共 3 条 1 分候选丢弃（hi连接测试61d762ed/90c38713 + resume卡background agent 31b3b1d8，纯连接/无内容）。
