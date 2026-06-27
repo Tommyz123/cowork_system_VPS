@@ -210,7 +210,11 @@ last_updated: 2026-05-31
 ### [P2] Cowork 系统优化
 状态：持续迭代中
 last_updated: 2026-06-27
-停在：✅**授权债死循环修复(方案②)闭环**（git_commit_guard.sh无锁提示语改为"停止重试+reply提示主公补收工"，逻辑零改动零放行风险）。其余：①B授权粒度(响应级vs任务级)留讨论②signal_collector 2杂质bug待P9迭代③ORA fix备份7/1后兜底删④service.bak 7/3兜底删⑤git_commit_guard.bak 7/3兜底删⑥friction第1+2类已闭环待归档。
+停在：✅**三实例配置分层核查全清晰，CC OAuth token已恢复，三实例全在线**。其余：①B授权粒度(响应级vs任务级)留讨论②signal_collector 2杂质bug待P9迭代③ORA fix备份7/1后兜底删④service.bak + git_commit_guard.bak 7/3兜底删⑤friction第1+2类已闭环待归档。
+
+本次完成（2026-06-27早 — 三实例分层核查 + CC token恢复）：
+- **三实例配置分层核查**：共享层4类hooks(PreToolUse/PostToolUse/UserPromptSubmit/Stop)正确；AA用户层position_check.py(P9专属hook)合规放用户层；BB/CC用户层无多余hooks；model+PATH各实例独立。分层清晰零问题
+- **CC OAuth token恢复确认**：主公执行/login后AA实地核查：accessToken+refreshToken均存在，bun Discord plugin进程正常(PID1032)。三实例全部在线(服务active+token OK+Discord双向通)
 
 ✅ **已完成：授权债死循环修复 + friction连环复盘（2026-06-27）**
 - **根因查清(读真实代码)**：UserPromptSubmit每条新消息先`clear git`,收工跨多条消息时夹一条无"收工"词的消息即清空git锁→commit反复被拦。旧脚本提示诱导Claude自行touch(无权)→6/26卡20分钟死循环。修正了friction里"savework被Stop清"的不准归因(实际是UserPromptSubmit清的)
