@@ -96,3 +96,5 @@
 [2026-06-24 21:00 EDT] ✅ price_snapshot: updated=0 skipped=17
 [2026-06-25 16:00 EDT] ✅ symbols=49 news=17 8k=1 inserted=18 | Finnhub:OK SEC:OK
 [2026-06-25 21:00 EDT] ✅ price_snapshot: updated=1 skipped=16
+[2026-06-26 16:00 EDT] ✅ symbols=49 news=6 8k=0 inserted=6 | Finnhub:OK SEC:OK
+[2026-06-26 21:00 EDT] ✅ price_snapshot: updated=0 skipped=17

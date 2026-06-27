@@ -499,3 +499,11 @@
 [2026-06-25 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
 [2026-06-26 02:02 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 229.080 MiB (240207885 Byte) → Google Drive
 [2026-06-26 11:57 EDT] SKILL[SYS] | 收工 | ✅ | 项目:[P2] 技术债盘点+授权机制解释+sonnet文档同步 草稿:0(讨论性,今日session待索引后下次审)
+[2026-06-26 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-26 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-06-26 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-06-26 16:00 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-06-26 17:05 EDT] CRON[ferc_watch] | daily | ✅ | 无命中（静默）
+[2026-06-26 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-26 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-06-26 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成

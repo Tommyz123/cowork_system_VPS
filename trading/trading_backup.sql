@@ -2856,6 +2856,12 @@ INSERT INTO "signals" VALUES(5871,'GWRE','2026-06-25','news','BTIG Maintains Buy
 INSERT INTO "signals" VALUES(5872,'HCC','2026-06-25','news','Warrior Met Coal Inc (NYSE:HCC): A GARP Candidate with Accelerating Growth and a Forward P/E Under 11','Warrior Met Coal (HCC) offers affordable growth with an 8/10 growth rating and strong EPS expansion. Despite a high P/E, its forward P/E of 10.09 and low PEG ratio suggest reasonable value for a GARP opportunity.','ChartMill','2026-06-25T20:00:26','medium');
 INSERT INTO "signals" VALUES(5873,'RES','2026-06-25','news','RPC: A Forced Fresh Start','RPC stock plunged as CEO Ben Palmer retires. Click here to get an analysis of leadership transition risks, innovation pressures, and what investors should know.','SeekingAlpha','2026-06-25T20:00:43','medium');
 INSERT INTO "signals" VALUES(5874,'WOR','2026-06-25','news','Canaccord Genuity Maintains Buy on Worthington Enterprises, Lowers Price Target to $67','Canaccord Genuity  analyst Brian McNamara   maintains Worthington Enterprises (NYSE:WOR) with a Buy and lowers the price target from $69 to $67.','Benzinga','2026-06-25T20:00:51','medium');
+INSERT INTO "signals" VALUES(5875,'CMC','2026-06-26','news','CMC Q3 Earnings Beat on Strong Core EBITDA & Segment Gains','Commercial Metals topped Q3 estimates as core EBITDA jumped nearly 79%, margins expanded and all three business segments posted year-over-year gains.','Yahoo','2026-06-26T20:00:12','medium');
+INSERT INTO "signals" VALUES(5876,'CMC','2026-06-26','news','CMC Q3 Earnings Call Flags Stronger Q4 Setup','Commercial Metals says temporary Q3 headwinds are reversing, with backlog, pricing and precast integration setting up a stronger fiscal fourth quarter.','Yahoo','2026-06-26T20:00:12','medium');
+INSERT INTO "signals" VALUES(5877,'GWRE','2026-06-26','news','BB Q1 Earnings Exceed Expectations, Stock Climbs 20% on Upbeat Outlook','BlackBerry beat fiscal Q1 EPS and revenue estimates and lifted fiscal 2027 guidance. The stock jumped following solid QNX and Secure Communications performance.','Yahoo','2026-06-26T20:00:18','medium');
+INSERT INTO "signals" VALUES(5878,'GWRE','2026-06-26','news','1 Small-Cap Stock on Our Buy List and 2 We Find Risky','Small-cap stocks can be incredibly lucrative investments because their lack of analyst coverage leads to frequent mispricings. However, these businesses (and their stock prices) often stay small because their subscale operations make it harder to expand their competitive moats.','Yahoo','2026-06-26T20:00:18','medium');
+INSERT INTO "signals" VALUES(5879,'LIF','2026-06-26','news','Life360 Inc (NASDAQ:LIF) Growth Profile Sets Up For Potential Breakout.','Life360 (LIF) shows strong growth with 33% revenue growth and a 7/10 rating, plus an 8/10 technical setup near a $49 resistance. Strong margins and solid health metrics make it a potential breakout candidate.','ChartMill','2026-06-26T20:00:27','medium');
+INSERT INTO "signals" VALUES(5880,'VSEC','2026-06-26','news','Morgan Stanley Initiates Coverage On VSE with Equal-Weight Rating, Announces Price Target of $245','Morgan Stanley  analyst Kristine Liwag   initiates coverage on VSE (NASDAQ:VSEC) with a Equal-Weight rating and announces Price Target of $245.','Benzinga','2026-06-26T20:00:36','medium');
 CREATE TABLE thesis_alerts (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             symbol TEXT,
@@ -2989,7 +2995,7 @@ INSERT INTO "sqlite_sequence" VALUES('news',460);
 INSERT INTO "sqlite_sequence" VALUES('decisions',73);
 INSERT INTO "sqlite_sequence" VALUES('insider_transactions',165);
 INSERT INTO "sqlite_sequence" VALUES('trades',43);
-INSERT INTO "sqlite_sequence" VALUES('signals',5874);
+INSERT INTO "sqlite_sequence" VALUES('signals',5880);
 INSERT INTO "sqlite_sequence" VALUES('outcome_tracking',18);
 INSERT INTO "sqlite_sequence" VALUES('alt_signals',1340);
 INSERT INTO "sqlite_sequence" VALUES('thesis_alerts',3);

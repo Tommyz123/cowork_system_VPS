@@ -209,20 +209,21 @@ last_updated: 2026-05-31
 
 ### [P2] Cowork 系统优化
 状态：持续迭代中
-last_updated: 2026-06-25
-停在：⏳**AA改名sonnet待收尾**（脚本已改SESSION=sonnet+备份就绪，AA服务cowork-claude=inactive(dead)，需主公在家终端跑 `sudo systemctl start cowork-claude.service` 启动→BB无sudo权限、主公手机跑不了）。其余：①B授权粒度(响应级vs任务级)留讨论②signal_collector 2杂质bug待P9迭代③ORA fix备份7/1后兜底删。
+last_updated: 2026-06-26
+停在：✅**AA改名sonnet隐患彻底闭环**（今晚主公经DO root终端修ExecStop cowork→sonnet+daemon-reload，三层命名全对齐）。✅**cowork用户sudo根治**（加sudo组+解锁设密码，以后系统级操作不必再走DO重置root）。其余：①B授权粒度(响应级vs任务级)留讨论②signal_collector 2杂质bug待P9迭代③ORA fix备份7/1后兜底删④service.bak 7/3兜底删。
 
-⏳ **待办：AA 改名 sonnet 收尾（2026-06-25，等主公在家终端执行）**
-- 背景：清理"脱离 systemd 管理的脏残留会话"问题，把 AA 会话名 cowork→sonnet（独一无二，不与 BB 的 cowork_opus 撞名）
-- 已完成（前置就绪）：`scripts/claude_runner.sh` 已改 `SESSION=sonnet`（注释 2026-06-25），备份 `claude_runner.sh.bak_20260625_184503` 在
-- **卡点**：AA 服务 `cowork-claude.service` 当前 = inactive(dead)（18:45 被 SIGTERM 杀后未起），需 `systemctl start` 启动让新名生效。但启动 system 级服务需 sudo 密码 → BB(cowork用户)无权限；主公在手机无法跑终端
-- 🔴 **新发现活bug（2026-06-25晚 CC核查）**：`cowork-claude.service` 的 **ExecStop 仍杀旧名 `cowork`**（`kill-session -t cowork`），但 runner 启动用新名 `sonnet` → **systemd 永远停不掉 AA**（杀错 session），疑似今天 AA"停了又没干净拉回"的元凶。这是 root 文件 CC 改不了。
-- **为什么不能绕过**：直接手动跑脚本会脱离 systemd 管理 → systemd 仍认 dead，后续自动拉起会撞名/双进程，正是这次要清的脏状态成因。必须走 systemd
-- **下次主公在家两步（都需 sudo）**：
-  1. 改 ExecStop 旧名：`sudo sed -i 's/kill-session -t cowork/kill-session -t sonnet/g; s/has-session -t cowork /has-session -t sonnet /g' /etc/systemd/system/cowork-claude.service && sudo systemctl daemon-reload`
-  2. 启动 AA：`sudo systemctl start cowork-claude.service`
-  跑完 BB 验证三项：①AA 会话名=sonnet（`tmux ls`）②服务 active running ③Discord AA 频道变亮恢复回消息
-- ✅ **文档对齐已完成（2026-06-25晚，主公授权"执行"）**：4 处活文档 AA session 名已统一 sonnet — `memory/feedback_instance_mapping.md` / `memory/reference_dual_bot.md`（含删过时"撞名"警告）/ `scripts/claude_runner.sh`（注释修正+加 ExecStop 同步警示）/ `reference/knowledge_base.md` L481。全仓扫描确认无残留（历史轨迹文件 setup_log/log 不动）
+✅ **已完成：AA 改名 sonnet 隐患修复 + cowork sudo 根治（2026-06-26晚）**
+- **AA改名隐患闭环**：主公经DO网页Console重置root密码登入，root终端执行`sed -i 's/-t cowork/-t sonnet/g' cowork-claude.service`+`daemon-reload`，`systemctl show`验证ExecStop已`-t sonnet`。CC进程树核实(MainPID716起PID779=tmux new-session -s sonnet=AA实际session,铁证)。三层全对齐:脚本SESSION=sonnet / 实际跑sonnet / service停止喊sonnet
+- **cowork用户sudo根治**：`usermod -aG sudo cowork`+`passwd cowork`(解锁设新密码)，`su - cowork`后`sudo whoami`返回root验证通过。以后系统级操作cowork直接sudo输密码，不必再走DO网页重置root那一长串。注:三实例进程是加组前启动的,需实例重启才刷新带sudo组
+- **三实例命名全字段对齐核查**：实地核三层(脚本/进程树/ExecStop)全一致——AA=sonnet、BB=cowork_opus、CC=cowork_opus2；三service全active+enabled；三HOME独立；三Discord token的bot app id逐一对上权威表reference_dual_bot第19行。结论:命名零混乱
+- **遗留**：`cowork-claude.service.bak_20260626`(root终端建的备份)需7/3兜底删
+
+本次完成（2026-06-26晚 — AA改名隐患修复 + cowork sudo根治 + 三实例命名核查 + 自动同步机制评估）：
+- **协助主公DO root救援登录**：DO网页Console重置root密码全程引导(临时密码填位纠错/Current password先输临时密码再设新/分页器q退出等手把手)
+- **AA改名sonnet隐患彻底修复**：service ExecStop旧名cowork→sonnet+daemon-reload，进程树实锤AA实际session=sonnet，三层命名全对齐闭环
+- **cowork用户sudo根治**：加sudo组+解锁设密码，sudo whoami=root验证；以后系统级操作不必再走DO重置root
+- **三实例命名全字段对齐核查**：三层(脚本/进程树/ExecStop)+service状态+HOME+token app id全核，零混乱
+- **配置↔文档自动同步机制评估**(纯评估未做)：核心约束=手动改不经Claude故hook无效，唯一可靠=定时校验；grep friction证痛点频率极低(一年个位数)→判断不值得做常驻监控(违YAGNI+token经济)；保险方案=留到收工时加轻量一致性快检(零常驻)；主公拍板"今天先别做"
 
 本次完成（2026-06-26早 — 技术债盘点 + 授权机制大白话解释 + sonnet文档同步收尾）：
 - **cowork系统技术债盘点**：按真实数据(CURRENT_SESSION+friction_log+BACKLOG)分3档——🔴急(sonnet收尾/2bak 7/2删/1待审记忆)🟡中(⭐授权机制23条占62%最大债:剩B响应级粒度+C授权词覆盖；8条待验证规则)🟢慢(BACKLOG想法债有触发条件不算债)；判断=真该上心只#4授权机制
