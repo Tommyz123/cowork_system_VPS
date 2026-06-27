@@ -149,16 +149,22 @@ def main():
 
             elif status in ("expired", "canceled", "rejected"):
                 # reconcile: DB 同步成 broker 真实状态（核心：避免 ghost positions 反模式复发）
+                # 2026-06-27 新增：记录过期原因（exit_reason），免去事后联网逐笔拉 Alpaca。
+                #   OPG 单只参与开盘集合竞价那一瞬，未撮合即作废 → 经实测 10 笔全在开盘 0-5 分钟内
+                #   expired/filled_qty=0（2026-05-19/05-26 批）。原因摘要含 Alpaca 终态时间 + 成交股数。
+                ts_field = order.get("expired_at") or order.get("canceled_at") or order.get("failed_at") or ""
+                ts_short = ts_field[:19].replace("T", " ") + " UTC" if ts_field else "时间未知"
+                reason = f"{status}@{ts_short} filled_qty={filled_qty:g}（OPG开盘未撮合，市价单非价格因素）"
                 conn.execute(
                     "UPDATE trades SET status = ? WHERE id = ?",
                     (status, trade_id),
                 )
                 conn.execute(
-                    """UPDATE scanner_picks SET status = ?
+                    """UPDATE scanner_picks SET status = ?, exit_reason = ?
                        WHERE symbol = ? AND cohort = 'auto_pending'""",
-                    (status, symbol),
+                    (status, reason, symbol),
                 )
-                print(f"  ⚠️ {status}: trades + scanner_picks 标记 {status}（下游持仓查询自动过滤）")
+                print(f"  ⚠️ {status}: trades + scanner_picks 标记 {status} | 原因: {reason}")
                 counts[status] += 1
 
             else:

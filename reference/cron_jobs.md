@@ -45,6 +45,7 @@ PATH=/home/cowork/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 | `50 16 * * 1` (周一 16:50) | `trading/theme_heatmap.py` | **信号升温榜**（theme_discovery 阶段0 排雷）：列近30天信号突然变多的股票+升温倍数+🟢🔴好坏消息+板块+持仓标记，发 Discord。验证"信号聚集→能预示主题"地基假设；纯读 DB 不碰下单 | `trading/theme_heatmap.log` |
 | `30 9 24 8 *` (2026-08-24 9:30, 一次性) | `trading/heatmap_review_reminder.py` | **升温榜8周验收提醒**：到排雷期满那天自动 Discord 提醒主公验收（命中率≥60%+认可→进阶段1 / 不到→停）。脚本内置日期守卫(<8/24自动跳过)；触发后此 cron 可删 | `trading/heatmap_review_reminder.log` |
 | `0 17 * * 1` (周一 17:00) | `trading/post_exit_tracker.py` | 平仓后追踪：记录已平仓票平仓日之后走势(post_exit_peak/3m_return)，验证 P9 卖出时机；平仓日期取自 trades.exit_date，无 exit_date 的历史平仓票跳过等补齐；纯观察不碰选股/下单 | `trading/post_exit_tracker.log` |
+| `5 17 * * 1` (周一 17:05) | `trading/unfilled_tracker.py` | **未成交票纸面跟踪**（验证选股眼光）：对 OPG 过期票(没买到)从信号日起跟踪股价，数据层写 unfilled_track_*(客观涨跌)+审计层用确定性规则(>+2%对/<-2%错)打 audit_pick_verdict；三层分离不碰判断 verdict；接 P9「过期单也对答案」/主题累积研究loop数据地基(B-轻量版,2026-06-27)；纯观察不碰选股/下单 | `trading/unfilled_tracker.log` |
 | `30 16 * * 3` (周三 16:30) | `trading/thesis_monitor.py` | 持仓 thesis 监控 | `trading/thesis_monitor.log` |
 | `0 16 * * 0` (周日 16:00) | `trading/weekly_review.py` | 周报 | `trading/weekly.log` |
 | `30 20 * * 1-5` (工作日 20:30) | `trading/price_guard.py` | 价格守卫 | `trading/price_guard.log` |
