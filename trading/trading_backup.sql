@@ -300,6 +300,11 @@ INSERT INTO "alt_signals" VALUES(1178,'gtrends_theme','公用事业现代化','u
 INSERT INTO "alt_signals" VALUES(1232,'gtrends_theme','AI 电力','data center energy demand','2026-06-20',3,'serpapi','2026-06-21 19:45:07');
 INSERT INTO "alt_signals" VALUES(1286,'gtrends_theme','分析师重定价','stock upgrade','2026-06-20',28,'serpapi','2026-06-21 19:45:08');
 INSERT INTO "alt_signals" VALUES(1340,'gtrends_theme','行业重分类','sector rotation','2026-06-20',15,'serpapi','2026-06-21 19:45:12');
+INSERT INTO "alt_signals" VALUES(1394,'gtrends_theme','AI 软件','generative AI software','2026-06-27',24,'serpapi','2026-06-28 19:45:05');
+INSERT INTO "alt_signals" VALUES(1448,'gtrends_theme','公用事业现代化','utility infrastructure','2026-06-27',14,'serpapi','2026-06-28 19:45:07');
+INSERT INTO "alt_signals" VALUES(1502,'gtrends_theme','AI 电力','data center energy demand','2026-06-27',27,'serpapi','2026-06-28 19:45:09');
+INSERT INTO "alt_signals" VALUES(1556,'gtrends_theme','分析师重定价','stock upgrade','2026-06-27',38,'serpapi','2026-06-28 19:45:10');
+INSERT INTO "alt_signals" VALUES(1610,'gtrends_theme','行业重分类','sector rotation','2026-06-27',38,'serpapi','2026-06-28 19:45:20');
 CREATE TABLE decisions (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             date TEXT, symbol TEXT, signal TEXT,
@@ -479,6 +484,62 @@ INSERT INTO "insider_transactions" VALUES(162,'2026-05-06','MSFT','2026-01-30','
 INSERT INTO "insider_transactions" VALUES(163,'2026-05-06','TSLA','2026-04-30','Sale at price 369.01 - 384.28 per share.','26,409','未知价格','2026-05-06 16:02:56');
 INSERT INTO "insider_transactions" VALUES(164,'2026-05-06','TSLA','2026-04-30','Conversion of Exercise of derivative security at price 14.99 per share.','40,948','未知价格','2026-05-06 16:02:56');
 INSERT INTO "insider_transactions" VALUES(165,'2026-05-06','TSLA','2026-03-31','Conversion of Exercise of derivative security at price 20.57 per share.','20,000','未知价格','2026-05-06 16:02:56');
+CREATE TABLE narrative_discard_log (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            ticker TEXT,
+            title TEXT,
+            discard_date TEXT
+        );
+INSERT INTO "narrative_discard_log" VALUES(1,'VST','Nancy Pelosi 持仓变动(与VST假设无关-噪音)','2026-06-28');
+INSERT INTO "narrative_discard_log" VALUES(2,'VST','分红冠军周报(与假设无关-噪音)','2026-06-28');
+CREATE TABLE narrative_draft_archive (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  ticker TEXT,
+  draft_date TEXT,
+  draft_text TEXT,
+  news_count INTEGER,
+  created_at TEXT
+);
+CREATE TABLE narrative_evidence (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            hypothesis_id INTEGER NOT NULL,       -- 绑不到假设就别建
+            direction TEXT,                       -- 支持/反对
+            confidence_before INTEGER,
+            confidence_after INTEGER,
+            summary TEXT,                         -- 客观事实摘要，零主观
+            source TEXT,
+            source_type TEXT,                     -- SEC/PR/媒体/分析师...
+            event_date TEXT,
+            logged_at TEXT, adoption TEXT DEFAULT '待定',
+            FOREIGN KEY (hypothesis_id) REFERENCES narrative_hypotheses(id)
+        );
+INSERT INTO "narrative_evidence" VALUES(1,2,'支持',3,3,'宏观叙事:AI热潮被普遍定性为"世纪级能源交易",强化AI→电力需求大方向(但属泛行业叙事,非VST公司层硬证据,故信心维持不涨)','Finnhub company-news','媒体','2026-06-27','2026-06-28 01:26','待定');
+CREATE TABLE narrative_hypotheses (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            ticker TEXT NOT NULL,
+            statement TEXT NOT NULL,
+            trigger_condition TEXT,
+            invalidation_condition TEXT,
+            confidence INTEGER DEFAULT 3,        -- 1-5
+            status TEXT DEFAULT '成立中',
+            importance TEXT DEFAULT '核心',       -- 核心/次要/仅观察
+            next_review_date TEXT,
+            created_at TEXT,
+            updated_at TEXT
+        );
+INSERT INTO "narrative_hypotheses" VALUES(2,'VST','VST 可能受益于 AI 数据中心带来的电力需求结构性上升，电价/供电合同有放量空间。【观察点(原假设B,降级挂此)：核电资产可能因AI需稳定基荷电力被重新定价(类CEG逻辑)，若A成立顺带验证】','下季财报若新签数据中心供电合同 或 capacity 明显增量（阈值待8/6财报补实）→ 加仓预警；附带看核电长协/直供协议落地=重估信号','连续两季无新增数据中心相关合同 / 电力需求叙事被证伪',3,'成立中','核心','2026-08-06','2026-06-27 23:45','2026-06-27 23:45');
+INSERT INTO "narrative_hypotheses" VALUES(3,'VST','需盯 VST 利润增长来自''发电量增加''还是''电价上涨''——纯电价驱动不可持续(承袭六维框架⑥量vs价)。','财报拆分显示利润量价结构（阈值待8/6财报补实）','增长全靠一次性电价尖峰 / 量无增长',3,'成立中','次要','2026-08-06','2026-06-27 23:45','2026-06-27 23:45');
+CREATE TABLE narrative_weekly_checkins (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            ticker TEXT NOT NULL,
+            checkin_date TEXT,
+            top_hypothesis_change TEXT,
+            action_view TEXT,                     -- 买/持/加/减/避/等
+            reason TEXT,
+            what_changes_my_mind TEXT,
+            created_at TEXT
+        );
+INSERT INTO "narrative_weekly_checkins" VALUES(1,'VST','2026-06-28','建档基线周。假设A收到宏观叙事弱支持(AI=世纪能源交易),但无公司层硬证据,信心维持3。另注意一条卖方"margin for error有限"提示(挂假设C量vs价风险监控)','等','刚建档,核心证据要等8/6财报(数据中心合同/capacity/量价拆分),现阶段不动作','8/6财报:若新签数据中心供电合同或capacity明显增量→假设A信心升转加仓预警;若增长全靠电价尖峰→假设C失效预警','2026-06-28 01:26');
 CREATE TABLE news (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             date TEXT, symbol TEXT, headline TEXT,
@@ -2997,6 +3058,10 @@ INSERT INTO "sqlite_sequence" VALUES('insider_transactions',165);
 INSERT INTO "sqlite_sequence" VALUES('trades',43);
 INSERT INTO "sqlite_sequence" VALUES('signals',5880);
 INSERT INTO "sqlite_sequence" VALUES('outcome_tracking',18);
-INSERT INTO "sqlite_sequence" VALUES('alt_signals',1340);
+INSERT INTO "sqlite_sequence" VALUES('alt_signals',1610);
 INSERT INTO "sqlite_sequence" VALUES('thesis_alerts',3);
+INSERT INTO "sqlite_sequence" VALUES('narrative_hypotheses',3);
+INSERT INTO "sqlite_sequence" VALUES('narrative_evidence',1);
+INSERT INTO "sqlite_sequence" VALUES('narrative_discard_log',2);
+INSERT INTO "sqlite_sequence" VALUES('narrative_weekly_checkins',1);
 COMMIT;

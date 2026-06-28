@@ -31,7 +31,7 @@ last_audit_date: 2026-06-25
 | P4 | 每日新闻日报 | ✅ cron运行中 | 2026-05-10 | 5/10补发成功；root权限/tmp/news_ai.txt问题已确认不影响当前脚本 |
 | P6 | 机票监控 Agent | ✅ cron运行中 | 2026-06-24 | 已迁VPS（周二/四17:30），最近6次全成功；6/23快照EWR→CAN超经$2590历史最低；JFK→CAN经济直飞长期无数据待查 |
 | P7 | Mac mini价格监控 | ✅ cron运行中 | 2026-04-23 | HTML邮件（链接藏入<a>标签）；今日eBay $305触发提醒 |
-| P9 | AI量化交易系统 TIDE | ✅ cron运行中 | 2026-06-27 | 账户/持仓/盈亏实时查 Alpaca（不写死）；账本↔券商零 ghost；**新增「过期单也对答案」闭环(6/27)**：sync记过期原因+unfilled_tracker.py(数据层跟踪没买到的票股价+审计层确定性规则打对/错,三层分离)+周一17:05 cron自动跑，首份选股眼光成绩单=10笔对5错4待定1选对率56%；待办=FERC哨兵命中未人工确认+8/24 loop验收；**留尾**：①历史verdict='tentative'25笔污染未清②B完整版(agent审计)压8/24后③BACKLOG新增"新闻追踪自动持续化"待讨论；下一步=每周看榜+8/24验收 |
+| P9 | AI量化交易系统 TIDE | ✅ cron运行中 | 2026-06-28 | 账户/持仓/盈亏实时查 Alpaca（不写死）；账本↔券商零 ghost；**新增「公司叙事追踪系统」MVP上线(6/28)**：核心="新闻不是资产假设才是资产";5表(narrative_*)+3脚本(dossier录入/earnings_watch财报哨兵每天08:00/weekly_sentinel周记哨兵每周一08:30出草稿)+三级记录透明规则;VST1只试点等8/6财报第一次对答案,通过再铺3只;"建仓即移交"边界防与持仓监控打架;CC/Codex四轮对抗审核+取神去形;详见trading/notes/新闻追踪方案_2026-06-27.md｜**留尾**：①历史verdict='tentative'25笔污染未清②loop B完整版压8/24后③FERC等二阶段最终规则；下一步=下周一收首份周记草稿+8/6 VST对答案+8/24 loop验收 |
 
 ---
 
@@ -976,6 +976,16 @@ last_updated: 2026-06-04
 状态：✅ P9 cron运行中(不动不加码,12月验收) + **趋势主线全套基建落地(手册v1.1+地图+选股候选+观察池+双哨兵+信号作战表)**；**FERC一阶段已落(6/18 show cause orders非终局)**，等二阶段最终规则(约8-9月)触发第一份一页纸方案
 last_updated: 2026-06-24
 停在：趋势主线"等待触发"——FERC等二阶段最终规则；追踪档案阶段2-B轨迹自动写入上线；首仓双闸=FERC最终规则落地且利好+7月底capex季检。**FERC哨兵6/22-24三连命中已全部人工确认=同一6/18事件复述、门未开（详见trading/notes/E1_FERC_RM26-4.md第九节）**
+
+本次完成（2026-06-28 — 公司叙事追踪系统 MVP 全流程落地）：
+- **从模糊诉求到上线全闭环**：主公6/27提"新闻追踪"→多轮理解对齐→CC/Codex**四轮**对抗审核→核心哲学"新闻不是资产假设才是资产"→取神去形(砍Codex 6表/四闸/档案预算/冷缓存/写库意图层)→落地→VST开张→自动化→三级记录透明→文档归档
+- **建仓前研究跟踪空白**：现有thesis_monitor/scanner_picks/dossier全盯已建仓持仓票,这套补"建仓前/观察期对象持续假设追踪+对答案";边界铁律=建仓即移交(status'已移交持仓监控')
+- **5表**(trading.db)：narrative_hypotheses(假设主角)/narrative_evidence(证据绑假设id+adoption采纳字段)/narrative_weekly_checkins(周记)/narrative_discard_log/narrative_draft_archive(草稿留痕)
+- **3脚本**：narrative_dossier.py(录入CLI)/narrative_earnings_watch.py(每天08:00财报哨兵,数据驱动解析追踪票,yfinance查财报日临近提醒)/narrative_weekly_sentinel.py(每周一08:30,Finnhub抓新闻+claude CLI出周记草稿+Discord发,红线只出草稿不落库)
+- **三级记录透明铁律**：🔴动账本逐条报"记什么+为什么"｜🟡证据入库可拦(MVP手动dossier天然满足)｜🟢纯留痕汇总报+声明未改判断;判断线=透明对象是"语义动作"非"数据库动作"
+- **VST试点开张**：假设A核心(AI电力需求含核电观察点)+假设C次要(量vs价),均信心3复看8/6;阈值诚实标"待核实"等8/6财报补实;Finnhub抓18条新闻so what筛过,首周记入库;首次正式哨兵运行成功
+- **守纪律**：三次自纠过度工程(守YAGNI)+不重复造轮子(接住现有loop设计)+数据诚信(不编VST数字)+token过期停下请示不绕守卫
+- **归档**：方案trading/notes/新闻追踪方案_2026-06-27.md+playbook加整节+memory写project_p9_narrative_tracker.md+cron_jobs登记2哨兵
 
 本次完成（2026-06-24晚 — 一条FERC新闻引出文档纪律连锁+E1独立档案范式）：
 - **FERC哨兵E1人工确认**：WebFetch读6/22 utilitydive文→实锤=6/18 show cause复述、非新进展、非终局规则（门未开）；连6/22+6/23+6/24三连命中核实全是同一事件回声、真·新事0

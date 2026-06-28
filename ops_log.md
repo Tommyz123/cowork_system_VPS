@@ -513,3 +513,10 @@
 [2026-06-27 10:08 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P2(SYS) commit:18cb237 草稿:1条(BB plugin结局补充+AA审核2session丢弃)
 [2026-06-27 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
 [2026-06-27 14:54 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:26c7773 草稿:CC 4条送审(2 INSIGHTS/1 friction/1 playbook)
+[2026-06-27 17:05 EDT] CRON[ferc_watch] | daily | 🚨 | 命中 1 条，已报警 | 标题: FERC Issues Show Cause Order on Large Load Interconnection Reforms to Support Data Centers and Advanced Manufacturing
+[2026-06-27 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-27 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-06-28 02:03 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 245.127 MiB (257034474 Byte) → Google Drive
+[2026-06-28 08:00 EDT] CRON[P9] | narrative_earnings_watch | ✅ | 完成
+[2026-06-28 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-06-28 16:00 EDT] CRON[P9] | weekly_review | ✅ | 完成

@@ -116,7 +116,9 @@ conn.close()
 ⚠️ 这条是「带证伪心态做」的总纲：主动选股长期跑赢大盘极难（专业基金大多输给指数），所以验证标准必须狠，但认输标准也必须高。
 
 ## 自动运行流程（纽约时间 EDT）
+- 每天 **08:00**：narrative_earnings_watch（叙事追踪财报哨兵：追踪票财报临近≤5天提醒对答案）
 - 每天 **16:00**：signal_collector / signal_alert / catalyst_monitor（三件套）
+- 每周一 **08:30**：narrative_weekly_sentinel（叙事追踪周记哨兵：抓新闻+AI出周记草稿+Discord发，只出草稿不落库）
 - 每天 **20:30**（工作日）：price_guard（持仓跌幅 >7% 告警）
 - 每天 **21:00**：price_snapshot（30/60/90 天节点价格记录）
 - 每周一 **16:30**：scanner_tracker（持仓周报→Discord）
@@ -185,6 +187,15 @@ SELECT symbol, alert_date, thesis_status, headline_summary FROM thesis_alerts OR
 - **喂趋势协议**：主公丢一句话方向 → 我 24h 内交"硬数据+六维打分+像案例库谁+三选一归宿（过线入图深挖/苗头进观察池/不亮存档讲原因）"
 - **当前状态（2026-06-12）**：等待触发——FERC 裁决落地（哨兵报警）→ 第一份一页纸方案（CEG/VST 重估）→ 7 月底 capex 季检 → 双闸过 → 第一仓讨论
 - **2026-06-10 实证（方向定案依据）**：15 只持仓分析师覆盖 5-11 个、无一 ≤2——P9 赚钱票全是趋势股（AGYS +30%/LIF +20%）、亏钱票全是捡漏逻辑（SOUN/LZ/VRRM），实际赚的就是主题趋势钱
+
+## 📓 公司叙事追踪系统（2026-06-27 上线，MVP）
+P9 子系统，「主题累积研究 Loop」的**公司粒度分支**。方案全文 `trading/notes/新闻追踪方案_2026-06-27.md`。
+- **核心哲学**：「新闻不是资产，假设才是资产。绑不到任何假设的信息不准进档案。」防沦为"勤奋新闻笔记库"。
+- **补的空白**：现有 thesis_monitor/scanner_picks/dossier 全盯"已建仓持仓票"，这套补"**建仓前/观察期**对象的持续假设追踪+对答案"。**边界铁律=建仓即移交**（对象真建仓→假设追踪移交持仓监控，status 置`已移交持仓监控`，本系统只管建仓前）。
+- **5 表**（trading.db）：narrative_hypotheses(假设主角) / narrative_evidence(证据,绑假设id+adoption采纳字段) / narrative_weekly_checkins(周记) / narrative_discard_log(被丢标题) / narrative_draft_archive(草稿存档)。
+- **3 脚本**：`narrative_dossier.py`(手动录入CLI:init/add-hypo/add-evi/checkin/show) / `narrative_earnings_watch.py`(每天08:00财报哨兵,数据驱动解析追踪票) / `narrative_weekly_sentinel.py`(每周一08:30周记哨兵,抓新闻+claude CLI出草稿+Discord发,**红线=只出草稿不落库**)。
+- **记录透明度铁律（三级）**：🔴动账本(改假设/信心/判应验失效/采纳驳回)逐条报"记什么+为什么"｜🟡证据入库(选哪条新闻/归因)让人看见可拦(MVP靠手动dossier天然满足)｜🟢纯留痕(草稿/快照/日志)汇总报+声明未改判断。判断线=透明对象是"语义动作"非"数据库动作"。
+- **当前状态**：VST 1 只试点（假设A核心=AI电力需求含核电观察点/假设C次要=量vs价，均信心3、复看8/6）。先跑 6-8 周验流程，**结论限定"工作流值不值得扩展"非"系统有效"**，通过再铺3只。**8/6 VST财报=第一次对答案+补实"待核实"阈值**。人机分工=哨兵自动+CC每周绑证据出判断+主公审稿+关键点拍板。
 
 ## 当前阶段（2026-06-10 更新）
 积累阶段（纸账号 swing；equity/cash 实时查 Alpaca，不写死）：

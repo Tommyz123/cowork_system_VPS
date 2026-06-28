@@ -54,6 +54,8 @@ PATH=/home/cowork/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sb
 | `30 18 1-7 2,5,8,11 1` (季度首周一 18:30) | `trading/quarterly_review.py` | 季度复盘 | `trading/quarterly_review.log` |
 | `45 13 * * 1-5` (工作日 9:45 EDT) | `trading/sync_fill_prices.py` | 开盘后同步 fill_price（Swing 账号实际成交价回填 trades/scanner_picks/outcome_tracking） | `trading/fill_price_sync.log` |
 | `45 15 * * 0` (周日 15:45 EDT) | `trading/gtrends_collector.py` | P9 alt-data sidecar：SerpAPI 拉 5 个 P9 theme 关键词 Google Trends search volume，写入 alt_signals 表；完全独立于 P9 主线，不进评分不进 weekly_review；主公 on-demand query 用（研究纪律：1 年后 sample 累积再考虑入评分） | `trading/gtrends_collector.log` |
+| `0 8 * * *` (每天 08:00 EDT) | `trading/narrative_earnings_watch.py` | 公司叙事追踪 MVP 财报日哨兵：从 `narrative_hypotheses` 表解析在追踪的公司(数据驱动不硬编码)→yfinance 查下次财报日→临近≤5天 Discord 提醒"该对照假设触发/失效条件对答案"；财报日只当提醒不当死排期(每次重查+记抓取时间)；空表不报错。配套核心=`narrative_dossier.py`(手动录入假设/证据/周记 CLI)；方案见 `trading/notes/新闻追踪方案_2026-06-27.md`；2026-06-27 新建，先 VST 1 只跑 6-8 周验证 | `trading/narrative_earnings_watch.log` |
+| `30 8 * * 1` (每周一 08:30 EDT) | `trading/narrative_weekly_sentinel.py` | 公司叙事追踪 MVP 周记哨兵：抓追踪票本周新闻(Finnhub)→claude CLI 让 AI 筛新闻/绑假设/提信心建议→生成"周记草稿"→Discord 发主公(分段)。⚠️红线=**只出草稿、只读不写判断**(不改信心/不插 evidence)，落库改信心需主公与 CC 讨论后人手动；草稿建议采纳/驳回记 `narrative_evidence.adoption`(成绩单第③层原料)。MVP 头几周定位=考核 AI 草稿靠不靠谱，非享受自动化。2026-06-28 新建 | `trading/narrative_weekly_sentinel.log` |
 
 **Trading 时间调整记录（2026-05-11）:** scanner_tracker→16:30, price_tracker→16:45, thesis_monitor→16:30, run_scanner→17:00, quarterly_review→18:30（错开 DB 冲突）
 **2026-05-18 时间调整:** run_scanner→19:30（Alpaca OPG orders 需在 7pm EDT 后提交，原 17:00 触发导致全批 403 拒单）
