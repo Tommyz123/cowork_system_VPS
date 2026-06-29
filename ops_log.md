@@ -543,4 +543,5 @@
 [2026-06-29 17:05 EDT] CRON[P9] | unfilled_tracker | ✅ | 完成
 [2026-06-29 17:05 EDT] CRON[ferc_watch] | daily | ✅ | 无命中（静默）
 [2026-06-29 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
-[2026-06-29 18:13 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:待提交 草稿:0条
+[2026-06-29 18:13 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:b3500a7 草稿:0条
+[2026-06-29 19:52 EDT] SKILL[SYS] | 保存进度 | ✅ | [P9] 进度已保存(第2层待开工+第1层规格搁置留底)
