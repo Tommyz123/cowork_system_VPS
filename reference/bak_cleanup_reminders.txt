@@ -1,0 +1,1 @@
+[设于2026-06-28] 2026-07-05 后删除 hook 备份: /home/cowork/.claude/hooks/git_commit_guard.sh.bak_20260628_220723 + /home/cowork/cowork/.claude/settings.json.bak_20260628_220723 (授权债#4修复备份,git history已留底)

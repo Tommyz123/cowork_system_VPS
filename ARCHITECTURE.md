@@ -116,13 +116,14 @@ Desktop/
 
 | Hook | 触发时机 | 作用 |
 |------|---------|------|
-| `git_commit_guard.sh` | PreToolUse(Bash) | 拦截 git commit/push；拦截 Claude 自行 touch task_approved |
+| `git_commit_guard.sh` | PreToolUse(Bash) | 拦截 git commit/push；拦截 Claude 自行 touch task_approved；savework 锁精确匹配放行+30分钟 TTL 过期拦截（2026-06-28 授权债#4修复）|
 | `system_file_guard.sh` | PreToolUse(Edit/Write) | 白名单放行；其他文件需 task_approved token |
-| `discord_approve.py` | UserPromptSubmit | 检测授权关键词（"执行"等）→ 自动 touch task_approved |
+| `discord_approve.py` | UserPromptSubmit | 检测授权关键词（"执行"等）→ 自动 touch task_approved；"收工/保存进度"额外写 git_approved=savework |
+| `clear_git_unless_savework.sh` | UserPromptSubmit | 每条新消息清 git 授权锁，但豁免新鲜 savework 锁（收工跨多响应不误清）+ 超30分钟视为残留照清（2026-06-28 授权债#4修复，取代原无条件 `clear git`）|
 | `discord_ts_convert.py` | UserPromptSubmit | Discord 消息时间戳转换 → 注入纽约时间上下文（`⏰ Discord消息时间`） |
 | `honesty_check.sh` | Stop | 检测声称读完但实际只读了部分文件 |
 | `discord_reply_check.sh` | Stop | Discord 消息漏回复时 block |
-| `rm -f /tmp/task_approved` | UserPromptSubmit | 每次主公发消息自动清除授权 token |
+| `token_utils.sh clear task` | Stop | 每个响应结束清除 task 授权 token（响应级授权）|
 
 **子Agent 协作层**（2026-06-07 精简：路由判断改用平台内置自动匹配，删除手写①②④判据）：
 

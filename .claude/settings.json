@@ -91,7 +91,7 @@
           },
           {
             "type": "command",
-            "command": "bash /home/cowork/.claude/hooks/token_utils.sh clear git"
+            "command": "bash /home/cowork/.claude/hooks/clear_git_unless_savework.sh"
           },
           {
             "type": "command",

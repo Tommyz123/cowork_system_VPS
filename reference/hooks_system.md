@@ -1,6 +1,6 @@
 # Cowork Hook 系统文档
 
-> 最后更新：2026-06-07（新增 token_utils.sh，统一 token 操作，消除四处分散的实例推导逻辑）
+> 最后更新：2026-06-28（授权债#4修复：UserPromptSubmit 无条件 `clear git` → `clear_git_unless_savework.sh`，savework 锁豁免+30分钟 TTL，根治收工 git commit 死循环）
 > **配置分层**：通用 hook 放项目共享层 `/home/cowork/cowork/.claude/settings.json`（AA/BB/CC 自动合并继承）；实例专属 hook 才放用户层 `$HOME/.claude/settings.json`
 > Hook 脚本位置：`/home/cowork/.claude/hooks/`（三实例共用此路径）和 `cowork/scripts/`
 
@@ -46,10 +46,10 @@
 | UserPromptSubmit | memory_capture.sh | 收到消息 | 每10轮触发记忆捕获提醒；有待审记忆时提醒 |
 | UserPromptSubmit | position_check.py | 收到消息 | P9 TIDE 持仓状态检查 |
 | UserPromptSubmit | `echo '...'`（内联） | 收到消息 | 注入日志提醒（写 cowork_log.md） |
-| UserPromptSubmit | `rm -f /tmp/task_approved_<实例>`（内联） | 收到消息 | 清除上轮授权 token（带实例后缀），防止跨任务串用 |
+| UserPromptSubmit | clear_git_unless_savework.sh | 收到消息 | 清 git 授权锁，但豁免新鲜 savework 锁（收工跨多响应不误清）；超30分钟视为残留照清（2026-06-28 授权债#4，取代原无条件 `clear git`）|
 | Stop | discord_reply_check.sh | Claude 输出后 | 检测 Discord 消息是否漏回复，漏发则 block |
 | Stop | honesty_check.sh | Claude 输出后 | 检测声称读完但实际只读了部分文件 |
-| Stop | `rm -f /tmp/task_approved_<实例>`（内联） | Claude 输出后 | 响应结束时清除任务授权 token，实现响应级授权 |
+| Stop | `token_utils.sh clear task`（内联） | Claude 输出后 | 响应结束时清除任务授权 token，实现响应级授权 |
 
 *`discord_ts_convert.py` 位于 `cowork/scripts/`，非 hooks/ 目录
 
@@ -62,9 +62,10 @@
 #### `git_commit_guard.sh`
 - **触发**：任何 Bash 命令
 - **逻辑1（git 守卫）**：命令含 `git commit` 或 `git push` → 拦截，提示先列变更等主公确认；需主公执行 `touch /tmp/git_approved_<实例>` 解锁（实例由 $HOME 推导）
+- **逻辑1b（savework 放行，2026-06-28 授权债#4）**：git 锁内容**精确整行**匹配 `savework`（`grep -qx`，防 substring 伪装）→ 放行且**不消耗**（覆盖整个收工流程的 commit+push）；但加 **30 分钟 mtime TTL**：锁文件超 30 分钟视为残留过期 → 清掉+拦截+提示重发"收工"（防收尾 clear 没跑成导致非收工任务被无条件放行，Codex 评审风险点）
 - **逻辑2（touch 守卫）**：命令含 `touch /tmp/task_approved`（含后缀变体）→ block，提示"Claude 无权自行授权，需主公通过 Discord 触发"
 - **逻辑3（实例守卫）**：$HOME 无法推导实例身份 → 拒绝放行 git 操作
-- **为什么**：git 操作不可逆；task_approved 自授权等于无守卫；token 带实例后缀防三实例串用
+- **为什么**：git 操作不可逆；task_approved 自授权等于无守卫；token 带实例后缀防三实例串用；savework TTL 防授权窗口无限延长
 
 #### `system_file_guard.sh`
 - **触发**：Edit 或 Write 工具
@@ -94,7 +95,13 @@
 - **触发**：收到 Discord 消息
 - **授权关键词**：「可以执行」「开始执行」「直接开始」「可以开始」「执行吧」「执行」「做吧」「去做」「好的做」「开始」「可以」「go ahead」「proceed」「approved」
 - **逻辑**：检测 prompt 里是否来自 Discord（含 `source="plugin:discord:discord"`）且包含关键词 → `touch /tmp/task_approved_<实例>`（实例由 $HOME 推导，推导失败则不授权），注入授权确认消息
+- **savework 分支**：命中「收工」「保存进度」时额外 `token_utils.sh write-savework`（写 git_approved=savework），放行整个收工流程的 commit+push；收工优先扫描，防"可以，收工"组合句被普通授权词截胡（friction 2026-06-19/06-23）
 - **为什么**：让主公在 Discord 手机端就能授权文件修改，不需要 SSH 进终端
+
+#### `clear_git_unless_savework.sh`（2026-06-28 授权债#4修复）
+- **触发**：每条 Discord 消息（UserPromptSubmit，排在 discord_approve.py **之前**）
+- **逻辑**：清 git 授权锁前先判内容——`grep -qx savework` 精确匹配且 mtime < 30 分钟 → **保留不清**（收工跨多响应流程中，主公中途任意回复不再误清 savework）；普通 git 锁或超 30 分钟的残留 savework 锁 → 照清
+- **为什么**：取代原 UserPromptSubmit 链里**无条件** `token_utils.sh clear git`——那条导致收工跨十几条响应时，主公中途说"好了吗/继续"就把 savework 清掉 → commit 被守卫拦 → 死循环（6+次复发，6/26 卡20分钟）。TTL 兜底防锁残留→非收工任务过度授权（Codex 2026-06-28 评审）
 
 #### `discord_reply_flag.py`
 - **触发**：收到 Discord 消息
