@@ -488,3 +488,14 @@ headers = {"x-apikey": API_KEY}  # 全小写，无连字符
   - BB（opus）：`tmux -L opus_socket kill-server`
   - CC（opus2）：`tmux -L opus2_socket kill-server`
 - **runner 路径**：`cowork/scripts/claude_runner.sh` / `claude_opus_runner.sh` / `claude_opus2_runner.sh`
+
+---
+
+**数据聚合前必做「常识校验 + 口径核验」（2026-06-30 花$9错误教训）**[ref-worthy]
+- **教训**：P8 Sage Seeds 把 Alpine IQ `parentCategory=Flower` 全当"花"算价格，得出"花中位单价 $9"——荒谬（NY 大麻花不可能 $9），主公一句"哪里有 $9 的花"点破。根因：① 没做常识校验（$9 花违反常识）② 没看 `name` 字段（Flower 分类下混了大量预卷 Pre-Roll/0.5g 小份，是预卷把中位拉低）。真实拆开：预卷中位 $7 / 散花(3.5g+) 中位 $38。
+- **规则（任何数据分析通用）**：
+  1. **输出任何价格/单价/比例统计前，先抽样看 5 条原始记录的 name + 单位**，确认聚合口径，再算。
+  2. **品类聚合前先确认子品类构成**——别把"混合品类"（如 Flower 含散花+预卷+1g 中间地带）当"单一品类"。
+  3. **任何结论先过一遍常识**：数字明显反直觉（花 $9、转化率 200%）= 大概率算错，回头查原始数据，别急着报。
+- **关联**：feedback_understand_before_act / feedback_prediction_data_first / feedback_read_before_conclude
+- [src: 86868862]
