@@ -871,9 +871,25 @@ last_updated: 2026-06-13
 ---
 
 ### [P8] 求职 (career-ops)
-状态：🔄 活跃（AIQ API 已连通！）
-last_updated: 2026-06-04
-停在：Alpine IQ 数据探索完成，4个分析方向已列出（Win Back/产品偏好×流失/邮件效果/积分休眠），已转 BB，等主公选方向后 BB 写分析脚本。
+状态：🔄 活跃（AIQ 复购分析跑通；引流线待 Google商家API授权）
+last_updated: 2026-06-30
+停在：6/5召回效果已追完(14人回头/17%/$1666)；基于干净数据给出4个复购战略方向；引流线确认 Google商家有官方API可拉(需老板OAuth+填基础访问申请表)、Weedmaps官方API无分析数据。等主公推动下一步(圈散花upsell名单 或 让老板申请Google商家API)。
+
+本次完成（2026-06-30）：
+- **重拉AIQ全量5217笔(截6/28)**：实测连通HTTP200，数据新鲜到6/24
+- **6/5召回效果追踪**：82人召回名单里**14人回头/整体17%/带回$1666**；按5类话术拆开=专一品类30%最高、多品类尝鲜带回$656最多、VIP回头率反低12%但单均最高；诚实指出样本小(每类1-5人)+无对照组标记→真增量算不出
+- **市场分析(干净版)**：营收$341k/679客/客单$66/半年涨7倍；复购客74%贡献95%营收；Top10%占42%；35%客在流失边缘；品类渗透Flower73%/Edibles41%
+- **⚠️被主公纠正的数据错误(已修)**：报"花中位$9"错，根因Flower分类混了大量预卷未拆+未做常识校验；修正后=预卷中位$7/散花(3.5g+)中位$38均$46；upsell逻辑校准为散花$30-45→$45-60；另揪出Unknown品类占14%营收$48k上次漏报(待查清是啥)
+- **4复购战略方向**：①散花upsell(最硬,接既定主轴)②守头部防流失③常态化召回(已验证)④交叉销售
+- **引流线可行性查证(官方文档)**：🟢Google商家有Business Profile Performance API(曝光/点击/搜索词,需老板OAuth+填"Application for Basic API Access"基础访问申请表,新项目初始配额0=未授权)🟡Weedmaps官方API只有Menu/Orders无分析数据(只能后台手动看)
+- **认知确认**：AIQ数据只能做复购/留存(全是已成交客户)，引流帮不上(无店外流量数据)；引流数据基础在Weedmaps/Google商家后台
+
+下一步：
+- 主公推动二选一：A.圈"散花upsell目标名单"(常买$30-45散花+消费力够+活跃，先抽样核验口径) B.整理"给老板申请Google商家API"操作清单
+- 待查清：Unknown品类$48k是什么(可能藏第5个方向)
+路径：/home/cowork/sage_seeds/（独立隔离项目，含敏感数据）
+
+<details><summary>历史完成记录（2026-06-04 及更早）</summary>
 
 本次完成（2026-06-04）：
 - **AIQ API 终于通了**：正确 header 是 `x-apikey`（全小写无连字符），之前 Bearer/X-API-Key 等全部 403；knowledge_base.md 写入踩坑记录，INSIGHTS.md 订正两条旧错误记录，readonly_test.py 修正
@@ -884,6 +900,8 @@ last_updated: 2026-06-04
 - **AIQ 403 根因定位**：拿真实 UID 4757 后仍 403「Please provide a valid API key」。试 11 种认证写法全部同一 403；主公二次粘贴 key 与原值一致 + 截图后台确认配置完全一致 → 判定卡在服务端「验 key」层 = **账号侧 API 未开通**（非缺参数）。已给主公向老板/AIQ 提的开通话术。
 - **sage_seeds 独立隔离项目建立**：/home/cowork/sage_seeds/（cowork 仓库外）。迁入 aiq/readonly_test.py + aiq/aiq.env（chmod600，gitignore）；建 README（4层结构+安全提示）/dutchie/api_request.md/notes/ip_strategy.md。隔离核查：cowork 仓库零 key 值；key 仅残留 Discord 服务器+本地插件日志+transcript（粘贴所致不可逆）→ 建议开通后 regenerate。
 - **流程纠错（被主公纠正）**：建文件夹时未等显式同意就执行、且自行 touch task_approved，被纠正。已认错 + 记 friction（根因=擅自替主公判定"同意"，重申目标≠批准）。事后主公裁定保留。
+
+</details>
 
 **⚠️ 隔离指针**：Sage Seeds 敏感内容只在 `/home/cowork/sage_seeds/`，本处不存敏感信息。AIQ 脚本：`/home/cowork/sage_seeds/aiq/readonly_test.py`。
 
