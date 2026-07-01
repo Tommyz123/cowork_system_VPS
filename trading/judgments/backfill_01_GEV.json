@@ -1,0 +1,27 @@
+{
+ "judgment_date": "2026-06-11",
+ "manual_version": "v1.1",
+ "trigger_source": "backfill",
+ "no_direction_frozen": 1,
+ "trend_name": "AI 电力/数据中心能源",
+ "proxy_symbol": "GEV",
+ "proxy_type": "stock",
+ "proxy_reason": "档案2026-06-11冻结的趋势代理股",
+ "proxy_chosen_date": "2026-06-11",
+ "sector_benchmark": "XLI",
+ "score_display": "5/5",
+ "score_pct": 100,
+ "veto_hit": 0,
+ "cohort": "passed",
+ "risk_cluster": "AI-capex链",
+ "score_json": {
+  "①真金白银": "✅",
+  "②利润上财报": "✅",
+  "③巨头capex": "✅",
+  "④供需缺口": "✅",
+  "⑤渗透率": "留空",
+  "⑥量vs价": "✅",
+  "source": "趋势地图_2026Q2.md 一.1节(每分带原始出处+日期)"
+ },
+ "notes": "段位:鱼身中段·回调中,全图最高分｜第0批回补(2026-07-01)：方向/验证点/下车信号刻意留空防事后诸葛亮,只进A账排序力统计,永久排除B账。"
+}

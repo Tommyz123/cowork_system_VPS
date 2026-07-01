@@ -1,0 +1,27 @@
+{
+ "judgment_date": "2026-06-11",
+ "manual_version": "v1.1",
+ "trigger_source": "backfill",
+ "no_direction_frozen": 1,
+ "trend_name": "AI 算力芯片(含HBM)",
+ "proxy_symbol": "NVDA",
+ "proxy_type": "stock",
+ "proxy_reason": "档案2026-06-11冻结的趋势代理股",
+ "proxy_chosen_date": "2026-06-11",
+ "sector_benchmark": "XLK",
+ "score_display": "4/5",
+ "score_pct": 80,
+ "veto_hit": 0,
+ "cohort": "passed",
+ "risk_cluster": "AI-capex链",
+ "score_json": {
+  "①": "✅",
+  "②": "✅",
+  "③": "⚠️黄灯",
+  "④": "✅",
+  "⑤": "留空",
+  "⑥": "⚠️",
+  "source": "趋势地图_2026Q2.md 一.3节"
+ },
+ "notes": "段位:鱼身中段·黄灯;光模块子链过热新仓不追｜第0批回补(2026-07-01)：方向/验证点/下车信号刻意留空防事后诸葛亮,只进A账排序力统计,永久排除B账。"
+}

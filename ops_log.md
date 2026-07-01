@@ -552,3 +552,22 @@
 [2026-06-30 08:00 EDT] CRON[P9] | narrative_earnings_watch | ✅ | 完成
 [2026-06-30 13:03 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
 [2026-06-30 14:15 EDT] SKILL[SYS] | 收工 | ✅ | 项目:[P8] commit:33f4f28 草稿:1条(引流数据源能力地图)自动写入:1条(数据常识校验)
+[2026-06-30 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-06-30 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-06-30 16:00 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-06-30 17:05 EDT] CRON[ferc_watch] | daily | ✅ | 无命中（静默）
+[2026-06-30 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-06-30 17:34 EDT] CRON[P6] | flight_monitor | ✅ | 机票日报发送完成
+[2026-06-30 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-06-30 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
+[2026-07-01 02:02 EDT] CRON[SYS] | rclone_backup | ✅ | Total size: 247.312 MiB (259325383 Byte) → Google Drive
+[2026-07-01 08:00 EDT] CRON[P9] | narrative_earnings_watch | ✅ | 完成
+[2026-07-01 13:02 EDT] CRON[P4] | daily_news | ✅ | 新闻日报推送完成
+[2026-07-01 15:06 EDT] CRON[P9] | screener | ✅ | 完成
+[2026-07-01 16:00 EDT] CRON[P9] | catalyst_monitor | ✅ | 完成
+[2026-07-01 16:00 EDT] CRON[P9] | signal_alert | ✅ | 完成
+[2026-07-01 16:01 EDT] CRON[P9] | signal_collector | ✅ | 完成
+[2026-07-01 16:37 EDT] CRON[P9] | thesis_monitor | ✅ | 完成
+[2026-07-01 17:00 EDT] CRON[SYS] | stability_check | ✅ | ❌ 需关注 新增friction:7条(37→44)
+[2026-07-01 17:05 EDT] CRON[ferc_watch] | daily | ✅ | 无命中（静默）
+[2026-07-01 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警

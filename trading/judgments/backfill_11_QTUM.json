@@ -1,0 +1,22 @@
+{
+ "judgment_date": "2026-06-11",
+ "manual_version": "v1.1",
+ "trigger_source": "backfill",
+ "no_direction_frozen": 1,
+ "trend_name": "量子计算",
+ "proxy_symbol": "QTUM",
+ "proxy_type": "etf",
+ "proxy_reason": "2026-07-01按规则3补选:Defiance量子ETF(细分ETF,比单选IONQ噪音小)",
+ "proxy_chosen_date": "2026-07-01",
+ "sector_benchmark": "XLK",
+ "score_display": "2/6",
+ "score_pct": 33.3,
+ "veto_hit": 0,
+ "cohort": "rejected",
+ "risk_cluster": "量子",
+ "score_json": {
+  "总评": "2/6(33%),全行业无一真实GAAP盈利,买家=政府/实验室示范型",
+  "source": "趋势地图_2026Q2.md 四.11节"
+ },
+ "notes": "纯信仰段;远期标记IBM 2029容错机=可能摊牌时点｜第0批回补(2026-07-01)：方向/验证点/下车信号刻意留空防事后诸葛亮,只进A账排序力统计,永久排除B账。"
+}

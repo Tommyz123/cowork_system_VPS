@@ -52,6 +52,7 @@
 - [feedback_p9_alt_data_sidecar.md](feedback_p9_alt_data_sidecar.md) — P9 alt-data sidecar（独立 P9 主线）；周日自动收集；4-8 周观察 / 1 年后才入评分
 - [feedback_read_before_conclude.md](feedback_read_before_conclude.md) — 先读信息再结论：有信息源（文件/日志/脚本/配置）禁止跳读猜测（P11 调试教训）
 - [feedback_pacing_and_plain_language.md](feedback_pacing_and_plain_language.md) — 默认逐条+大白话+术语分层（Claude Code 生态/业务领域术语直接用，底层技术术语需比喻）；"没理解"立即换比喻（2026-05-27 升级）
+- [feedback_discord_details_to_docs.md](feedback_discord_details_to_docs.md) — 多轮技术讨论发Discord：细节全收文档，消息只给"结论+唯一拍板点"；被指"越说越乱"时三句大白话收拢(要干啥/为什么/结果怎么用)+一个决定问题（2026-07-01 P9方案审核实锤）
 - [feedback_clarify_hard_requirements.md](feedback_clarify_hard_requirements.md) — "什么都行/都可以/看你"必须先追问"有没有不接受的"再讨论选项；用户说宽松词≠真的宽松，常是没想到先说底线
 - [feedback_cleanup_temp_data.md](feedback_cleanup_temp_data.md) — 做完涉及数据/文件/一次性脚本的任务后，主动提醒主公判断删多余临时数据/中间文件/临时脚本（2026-06-06；2026-06-24补点名「临时脚本」也纳入；上次堆17个垃圾文件教训）
 - [feedback_self_organize_artifacts.md](feedback_self_organize_artifacts.md) — 每完成一摊多文件产出，自动整合进专门文件夹+写README+context.md登记位置，不等提醒（2026-06-06；给未来Claude看懂上下文）
@@ -60,6 +61,7 @@
 - [feedback_p9_strategy_discipline.md](feedback_p9_strategy_discipline.md) — P9 优化提案先过"是否改了策略本身"关；攒样本只能框架内拓宽广度，不能改扫描频率（数据回来前不改策略）
 - [feedback_tmux_cross_instance.md](feedback_tmux_cross_instance.md) — tmux send-keys 跨实例通讯必须用英文/ASCII；中文字符会被丢弃对方收不到（tmux 编码限制）
 - [feedback_three_instance_purpose.md](feedback_three_instance_purpose.md) — 三实例(AA/BB/CC)是并行任务工具不是备份；不建议减少实例数量，维护成本是必要成本
+- [feedback_bot_name_version_sync.md](feedback_bot_name_version_sync.md) — 模型版本升级后对应实例Discord bot用户名要同步改版本号(如Sonnet4.6→Sonnet5)，格式不变只换版本号（2026-06-30）
 - [feedback_delegation_task_spec.md](feedback_delegation_task_spec.md) — 主公委托下属工作流：先和我聊清需求→我写成清晰任务说明→发下属；我是"需求翻译层"，主公聊任务安排时主动提议帮写说明（2026-06-09）
 - [feedback_three_stances.md](feedback_three_stances.md) — 三姿态切换(老师/参谋/对手)；我的惯性=遇判断题滑回老师姿态；识别信号=主公已有判断缺的不是知识→主动切参谋/对手（2026-06-09）
 - [feedback_prediction_data_first.md](feedback_prediction_data_first.md) — 预测前必先夯实数据：事实100%核实+标来源确信度+补缺口，数据不准禁止开跑（主公定性"儿戏"，2026-06-08）

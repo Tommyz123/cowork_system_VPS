@@ -1,0 +1,23 @@
+{
+ "judgment_date": "2026-06-11",
+ "manual_version": "v1.1",
+ "trigger_source": "backfill",
+ "no_direction_frozen": 1,
+ "trend_name": "NAND 存储(闪迪链)",
+ "proxy_symbol": "SNDK",
+ "proxy_type": "stock",
+ "proxy_reason": "2026-07-01按规则3补选:地图判定主体即SNDK",
+ "proxy_chosen_date": "2026-07-01",
+ "sector_benchmark": "XLK",
+ "score_display": "一票否决",
+ "score_pct": null,
+ "veto_hit": 1,
+ "cohort": "rejected",
+ "risk_cluster": "存储周期",
+ "score_json": {
+  "⑥一票否决": "bit出货YoY持平,ASP/GB+248%,收入增长~100%来自涨价→触发'利润增量>70%来自涨价且出货量增速<20%'",
+  "顶部拼图": "3/4(扩产宣布/目标价竞赛/高位融资,只差现货价拐头)",
+  "source": "趋势地图_2026Q2.md 二.7节"
+ },
+ "notes": "段位:周期下车信号区;每周盯现货价拐头当丧钟｜第0批回补(2026-07-01)：方向/验证点/下车信号刻意留空防事后诸葛亮,只进A账排序力统计,永久排除B账。"
+}

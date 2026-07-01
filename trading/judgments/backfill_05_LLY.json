@@ -1,0 +1,27 @@
+{
+ "judgment_date": "2026-06-11",
+ "manual_version": "v1.1",
+ "trigger_source": "backfill",
+ "no_direction_frozen": 1,
+ "trend_name": "GLP-1",
+ "proxy_symbol": "LLY",
+ "proxy_type": "stock",
+ "proxy_reason": "2026-07-01按规则3补选:无纯GLP-1 ETF,选龙头LLY(地图:LLY+56% vs NVO-4%分化,利润向赢家集中)",
+ "proxy_chosen_date": "2026-07-01",
+ "sector_benchmark": "XLV",
+ "score_display": "3.5/5",
+ "score_pct": 70,
+ "veto_hit": 0,
+ "cohort": "borderline",
+ "risk_cluster": "GLP1医药",
+ "score_json": {
+  "①": "✅",
+  "②": "⚠️分化",
+  "③": "留空(买家=商保/患者)",
+  "④": "❌缺口解除",
+  "⑤": "✅KFF 12%",
+  "⑥": "✅",
+  "source": "趋势地图_2026Q2.md 三.5节"
+ },
+ "notes": "段位:鱼身中后段·分化;全图唯一⑤实测达标｜第0批回补(2026-07-01)：方向/验证点/下车信号刻意留空防事后诸葛亮,只进A账排序力统计,永久排除B账。"
+}

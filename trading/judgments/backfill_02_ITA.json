@@ -1,0 +1,27 @@
+{
+ "judgment_date": "2026-06-11",
+ "manual_version": "v1.1",
+ "trigger_source": "backfill",
+ "no_direction_frozen": 1,
+ "trend_name": "国防/欧洲再武装",
+ "proxy_symbol": "ITA",
+ "proxy_type": "etf",
+ "proxy_reason": "档案2026-06-21冻结(原RHM.DE德股不可投,切美股国防ETF当温度计;与'欧洲再武装'原始论点不完全同源)",
+ "proxy_chosen_date": "2026-06-21",
+ "sector_benchmark": "XLI",
+ "score_display": "5/6",
+ "score_pct": 83.3,
+ "veto_hit": 0,
+ "cohort": "passed",
+ "risk_cluster": "国防",
+ "score_json": {
+  "①": "✅",
+  "②": "⚠️",
+  "③": "✅",
+  "④": "✅",
+  "⑤": "✅",
+  "⑥": "⚠️",
+  "source": "趋势地图_2026Q2.md 一.2节"
+ },
+ "notes": "段位:鱼身中段·板块深回调中｜第0批回补(2026-07-01)：方向/验证点/下车信号刻意留空防事后诸葛亮,只进A账排序力统计,永久排除B账。"
+}

@@ -1,0 +1,22 @@
+{
+ "judgment_date": "2026-06-11",
+ "manual_version": "v1.1",
+ "trigger_source": "backfill",
+ "no_direction_frozen": 1,
+ "trend_name": "机器人/具身智能",
+ "proxy_symbol": "BOTZ",
+ "proxy_type": "etf",
+ "proxy_reason": "2026-07-01按规则3补选:Global X机器人ETF(细分ETF;板块基准按机器人=工业自动化取XLI)",
+ "proxy_chosen_date": "2026-07-01",
+ "sector_benchmark": "XLI",
+ "score_display": "2.5/6",
+ "score_pct": 41.7,
+ "veto_hit": 0,
+ "cohort": "rejected",
+ "risk_cluster": "机器人",
+ "score_json": {
+  "总评": "2.5/6(42%),声量>>实锤,巨头投的是股权非采购预算",
+  "source": "趋势地图_2026Q2.md 四.10节"
+ },
+ "notes": "报警条件=非关联巨头万台级采购(观察池W6)｜第0批回补(2026-07-01)：方向/验证点/下车信号刻意留空防事后诸葛亮,只进A账排序力统计,永久排除B账。"
+}

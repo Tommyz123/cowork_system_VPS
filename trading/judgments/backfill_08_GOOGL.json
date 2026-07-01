@@ -1,0 +1,22 @@
+{
+ "judgment_date": "2026-06-11",
+ "manual_version": "v1.1",
+ "trigger_source": "backfill",
+ "no_direction_frozen": 1,
+ "trend_name": "Robotaxi",
+ "proxy_symbol": "GOOGL",
+ "proxy_type": "stock",
+ "proxy_reason": "2026-07-01按规则3补选:Waymo母公司(⚠️多元化母公司噪音大,Waymo占比小,如实注明)",
+ "proxy_chosen_date": "2026-07-01",
+ "sector_benchmark": "XLC",
+ "score_display": "3/6",
+ "score_pct": 50,
+ "veto_hit": 0,
+ "cohort": "rejected",
+ "risk_cluster": "自动驾驶",
+ "score_json": {
+  "总评": "3/6(50%),利润未摊牌,渗透率~0.5%信仰段",
+  "source": "趋势地图_2026Q2.md 四.8节"
+ },
+ "notes": "摊牌前夜;报警条件=Alphabet首次单独披露Waymo分部(观察池W4)｜第0批回补(2026-07-01)：方向/验证点/下车信号刻意留空防事后诸葛亮,只进A账排序力统计,永久排除B账。"
+}

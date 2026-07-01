@@ -128,9 +128,20 @@ conn.close()
 - 每周日 **16:00**：weekly_review（结果追踪周报→Gmail）
 - 每周一 **09:30**：dossier_autowrite（趋势主线第2层 阶段2-B：**从档案自动解析对象**(读`**追踪代码**`字段,不硬编码)→yfinance 查价→给每对象轨迹表追加数据行；逻辑状态留🔍待校准等人工补；有崩溃告警；先于10:00周报让其读到最新轨迹）
 - 每周一 **10:00**：dossier_weekly（趋势主线第2层 AI 周报：读趋势追踪档案→判逻辑状态→归档 trading/reports/weekly/ + email；护栏只事实分析不写买卖）
+- 每周一 **17:15**：trend_verdict_check（第2层提速实验对答案：补信号层基线价+到期窗口机械判定落 trend_verdicts+Discord 报；BB 无权改判）
 - 每月第一周一 **15:00**：screener（刷新候选股池）
 - 每季度第一周一 **19:30**：run_scanner（季度主题扫描+自动 OPG 下单）
 - 每季度第一周一 **18:30**：quarterly_review（季度复盘→Gmail）
+
+## 🧪 第2层提速攒样本实验（2026-07-01 上线）
+> 完整方案（唯一权威源）：`trading/notes/第2层提速攒样本方案_20260701.md` v0.2（经 Fable5 对抗审核修订，审核存档同目录 fable_audit_*）
+
+- **一句话**：intraday 纸账户放开出手门槛——凡六维打分过的趋势全登记冻结，passed/borderline 建纸仓（统一 $25k/笔），rejected 只信号层记账当对照分布；对答案拆三本账（A排序力/B方向/C上下车）机械判定；验证"六维方法方向对不对"
+- **账户物理隔离**：第2层实验=intraday（trend_paper_trade.py 锁死）；第1层 TIDE=swing（原样不动）。两账本永不交叉
+- **DB**：trading.db 的 trend_* 5 表（judgments 冻结层 trigger 禁改 / signal_prices+paper_trades 数据层 / verdicts 判断层只 INSERT / scan_longlist 供给留痕）
+- **操作入口**：登记 `python3 trend_registry.py add <json>`；建仓/平仓 `python3 trend_paper_trade.py buy|sell <judgment_id>`；对答案 cron 自动（周一17:15）
+- **纪律红线**：verdict 机械落库 BB 无权改判；每月扫描长名单必留痕；rejected 不建仓不设下车信号；真钱双闸原纪律不动；**预注册映射=6个月主判 passed 组无优势→自动暂停第2层真钱新开仓+根因复盘**
+- **里程碑**：2026-10 第1批3个月初判 / 2027-01 第1批6个月主判+第0批排序力初判 / 2027年中约30笔全走完出正式报告
 
 ## 架构原则
 - thesis_monitor失效只告警，不自动平仓，等主公人工决策

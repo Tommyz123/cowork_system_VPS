@@ -10,7 +10,7 @@ originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 
 | 字段 | **AA** | **BB**（本文件所在实例常态） | **CC** |
 |---|---|---|---|
-| 模型(settings.json权威) | **claude-sonnet-4-6** | **claude-opus-4-8** | **claude-opus-4-8** |
+| 模型(settings.json权威) | **claude-sonnet-4-6** | **claude-fable-5**（2026-07-01 升级） | **claude-opus-4-8** |
 | HOME | /home/cowork | /home/cowork/opus_home | /home/cowork/opus2_home |
 | 进程别名 | cowork | opus_CC | opus2 |
 | tmux socket | **默认**(无 -L) | **-L opus_socket** | **-L opus2_socket** |
@@ -21,10 +21,10 @@ originSessionId: 8a06505e-fc15-40da-9a68-546769d6bf1f
 | systemd service | cowork-claude.service | cowork-opus.service | cowork-opus2.service |
 | claude-code 版本 | 三实例**共享同一二进制** `/home/cowork/.local/bin/claude`（BB/CC 无独立安装；runner 脚本用**绝对路径** `CLAUDE_BIN=/home/cowork/.local/bin/claude` 调用，不靠 PATH）→ 磁盘版本必然相同，**别写死、实时查** `claude --version`。升一次=三个全升；差异只在"进程是否已重启加载新版"，不在版本号。⚠️ 系统里另潜伏一份 `/usr/bin/claude`=`/bin/claude`(root装,旧版2.1.138)——实例靠绝对路径用不到它，但**在 PATH 不含 .local/bin 的环境(如 systemd 精简 PATH)手敲 `claude` 会误中旧版**，排查版本诡异先 `readlink -f $(which claude)` 钉死用的哪份 | ← 同左 | ← 同左 |
 
-口诀：**opus=BB，opus2=CC，裸/home/cowork=AA**。Discord 昵称 AA-Sonnet4.6 / BB-Opus4.8 / CC-Opus4.8（昵称模型名可能滞后，自报身份以 settings.json 为准，instance_identity.sh hook 自动注入）。重启某实例只 kill 其 socket（`tmux -L <socket> kill-server`，AA 是默认 socket 用确切 pid `kill <tmux_pid>` 最稳），watchdog 自动拉回。
+口诀：**opus=BB，opus2=CC，裸/home/cowork=AA**。Discord 昵称 AA-Sonnet5 / BB-Fable5 / CC-Opus4.8（昵称模型名可能滞后，自报身份以 settings.json 为准，instance_identity.sh hook 自动注入）。重启某实例只 kill 其 socket（`tmux -L <socket> kill-server`，AA 是默认 socket 用确切 pid `kill <tmux_pid>` 最稳），watchdog 自动拉回。
 3 个 bot 同在 server TT基地（guild id=1466957346310717636，**是 guild 不是频道**），3 个 systemd service 均 `enabled` 开机自启。
 
-⚠️ **BB/CC 账号对 claude-fable-5 无权限**（2026-06-13）：最多 opus-4-8；误设 fable-5 会**静默失败**（收得到消息但不回复，无报错）。改模型只能在 opus-4-8 范围内。
+⚠️ **模型权限随订阅变化，改模型前先小步验证**：2026-06-13 时 BB/CC 对 fable-5 无权限（误设会**静默失败**：收得到消息但不回复无报错）；2026-07-01 BB 实测已可用 fable-5 并完成升级——说明权限是订阅层的事实、会变，**改模型后必须实测"发消息能回"才算成功**（静默失败模式不变）。CC 权限未验证，改前先测。
 
 **改 Discord 显示名方法**（2026-05-29 实测，token 在各 HOME `.claude/channels/discord/.env`）——两处分开改：群昵称 `PATCH /api/v10/guilds/1466957346310717636/members/@me {"nick":"X"}`；私聊名=bot username `PATCH /api/v10/users/@me {"username":"X"}`（允许大写连字符；坑：`global_name` 字段 bot 不认，HTTP 200 但不生效，必须改 username）。改名只动显示层，不碰 tmux/systemd/路径/plugin 连接（认 token 不认名）。
 
