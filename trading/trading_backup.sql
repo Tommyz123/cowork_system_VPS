@@ -3237,6 +3237,12 @@ CREATE TRIGGER trg_signal_prices_no_update BEFORE UPDATE ON trend_signal_prices
 BEGIN SELECT RAISE(ABORT, 'trend_signal_prices 一次写入，禁止 UPDATE'); END;
 CREATE TRIGGER trg_judgments_no_delete BEFORE DELETE ON trend_judgments
 BEGIN SELECT RAISE(ABORT, 'trend_judgments 是冻结层，禁止 DELETE'); END;
+CREATE TRIGGER trg_signal_prices_no_delete BEFORE DELETE ON trend_signal_prices
+BEGIN SELECT RAISE(ABORT, 'trend_signal_prices 一次写入，禁止 DELETE'); END;
+CREATE TRIGGER trg_longlist_no_update BEFORE UPDATE ON trend_scan_longlist
+BEGIN SELECT RAISE(ABORT, 'trend_scan_longlist 是留痕层，禁止 UPDATE'); END;
+CREATE TRIGGER trg_longlist_no_delete BEFORE DELETE ON trend_scan_longlist
+BEGIN SELECT RAISE(ABORT, 'trend_scan_longlist 是留痕层，禁止 DELETE'); END;
 DELETE FROM "sqlite_sequence";
 INSERT INTO "sqlite_sequence" VALUES('news',460);
 INSERT INTO "sqlite_sequence" VALUES('decisions',73);

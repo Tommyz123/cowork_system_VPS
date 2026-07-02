@@ -42,6 +42,25 @@ def add_judgment(path: str) -> int:
         raise ValueError(f"trigger_source 必须是 {TRIGGERS}")
     if j.get("direction") not in DIRECTIONS:
         raise ValueError(f"direction 必须是 {DIRECTIONS}")
+    # 日期格式校验（错格式会在数月后 add_months 崩掉 verdict cron）
+    from datetime import datetime as _dt
+    for k in ("judgment_date", "proxy_chosen_date"):
+        if j.get(k):
+            try:
+                _dt.strptime(j[k], "%Y-%m-%d")
+            except ValueError:
+                raise ValueError(f"{k}={j[k]} 不是 YYYY-MM-DD 格式")
+    # cohort 机械映射校验（v0.2.2：分组不能靠自觉；边界 80.0 归 passed，主公 2026-07-01 拍板）
+    if j.get("veto_hit"):
+        expected = "rejected"
+    elif j.get("score_pct") is not None:
+        sp = float(j["score_pct"])
+        expected = "passed" if sp >= 80 else ("borderline" if sp >= 60 else "rejected")
+    else:
+        raise ValueError("score_pct 为空且无 veto_hit，无法机械校验 cohort（打分快照是必填项）")
+    if j["cohort"] != expected:
+        raise ValueError(f"cohort={j['cohort']} 与机械映射不符（score_pct/veto → {expected}；"
+                         f"≥80=passed / 60-80=borderline / <60或veto=rejected）")
     # 防污染自检：rejected 组不设下车信号（方案规则4）
     if j["cohort"] == "rejected" and j.get("exit_signals"):
         raise ValueError("rejected 组不设下车信号（方案规则4）")

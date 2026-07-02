@@ -32,6 +32,7 @@ DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "trading.db")
 NOTIONAL = 25000.0  # 统一金额（2026-07-01 主公确认：权益$1,006,475÷40 取整）
 TREND_ACCOUNT = "intraday"
 ALLOWED_TREND_ACCOUNTS = ("intraday",)
+EXPECTED_ACCOUNT_NUMBER = "PA3HOPG4XQ0O"  # intraday 账户身份号（key 可轮换，账户号不变；2026-07-01 实测核对）
 
 
 def assert_trend_account(account: str) -> None:
@@ -53,6 +54,17 @@ def _api(env, path, payload=None, method="GET"):
         return json.loads(r.read())
 
 
+def verify_account(env) -> None:
+    """下单前运行时核对：ALPACA_* 默认 key 必须指向 intraday 账户本尊。
+    assert_trend_account 只校验脚本内常量（约定层）；这道才是物理闸——
+    key 轮换/env 被改指向时在此被拦（2026-07-01 审核项🟡1）。"""
+    acct = _api(env, "/account")
+    if acct.get("account_number") != EXPECTED_ACCOUNT_NUMBER:
+        raise ValueError(
+            f"账户核对失败：当前 key 指向 {acct.get('account_number')}，"
+            f"预期 intraday={EXPECTED_ACCOUNT_NUMBER}。拒绝下单，请检查 ALPACA_* env 指向。")
+
+
 def buy(judgment_id: int) -> None:
     assert_trend_account(TREND_ACCOUNT)
     conn = sqlite3.connect(DB_PATH)
@@ -66,12 +78,15 @@ def buy(judgment_id: int) -> None:
         raise ValueError(f"cohort={cohort} 不建纸仓（rejected 只信号层记账，方案规则2）")
     if direction == "short":
         raise ValueError("看空样本不做纸面做空（方案规则2），只信号层记账")
+    if direction == "neutral":
+        raise ValueError("观望(neutral)样本不建纸仓（v0.2.2 预注册：观望=不出手），只信号层记账")
     dup = conn.execute(
         "SELECT id FROM trend_paper_trades WHERE judgment_id=? AND status='open'",
         (judgment_id,)).fetchone()
     if dup:
         raise ValueError(f"judgment_id={judgment_id} 已有 open 纸仓 trade_id={dup[0]}")
     env = load_env()
+    verify_account(env)
     order = _api(env, "/orders", {
         "symbol": symbol, "notional": str(NOTIONAL), "side": "buy",
         "type": "market", "time_in_force": "day"}, "POST")
@@ -92,17 +107,24 @@ def sell(judgment_id: int, reason: str) -> None:
         raise ValueError(f"平仓原因必须以 {valid} 之一开头（方案规则5），收到: {reason}")
     conn = sqlite3.connect(DB_PATH)
     t = conn.execute(
-        "SELECT id, symbol, entry_fill_price FROM trend_paper_trades"
+        "SELECT id, symbol, qty FROM trend_paper_trades"
         " WHERE judgment_id=? AND status='open'", (judgment_id,)).fetchone()
     if not t:
         raise ValueError(f"judgment_id={judgment_id} 无 open 纸仓")
-    trade_id, symbol, _ = t
+    trade_id, symbol, qty = t
+    if not qty:
+        raise ValueError(
+            f"trade {trade_id} 的 qty 未回填（先跑 sync，下单次日）——"
+            f"必须按本笔 qty 平仓，禁止按 symbol 全平（两条趋势共用代理时会误平别人的仓，v0.2.2 审计重要-6）")
     env = load_env()
-    pos = _api(env, f"/positions/{symbol}", method="DELETE")  # 市价全平该 symbol
+    verify_account(env)
+    order = _api(env, "/orders", {
+        "symbol": symbol, "qty": str(qty), "side": "sell",
+        "type": "market", "time_in_force": "day"}, "POST")  # 按本笔 qty 反向市价，只平自己的份额
     conn.execute(
         "UPDATE trend_paper_trades SET exit_order_id=?, exit_date=date('now'),"
         " exit_reason=?, status='closed' WHERE id=?",
-        (pos.get("id", ""), reason, trade_id))
+        (order["id"], reason, trade_id))
     conn.commit()
     conn.close()
     print(f"✅ 平仓单已提交：{symbol} 原因={reason}（成交价明日 sync 回填）")
@@ -140,7 +162,8 @@ def sync() -> None:
 
 def positions() -> None:
     env = load_env()
-    for p in _api(load_env(), "/positions"):
+    verify_account(env)  # 只读，但看错账户的持仓会误导人工下车决策
+    for p in _api(env, "/positions"):
         print(p["symbol"], p["qty"], "@", p["avg_entry_price"],
               "pnl%:", round(float(p["unrealized_plpc"]) * 100, 2))
 

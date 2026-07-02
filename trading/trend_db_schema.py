@@ -122,6 +122,14 @@ CREATE TRIGGER IF NOT EXISTS trg_verdicts_no_delete BEFORE DELETE ON trend_verdi
 BEGIN SELECT RAISE(ABORT, 'trend_verdicts 只许 INSERT，禁止 DELETE'); END;
 CREATE TRIGGER IF NOT EXISTS trg_signal_prices_no_update BEFORE UPDATE ON trend_signal_prices
 BEGIN SELECT RAISE(ABORT, 'trend_signal_prices 一次写入，禁止 UPDATE'); END;
+-- v0.2.2 二轮审计补闸：signal_prices 禁 DELETE（删掉重插伪造基线价=最便宜的污染路径）；
+-- longlist 留痕层本就只 INSERT，补 UPDATE/DELETE 双闸（防事后改淘汰理由/无痕删行）
+CREATE TRIGGER IF NOT EXISTS trg_signal_prices_no_delete BEFORE DELETE ON trend_signal_prices
+BEGIN SELECT RAISE(ABORT, 'trend_signal_prices 一次写入，禁止 DELETE'); END;
+CREATE TRIGGER IF NOT EXISTS trg_longlist_no_update BEFORE UPDATE ON trend_scan_longlist
+BEGIN SELECT RAISE(ABORT, 'trend_scan_longlist 是留痕层，禁止 UPDATE'); END;
+CREATE TRIGGER IF NOT EXISTS trg_longlist_no_delete BEFORE DELETE ON trend_scan_longlist
+BEGIN SELECT RAISE(ABORT, 'trend_scan_longlist 是留痕层，禁止 DELETE'); END;
 """
 
 

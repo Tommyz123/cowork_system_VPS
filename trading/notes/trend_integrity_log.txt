@@ -1,0 +1,2 @@
+2026-07-01 21:00 | trend_judgments:n=11,seq=12,md5=bad88870497c | trend_signal_prices:n=11,seq=11,md5=ea1507dc605f | trend_paper_trades:n=0,seq=0,md5=d75171398898 | trend_verdicts:n=0,seq=0,md5=d75171398898 | trend_scan_longlist:n=0,seq=0,md5=d75171398898
+2026-07-01 23:59 | trend_judgments:n=11,seq=12,md5=bad88870497c | trend_signal_prices:n=11,seq=11,md5=ea1507dc605f | trend_paper_trades:n=0,seq=0,md5=d75171398898 | trend_verdicts:n=0,seq=0,md5=d75171398898 | trend_scan_longlist:n=0,seq=0,md5=d75171398898

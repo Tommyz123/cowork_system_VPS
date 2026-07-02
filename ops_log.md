@@ -571,3 +571,6 @@
 [2026-07-01 17:00 EDT] CRON[SYS] | stability_check | ✅ | ❌ 需关注 新增friction:7条(37→44)
 [2026-07-01 17:05 EDT] CRON[ferc_watch] | daily | ✅ | 无命中（静默）
 [2026-07-01 17:30 EDT] CRON[P7] | mac_monitor | ✅ | 价格正常，无告警
+[2026-07-01 18:36 EDT] SKILL[SYS] | 收工 | ✅ | 项目:P9 commit:7ae5c38 草稿:1条送审+1条4分自动写入
+[2026-07-01 20:30 EDT] CRON[P9] | price_guard | ✅ | 完成
+[2026-07-01 21:00 EDT] CRON[P9] | price_snapshot | ✅ | 完成
